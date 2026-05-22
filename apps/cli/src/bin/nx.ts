@@ -64,11 +64,34 @@ program
   });
 
 program
-  .command("forge <recipe> <name>")
-  .description("Emit a new app from a signed recipe (Phase 5)")
-  .action(async (recipe: string, name: string) => {
-    await withTelemetry(config, "forge", [recipe, name], () => runForge(config, recipe, name));
-  });
+  .command("forge <recipe> <slug>")
+  .description("Emit a new app from a recipe (per ADR-0011)")
+  .option("--inputs <file>", "JSON file with recipe inputs")
+  .option("--dry-run", "render + validate without writing to disk")
+  .option("--force", "allow writing into a non-empty target directory")
+  .option("--out-dir <dir>", "override apps_root for this invocation (testing)")
+  .action(
+    async (
+      recipe: string,
+      slug: string,
+      opts: { inputs?: string; dryRun?: boolean; force?: boolean; outDir?: string },
+    ) => {
+      const flags = [
+        recipe,
+        slug,
+        opts.dryRun ? "--dry-run" : "",
+        opts.inputs ? `--inputs=${opts.inputs}` : "",
+      ].filter(Boolean);
+      await withTelemetry(config, "forge", flags, () =>
+        runForge(config, recipe, slug, {
+          ...(opts.inputs !== undefined ? { inputsFile: opts.inputs } : {}),
+          ...(opts.dryRun !== undefined ? { dryRun: opts.dryRun } : {}),
+          ...(opts.force !== undefined ? { force: opts.force } : {}),
+          ...(opts.outDir !== undefined ? { outDir: opts.outDir } : {}),
+        }),
+      );
+    },
+  );
 
 program
   .command("play <playbook>")
