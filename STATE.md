@@ -24,15 +24,15 @@
 
 ### Six @nexural/\* packages — all green ✅
 
-| Package | Version | Tests | Notes |
-| --- | --- | --- | --- |
-| @nexural/schema | 0.1.0 | 299 (100% coverage) | 21 canonical schemas + JSON Schema exports |
-| @nexural/sdk | 0.1.0 | 20 | streaming cost-wrapped llmClient + checkDecay + sha256Hex |
-| @nexural/mcp-base | 0.1.0 | 17 | `<warehouse_content>` envelope + middleware tool handler |
-| @nexural/qa-runners | 0.1.0 | 8 | typed runner registry incl. 5 new federation runners |
-| @nexural/factory | 0.1.0 | 36 | recipe loader + license gate + typosquat + lockfile builder + revocation |
-| @nexural/model-router | 0.1.0 | 21 | family→ID with deprecation + price ceiling |
-| **TOTAL** | | **401 tests, 0 failing** | |
+| Package               | Version | Tests                    | Notes                                                                    |
+| --------------------- | ------- | ------------------------ | ------------------------------------------------------------------------ |
+| @nexural/schema       | 0.1.0   | 299 (100% coverage)      | 21 canonical schemas + JSON Schema exports                               |
+| @nexural/sdk          | 0.1.0   | 20                       | streaming cost-wrapped llmClient + checkDecay + sha256Hex                |
+| @nexural/mcp-base     | 0.1.0   | 17                       | `<warehouse_content>` envelope + middleware tool handler                 |
+| @nexural/qa-runners   | 0.1.0   | 8                        | typed runner registry incl. 5 new federation runners                     |
+| @nexural/factory      | 0.1.0   | 36                       | recipe loader + license gate + typosquat + lockfile builder + revocation |
+| @nexural/model-router | 0.1.0   | 21                       | family→ID with deprecation + price ceiling                               |
+| **TOTAL**             |         | **401 tests, 0 failing** |                                                                          |
 
 ### Build artifacts ✅
 
@@ -82,25 +82,25 @@
 
 ## Verification (per VERIFICATION.md §1)
 
-| Criterion | Status | Notes |
-| --- | --- | --- |
-| All 6 packages publishable | ⏳ pending push + tag | code is ready; awaiting Sage confirmation |
-| Every schema ≥5 invalid fixtures | ✅ | inline named cases per VERIFICATION.md §1 |
-| Schema test coverage 100% | ✅ | verified via vitest --coverage |
-| SDK coverage ≥70% | ✅ | currently 80% threshold |
-| tsc --noEmit clean | ✅ | turbo `typecheck` 9 successful |
-| Lint + format green | ✅ | `pnpm format:check` clean |
-| JSON Schema exports | ✅ | 21 .json files in dist/json-schema/ |
-| No `z.any()` / `z.unknown()` in src | ✅ | grep returns 0 |
-| No `as any` / `as unknown` in src | ✅ | grep returns 0 |
-| Every package engines.node ≥22 | ✅ | inherited from root |
-| Changesets config present | ✅ | `.changeset/config.json` |
-| CI sigstore dry-run wired | ✅ | `.github/workflows/ci.yml` `sigstore-dry-run` job |
-| SBOM generation wired | ✅ | `.github/workflows/ci.yml` `sbom-dry-run` job |
-| `llmClient()` cost-cap enforced | ✅ | 20 tests covering happy path + 3 cap types + streaming abort |
-| `@nexural/factory` verifies signature + license gate | ✅ | logic implemented; cosign shell-out in Phase 3 (nx CLI) |
-| `@nexural/model-router` initial registry | ✅ | Anthropic, OpenAI, Ollama families |
-| Property-based tests via fast-check | ✅ | primitives.test.ts |
+| Criterion                                            | Status                | Notes                                                        |
+| ---------------------------------------------------- | --------------------- | ------------------------------------------------------------ |
+| All 6 packages publishable                           | ⏳ pending push + tag | code is ready; awaiting Sage confirmation                    |
+| Every schema ≥5 invalid fixtures                     | ✅                    | inline named cases per VERIFICATION.md §1                    |
+| Schema test coverage 100%                            | ✅                    | verified via vitest --coverage                               |
+| SDK coverage ≥70%                                    | ✅                    | currently 80% threshold                                      |
+| tsc --noEmit clean                                   | ✅                    | turbo `typecheck` 9 successful                               |
+| Lint + format green                                  | ✅                    | `pnpm format:check` clean                                    |
+| JSON Schema exports                                  | ✅                    | 21 .json files in dist/json-schema/                          |
+| No `z.any()` / `z.unknown()` in src                  | ✅                    | grep returns 0                                               |
+| No `as any` / `as unknown` in src                    | ✅                    | grep returns 0                                               |
+| Every package engines.node ≥22                       | ✅                    | inherited from root                                          |
+| Changesets config present                            | ✅                    | `.changeset/config.json`                                     |
+| CI sigstore dry-run wired                            | ✅                    | `.github/workflows/ci.yml` `sigstore-dry-run` job            |
+| SBOM generation wired                                | ✅                    | `.github/workflows/ci.yml` `sbom-dry-run` job                |
+| `llmClient()` cost-cap enforced                      | ✅                    | 20 tests covering happy path + 3 cap types + streaming abort |
+| `@nexural/factory` verifies signature + license gate | ✅                    | logic implemented; cosign shell-out in Phase 3 (nx CLI)      |
+| `@nexural/model-router` initial registry             | ✅                    | Anthropic, OpenAI, Ollama families                           |
+| Property-based tests via fast-check                  | ✅                    | primitives.test.ts                                           |
 
 ## Next session start (assumes Sage confirms gh repo create + tag)
 
@@ -111,8 +111,8 @@
 
 ## Soak waivers (per ADR-0009 §1.10 — ≤2 per quarter)
 
-| Date | What was waived | Reason |
-| --- | --- | --- |
+| Date       | What was waived              | Reason                 |
+| ---------- | ---------------------------- | ---------------------- |
 | 2026-05-21 | 7-day soak on ADRs 0002–0010 | Sage explicit override |
 
 (2026-Q2 waiver count: 1)
