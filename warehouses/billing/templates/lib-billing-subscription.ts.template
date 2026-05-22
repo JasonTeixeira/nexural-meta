@@ -63,6 +63,9 @@ function mapStripeStatus(s: Stripe.Subscription.Status): SubscriptionStatus {
     case "incomplete":
       // No charge succeeded yet — treat as trialing for UX, server-side flag elsewhere.
       return "trialing";
+    default:
+      // Stripe may add new statuses; default to canceled (safest).
+      return "canceled";
   }
 }
 

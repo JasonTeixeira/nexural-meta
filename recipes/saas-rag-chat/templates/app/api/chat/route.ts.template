@@ -1,0 +1,132 @@
+/**
+ * RAG chat endpoint.
+ *
+ * Pipeline:
+ *   1. Auth — require Supabase session
+ *   2. Tenant — resolve membership from session
+ *   3. Retrieve — hybrid search via lib/rag/retrieve
+ *   4. Prompt — wrap chunks in <warehouse_content> envelopes
+ *   5. Synthesize — single non-streaming response (Phase 9 v0.1.0; streaming in v1.1)
+ *   6. Validate citations — strip hallucinated ones
+ *   7. Safe-link rewrite — proxy all emitted URLs
+ *   8. Persist — write to messages table
+ */
+
+import { NextResponse, type NextRequest } from "next/server";
+import Anthropic from "@anthropic-ai/sdk";
+import { createSupabaseServerClient } from "@/lib/supabase/server";
+import { retrieve } from "@/lib/rag/retrieve";
+import { buildSynthesisPrompt } from "@/lib/prompt/synthesis";
+import { validateCitations } from "@/lib/prompt/citation";
+import { rewriteOutputUrls } from "@/lib/safety/safe-link";
+
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+
+interface ChatRequest {
+  conversationId?: string;
+  message: string;
+}
+
+export async function POST(request: NextRequest): Promise<NextResponse> {
+  const supabase = await createSupabaseServerClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) {
+    return NextResponse.json({ error: "unauthorized" }, { status: 401 });
+  }
+
+  let body: ChatRequest;
+  try {
+    body = (await request.json()) as ChatRequest;
+  } catch {
+    return NextResponse.json({ error: "invalid json" }, { status: 400 });
+  }
+  if (!body.message || typeof body.message !== "string") {
+    return NextResponse.json({ error: "message required" }, { status: 400 });
+  }
+
+  const apiKey = process.env.ANTHROPIC_API_KEY;
+  if (!apiKey) {
+    return NextResponse.json(
+      { error: "ANTHROPIC_API_KEY required at request time" },
+      { status: 500 },
+    );
+  }
+
+  // Resolve tenant
+  const { data: membership } = await supabase
+    .from("tenant_memberships")
+    .select("tenant_id")
+    .eq("user_id", user.id)
+    .limit(1)
+    .single();
+  if (!membership) {
+    return NextResponse.json({ error: "no tenant membership" }, { status: 403 });
+  }
+
+  // 3. Retrieve
+  const chunks = await retrieve(supabase, body.message, { topK: 20 });
+
+  // 4-5. Prompt + synthesize
+  const { system, user: userPrompt } = buildSynthesisPrompt(
+    body.message,
+    chunks.map((c) => ({ id: c.id, documentId: c.documentId, content: c.content })),
+  );
+
+  const anthropic = new Anthropic({ apiKey });
+  const response = await anthropic.messages.create({
+    model: "claude-opus-4-7",
+    max_tokens: 1024,
+    system,
+    messages: [{ role: "user", content: userPrompt }],
+  });
+
+  const textParts: string[] = [];
+  for (const block of response.content) {
+    if (block.type === "text") textParts.push(block.text);
+  }
+  const rawAnswer = textParts.join("\n");
+
+  // 6. Validate citations
+  const validIds = chunks.map((c) => c.id);
+  const { cleanedBody, validCitations } = validateCitations(rawAnswer, validIds);
+
+  // 7. Safe-link rewrite
+  const { rewrittenBody } = await rewriteOutputUrls(
+    supabase,
+    membership.tenant_id as string,
+    user.id,
+    cleanedBody,
+  );
+
+  // 8. Persist (best-effort)
+  const conversationId =
+    body.conversationId ??
+    (
+      await supabase
+        .from("conversations")
+        .insert({ tenant_id: membership.tenant_id, user_id: user.id })
+        .select("id")
+        .single()
+    ).data?.id;
+  if (conversationId) {
+    await supabase.from("messages").insert([
+      { conversation_id: conversationId, role: "user", content: body.message },
+      {
+        conversation_id: conversationId,
+        role: "assistant",
+        content: rewrittenBody,
+        citations: validCitations,
+      },
+    ]);
+  }
+
+  return NextResponse.json({
+    conversationId,
+    answer: rewrittenBody,
+    citations: validCitations,
+    chunksRetrieved: chunks.length,
+  });
+}

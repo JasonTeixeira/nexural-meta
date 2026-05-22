@@ -1,0 +1,19 @@
+schema_version: 1
+warehouse: prompt
+version: 0.1.0
+description: Synthesis prompt + envelope-wrapping defense + citation validator. Per ADR-0008 §1.
+documents:
+  - id: envelope-wrapping
+    path: documents/envelope-wrapping.md
+    title: Why warehouse_content envelopes (prompt-injection defense)
+    audience: [agents, human]
+    tags: [security, prompt-injection]
+templates:
+  - id: synthesis-prompt
+    source: templates/lib-prompt-synthesis.ts.template
+    target_path: lib/prompt/synthesis.ts
+    consumers: [saas-rag-chat, saas-rag-chat-openai-first, saas-agent-platform]
+  - id: citation-validator
+    source: templates/lib-prompt-citation.ts.template
+    target_path: lib/prompt/citation.ts
+    consumers: [saas-rag-chat, saas-rag-chat-openai-first]

@@ -1,0 +1,95 @@
+/**
+ * Hybrid retrieval — BM25 (tsvector) + dense (pgvector cosine) with RRF fusion.
+ *
+ * Tenant-scoped throughout. Caller MUST pass a Supabase server client that
+ * carries the user's session — RLS enforces tenant isolation at the DB.
+ */
+
+import type { SupabaseClient } from "@supabase/supabase-js";
+import { embed, toPgVector } from "./embed";
+
+export interface RetrieveOptions {
+  readonly topK?: number; // default 20
+  readonly bm25Weight?: number; // 0..1, default 0.4
+  readonly minRelevance?: number; // chunks below this are dropped, default 0.5
+}
+
+export interface RetrievedChunk {
+  readonly id: string;
+  readonly documentId: string;
+  readonly content: string;
+  readonly score: number; // RRF fused score
+  readonly metadata: Record<string, unknown>;
+}
+
+const RRF_K = 60; // standard Reciprocal Rank Fusion constant
+
+/**
+ * Retrieve top-K chunks for a query. The Supabase client must be a server
+ * client (RLS on); we never accept a service-role client here because tenant
+ * isolation must traverse the same query path the user would.
+ */
+export async function retrieve(
+  client: SupabaseClient,
+  query: string,
+  opts: RetrieveOptions = {},
+): Promise<RetrievedChunk[]> {
+  const topK = opts.topK ?? 20;
+  const bm25Weight = opts.bm25Weight ?? 0.4;
+  const minRelevance = opts.minRelevance ?? 0.0;
+
+  const queryEmbedding = await embed(query);
+  const queryVec = toPgVector(queryEmbedding);
+
+  // Dense search via cosine distance (lower = more similar)
+  const { data: dense, error: denseErr } = await client.rpc("rag_dense_search", {
+    query_embedding: queryVec,
+    match_count: topK,
+  });
+  if (denseErr) throw new Error(`dense search failed: ${denseErr.message}`);
+
+  // BM25-style text search
+  const { data: sparse, error: sparseErr } = await client.rpc("rag_text_search", {
+    query_text: query,
+    match_count: topK,
+  });
+  if (sparseErr) throw new Error(`text search failed: ${sparseErr.message}`);
+
+  // RRF fusion: combine ranks (not raw scores)
+  const fused = new Map<
+    string,
+    { row: RetrievedRow; denseRank: number; sparseRank: number }
+  >();
+  for (let i = 0; i < (dense ?? []).length; i++) {
+    const row = (dense as RetrievedRow[])[i]!;
+    fused.set(row.id, { row, denseRank: i, sparseRank: Number.MAX_SAFE_INTEGER });
+  }
+  for (let i = 0; i < (sparse ?? []).length; i++) {
+    const row = (sparse as RetrievedRow[])[i]!;
+    const existing = fused.get(row.id);
+    if (existing) existing.sparseRank = i;
+    else fused.set(row.id, { row, denseRank: Number.MAX_SAFE_INTEGER, sparseRank: i });
+  }
+
+  const merged = Array.from(fused.values()).map(({ row, denseRank, sparseRank }) => ({
+    id: row.id,
+    documentId: row.document_id,
+    content: row.content,
+    score:
+      (1 - bm25Weight) * (denseRank === Number.MAX_SAFE_INTEGER ? 0 : 1 / (RRF_K + denseRank)) +
+      bm25Weight * (sparseRank === Number.MAX_SAFE_INTEGER ? 0 : 1 / (RRF_K + sparseRank)),
+    metadata: (row.metadata ?? {}) as Record<string, unknown>,
+  }));
+
+  return merged
+    .filter((c) => c.score >= minRelevance)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, topK);
+}
+
+interface RetrievedRow {
+  readonly id: string;
+  readonly document_id: string;
+  readonly content: string;
+  readonly metadata: Record<string, unknown> | null;
+}

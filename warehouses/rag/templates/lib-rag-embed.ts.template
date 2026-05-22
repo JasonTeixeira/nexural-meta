@@ -1,0 +1,58 @@
+/**
+ * OpenAI text-embedding-3-large client. 3072 dims.
+ *
+ * Per recipe DECISIONS.md, embeddings are IMMUTABLE — switching models
+ * requires a full re-index. This module is the single embedding
+ * surface; do not call OpenAI directly from elsewhere.
+ */
+
+import OpenAI from "openai";
+
+const MODEL = "text-embedding-3-large";
+const DIMENSIONS = 3072;
+
+let _client: OpenAI | null = null;
+
+function client(): OpenAI {
+  if (_client) return _client;
+  const key = process.env.OPENAI_API_KEY;
+  if (!key) throw new Error("OPENAI_API_KEY required for embedding (lib/rag/embed.ts)");
+  _client = new OpenAI({ apiKey: key });
+  return _client;
+}
+
+export interface EmbedOptions {
+  /** Override model id (rare; bumps require re-index). */
+  readonly model?: string;
+}
+
+export async function embed(text: string, opts: EmbedOptions = {}): Promise<number[]> {
+  const trimmed = text.trim();
+  if (trimmed.length === 0) throw new Error("cannot embed empty string");
+  const res = await client().embeddings.create({
+    model: opts.model ?? MODEL,
+    input: trimmed,
+  });
+  const e = res.data[0]?.embedding;
+  if (!e || e.length !== DIMENSIONS) {
+    throw new Error(`embedding shape mismatch: got ${e?.length ?? "undefined"}, want ${DIMENSIONS}`);
+  }
+  return e;
+}
+
+export async function embedBatch(
+  texts: ReadonlyArray<string>,
+  opts: EmbedOptions = {},
+): Promise<number[][]> {
+  if (texts.length === 0) return [];
+  const res = await client().embeddings.create({
+    model: opts.model ?? MODEL,
+    input: texts as string[],
+  });
+  return res.data.map((d) => d.embedding);
+}
+
+/** Format a number[] for pgvector storage. */
+export function toPgVector(embedding: ReadonlyArray<number>): string {
+  return `[${embedding.join(",")}]`;
+}

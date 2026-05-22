@@ -1,0 +1,84 @@
+/**
+ * Recursive character text splitter. Naive but predictable.
+ *
+ * Per recipe DECISIONS.md: 800-token chunks with 100-token overlap. Token
+ * boundaries are approximate (we use char count × 4 as a rough proxy);
+ * for tighter accounting plug in `gpt-tokenizer` or `tiktoken`.
+ */
+
+export interface ChunkOptions {
+  readonly maxChars?: number; // default 3200 ≈ 800 tokens
+  readonly overlapChars?: number; // default 400 ≈ 100 tokens
+}
+
+export interface Chunk {
+  readonly index: number;
+  readonly content: string;
+  readonly charStart: number;
+  readonly charEnd: number;
+}
+
+export function chunk(text: string, opts: ChunkOptions = {}): Chunk[] {
+  const maxChars = opts.maxChars ?? 3200;
+  const overlapChars = opts.overlapChars ?? 400;
+  if (maxChars <= overlapChars) {
+    throw new Error("maxChars must exceed overlapChars");
+  }
+
+  // Try paragraph-aware splitting first, then fall back to character window.
+  const paragraphs = text.split(/\n\n+/);
+  const chunks: Chunk[] = [];
+  let buffer = "";
+  let bufferStart = 0;
+  let cursor = 0;
+
+  function emit(): void {
+    if (buffer.length === 0) return;
+    chunks.push({
+      index: chunks.length,
+      content: buffer.trim(),
+      charStart: bufferStart,
+      charEnd: bufferStart + buffer.length,
+    });
+  }
+
+  for (const para of paragraphs) {
+    const candidate = buffer.length === 0 ? para : `${buffer}\n\n${para}`;
+    if (candidate.length <= maxChars) {
+      buffer = candidate;
+      if (buffer === para) bufferStart = cursor;
+    } else {
+      emit();
+      // Start the next buffer with the overlap tail of the previous chunk
+      const tail = buffer.slice(Math.max(0, buffer.length - overlapChars));
+      buffer = tail.length > 0 ? `${tail}\n\n${para}` : para;
+      bufferStart = cursor - tail.length;
+    }
+    cursor += para.length + 2;
+  }
+  emit();
+
+  // If we still have one mega-chunk (no paragraph breaks), fall back to char windows.
+  if (chunks.length === 1 && chunks[0]!.content.length > maxChars * 2) {
+    return windowChunk(text, maxChars, overlapChars);
+  }
+  return chunks;
+}
+
+function windowChunk(text: string, maxChars: number, overlapChars: number): Chunk[] {
+  const step = maxChars - overlapChars;
+  const out: Chunk[] = [];
+  let start = 0;
+  while (start < text.length) {
+    const end = Math.min(text.length, start + maxChars);
+    out.push({
+      index: out.length,
+      content: text.slice(start, end).trim(),
+      charStart: start,
+      charEnd: end,
+    });
+    if (end >= text.length) break;
+    start += step;
+  }
+  return out;
+}

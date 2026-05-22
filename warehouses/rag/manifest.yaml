@@ -1,0 +1,27 @@
+schema_version: 1
+warehouse: rag
+version: 0.1.0
+description: pgvector RAG primitives — chunking, embedding, hybrid retrieve, optional rerank, with tenant-scoped queries throughout.
+documents:
+  - id: rag-pipeline-shape
+    path: documents/rag-pipeline-shape.md
+    title: RAG pipeline shape — chunk → embed → store → retrieve → synthesize
+    audience: [agents, human]
+    tags: [rag, pgvector, embeddings]
+templates:
+  - id: pgvector-migration
+    source: templates/supabase-migrations-0002_rag.sql.template
+    target_path: supabase/migrations/0002_rag.sql
+    consumers: [saas-rag-chat, saas-rag-chat-qdrant, saas-rag-chat-openai-first]
+  - id: chunk-lib
+    source: templates/lib-rag-chunk.ts.template
+    target_path: lib/rag/chunk.ts
+    consumers: [saas-rag-chat, saas-rag-chat-openai-first]
+  - id: embed-lib
+    source: templates/lib-rag-embed.ts.template
+    target_path: lib/rag/embed.ts
+    consumers: [saas-rag-chat, saas-rag-chat-openai-first]
+  - id: retrieve-lib
+    source: templates/lib-rag-retrieve.ts.template
+    target_path: lib/rag/retrieve.ts
+    consumers: [saas-rag-chat, saas-rag-chat-openai-first]

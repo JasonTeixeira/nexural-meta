@@ -1,0 +1,28 @@
+schema_version: 1
+warehouse: safety
+version: 0.1.0
+description: Safe-link rewriter (defeats LLM URL exfiltration) + adversarial eval golden set scaffolds for RAG + agent recipes.
+documents:
+  - id: safe-link-rewriter-spec
+    path: documents/safe-link-rewriter-spec.md
+    title: Safe-link rewriter — every LLM-emitted URL is proxied
+    audience: [agents, human]
+    tags: [safety, urls, exfiltration]
+  - id: adversarial-eval-shape
+    path: documents/adversarial-eval-shape.md
+    title: Adversarial eval golden set shape
+    audience: [agents, human]
+    tags: [safety, eval, prompt-injection]
+templates:
+  - id: safe-link-lib
+    source: templates/lib-safety-safe-link.ts.template
+    target_path: lib/safety/safe-link.ts
+    consumers: [saas-rag-chat, saas-rag-chat-openai-first, saas-agent-platform]
+  - id: safe-link-route
+    source: templates/app-api-safe-link-route.ts.template
+    target_path: app/api/safe-link/[id]/route.ts
+    consumers: [saas-rag-chat, saas-rag-chat-openai-first, saas-agent-platform]
+  - id: adversarial-eval
+    source: templates/eval-adversarial.json.template
+    target_path: eval/adversarial.json
+    consumers: [saas-rag-chat, saas-rag-chat-openai-first]

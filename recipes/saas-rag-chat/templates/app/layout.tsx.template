@@ -1,0 +1,17 @@
+import type { Metadata } from "next";
+import { PostHogProvider } from "@/lib/posthog/provider";
+
+export const metadata: Metadata = {
+  title: "{{displayName}}",
+  description: "RAG chat over your documents. Forged from {{recipeName}}@{{recipeVersion}}.",
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="{{defaultLocale | default:"en"}}">
+      <body style={{ fontFamily: "system-ui, sans-serif", margin: 0 }}>
+        <PostHogProvider>{children}</PostHogProvider>
+      </body>
+    </html>
+  );
+}

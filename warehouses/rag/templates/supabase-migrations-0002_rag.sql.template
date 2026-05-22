@@ -1,0 +1,141 @@
+-- {{appName}} — RAG pipeline schema with pgvector + hybrid search.
+-- Applies AFTER 0001_init.sql (multi-tenant baseline).
+-- Per rag/documents/rag-pipeline-shape.md.
+
+create extension if not exists vector;
+
+-- ============================================================================
+-- Documents — user-uploaded source files
+-- ============================================================================
+
+create table public.documents (
+  id uuid primary key default gen_random_uuid(),
+  tenant_id uuid not null references public.tenants(id) on delete cascade,
+  title text not null,
+  source_uri text,
+  content_type text not null,
+  byte_size bigint not null,
+  uploaded_by uuid references auth.users(id),
+  uploaded_at timestamptz not null default now(),
+  indexed_at timestamptz,
+  error text
+);
+
+create index idx_documents_tenant on public.documents (tenant_id, uploaded_at desc);
+
+-- ============================================================================
+-- Chunks — embedded fragments of documents
+-- ============================================================================
+
+create table public.chunks (
+  id uuid primary key default gen_random_uuid(),
+  document_id uuid not null references public.documents(id) on delete cascade,
+  tenant_id uuid not null references public.tenants(id) on delete cascade,
+  chunk_index int not null,
+  content text not null,
+  -- text-embedding-3-large = 3072 dims. Override per recipe inputs.
+  embedding vector(3072) not null,
+  tsv tsvector generated always as (to_tsvector('english', content)) stored,
+  metadata jsonb not null default '{}'::jsonb,
+  created_at timestamptz not null default now(),
+  unique (document_id, chunk_index)
+);
+
+create index idx_chunks_tenant on public.chunks (tenant_id);
+-- HNSW index for dense search
+create index idx_chunks_embedding on public.chunks
+  using hnsw (embedding vector_cosine_ops);
+-- GIN index for BM25-style text search
+create index idx_chunks_tsv on public.chunks using gin (tsv);
+
+-- ============================================================================
+-- Safe-link log — every URL the LLM emits is rewritten + logged
+-- ============================================================================
+
+create table public.safe_link_log (
+  id uuid primary key default gen_random_uuid(),
+  tenant_id uuid not null references public.tenants(id) on delete cascade,
+  user_id uuid references auth.users(id),
+  emitted_url text not null,
+  safe_id uuid not null unique,
+  warned bool not null default false,
+  followed_at timestamptz,
+  created_at timestamptz not null default now()
+);
+
+create index idx_safe_link_tenant on public.safe_link_log (tenant_id, created_at desc);
+
+-- ============================================================================
+-- Conversations + messages
+-- ============================================================================
+
+create table public.conversations (
+  id uuid primary key default gen_random_uuid(),
+  tenant_id uuid not null references public.tenants(id) on delete cascade,
+  user_id uuid not null references auth.users(id),
+  title text,
+  created_at timestamptz not null default now(),
+  last_message_at timestamptz
+);
+
+create index idx_conversations_user on public.conversations (user_id, last_message_at desc);
+
+create table public.messages (
+  id uuid primary key default gen_random_uuid(),
+  conversation_id uuid not null references public.conversations(id) on delete cascade,
+  role text not null check (role in ('user', 'assistant', 'system')),
+  content text not null,
+  citations jsonb,
+  cost_usd numeric(12, 6),
+  created_at timestamptz not null default now()
+);
+
+create index idx_messages_conv on public.messages (conversation_id, created_at);
+
+-- ============================================================================
+-- RLS
+-- ============================================================================
+
+alter table public.documents enable row level security;
+alter table public.chunks enable row level security;
+alter table public.safe_link_log enable row level security;
+alter table public.conversations enable row level security;
+alter table public.messages enable row level security;
+
+create policy documents_select on public.documents for select
+  using (
+    exists (
+      select 1 from public.tenant_memberships
+      where tenant_id = documents.tenant_id and user_id = auth.uid()
+    )
+  );
+
+create policy documents_insert on public.documents for insert
+  with check (
+    exists (
+      select 1 from public.tenant_memberships
+      where tenant_id = documents.tenant_id and user_id = auth.uid()
+    )
+  );
+
+create policy chunks_select on public.chunks for select
+  using (
+    exists (
+      select 1 from public.tenant_memberships
+      where tenant_id = chunks.tenant_id and user_id = auth.uid()
+    )
+  );
+
+create policy safe_link_select on public.safe_link_log for select
+  using (user_id = auth.uid());
+
+create policy conversations_owner on public.conversations for all
+  using (user_id = auth.uid());
+
+create policy messages_owner on public.messages for all
+  using (
+    exists (
+      select 1 from public.conversations c
+      where c.id = messages.conversation_id and c.user_id = auth.uid()
+    )
+  );

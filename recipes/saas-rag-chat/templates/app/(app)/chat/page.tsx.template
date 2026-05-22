@@ -1,0 +1,86 @@
+"use client";
+
+import { useState } from "react";
+
+interface Message {
+  role: "user" | "assistant";
+  content: string;
+}
+
+export default function ChatPage() {
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  async function send(e: React.FormEvent) {
+    e.preventDefault();
+    if (!input.trim() || loading) return;
+    setError(null);
+    const userMsg: Message = { role: "user", content: input };
+    setMessages((m) => [...m, userMsg]);
+    setInput("");
+    setLoading(true);
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ message: userMsg.content }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error ?? "chat failed");
+      } else {
+        setMessages((m) => [...m, { role: "assistant", content: data.answer }]);
+      }
+    } catch (err) {
+      setError((err as Error).message);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  return (
+    <main style={{ maxWidth: 720, margin: "2rem auto", padding: "0 1rem" }}>
+      <h1>{{displayName}}</h1>
+      <div style={{ minHeight: "60vh", display: "flex", flexDirection: "column", gap: "1rem" }}>
+        {messages.length === 0 ? (
+          <p style={{ color: "#64748b" }}>Ask a question about your documents.</p>
+        ) : (
+          messages.map((m, i) => (
+            <div
+              key={i}
+              style={{
+                padding: "0.75rem 1rem",
+                background: m.role === "user" ? "#f1f5f9" : "#dbeafe",
+                borderRadius: "0.5rem",
+                whiteSpace: "pre-wrap",
+              }}
+            >
+              <strong>{m.role === "user" ? "You" : "Assistant"}:</strong> {m.content}
+            </div>
+          ))
+        )}
+        {loading && <div style={{ color: "#64748b" }}>Thinking…</div>}
+        {error && <div style={{ color: "crimson" }}>{error}</div>}
+      </div>
+      <form onSubmit={send} style={{ display: "flex", gap: "0.5rem", marginTop: "1rem" }}>
+        <input
+          type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="Ask something…"
+          style={{ flex: 1, padding: "0.6rem", fontSize: "1rem", borderRadius: "0.4rem" }}
+          disabled={loading}
+        />
+        <button
+          type="submit"
+          disabled={loading || !input.trim()}
+          style={{ padding: "0.6rem 1.2rem", fontSize: "1rem", borderRadius: "0.4rem" }}
+        >
+          Send
+        </button>
+      </form>
+    </main>
+  );
+}

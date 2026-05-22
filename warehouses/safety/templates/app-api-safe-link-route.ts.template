@@ -1,0 +1,66 @@
+import { NextResponse, type NextRequest } from "next/server";
+import { createSupabaseServerClient } from "@/lib/supabase/server";
+
+export const runtime = "nodejs";
+
+interface RouteParams {
+  params: Promise<{ id: string }>;
+}
+
+/**
+ * Safe-link proxy. Resolves a safe-id to the original URL, logs the click,
+ * and either redirects (with a warning intercept page for unknown domains)
+ * or shows a confirmation page for first-time external URLs.
+ *
+ * v0.1.0 implementation: always show the confirmation page for any URL
+ * outside the recipe's `rootDomain`. Phase 7.5 will add an allowlist of
+ * pre-approved external domains.
+ */
+export async function GET(request: NextRequest, { params }: RouteParams): Promise<NextResponse> {
+  const { id } = await params;
+  const supabase = await createSupabaseServerClient();
+
+  const { data, error } = await supabase
+    .from("safe_link_log")
+    .select("emitted_url, warned, followed_at")
+    .eq("safe_id", id)
+    .single();
+
+  if (error || !data) {
+    return NextResponse.json({ error: "safe-link not found" }, { status: 404 });
+  }
+
+  // Mark followed
+  await supabase
+    .from("safe_link_log")
+    .update({ followed_at: new Date().toISOString() })
+    .eq("safe_id", id);
+
+  const originalUrl = data.emitted_url as string;
+  const userConfirmedFlag = new URL(request.url).searchParams.get("confirm") === "yes";
+
+  if (!userConfirmedFlag) {
+    // Render a simple confirmation page (HTML inline to avoid coupling to
+    // recipe's UI components).
+    const safe = escapeHtml(originalUrl);
+    return new NextResponse(
+      `<!doctype html><meta charset="utf-8"><title>External link</title>
+       <main style="max-width:560px;margin:4rem auto;font-family:system-ui">
+         <h1>Heading off-site</h1>
+         <p>An AI response wants to send you to:</p>
+         <p><code style="word-break:break-all">${safe}</code></p>
+         <p>This link came from a model output, not from the app developer. Don't follow it unless you trust the source.</p>
+         <p><a href="?confirm=yes">Proceed</a> &nbsp; <a href="/">Cancel</a></p>
+       </main>`,
+      { status: 200, headers: { "content-type": "text/html; charset=utf-8" } },
+    );
+  }
+
+  return NextResponse.redirect(originalUrl, 303);
+}
+
+function escapeHtml(s: string): string {
+  return s.replace(/[&<>"']/g, (c) =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!,
+  );
+}

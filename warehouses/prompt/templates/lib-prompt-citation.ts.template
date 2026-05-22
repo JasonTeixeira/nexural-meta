@@ -1,0 +1,52 @@
+/**
+ * Citation validator. Strips `[[warehouse:<id>]]` references whose <id>
+ * doesn't match a chunk that was actually retrieved.
+ *
+ * Per ADR-0008 §1: hallucinated citations are silently stripped, NOT
+ * surfaced as an error — the LLM saying "[[warehouse:fake-id]]" should
+ * be invisible to the user, not present them with garbage citation links.
+ */
+
+const CITATION_RE = /\[\[warehouse:([^\]\s]+)\]\]/g;
+
+export interface CitationValidationResult {
+  /** Body with hallucinated citations removed. Real ones preserved. */
+  readonly cleanedBody: string;
+  /** Citation ids that appeared in the body AND were in the valid set. */
+  readonly validCitations: ReadonlyArray<string>;
+  /** Citation ids that appeared but weren't in the valid set. */
+  readonly hallucinatedCitations: ReadonlyArray<string>;
+}
+
+export function validateCitations(
+  body: string,
+  validIds: ReadonlyArray<string>,
+): CitationValidationResult {
+  const valid = new Set(validIds);
+  const seenValid = new Set<string>();
+  const hallucinated: string[] = [];
+
+  const cleaned = body.replace(CITATION_RE, (match, id: string) => {
+    if (valid.has(id)) {
+      seenValid.add(id);
+      return match; // keep
+    }
+    hallucinated.push(id);
+    return ""; // strip
+  });
+
+  return {
+    cleanedBody: cleaned.replace(/\s{2,}/g, " ").trim(),
+    validCitations: Array.from(seenValid),
+    hallucinatedCitations: hallucinated,
+  };
+}
+
+/** Extract citation ids without modifying the body. */
+export function extractCitations(body: string): string[] {
+  const ids: string[] = [];
+  for (const match of body.matchAll(CITATION_RE)) {
+    ids.push(match[1]!);
+  }
+  return ids;
+}
