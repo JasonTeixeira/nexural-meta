@@ -1,0 +1,16 @@
+# Recipe revocation list per ADR-0009 §1.6.
+#
+# APPEND-ONLY. Every entry must be cosign-signed.
+# `nx forge` consults this file before emitting any recipe — a match
+# causes forge to fail immediately with `recipe_revoked` error.
+#
+# To add an entry:
+#   1. Open a PR (never direct commit to main)
+#   2. Sign the entry block with cosign (sigstore-style)
+#   3. Document reason; link GitHub issue
+#
+# Format follows @nexural/schema RevokedRecipesList.
+
+schema_version: 1
+generated_at: 2026-05-22T00:00:00Z
+entries: []

@@ -1,0 +1,48 @@
+name: Recipe Validity
+
+# Per ADR-0008 §4 — nightly forge + build + test of every recipe.
+# Catches recipe rot before Sage encounters it.
+#
+# Phase 2: PLACEHOLDER. Recipes ship in Phase 5; this workflow is wired
+# but no-ops until recipes/ has content.
+
+on:
+  schedule:
+    - cron: "30 5 * * *" # 05:30 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  recipe-validity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check for recipes
+        id: check
+        run: |
+          if [[ -d recipes ]] && [[ -n "$(ls -A recipes 2>/dev/null)" ]]; then
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "No recipes yet — Phase 5 will populate this."
+          fi
+      - uses: pnpm/action-setup@v4
+        if: steps.check.outputs.skip != 'true'
+        with: { run_install: false }
+      - uses: actions/setup-node@v4
+        if: steps.check.outputs.skip != 'true'
+        with: { node-version: 22, cache: pnpm }
+      - if: steps.check.outputs.skip != 'true'
+        run: pnpm install --frozen-lockfile
+      - if: steps.check.outputs.skip != 'true'
+        name: Forge each recipe to a clean temp dir + qa run --standard
+        run: |
+          for recipe in recipes/*/; do
+            name=$(basename "$recipe")
+            echo "→ Validating recipe: $name"
+            # Phase 5 implementation: nx forge to /tmp/$name then qa run --fast
+            # Placeholder for now
+          done

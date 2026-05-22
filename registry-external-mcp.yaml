@@ -1,0 +1,25 @@
+# External MCP endpoints federated by nexural-meta/apps/router.
+# Manual file — NOT generated. Per ADR-0005 ("ai-warehouse as external MCP")
+# and SCHEMA_AMENDMENTS.md §7 (ExternalMcpRegistry shape).
+#
+# Each endpoint represents a third-party MCP server that the router fans
+# queries out to alongside the federation's own warehouses.
+
+schema_version: 1
+endpoints:
+  - schema_version: 1
+    name: ai-warehouse
+    type: external
+    transport: stdio
+    command:
+      - ai-warehouse
+      - mcp
+    tool_prefix: ai-warehouse
+    schema_compatibility: external
+    federations:
+      - factory
+    quality_attestation:
+      source: nexural-qa-os
+      score: 100
+      verified_at: 2026-05-21
+      next_review: 2026-08-21

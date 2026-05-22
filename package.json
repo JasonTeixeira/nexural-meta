@@ -26,7 +26,17 @@
     "discover": "node scripts/discover.mjs",
     "verify-all": "node scripts/verify-all.mjs",
     "cross-refs": "node scripts/cross-refs.mjs",
-    "bootstrap": "node scripts/bootstrap.mjs"
+    "bootstrap": "node scripts/bootstrap.mjs",
+    "session:save": "node scripts/session-save.mjs",
+    "aggregate-changelogs": "node scripts/aggregate-changelogs.mjs",
+    "ops-calendar": "node scripts/ops-calendar-export.mjs",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,mjs,js,json,md,yaml,yml}": "prettier --write"
+  },
+  "dependencies": {
+    "@nexural/schema": "workspace:*"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.10",
@@ -37,6 +47,8 @@
     "eslint": "^9.18.0",
     "eslint-config-prettier": "^10.0.1",
     "fast-check": "^3.23.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
     "prettier": "^3.4.2",
     "tsup": "^8.3.5",
     "turbo": "^2.3.3",

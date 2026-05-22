@@ -1,0 +1,42 @@
+name: Cross-Refs
+
+# Validates `related` links across the federation per
+# ARCHITECTURE §5.4. Runs nightly + on push.
+
+on:
+  schedule:
+    - cron: "30 4 * * *" # 04:30 UTC (after verify-all)
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  cross-refs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with: { run_install: false }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+
+      # Cross-refs needs warehouses cloned to walk frontmatter.
+      # Phase 5+ will have warehouses to walk; for Phase 2 this is a no-op.
+      - name: Run cross-refs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: pnpm cross-refs
+
+      - name: Commit cross-refs.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet cross-refs.json 2>/dev/null; then
+            git add cross-refs.json
+            git commit -m "chore(cross-refs): nightly validation"
+            git push
+          fi

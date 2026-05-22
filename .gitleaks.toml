@@ -1,0 +1,33 @@
+# gitleaks config per THREAT_MODEL §3.2 + AI_HANDOFF rule #8
+# Scans repo for accidental secret commits.
+# Run locally via pre-commit hook; CI fails if anything detected.
+
+title = "nexural-meta gitleaks"
+
+[extend]
+useDefault = true
+
+# Allowlist for legitimate test fixtures + docs that LOOK like secrets but aren't.
+[allowlist]
+description = "Legitimate fixtures, test patterns, doc examples"
+paths = [
+  '''packages/[^/]+/test/.*''',
+  '''packages/[^/]+/fixtures/.*''',
+  '''docs/.*\.md''',
+  '''STATE\.md''',
+  '''RESUME_PROMPT\.md''',
+  '''README\.md''',
+]
+regexes = [
+  # ULID examples in docs/tests
+  '''01H[0-9A-HJKMNP-TV-Z]{23}''',
+  # SHA placeholders in docs (40+ a/b/c/f chars)
+  '''(a|b|c|d|e|f){40,64}''',
+  # Placeholder values
+  '''<your-username>''',
+  '''<...>''',
+  # 1Password URI references (these are NOT secrets — they are reference paths)
+  '''op://[A-Za-z0-9/_-]+''',
+  # Sample cosign signature placeholder in docs
+  '''MEUCIQ\.\.\.''',
+]

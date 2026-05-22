@@ -1,0 +1,48 @@
+name: Discover
+
+# Nightly federation discovery per ADR-0003.
+# Regenerates registry-factory.yaml + registry-lifeops.yaml from GitHub topics.
+
+on:
+  schedule:
+    - cron: "0 3 * * *" # 03:00 UTC
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/discover.mjs"
+      - ".github/workflows/discover.yml"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with: { run_install: false }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+
+      - name: Run discovery
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: pnpm discover
+
+      - name: Open PR if registries changed
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: "chore(registry): nightly discovery refresh"
+          title: "chore(registry): nightly discovery refresh"
+          body: |
+            Automated registry refresh by `.github/workflows/discover.yml`.
+            Per ADR-0003 + ARCHITECTURE §5.4.
+          branch: chore/discover-${{ github.run_id }}
+          delete-branch: true
+          add-paths: |
+            registry-factory.yaml
+            registry-lifeops.yaml

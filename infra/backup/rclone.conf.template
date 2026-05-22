@@ -1,0 +1,49 @@
+# rclone backup template per THREAT_MODEL §3.7 (3-2-1 rule).
+#
+# This file is a TEMPLATE — copy to ~/.config/rclone/rclone.conf
+# and fill in real credentials. NEVER commit a populated rclone.conf.
+#
+# Public-tier:    b2://nexural-public-backup/<repo>/
+# Internal-tier:  b2://nexural-private-backup/<repo>/   (still age-encrypted at file level)
+# Audit log:      b2://nexural-audit/                    (ISOLATED credentials)
+# Forged apps:    b2://nexural-apps/<app>/               (per ADR-0010 §3.9)
+#
+# Use 1Password CLI to inject credentials:
+#   op inject -i rclone.conf.template -o ~/.config/rclone/rclone.conf
+# OR set env vars (less safe — only for CI):
+#   RCLONE_CONFIG_PUBLIC_KEY, RCLONE_CONFIG_PUBLIC_SECRET, ...
+
+# Layer 1 — Backblaze B2 (primary off-platform)
+
+[b2-public]
+type = b2
+account = {{ op://Nexural/B2-Public/account }}
+key = {{ op://Nexural/B2-Public/app-key }}
+hard_delete = false
+
+[b2-private]
+type = b2
+account = {{ op://Nexural/B2-Private/account }}
+key = {{ op://Nexural/B2-Private/app-key }}
+hard_delete = false
+
+[b2-audit]
+type = b2
+account = {{ op://Nexural/B2-Audit/account }}
+key = {{ op://Nexural/B2-Audit/app-key }}
+hard_delete = false
+
+[b2-apps]
+type = b2
+account = {{ op://Nexural/B2-Apps/account }}
+key = {{ op://Nexural/B2-Apps/app-key }}
+hard_delete = false
+
+# Layer 2 — Local NAS (weekly Sunday — Sage's manual run)
+# Configure rclone for your specific NAS protocol (sftp, smb, etc.)
+
+# [nas]
+# type = sftp
+# host = nas.local
+# user = backup
+# key_file = ~/.ssh/nas_backup_ed25519

@@ -55,3 +55,9 @@ coverage/
 # SBOM
 sbom.json
 sbom.cyclonedx.json
+
+# nexural-qa-os local artifacts (generated when pnpm verify-all is run locally;
+# real verification runs in CI per .github/workflows/verify-all.yml)
+.qa-memory/
+evidence/
+qa.manifest.json

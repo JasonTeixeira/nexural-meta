@@ -1,0 +1,27 @@
+#!/usr/bin/env sh
+
+# Pre-commit hook — runs before every commit per ARCHITECTURE §10 quality gates.
+# Order is fast→slow so the cheapest check fails first.
+
+set -e
+
+# 1. Secrets scan (per AI_HANDOFF rule #8). Skip if gitleaks not installed.
+if command -v gitleaks >/dev/null 2>&1; then
+  echo "→ gitleaks: scanning staged changes for secrets..."
+  gitleaks protect --staged --redact --config=.gitleaks.toml || {
+    echo ""
+    echo "❌ Secrets detected in staged changes. Commit aborted."
+    echo "   Remove the secret OR add an allowlist entry in .gitleaks.toml if it's a false positive."
+    exit 1
+  }
+else
+  echo "→ gitleaks not installed; skipping secrets scan (install via 'brew install gitleaks')"
+fi
+
+# 2. Lint-staged: format + lint only staged files
+pnpm exec lint-staged
+
+# 3. Type-check the workspace (fast — turbo-cached)
+pnpm typecheck
+
+echo "✓ pre-commit checks passed"

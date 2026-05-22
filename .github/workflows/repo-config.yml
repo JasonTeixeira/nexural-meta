@@ -1,0 +1,63 @@
+name: Repo Config Drift Check
+
+# Weekly Terraform plan against actual GitHub state per
+# infra/repo-config/README.md.
+
+on:
+  schedule:
+    - cron: "0 11 * * 1" # Monday 11:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  drift-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.9
+
+      - name: Check for credentials
+        id: check
+        env:
+          TF_GITHUB_TOKEN: ${{ secrets.TF_GITHUB_TOKEN }}
+        run: |
+          if [[ -z "$TF_GITHUB_TOKEN" ]]; then
+            echo "TF_GITHUB_TOKEN secret not set — skipping. See infra/repo-config/README.md."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: terraform init
+        if: steps.check.outputs.skip != 'true'
+        working-directory: infra/repo-config
+        env:
+          GITHUB_TOKEN: ${{ secrets.TF_GITHUB_TOKEN }}
+        run: terraform init
+
+      - name: terraform plan (drift detection)
+        if: steps.check.outputs.skip != 'true'
+        working-directory: infra/repo-config
+        env:
+          GITHUB_TOKEN: ${{ secrets.TF_GITHUB_TOKEN }}
+        run: |
+          set +e
+          terraform plan -detailed-exitcode -out=plan.tfplan
+          code=$?
+          set -e
+          if [[ "$code" == "2" ]]; then
+            echo "::warning::Repo config drift detected. Triage manually."
+            terraform show plan.tfplan > drift-summary.txt
+            echo "----- DRIFT SUMMARY -----"
+            head -100 drift-summary.txt
+          elif [[ "$code" == "0" ]]; then
+            echo "✓ No drift."
+          else
+            echo "::error::terraform plan failed (exit $code)"
+            exit $code
+          fi

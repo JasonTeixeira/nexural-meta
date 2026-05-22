@@ -1,0 +1,50 @@
+name: Verify All
+
+# Nightly per-warehouse scorecard run + cross-ref validation
+# per ARCHITECTURE §5.4 + ADR-0008.
+
+on:
+  schedule:
+    - cron: "0 4 * * *" # 04:00 UTC (after discover at 03:00)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  verify-all:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: nexural-meta
+
+      # Side-by-side clone of nexural-qa-os (the Layer 4 verifier per ADR-0002)
+      - name: Clone nexural-qa-os
+        run: git clone --depth 1 https://github.com/JasonTeixeira/nexural-qa-os.git
+
+      - uses: pnpm/action-setup@v4
+        with: { run_install: false }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: pnpm }
+
+      - working-directory: nexural-meta
+        run: pnpm install --frozen-lockfile
+
+      - working-directory: nexural-meta
+        env:
+          NEXURAL_QA_OS_PATH: ../nexural-qa-os
+        run: pnpm verify-all
+
+      - name: Commit scorecard.json
+        working-directory: nexural-meta
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet scorecard.json; then
+            git add scorecard.json
+            git commit -m "chore(scorecard): nightly verify-all"
+            git push
+          fi

@@ -1,0 +1,58 @@
+name: Backup
+
+# Nightly off-platform backup per THREAT_MODEL §3.7.
+# No-op if B2 secrets are missing (so Sage can land this workflow without
+# blocking the build pipeline).
+
+on:
+  schedule:
+    - cron: "0 5 * * *" # 05:00 UTC daily
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  backup-nexural-meta:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check for B2 credentials
+        id: check
+        env:
+          B2_PUBLIC_ACCOUNT: ${{ secrets.B2_PUBLIC_ACCOUNT }}
+        run: |
+          if [[ -z "$B2_PUBLIC_ACCOUNT" ]]; then
+            echo "B2 secrets not set — skipping backup. See infra/backup/README.md."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: AnimMouse/setup-rclone@v1
+        if: steps.check.outputs.skip != 'true'
+        with:
+          rclone_config: |
+            [b2-public]
+            type = b2
+            account = ${{ secrets.B2_PUBLIC_ACCOUNT }}
+            key = ${{ secrets.B2_PUBLIC_KEY }}
+            hard_delete = false
+
+      - name: Mirror nexural-meta to B2
+        if: steps.check.outputs.skip != 'true'
+        run: |
+          # Create a bare git mirror so the entire history backs up, including tags.
+          git clone --bare --quiet . /tmp/nexural-meta.git
+          tar -czf /tmp/nexural-meta-$(date -u +%Y%m%d).tar.gz -C /tmp nexural-meta.git
+          rclone copy --quiet /tmp/nexural-meta-$(date -u +%Y%m%d).tar.gz \
+            b2-public:nexural-public-backup/nexural-meta/
+
+      - name: Verify
+        if: steps.check.outputs.skip != 'true'
+        run: |
+          rclone ls b2-public:nexural-public-backup/nexural-meta/ | tail -5
+          echo "✓ backup completed"

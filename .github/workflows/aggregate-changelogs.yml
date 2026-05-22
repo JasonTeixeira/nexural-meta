@@ -1,0 +1,33 @@
+name: Aggregate Federation Changelogs
+
+# Per ADR-0010 §2.7. Weekly Monday 12:30 UTC.
+
+on:
+  schedule:
+    - cron: "30 12 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  aggregate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with: { run_install: false }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm aggregate-changelogs
+
+      - name: Commit CHANGELOG-FEDERATION.md
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet CHANGELOG-FEDERATION.md 2>/dev/null; then
+            git add CHANGELOG-FEDERATION.md
+            git commit -m "chore(changelog): weekly federation aggregation"
+            git push
+          fi
