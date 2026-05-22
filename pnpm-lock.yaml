@@ -213,12 +213,21 @@ importers:
 
   packages/qa-runners-federation:
     dependencies:
+      '@nexural/factory':
+        specifier: workspace:^
+        version: link:../factory
+      '@nexural/forge-emit':
+        specifier: workspace:^
+        version: link:../forge-emit
       '@nexural/mcp-base':
         specifier: workspace:^
         version: link:../mcp-base
       '@nexural/schema':
         specifier: workspace:^
         version: link:../schema
+      yaml:
+        specifier: ^2.6.0
+        version: 2.9.0
       zod:
         specifier: ^3.24.1
         version: 3.25.76
@@ -243,6 +252,25 @@ importers:
       zod:
         specifier: ^3.24.1
         version: 3.25.76
+
+  packages/warehouse-base:
+    dependencies:
+      '@nexural/forge-emit':
+        specifier: workspace:^
+        version: link:../forge-emit
+      '@nexural/schema':
+        specifier: workspace:^
+        version: link:../schema
+      yaml:
+        specifier: ^2.6.0
+        version: 2.9.0
+      zod:
+        specifier: ^3.24.1
+        version: 3.25.76
+    devDependencies:
+      '@types/node':
+        specifier: ^22.10.5
+        version: 22.19.19
 
 packages:
 

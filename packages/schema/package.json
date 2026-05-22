@@ -1,7 +1,7 @@
 {
   "name": "@nexural/schema",
-  "version": "0.1.0",
-  "description": "Canonical Zod schemas for the Nexural Federation (meta, frontmatter, MCP envelope, telemetry, recipes, lockfile, cost envelope, model router, external MCP, revocation).",
+  "version": "0.2.0",
+  "description": "Canonical Zod schemas for the Nexural Federation (meta, frontmatter, MCP envelope, telemetry, recipes, lockfile, cost envelope, model router, external MCP, revocation, warehouse manifest).",
   "license": "MIT",
   "type": "module",
   "main": "./dist/index.js",

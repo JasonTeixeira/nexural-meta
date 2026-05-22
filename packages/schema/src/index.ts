@@ -28,3 +28,4 @@ export * from "./recipe.js";
 export * from "./external-mcp.js";
 export * from "./model-router.js";
 export * from "./revocation.js";
+export * from "./warehouse-manifest.js";
