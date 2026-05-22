@@ -1,0 +1,119 @@
+-- {{appName}} — initial schema with multi-tenancy + RLS per recipe DECISIONS.md.
+--
+-- This migration is the foundation every forged app starts with.
+-- Tenant isolation enforced at the DB level via Postgres Row-Level Security.
+
+-- ============================================================================
+-- Tenants
+-- ============================================================================
+
+create table public.tenants (
+  id uuid primary key default gen_random_uuid(),
+  slug text not null unique check (slug ~ '^[a-z0-9-]+$'),
+  display_name text not null,
+  created_at timestamptz not null default now(),
+  deleted_at timestamptz,  -- soft delete per DECISIONS.md
+  trial_ends_at timestamptz,
+  stripe_customer_id text unique,
+  stripe_subscription_id text unique,
+  subscription_status text check (subscription_status in ('trialing','active','past_due','canceled','paused'))
+);
+
+create index idx_tenants_slug on public.tenants (slug) where deleted_at is null;
+
+-- ============================================================================
+-- Tenant memberships
+-- ============================================================================
+
+create type public.tenant_role as enum ('owner', 'admin', 'member');
+
+create table public.tenant_memberships (
+  tenant_id uuid not null references public.tenants(id) on delete cascade,
+  user_id uuid not null references auth.users(id) on delete cascade,
+  role public.tenant_role not null default 'member',
+  invited_by uuid references auth.users(id),
+  joined_at timestamptz not null default now(),
+  primary key (tenant_id, user_id)
+);
+
+create index idx_tenant_memberships_user on public.tenant_memberships (user_id);
+
+-- ============================================================================
+-- Audit log (per THREAT_MODEL §3)
+-- ============================================================================
+
+create table public.audit_events (
+  id uuid primary key default gen_random_uuid(),
+  tenant_id uuid references public.tenants(id),
+  user_id uuid references auth.users(id),
+  action text not null,
+  details jsonb,
+  ip_address inet,
+  user_agent text,
+  created_at timestamptz not null default now()
+);
+
+create index idx_audit_tenant_time on public.audit_events (tenant_id, created_at desc);
+
+-- Immutable: prevent UPDATE/DELETE via trigger
+create or replace function public.prevent_audit_mutation()
+returns trigger as $$
+begin
+  raise exception 'audit_events is immutable per THREAT_MODEL §3';
+end;
+$$ language plpgsql;
+
+create trigger prevent_audit_update
+  before update or delete on public.audit_events
+  for each row execute function public.prevent_audit_mutation();
+
+-- ============================================================================
+-- Row-Level Security
+-- ============================================================================
+
+alter table public.tenants enable row level security;
+alter table public.tenant_memberships enable row level security;
+alter table public.audit_events enable row level security;
+
+-- Tenants: members can see their tenant; owners can update
+create policy tenants_select on public.tenants for select
+  using (
+    exists (
+      select 1 from public.tenant_memberships
+      where tenant_id = id and user_id = auth.uid()
+    )
+  );
+
+create policy tenants_update on public.tenants for update
+  using (
+    exists (
+      select 1 from public.tenant_memberships
+      where tenant_id = id and user_id = auth.uid() and role = 'owner'
+    )
+  );
+
+-- Memberships: users see their own memberships
+create policy memberships_select on public.tenant_memberships for select
+  using (user_id = auth.uid());
+
+-- Owners can manage other memberships in their tenant
+create policy memberships_owner_manage on public.tenant_memberships for all
+  using (
+    exists (
+      select 1 from public.tenant_memberships m
+      where m.tenant_id = public.tenant_memberships.tenant_id
+        and m.user_id = auth.uid()
+        and m.role in ('owner', 'admin')
+    )
+  );
+
+-- Audit log: tenant members read; only service-role writes
+create policy audit_select on public.audit_events for select
+  using (
+    tenant_id is null  -- platform-level events
+    or exists (
+      select 1 from public.tenant_memberships
+      where tenant_id = audit_events.tenant_id and user_id = auth.uid()
+        and role in ('owner', 'admin')
+    )
+  );

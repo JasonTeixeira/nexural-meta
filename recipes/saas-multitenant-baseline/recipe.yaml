@@ -1,0 +1,106 @@
+schema_version: 1
+name: saas-multitenant-baseline
+version: 0.1.0
+description: >-
+  Multi-tenant SaaS baseline — Next.js 15 + Supabase (Auth + Postgres + RLS) +
+  Stripe + Resend + Sentry + PostHog. Parent of all SaaS recipes per ADR-0002.
+  Emits a deployable Vercel project with tenant-aware routing, billing, observability,
+  and security headers wired by default.
+
+# License of emitted app code (NOT this recipe — recipe is MIT)
+output_license: MIT
+commercial_restricted_ok: false
+
+# Recipes this one extends (none — it IS the parent)
+composes: []
+
+inputs_schema: inputs.zod.ts
+
+# Federation warehouses this recipe consumes patterns from
+warehouses:
+  - architecture
+  - auth
+  - payments
+  - database
+  - storage
+  - email
+  - observability
+  - security
+  - dx
+  - design
+  - accessibility
+  - performance
+  - runbook
+  - billing
+  - multi-tenancy
+  - onboarding
+  - admin
+  - analytics
+
+# Services emitted by this recipe (per ADR-0004 — pure TS, no polyglot)
+services:
+  - id: web
+    runtime: nextjs
+    language: typescript
+    host: vercel
+
+# Standard QA bar — see nexural-qa-os manifest profiles
+qa_profile: standard
+
+# LLM cost discipline — every forged app inherits these caps per ADR-0007
+cost_envelope:
+  per_request_p50_usd: 0.0
+  per_request_p99_usd: 0.0
+  monthly_baseline_usd: 0
+  hard_caps:
+    per_request_usd: 0.01
+    per_user_per_day_usd: 5
+    per_app_per_day_usd: 50
+
+# Default model families (resolved by @nexural/model-router at forge time)
+model_families: []
+
+# Secrets required at forge time — resolved via 1Password CLI per ADR-0006
+secrets_required:
+  - logical_name: supabase-anon-key
+    op_path: op://Nexural/Supabase/anon-key
+    target_file: .env.local
+    target_var: NEXT_PUBLIC_SUPABASE_ANON_KEY
+  - logical_name: supabase-service-role-key
+    op_path: op://Nexural/Supabase/service-role-key
+    target_file: .env.local
+    target_var: SUPABASE_SERVICE_ROLE_KEY
+  - logical_name: stripe-secret-key
+    op_path: op://Nexural/Stripe/secret-key
+    target_file: .env.local
+    target_var: STRIPE_SECRET_KEY
+  - logical_name: stripe-webhook-secret
+    op_path: op://Nexural/Stripe/webhook-secret
+    target_file: .env.local
+    target_var: STRIPE_WEBHOOK_SECRET
+  - logical_name: resend-api-key
+    op_path: op://Nexural/Resend/api-key
+    target_file: .env.local
+    target_var: RESEND_API_KEY
+  - logical_name: sentry-dsn
+    op_path: op://Nexural/Sentry/dsn
+    target_file: .env.local
+    target_var: NEXT_PUBLIC_SENTRY_DSN
+  - logical_name: posthog-api-key
+    op_path: op://Nexural/PostHog/api-key
+    target_file: .env.local
+    target_var: NEXT_PUBLIC_POSTHOG_KEY
+
+emit:
+  template_path: templates/
+  pre_emit_hooks: []
+  post_emit_hooks: []
+
+# Per ADR-0008 §7 — required per-recipe docs
+threat_model_path: THREAT_MODEL.md
+decisions_path: DECISIONS.md
+
+# Forge sandbox hygiene per ADR-0009 §1.7
+forge_sandbox:
+  ignore_scripts: true
+  allowed_postinstalls: []

@@ -1,0 +1,16 @@
+name = "{{appName}}"
+compatibility_date = "2026-05-01"
+compatibility_flags = ["nodejs_compat"]
+account_id = "{{cloudflareAccountId}}"
+
+pages_build_output_dir = ".vercel/output/static"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "{{d1DatabaseName}}"
+database_id = ""  # populated after `wrangler d1 create`
+
+[vars]
+NEXT_PUBLIC_APP_NAME = "{{displayName}}"
+NEXT_PUBLIC_ROOT_DOMAIN = "{{rootDomain}}"
+NEXT_PUBLIC_TENANT_ROUTING = "{{tenantRouting}}"

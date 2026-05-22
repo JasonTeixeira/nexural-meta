@@ -1,0 +1,21 @@
+mcp-only-warehouse template
+
+For domains where the value is the MCP TOOLS, not the content corpus.
+Examples: a market-data warehouse exposing live tickers via MCP; a
+trading warehouse exposing backtests as a service.
+
+Differs from public-warehouse:
+
+1. meta.yaml.template:
+   - mcp.exposes lists multiple tools (not just search/get_pattern)
+   - no content/ directory required (content is dynamic)
+   - target_entries optional / null
+
+2. mcp-server/ is the substantive surface:
+   - Per-tool handler files (not a generic search)
+   - May call external APIs (Stripe, Plaid, market data feeds)
+   - Lives behind secrets resolved via op:// per ADR-0006
+
+3. GitHub repo: visibility per tier (usually internal for API-backed tools)
+
+Per ARCHITECTURE §4.4 alt shape (4 templates supported).

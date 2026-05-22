@@ -192,6 +192,18 @@ importers:
         specifier: ^3.24.1
         version: 3.25.76
 
+  packages/qa-runners-federation:
+    dependencies:
+      '@nexural/mcp-base':
+        specifier: workspace:^
+        version: link:../mcp-base
+      '@nexural/schema':
+        specifier: workspace:^
+        version: link:../schema
+      zod:
+        specifier: ^3.24.1
+        version: 3.25.76
+
   packages/schema:
     dependencies:
       zod:

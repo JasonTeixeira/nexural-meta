@@ -1,0 +1,15 @@
+{
+  "name": "{{TOPIC}}-warehouse",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "build-index": "node scripts/build-index.mjs",
+    "all": "pnpm validate && pnpm build-index"
+  },
+  "dependencies": {
+    "@nexural/schema": "^0.1.0",
+    "smol-toml": "^1.3.1"
+  }
+}

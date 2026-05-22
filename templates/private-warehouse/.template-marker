@@ -1,0 +1,33 @@
+private-warehouse template (private-encrypted tier)
+
+Inherits everything from internal-warehouse with these overrides:
+
+1. meta.yaml.template:
+   - tier: private-encrypted
+   - trust:
+       encryption: age+sops
+       key_source: yubikey-primary
+       recovery: 1password-emergency
+       filename_strategy: ulid
+   - federation: lifeops (typical; can override)
+
+2. content/ filenames: ULID-only (not human-readable). Manifest mapping
+   ULID ↔ topic lives in manifest.yaml.age (sops-encrypted).
+
+3. pre-commit hook: blocks any non-`.age`/`.enc` file in `content/` —
+   PLAINTEXT MUST NEVER REACH GIT.
+
+4. .sops.yaml:
+   creation_rules:
+     - path_regex: content/.*\.age$
+       age: >-
+         <yubikey-primary fingerprint>,
+         <yubikey-backup fingerprint>
+
+5. GitHub repo:
+   - Visibility: private
+   - Topic: nexural-lifeops
+   - Branch protection: signed commits required
+
+Per THREAT_MODEL §3.3. `nx new <name> --tier=private-encrypted` applies these
+overrides automatically + walks Sage through age-plugin-yubikey enrollment.

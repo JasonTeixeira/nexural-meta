@@ -1,0 +1,29 @@
+schema_version: 1
+name: {{TOPIC}}
+tier: public
+description: TODO — describe this warehouse (≥20 chars). Populated by Sage at scaffold time.
+owner: sage@nexural
+created: {{TODAY}}
+last_reviewed: {{TODAY}}
+decay_rate_days: 90
+status: seeded
+federation: factory
+trust:
+  encryption: none
+backup:
+  destination: b2://nexural-public-backup/{{TOPIC}}/
+  cadence: nightly
+  retention_days: 365
+mcp:
+  tool_prefix: {{TOPIC}}
+  exposes:
+    - search
+    - get_pattern
+cross_refs:
+  consumes_from: []
+  exposed_to:
+    public: true
+    agents: true
+    human: true
+links:
+  repo: https://github.com/JasonTeixeira/{{TOPIC}}-warehouse

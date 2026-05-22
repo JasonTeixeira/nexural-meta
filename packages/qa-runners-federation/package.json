@@ -1,0 +1,46 @@
+{
+  "name": "@nexural/qa-runners-federation",
+  "version": "0.1.0",
+  "description": "Three federation-specific qa-os runners — federation-conformance, recipe-validity, prompt-injection-resilience. Per ADR-0008 §2, §3, §4.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src test",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist .turbo"
+  },
+  "dependencies": {
+    "@nexural/mcp-base": "workspace:^",
+    "@nexural/schema": "workspace:^",
+    "zod": "^3.24.1"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JasonTeixeira/nexural-meta.git",
+    "directory": "packages/qa-runners-federation"
+  },
+  "homepage": "https://github.com/JasonTeixeira/nexural-meta/tree/main/packages/qa-runners-federation#readme",
+  "bugs": {
+    "url": "https://github.com/JasonTeixeira/nexural-meta/issues"
+  }
+}

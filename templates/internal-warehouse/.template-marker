@@ -1,0 +1,24 @@
+internal-warehouse template
+
+Inherits everything from public-warehouse with these overrides:
+
+1. meta.yaml.template:
+   - tier: internal
+   - exposed_to.public: false
+   - backup destination: b2://nexural-private-backup/
+
+2. LICENSE: proprietary
+   Replace MIT License text with:
+   "All Rights Reserved
+   Copyright (c) {{YEAR}} Sage Ideas LLC
+   Proprietary. Internal use only."
+
+3. README:
+   - Tier badge says "internal"
+   - No public scorecard URL
+
+4. GitHub repo:
+   - Visibility: private
+   - Topic: nexural-factory (or lifeops as appropriate)
+
+`nx new <name> --tier=internal` applies these overrides automatically.

@@ -1,0 +1,28 @@
+# {{TOPIC}}-warehouse
+
+> TODO — describe this warehouse's domain (≥ 20 chars). Sage authors.
+
+Part of the **nexural-factory** federation. Public tier.
+
+[![scorecard](https://nexural.dev/badges/{{TOPIC}}.svg)](https://nexural.dev/scorecard/{{TOPIC}})
+
+## What goes here
+
+Domain-specific patterns, principles, playbooks, templates, checklists, and references that other federation warehouses + forged apps consume via MCP.
+
+## Authoring
+
+Every entry under `content/<slug>/` has:
+
+- `frontmatter.yaml` — schema-validated per `@nexural/schema` `ContentFrontmatter`
+- `body.md` — the actual content (markdown)
+
+Run `pnpm validate` to schema-check before commit. Pre-commit hook does this automatically.
+
+## MCP
+
+This warehouse exposes its content via an MCP server in `mcp-server/`. The router federates it (per ARCHITECTURE §4.2).
+
+## License
+
+MIT.

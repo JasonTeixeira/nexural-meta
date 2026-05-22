@@ -1,0 +1,72 @@
+#!/usr/bin/env node
+/**
+ * validate.mjs — schema-validates meta.yaml + every content frontmatter.
+ *
+ * Runs on pre-commit + CI. Failure blocks merge.
+ */
+
+import { ContentFrontmatter, WarehouseMeta } from "@nexural/schema";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
+import { join } from "node:path";
+
+let errors = 0;
+
+// meta.yaml
+const metaPath = "meta.yaml";
+if (!existsSync(metaPath)) {
+  console.error("❌ meta.yaml missing");
+  process.exit(1);
+}
+const meta = parseSimpleYaml(readFileSync(metaPath, "utf8"));
+const metaResult = WarehouseMeta.safeParse(meta);
+if (!metaResult.success) {
+  console.error("❌ meta.yaml invalid:");
+  console.error(metaResult.error.format());
+  errors++;
+} else {
+  console.log("✓ meta.yaml");
+}
+
+// content/**/frontmatter.yaml
+const contentDir = "content";
+if (existsSync(contentDir)) {
+  for (const entry of readdirSync(contentDir)) {
+    const fmPath = join(contentDir, entry, "frontmatter.yaml");
+    if (!existsSync(fmPath)) continue;
+    const fm = parseSimpleYaml(readFileSync(fmPath, "utf8"));
+    const r = ContentFrontmatter.safeParse(fm);
+    if (!r.success) {
+      console.error(`❌ ${fmPath} invalid:`);
+      console.error(r.error.format());
+      errors++;
+    } else {
+      console.log(`✓ ${fmPath}`);
+    }
+  }
+}
+
+if (errors > 0) {
+  console.error(`\n${errors} validation error(s)`);
+  process.exit(1);
+}
+console.log("\n✓ all schemas valid");
+
+function parseSimpleYaml(content) {
+  // Minimal YAML→JSON converter for our shapes.
+  // Production: swap to `yaml` npm package.
+  try {
+    return JSON.parse(content);
+  } catch {
+    // Fallback: very simple line-based parse
+    const obj = {};
+    for (const line of content.split("\n")) {
+      const m = line.match(/^(\w+):\s*(.+)$/);
+      if (m) {
+        const [, key, rawValue] = m;
+        const v = rawValue.replace(/^["']|["']$/g, "");
+        obj[key] = isNaN(Number(v)) ? v : Number(v);
+      }
+    }
+    return obj;
+  }
+}

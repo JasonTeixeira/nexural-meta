@@ -1,0 +1,88 @@
+schema_version: 1
+name: saas-multitenant-baseline-cf
+version: 0.1.0
+description: >-
+  Cloudflare Pages + Workers + D1 escape variant of saas-multitenant-baseline.
+  Per ADR-0008 §6 vendor escape recipes. Use when Vercel pricing or compliance
+  posture requires moving off Vercel + Supabase.
+
+# Extends the parent recipe — overrides hosting + data only.
+extends: saas-multitenant-baseline
+
+output_license: MIT
+commercial_restricted_ok: false
+
+composes: []
+
+inputs_schema: inputs.zod.ts
+
+# Same warehouses consumed as parent
+warehouses:
+  - architecture
+  - auth
+  - payments
+  - database
+  - storage
+  - email
+  - observability
+  - security
+  - dx
+  - design
+  - accessibility
+  - performance
+  - runbook
+  - billing
+  - multi-tenancy
+  - onboarding
+  - admin
+  - analytics
+
+# Different service surface — Cloudflare Workers + Pages + D1
+services:
+  - id: web
+    runtime: nextjs
+    language: typescript
+    host: cloudflare-pages
+
+qa_profile: standard
+
+cost_envelope:
+  per_request_p50_usd: 0.0
+  per_request_p99_usd: 0.0
+  monthly_baseline_usd: 0
+  hard_caps:
+    per_request_usd: 0.01
+    per_user_per_day_usd: 5
+    per_app_per_day_usd: 50
+
+model_families: []
+
+secrets_required:
+  - logical_name: cloudflare-api-token
+    op_path: op://Nexural/Cloudflare/api-token
+    target_file: .env.local
+    target_var: CLOUDFLARE_API_TOKEN
+  - logical_name: stripe-secret-key
+    op_path: op://Nexural/Stripe/secret-key
+    target_file: .env.local
+    target_var: STRIPE_SECRET_KEY
+  - logical_name: stripe-webhook-secret
+    op_path: op://Nexural/Stripe/webhook-secret
+    target_file: .env.local
+    target_var: STRIPE_WEBHOOK_SECRET
+  - logical_name: resend-api-key
+    op_path: op://Nexural/Resend/api-key
+    target_file: .env.local
+    target_var: RESEND_API_KEY
+
+emit:
+  template_path: templates/
+  pre_emit_hooks: []
+  post_emit_hooks: []
+
+threat_model_path: THREAT_MODEL.md
+decisions_path: DECISIONS.md
+
+forge_sandbox:
+  ignore_scripts: true
+  allowed_postinstalls: []

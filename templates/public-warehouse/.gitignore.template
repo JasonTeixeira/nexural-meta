@@ -1,0 +1,9 @@
+node_modules
+dist
+.turbo
+coverage
+.DS_Store
+*.log
+
+# Generated artifact — never commit hand-edits (per SCHEMA_CHARTER §4.3)
+index.json
