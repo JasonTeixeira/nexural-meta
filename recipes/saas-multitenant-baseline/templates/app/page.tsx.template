@@ -1,0 +1,16 @@
+import Link from "next/link";
+
+export default function HomePage() {
+  return (
+    <main style={{ maxWidth: 640, margin: "4rem auto", padding: "0 1rem" }}>
+      <h1>{{displayName}}</h1>
+      <p>
+        Welcome. This app was forged from <code>{{recipeName}}@{{recipeVersion}}</code> on{" "}
+        <time dateTime="{{forgedAt}}">{{forgedAt}}</time>.
+      </p>
+      <p>
+        <Link href="/login">Sign in</Link>
+      </p>
+    </main>
+  );
+}

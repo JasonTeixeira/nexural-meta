@@ -1,0 +1,100 @@
+/**
+ * TCPA outbound-call compliance gate.
+ *
+ * Every outbound call MUST pass all three checks before reaching the
+ * provider adapter:
+ *   1. Recipient's local time is between 8am and 9pm.
+ *   2. The phone number is NOT on the do-not-call list.
+ *   3. There is a recorded, non-expired consent for this phone.
+ *
+ * Inbound calls (recipient initiated) are exempt.
+ *
+ * Vendored from sage-agents (Sage Ideas LLC, 2026-05-06) per ADR-0011 §6.
+ */
+
+export class TcpaViolationError extends Error {
+  readonly reason: "after_hours" | "dnc_match" | "consent_missing" | "consent_expired";
+  readonly meta: Readonly<Record<string, unknown>>;
+  constructor(
+    message: string,
+    meta: { reason: TcpaViolationError["reason"]; [k: string]: unknown },
+  ) {
+    super(message);
+    this.name = "TcpaViolationError";
+    this.reason = meta.reason;
+    this.meta = meta;
+  }
+}
+
+export interface ConsentLookupResult {
+  readonly hasConsent: boolean;
+  readonly grantedAt: string;
+  readonly expiresAt: string | null;
+}
+
+export interface TcpaCheckers {
+  readonly isOnDncList: (phone: string) => Promise<boolean>;
+  readonly lookupConsent: (phone: string) => Promise<ConsentLookupResult | null>;
+}
+
+export interface TcpaCheckOptions {
+  readonly phone: string;
+  readonly recipientTimezone: string;
+  readonly now?: Date;
+  readonly checkers: TcpaCheckers;
+}
+
+function isWithinTcpaWindow(opts: { timezone: string; now: Date }): boolean {
+  try {
+    const fmt = new Intl.DateTimeFormat("en-US", {
+      timeZone: opts.timezone,
+      hour: "numeric",
+      hour12: false,
+    });
+    const hour = parseInt(fmt.format(opts.now), 10);
+    return hour >= 8 && hour < 21;
+  } catch {
+    // Unknown timezone — refuse to call (fail-closed).
+    return false;
+  }
+}
+
+export async function assertTcpaCompliant(opts: TcpaCheckOptions): Promise<{ ok: true }> {
+  const now = opts.now ?? new Date();
+
+  if (!isWithinTcpaWindow({ timezone: opts.recipientTimezone, now })) {
+    throw new TcpaViolationError(
+      `Outbound calls disallowed: recipient local time outside 8am-9pm window (${opts.recipientTimezone})`,
+      { reason: "after_hours", phone: opts.phone, timezone: opts.recipientTimezone },
+    );
+  }
+
+  const onDnc = await opts.checkers.isOnDncList(opts.phone);
+  if (onDnc) {
+    throw new TcpaViolationError(`Phone ${opts.phone} is on the do-not-call list`, {
+      reason: "dnc_match",
+      phone: opts.phone,
+    });
+  }
+
+  const consent = await opts.checkers.lookupConsent(opts.phone);
+  if (!consent || !consent.hasConsent) {
+    throw new TcpaViolationError(`No consent record for ${opts.phone}`, {
+      reason: "consent_missing",
+      phone: opts.phone,
+    });
+  }
+
+  if (consent.expiresAt) {
+    const exp = new Date(consent.expiresAt).getTime();
+    if (Number.isFinite(exp) && exp <= now.getTime()) {
+      throw new TcpaViolationError(`Consent for ${opts.phone} has expired`, {
+        reason: "consent_expired",
+        phone: opts.phone,
+        expiresAt: consent.expiresAt,
+      });
+    }
+  }
+
+  return { ok: true };
+}

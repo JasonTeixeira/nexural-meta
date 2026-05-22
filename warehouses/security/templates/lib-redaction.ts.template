@@ -1,0 +1,28 @@
+/**
+ * Redact common PII patterns before content leaves the application
+ * (e.g. before it hits a log line, a Sentry breadcrumb, or an LLM prompt).
+ *
+ * Best-effort. For HIPAA / strict-PII workloads, swap in a dedicated
+ * pipeline (Presidio, Macie, etc.) — this is the floor, not the ceiling.
+ *
+ * Vendored from sage-agents (Sage Ideas LLC, 2026-05-06) per ADR-0011 §6.
+ */
+
+const PATTERNS: ReadonlyArray<readonly [RegExp, string]> = [
+  // Card numbers (visa, mc, amex, discover, with separators)
+  [/\b(?:\d[ -]?){13,19}\b/g, "[REDACTED_CARD]"],
+  // SSN (US, with hyphens)
+  [/\b\d{3}-\d{2}-\d{4}\b/g, "[REDACTED_SSN]"],
+  // Phone numbers (NANP, with separators)
+  [/\b\(?\d{3}\)?[ .-]?\d{3}[ .-]?\d{4}\b/g, "[REDACTED_PHONE]"],
+  // Email
+  [/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/gi, "[REDACTED_EMAIL]"],
+];
+
+export function redact(text: string): string {
+  let out = text;
+  for (const [pattern, replacement] of PATTERNS) {
+    out = out.replace(pattern, replacement);
+  }
+  return out;
+}

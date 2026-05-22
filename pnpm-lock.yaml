@@ -75,6 +75,9 @@ importers:
       '@nexural/sdk':
         specifier: workspace:^
         version: link:../../packages/sdk
+      '@nexural/warehouse-base':
+        specifier: workspace:^
+        version: link:../../packages/warehouse-base
       better-sqlite3:
         specifier: ^11.7.2
         version: 11.10.0

@@ -59,5 +59,7 @@ sbom.cyclonedx.json
 # nexural-qa-os local artifacts (generated when pnpm verify-all is run locally;
 # real verification runs in CI per .github/workflows/verify-all.yml)
 .qa-memory/
-evidence/
+evidence/*
 qa.manifest.json
+# Exception: ADR-0011 §1 (gate 6) adversarial-proof evidence is tracked.
+!evidence/adversarial/

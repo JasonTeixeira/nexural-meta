@@ -32,6 +32,7 @@ import { parse as parseYaml, stringify as stringifyYaml } from "yaml";
 import { emit, writeEmitResult, type EmitContext, type TemplateFile } from "@nexural/forge-emit";
 import { loadRecipe } from "@nexural/factory";
 import { RevokedRecipesList } from "@nexural/schema";
+import { composeForRecipe } from "@nexural/warehouse-base";
 import type { NexuralConfig } from "../config.js";
 
 const FORGE_EMIT_VERSION = "0.1.0";
@@ -58,6 +59,12 @@ export interface ForgeOptions {
   readonly force?: boolean;
   /** Override apps_root for this invocation (testing). */
   readonly outDir?: string;
+  /**
+   * Skip op:// secret resolution and use placeholder values. ONLY for slice
+   * testing and conformance checks — emitted .env.local will contain
+   * non-functional values. Per ADR-0011 §5 (vertical slice gate).
+   */
+  readonly mockSecrets?: boolean;
 }
 
 export async function runForge(
@@ -101,17 +108,45 @@ export async function runForge(
   console.log(`   inputs : ok (${Object.keys(inputs).length} keys)`);
 
   // 3. Resolve secrets
-  const secrets = opts.dryRun
+  const useMockSecrets = opts.dryRun === true || opts.mockSecrets === true;
+  const secrets = useMockSecrets
     ? mockSecretsForDryRun(recipe.secrets_required)
     : await resolveSecrets(recipe.secrets_required);
-  console.log(
-    `   secrets: ${opts.dryRun ? "MOCK (dry-run)" : `resolved ${Object.keys(secrets).length}/${recipe.secrets_required.length}`}`,
-  );
+  if (useMockSecrets) {
+    const tag = opts.dryRun ? "dry-run" : "slice-test";
+    console.log(`   secrets: MOCK (${tag}) — emitted .env.local values are non-functional`);
+  } else {
+    console.log(
+      `   secrets: resolved ${Object.keys(secrets).length}/${recipe.secrets_required.length}`,
+    );
+  }
 
-  // 4. Load templates from local recipe directory
+  // 4. Load templates: warehouse contributions + recipe-local additions.
+  // Each warehouse listed in recipe.warehouses[] resolves to a path under
+  // <cwd>/warehouses/<name>/. Phase 7+ will swap this for MCP fetch.
+  const warehousesRoot = resolve(process.cwd(), "warehouses");
+  const warehouseRoots = recipe.warehouses
+    .map((name) => join(warehousesRoot, name))
+    .filter((p) => existsSync(p));
+  const missingWarehouses = recipe.warehouses.filter((n) => !existsSync(join(warehousesRoot, n)));
+  if (missingWarehouses.length > 0) {
+    console.warn(`   ⚠ missing warehouses (skipped): ${missingWarehouses.join(", ")}`);
+  }
+
   const templatesRoot = join(recipeDir, recipe.emit.template_path);
-  const templates = existsSync(templatesRoot) ? await loadTemplates(templatesRoot) : [];
-  console.log(`   templates: ${templates.length} from ${relative(process.cwd(), templatesRoot)}`);
+  const recipeLocalTemplates = existsSync(templatesRoot) ? await loadTemplates(templatesRoot) : [];
+
+  const composed = composeForRecipe({
+    warehouseRoots,
+    recipeName: recipe.name,
+    additionalTemplates: recipeLocalTemplates,
+  });
+  const templates = composed.templates;
+  console.log(
+    `   templates: ${templates.length} (${Object.entries(composed.templateCountByWarehouse)
+      .map(([wh, n]) => `${wh}=${n}`)
+      .join(", ")}, recipe=${recipeLocalTemplates.length})`,
+  );
 
   // 5. Build context + emit
   // Template authors write bare names (e.g. {{ appName }}) which resolve

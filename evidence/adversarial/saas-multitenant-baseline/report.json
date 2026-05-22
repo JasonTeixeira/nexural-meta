@@ -1,0 +1,31 @@
+{
+  "ran_at": "2026-05-22T18:47:08.607Z",
+  "recipe": "saas-multitenant-baseline",
+  "scenarios": [
+    {
+      "name": "secret_leak",
+      "expected": "EmitError(secret_leak)",
+      "caught": true,
+      "code": "secret_leak",
+      "message": "[forge-emit:secret_leak] Emitted file would contain literal value of secret \"TEST_KEY\". Use env-var indirection, not direct substitution."
+    },
+    {
+      "name": "unresolved_variable",
+      "expected": "EmitError(unresolved_variable)",
+      "caught": true,
+      "code": "unresolved_variable",
+      "message": "[forge-emit:unresolved_variable] Unknown template variable \"never_defined\""
+    },
+    {
+      "name": "duplicate_path",
+      "expected": "ComposeError(duplicate_path_across_warehouses)",
+      "caught": true,
+      "code": "duplicate_path_across_warehouses",
+      "message": "[warehouse-base:duplicate_path_across_warehouses] template path \"shared.ts\" provided by both \"alpha\" and \"beta\""
+    }
+  ],
+  "total": 3,
+  "caught": 3,
+  "escaped": 0,
+  "passed": true
+}

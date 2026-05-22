@@ -70,16 +70,24 @@ program
   .option("--dry-run", "render + validate without writing to disk")
   .option("--force", "allow writing into a non-empty target directory")
   .option("--out-dir <dir>", "override apps_root for this invocation (testing)")
+  .option("--mock-secrets", "skip op:// resolution; emit placeholder secrets (slice testing only)")
   .action(
     async (
       recipe: string,
       slug: string,
-      opts: { inputs?: string; dryRun?: boolean; force?: boolean; outDir?: string },
+      opts: {
+        inputs?: string;
+        dryRun?: boolean;
+        force?: boolean;
+        outDir?: string;
+        mockSecrets?: boolean;
+      },
     ) => {
       const flags = [
         recipe,
         slug,
         opts.dryRun ? "--dry-run" : "",
+        opts.mockSecrets ? "--mock-secrets" : "",
         opts.inputs ? `--inputs=${opts.inputs}` : "",
       ].filter(Boolean);
       await withTelemetry(config, "forge", flags, () =>
@@ -88,6 +96,7 @@ program
           ...(opts.dryRun !== undefined ? { dryRun: opts.dryRun } : {}),
           ...(opts.force !== undefined ? { force: opts.force } : {}),
           ...(opts.outDir !== undefined ? { outDir: opts.outDir } : {}),
+          ...(opts.mockSecrets !== undefined ? { mockSecrets: opts.mockSecrets } : {}),
         }),
       );
     },

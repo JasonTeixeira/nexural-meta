@@ -1,0 +1,19 @@
+schema_version: 1
+warehouse: database
+version: 0.1.0
+description: Postgres + Supabase schema baseline with multi-tenancy and Row-Level Security policies.
+documents:
+  - id: rls-pattern
+    path: documents/rls-pattern.md
+    title: Postgres RLS pattern for multi-tenancy
+    audience: [agents, human]
+    tags: [postgres, rls, multi-tenancy]
+templates:
+  - id: init-migration
+    source: templates/supabase-migrations-0001_init.sql.template
+    target_path: supabase/migrations/0001_init.sql
+    consumers: [saas-multitenant-baseline]
+  - id: supabase-config
+    source: templates/supabase-config.toml.template
+    target_path: supabase/config.toml
+    consumers: [saas-multitenant-baseline]

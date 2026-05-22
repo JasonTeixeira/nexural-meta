@@ -1,0 +1,31 @@
+schema_version: 1
+warehouse: observability
+version: 0.1.0
+description: Sentry + PostHog wiring for forged Next.js apps — client, server, and edge runtime configs plus instrumentation hook.
+documents:
+  - id: sentry-baseline
+    path: documents/sentry-baseline.md
+    title: Sentry baseline for Next.js apps
+    audience: [agents, human]
+    tags: [sentry, observability]
+templates:
+  - id: instrumentation
+    source: templates/instrumentation.ts.template
+    target_path: instrumentation.ts
+    consumers: [saas-multitenant-baseline]
+  - id: sentry-client
+    source: templates/sentry.client.config.ts.template
+    target_path: sentry.client.config.ts
+    consumers: [saas-multitenant-baseline]
+  - id: sentry-server
+    source: templates/sentry.server.config.ts.template
+    target_path: sentry.server.config.ts
+    consumers: [saas-multitenant-baseline]
+  - id: sentry-edge
+    source: templates/sentry.edge.config.ts.template
+    target_path: sentry.edge.config.ts
+    consumers: [saas-multitenant-baseline]
+  - id: posthog-provider
+    source: templates/lib-posthog-provider.tsx.template
+    target_path: lib/posthog/provider.tsx
+    consumers: [saas-multitenant-baseline]

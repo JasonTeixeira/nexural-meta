@@ -6,10 +6,71 @@
 
 ## Current state
 
-- **Current phase:** **Phase 6 (AI recipes + golden-set-drift) — SHIPPED 🚀**
-- **Soak window:** WAIVED by Sage 2026-05-21. ADRs 0002–0010 locked.
-- **Last commit:** `958a1a9` — "feat: Phase 6 — saas-rag-chat + saas-agent-platform + escape recipes + golden-set-drift runner"
-- **Last tag:** `v0.6.0`
+- **Current phase:** **Phase 6.5 (Vertical Slice + 6 MVP warehouses + adversarial proof) — SHIPPED 🚀**
+- **Soak window:** WAIVED by Sage 2026-05-22 for ADR-0011. ADRs 0002–0011 locked.
+- **Last tag:** `v0.7.0`
+- **Slice status:** `saas-multitenant-baseline` cleared 5 of 6 ADR-0011 gates (emit + install + typecheck + build + adversarial proof). Gate 4 (deploy) is Sage-driven and tracked separately.
+
+## Phase 6.5 deliverables ✅
+
+### ADR-0011 — Vertical Slice Doctrine
+
+Locks the rule: every recipe must forge-and-deploy (6 gates) before earning `shipped`. Recipes that haven't are marked `scaffold`.
+
+### `@nexural/forge-emit@0.1.0` (new package)
+
+Pure render path + disk-write helper. Handlebars-subset renderer with tightened identifier-path regex that ignores JSX inline styles. Five safety floors: unresolved-var, path traversal, duplicate paths, secret-leak scan, binary integrity. 34/34 tests.
+
+### `@nexural/warehouse-base@0.1.0` (new package)
+
+Filesystem warehouse loader + multi-warehouse template composition with cross-warehouse duplicate-path detection. Local-disk only for Phase 6.5; Phase 7+ swaps in MCP fetch. 17 tests.
+
+### `@nexural/schema@0.1.0 → 0.2.0`
+
+Adds `WarehouseManifest` Zod schema for warehouse `manifest.yaml` files. 309 tests (+10).
+
+### `@nexural/qa-runners-federation@0.2.0 → 0.3.0`
+
+Adds `forge-emit-conformance` (5th federation runner). For each recipe, runs a mock emit and asserts no errors. 27 tests across 5 runners.
+
+### Real `nx forge` pipeline
+
+`apps/cli/src/commands/forge.ts` replaces the Phase 3 stub. Recipe load → revocation check → inputs validation → secret resolution (or `--mock-secrets` for slice testing) → warehouse composition → emit → write to disk → git init + first commit → write `.nexural/forged.lock.yaml`. CLI flags: `--inputs`, `--dry-run`, `--force`, `--out-dir`, `--mock-secrets`.
+
+### 6 MVP warehouses (under `warehouses/`)
+
+| Warehouse     | Templates                                                             | Documents                                          |
+| ------------- | --------------------------------------------------------------------- | -------------------------------------------------- |
+| architecture  | tsconfig, next.config, .gitignore, vercel.json                        | nextjs-15-baseline, typescript-strict              |
+| auth          | middleware, lib/supabase/{client,server}, login page, callback route  | supabase-ssr                                       |
+| database      | 0001_init.sql (RLS multi-tenant + immutable audit), supabase config   | rls-pattern                                        |
+| observability | instrumentation, sentry.{client,server,edge}.config, posthog-provider | sentry-baseline                                    |
+| security      | .env.example, lib/security/{redaction,tcpa}                           | pii-redaction, tcpa-compliance, env-secrets-policy |
+| dx            | eslint.config, .prettierrc, .editorconfig, README, /api/health route  | tooling-rationale                                  |
+
+`security/` vendors the TCPA gate + PII redaction patterns from sage-agents per ADR-0011 §6.
+
+### Vertical slice verification
+
+`nx forge saas-multitenant-baseline nexural-slice-test --mock-secrets` produces 27 files across 6 warehouses + 3 recipe-local. Emitted app:
+
+- `pnpm install` clean.
+- `pnpm typecheck` clean (after patching 2 supabase-cookie typing gaps + 3 sentry DSN-undefined gaps — fixes pushed back to warehouses).
+- `pnpm build` produces 6 routes (`/`, `/api/health`, `/callback`, `/login`, `_not-found`, and middleware) — 102 kB shared JS, 137 kB middleware.
+
+### Adversarial proof (`evidence/adversarial/saas-multitenant-baseline/`)
+
+Three deliberate breaks, all caught by the matching gate:
+
+1. **secret_leak** — template inlines a literal secret value → `EmitError(secret_leak)` ✓
+2. **unresolved_variable** — template references undefined var → `EmitError(unresolved_variable)` ✓
+3. **duplicate_path** — two warehouses emit to the same path → `ComposeError(duplicate_path_across_warehouses)` ✓
+
+Report: `evidence/adversarial/saas-multitenant-baseline/report.json`.
+
+### Deferred to Sage (ADR-0011 gate 4)
+
+- Deploy slice to live Vercel + Supabase + Stripe test environment. Requires Sage's accounts; no automation. Tracked in BUILD_PLAN.md Phase 6.5 §8.
 
 ## Phase 6 deliverables ✅
 

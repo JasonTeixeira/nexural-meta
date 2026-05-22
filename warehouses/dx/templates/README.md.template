@@ -1,0 +1,41 @@
+# {{displayName}}
+
+Forged from `{{recipeName}}@{{recipeVersion}}` on {{forgedAt}} via [Nexural Federation](https://github.com/JasonTeixeira/nexural-meta).
+
+## Stack
+
+- Next.js 15 (App Router, RSC, typedRoutes)
+- Supabase (Postgres + Auth + Storage)
+- Stripe (test mode by default; production on env switch)
+- Sentry + PostHog (privacy-masked defaults)
+- TypeScript strict + `exactOptionalPropertyTypes` + `noUncheckedIndexedAccess`
+
+## Local dev
+
+```bash
+cp .env.example .env.local      # fill in Supabase + Stripe + Sentry keys
+pnpm install
+pnpm dev                        # http://localhost:3000
+```
+
+## Database setup
+
+```bash
+pnpm dlx supabase init           # if not already
+pnpm dlx supabase start          # local Postgres
+pnpm dlx supabase db push        # apply migrations from supabase/migrations/
+```
+
+## Deploy
+
+Vercel: push the `main` branch. The `vercel.json` ships build/install commands and pins region `iad1`.
+
+Supabase: link the project (`supabase link --project-ref <ref>`) and run `supabase db push` against staging before promoting.
+
+## License
+
+{{outputLicense}}.
+
+---
+
+_Built with discipline by Sage Ideas LLC._

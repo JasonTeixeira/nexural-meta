@@ -1,0 +1,31 @@
+schema_version: 1
+warehouse: auth
+version: 0.1.0
+description: Supabase Auth integration scaffolding — SSR client, server client, middleware gate, login + callback routes.
+documents:
+  - id: supabase-ssr
+    path: documents/supabase-ssr.md
+    title: Supabase Auth + SSR patterns
+    audience: [agents, human]
+    tags: [supabase, auth, ssr]
+templates:
+  - id: middleware
+    source: templates/middleware.ts.template
+    target_path: middleware.ts
+    consumers: [saas-multitenant-baseline]
+  - id: supabase-browser-client
+    source: templates/lib-supabase-client.ts.template
+    target_path: lib/supabase/client.ts
+    consumers: [saas-multitenant-baseline]
+  - id: supabase-server-client
+    source: templates/lib-supabase-server.ts.template
+    target_path: lib/supabase/server.ts
+    consumers: [saas-multitenant-baseline]
+  - id: login-page
+    source: templates/app-auth-login-page.tsx.template
+    target_path: app/(auth)/login/page.tsx
+    consumers: [saas-multitenant-baseline]
+  - id: auth-callback-route
+    source: templates/app-auth-callback-route.ts.template
+    target_path: app/(auth)/callback/route.ts
+    consumers: [saas-multitenant-baseline]

@@ -1,0 +1,33 @@
+schema_version: 1
+warehouse: security
+version: 0.1.0
+description: Security primitives — .env.example floor, CSP defaults, PII redaction patterns, TCPA compliance gate. Vendored from sage-agents for the voice/SDR slice.
+documents:
+  - id: pii-redaction
+    path: documents/pii-redaction.md
+    title: PII redaction patterns
+    audience: [agents, human]
+    tags: [pii, privacy, security]
+  - id: tcpa-compliance
+    path: documents/tcpa-compliance.md
+    title: TCPA outbound-call compliance gate
+    audience: [agents, human]
+    tags: [tcpa, voice, compliance]
+  - id: env-secrets-policy
+    path: documents/env-secrets-policy.md
+    title: Environment secrets policy
+    audience: [agents, human]
+    tags: [secrets, env, op-cli]
+templates:
+  - id: env-example
+    source: templates/.env.example.template
+    target_path: .env.example
+    consumers: [saas-multitenant-baseline]
+  - id: pii-redaction-lib
+    source: templates/lib-redaction.ts.template
+    target_path: lib/security/redaction.ts
+    consumers: ["*"]
+  - id: tcpa-gate-lib
+    source: templates/lib-tcpa.ts.template
+    target_path: lib/security/tcpa.ts
+    consumers: [saas-multitenant-baseline]

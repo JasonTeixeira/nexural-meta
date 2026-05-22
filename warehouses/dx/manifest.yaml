@@ -1,0 +1,31 @@
+schema_version: 1
+warehouse: dx
+version: 0.1.0
+description: Developer experience baseline — ESLint, Prettier, README, health endpoint, .editorconfig.
+documents:
+  - id: tooling-rationale
+    path: documents/tooling-rationale.md
+    title: Why ESLint + Prettier (and which configs)
+    audience: [agents, human]
+    tags: [eslint, prettier, dx]
+templates:
+  - id: eslint-config
+    source: templates/eslint.config.mjs.template
+    target_path: eslint.config.mjs
+    consumers: ["*"]
+  - id: prettier-config
+    source: templates/.prettierrc.template
+    target_path: .prettierrc
+    consumers: ["*"]
+  - id: editorconfig
+    source: templates/.editorconfig.template
+    target_path: .editorconfig
+    consumers: ["*"]
+  - id: readme
+    source: templates/README.md.template
+    target_path: README.md
+    consumers: [saas-multitenant-baseline]
+  - id: health-route
+    source: templates/app-api-health-route.ts.template
+    target_path: app/api/health/route.ts
+    consumers: [saas-multitenant-baseline]

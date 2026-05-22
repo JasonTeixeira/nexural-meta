@@ -1,0 +1,32 @@
+schema_version: 1
+warehouse: architecture
+version: 0.1.0
+description: Baseline TypeScript + Next.js 15 architecture conventions and emit templates.
+documents:
+  - id: nextjs-15-baseline
+    path: documents/nextjs-15-baseline.md
+    title: Next.js 15 baseline conventions
+    audience: [agents, human]
+    tags: [nextjs, baseline]
+  - id: typescript-strict
+    path: documents/typescript-strict.md
+    title: TypeScript strict-mode discipline
+    audience: [agents, human]
+    tags: [typescript, baseline]
+templates:
+  - id: tsconfig
+    source: templates/tsconfig.json.template
+    target_path: tsconfig.json
+    consumers: ["*"]
+  - id: next-config
+    source: templates/next.config.mjs.template
+    target_path: next.config.mjs
+    consumers: [saas-multitenant-baseline]
+  - id: gitignore
+    source: templates/.gitignore.template
+    target_path: .gitignore
+    consumers: ["*"]
+  - id: vercel-json
+    source: templates/vercel.json.template
+    target_path: vercel.json
+    consumers: [saas-multitenant-baseline]

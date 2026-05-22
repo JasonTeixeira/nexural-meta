@@ -21,7 +21,13 @@
 import type { EmitContext, EmitWarning } from "./types.js";
 import { EmitError } from "./types.js";
 
-const VAR_PATTERN = /\{\{\s*([^{}#/][^{}]*?)\s*\}\}/g;
+// Match only `{{ ident(.ident)*  | default:"..." }}` shapes. Tight by design
+// so JSX inline styles like `style={{ maxWidth: 420 }}` aren't misinterpreted
+// as template substitutions.
+const IDENT = `[a-zA-Z_$][a-zA-Z0-9_$]*`;
+const PATH = `${IDENT}(?:\\.${IDENT})*`;
+const DEFAULT_SUFFIX = `(?:\\s*\\|\\s*default\\s*:\\s*"[^"]*")?`;
+const VAR_PATTERN = new RegExp(`\\{\\{\\s*(${PATH}${DEFAULT_SUFFIX})\\s*\\}\\}`, "g");
 const IF_BLOCK = /\{\{#\s*if\s+([^}]+?)\s*\}\}([\s\S]*?)\{\{\/if\}\}/g;
 const UNLESS_BLOCK = /\{\{#\s*unless\s+([^}]+?)\s*\}\}([\s\S]*?)\{\{\/unless\}\}/g;
 
