@@ -1,5 +1,4 @@
 // @ts-check
-import eslint from "@eslint/js";
 import tseslint from "@typescript-eslint/eslint-plugin";
 import tsparser from "@typescript-eslint/parser";
 import prettierConfig from "eslint-config-prettier";
@@ -20,7 +19,6 @@ export default [
       "@typescript-eslint": tseslint,
     },
     rules: {
-      ...eslint.configs.recommended.rules,
       "no-unused-vars": "off",
       "@typescript-eslint/no-unused-vars": [
         "error",

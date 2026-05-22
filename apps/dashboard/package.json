@@ -1,0 +1,27 @@
+{
+  "name": "@nexural/dashboard",
+  "version": "0.1.0",
+  "description": "Nexural Federation dashboard — Next.js 15 App Router + shadcn/ui + Tailwind v4. Shows registries, scorecard, costs, decay, revocations. Per ARCHITECTURE §4.2.",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "lint": "next lint",
+    "test": "vitest run --passWithNoTests",
+    "typecheck": "tsc --noEmit",
+    "start": "next start",
+    "clean": "rm -rf .next .turbo node_modules/.cache"
+  },
+  "dependencies": {
+    "@nexural/schema": "workspace:^",
+    "next": "^15.1.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "vitest": "^3.2.4"
+  }
+}
