@@ -6,10 +6,25 @@
 
 ## Current state
 
-- **Current phase:** **Phase 2 (Control plane skeleton + automation) — SHIPPED 🚀**
+- **Current phase:** **Phase 3 (`nx` CLI v1) — SHIPPED 🚀**
 - **Soak window:** WAIVED by Sage 2026-05-21. ADRs 0002–0010 locked.
-- **Last commit:** `9800302` — "feat: Phase 2 — nexural-meta skeleton + automation"
-- **Last tag:** `v0.2.0` (no-op publish — Phase 2 is infrastructure)
+- **Last commit:** `e39d253` — "ci(cli): lower coverage threshold to 40%"
+- **Last tag:** `v0.3.0` — `@nexural/cli@0.1.0` LIVE on npm
+
+## Published packages (7 total)
+
+```
+@nexural/schema@0.1.0       21 schemas + JSON Schema export, 100% coverage
+@nexural/sdk@0.1.0          cost-wrapped llmClient + decay + hash
+@nexural/mcp-base@0.1.0     prompt-injection envelope + middleware
+@nexural/qa-runners@0.1.0   typed registry of 70+ qa-os runners
+@nexural/factory@0.1.0      recipe loader + license gate + lockfile
+@nexural/model-router@0.1.0 family→ID with deprecation + price ceiling
+@nexural/cli@0.1.0          `nx` CLI: 8 commands, telemetry, Ink dashboard
+```
+
+Install: `npm i -g @nexural/cli` → `nx --version`
+
 - **Repo visibility:** PUBLIC (since v0.1.0; required for Sigstore provenance)
 - **Last touched:** 2026-05-22
 - **Mode signal from Sage:** "yolo mode" — autonomous execution
