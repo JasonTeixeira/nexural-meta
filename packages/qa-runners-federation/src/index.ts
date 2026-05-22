@@ -1,13 +1,15 @@
 /**
  * @nexural/qa-runners-federation
  *
- * Three federation-specific qa-os runners per ADR-0008:
- *   - federation-conformance (§3) — drift detection in forged apps
- *   - recipe-validity (§4) — recipe shape + nightly forge verification
- *   - prompt-injection-resilience (§2) — content fuzzing against OWASP LLM payloads
+ * Federation-specific qa-os runners:
+ *   - federation-conformance (ADR-0008 §3) — drift detection in forged apps
+ *   - recipe-validity (ADR-0008 §4) — recipe shape + nightly forge verification
+ *   - prompt-injection-resilience (ADR-0008 §2) — content fuzzing
+ *   - golden-set-drift (ADR-0010 §2.9) — eval golden set shape + drift detection
  */
 
 export * from "./types.js";
 export * from "./federation-conformance.js";
 export * from "./recipe-validity.js";
 export * from "./prompt-injection-resilience.js";
+export * from "./golden-set-drift.js";

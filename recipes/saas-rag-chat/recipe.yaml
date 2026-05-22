@@ -1,0 +1,125 @@
+schema_version: 1
+name: saas-rag-chat
+version: 0.1.0
+description: >-
+  Chat product with RAG (Retrieval-Augmented Generation) over user-uploaded
+  documents. Extends saas-multitenant-baseline. pgvector default; Qdrant escape
+  for >1M chunks. Ships a 50-item eval golden set + safety runners pre-wired.
+
+extends: saas-multitenant-baseline
+
+output_license: MIT
+commercial_restricted_ok: false
+
+composes: []
+
+inputs_schema: inputs.zod.ts
+
+# Inherits parent warehouses + adds AI ones (per Phase 6 roster)
+warehouses:
+  # Inherited from parent
+  - architecture
+  - auth
+  - payments
+  - database
+  - storage
+  - email
+  - observability
+  - security
+  - dx
+  - design
+  - accessibility
+  - performance
+  - runbook
+  - billing
+  - multi-tenancy
+  - onboarding
+  - admin
+  - analytics
+  # AI-specific (Phase 6)
+  - agent
+  - rag
+  - eval
+  - prompt
+  - model-routing
+  - safety
+
+services:
+  - id: web
+    runtime: nextjs
+    language: typescript
+    host: vercel
+
+qa_profile: standard
+
+# RAG = LLM-heavy; cost envelope tuned for that workload (per ADR-0007)
+cost_envelope:
+  per_request_p50_usd: 0.005
+  per_request_p99_usd: 0.05
+  monthly_baseline_usd: 25
+  hard_caps:
+    per_request_usd: 0.50
+    per_user_per_day_usd: 5
+    per_app_per_day_usd: 100
+
+# Per ADR-0007 — default chain: Anthropic Opus → OpenAI flagship → Ollama
+model_families:
+  - anthropic:opus
+  - openai:flagship
+  - ollama:llama-large
+
+secrets_required:
+  # Inherits parent secrets
+  - logical_name: supabase-anon-key
+    op_path: op://Nexural/Supabase/anon-key
+    target_file: .env.local
+    target_var: NEXT_PUBLIC_SUPABASE_ANON_KEY
+  - logical_name: supabase-service-role-key
+    op_path: op://Nexural/Supabase/service-role-key
+    target_file: .env.local
+    target_var: SUPABASE_SERVICE_ROLE_KEY
+  - logical_name: stripe-secret-key
+    op_path: op://Nexural/Stripe/secret-key
+    target_file: .env.local
+    target_var: STRIPE_SECRET_KEY
+  - logical_name: stripe-webhook-secret
+    op_path: op://Nexural/Stripe/webhook-secret
+    target_file: .env.local
+    target_var: STRIPE_WEBHOOK_SECRET
+  - logical_name: resend-api-key
+    op_path: op://Nexural/Resend/api-key
+    target_file: .env.local
+    target_var: RESEND_API_KEY
+  - logical_name: sentry-dsn
+    op_path: op://Nexural/Sentry/dsn
+    target_file: .env.local
+    target_var: NEXT_PUBLIC_SENTRY_DSN
+  - logical_name: posthog-api-key
+    op_path: op://Nexural/PostHog/api-key
+    target_file: .env.local
+    target_var: NEXT_PUBLIC_POSTHOG_KEY
+  # AI-specific
+  - logical_name: anthropic-api-key
+    op_path: op://Nexural/Anthropic/api-key
+    target_file: .env.local
+    target_var: ANTHROPIC_API_KEY
+  - logical_name: openai-api-key
+    op_path: op://Nexural/OpenAI/api-key
+    target_file: .env.local
+    target_var: OPENAI_API_KEY
+  - logical_name: cohere-api-key # optional rerank
+    op_path: op://Nexural/Cohere/api-key
+    target_file: .env.local
+    target_var: COHERE_API_KEY
+
+emit:
+  template_path: templates/
+  pre_emit_hooks: []
+  post_emit_hooks: []
+
+threat_model_path: THREAT_MODEL.md
+decisions_path: DECISIONS.md
+
+forge_sandbox:
+  ignore_scripts: true
+  allowed_postinstalls: []

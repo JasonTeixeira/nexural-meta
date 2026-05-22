@@ -1,0 +1,2 @@
+Templates inherit from saas-rag-chat/templates/ with Qdrant client substituted
+for pgvector. Phase 5.5/6.5 polish populates these specific overrides.

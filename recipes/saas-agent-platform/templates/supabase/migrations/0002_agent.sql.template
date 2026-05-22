@@ -1,0 +1,95 @@
+-- {{appName}} — agent platform schema (additive to parent's 0001_init.sql).
+
+-- ============================================================================
+-- Agent invocations (one row per agent run)
+-- ============================================================================
+
+create table public.agent_invocations (
+  id uuid primary key default gen_random_uuid(),
+  tenant_id uuid not null references public.tenants(id) on delete cascade,
+  user_id uuid not null references auth.users(id),
+  agent_name text not null,
+  initial_prompt text not null,
+  status text not null default 'running' check (status in ('running','completed','stopped','errored')),
+  termination_reason text,
+  step_count int4 not null default 0,
+  total_cost_usd numeric(10, 6) not null default 0,
+  started_at timestamptz not null default now(),
+  ended_at timestamptz
+);
+
+create index idx_invocations_tenant on public.agent_invocations (tenant_id, started_at desc);
+create index idx_invocations_user on public.agent_invocations (user_id, started_at desc);
+
+alter table public.agent_invocations enable row level security;
+create policy invocations_tenant on public.agent_invocations for all
+  using (
+    exists (
+      select 1 from public.tenant_memberships
+      where tenant_id = agent_invocations.tenant_id and user_id = auth.uid()
+    )
+  );
+
+-- ============================================================================
+-- Per-step observations (per recipe DECISIONS.md — full audit trail)
+-- ============================================================================
+
+create table public.agent_observations (
+  id uuid primary key default gen_random_uuid(),
+  agent_invocation_id uuid not null references public.agent_invocations(id) on delete cascade,
+  tenant_id uuid not null references public.tenants(id) on delete cascade,
+  step_index int4 not null,
+  step_data jsonb not null,           -- {prompt, model, tool_calls, responses}
+  cost_usd numeric(10, 6),
+  latency_ms int4,
+  created_at timestamptz not null default now(),
+  unique (agent_invocation_id, step_index)
+);
+
+create index idx_obs_invocation on public.agent_observations (agent_invocation_id, step_index);
+
+alter table public.agent_observations enable row level security;
+create policy obs_tenant on public.agent_observations for all
+  using (
+    exists (
+      select 1 from public.tenant_memberships
+      where tenant_id = agent_observations.tenant_id and user_id = auth.uid()
+    )
+  );
+
+-- ============================================================================
+-- Tool-call audit (per ADR-0010 §2.10 — every call recorded)
+-- ============================================================================
+
+create table public.tool_call_audit (
+  id uuid primary key default gen_random_uuid(),
+  agent_invocation_id uuid not null references public.agent_invocations(id) on delete cascade,
+  tenant_id uuid not null references public.tenants(id) on delete cascade,
+  user_id uuid not null references auth.users(id),
+  tool_name text not null,
+  args jsonb not null,
+  status text not null check (status in ('approved','rejected','out-of-whitelist','schema-fail','confirm-declined')),
+  rejection_reason text,
+  result jsonb,
+  duration_ms int4,
+  created_at timestamptz not null default now()
+);
+
+create index idx_tool_audit_invocation on public.tool_call_audit (agent_invocation_id);
+create index idx_tool_audit_security on public.tool_call_audit (tenant_id, status, created_at desc)
+  where status in ('out-of-whitelist','schema-fail');
+
+-- Immutable per parent recipe's audit log pattern
+create trigger prevent_tool_audit_mutation
+  before update or delete on public.tool_call_audit
+  for each row execute function public.prevent_audit_mutation();
+
+alter table public.tool_call_audit enable row level security;
+create policy tool_audit_tenant on public.tool_call_audit for select
+  using (
+    exists (
+      select 1 from public.tenant_memberships
+      where tenant_id = tool_call_audit.tenant_id and user_id = auth.uid()
+        and role in ('owner', 'admin')
+    )
+  );

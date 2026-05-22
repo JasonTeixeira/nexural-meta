@@ -1,0 +1,104 @@
+schema_version: 1
+name: saas-rag-chat-openai-first
+version: 0.1.0
+description: >-
+  OpenAI-primary variant of saas-rag-chat. Same architecture, different model
+  chain. Use when Anthropic is unavailable or OpenAI's specific capabilities
+  (e.g. structured outputs, function calling primitives) are needed.
+  Per ADR-0008 §6.
+
+extends: saas-rag-chat
+
+output_license: MIT
+commercial_restricted_ok: false
+
+composes: []
+
+inputs_schema: inputs.zod.ts
+
+warehouses:
+  - architecture
+  - auth
+  - payments
+  - database
+  - storage
+  - email
+  - observability
+  - security
+  - dx
+  - design
+  - accessibility
+  - performance
+  - runbook
+  - billing
+  - multi-tenancy
+  - onboarding
+  - admin
+  - analytics
+  - agent
+  - rag
+  - eval
+  - prompt
+  - model-routing
+  - safety
+
+services:
+  - id: web
+    runtime: nextjs
+    language: typescript
+    host: vercel
+
+qa_profile: standard
+
+cost_envelope:
+  per_request_p50_usd: 0.003
+  per_request_p99_usd: 0.03
+  monthly_baseline_usd: 20
+  hard_caps:
+    per_request_usd: 0.30
+    per_user_per_day_usd: 5
+    per_app_per_day_usd: 100
+
+# Model chain flipped — OpenAI first
+model_families:
+  - openai:flagship
+  - anthropic:opus
+  - ollama:llama-large
+
+secrets_required:
+  - logical_name: supabase-anon-key
+    op_path: op://Nexural/Supabase/anon-key
+    target_file: .env.local
+    target_var: NEXT_PUBLIC_SUPABASE_ANON_KEY
+  - logical_name: supabase-service-role-key
+    op_path: op://Nexural/Supabase/service-role-key
+    target_file: .env.local
+    target_var: SUPABASE_SERVICE_ROLE_KEY
+  - logical_name: stripe-secret-key
+    op_path: op://Nexural/Stripe/secret-key
+    target_file: .env.local
+    target_var: STRIPE_SECRET_KEY
+  - logical_name: resend-api-key
+    op_path: op://Nexural/Resend/api-key
+    target_file: .env.local
+    target_var: RESEND_API_KEY
+  - logical_name: openai-api-key
+    op_path: op://Nexural/OpenAI/api-key
+    target_file: .env.local
+    target_var: OPENAI_API_KEY
+  - logical_name: anthropic-api-key
+    op_path: op://Nexural/Anthropic/api-key
+    target_file: .env.local
+    target_var: ANTHROPIC_API_KEY
+
+emit:
+  template_path: templates/
+  pre_emit_hooks: []
+  post_emit_hooks: []
+
+threat_model_path: THREAT_MODEL.md
+decisions_path: DECISIONS.md
+
+forge_sandbox:
+  ignore_scripts: true
+  allowed_postinstalls: []

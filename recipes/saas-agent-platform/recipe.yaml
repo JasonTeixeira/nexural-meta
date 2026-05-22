@@ -1,0 +1,110 @@
+schema_version: 1
+name: saas-agent-platform
+version: 0.1.0
+description: >-
+  Agent-as-a-service product. Extends saas-multitenant-baseline. Custom agent
+  orchestration on Vercel AI SDK with a Zod-typed tool registry, tool-call
+  whitelisting (per ADR-0010 §2.10), golden + adversarial eval loop, and
+  observation persistence in Postgres jsonb.
+
+extends: saas-multitenant-baseline
+
+output_license: MIT
+commercial_restricted_ok: false
+
+composes: []
+
+inputs_schema: inputs.zod.ts
+
+warehouses:
+  # Inherited
+  - architecture
+  - auth
+  - payments
+  - database
+  - storage
+  - email
+  - observability
+  - security
+  - dx
+  - design
+  - accessibility
+  - performance
+  - runbook
+  - billing
+  - multi-tenancy
+  - onboarding
+  - admin
+  - analytics
+  # AI-specific
+  - agent
+  - rag
+  - eval
+  - prompt
+  - model-routing
+  - safety
+
+services:
+  - id: web
+    runtime: nextjs
+    language: typescript
+    host: vercel
+
+qa_profile: standard
+
+# Agents = unbounded LLM calls. Tighter caps + circuit breaker discipline.
+cost_envelope:
+  per_request_p50_usd: 0.02
+  per_request_p99_usd: 0.5
+  monthly_baseline_usd: 50
+  hard_caps:
+    per_request_usd: 1.00 # single agent invocation cap
+    per_user_per_day_usd: 10
+    per_app_per_day_usd: 200
+
+model_families:
+  - anthropic:opus
+  - openai:flagship
+  - ollama:llama-large
+
+secrets_required:
+  - logical_name: supabase-anon-key
+    op_path: op://Nexural/Supabase/anon-key
+    target_file: .env.local
+    target_var: NEXT_PUBLIC_SUPABASE_ANON_KEY
+  - logical_name: supabase-service-role-key
+    op_path: op://Nexural/Supabase/service-role-key
+    target_file: .env.local
+    target_var: SUPABASE_SERVICE_ROLE_KEY
+  - logical_name: stripe-secret-key
+    op_path: op://Nexural/Stripe/secret-key
+    target_file: .env.local
+    target_var: STRIPE_SECRET_KEY
+  - logical_name: stripe-webhook-secret
+    op_path: op://Nexural/Stripe/webhook-secret
+    target_file: .env.local
+    target_var: STRIPE_WEBHOOK_SECRET
+  - logical_name: resend-api-key
+    op_path: op://Nexural/Resend/api-key
+    target_file: .env.local
+    target_var: RESEND_API_KEY
+  - logical_name: anthropic-api-key
+    op_path: op://Nexural/Anthropic/api-key
+    target_file: .env.local
+    target_var: ANTHROPIC_API_KEY
+  - logical_name: openai-api-key
+    op_path: op://Nexural/OpenAI/api-key
+    target_file: .env.local
+    target_var: OPENAI_API_KEY
+
+emit:
+  template_path: templates/
+  pre_emit_hooks: []
+  post_emit_hooks: []
+
+threat_model_path: THREAT_MODEL.md
+decisions_path: DECISIONS.md
+
+forge_sandbox:
+  ignore_scripts: true
+  allowed_postinstalls: []
