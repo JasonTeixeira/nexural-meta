@@ -6,152 +6,121 @@
 
 ## Current state
 
-- **Current phase:** **0 (Constitution + ADRs) — COMPLETE; PRE_FLIGHT walked mechanically**
+- **Current phase:** **Phase 1 (Shared Foundations) — CODE COMPLETE; awaiting Sage confirmation to push + tag**
 - **Soak window:** WAIVED by Sage 2026-05-21. ADRs 0002–0010 locked.
-- **Last tag:** none (no code yet; first tag `v0.1.0` lands at Phase 1 completion)
-- **Last touched:** 2026-05-22 (AI yolo-mode pre-flight walkthrough)
-- **Mode signal from Sage:** "yolo mode when you can" + "go into yolo mode real quick so you can work without me"
-- **Plan locked 2026-05-22:** Sage will complete 4 interactive PRE_FLIGHT items tonight; Phase 1 begins this weekend.
+- **Last commit:** `c4e85c1` — "feat: Phase 0 + Phase 1 — constitution + @nexural/\* packages v0.1.0"
+- **Last tag:** none (`v0.1.0` tag awaits GitHub repo creation + push)
+- **Last touched:** 2026-05-22
+- **Mode signal from Sage:** "yolo mode" — autonomous execution + Phase 1 go signal received
 
-## Sage's commitment (logged 2026-05-22)
+## Phase 1 deliverables — STATUS
 
-- [ ] Tonight: 4 interactive items (gh ssh signing scope; op signin; FileVault on; YubiKey passkey check on github.com)
-- [ ] This weekend: Phase 1 begins — AI scaffolds pnpm workspace + 6 @nexural/\* packages
+### Workspace + tooling ✅
 
-When 4 interactive items complete, Sage appends below this section:
+- pnpm workspace + Turborepo + TypeScript strict + vitest + tsup + ESLint + Prettier + changesets
+- `.npmrc` with `enable-pre-post-scripts=false` (forge sandbox baseline per ADR-0009 §1.7)
+- `eslint.config.js` enforces no-any + no-TODO + unused-var
+- `tsconfig.base.json` with `exactOptionalPropertyTypes` + `noUncheckedIndexedAccess`
 
-```
-pre_flight: complete YYYY-MM-DD
-proceed_to_phase_1: true
-```
+### Six @nexural/\* packages — all green ✅
 
-## What got done autonomously this session (2026-05-22)
+| Package | Version | Tests | Notes |
+| --- | --- | --- | --- |
+| @nexural/schema | 0.1.0 | 299 (100% coverage) | 21 canonical schemas + JSON Schema exports |
+| @nexural/sdk | 0.1.0 | 20 | streaming cost-wrapped llmClient + checkDecay + sha256Hex |
+| @nexural/mcp-base | 0.1.0 | 17 | `<warehouse_content>` envelope + middleware tool handler |
+| @nexural/qa-runners | 0.1.0 | 8 | typed runner registry incl. 5 new federation runners |
+| @nexural/factory | 0.1.0 | 36 | recipe loader + license gate + typosquat + lockfile builder + revocation |
+| @nexural/model-router | 0.1.0 | 21 | family→ID with deprecation + price ceiling |
+| **TOTAL** | | **401 tests, 0 failing** | |
 
-### Constitution + Phase 0
+### Build artifacts ✅
 
-- ✅ `SUCCESSION.md` merged from `~/Downloads/SUCCESSION (1).txt` — placeholder replaced with 568 lines of canonical content (Sage's source)
-- ✅ All Phase 0 docs in place (24 files, ~6,800+ lines)
+- `pnpm build` ⚡️ 6 packages compile clean
+- `pnpm typecheck` ⚡️ 9 tasks succeed
+- `pnpm test` ⚡️ 401 tests pass
+- `pnpm format:check` ⚡️ all green
 
-### Pre-flight walkthrough (mechanical items)
+### CI ✅
 
-- ✅ All available CLI tools verified
-- ✅ Installed via Homebrew: **age v1.3.1, sops 3.13.1, age-plugin-yubikey 0.5.1, rclone 1.74.1, cosign 3.0.6, op 2.34.0**
-- ✅ Verified: pnpm 10.17.0, gh 2.86.0 (logged in as JasonTeixeira), terraform 1.9.8, git 2.50.1, jq 1.7.1, npm 10.8.2, brew 5.1.13
-- ✅ Confirmed: `~/code/nexural/nexural-meta/` populated; `nexural-qa-os` cloned at `~/code/nexural/nexural-qa-os/`
-- ✅ Confirmed: `~/code/nexural/` is NOT inside iCloud sync paths (no com.apple.cloud xattrs)
-- ✅ Confirmed: `~/.nexural/` does not exist yet (correct; created by Phase 2 bootstrap)
-- ✅ Confirmed: 231 GiB free disk space
-- ✅ PRE_FLIGHT.md updated with full mechanical findings + clear red/yellow/green for Sage
+- `.github/workflows/ci.yml`: install, typecheck, lint, test:coverage (with artifact upload), build, changeset-gate (PR-only), sbom-dry-run, sigstore-dry-run
+- `.github/workflows/publish.yml`: gated on `v*.*.*` tag; OIDC publish via changesets with provenance; cosign installer; SBOM attached to GitHub Release
+- `.github/PULL_REQUEST_TEMPLATE.md`: enforces ADR-0006/0007 + tests + changeset checklist
+- `README.md` at repo root
 
-## OUTSTANDING — Sage to do (Phase-1-blocking)
+## OUTSTANDING — Sage actions to complete Phase 1
 
-### Tier 1 — Sage-only interactive items (Phase-1-blocking)
+### Tier 1 — interactive prereqs (still outstanding from 2026-05-22 session)
 
-1. **GitHub SSH signing scope**: `gh auth refresh -h github.com -s admin:ssh_signing_key` (opens browser)
-2. **1Password CLI signin**: `op signin` (opens browser, links CLI to your account)
-3. **FileVault**: System Settings → Privacy & Security → FileVault → Turn On. **CRITICAL — currently OFF.**
-4. **YubiKey passkey verification** on GitHub: log in, Settings → Password and authentication → Passkeys → confirm both keys
+1. `gh auth refresh -h github.com -s admin:ssh_signing_key`
+2. `op signin`
+3. FileVault — Turn On
+4. YubiKey passkey check on github.com
 
-### Already done by AI this session (no Sage action)
+### Tier 2 — Phase-1-specific gates
 
-- ✅ Node 22 LTS pinned (v22.22.3 via brew + .bash_profile)
-- ✅ corepack enabled; pnpm 10.17.0 active under node@22
-- ✅ Installed: age, sops, age-plugin-yubikey, rclone, cosign, op
-- ✅ EDITOR="code -w" set in .bash_profile
-- ✅ SUCCESSION.md merged (568 lines, Sage's source)
-- ✅ PRE_FLIGHT walked mechanically; all verifiable items marked
+5. **Confirm GitHub repo creation** (IRREVERSIBLE) — Sage approval needed for:
+   ```
+   gh repo create JasonTeixeira/nexural-meta --private
+   git remote add origin https://github.com/JasonTeixeira/nexural-meta.git
+   git push -u origin main
+   ```
+6. **Configure GitHub Actions Secrets** before publish workflow can fire:
+   - `NPM_TOKEN` (optional — OIDC is preferred; only needed if changesets:publish can't use OIDC)
+   - B2 keys (for backup workflow — Phase 2)
+7. **Configure npm @nexural org** if not already created
+8. **Confirm tag + publish** (IRREVERSIBLE) — Sage approval needed for `git tag v0.1.0 && git push origin v0.1.0`
+   - This triggers `.github/workflows/publish.yml` → packages auto-publish to npm
 
-### Tier 2 — Account creation / purchases
+### Tier 3 — accounts/purchases (still outstanding, Phase 2+ blocking)
 
-7. Backblaze B2 account + `nexural-public-backup` bucket + application key
-8. Cloudflare account + DNS for `nexural.dev`
-9. `nexural.dev` domain registration ≥ 5 years
-10. Anthropic API key with $200/mo cap
-11. OpenAI API key with $50/mo cap
-12. Resend account (or defer to Phase 4)
-13. Vercel account
-14. Supabase account
-15. Stripe account (test mode initially)
-16. Sentry account (free tier)
-17. PostHog account (free tier)
-18. **Two YubiKey 5C NFC keys** (order from yubico.com, ~$60 each)
+- B2 account + bucket
+- Cloudflare account + `nexural.dev` DNS
+- `nexural.dev` domain registration
+- Anthropic, OpenAI, Resend, Vercel, Supabase, Stripe, Sentry, PostHog accounts
+- Two YubiKey 5C NFC keys
 
-### Tier 3 — Security hygiene (recommended; not strict Phase-1 blocker)
+## Verification (per VERIFICATION.md §1)
 
-- DNS → 1.1.1.1 or NextDNS (currently 192.168.0.1)
-- macOS firewall enabled
-- Separate browser profile for `nexural-admin`
-- Dedicated recovery email confirmed in 1Password
+| Criterion | Status | Notes |
+| --- | --- | --- |
+| All 6 packages publishable | ⏳ pending push + tag | code is ready; awaiting Sage confirmation |
+| Every schema ≥5 invalid fixtures | ✅ | inline named cases per VERIFICATION.md §1 |
+| Schema test coverage 100% | ✅ | verified via vitest --coverage |
+| SDK coverage ≥70% | ✅ | currently 80% threshold |
+| tsc --noEmit clean | ✅ | turbo `typecheck` 9 successful |
+| Lint + format green | ✅ | `pnpm format:check` clean |
+| JSON Schema exports | ✅ | 21 .json files in dist/json-schema/ |
+| No `z.any()` / `z.unknown()` in src | ✅ | grep returns 0 |
+| No `as any` / `as unknown` in src | ✅ | grep returns 0 |
+| Every package engines.node ≥22 | ✅ | inherited from root |
+| Changesets config present | ✅ | `.changeset/config.json` |
+| CI sigstore dry-run wired | ✅ | `.github/workflows/ci.yml` `sigstore-dry-run` job |
+| SBOM generation wired | ✅ | `.github/workflows/ci.yml` `sbom-dry-run` job |
+| `llmClient()` cost-cap enforced | ✅ | 20 tests covering happy path + 3 cap types + streaming abort |
+| `@nexural/factory` verifies signature + license gate | ✅ | logic implemented; cosign shell-out in Phase 3 (nx CLI) |
+| `@nexural/model-router` initial registry | ✅ | Anthropic, OpenAI, Ollama families |
+| Property-based tests via fast-check | ✅ | primitives.test.ts |
 
-### Tier 4 — Reading confirmation
+## Next session start (assumes Sage confirms gh repo create + tag)
 
-- Confirm ADRs 0001–0010 read end-to-end
-- Confirm BUILD_PLAN v2.1 read
-- Confirm VERIFICATION.md skimmed
-
-## Phase 0 deliverables — FINAL STATUS
-
-### Canonical constitution docs (in `docs/`)
-
-- [x] ARCHITECTURE.md v1.1 (with §15 four-layer model)
-- [x] THREAT_MODEL.md v1.1 (with §11 prompt-injection + §12 tier confinement)
-- [x] SCHEMA_CHARTER.md v1.1 (with §13 referencing SCHEMA_AMENDMENTS.md)
-- [x] NAMING.md v1.1 (with §15 topic taxonomy)
-- [x] RETIREMENT.md v1.0
-- [x] **SUCCESSION.md v1.0 — REAL CONTENT (568 lines, Sage's source)**
-
-### Build/operational docs (in `docs/`)
-
-- [x] BUILD_PLAN.md v2.1 (19–22 weekends; entry minimums ≥3; nx new in Phase 5)
-- [x] VERIFICATION.md v1.0 (9 phases, mechanical gates)
-- [x] PRE_FLIGHT.md v1.1 (mechanically walked 2026-05-22; CLI tools installed; Sage actions clearly red-flagged)
-- [x] INDEX.md v1.0
-- [x] SCHEMA_AMENDMENTS.md v1.0
-- [x] OPS_CALENDAR.md v1.0
-- [x] POST_V1_BACKLOG.md v1.0
-- [x] STATE.md (this file)
-
-### ADRs (in `docs/adr/`)
-
-- [x] 0001 through 0010 — all 10 present
-
-**TOTAL: 24 files, 6,800+ lines locked institutional-grade Phase 0 artifacts.**
-
-## Next session start (Phase 1)
-
-Once Tier 1 + Tier 2 outstanding items are green AND Sage signs off:
-
-1. `git init` in `/Users/Sage/code/nexural/nexural-meta/`
-2. Initial commit of all Phase 0 docs
-3. **One Sage confirmation**: `gh repo create JasonTeixeira/nexural-meta --private`
-4. Scaffold pnpm workspace + Turborepo at `packages/`
-5. Build `@nexural/schema` (primitives → meta → frontmatter → index → mcp → telemetry → recipe-family → external-mcp → model-router → revocation)
-6. Build `@nexural/sdk`, `@nexural/mcp-base`, `@nexural/qa-runners`, `@nexural/factory`, `@nexural/model-router`
-7. Tests: 100% schema coverage + property-based via fast-check + ≥5 invalid fixtures
-8. CI: changesets + vitest + tsup + eslint + prettier + tsc + Sigstore dry-run + SBOM
-9. **One Sage confirmation**: tag `v0.1.0` (auto-publishes packages via GitHub Actions OIDC)
-
-Estimated: 1–2 weekends of focused work.
+1. **CONFIRM with Sage**: `gh repo create JasonTeixeira/nexural-meta --private --source=. --remote=origin --push`
+2. **CONFIRM with Sage**: `git tag v0.1.0 && git push origin v0.1.0` → triggers publish workflow
+3. Verify packages publish via OIDC: `npm view @nexural/schema dist.tarball`
+4. After v0.1.0 lands: begin Phase 2 — `nexural-meta` skeleton + automation (BUILD_PLAN §Phase 2)
 
 ## Soak waivers (per ADR-0009 §1.10 — ≤2 per quarter)
 
-| Date       | What was waived              | Reason                 |
-| ---------- | ---------------------------- | ---------------------- |
+| Date | What was waived | Reason |
+| --- | --- | --- |
 | 2026-05-21 | 7-day soak on ADRs 0002–0010 | Sage explicit override |
 
 (2026-Q2 waiver count: 1)
-
-## Notes
-
-- All Phase 0 docs are LOCAL DRAFTS. No git repo yet. No GitHub repo yet. No npm package published.
-- ai-warehouse stays separate per ADR-0005 — federated as external MCP.
-- nexural-qa-os exists at v1.0.0 AND is now cloned locally at `~/code/nexural/nexural-qa-os/` (good — Phase 2 bootstrap path verified).
-- Personal/strategic warehouses split into parallel `nexural-lifeops` federation per ADR-0003.
-- AI installed system-level CLI tools via Homebrew (age, sops, age-plugin-yubikey, rclone, cosign, op). These are reversible via `brew uninstall` if needed.
 
 ## History
 
 History rotates weekly into `STATE.history.md`. Recent entries:
 
-- **2026-05-22:** Yolo-mode pre-flight walkthrough. SUCCESSION.md merged from Downloads. Installed 6 missing CLIs via brew (age, sops, age-plugin-yubikey, rclone, cosign, op). PRE_FLIGHT.md updated with mechanical findings. Found 1 critical security gap (FileVault off) and 6 Tier-1 Sage-only fast-path items. Phase 0 verifiably complete except for Sage's hardware/account/personal items.
-- **2026-05-21:** Phase 0 docs drafted. ADRs 0002–0010 + BUILD_PLAN v2.1 + VERIFICATION + INDEX + PRE_FLIGHT + SCHEMA_AMENDMENTS + OPS_CALENDAR + POST_V1_BACKLOG + SUCCESSION placeholder. Soak waived. Yolo signal received.
+- **2026-05-22:** Phase 1 code complete. 6 @nexural/\* packages built + tested locally. 401 tests passing. CI workflows written. Initial commit `c4e85c1` on `main`. Awaiting Sage confirmation for GitHub repo creation + tag v0.1.0.
+- **2026-05-22 (earlier):** Yolo-mode pre-flight walkthrough. SUCCESSION.md merged. Installed 6 CLIs via brew + node@22. PRE_FLIGHT.md updated with mechanical findings.
+- **2026-05-21:** Phase 0 docs drafted — 10 ADRs + 6 canonical docs + BUILD_PLAN v2.1 + VERIFICATION + INDEX + PRE_FLIGHT + SCHEMA_AMENDMENTS + OPS_CALENDAR + POST_V1_BACKLOG. Soak waived.
