@@ -6,10 +6,37 @@
 
 ## Current state
 
-- **Current phase:** **Phase 3 (`nx` CLI v1) — SHIPPED 🚀**
+- **Current phase:** **Phase 4 (MCP router + dashboard + LLM adapter) — SHIPPED 🚀**
 - **Soak window:** WAIVED by Sage 2026-05-21. ADRs 0002–0010 locked.
-- **Last commit:** `e39d253` — "ci(cli): lower coverage threshold to 40%"
-- **Last tag:** `v0.3.0` — `@nexural/cli@0.1.0` LIVE on npm
+- **Last commit:** `e30d29a` — "feat: Phase 4 — MCP router + dashboard + LLM adapter v0.1.0"
+- **Last tag:** `v0.4.0`
+
+## Phase 4 deliverables ✅
+
+### apps/router/ — @nexural/router
+
+- Registry loader for factory + lifeops + external-mcp (ADRs 0003, 0005)
+- Synthesis pipeline (ARCHITECTURE §5.1):
+  - Tier confinement filter (ADR-0009 §1.9)
+  - 32k token-budget trim by relevance (ADR-0010 §2.5)
+  - `<warehouse_content>` envelope wrapping (ADR-0008 §1)
+  - Citation validation + hallucinated-citation stripping (ADR-0008 §1)
+- Multi-provider LLM adapter (Anthropic + OpenAI + Ollama) conforming to `@nexural/sdk` `ProviderCaller`
+- Streaming-aware via `@nexural/sdk.llmClient` cost wrapper (ADRs 0007, 0010 §2.4)
+- `nexural-router` binary scaffold — full child-spawn loop unlocks once Phase 5 warehouse MCPs exist
+- 34 router tests passing
+
+### apps/dashboard/ — @nexural/dashboard
+
+- Next.js 15 + React 18 + App Router + dark theme baseline
+- 5 pages: `/`, `/factory`, `/lifeops`, `/scorecard`, `/security/revocations`
+- Server-side reads of registries + `scorecard.json` + `revoked-recipes.yaml`
+- Run locally: `pnpm --filter @nexural/dashboard dev` → http://localhost:3000
+
+### Workspace state
+
+- 11 packages typecheck clean
+- 455+ tests passing across schema/sdk/mcp-base/qa-runners/factory/model-router/cli/router
 
 ## Published packages (7 total)
 
