@@ -16,6 +16,7 @@ import { runOpen } from "../commands/open.js";
 import { runPlay } from "../commands/play.js";
 import { runSessionSave } from "../commands/session.js";
 import { runSync } from "../commands/sync.js";
+import { runVerify } from "../commands/verify.js";
 
 const program = new Command();
 const config = loadConfig();
@@ -97,6 +98,27 @@ program
           ...(opts.force !== undefined ? { force: opts.force } : {}),
           ...(opts.outDir !== undefined ? { outDir: opts.outDir } : {}),
           ...(opts.mockSecrets !== undefined ? { mockSecrets: opts.mockSecrets } : {}),
+        }),
+      );
+    },
+  );
+
+program
+  .command("verify <url>")
+  .description("Smoke-check a deployed app (ADR-0011 gate 5)")
+  .option("--evidence-slug <slug>", "write JSON report to evidence/gate-5/<slug>/")
+  .option("--skip-health", "skip /api/health check")
+  .option("--timeout <ms>", "per-request timeout in milliseconds", "10000")
+  .action(
+    async (
+      url: string,
+      opts: { evidenceSlug?: string; skipHealth?: boolean; timeout?: string },
+    ) => {
+      await withTelemetry(config, "verify", [url, opts.evidenceSlug ?? ""], () =>
+        runVerify(config, url, {
+          ...(opts.evidenceSlug !== undefined ? { evidenceSlug: opts.evidenceSlug } : {}),
+          ...(opts.skipHealth !== undefined ? { skipHealth: opts.skipHealth } : {}),
+          ...(opts.timeout !== undefined ? { timeoutMs: parseInt(opts.timeout, 10) } : {}),
         }),
       );
     },
