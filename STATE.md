@@ -6,12 +6,26 @@
 
 ## Current state
 
-- **Current phase:** **Phase 1 (Shared Foundations) — CODE COMPLETE; awaiting Sage confirmation to push + tag**
+- **Current phase:** **Phase 1 (Shared Foundations) — SHIPPED 🚀**
 - **Soak window:** WAIVED by Sage 2026-05-21. ADRs 0002–0010 locked.
-- **Last commit:** `c4e85c1` — "feat: Phase 0 + Phase 1 — constitution + @nexural/\* packages v0.1.0"
-- **Last tag:** none (`v0.1.0` tag awaits GitHub repo creation + push)
+- **Last commit:** `79b7035` — "feat(packaging): add repository + homepage + bugs to all @nexural/\* package.json"
+- **Last tag:** **`v0.1.0` LIVE on npm** (2026-05-22)
+- **Repo visibility:** PUBLIC (flipped from private at v0.1.0 to enable Sigstore provenance per ADR-0006)
 - **Last touched:** 2026-05-22
-- **Mode signal from Sage:** "yolo mode" — autonomous execution + Phase 1 go signal received
+- **Mode signal from Sage:** "yolo mode" — autonomous execution + Phase 1 shipped
+
+## v0.1.0 — PUBLISHED with SLSA Provenance ✅
+
+All 6 packages live on npm with SLSA Provenance v1 attestations:
+
+- ✅ [@nexural/schema@0.1.0](https://www.npmjs.com/package/@nexural/schema)
+- ✅ [@nexural/sdk@0.1.0](https://www.npmjs.com/package/@nexural/sdk)
+- ✅ [@nexural/mcp-base@0.1.0](https://www.npmjs.com/package/@nexural/mcp-base)
+- ✅ [@nexural/qa-runners@0.1.0](https://www.npmjs.com/package/@nexural/qa-runners)
+- ✅ [@nexural/factory@0.1.0](https://www.npmjs.com/package/@nexural/factory)
+- ✅ [@nexural/model-router@0.1.0](https://www.npmjs.com/package/@nexural/model-router)
+
+GitHub Release: https://github.com/JasonTeixeira/nexural-meta/releases/tag/v0.1.0 (SBOM attached).
 
 ## Phase 1 deliverables — STATUS
 
