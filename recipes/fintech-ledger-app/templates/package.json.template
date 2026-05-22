@@ -1,0 +1,42 @@
+{
+  "name": "{{appName}}",
+  "version": "0.0.0",
+  "private": true,
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "lint": "next lint",
+    "db:migrate": "supabase migration up",
+    "db:reset": "supabase db reset",
+    "stripe:listen": "stripe listen --forward-to localhost:3000/api/stripe/webhook",
+    "reconcile": "tsx scripts/reconcile.ts"
+  },
+  "dependencies": {
+    "@sentry/nextjs": "^8.50.0",
+    "@supabase/ssr": "^0.5.2",
+    "@supabase/supabase-js": "^2.48.1",
+    "next": "^15.1.4",
+    "posthog-js": "^1.205.0",
+    "posthog-node": "^4.4.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "resend": "^4.1.1",
+    "stripe": "^17.5.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "eslint": "^9.18.0",
+    "eslint-config-next": "^15.1.4",
+    "prettier": "^3.4.2",
+    "supabase": "^2.0.0",
+    "typescript": "^5.7.3",
+    "vitest": "^3.2.4"
+  }
+}

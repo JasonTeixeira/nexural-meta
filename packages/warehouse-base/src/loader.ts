@@ -144,17 +144,24 @@ export function readDocument(warehouse: LoadedWarehouse, documentId: string): Lo
 }
 
 /**
- * Filter a warehouse's templates by recipe name. Returns templates whose
- * `consumers` either includes the given recipe or contains the wildcard
- * "*". Used by `nx forge` to compose per-recipe template sets across many
- * warehouses.
+ * Filter a warehouse's templates by recipe name(s). Returns templates whose
+ * `consumers` includes any of the given names, OR contains the wildcard
+ * "*". Pass an array to include extends-chain parents — a recipe inherits
+ * its parent's eligible templates.
+ *
+ * Accepts a string for backwards compat (Phase 6.5) or string[] for
+ * extends-aware filtering (Phase 7+).
  */
-export function templatesForRecipe(warehouse: LoadedWarehouse, recipeName: string): TemplateFile[] {
+export function templatesForRecipe(
+  warehouse: LoadedWarehouse,
+  recipeNames: string | ReadonlyArray<string>,
+): TemplateFile[] {
+  const names = Array.isArray(recipeNames) ? recipeNames : [recipeNames as string];
   return warehouse.templates.filter((tpl) => {
-    // Re-look up the manifest entry; we need access to the consumers list.
     const declared = warehouse.manifest.templates.find((t) => t.target_path === tpl.targetPath);
     if (!declared) return false;
     if (declared.consumers.length === 0) return false;
-    return declared.consumers.includes("*") || declared.consumers.includes(recipeName);
+    if (declared.consumers.includes("*")) return true;
+    return names.some((n) => declared.consumers.includes(n));
   });
 }

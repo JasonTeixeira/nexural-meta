@@ -1,0 +1,90 @@
+-- {{appName}} — admin role + RBAC schema.
+-- Applies AFTER 0001_init.sql and 0002_billing.sql.
+
+create type public.admin_role as enum ('super_admin', 'admin', 'viewer');
+
+create table public.admin_users (
+  user_id uuid primary key references auth.users(id) on delete cascade,
+  role public.admin_role not null,
+  granted_by uuid references auth.users(id),
+  granted_at timestamptz not null default now(),
+  revoked_at timestamptz
+);
+
+create index idx_admin_users_active on public.admin_users (user_id) where revoked_at is null;
+
+-- ============================================================================
+-- Bulk-action audit (per internal-tool-dashboard DECISIONS.md)
+-- ============================================================================
+
+create table public.admin_bulk_actions (
+  id uuid primary key default gen_random_uuid(),
+  acted_by uuid not null references auth.users(id),
+  action text not null,                              -- e.g. 'tenant.suspend_bulk'
+  affected_count int not null,
+  affected_ids jsonb not null,                       -- array of IDs touched
+  confirmed_typed_phrase text,                       -- the phrase user typed to confirm
+  ip_address inet,
+  user_agent text,
+  acted_at timestamptz not null default now()
+);
+
+create index idx_admin_bulk_acted on public.admin_bulk_actions (acted_at desc);
+
+-- ============================================================================
+-- RLS
+-- ============================================================================
+
+alter table public.admin_users enable row level security;
+alter table public.admin_bulk_actions enable row level security;
+
+-- Admins can see the admin_users list; everyone else: nothing.
+create policy admin_users_select on public.admin_users for select
+  using (
+    exists (
+      select 1 from public.admin_users self
+      where self.user_id = auth.uid() and self.revoked_at is null
+        and self.role in ('admin', 'super_admin')
+    )
+  );
+
+-- Only super_admin can mutate.
+create policy admin_users_mutate on public.admin_users for all
+  using (
+    exists (
+      select 1 from public.admin_users self
+      where self.user_id = auth.uid() and self.revoked_at is null
+        and self.role = 'super_admin'
+    )
+  );
+
+-- Bulk action log: every admin can read all entries (cross-actor visibility).
+create policy admin_bulk_select on public.admin_bulk_actions for select
+  using (
+    exists (
+      select 1 from public.admin_users
+      where user_id = auth.uid() and revoked_at is null
+    )
+  );
+
+-- Writes only via the typed posting helper; raw INSERTs denied to anon.
+create policy admin_bulk_no_anon_write on public.admin_bulk_actions for insert
+  with check (
+    exists (
+      select 1 from public.admin_users
+      where user_id = auth.uid() and revoked_at is null
+        and role in ('admin', 'super_admin')
+    )
+  );
+
+-- Immutable trigger: no UPDATE or DELETE on the audit table
+create or replace function public.prevent_admin_bulk_mutation()
+returns trigger as $$
+begin
+  raise exception 'admin_bulk_actions is immutable (audit trail)';
+end;
+$$ language plpgsql;
+
+create trigger prevent_admin_bulk_update_delete
+  before update or delete on public.admin_bulk_actions
+  for each row execute function public.prevent_admin_bulk_mutation();

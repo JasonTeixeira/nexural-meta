@@ -6,10 +6,44 @@
 
 ## Current state
 
-- **Current phase:** **Phase 6.5 (Vertical Slice + 6 MVP warehouses + adversarial proof) — SHIPPED 🚀**
-- **Soak window:** WAIVED by Sage 2026-05-22 for ADR-0011. ADRs 0002–0011 locked.
-- **Last tag:** `v0.7.0`
-- **Slice status:** `saas-multitenant-baseline` cleared 5 of 6 ADR-0011 gates (emit + install + typecheck + build + adversarial proof). Gate 4 (deploy) is Sage-driven and tracked separately.
+- **Current phase:** **Phase 7 (fintech-ledger-app + internal-tool-dashboard + 2 new warehouses) — SHIPPED 🚀**
+- **Soak window:** ADRs 0002–0011 locked.
+- **Last tag:** `v0.8.0`
+- **Recipe roster:** 7 recipes — 1 baseline + 2 AI + 2 escapes + 2 Phase 7 (fintech-ledger-app, internal-tool-dashboard). All forge + build clean.
+
+## Phase 7 deliverables ✅
+
+### 2 new warehouses (under `warehouses/`)
+
+| Warehouse | Templates                                                                                          | Documents                  |
+| --------- | -------------------------------------------------------------------------------------------------- | -------------------------- |
+| payments  | lib/stripe.ts, /api/stripe/webhook route, /api/checkout route                                      | stripe-webhook-discipline  |
+| billing   | 0002_billing.sql (stripe_events idempotency + subscription_events), subscription state machine lib | subscription-state-machine |
+
+### 2 new recipes
+
+- **`fintech-ledger-app`** — extends saas-multitenant-baseline; adds double-entry ledger (append-only via DB triggers), precision-safe `bigint` money math at configurable decimal precision (default 4), typed posting helper, reconciliation runner scaffold, 7-year retention. THREAT_MODEL covers tampering / double-spend / precision loss. Cost cap $0.10/req (tighter than baseline). Slice: forge → install → typecheck → build clean (8 routes including `/api/stripe/webhook`, `/api/checkout`).
+
+- **`internal-tool-dashboard`** — extends saas-multitenant-baseline; adds RBAC (super_admin/admin/viewer hierarchy), `admin_users` + `admin_bulk_actions` tables (immutable audit), no-index posture, typed-confirmation bulk-action gate, MFA-required default, 15min inactivity timeout. THREAT_MODEL covers privilege escalation / bulk-action mistakes / session theft / export PII leak. Cost cap $0.05/req. Slice: forge → install → typecheck → build clean (7 routes including `/dashboard`).
+
+### Extends-aware template composition
+
+`@nexural/warehouse-base` now supports `composeForRecipe({ recipeName: string[] })` — a recipe inherits its parent's eligible templates via the extends chain. CLI walks the chain at forge time. This unblocks every future recipe that extends a baseline.
+
+### `forge-emit-conformance` updated
+
+Tightened marker-detection regex to mirror the renderer (ignores JSX inline styles). All 7 recipes now pass with 1 warn (saas-agent-platform composes-only; no recipe-local anchor).
+
+### 7 fixtures added (`test/fixtures/<recipe>.inputs.json`)
+
+All 7 recipes have a conformance fixture. The 5th federation runner runs against the full set in CI.
+
+### Warehouse gaps surfaced by the slice + patched
+
+- `payments/lib-stripe.ts.template` — moved STRIPE_SECRET_KEY check from module-load to request-time (was breaking `next build`).
+- `payments/app-api-checkout-route` — `customer_email` conditional spread under `exactOptionalPropertyTypes`.
+- Stripe `apiVersion` removed from the recipe — let installed dep version drive it (recipe shouldn't pin Stripe API versions).
+- `internal-tool-dashboard` layout simplified — typedRoutes was rejecting links to unimplemented routes.
 
 ## Phase 6.5 deliverables ✅
 

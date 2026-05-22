@@ -1,0 +1,23 @@
+import Stripe from "stripe";
+
+// apiVersion intentionally omitted — uses the version the installed library
+// is locked to. Upgrade the dep, not this file, when Stripe rotates versions.
+//
+// At MODULE LOAD time we accept missing STRIPE_SECRET_KEY (the build step
+// imports this file). The actual key is validated at REQUEST time inside the
+// route handler via stripeOrThrow().
+const key = process.env.STRIPE_SECRET_KEY ?? "sk_test_placeholder_forge_time";
+
+export const stripe = new Stripe(key, {
+  typescript: true,
+  appInfo: { name: "{{appName}}", version: "0.0.0" },
+});
+
+export function stripeOrThrow(): Stripe {
+  if (!process.env.STRIPE_SECRET_KEY) {
+    throw new Error(
+      "STRIPE_SECRET_KEY is required at request time. Set it in .env.local or your platform env.",
+    );
+  }
+  return stripe;
+}

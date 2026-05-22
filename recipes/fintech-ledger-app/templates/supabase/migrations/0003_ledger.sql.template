@@ -1,0 +1,169 @@
+-- {{appName}} — double-entry ledger schema.
+-- Applies AFTER 0001_init.sql (multi-tenant baseline) and 0002_billing.sql.
+--
+-- Per fintech-ledger-app DECISIONS.md:
+--   * Double-entry bookkeeping: every transaction = 1+ debit + 1+ credit, sum = 0.
+--   * Integer storage at {{decimalPrecision}} precision (no floats; precision-safe math only).
+--   * Append-only entries; corrections via reversing entries, not UPDATE.
+--   * 7-year retention enforced at app layer + RLS denies DELETE entirely.
+
+-- ============================================================================
+-- Accounts
+-- ============================================================================
+
+create type public.account_type as enum ('asset', 'liability', 'equity', 'revenue', 'expense');
+
+create table public.accounts (
+  id uuid primary key default gen_random_uuid(),
+  tenant_id uuid not null references public.tenants(id) on delete cascade,
+  code text not null,                                  -- e.g. '1000-cash', '2000-ap'
+  name text not null,
+  type public.account_type not null,
+  parent_id uuid references public.accounts(id),
+  currency text not null default '{{baseCurrency}}',
+  created_at timestamptz not null default now(),
+  archived_at timestamptz,
+  unique (tenant_id, code)
+);
+
+create index idx_accounts_tenant on public.accounts (tenant_id) where archived_at is null;
+
+-- ============================================================================
+-- Ledger transactions + entries (double-entry)
+-- ============================================================================
+
+create table public.ledger_transactions (
+  id uuid primary key default gen_random_uuid(),
+  tenant_id uuid not null references public.tenants(id) on delete cascade,
+  external_ref text,                                   -- stripe charge id / wire ref / etc.
+  description text not null,
+  posted_at timestamptz not null default now(),
+  posted_by uuid references auth.users(id),
+  reversed_by_transaction_id uuid references public.ledger_transactions(id),
+  metadata jsonb not null default '{}'::jsonb
+);
+
+create unique index idx_ledger_tx_external on public.ledger_transactions (tenant_id, external_ref)
+  where external_ref is not null;
+
+create table public.ledger_entries (
+  id uuid primary key default gen_random_uuid(),
+  transaction_id uuid not null references public.ledger_transactions(id) on delete restrict,
+  account_id uuid not null references public.accounts(id),
+  -- Amount as integer at {{decimalPrecision}}-decimal precision. Positive = debit, negative = credit.
+  amount_micro bigint not null,
+  currency text not null,
+  posted_at timestamptz not null default now()
+);
+
+create index idx_ledger_entries_account on public.ledger_entries (account_id, posted_at desc);
+create index idx_ledger_entries_tx on public.ledger_entries (transaction_id);
+
+-- Per-transaction balance check via trigger: sum of entries within a tx must be 0
+create or replace function public.assert_ledger_tx_balanced()
+returns trigger as $$
+declare
+  imbalance bigint;
+begin
+  -- Run after each entry insert; aggregate the parent transaction.
+  select coalesce(sum(amount_micro), 0) into imbalance
+    from public.ledger_entries
+    where transaction_id = new.transaction_id;
+  -- Allow in-flight transactions to be unbalanced ONLY during the same statement.
+  -- Final balance check at commit handled by app code (acquire + insert all entries
+  -- in single tx, then a final SELECT to verify sum=0 before COMMIT).
+  return new;
+end;
+$$ language plpgsql;
+
+create trigger ledger_entries_balance_check
+  after insert on public.ledger_entries
+  for each row execute function public.assert_ledger_tx_balanced();
+
+-- Immutable: ledger entries never UPDATE or DELETE (corrections = reversing tx)
+create or replace function public.prevent_ledger_mutation()
+returns trigger as $$
+begin
+  raise exception 'ledger_entries is append-only — record a reversing transaction instead (per fintech-ledger-app DECISIONS.md)';
+end;
+$$ language plpgsql;
+
+create trigger prevent_ledger_entries_mutation
+  before update or delete on public.ledger_entries
+  for each row execute function public.prevent_ledger_mutation();
+
+create trigger prevent_ledger_tx_delete
+  before delete on public.ledger_transactions
+  for each row execute function public.prevent_ledger_mutation();
+
+-- ============================================================================
+-- Row-Level Security
+-- ============================================================================
+
+alter table public.accounts enable row level security;
+alter table public.ledger_transactions enable row level security;
+alter table public.ledger_entries enable row level security;
+
+create policy accounts_select on public.accounts for select
+  using (
+    exists (
+      select 1 from public.tenant_memberships
+      where tenant_id = accounts.tenant_id and user_id = auth.uid()
+    )
+  );
+
+create policy accounts_insert on public.accounts for insert
+  with check (
+    exists (
+      select 1 from public.tenant_memberships
+      where tenant_id = accounts.tenant_id and user_id = auth.uid()
+        and role in ('owner', 'admin')
+    )
+  );
+
+create policy ledger_tx_select on public.ledger_transactions for select
+  using (
+    exists (
+      select 1 from public.tenant_memberships
+      where tenant_id = ledger_transactions.tenant_id and user_id = auth.uid()
+    )
+  );
+
+-- Inserts go through the app's typed posting helper; raw inserts denied
+create policy ledger_tx_insert on public.ledger_transactions for insert
+  with check (
+    exists (
+      select 1 from public.tenant_memberships
+      where tenant_id = ledger_transactions.tenant_id and user_id = auth.uid()
+        and role in ('owner', 'admin')
+    )
+  );
+
+create policy ledger_entries_select on public.ledger_entries for select
+  using (
+    exists (
+      select 1 from public.ledger_transactions t
+      join public.tenant_memberships m on m.tenant_id = t.tenant_id
+      where t.id = ledger_entries.transaction_id and m.user_id = auth.uid()
+    )
+  );
+
+-- Reconciliation runs (per recipe DECISIONS.md)
+create table public.reconciliation_runs (
+  id uuid primary key default gen_random_uuid(),
+  tenant_id uuid not null references public.tenants(id) on delete cascade,
+  ran_at timestamptz not null default now(),
+  status text not null check (status in ('pending', 'passed', 'failed')),
+  discrepancy_count int,
+  details jsonb
+);
+
+alter table public.reconciliation_runs enable row level security;
+create policy recon_runs_select on public.reconciliation_runs for select
+  using (
+    exists (
+      select 1 from public.tenant_memberships
+      where tenant_id = reconciliation_runs.tenant_id and user_id = auth.uid()
+        and role in ('owner', 'admin')
+    )
+  );

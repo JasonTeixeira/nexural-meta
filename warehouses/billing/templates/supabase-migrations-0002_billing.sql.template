@@ -1,0 +1,60 @@
+-- {{appName}} — billing tables (stripe events dedup, subscription history).
+-- Per billing/documents/subscription-state-machine.md.
+
+-- ============================================================================
+-- Stripe event idempotency (per payments/documents/stripe-webhook-discipline.md)
+-- ============================================================================
+
+create table public.stripe_events (
+  id text primary key,                              -- event.id from Stripe
+  type text not null,
+  api_version text,
+  received_at timestamptz not null default now(),
+  last_processed_at timestamptz,
+  payload jsonb not null,
+  error_count int not null default 0,
+  last_error text
+);
+
+create index idx_stripe_events_received on public.stripe_events (received_at desc);
+create index idx_stripe_events_unprocessed on public.stripe_events (received_at)
+  where last_processed_at is null;
+
+-- Service-role only: no anon RLS read.
+alter table public.stripe_events enable row level security;
+create policy stripe_events_service_only on public.stripe_events for all
+  using (false);
+
+-- ============================================================================
+-- Subscription history — every status change is recorded for audit
+-- ============================================================================
+
+create table public.subscription_events (
+  id uuid primary key default gen_random_uuid(),
+  tenant_id uuid not null references public.tenants(id) on delete cascade,
+  stripe_subscription_id text,
+  from_status text,
+  to_status text not null,
+  reason text,
+  occurred_at timestamptz not null default now(),
+  stripe_event_id text references public.stripe_events(id)
+);
+
+create index idx_subscription_events_tenant on public.subscription_events (tenant_id, occurred_at desc);
+
+alter table public.subscription_events enable row level security;
+
+-- Owners/admins of the tenant can read their subscription history
+create policy subscription_events_select on public.subscription_events for select
+  using (
+    exists (
+      select 1 from public.tenant_memberships
+      where tenant_id = subscription_events.tenant_id
+        and user_id = auth.uid()
+        and role in ('owner', 'admin')
+    )
+  );
+
+-- Inserts/updates are service-role only; immutable from app side
+create policy subscription_events_no_write on public.subscription_events for all
+  using (false);

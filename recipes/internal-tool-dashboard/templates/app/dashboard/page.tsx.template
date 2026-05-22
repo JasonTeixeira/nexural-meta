@@ -1,0 +1,22 @@
+import { requireRole } from "@/lib/rbac";
+
+export const dynamic = "force-dynamic";
+
+export default async function DashboardPage() {
+  // Recipe ships a placeholder — replace with your tool's home view.
+  // requireRole throws ForbiddenError if the user lacks the role.
+  await requireRole("viewer");
+
+  return (
+    <div>
+      <h1>Dashboard</h1>
+      <p>
+        Welcome. This is the admin home for <strong>{{displayName}}</strong>.
+      </p>
+      <p style={{ color: "#64748b", fontSize: "0.9rem" }}>
+        Replace this template at <code>app/dashboard/page.tsx</code> with your
+        tool's actual home view.
+      </p>
+    </div>
+  );
+}

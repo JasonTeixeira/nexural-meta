@@ -1,0 +1,8 @@
+{
+  "appName": "rag-qdrant-test",
+  "displayName": "RAG Qdrant Test",
+  "rootDomain": "rag-qdrant-test.dev",
+  "trialDays": 14,
+  "qdrantUrl": "http://localhost:6333",
+  "qdrantTenantIsolation": "collection-per-tenant"
+}

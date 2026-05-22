@@ -136,9 +136,12 @@ export async function runForge(
   const templatesRoot = join(recipeDir, recipe.emit.template_path);
   const recipeLocalTemplates = existsSync(templatesRoot) ? await loadTemplates(templatesRoot) : [];
 
+  // Recipe inherits its parent's eligible templates. Walk the `extends`
+  // chain so a fintech recipe pulls templates declared for the SaaS baseline.
+  const recipeChain = walkExtendsChain(recipe.name, recipe.extends);
   const composed = composeForRecipe({
     warehouseRoots,
-    recipeName: recipe.name,
+    recipeName: recipeChain,
     additionalTemplates: recipeLocalTemplates,
   });
   const templates = composed.templates;
@@ -238,6 +241,13 @@ export async function runForge(
 }
 
 // ── helpers ─────────────────────────────────────────────────────────────────
+
+function walkExtendsChain(name: string, parent: string | undefined): string[] {
+  // Phase 7: recipes declare a single `extends` parent. Phase 7.5+ would
+  // load the parent recipe and recurse; here we stop at depth-2 because
+  // baselines are top-level.
+  return parent !== undefined ? [name, parent] : [name];
+}
 
 function loadRevocationList(): import("@nexural/schema").RevokedRecipesList {
   const path = resolve(process.cwd(), "security/revoked-recipes.yaml");

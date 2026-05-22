@@ -1,0 +1,9 @@
+{
+  "appName": "agent-test",
+  "displayName": "Agent Platform Test",
+  "rootDomain": "agent-test.dev",
+  "trialDays": 14,
+  "defaultTools": ["search-knowledge-base", "query-database"],
+  "maxSteps": 20,
+  "observationRetentionDays": 30
+}

@@ -1,0 +1,89 @@
+import type { Stripe } from "stripe";
+
+/**
+ * Subscription state machine — the canonical mapping from Stripe events
+ * to internal subscription_status values stored on the tenants table.
+ *
+ * Per billing/documents/subscription-state-machine.md.
+ */
+
+export type SubscriptionStatus =
+  | "trialing"
+  | "active"
+  | "past_due"
+  | "canceled"
+  | "paused";
+
+export interface SubscriptionTransition {
+  readonly tenantId: string;
+  readonly fromStatus: SubscriptionStatus | null;
+  readonly toStatus: SubscriptionStatus;
+  readonly stripeEventId: string;
+  readonly reason: string;
+}
+
+/**
+ * Translate a Stripe subscription event into the new internal status.
+ * Returns null when the event should not affect status (e.g. metadata-only update).
+ */
+export function nextStatusFromStripeEvent(
+  event: Stripe.Event,
+): SubscriptionStatus | null {
+  switch (event.type) {
+    case "customer.subscription.created":
+    case "customer.subscription.updated": {
+      const sub = event.data.object as Stripe.Subscription;
+      return mapStripeStatus(sub.status);
+    }
+    case "customer.subscription.deleted":
+      return "canceled";
+    case "invoice.payment_failed":
+      return "past_due";
+    case "invoice.paid":
+      return "active";
+    default:
+      return null;
+  }
+}
+
+function mapStripeStatus(s: Stripe.Subscription.Status): SubscriptionStatus {
+  switch (s) {
+    case "trialing":
+      return "trialing";
+    case "active":
+      return "active";
+    case "past_due":
+    case "unpaid":
+      return "past_due";
+    case "canceled":
+    case "incomplete_expired":
+      return "canceled";
+    case "paused":
+      return "paused";
+    case "incomplete":
+      // No charge succeeded yet — treat as trialing for UX, server-side flag elsewhere.
+      return "trialing";
+  }
+}
+
+/**
+ * Pure helper: is the new status a valid transition from the old?
+ *
+ * Used by the webhook handler to reject impossible transitions
+ * (e.g. canceled → active without a new subscription).
+ */
+export function isValidTransition(
+  from: SubscriptionStatus | null,
+  to: SubscriptionStatus,
+): boolean {
+  if (from === null) return true; // first event for this tenant
+  if (from === to) return true; // idempotent re-delivery
+  const allowed: Record<SubscriptionStatus, SubscriptionStatus[]> = {
+    trialing: ["active", "canceled", "past_due"],
+    active: ["past_due", "canceled", "paused"],
+    past_due: ["active", "canceled"],
+    paused: ["active", "canceled"],
+    canceled: [], // terminal
+  };
+  return allowed[from]?.includes(to) ?? false;
+}

@@ -26,8 +26,12 @@ import { loadWarehouse, templatesForRecipe, WarehouseLoadError } from "./loader.
 export interface ComposeRequest {
   /** Absolute paths to warehouse directories. */
   readonly warehouseRoots: ReadonlyArray<string>;
-  /** Recipe name to filter templates by. */
-  readonly recipeName: string;
+  /**
+   * Recipe name to filter templates by. A recipe inherits its parent's
+   * templates — pass the extends chain explicitly here (e.g.
+   * `["fintech-ledger-app", "saas-multitenant-baseline"]`).
+   */
+  readonly recipeName: string | ReadonlyArray<string>;
   /**
    * Templates the recipe ships locally (e.g. `recipes/<name>/templates/*`).
    * These appear LAST in the composed array, so any duplicate path with

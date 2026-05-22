@@ -1,0 +1,11 @@
+{
+  "appName": "fintech-test",
+  "displayName": "Fintech Test Ledger",
+  "rootDomain": "fintech-test.dev",
+  "trialDays": 14,
+  "baseCurrency": "USD",
+  "decimalPrecision": 4,
+  "ledgerRetentionYears": 7,
+  "pastDueGraceDays": 1,
+  "reconciliationEnabled": true
+}

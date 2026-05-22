@@ -1,0 +1,23 @@
+schema_version: 1
+warehouse: payments
+version: 0.1.0
+description: Stripe payment integration — webhook handler with signature verification, server-side checkout helpers, and idempotent event processing.
+documents:
+  - id: stripe-webhook-discipline
+    path: documents/stripe-webhook-discipline.md
+    title: Stripe webhook signature + idempotency discipline
+    audience: [agents, human]
+    tags: [stripe, webhook, idempotency]
+templates:
+  - id: stripe-server-client
+    source: templates/lib-stripe.ts.template
+    target_path: lib/stripe.ts
+    consumers: [saas-multitenant-baseline, fintech-ledger-app, internal-tool-dashboard]
+  - id: stripe-webhook-route
+    source: templates/app-api-stripe-webhook-route.ts.template
+    target_path: app/api/stripe/webhook/route.ts
+    consumers: [saas-multitenant-baseline, fintech-ledger-app, internal-tool-dashboard]
+  - id: checkout-session-route
+    source: templates/app-api-checkout-route.ts.template
+    target_path: app/api/checkout/route.ts
+    consumers: [saas-multitenant-baseline, fintech-ledger-app]

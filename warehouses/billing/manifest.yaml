@@ -1,0 +1,19 @@
+schema_version: 1
+warehouse: billing
+version: 0.1.0
+description: Subscription state machine + stripe_events idempotency table + dunning placeholders for forged SaaS apps.
+documents:
+  - id: subscription-state-machine
+    path: documents/subscription-state-machine.md
+    title: Subscription state machine (trialing → active → past_due → canceled)
+    audience: [agents, human]
+    tags: [billing, stripe, subscriptions]
+templates:
+  - id: stripe-events-migration
+    source: templates/supabase-migrations-0002_billing.sql.template
+    target_path: supabase/migrations/0002_billing.sql
+    consumers: [saas-multitenant-baseline, fintech-ledger-app, internal-tool-dashboard]
+  - id: subscription-lib
+    source: templates/lib-billing-subscription.ts.template
+    target_path: lib/billing/subscription.ts
+    consumers: [saas-multitenant-baseline, fintech-ledger-app, internal-tool-dashboard]

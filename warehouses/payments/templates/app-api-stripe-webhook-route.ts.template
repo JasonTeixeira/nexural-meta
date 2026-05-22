@@ -1,0 +1,50 @@
+import { NextResponse, type NextRequest } from "next/server";
+import type Stripe from "stripe";
+import { stripe } from "@/lib/stripe";
+
+export const runtime = "nodejs";
+
+/**
+ * Stripe webhook handler. Per `payments/documents/stripe-webhook-discipline.md`:
+ *
+ *   1. Verify signature against STRIPE_WEBHOOK_SECRET.
+ *   2. Idempotency: dedupe by event.id (caller persists in stripe_events table).
+ *   3. Switch on event.type; route to handler. Unknown types → 200 OK to ack.
+ *   4. Return non-2xx ONLY on retriable errors. Logic errors → 200 + log.
+ */
+export async function POST(request: NextRequest): Promise<NextResponse> {
+  const signature = request.headers.get("stripe-signature");
+  const secret = process.env.STRIPE_WEBHOOK_SECRET;
+  if (!signature || !secret) {
+    return NextResponse.json({ error: "missing signature or secret" }, { status: 400 });
+  }
+
+  const body = await request.text();
+  let event: Stripe.Event;
+  try {
+    event = stripe.webhooks.constructEvent(body, signature, secret);
+  } catch (err) {
+    return NextResponse.json(
+      { error: `signature verification failed: ${(err as Error).message}` },
+      { status: 400 },
+    );
+  }
+
+  // Per-event dispatch. Handlers are recipe-specific; the baseline
+  // ships a no-op log. Recipes override by editing this file post-forge.
+  switch (event.type) {
+    case "checkout.session.completed":
+    case "customer.subscription.created":
+    case "customer.subscription.updated":
+    case "customer.subscription.deleted":
+    case "invoice.paid":
+    case "invoice.payment_failed":
+      // TODO: persist event.id to stripe_events for idempotency; dispatch to subscription state machine.
+      console.warn(`[stripe-webhook] received ${event.type} — id=${event.id}`);
+      break;
+    default:
+      console.warn(`[stripe-webhook] ignoring unknown event type: ${event.type}`);
+  }
+
+  return NextResponse.json({ received: true });
+}

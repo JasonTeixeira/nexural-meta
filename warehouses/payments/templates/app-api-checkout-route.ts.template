@@ -1,0 +1,54 @@
+import { NextResponse, type NextRequest } from "next/server";
+import { stripe } from "@/lib/stripe";
+import { createSupabaseServerClient } from "@/lib/supabase/server";
+
+export const runtime = "nodejs";
+
+interface CheckoutRequest {
+  priceId: string;
+  quantity?: number;
+}
+
+/**
+ * Create a Stripe Checkout Session for the authenticated user.
+ *
+ * Discipline:
+ *   - Requires a valid Supabase session (returns 401 otherwise).
+ *   - Server-side price lookup — never trust client price IDs without verification
+ *     in production. The placeholder below accepts client-supplied priceId for
+ *     v0.1; harden in your fork.
+ *   - success_url + cancel_url are absolute, derived from request origin.
+ */
+export async function POST(request: NextRequest): Promise<NextResponse> {
+  const supabase = await createSupabaseServerClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) {
+    return NextResponse.json({ error: "unauthorized" }, { status: 401 });
+  }
+
+  let body: CheckoutRequest;
+  try {
+    body = (await request.json()) as CheckoutRequest;
+  } catch {
+    return NextResponse.json({ error: "invalid json" }, { status: 400 });
+  }
+  if (!body.priceId || typeof body.priceId !== "string") {
+    return NextResponse.json({ error: "priceId required" }, { status: 400 });
+  }
+
+  const origin = request.headers.get("origin") ?? `https://{{rootDomain}}`;
+  const session = await stripe.checkout.sessions.create({
+    mode: "subscription",
+    ...(user.email !== undefined ? { customer_email: user.email } : {}),
+    line_items: [{ price: body.priceId, quantity: body.quantity ?? 1 }],
+    success_url: `${origin}/dashboard?checkout=success`,
+    cancel_url: `${origin}/?checkout=canceled`,
+    metadata: {
+      user_id: user.id,
+    },
+  });
+
+  return NextResponse.json({ url: session.url });
+}

@@ -42,7 +42,10 @@ const BINARY_EXTENSIONS = new Set([
   ".otf",
 ]);
 
-const TEMPLATE_MARKER = /\{\{[^}]*\}\}/;
+// Match `{{ ident(.ident)* }}` shapes only — same tightening as the renderer.
+// JSX inline styles `{{ maxWidth: 420 }}` don't match (they contain `:` and `,`).
+const TEMPLATE_MARKER =
+  /\{\{\s*[a-zA-Z_$][a-zA-Z0-9_$]*(?:\.[a-zA-Z_$][a-zA-Z0-9_$]*)*(?:\s*\|\s*default\s*:\s*"[^"]*")?\s*\}\}/;
 
 interface RecipeAudit {
   readonly name: string;
