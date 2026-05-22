@@ -72,6 +72,10 @@ Report: `evidence/adversarial/saas-multitenant-baseline/report.json`.
 
 - Deploy slice to live Vercel + Supabase + Stripe test environment. Requires Sage's accounts; no automation. Tracked in BUILD_PLAN.md Phase 6.5 §8.
 
+### npm-publish quirk (Sage follow-up)
+
+The v0.7.0 publish workflow reported success for all 4 packages, BUT the npm registry shows only the two that ALREADY existed (`@nexural/schema@0.2.0`, `@nexural/qa-runners-federation@0.3.0`). The two NEW package names (`@nexural/forge-emit`, `@nexural/warehouse-base`) silently failed to land. The active npm granular access token has read+write on existing @nexural packages but appears not to have create-new-package permission on the scope. Phase 6.5 doesn't depend on external availability — workspace consumers use `workspace:^` links. Fix when Sage gets to npm-token rotation: re-create the token with org-level create permission on @nexural scope, then re-trigger publish with `git push origin :v0.7.0 && git tag -d v0.7.0 && git tag v0.7.0 && git push origin v0.7.0`.
+
 ## Phase 6 deliverables ✅
 
 ### Recipes (4 new)
