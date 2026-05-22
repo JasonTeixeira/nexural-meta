@@ -6,10 +6,45 @@
 
 ## Current state
 
-- **Current phase:** **Phase 4 (MCP router + dashboard + LLM adapter) — SHIPPED 🚀**
+- **Current phase:** **Phase 6 (AI recipes + golden-set-drift) — SHIPPED 🚀**
 - **Soak window:** WAIVED by Sage 2026-05-21. ADRs 0002–0010 locked.
-- **Last commit:** `e30d29a` — "feat: Phase 4 — MCP router + dashboard + LLM adapter v0.1.0"
-- **Last tag:** `v0.4.0`
+- **Last commit:** `958a1a9` — "feat: Phase 6 — saas-rag-chat + saas-agent-platform + escape recipes + golden-set-drift runner"
+- **Last tag:** `v0.6.0`
+
+## Phase 6 deliverables ✅
+
+### Recipes (4 new)
+
+- `recipes/saas-rag-chat/` — pgvector + hybrid search (BM25 + dense, RRF fusion), optional Cohere rerank, citation validation, safe-link rewrite, 50-item eval golden set scaffold. Cost cap $0.50/req. Anthropic Opus → OpenAI flagship → Ollama chain.
+- `recipes/saas-agent-platform/` — Vercel AI SDK + custom orchestration, Zod-typed tool registry, per-session whitelist (ADR-0010 §2.10), 10-case adversarial eval (100% rejection required), tool_call_audit immutable table. Cost cap $1.00/req.
+- `recipes/saas-rag-chat-qdrant/` — Qdrant escape for >1M chunks; collection-per-tenant default; D1-no-RLS threat notes.
+- `recipes/saas-rag-chat-openai-first/` — Model chain inverted (OpenAI primary); tighter $0.30/req cap.
+
+### @nexural/qa-runners-federation@0.2.0
+
+- **golden-set-drift** runner (ADR-0010 §2.9) — validates `schema_version`, `drift_threshold_pct`, ≥4 category coverage, non-empty items, id+category per item. 6 new tests. 20/20 total in the package.
+
+### Published packages (8 total)
+
+```
+@nexural/qa-runners-federation@0.2.0  (NEW MINOR — added golden-set-drift)
+```
+
+All other packages unchanged from Phase 5.
+
+## Phase 5 deliverables ✅
+
+### recipes/saas-multitenant-baseline/
+
+- Recipe scaffold with THREAT_MODEL + DECISIONS + inputs.zod.ts (per ADR-0008 §7)
+- Templates for Next.js 15 + Supabase + Stripe + Sentry + PostHog
+- Inherits cost discipline + RLS + provenance gates
+
+### @nexural/qa-runners-federation@0.1.0 (published Phase 5)
+
+- `federation-conformance` runner (ADR-0008 §3)
+- `recipe-validity` runner (ADR-0008 §4)
+- `prompt-injection-resilience` runner (ADR-0008 §2)
 
 ## Phase 4 deliverables ✅
 
