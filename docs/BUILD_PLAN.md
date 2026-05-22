@@ -315,6 +315,78 @@ Critical additions per ADR-0009: Vercel, Supabase, Stripe, Sentry, PostHog accou
 
 ---
 
+## Phase 6.5 — Vertical Slice [~5-7 sessions, inserted 2026-05-22 per ADR-0011]
+
+**Goal:** Prove the federation actually produces deployable apps. End the
+state where everything is green CI but nothing has touched reality.
+
+**Trigger:** End-of-Phase-6 audit revealed the `nx forge` CLI is a stub, no
+warehouse MCP servers exist, no app has ever been emitted, no qa-os runner
+has caught a real regression. Continuing to Phase 7 compounds integration
+risk. ADR-0011 locks the Vertical Slice Doctrine.
+
+**Scope (precise):**
+
+1. **ADR-0011** — Vertical Slice Doctrine. Every recipe must forge-and-deploy
+   before earning `shipped` status. Six gates: emit, install, build, deploy,
+   qa-os clean, adversarial proof. **(DONE — this session.)**
+
+2. **`@nexural/forge-emit`** — new package. Template render engine (Handlebars-
+   style). Path templating. Conditional emit blocks. Takes
+   `(recipe, validated_inputs, warehouse_templates[])` → emits filesystem tree.
+   Tests with golden output trees.
+
+3. **Real `nx forge` pipeline** — replace stub in `apps/cli/src/commands/forge.ts`:
+   recipe load (existing) → inputs validation against `inputs.zod.ts` → secret
+   resolution via `op://` shell-out → render via `forge-emit` → write tree to
+   `<apps_root>/<slug>/` → `git init` + first commit → write
+   `.nexural/forged.lock.yaml`. `--dry-run` flag emits to temp dir and prints
+   tree summary without persisting.
+
+4. **`@nexural/warehouse-base`** — shared MCP server kit. Every warehouse MCP
+   repo imports this and ships a 30-line wrapper. Generic
+   `manifest.yaml` → MCP documents+templates exposure.
+
+5. **6 MVP warehouses** — built as private GitHub MCP repos:
+   `architecture`, `auth`, `database`, `observability`, `security`, `dx`.
+   Each ships the real templates `saas-multitenant-baseline` needs to emit
+   a working Next.js 15 + Supabase Auth + Postgres RLS + Sentry + PostHog +
+   pnpm workspace app. Sage-agents extraction (TCPA gate + PII redaction)
+   lands in `security`.
+
+6. **`forge-emit-conformance`** — 5th federation runner. For each recipe,
+   runs `nx forge --dry-run` against a fixture inputs file; fails if emit
+   errors, fails if unresolved `{{ }}` remains, fails if any secret-shaped
+   string leaks. `@nexural/qa-runners-federation@0.3.0`.
+
+7. **`nexural-slice-test`** — forge it; walk every gap that surfaces;
+   patch templates / ADRs / inputs schemas. The slice IS the audit.
+
+8. **Live deploy** (Sage-driven) — Vercel + Supabase + Stripe test mode.
+   Signup → checkout → email confirmation reaches a live URL. Sentry +
+   PostHog events flow.
+
+9. **Adversarial proof** — three deliberate breaks: drop an RLS policy,
+   hardcode a secret in `.env.example`, ship an unsigned recipe. Each must
+   be caught by `federation-conformance`, secret-scan, or `forge-emit-conformance`.
+   Logged in `evidence/adversarial/saas-multitenant-baseline/`.
+
+10. **Registry status update** — `registry-recipes.yaml` marks all four
+    existing recipes as `scaffold` until each runs its own slice;
+    `saas-multitenant-baseline` upgrades to `shipped`.
+
+**Sage-only blockers folded in:** GitHub repo creation for 6 warehouses;
+B2 bucket setup (deferrable); 1Password vault entries for the 6 warehouse
+secret references; one Supabase project + Stripe test account for the slice
+deploy. FileVault + token rotation **still** outstanding and tracked
+separately.
+
+**Exit criteria:** ADR-0011 locked + 6 gates passed for
+`saas-multitenant-baseline` + 5th runner published + STATE.md reflects slice
+complete + tag `v0.7.0`.
+
+---
+
 ## Phase 7 — Finance + SaaS Recipes + 9 Specialized Warehouses + Escapes [Weekends 15–17]
 
 **Goal:** All 5 priority recipes ship; all primary vendor escapes tested.
