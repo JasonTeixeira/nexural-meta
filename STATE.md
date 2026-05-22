@@ -6,13 +6,62 @@
 
 ## Current state
 
-- **Current phase:** **Phase 1 (Shared Foundations) — SHIPPED 🚀**
+- **Current phase:** **Phase 2 (Control plane skeleton + automation) — SHIPPED 🚀**
 - **Soak window:** WAIVED by Sage 2026-05-21. ADRs 0002–0010 locked.
-- **Last commit:** `79b7035` — "feat(packaging): add repository + homepage + bugs to all @nexural/\* package.json"
-- **Last tag:** **`v0.1.0` LIVE on npm** (2026-05-22)
-- **Repo visibility:** PUBLIC (flipped from private at v0.1.0 to enable Sigstore provenance per ADR-0006)
+- **Last commit:** `9800302` — "feat: Phase 2 — nexural-meta skeleton + automation"
+- **Last tag:** `v0.2.0` (no-op publish — Phase 2 is infrastructure)
+- **Repo visibility:** PUBLIC (since v0.1.0; required for Sigstore provenance)
 - **Last touched:** 2026-05-22
-- **Mode signal from Sage:** "yolo mode" — autonomous execution + Phase 1 shipped
+- **Mode signal from Sage:** "yolo mode" — autonomous execution
+
+## Phase 2 deliverables ✅
+
+### Scripts (per ARCHITECTURE §4.2)
+
+- `scripts/discover.mjs` — dual-federation registry generation via gh API + topic search (ADR-0003)
+- `scripts/verify-all.mjs` — shells out to nexural-qa-os; aggregates scorecard.json
+- `scripts/cross-refs.mjs` — validates `related` links across federation
+- `scripts/bootstrap.mjs` — cold-start a laptop; RTO ≤ 30 min target per VERIFICATION §2
+- `scripts/session-save.mjs` — STATE.md continuity per ADR-0008
+- `scripts/aggregate-changelogs.mjs` — federation-wide CHANGELOG per ADR-0010 §2.7
+- `scripts/ops-calendar-export.mjs` — .ics from OPS_CALENDAR.md per ADR-0010 §2.2
+
+### Cron workflows
+
+- `discover.yml` (03:00 UTC) — opens PR on registry drift
+- `verify-all.yml` (04:00 UTC) — scorecard.json refresh
+- `cross-refs.yml` (04:30 UTC) — link validity
+- `backup.yml` (05:00 UTC) — B2 mirror (no-ops until B2 secrets set by Sage)
+- `recipe-validity.yml` (05:30 UTC) — placeholder; populates Phase 5
+- `aggregate-changelogs.yml` (Mon 12:30 UTC)
+- `repo-config.yml` (Mon 11:00 UTC) — Terraform drift check
+
+### Infrastructure
+
+- `infra/repo-config/` — Terraform module enforcing branch protection + federation topic XOR + signed-commit requirement
+- `infra/backup/` — rclone config template; B2 secrets needed via `gh secret set B2_*`
+- `security/revoked-recipes.yaml` — append-only revocation list (empty) per ADR-0009 §1.6
+- `registry-external-mcp.yaml` — lists `ai-warehouse` per ADR-0005
+
+### Pre-commit + secrets discipline
+
+- `.husky/pre-commit` — gitleaks scan + lint-staged + typecheck
+- `.gitleaks.toml` — config with fixture/doc allowlist
+- `lint-staged` config in package.json
+
+## OUTSTANDING for full Phase 2 verification (per VERIFICATION.md §2)
+
+1. **B2 secrets** — Sage runs:
+   ```bash
+   gh secret set B2_PUBLIC_ACCOUNT --repo JasonTeixeira/nexural-meta
+   gh secret set B2_PUBLIC_KEY     --repo JasonTeixeira/nexural-meta
+   # ... (4 more pairs for private/audit/apps buckets)
+   ```
+2. **B2 buckets created** at https://secure.backblaze.com/b2_buckets.htm
+3. **`TF_GITHUB_TOKEN` secret** for Terraform drift-check workflow
+4. **Cold-start drill** on spare machine — `pnpm bootstrap --check-only` then full clone test
+5. **Branch protection on main** via gh API (deferred until Sage has SSH commit signing wired)
+6. **2 consecutive successful nights of backup workflow** — needs item 1+2 first
 
 ## v0.1.0 — PUBLISHED with SLSA Provenance ✅
 

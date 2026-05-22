@@ -32,6 +32,8 @@ jobs:
 
       - working-directory: nexural-meta
         run: pnpm install --frozen-lockfile
+      - working-directory: nexural-meta
+        run: pnpm --filter @nexural/schema build
 
       - working-directory: nexural-meta
         env:
