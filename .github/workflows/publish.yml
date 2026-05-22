@@ -18,13 +18,15 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+          run_install: false
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: pnpm
           registry-url: "https://registry.npmjs.org"
-      - uses: pnpm/action-setup@v4
-        with: { version: 10, run_install: false }
 
       - run: pnpm install --frozen-lockfile
       - run: pnpm typecheck
@@ -46,11 +48,10 @@ jobs:
       - name: Generate SBOM
         run: npx --yes @cyclonedx/cyclonedx-npm@latest --output-file sbom.json --omit dev || true
 
-      - name: Attach SBOM + cosign signatures to release
+      - name: Attach SBOM to release
         uses: softprops/action-gh-release@v2
         with:
           files: |
             sbom.json
-            packages/*/dist/**/*.tgz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
