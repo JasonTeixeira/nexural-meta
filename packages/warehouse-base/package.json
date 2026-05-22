@@ -1,6 +1,6 @@
 {
   "name": "@nexural/warehouse-base",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Shared kit for warehouse content loading. Reads a warehouse's manifest.yaml + materializes documents and templates for nx forge / nx ask. Per ADR-0011 §2.",
   "license": "MIT",
   "type": "module",

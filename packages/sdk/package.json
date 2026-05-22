@@ -1,6 +1,6 @@
 {
   "name": "@nexural/sdk",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Shared helpers for warehouse MCP servers, recipes, and forged apps. Includes the cost-wrapped llmClient() that every emitted app MUST use per ADRs 0007 + 0010.",
   "license": "MIT",
   "type": "module",

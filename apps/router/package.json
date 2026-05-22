@@ -1,6 +1,6 @@
 {
   "name": "@nexural/router",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "MCP router — fans out queries to federation warehouse MCP servers + external MCPs, applies prompt-injection wrapping + citation validation + token-budget trimming + tier confinement, synthesizes via @nexural/model-router-resolved LLM provider. Per ARCHITECTURE §4.2 + ADRs 0005, 0007, 0008, 0009, 0010.",
   "license": "MIT",
   "type": "module",

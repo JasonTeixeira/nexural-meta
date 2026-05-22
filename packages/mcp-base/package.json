@@ -1,6 +1,6 @@
 {
   "name": "@nexural/mcp-base",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Opinionated MCP server base class with Zod validation, decay, telemetry, and prompt-injection XML wrapping middleware. Every warehouse MCP server extends this. Per ADRs 0002, 0007, 0008.",
   "license": "MIT",
   "type": "module",

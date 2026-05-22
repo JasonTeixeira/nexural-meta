@@ -14,15 +14,19 @@ V1.0 is the foundation. The federation can:
 
 ## What you can build with V1.0
 
-| Recipe                      | Status      | Use case                                                                                                 |
-| --------------------------- | ----------- | -------------------------------------------------------------------------------------------------------- |
-| `saas-multitenant-baseline` | **shipped** | Tenant SaaS with auth, payments, RLS, observability. The parent of every other SaaS recipe.              |
-| `saas-rag-chat`             | **shipped** | Chat product over user-uploaded docs. pgvector, hybrid search, citation validation, safe-link rewriting. |
-| `fintech-ledger-app`        | scaffold    | Finance / ledger app. Double-entry, precision-safe bigint math, 7-year retention, reconciliation.        |
-| `internal-tool-dashboard`   | scaffold    | Admin tool with RBAC, bulk-action audit, no-index posture, MFA.                                          |
-| `saas-agent-platform`       | scaffold    | Agent app with typed tool registry + per-session whitelist + adversarial eval suite.                     |
+All 7 recipes forge + build cleanly at V1.0. Their **slice status** indicates how far each has been through the ADR-0011 6-gate ceremony (emit → install → build → deploy → qa-os clean → adversarial proof):
 
-Scaffolded recipes work today; they just haven't run the full 6-gate slice yet. Slice-promotion is per-recipe and doesn't require a federation version bump.
+| Recipe                       | Slice status        | Use case                                                                                      |
+| ---------------------------- | ------------------- | --------------------------------------------------------------------------------------------- |
+| `saas-multitenant-baseline`  | 5/6 — awaits deploy | Tenant SaaS with auth, payments, RLS, observability. Parent of every other SaaS recipe.       |
+| `saas-rag-chat`              | 5/6 — awaits deploy | Chat over user docs. pgvector, hybrid search, citation validation, safe-link rewriting.       |
+| `fintech-ledger-app`         | 5/6 — awaits deploy | Finance / ledger. Double-entry, precision-safe bigint math, 7-year retention, reconciliation. |
+| `internal-tool-dashboard`    | 5/6 — awaits deploy | Admin tool. RBAC, bulk-action audit, no-index, MFA.                                           |
+| `saas-agent-platform`        | scaffold            | Agent app with typed tool registry + per-session whitelist + adversarial eval suite.          |
+| `saas-rag-chat-qdrant`       | scaffold            | Qdrant escape for >1M chunks.                                                                 |
+| `saas-rag-chat-openai-first` | scaffold            | OpenAI-primary chain inversion.                                                               |
+
+Recipes graduate to `shipped` one at a time as their live deploys complete (gates 4 + 5 of ADR-0011). Promotion does not require a federation version bump.
 
 ## What's locked at V1.0 (stable API)
 

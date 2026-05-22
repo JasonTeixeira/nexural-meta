@@ -1,6 +1,6 @@
 {
   "name": "@nexural/qa-runners",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Thin re-exports + typed wrappers around nexural-qa-os runners. Lets warehouses + recipes import a single @nexural/ namespace.",
   "license": "MIT",
   "type": "module",

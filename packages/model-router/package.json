@@ -1,6 +1,6 @@
 {
   "name": "@nexural/model-router",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Family→ID resolver for LLM provider models. Stable family references (e.g. anthropic:opus) resolved to volatile concrete model IDs with deprecation + price-ceiling awareness. Per ADRs 0007, 0010.",
   "license": "MIT",
   "type": "module",
