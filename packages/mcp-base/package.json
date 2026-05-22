@@ -33,5 +33,14 @@
   "publishConfig": {
     "access": "public",
     "provenance": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JasonTeixeira/nexural-meta.git",
+    "directory": "packages/mcp-base"
+  },
+  "homepage": "https://github.com/JasonTeixeira/nexural-meta/tree/main/packages/mcp-base#readme",
+  "bugs": {
+    "url": "https://github.com/JasonTeixeira/nexural-meta/issues"
   }
 }

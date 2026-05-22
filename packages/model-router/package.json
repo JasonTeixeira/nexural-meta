@@ -36,5 +36,14 @@
   "publishConfig": {
     "access": "public",
     "provenance": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JasonTeixeira/nexural-meta.git",
+    "directory": "packages/model-router"
+  },
+  "homepage": "https://github.com/JasonTeixeira/nexural-meta/tree/main/packages/model-router#readme",
+  "bugs": {
+    "url": "https://github.com/JasonTeixeira/nexural-meta/issues"
   }
 }

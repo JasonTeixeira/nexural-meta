@@ -33,5 +33,14 @@
   "publishConfig": {
     "access": "public",
     "provenance": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JasonTeixeira/nexural-meta.git",
+    "directory": "packages/sdk"
+  },
+  "homepage": "https://github.com/JasonTeixeira/nexural-meta/tree/main/packages/sdk#readme",
+  "bugs": {
+    "url": "https://github.com/JasonTeixeira/nexural-meta/issues"
   }
 }
