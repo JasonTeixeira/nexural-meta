@@ -1,0 +1,37 @@
+{
+  "name": "@nexural/schema",
+  "version": "0.1.0",
+  "description": "Canonical Zod schemas for the Nexural Federation (meta, frontmatter, MCP envelope, telemetry, recipes, lockfile, cost envelope, model router, external MCP, revocation).",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./json-schema/*": "./dist/json-schema/*.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "tsup && node scripts/export-json-schema.mjs",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src test",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist .turbo"
+  },
+  "dependencies": {
+    "zod": "^3.24.1",
+    "zod-to-json-schema": "^3.24.1"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}

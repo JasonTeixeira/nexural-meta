@@ -1,0 +1,40 @@
+{
+  "name": "@nexural/model-router",
+  "version": "0.1.0",
+  "description": "Family→ID resolver for LLM provider models. Stable family references (e.g. anthropic:opus) resolved to volatile concrete model IDs with deprecation + price-ceiling awareness. Per ADRs 0007, 0010.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./registry": {
+      "types": "./dist/registry.d.ts",
+      "import": "./dist/registry.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src test",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist .turbo"
+  },
+  "dependencies": {
+    "@nexural/schema": "workspace:^",
+    "zod": "^3.24.1"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}

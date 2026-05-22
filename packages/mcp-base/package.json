@@ -1,0 +1,37 @@
+{
+  "name": "@nexural/mcp-base",
+  "version": "0.1.0",
+  "description": "Opinionated MCP server base class with Zod validation, decay, telemetry, and prompt-injection XML wrapping middleware. Every warehouse MCP server extends this. Per ADRs 0002, 0007, 0008.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src test",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist .turbo"
+  },
+  "dependencies": {
+    "@nexural/schema": "workspace:^",
+    "@nexural/sdk": "workspace:^",
+    "zod": "^3.24.1"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}

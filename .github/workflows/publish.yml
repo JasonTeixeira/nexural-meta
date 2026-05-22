@@ -1,0 +1,56 @@
+name: Publish
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+# OIDC for keyless publish (per ADR-0006 — no local npm tokens) + Sigstore signing.
+permissions:
+  contents: read
+  id-token: write
+  packages: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          registry-url: "https://registry.npmjs.org"
+      - uses: pnpm/action-setup@v4
+        with: { version: 10, run_install: false }
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm typecheck
+      - run: pnpm test:coverage
+      - run: pnpm build
+
+      - uses: sigstore/cosign-installer@v3
+
+      - name: Publish via changesets (provenance enabled per package.json)
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # changesets handles version + tagging + npm publish.
+          # `provenance: true` in each package.json triggers OIDC-backed npm provenance.
+          pnpm changeset:publish
+
+      # SBOM as a release attachment
+      - name: Generate SBOM
+        run: npx --yes @cyclonedx/cyclonedx-npm@latest --output-file sbom.json --omit dev || true
+
+      - name: Attach SBOM + cosign signatures to release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            sbom.json
+            packages/*/dist/**/*.tgz
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

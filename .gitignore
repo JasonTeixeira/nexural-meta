@@ -1,0 +1,57 @@
+# Dependencies
+node_modules
+.pnpm-store
+
+# Build outputs
+dist
+build
+.next
+out
+*.tsbuildinfo
+
+# Test + coverage
+coverage
+.nyc_output
+.vitest
+
+# Turbo
+.turbo
+
+# OS / editor
+.DS_Store
+*.swp
+*.swo
+.idea
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.recommended.json
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Env (per ADR-0006 — secrets resolved via op:// references)
+.env
+.env.local
+.env.*.local
+
+# Generated artifacts (per SCHEMA_CHARTER — generated, never hand-edited)
+registry-factory.yaml
+registry-lifeops.yaml
+scorecard.json
+cross-refs.json
+
+# But DO commit external MCP registry (manual)
+!registry-external-mcp.yaml
+
+# Local nexural state
+.nexural/cache
+
+# Coverage + reports
+coverage/
+*.lcov
+
+# SBOM
+sbom.json
+sbom.cyclonedx.json

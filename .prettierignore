@@ -1,0 +1,10 @@
+node_modules
+dist
+.turbo
+coverage
+pnpm-lock.yaml
+*.tsbuildinfo
+CHANGELOG.md
+
+# Markdown files with unstable formatting (tables with embedded code)
+docs/PRE_FLIGHT.md

@@ -1,0 +1,46 @@
+{
+  "name": "nexural-meta",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Nexural Federation control plane — schemas, sdk, mcp-base, factory, model-router, qa-runners, cli, router, dashboard. Per ARCHITECTURE.md.",
+  "license": "UNLICENSED",
+  "author": "Sage (Sage Ideas LLC)",
+  "packageManager": "pnpm@10.17.0",
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=10"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "test:coverage": "turbo run test:coverage",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "format": "prettier --write . --ignore-path .gitignore --ignore-path .prettierignore",
+    "format:check": "prettier --check . --ignore-path .gitignore --ignore-path .prettierignore",
+    "clean": "turbo run clean && rm -rf node_modules .turbo",
+    "changeset": "changeset",
+    "changeset:status": "changeset status",
+    "changeset:version": "changeset version",
+    "changeset:publish": "changeset publish",
+    "discover": "node scripts/discover.mjs",
+    "verify-all": "node scripts/verify-all.mjs",
+    "cross-refs": "node scripts/cross-refs.mjs",
+    "bootstrap": "node scripts/bootstrap.mjs"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.10",
+    "@types/node": "^22.10.5",
+    "@typescript-eslint/eslint-plugin": "^8.20.0",
+    "@typescript-eslint/parser": "^8.20.0",
+    "@vitest/coverage-v8": "^2.1.8",
+    "eslint": "^9.18.0",
+    "eslint-config-prettier": "^10.0.1",
+    "fast-check": "^3.23.2",
+    "prettier": "^3.4.2",
+    "tsup": "^8.3.5",
+    "turbo": "^2.3.3",
+    "typescript": "^5.7.3",
+    "vitest": "^2.1.8"
+  }
+}

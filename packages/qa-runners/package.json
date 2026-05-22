@@ -1,0 +1,36 @@
+{
+  "name": "@nexural/qa-runners",
+  "version": "0.1.0",
+  "description": "Thin re-exports + typed wrappers around nexural-qa-os runners. Lets warehouses + recipes import a single @nexural/ namespace.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src test",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist .turbo"
+  },
+  "dependencies": {
+    "@nexural/schema": "workspace:^",
+    "zod": "^3.24.1"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}
