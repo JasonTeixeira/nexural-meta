@@ -7,7 +7,7 @@ on:
 
 # OIDC for keyless publish (per ADR-0006 — no local npm tokens) + Sigstore signing.
 permissions:
-  contents: read
+  contents: write # needed to create GitHub Releases for SBOM attachment
   id-token: write
   packages: write
 
