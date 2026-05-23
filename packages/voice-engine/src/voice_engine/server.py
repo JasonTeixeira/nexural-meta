@@ -21,6 +21,8 @@ from livekit import agents
 
 from voice_engine.agent import _configure_logging, make_worker
 from voice_engine.config import load_persona
+from voice_engine.doctor import report as doctor_report
+from voice_engine.orchestration import PersonaRegistry, build_router_agent
 
 
 @click.group()
@@ -45,8 +47,20 @@ def cli() -> None:
     default=".env",
     help="Path to .env file (skipped if missing).",
 )
+@click.option(
+    "--registry-dir",
+    "registry_dir",
+    type=click.Path(file_okay=False, path_type=Path),
+    default="personas",
+    help="Persona directory used for handoff_to() targets.",
+)
 @click.pass_context
-def serve(ctx: click.Context, persona_path: Path, env_file: Path) -> None:
+def serve(
+    ctx: click.Context,
+    persona_path: Path,
+    env_file: Path,
+    registry_dir: Path,
+) -> None:
     """Start a LiveKit worker bound to a persona.
 
     Forward LiveKit subcommands after `--`, e.g.:
@@ -75,7 +89,8 @@ def serve(ctx: click.Context, persona_path: Path, env_file: Path) -> None:
     if not forwarded:
         forwarded = ["dev"]
     sys.argv = [sys.argv[0], *forwarded]
-    agents.cli.run_app(make_worker(persona))
+    reg_dir = registry_dir if registry_dir.is_dir() else None
+    agents.cli.run_app(make_worker(persona, registry_dir=reg_dir))
 
 
 @cli.command()
@@ -88,6 +103,124 @@ def validate(persona_path: Path) -> None:
     persona = load_persona(persona_path)
     click.echo(f"✓ {persona.name} (v{persona.version}) — valid")
     click.echo(f"  mode={persona.mode.value}, mcp_servers={len(persona.mcp_servers)}")
+
+
+@cli.command(name="list")
+@click.option(
+    "--dir",
+    "persona_dir",
+    type=click.Path(exists=True, file_okay=False, path_type=Path),
+    default="personas",
+)
+def list_cmd(persona_dir: Path) -> None:
+    """List all personas in a directory."""
+    reg = PersonaRegistry(persona_dir)
+    rows = list(reg.describe())
+    if not rows:
+        click.echo("(no personas)")
+        return
+    name_w = max(len(r.get("name", "")) for r in rows) + 2
+    for r in rows:
+        if "error" in r:
+            click.echo(f"  ⚠  {r['name']:{name_w}s} ({r['error']})")
+            continue
+        click.echo(
+            f"  {r['name']:{name_w}s} {r['mode']:<8s} — {r['description'][:60]}"
+        )
+
+
+@cli.command()
+@click.option(
+    "--dir",
+    "persona_dir",
+    type=click.Path(exists=True, file_okay=False, path_type=Path),
+    default="personas",
+)
+@click.option(
+    "--out",
+    "out_path",
+    type=click.Path(dir_okay=False, path_type=Path),
+    default=None,
+    help="Where to write the generated router YAML. Default: <dir>/router.yaml",
+)
+def generate_router(persona_dir: Path, out_path: Path | None) -> None:
+    """Generate a `router.yaml` persona that routes between all others in --dir."""
+    reg = PersonaRegistry(persona_dir)
+    router = build_router_agent(reg)
+    targets = [n for n in reg.names() if n != "router"]
+    router.orchestration.handoff_targets = targets
+    out = out_path or (persona_dir / "router.yaml")
+    out.write_text(_persona_to_yaml(router), encoding="utf-8")
+    click.echo(f"✓ wrote {out}  (handoffs: {len(targets)})")
+
+
+@cli.command()
+@click.option(
+    "--dir",
+    "persona_dir",
+    type=click.Path(exists=True, file_okay=False, path_type=Path),
+    default="personas",
+)
+@click.option(
+    "--env",
+    "env_file",
+    type=click.Path(dir_okay=False, path_type=Path),
+    default=".env",
+)
+def doctor(persona_dir: Path, env_file: Path) -> None:
+    """Pre-flight check — what's installed, what's keyed, what's runnable."""
+    if env_file.exists():
+        load_dotenv(env_file)
+    r = doctor_report(persona_dir)
+
+    # ── LiveKit ────────────────────────────────────────────────
+    if r["livekit_env_ok"] and r["livekit_auth_ok"]:
+        click.echo(click.style("✓", fg="green") + " LiveKit env + token mint OK")
+    else:
+        click.echo(click.style("✗", fg="red") + " LiveKit env: missing " + ", ".join(r["livekit_env_missing"]))
+        if not r["livekit_auth_ok"]:
+            click.echo(f"  token mint: {r['livekit_auth_note']}")
+
+    # ── Plugins ────────────────────────────────────────────────
+    bad = [n for n, ok in r["plugins"].items() if not ok]
+    if not bad:
+        click.echo(click.style("✓", fg="green") + " all 11 plugins importable")
+    else:
+        click.echo(click.style("✗", fg="red") + " plugins failing import: " + ", ".join(bad))
+
+    # ── Personas ───────────────────────────────────────────────
+    click.echo("")
+    ready_count = sum(1 for p in r["personas"] if p.ready)
+    click.echo(f"Personas ({ready_count}/{len(r['personas'])} ready to run):")
+    for p in r["personas"]:
+        mark = click.style("✓", fg="green") if p.ready else click.style("✗", fg="yellow")
+        line = f"  {mark} {p.name}"
+        if p.missing:
+            line += click.style(f"  — missing: {', '.join(p.missing)}", fg="yellow")
+        click.echo(line)
+        for note in p.notes:
+            click.echo(click.style(f"      ⓘ  {note}", fg="cyan"))
+
+    # ── Exit status ────────────────────────────────────────────
+    click.echo("")
+    if r["livekit_env_ok"] and ready_count > 0:
+        click.echo(click.style(
+            f"Ready — try:  nx-voice serve --persona personas/{r['personas'][0].name}.yaml -- dev",
+            fg="green",
+        ))
+    else:
+        click.echo(click.style(
+            "Fill missing keys in .env, then re-run `nx-voice doctor`.",
+            fg="yellow",
+        ))
+
+
+def _persona_to_yaml(p) -> str:
+    """Dump a PersonaConfig to clean YAML (preserves prompt formatting)."""
+    import yaml as _yaml
+
+    data = p.model_dump(mode="json", exclude_defaults=False)
+    return _yaml.safe_dump(data, sort_keys=False, allow_unicode=True, width=88)
 
 
 def main() -> None:

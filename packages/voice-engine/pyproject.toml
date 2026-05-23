@@ -8,28 +8,30 @@ license = { text = "UNLICENSED" }
 readme = "README.md"
 
 dependencies = [
-    # Core
-    "livekit-agents[silero,turn-detector]>=1.5.0",
-    "pydantic>=2.7",
-    "pyyaml>=6.0",
-    "python-dotenv>=1.0",
-    "click>=8.1",
+    # ── Core ── pinned exact to LK Agents 1.5.12 release (voice plugin APIs
+    # shift between minor versions; pinning prevents silent breaks).
+    "livekit-agents[silero,turn-detector]==1.5.12",
+    "livekit-api==1.1.0",
+    "pydantic>=2.13,<3.0",
+    "pyyaml>=6.0,<7.0",
+    "python-dotenv>=1.0,<2.0",
+    "click>=8.1,<9.0",
 
-    # Provider plugins
-    "livekit-plugins-deepgram>=1.5.0",
-    "livekit-plugins-openai>=1.5.0",
-    "livekit-plugins-anthropic>=1.5.0",
-    "livekit-plugins-cartesia>=1.5.0",
-    "livekit-plugins-elevenlabs>=1.5.0",
-    "livekit-plugins-google>=1.5.0",
-    "livekit-plugins-silero>=1.5.0",
-    "livekit-plugins-noise-cancellation>=0.2.0",
+    # ── Provider plugins ── pinned to match LK Agents 1.5.12
+    "livekit-plugins-deepgram==1.5.12",
+    "livekit-plugins-openai==1.5.12",
+    "livekit-plugins-anthropic==1.5.12",
+    "livekit-plugins-cartesia==1.5.12",
+    "livekit-plugins-elevenlabs==1.5.12",
+    "livekit-plugins-google==1.5.12",
+    "livekit-plugins-silero==1.5.12",
+    "livekit-plugins-noise-cancellation>=0.2.5,<0.3.0",
 
-    # MCP (tools/content swap layer)
-    "mcp>=1.2.0",
+    # ── MCP (tools/content swap layer)
+    "mcp>=1.27,<2.0",
 
-    # Memory (cross-session)
-    "mem0ai>=0.1.50",
+    # ── Memory (cross-session)
+    "mem0ai>=2.0,<3.0",
 ]
 
 [project.optional-dependencies]

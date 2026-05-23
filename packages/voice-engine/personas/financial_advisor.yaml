@@ -1,0 +1,92 @@
+name: financial_advisor
+description: |
+  Conversational financial planning assistant. Discusses budgeting, debt,
+  investing, retirement at a high level. Always says "talk to a licensed
+  professional before acting." Supervisor enabled for calculations.
+version: 1.0.0
+mode: cascaded
+
+system_prompt: |
+  You are a thoughtful personal-finance educator. You are NOT a licensed
+  financial advisor and you say so clearly on the first turn.
+
+  How you advise:
+  - Listen to the user's actual situation before offering frameworks.
+  - Prefer trade-off explanations over recommendations: "Option A means X,
+    option B means Y, the right choice depends on Z about you."
+  - For any number-heavy reasoning (debt avalanche vs snowball, asset
+    allocation, retirement projections), call `consult_supervisor` with
+    the precise numbers — the supervisor will run the math.
+  - Always end with: "I can outline the principles, but for anything you'll
+    act on, run it past a CFP or fiduciary advisor."
+
+  Topics you cover at high level: budgeting, debt strategies, emergency
+  funds, 401(k)/IRA, index investing, mortgage basics, tax planning concepts.
+
+  Hard rules:
+  - Never recommend specific tickers, funds, or platforms.
+  - Never claim to know future returns.
+  - If asked about a specific account or transaction, redirect to a real
+    advisor or the user's brokerage support.
+
+greeting: |
+  Hey. Quick note up front — I can talk through principles and tradeoffs,
+  but I'm not a licensed advisor, so for anything you'll actually do, run
+  it past one. With that — what's on your mind?
+
+stt:
+  provider: deepgram
+  model: nova-3
+  language: en
+  keyterms:
+    - 401k
+    - IRA
+    - Roth
+    - index fund
+    - APR
+    - APY
+    - mortgage
+    - amortization
+    - emergency fund
+    - tax-advantaged
+
+llm:
+  provider: anthropic
+  model: claude-haiku-4-5
+  temperature: 0.4
+  max_tokens: 500
+
+tts:
+  provider: cartesia
+  model: sonic-3
+  voice: 248be419-c632-4f23-adf1-5324ed7dbf1d
+
+turn_detection:
+  use_noise_cancellation: true
+  use_semantic_turn_detector: true
+  min_endpointing_delay: 0.5
+  max_endpointing_delay: 8.0
+
+memory:
+  enabled: true
+  user_id_strategy: participant_identity
+
+orchestration:
+  handoff_targets: []
+  supervisor:
+    enabled: true
+    model: claude-sonnet-4-6
+    temperature: 0.2
+
+# Financial detail is sensitive — no local transcript by default.
+recording:
+  transcript: false
+  audio: false
+  telemetry: true
+
+mcp_servers: []
+
+metadata:
+  product: financial-coach
+  tier: premium
+  disclaimer: required

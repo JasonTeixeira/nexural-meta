@@ -143,16 +143,49 @@ That's the entire developer loop. Engine code is never touched.
 
 ---
 
+## Orchestration (multi-persona)
+
+Three layers on top of the engine:
+
+1. **Persona registry** (`voice_engine.orchestration.PersonaRegistry`) —
+   discovers every YAML in `personas/`. The CLI uses it for
+   `nx-voice list`.
+2. **Router persona** — auto-generated meta-persona that greets a caller,
+   classifies intent in 1–2 turns, and hands off to the right specialist.
+   Regenerate any time you add a persona:
+   ```bash
+   nx-voice generate-router --out personas/router.yaml
+   ```
+3. **Chat-Supervisor** — for any persona that opts in
+   (`orchestration.supervisor.enabled: true`), the voice agent gets a
+   `consult_supervisor(question)` function tool backed by Claude Sonnet
+   4.6. Fast voice + slow brain, in parallel. Used by `code_reviewer`
+   and `financial_advisor` out of the box.
+
+Handoffs use LiveKit Agents 1.5's native pattern: the `handoff_to(name)`
+function tool returns a new Agent instance and the session swaps it
+seamlessly mid-call.
+
 ## Shipped personas
 
-| File                    | Mode         | Voice/TTS                          | Use case                                            |
-| ----------------------- | ------------ | ---------------------------------- | --------------------------------------------------- |
-| `voice_coach.yaml`      | cascaded     | Cartesia Sonic 3                   | Speech & delivery coaching with memory              |
-| `tutor.yaml`            | cascaded     | Cartesia Sonic 3                   | Socratic 1:1 tutor for any subject                  |
-| `therapist.yaml`        | **realtime** | OpenAI gpt-realtime (warm)         | Reflective companion — natural prosody matters most |
-| `sales_agent.yaml`      | cascaded     | ElevenLabs Flash v2.5              | Inside sales SDR with CRM + calendar MCP            |
-| `customer_support.yaml` | cascaded     | Cartesia Sonic 3                   | Tier-1 support with KB + ticketing MCP              |
-| `interviewer.yaml`      | cascaded     | OpenAI gpt-4o-mini-tts (steerable) | Mock interviewer with structured debrief            |
+| File                     | Mode         | Voice/TTS                          | Use case                                                |
+| ------------------------ | ------------ | ---------------------------------- | ------------------------------------------------------- |
+| `router.yaml`            | cascaded     | Cartesia Sonic 3                   | **Front-door router** — picks the right specialist      |
+| `voice_coach.yaml`       | cascaded     | Cartesia Sonic 3                   | Speech & delivery coaching with memory                  |
+| `tutor.yaml`             | cascaded     | Cartesia Sonic 3                   | Socratic 1:1 tutor for any subject                      |
+| `therapist.yaml`         | **realtime** | OpenAI gpt-realtime (warm)         | Reflective companion — natural prosody matters most     |
+| `sales_agent.yaml`       | cascaded     | ElevenLabs Flash v2.5              | Inside sales SDR with CRM + calendar MCP                |
+| `customer_support.yaml`  | cascaded     | Cartesia Sonic 3                   | Tier-1 support with KB + ticketing MCP                  |
+| `interviewer.yaml`       | cascaded     | OpenAI gpt-4o-mini-tts (steerable) | Mock interviewer with structured debrief                |
+| `language_coach.yaml`    | **realtime** | OpenAI gpt-realtime                | Conversational language practice (any language)         |
+| `fitness_coach.yaml`     | cascaded     | Cartesia Sonic 3 (speed 1.05)      | Hands-free in-ear workout coach with RPE adaptation     |
+| `meditation_guide.yaml`  | **realtime** | OpenAI gpt-realtime (slow, warm)   | Calm guided meditation with long pauses                 |
+| `music_teacher.yaml`     | cascaded     | Cartesia Sonic 3                   | Instrument-agnostic 1:1 music tutor                     |
+| `code_reviewer.yaml`     | cascaded     | OpenAI gpt-4o-mini-tts (steerable) | Senior-engineer voice code review + **supervisor**      |
+| `medical_intake.yaml`    | cascaded     | Cartesia Sonic 3 (speed 0.95)      | HIPAA-conscious pre-visit triage with SBAR output       |
+| `financial_advisor.yaml` | cascaded     | Cartesia Sonic 3                   | Personal-finance educator with **supervisor** math      |
+| `receptionist.yaml`      | cascaded     | Cartesia Sonic 3                   | AI front-desk: booking, FAQ, messages (telephony-ready) |
+| `storyteller.yaml`       | **realtime** | OpenAI gpt-realtime (expressive)   | Interactive kids' storyteller with safety guardrails    |
 
 Each YAML is the entire app definition. Read them to learn the schema.
 

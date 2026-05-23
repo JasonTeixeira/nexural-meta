@@ -97,6 +97,43 @@ class MemoryConfig(BaseModel):
     user_id_strategy: Literal["participant_identity", "room_name"] = "participant_identity"
 
 
+class SupervisorConfig(BaseModel):
+    """Chat-Supervisor pattern. A heavier LLM the voice persona can consult
+    mid-conversation for hard reasoning, without blocking speech."""
+
+    enabled: bool = False
+    model: str = "claude-sonnet-4-6"
+    max_tokens: int = 1024
+    temperature: float = 0.4
+
+
+class RecordingConfig(BaseModel):
+    """What to capture for QA/eval. Per-persona.
+
+    Default: transcript on, audio off, telemetry on. Personas that handle
+    sensitive data (medical, finance) should disable transcript or route
+    it to a compliant sink instead of local JSONL.
+    """
+
+    transcript: bool = True
+    """Persist conversation transcript to telemetry SQLite + JSONL."""
+    audio: bool = False
+    """Persist room audio (uses LiveKit Egress — Cloud feature, costs apply)."""
+    telemetry: bool = True
+    """Per-turn latency/cost metrics into SQLite."""
+
+
+class OrchestrationConfig(BaseModel):
+    """Multi-persona orchestration.
+
+    `handoff_targets`: persona names this agent can transfer the call to.
+    Empty list = no handoff capability (default).
+    """
+
+    handoff_targets: list[str] = Field(default_factory=list)
+    supervisor: SupervisorConfig = Field(default_factory=SupervisorConfig)
+
+
 class MCPServerConfig(BaseModel):
     """Per-app tool/content surface. THE swap layer.
 
@@ -152,6 +189,12 @@ class PersonaConfig(BaseModel):
 
     # MCP servers = tools = per-app content surface
     mcp_servers: list[MCPServerConfig] = Field(default_factory=list)
+
+    # Multi-persona orchestration (handoffs + supervisor)
+    orchestration: OrchestrationConfig = Field(default_factory=OrchestrationConfig)
+
+    # What to capture for QA / eval / debugging
+    recording: RecordingConfig = Field(default_factory=RecordingConfig)
 
     # Free-form metadata (telemetry tags, app id, tenant, etc.)
     metadata: dict[str, Any] = Field(default_factory=dict)
