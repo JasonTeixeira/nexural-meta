@@ -16,6 +16,7 @@ export default defineConfig({
         "src/bin/**",
         "src/ui/**.tsx",
         "src/commands/audit.ts", // spawns child processes (adversarial harness + forge)
+        "src/commands/ecosystem.ts", // shells out to `command -v`; reads filesystem registry
         "src/commands/serve.ts", // long-running HTTP server; manual smoke test
         "src/commands/forge.ts", // shells out to op + git + spawns processes
         "src/commands/health.tsx", // Ink UI
