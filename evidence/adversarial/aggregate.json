@@ -1,0 +1,334 @@
+{
+  "schema_version": 1,
+  "ran_at": "2026-05-23T00:47:20.852Z",
+  "summary": {
+    "recipes": 8,
+    "total_scenarios": 24,
+    "caught": 24,
+    "escaped": 0,
+    "failing_recipes": [],
+    "passed": true
+  },
+  "reports": [
+    {
+      "schema_version": 1,
+      "recipe": "fintech-ledger-app",
+      "ran_at": "2026-05-23T00:47:20.820Z",
+      "summary": {
+        "total": 3,
+        "caught": 3,
+        "escaped": 0,
+        "passed": true
+      },
+      "scenarios": [
+        {
+          "id": "secret_leak",
+          "expected": "EmitError(secret_leak)",
+          "actual": {
+            "caught": true,
+            "code": "secret_leak",
+            "message": "[forge-emit:secret_leak] Emitted file would contain literal value of secret \"TEST_KEY\". Use env-var indirection, not dir"
+          }
+        },
+        {
+          "id": "unresolved_variable",
+          "expected": "EmitError(unresolved_variable)",
+          "actual": {
+            "caught": true,
+            "code": "unresolved_variable",
+            "message": "[forge-emit:unresolved_variable] Unknown template variable \"never_defined\""
+          }
+        },
+        {
+          "id": "duplicate_path",
+          "expected": "ComposeError(duplicate_path_across_warehouses)",
+          "actual": {
+            "caught": true,
+            "code": "duplicate_path_across_warehouses",
+            "message": "[warehouse-base:duplicate_path_across_warehouses] template path \"shared.ts\" provided by both \"alpha\" and \"beta\""
+          }
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "recipe": "internal-tool-dashboard",
+      "ran_at": "2026-05-23T00:47:20.834Z",
+      "summary": {
+        "total": 3,
+        "caught": 3,
+        "escaped": 0,
+        "passed": true
+      },
+      "scenarios": [
+        {
+          "id": "secret_leak",
+          "expected": "EmitError(secret_leak)",
+          "actual": {
+            "caught": true,
+            "code": "secret_leak",
+            "message": "[forge-emit:secret_leak] Emitted file would contain literal value of secret \"TEST_KEY\". Use env-var indirection, not dir"
+          }
+        },
+        {
+          "id": "unresolved_variable",
+          "expected": "EmitError(unresolved_variable)",
+          "actual": {
+            "caught": true,
+            "code": "unresolved_variable",
+            "message": "[forge-emit:unresolved_variable] Unknown template variable \"never_defined\""
+          }
+        },
+        {
+          "id": "duplicate_path",
+          "expected": "ComposeError(duplicate_path_across_warehouses)",
+          "actual": {
+            "caught": true,
+            "code": "duplicate_path_across_warehouses",
+            "message": "[warehouse-base:duplicate_path_across_warehouses] template path \"shared.ts\" provided by both \"alpha\" and \"beta\""
+          }
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "recipe": "saas-agent-platform",
+      "ran_at": "2026-05-23T00:47:20.837Z",
+      "summary": {
+        "total": 3,
+        "caught": 3,
+        "escaped": 0,
+        "passed": true
+      },
+      "scenarios": [
+        {
+          "id": "secret_leak",
+          "expected": "EmitError(secret_leak)",
+          "actual": {
+            "caught": true,
+            "code": "secret_leak",
+            "message": "[forge-emit:secret_leak] Emitted file would contain literal value of secret \"TEST_KEY\". Use env-var indirection, not dir"
+          }
+        },
+        {
+          "id": "unresolved_variable",
+          "expected": "EmitError(unresolved_variable)",
+          "actual": {
+            "caught": true,
+            "code": "unresolved_variable",
+            "message": "[forge-emit:unresolved_variable] Unknown template variable \"never_defined\""
+          }
+        },
+        {
+          "id": "duplicate_path",
+          "expected": "ComposeError(duplicate_path_across_warehouses)",
+          "actual": {
+            "caught": true,
+            "code": "duplicate_path_across_warehouses",
+            "message": "[warehouse-base:duplicate_path_across_warehouses] template path \"shared.ts\" provided by both \"alpha\" and \"beta\""
+          }
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "recipe": "saas-multitenant-baseline",
+      "ran_at": "2026-05-23T00:47:20.840Z",
+      "summary": {
+        "total": 3,
+        "caught": 3,
+        "escaped": 0,
+        "passed": true
+      },
+      "scenarios": [
+        {
+          "id": "secret_leak",
+          "expected": "EmitError(secret_leak)",
+          "actual": {
+            "caught": true,
+            "code": "secret_leak",
+            "message": "[forge-emit:secret_leak] Emitted file would contain literal value of secret \"TEST_KEY\". Use env-var indirection, not dir"
+          }
+        },
+        {
+          "id": "unresolved_variable",
+          "expected": "EmitError(unresolved_variable)",
+          "actual": {
+            "caught": true,
+            "code": "unresolved_variable",
+            "message": "[forge-emit:unresolved_variable] Unknown template variable \"never_defined\""
+          }
+        },
+        {
+          "id": "duplicate_path",
+          "expected": "ComposeError(duplicate_path_across_warehouses)",
+          "actual": {
+            "caught": true,
+            "code": "duplicate_path_across_warehouses",
+            "message": "[warehouse-base:duplicate_path_across_warehouses] template path \"shared.ts\" provided by both \"alpha\" and \"beta\""
+          }
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "recipe": "saas-multitenant-baseline-cf",
+      "ran_at": "2026-05-23T00:47:20.843Z",
+      "summary": {
+        "total": 3,
+        "caught": 3,
+        "escaped": 0,
+        "passed": true
+      },
+      "scenarios": [
+        {
+          "id": "secret_leak",
+          "expected": "EmitError(secret_leak)",
+          "actual": {
+            "caught": true,
+            "code": "secret_leak",
+            "message": "[forge-emit:secret_leak] Emitted file would contain literal value of secret \"TEST_KEY\". Use env-var indirection, not dir"
+          }
+        },
+        {
+          "id": "unresolved_variable",
+          "expected": "EmitError(unresolved_variable)",
+          "actual": {
+            "caught": true,
+            "code": "unresolved_variable",
+            "message": "[forge-emit:unresolved_variable] Unknown template variable \"never_defined\""
+          }
+        },
+        {
+          "id": "duplicate_path",
+          "expected": "ComposeError(duplicate_path_across_warehouses)",
+          "actual": {
+            "caught": true,
+            "code": "duplicate_path_across_warehouses",
+            "message": "[warehouse-base:duplicate_path_across_warehouses] template path \"shared.ts\" provided by both \"alpha\" and \"beta\""
+          }
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "recipe": "saas-rag-chat",
+      "ran_at": "2026-05-23T00:47:20.846Z",
+      "summary": {
+        "total": 3,
+        "caught": 3,
+        "escaped": 0,
+        "passed": true
+      },
+      "scenarios": [
+        {
+          "id": "secret_leak",
+          "expected": "EmitError(secret_leak)",
+          "actual": {
+            "caught": true,
+            "code": "secret_leak",
+            "message": "[forge-emit:secret_leak] Emitted file would contain literal value of secret \"TEST_KEY\". Use env-var indirection, not dir"
+          }
+        },
+        {
+          "id": "unresolved_variable",
+          "expected": "EmitError(unresolved_variable)",
+          "actual": {
+            "caught": true,
+            "code": "unresolved_variable",
+            "message": "[forge-emit:unresolved_variable] Unknown template variable \"never_defined\""
+          }
+        },
+        {
+          "id": "duplicate_path",
+          "expected": "ComposeError(duplicate_path_across_warehouses)",
+          "actual": {
+            "caught": true,
+            "code": "duplicate_path_across_warehouses",
+            "message": "[warehouse-base:duplicate_path_across_warehouses] template path \"shared.ts\" provided by both \"alpha\" and \"beta\""
+          }
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "recipe": "saas-rag-chat-openai-first",
+      "ran_at": "2026-05-23T00:47:20.848Z",
+      "summary": {
+        "total": 3,
+        "caught": 3,
+        "escaped": 0,
+        "passed": true
+      },
+      "scenarios": [
+        {
+          "id": "secret_leak",
+          "expected": "EmitError(secret_leak)",
+          "actual": {
+            "caught": true,
+            "code": "secret_leak",
+            "message": "[forge-emit:secret_leak] Emitted file would contain literal value of secret \"TEST_KEY\". Use env-var indirection, not dir"
+          }
+        },
+        {
+          "id": "unresolved_variable",
+          "expected": "EmitError(unresolved_variable)",
+          "actual": {
+            "caught": true,
+            "code": "unresolved_variable",
+            "message": "[forge-emit:unresolved_variable] Unknown template variable \"never_defined\""
+          }
+        },
+        {
+          "id": "duplicate_path",
+          "expected": "ComposeError(duplicate_path_across_warehouses)",
+          "actual": {
+            "caught": true,
+            "code": "duplicate_path_across_warehouses",
+            "message": "[warehouse-base:duplicate_path_across_warehouses] template path \"shared.ts\" provided by both \"alpha\" and \"beta\""
+          }
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "recipe": "saas-rag-chat-qdrant",
+      "ran_at": "2026-05-23T00:47:20.850Z",
+      "summary": {
+        "total": 3,
+        "caught": 3,
+        "escaped": 0,
+        "passed": true
+      },
+      "scenarios": [
+        {
+          "id": "secret_leak",
+          "expected": "EmitError(secret_leak)",
+          "actual": {
+            "caught": true,
+            "code": "secret_leak",
+            "message": "[forge-emit:secret_leak] Emitted file would contain literal value of secret \"TEST_KEY\". Use env-var indirection, not dir"
+          }
+        },
+        {
+          "id": "unresolved_variable",
+          "expected": "EmitError(unresolved_variable)",
+          "actual": {
+            "caught": true,
+            "code": "unresolved_variable",
+            "message": "[forge-emit:unresolved_variable] Unknown template variable \"never_defined\""
+          }
+        },
+        {
+          "id": "duplicate_path",
+          "expected": "ComposeError(duplicate_path_across_warehouses)",
+          "actual": {
+            "caught": true,
+            "code": "duplicate_path_across_warehouses",
+            "message": "[warehouse-base:duplicate_path_across_warehouses] template path \"shared.ts\" provided by both \"alpha\" and \"beta\""
+          }
+        }
+      ]
+    }
+  ]
+}

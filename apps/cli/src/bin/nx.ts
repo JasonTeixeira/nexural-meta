@@ -9,6 +9,7 @@ import { Command } from "commander";
 import { loadConfig } from "../config.js";
 import { withTelemetry, closeTelemetry } from "../telemetry.js";
 import { runAsk } from "../commands/ask.js";
+import { runAudit } from "../commands/audit.js";
 import { runForge } from "../commands/forge.js";
 import { runHealth } from "../commands/health.js";
 import { runNew } from "../commands/new.js";
@@ -71,6 +72,22 @@ program
   .description("cd into a warehouse + launch $EDITOR")
   .action(async (warehouse: string) => {
     await withTelemetry(config, "open", [warehouse], () => runOpen(config, warehouse));
+  });
+
+program
+  .command("audit")
+  .description("Federation-wide stress check: runners + adversarial + forge dry-runs")
+  .option("--skip-adversarial", "skip adversarial harness")
+  .option("--skip-forge", "skip forge dry-runs")
+  .option("--json", "JSON-only output")
+  .action(async (opts: { skipAdversarial?: boolean; skipForge?: boolean; json?: boolean }) => {
+    await withTelemetry(config, "audit", [], () =>
+      runAudit(config, {
+        ...(opts.skipAdversarial !== undefined ? { skipAdversarial: opts.skipAdversarial } : {}),
+        ...(opts.skipForge !== undefined ? { skipForge: opts.skipForge } : {}),
+        ...(opts.json !== undefined ? { json: opts.json } : {}),
+      }),
+    );
   });
 
 program

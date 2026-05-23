@@ -25,6 +25,21 @@ export async function runFederationConformance(ctx: RunnerContext): Promise<Runn
   const lockfilePath = join(ctx.cwd, ".nexural", "forged.lock.yaml");
 
   if (!existsSync(lockfilePath)) {
+    // Detect the control-plane repo (nexural-meta itself) — it has
+    // `warehouses/` and `recipes/` directories but is NOT a forged app.
+    // Without this guard, the runner false-positives every audit run.
+    const isControlPlane =
+      existsSync(join(ctx.cwd, "warehouses")) && existsSync(join(ctx.cwd, "recipes"));
+    if (isControlPlane) {
+      findings.push({
+        category: "federation-conformance",
+        severity: "info",
+        message:
+          "control-plane repo detected (warehouses/ + recipes/ present, no .nexural/) — runner skipped",
+        rule: "lockfile-presence",
+      });
+      return result(start, findings);
+    }
     findings.push({
       category: "federation-conformance",
       severity: "error",

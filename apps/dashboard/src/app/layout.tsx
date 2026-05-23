@@ -1,18 +1,20 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Nexural Dashboard",
   description: "Federation health, scorecard, decay, costs, revocations.",
 };
 
-const NAV = [
-  { href: "/" as const, label: "Overview" },
-  { href: "/factory" as const, label: "Factory" },
-  { href: "/lifeops" as const, label: "Lifeops" },
-  { href: "/scorecard" as const, label: "Scorecard" },
-  { href: "/security/revocations" as const, label: "Revocations" },
+// typedRoutes regenerates the route union at `next build` time; tsc --noEmit
+// can race against it for newly added routes. Cast to string at the boundary.
+const NAV: ReadonlyArray<{ href: string; label: string }> = [
+  { href: "/", label: "Overview" },
+  { href: "/health", label: "Health" },
+  { href: "/factory", label: "Factory" },
+  { href: "/lifeops", label: "Lifeops" },
+  { href: "/scorecard", label: "Scorecard" },
+  { href: "/security/revocations", label: "Revocations" },
 ];
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -39,9 +41,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <strong style={{ fontSize: "1.1rem" }}>Nexural</strong>
           <nav style={{ display: "flex", gap: "1.5rem", fontSize: "0.9rem" }}>
             {NAV.map((n) => (
-              <Link key={n.href} href={n.href} style={{ color: "#e5e5e5", textDecoration: "none" }}>
+              <a key={n.href} href={n.href} style={{ color: "#e5e5e5", textDecoration: "none" }}>
                 {n.label}
-              </Link>
+              </a>
             ))}
           </nav>
         </header>
