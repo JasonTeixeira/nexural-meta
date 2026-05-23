@@ -34,7 +34,7 @@ const KNOWN_KINDS: ReadonlyArray<DocKind> = [
 ];
 
 export async function runAsk(
-  _config: NexuralConfig,
+  config: NexuralConfig,
   query: string,
   opts: AskOptions = {},
 ): Promise<void> {
@@ -47,12 +47,46 @@ export async function runAsk(
   const kinds = parseKinds(opts.kinds);
   const limit = opts.limit ?? 5;
 
-  const docs = collectDocs({ root: process.cwd() });
+  // Resolve federation root:
+  //   1. cwd if it looks like a federation repo (has docs/ + recipes/ + warehouses/)
+  //   2. config.meta_root (from NEXURAL_META_ROOT env or ~/.nexural/config.toml)
+  //   3. error with help
+  const fs = await import("node:fs");
+  const path = await import("node:path");
+  function looksLikeFederation(root: string): boolean {
+    return (
+      fs.existsSync(path.join(root, "docs")) &&
+      fs.existsSync(path.join(root, "recipes")) &&
+      fs.existsSync(path.join(root, "warehouses"))
+    );
+  }
+  const cwd = process.cwd();
+  const metaRoot = config.meta_root; // may be undefined if config didn't include it (older configs)
+  const root = looksLikeFederation(cwd)
+    ? cwd
+    : metaRoot && looksLikeFederation(metaRoot)
+      ? metaRoot
+      : null;
+  if (root === null) {
+    if (opts.json) {
+      console.log(
+        JSON.stringify({ query, hits: [], indexed: 0, error: "no federation root" }, null, 2),
+      );
+    } else {
+      console.error(
+        `✖ cannot find a federation root. Tried:\n  cwd: ${cwd}\n  meta_root: ${config.meta_root}\n\nFix: set NEXURAL_META_ROOT, OR add 'meta_root = "/abs/path"' to ~/.nexural/config.toml, OR cd into your nexural-meta repo.`,
+      );
+      process.exitCode = 1;
+    }
+    return;
+  }
+
+  const docs = collectDocs({ root });
   if (docs.length === 0) {
     if (opts.json) {
-      console.log(JSON.stringify({ query, hits: [], indexed: 0 }, null, 2));
+      console.log(JSON.stringify({ query, hits: [], indexed: 0, root }, null, 2));
     } else {
-      console.error("✖ no docs found — are you in a nexural-meta repo?");
+      console.error(`✖ no docs found at ${root}`);
       process.exitCode = 1;
     }
     return;

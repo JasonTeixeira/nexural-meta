@@ -190,6 +190,22 @@ importers:
         specifier: ^3.24.1
         version: 3.25.76
 
+  packages/federation-server:
+    dependencies:
+      '@modelcontextprotocol/sdk':
+        specifier: ^1.0.4
+        version: 1.29.0(zod@3.25.76)
+      '@nexural/ask-engine':
+        specifier: workspace:^
+        version: link:../ask-engine
+      zod:
+        specifier: ^3.24.1
+        version: 3.25.76
+    devDependencies:
+      '@types/node':
+        specifier: ^22.10.5
+        version: 22.19.19
+
   packages/forge-emit:
     dependencies:
       '@nexural/schema':

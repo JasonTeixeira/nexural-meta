@@ -76,15 +76,15 @@ program
 
 program
   .command("audit")
-  .description("Federation-wide stress check: runners + adversarial + forge dry-runs")
+  .description("Federation-wide stress check: runners + adversarial (forge dry-runs opt-in)")
   .option("--skip-adversarial", "skip adversarial harness")
-  .option("--skip-forge", "skip forge dry-runs")
+  .option("--with-forge", "ALSO run forge dry-runs (slow first time, ~10s+)")
   .option("--json", "JSON-only output")
-  .action(async (opts: { skipAdversarial?: boolean; skipForge?: boolean; json?: boolean }) => {
+  .action(async (opts: { skipAdversarial?: boolean; withForge?: boolean; json?: boolean }) => {
     await withTelemetry(config, "audit", [], () =>
       runAudit(config, {
         ...(opts.skipAdversarial !== undefined ? { skipAdversarial: opts.skipAdversarial } : {}),
-        ...(opts.skipForge !== undefined ? { skipForge: opts.skipForge } : {}),
+        ...(opts.withForge !== undefined ? { withForge: opts.withForge } : {}),
         ...(opts.json !== undefined ? { json: opts.json } : {}),
       }),
     );

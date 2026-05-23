@@ -1,7 +1,7 @@
 {
   "name": "@nexural/cli",
-  "version": "1.1.0",
-  "description": "The `nx` CLI — single human-facing command for the Nexural Federation. Commands: ask, audit, forge, health, new, open, play, session save, sync, verify. Per ARCHITECTURE.md §4.1.",
+  "version": "1.2.0",
+  "description": "The `nx` CLI — single human-facing command for the Nexural Federation. Commands: ask, audit, forge, health, new, open, play, session save, sync, verify. nx ask now resolves NEXURAL_META_ROOT so it works from any project. Per ARCHITECTURE.md §4.1.",
   "license": "MIT",
   "type": "module",
   "bin": {

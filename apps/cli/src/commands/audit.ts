@@ -21,8 +21,11 @@ import type { NexuralConfig } from "../config.js";
 export interface AuditOptions {
   /** Skip the adversarial harness (faster local checks). */
   readonly skipAdversarial?: boolean;
-  /** Skip forge dry-runs. */
-  readonly skipForge?: boolean;
+  /**
+   * Run forge dry-runs (slow — spawns tsx per recipe; ~10s+ on first run).
+   * Default OFF. The other checks complete in ~1s.
+   */
+  readonly withForge?: boolean;
   /** Output JSON only — no human-readable summary. */
   readonly json?: boolean;
 }
@@ -124,8 +127,11 @@ export async function runAudit(_config: NexuralConfig, opts: AuditOptions = {}):
     }
   }
 
-  // ── Forge dry-runs ───────────────────────────────────────────────────────
-  if (!opts.skipForge) {
+  // ── Forge dry-runs (opt-in; slow on first run because of tsx download) ──
+  if (opts.withForge) {
+    if (!opts.json) {
+      console.error(`[audit] running forge dry-runs for each recipe (slow first run)…`);
+    }
     const forgeStart = Date.now();
     const forge = await runForgeDryRuns(cwd);
     sections.push(forge);
@@ -136,6 +142,9 @@ export async function runAudit(_config: NexuralConfig, opts: AuditOptions = {}):
       );
       console.error("");
     }
+  } else if (!opts.json) {
+    console.error(`[audit] ⏭  forge-dry-runs skipped (pass --with-forge to enable, ~10s+)`);
+    console.error("");
   }
 
   // ── Aggregate + write ────────────────────────────────────────────────────

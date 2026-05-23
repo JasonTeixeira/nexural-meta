@@ -16,6 +16,12 @@ import { z } from "zod";
 export const NexuralConfig = z
   .object({
     nexural_home: z.string().default(join(homedir(), ".nexural")),
+    /**
+     * Absolute path to the nexural-meta repo. Resolved by `nx ask` so it
+     * works from any project directory. Defaults to a common location;
+     * override via NEXURAL_META_ROOT env or `meta_root` in config.toml.
+     */
+    meta_root: z.string().default(join(homedir(), "code/nexural/nexural-meta")),
     warehouses_root: z.string().default(join(homedir(), "code/nexural/warehouses")),
     apps_root: z.string().default(join(homedir(), "code/apps")),
     router_url: z.string().default("stdio://nexural-meta-router"),
@@ -31,6 +37,7 @@ export type NexuralConfig = z.infer<typeof NexuralConfig>;
 
 const ENV_MAP: Record<string, keyof NexuralConfig> = {
   NEXURAL_HOME: "nexural_home",
+  NEXURAL_META_ROOT: "meta_root",
   NEXURAL_WAREHOUSES_ROOT: "warehouses_root",
   NEXURAL_APPS_ROOT: "apps_root",
   NEXURAL_ROUTER_URL: "router_url",

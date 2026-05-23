@@ -5,9 +5,10 @@ import { join } from "node:path";
 import { runAsk } from "../src/commands/ask.js";
 import type { NexuralConfig } from "../src/config.js";
 
-function cfg(): NexuralConfig {
+function cfg(metaRoot = "/tmp/meta-root-that-does-not-exist"): NexuralConfig {
   return {
     nexural_home: "/tmp/.nexural",
+    meta_root: metaRoot,
     warehouses_root: "/tmp/wh",
     apps_root: "/tmp/apps",
     router_url: "stdio://test",
@@ -66,13 +67,13 @@ describe("runAsk", () => {
     expect(process.exitCode).toBe(1);
   });
 
-  it("errors when no docs are found", async () => {
+  it("errors when neither cwd nor meta_root is a federation root", async () => {
     const tmp = mkdtempSync(join(tmpdir(), "nx-ask-empty-"));
     process.chdir(tmp);
     try {
       await runAsk(cfg(), "anything");
       expect(process.exitCode).toBe(1);
-      expect(errSpy).toHaveBeenCalledWith(expect.stringMatching(/no docs found/));
+      expect(errSpy).toHaveBeenCalledWith(expect.stringMatching(/cannot find a federation root/));
     } finally {
       rmSync(tmp, { recursive: true, force: true });
     }
