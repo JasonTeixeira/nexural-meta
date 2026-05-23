@@ -1,19 +1,50 @@
-# External MCP endpoints federated by nexural-meta/apps/router.
-# Manual file — NOT generated. Per ADR-0005 ("ai-warehouse as external MCP")
-# and SCHEMA_AMENDMENTS.md §7 (ExternalMcpRegistry shape).
+# External MCP endpoints federated by nexural-meta.
+# Manual file — NOT generated. Per ADR-0005 + ADR-0003 (multi-repo ecosystem).
 #
-# Each endpoint represents a third-party MCP server that the router fans
-# queries out to alongside the federation's own warehouses.
+# Each endpoint represents an MCP server in the Sage Ideas ecosystem.
+# `nx ecosystem` reads this file to surface the full federated surface.
+# Editor MCP configs (per docs/EDITOR_MCP_SETUP.md) wire these into
+# Claude Desktop / Cursor / Claude Code / Codex.
 
 schema_version: 1
 endpoints:
+  # ────────────────────────────────────────────────────────────────────────
+  # 1. The federation itself — federation-wide search over nexural-meta
+  # ────────────────────────────────────────────────────────────────────────
+  - schema_version: 1
+    name: nexural-federation
+    type: external
+    transport: stdio
+    command:
+      - nexural-federation-server
+    args:
+      - "--root"
+      - "${NEXURAL_META_ROOT}"
+    tool_prefix: federation
+    schema_compatibility: external
+    federations:
+      - factory
+    quality_attestation:
+      source: nexural-qa-os
+      score: 97
+      verified_at: 2026-05-23
+      next_review: 2026-08-23
+    description: >-
+      Single-tool surface exposing the whole Nexural Federation knowledge
+      base (constitution + ADRs + warehouse docs + recipe THREAT_MODEL/
+      DECISIONS + eval golden sets) as `federation_ask` + `federation_list_sources`.
+
+  # ────────────────────────────────────────────────────────────────────────
+  # 2. ai-warehouse — Sage's parts catalog (861 tools × verdicts)
+  # ────────────────────────────────────────────────────────────────────────
   - schema_version: 1
     name: ai-warehouse
     type: external
     transport: stdio
     command:
-      - ai-warehouse
-      - mcp
+      - python
+    args:
+      - "${AI_WAREHOUSE_ROOT}/mcp-server/server.py"
     tool_prefix: ai-warehouse
     schema_compatibility: external
     federations:
@@ -23,3 +54,72 @@ endpoints:
       score: 100
       verified_at: 2026-05-21
       next_review: 2026-08-21
+    description: >-
+      Curated AI engineering parts catalog. 861 tools across 106 categories
+      with verdicts (USE / WATCH / AVOID), pricing tier, lock-in profile,
+      maturity grade. Tools: search_warehouse, get_tool, compare_tools,
+      recommend_stack, list_categories, list_stacks, get_decisions, inbox_add.
+
+  # ────────────────────────────────────────────────────────────────────────
+  # 3. nexural-qa-os — Quality Assurance OS (scorecard + runners)
+  # ────────────────────────────────────────────────────────────────────────
+  - schema_version: 1
+    name: nexural-qa-os
+    type: external
+    transport: stdio
+    command:
+      - nexural-qa-os-server
+    args:
+      - "--root"
+      - "${NEXURAL_QA_OS_ROOT}"
+    tool_prefix: qa-os
+    schema_compatibility: external
+    federations:
+      - factory
+    quality_attestation:
+      source: self
+      score: 95
+      verified_at: 2026-05-22
+      next_review: 2026-08-22
+    description: >-
+      Quality assurance operating system. Scorecards, runner registry,
+      drift detection, hardening playbooks. Verifies that any forged app
+      meets institutional-grade quality bars per phases A-J.
+
+  # ────────────────────────────────────────────────────────────────────────
+  # 4. voice-engine — voice agent toolkit (personas + TCPA hooks)
+  # ────────────────────────────────────────────────────────────────────────
+  - schema_version: 1
+    name: voice-engine
+    type: external
+    transport: stdio
+    command:
+      - voice-engine-server
+    args:
+      - "--root"
+      - "${VOICE_ENGINE_ROOT}"
+    tool_prefix: voice
+    schema_compatibility: external
+    federations:
+      - factory
+    quality_attestation:
+      source: self
+      score: 0
+      verified_at: 2026-05-23
+      next_review: 2026-08-23
+    description: >-
+      Voice agent toolkit. Persona library, voice provider adapters
+      (Retell / Vapi), TCPA outbound-call gate, redaction pipeline.
+      Currently in active development.
+
+# ────────────────────────────────────────────────────────────────────────
+# Required env vars (set in ~/.bash_profile or ~/.zshrc):
+#
+#   export NEXURAL_META_ROOT=/Users/Sage/code/nexural/nexural-meta
+#   export AI_WAREHOUSE_ROOT=/Users/Sage/code/sage-ideas/ai-warehouse
+#   export NEXURAL_QA_OS_ROOT=/Users/Sage/code/sage-ideas/nexural-qa-os
+#   export VOICE_ENGINE_ROOT=/Users/Sage/code/sage-ideas/voice-engine
+#
+# Paths above are placeholders — update to your actual local layout.
+# Each MCP server binary must be on PATH (or use absolute paths in command[]).
+# ────────────────────────────────────────────────────────────────────────

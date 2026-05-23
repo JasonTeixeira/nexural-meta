@@ -12,10 +12,13 @@ You can wire both. Most users want #2 (editor MCP) and use #1 occasionally for b
 ## Quick start
 
 ```bash
-# Install once
-npm i -g @nexural/cli@latest
-npm i -g @nexural/federation-server@latest    # pending: token rotation per evidence/operational/sage-blockers.md
-npm i -g @nexural/warehouse-server@latest
+# Install all 4 MCP server binaries
+npm i -g @nexural/cli@latest                     # nx CLI
+npm i -g @nexural/federation-server@latest       # whole-federation MCP
+npm i -g @nexural/warehouse-server@latest        # per-warehouse MCP (optional)
+
+pip install -e $AI_WAREHOUSE_ROOT                # ai-warehouse Python MCP
+# nexural-qa-os + voice-engine: install per their READMEs (in active dev)
 
 # Set the federation root once (so daemons + cli find it)
 echo 'export NEXURAL_META_ROOT=/Users/Sage/code/nexural/nexural-meta' >> ~/.bash_profile
@@ -28,9 +31,9 @@ nx serve
 
 ---
 
-## Cursor MCP config
+## The 4-server config (use this for every editor)
 
-Path: `~/.cursor/mcp.json` (or via Cursor Settings → MCP).
+Replace `/Users/Sage/code/...` paths with your actual paths. The same JSON works in Cursor, Claude Desktop, Claude Code, and any other MCP-compatible client.
 
 ```json
 {
@@ -39,47 +42,65 @@ Path: `~/.cursor/mcp.json` (or via Cursor Settings → MCP).
       "command": "nexural-federation-server",
       "args": ["--root", "/Users/Sage/code/nexural/nexural-meta"]
     },
-    "nexural-warehouse-architecture": {
-      "command": "nexural-warehouse-server",
-      "args": ["--root", "/Users/Sage/code/nexural/nexural-meta/warehouses/architecture"]
+    "ai-warehouse": {
+      "command": "python",
+      "args": ["/Users/Sage/code/sage-ideas/ai-warehouse/mcp-server/server.py"]
+    },
+    "nexural-qa-os": {
+      "command": "nexural-qa-os-server",
+      "args": ["--root", "/Users/Sage/code/sage-ideas/nexural-qa-os"]
+    },
+    "voice-engine": {
+      "command": "voice-engine-server",
+      "args": ["--root", "/Users/Sage/code/sage-ideas/voice-engine"]
     }
   }
 }
 ```
 
-Restart Cursor. Agent will see `federation_ask`, `federation_list_sources`, and the per-warehouse `warehouse_*` tools.
+After restart, your agent has these tools available across all 4 servers:
 
-## Claude Desktop MCP config
+| Server               | Tools                                                                                                                              | Use when                                                   |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| `nexural-federation` | `federation_ask`, `federation_list_sources`                                                                                        | "what's our pattern for X?" / "did we decide about Y?"     |
+| `ai-warehouse`       | `search_warehouse`, `get_tool`, `compare_tools`, `recommend_stack`, `list_categories`, `list_stacks`, `get_decisions`, `inbox_add` | "which tool should I use for Z?" / "audit my stack"        |
+| `nexural-qa-os`      | `qa_os_check`, `qa_os_scorecard`, `qa_os_list_runners`                                                                             | "is this app meeting our QA bar?"                          |
+| `voice-engine`       | `voice_search`, `voice_tcpa_check`, `voice_redact`, `voice_persona_get`, `voice_persona_list`                                      | "add voice to my app" / "is this outbound call compliant?" |
 
-Path: `~/Library/Application Support/Claude/claude_desktop_config.json`.
+## Editor-specific paths
 
-```json
-{
-  "mcpServers": {
-    "nexural-federation": {
-      "command": "nexural-federation-server",
-      "args": ["--root", "/Users/Sage/code/nexural/nexural-meta"]
-    }
-  }
-}
-```
+| Editor                | Config path                                                       |
+| --------------------- | ----------------------------------------------------------------- |
+| **Cursor**            | `~/.cursor/mcp.json` (or Settings → MCP)                          |
+| **Claude Desktop**    | `~/Library/Application Support/Claude/claude_desktop_config.json` |
+| **Claude Code (CLI)** | `~/.claude/mcp.json` (global) or `.claude/mcp.json` (per-project) |
+| **Codex Cloud**       | No MCP support directly — see "Codex setup" section below         |
 
-Restart Claude Desktop.
+After saving the config, **restart the editor** so it re-reads MCP and spawns the servers.
 
-## Claude Code MCP config
+## Codex setup (no MCP — relies on AGENTS.md)
 
-Path: `~/.claude/mcp.json` (or per-project `.claude/mcp.json`).
+Codex Cloud runs each task in a fresh container and clones the repo. It doesn't run local MCP servers. So for Codex:
 
-```json
-{
-  "mcpServers": {
-    "nexural-federation": {
-      "command": "nexural-federation-server",
-      "args": ["--root", "/Users/Sage/code/nexural/nexural-meta"]
-    }
-  }
-}
-```
+1. Make sure **every repo has `AGENTS.md`** at the root (see `evidence/templates/repo-bootstrap/` for templates).
+2. The AGENTS.md references `nexural-meta/docs/ECOSYSTEM.md`.
+3. Codex reads AGENTS.md on session start → knows about the ecosystem → can clone other repos as needed for context.
+
+For tasks that need cross-repo knowledge, instruct Codex explicitly: _"Before X, check the federation by cloning nexural-meta and reading docs/ECOSYSTEM.md + the relevant warehouses."_
+
+## Claude.ai web setup (project knowledge)
+
+For chats started in claude.ai (browser):
+
+1. Create a project called **"Sage Ideas Ecosystem"** in claude.ai.
+2. Upload these files as project knowledge:
+   - `nexural-meta/docs/ECOSYSTEM.md`
+   - `nexural-meta/CLAUDE.md`
+   - `ai-warehouse/CLAUDE.md` (after templates applied)
+   - `nexural-qa-os/CLAUDE.md` (after templates applied)
+   - `voice-engine/CLAUDE.md` (after templates applied)
+3. When starting a new chat, attach the project → instant ecosystem context.
+4. Re-upload when major docs change (set a quarterly reminder).
 
 ---
 

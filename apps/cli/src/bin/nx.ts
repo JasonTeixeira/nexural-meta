@@ -10,6 +10,7 @@ import { loadConfig } from "../config.js";
 import { withTelemetry, closeTelemetry } from "../telemetry.js";
 import { runAsk } from "../commands/ask.js";
 import { runAudit } from "../commands/audit.js";
+import { runEcosystem } from "../commands/ecosystem.js";
 import { runForge } from "../commands/forge.js";
 import { runHealth } from "../commands/health.js";
 import { runNew } from "../commands/new.js";
@@ -88,6 +89,37 @@ program
         ...(opts.withForge !== undefined ? { withForge: opts.withForge } : {}),
         ...(opts.json !== undefined ? { json: opts.json } : {}),
       }),
+    );
+  });
+
+const ecosystemCmd = program
+  .command("ecosystem")
+  .description("Show + check the multi-repo Sage Ideas ecosystem (per docs/ECOSYSTEM.md)");
+ecosystemCmd
+  .command("list")
+  .description("List all registered MCP servers in registry-external-mcp.yaml")
+  .option("--json", "JSON output")
+  .action(async (opts: { json?: boolean }) => {
+    await withTelemetry(config, "ecosystem-list", [], () =>
+      runEcosystem(config, "list", { ...(opts.json !== undefined ? { json: opts.json } : {}) }),
+    );
+  });
+ecosystemCmd
+  .command("health")
+  .description("Check each registered MCP server's binary + env vars")
+  .option("--json", "JSON output")
+  .action(async (opts: { json?: boolean }) => {
+    await withTelemetry(config, "ecosystem-health", [], () =>
+      runEcosystem(config, "health", { ...(opts.json !== undefined ? { json: opts.json } : {}) }),
+    );
+  });
+ecosystemCmd
+  .command("env")
+  .description("Show which ecosystem env vars are set vs missing")
+  .option("--json", "JSON output")
+  .action(async (opts: { json?: boolean }) => {
+    await withTelemetry(config, "ecosystem-env", [], () =>
+      runEcosystem(config, "env", { ...(opts.json !== undefined ? { json: opts.json } : {}) }),
     );
   });
 
