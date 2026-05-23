@@ -1,6 +1,6 @@
 {
   "name": "@nexural/qa-runners-federation",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Federation-specific qa-os runners — federation-conformance, recipe-validity, prompt-injection-resilience, golden-set-drift, forge-emit-conformance. Per ADR-0008 §2/3/4 + ADR-0010 §2.9 + ADR-0011.",
   "license": "MIT",
   "type": "module",
