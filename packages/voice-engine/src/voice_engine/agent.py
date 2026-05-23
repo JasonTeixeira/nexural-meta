@@ -23,9 +23,11 @@ from livekit.agents import (
 from livekit.plugins import silero
 
 from voice_engine.config import Mode, PersonaConfig
+from voice_engine.cost_cap import CostCapWatcher
 from voice_engine.memory import MemoryStore
 from voice_engine.orchestration.registry import PersonaRegistry
 from voice_engine.orchestration.supervisor import SupervisorClient
+from voice_engine.outputs import OUTPUT_SCHEMAS
 from voice_engine.providers import build_llm, build_realtime, build_stt, build_tts
 from voice_engine.telemetry import (
     SessionTelemetry,
@@ -102,6 +104,34 @@ def _build_persona_agent_class(
 
         setattr(_PersonaAgent, "handoff_to", handoff_to)
 
+    # ── Structured output tool ──
+    if persona.output_schema and persona.output_schema in OUTPUT_SCHEMAS:
+        schema_cls = OUTPUT_SCHEMAS[persona.output_schema]
+        schema_name = persona.output_schema
+
+        @function_tool
+        async def submit_output(self, **kwargs) -> str:  # noqa: ARG001
+            """Finalise and submit the structured deliverable for this call.
+
+            Call this exactly once, near the end of the conversation, with
+            all the fields the schema expects.
+            """
+            try:
+                obj = schema_cls(**kwargs)
+            except Exception as e:
+                return f"Validation error: {e}. Please fix and resubmit."
+            telemetry_sink = getattr(self, "_telemetry_sink", None)
+            session_id = getattr(self, "_session_id", "unknown")
+            if telemetry_sink is not None:
+                telemetry_sink.record_event(
+                    session_id,
+                    f"output.{schema_name}",
+                    {"data": obj.model_dump(mode="json")},
+                )
+            return "Submitted. Thank you."
+
+        setattr(_PersonaAgent, "submit_output", submit_output)
+
     return _PersonaAgent
 
 
@@ -113,10 +143,15 @@ def _build_persona_agent_class(
 def _user_id_for(persona: PersonaConfig, ctx: JobContext) -> str:
     strategy = persona.memory.user_id_strategy
     if strategy == "room_name":
-        return ctx.room.name
-    for p in ctx.room.remote_participants.values():
-        return p.identity
-    return ctx.room.name
+        raw = ctx.room.name
+    else:
+        raw = ctx.room.name
+        for p in ctx.room.remote_participants.values():
+            raw = p.identity
+            break
+    # Namespace per app if configured — prevents cross-product memory leakage.
+    app_id = persona.memory.app_id
+    return f"{app_id}:{raw}" if app_id else raw
 
 
 def _build_noise_cancellation(persona: PersonaConfig):
@@ -222,14 +257,43 @@ async def entrypoint(
 
     session = AgentSession(**session_kwargs)
 
+    # Cost-cap watcher hooks into the same turn flow as telemetry.
+    async def _on_cap_breach(total: float) -> None:
+        try:
+            await session.generate_reply(
+                instructions=(
+                    "I'm going to have to wrap things up here. "
+                    "Thanks for the conversation — bye for now."
+                )
+            )
+        except Exception:  # noqa: BLE001
+            pass
+        # Schedule disconnect so the closing line can play first.
+        async def _delayed_disconnect() -> None:
+            import asyncio
+            await asyncio.sleep(2.5)
+            try:
+                await ctx.shutdown(reason="cost_cap_breach")
+            except Exception:  # noqa: BLE001
+                pass
+        import asyncio
+        asyncio.create_task(_delayed_disconnect())  # noqa: RUF006
+
+    cost_watcher = CostCapWatcher(persona.cost_cap, on_breach=_on_cap_breach)
+    telemetry._cost_watcher = cost_watcher  # type: ignore[attr-defined]
+
     # Attach telemetry BEFORE start so we capture the greeting turn too.
     telemetry.attach(session)
 
     room_input_options = RoomInputOptions(noise_cancellation=nc) if nc else RoomInputOptions()
 
     PersonaAgentCls = _build_persona_agent_class(persona, registry, supervisor)
+    agent_instance = PersonaAgentCls(recalled_memory=recalled)
+    # Stash refs the structured-output tool needs.
+    agent_instance._telemetry_sink = sink  # type: ignore[attr-defined]
+    agent_instance._session_id = session_id  # type: ignore[attr-defined]
     await session.start(
-        agent=PersonaAgentCls(recalled_memory=recalled),
+        agent=agent_instance,
         room=ctx.room,
         room_input_options=room_input_options,
     )

@@ -62,6 +62,9 @@ mcp_servers:
   - name: calendar
     url: https://mcp.your-domain.com/calendar
 
+# Every call emits a qualified-lead record.
+output_schema: qualified_lead
+
 metadata:
   product: sales-sdr
   tier: premium

@@ -55,6 +55,9 @@ class STTConfig(BaseModel):
     model: str = "nova-3"
     language: str = "en"
     keyterms: list[str] = Field(default_factory=list)
+    fallbacks: list["STTConfig"] = Field(default_factory=list)
+    """Ordered list of alternates. If the primary errors at startup or
+    fails repeatedly, the engine cascades to the next entry."""
 
 
 class LLMConfig(BaseModel):
@@ -62,6 +65,7 @@ class LLMConfig(BaseModel):
     model: str = "claude-haiku-4-5"
     temperature: float = 0.6
     max_tokens: int = 1024
+    fallbacks: list["LLMConfig"] = Field(default_factory=list)
 
 
 class TTSConfig(BaseModel):
@@ -71,6 +75,7 @@ class TTSConfig(BaseModel):
     speed: float = 1.0
     # OpenAI gpt-4o-mini-tts only: prompt-steerable personality
     instructions: str | None = None
+    fallbacks: list["TTSConfig"] = Field(default_factory=list)
 
 
 class RealtimeConfig(BaseModel):
@@ -95,6 +100,11 @@ class MemoryConfig(BaseModel):
     enabled: bool = False
     provider: Literal["mem0"] = "mem0"
     user_id_strategy: Literal["participant_identity", "room_name"] = "participant_identity"
+    app_id: str | None = None
+    """Per-app namespace. mem0 user_id becomes `{app_id}:{identity}` so
+    different Sage products never see each other's memories. Strongly
+    recommended whenever you have more than one product on the same
+    mem0 account."""
 
 
 class SupervisorConfig(BaseModel):
@@ -105,6 +115,41 @@ class SupervisorConfig(BaseModel):
     model: str = "claude-sonnet-4-6"
     max_tokens: int = 1024
     temperature: float = 0.4
+
+
+class SafetyConfig(BaseModel):
+    """Pluggable moderation. Runs on user input and (optionally) agent output.
+
+    Providers:
+      none       — disabled (default).
+      openai     — OpenAI Moderation API (omni-moderation-latest).
+
+    On block, the agent gives a brief, friendly redirection. Events are
+    logged to telemetry (event=`safety.block`).
+    """
+
+    enabled: bool = False
+    provider: Literal["none", "openai"] = "none"
+    check_user_input: bool = True
+    check_agent_output: bool = False
+    """Output checks add a turn of latency — usually overkill for adult apps,
+    essential for `storyteller` and other kid/sensitive personas."""
+    block_message: str = (
+        "Let's steer this somewhere else — what else can I help with?"
+    )
+
+
+class CostCapConfig(BaseModel):
+    """Hard $ cap per session. Engine ends the call gracefully when hit.
+
+    Stops runaway-supervisor loops, broken TTS streams that re-trigger,
+    abusive users. 0 = no cap (default).
+    """
+
+    max_usd_per_session: float = 0.0
+    """When > 0, sessions exceeding this estimated cost are politely ended."""
+    warn_at_pct: float = 0.8
+    """At this fraction of the cap, log a warning (currently informational)."""
 
 
 class RecordingConfig(BaseModel):
@@ -196,6 +241,16 @@ class PersonaConfig(BaseModel):
     # What to capture for QA / eval / debugging
     recording: RecordingConfig = Field(default_factory=RecordingConfig)
 
+    # Per-session cost guardrail
+    cost_cap: CostCapConfig = Field(default_factory=CostCapConfig)
+
+    # Pluggable moderation
+    safety: SafetyConfig = Field(default_factory=SafetyConfig)
+
+    # Structured deliverable the persona should emit at the end of the call.
+    # Must be a registered name from voice_engine.outputs.OUTPUT_SCHEMAS.
+    output_schema: str | None = None
+
     # Free-form metadata (telemetry tags, app id, tenant, etc.)
     metadata: dict[str, Any] = Field(default_factory=dict)
 
@@ -205,13 +260,14 @@ class PersonaConfig(BaseModel):
 # ─────────────────────────────────────────────────────────────────────────────
 
 def load_persona(path: str | Path) -> PersonaConfig:
-    """Load and validate a persona YAML.
+    """Load and validate a persona YAML. Resolves `extends:` chains.
 
     Raises pydantic.ValidationError if the file is malformed.
     """
+    from voice_engine.inheritance import resolve_extends
+
     path = Path(path).expanduser().resolve()
     if not path.exists():
         raise FileNotFoundError(f"Persona file not found: {path}")
-    with path.open("r", encoding="utf-8") as f:
-        data = yaml.safe_load(f) or {}
+    data = resolve_extends(path)
     return PersonaConfig.model_validate(data)

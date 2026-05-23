@@ -16,7 +16,12 @@ PERSONA_DIR = Path(__file__).resolve().parent.parent / "personas"
 
 @pytest.fixture(scope="module")
 def persona_files() -> list[Path]:
-    files = sorted(PERSONA_DIR.glob("*.yaml"))
+    """All persona YAMLs, excluding scenario files and `_base/` templates."""
+    files = sorted(
+        f for f in PERSONA_DIR.glob("*.yaml")
+        if not f.name.endswith(".scenarios.yaml")
+        and not f.name.startswith("_")
+    )
     assert files, f"no persona files found in {PERSONA_DIR}"
     return files
 

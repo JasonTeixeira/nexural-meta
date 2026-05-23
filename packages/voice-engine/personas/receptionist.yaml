@@ -73,6 +73,9 @@ mcp_servers:
   - name: messages
     url: https://mcp.your-domain.com/messages
 
+# For COMPLAINT / OTHER, the receptionist emits a message record.
+output_schema: call_message
+
 metadata:
   product: receptionist
   channel: phone+web

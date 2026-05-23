@@ -1,0 +1,45 @@
+# Base persona — cascaded mode (STT → LLM → TTS).
+# Inherit with `extends: _base/cascaded.yaml`. Override anything.
+name: _base_cascaded
+description: "(base persona — not for direct use)"
+version: 1.0.0
+mode: cascaded
+
+system_prompt: "(override in child)"
+
+stt:
+  provider: deepgram
+  model: nova-3
+  language: en
+
+llm:
+  provider: anthropic
+  model: claude-haiku-4-5
+  temperature: 0.5
+  max_tokens: 500
+
+tts:
+  provider: cartesia
+  model: sonic-3
+  voice: 248be419-c632-4f23-adf1-5324ed7dbf1d
+  speed: 1.0
+
+turn_detection:
+  use_noise_cancellation: true
+  use_semantic_turn_detector: true
+  min_endpointing_delay: 0.4
+  max_endpointing_delay: 6.0
+
+memory:
+  enabled: true
+  user_id_strategy: participant_identity
+
+orchestration:
+  handoff_targets: []
+  supervisor:
+    enabled: false
+
+recording:
+  transcript: true
+  audio: false
+  telemetry: true

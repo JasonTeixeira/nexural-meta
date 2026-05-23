@@ -1,0 +1,14 @@
+{
+  "name": "@nexural/voice-engine-client-rn",
+  "version": "0.1.0",
+  "private": true,
+  "description": "React Native client for Nexural voice agents.",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-native": ">=0.72.0",
+    "@livekit/react-native": ">=2.0.0",
+    "@livekit/react-native-webrtc": ">=125.0.0"
+  }
+}

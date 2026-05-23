@@ -64,5 +64,8 @@ memory:
 
 mcp_servers: []
 
+# Emits the debrief as structured JSON at end of call.
+output_schema: interview_debrief
+
 metadata:
   product: interview-prep

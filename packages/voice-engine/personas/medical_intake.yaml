@@ -85,6 +85,9 @@ recording:
   audio: false
   telemetry: true # latency/cost only — no PHI
 
+# The deliverable. Engine exposes `submit_output(...)` as a function tool.
+output_schema: sbar
+
 mcp_servers:
   - name: ehr
     url: https://mcp.your-domain.com/ehr

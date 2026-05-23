@@ -377,6 +377,10 @@ class SessionTelemetry:
             cost = self._compute_cost()
             self._cost_total += cost
             self._turn_idx += 1
+            # Hand off to cost-cap watcher if attached.
+            watcher = getattr(self, "_cost_watcher", None)
+            if watcher is not None:
+                watcher.add_cost(cost)
             self.sink.record_turn(
                 TurnRecord(
                     session_id=self.session_id,

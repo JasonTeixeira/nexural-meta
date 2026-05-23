@@ -56,6 +56,16 @@ orchestration:
 
 mcp_servers: []
 
+# Kids audience — moderate user input AND agent output.
+safety:
+  enabled: true
+  provider: openai
+  check_user_input: true
+  check_agent_output: true
+  block_message: |
+    Hmm, let's pick something else for our story. What if we tried a
+    different idea?
+
 metadata:
   product: storyteller
   audience: kids

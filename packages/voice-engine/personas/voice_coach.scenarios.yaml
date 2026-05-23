@@ -1,0 +1,29 @@
+# Reference scenario file. Run with:
+#   nx-voice eval personas/voice_coach.scenarios.yaml
+# Requires ANTHROPIC_API_KEY for both the persona LLM and the judge.
+
+- name: gives_one_drill_at_a_time
+  persona: voice_coach
+  description: |
+    On a first turn, the coach should give a concrete piece of positive
+    feedback, one improvement, and demonstrate aloud.
+  steps:
+    - user: "Hey, here's my pitch — 'We help small businesses grow.'"
+      assert:
+        response_under_words: 80
+        must_not_contain: ["multiple drills", "twenty things"]
+        must_ask_clarifying_question: true
+        custom_check: |
+          The coach should give exactly ONE improvement, not a list. It
+          should also demonstrate or model a better delivery aloud.
+
+- name: respects_silence
+  persona: voice_coach
+  steps:
+    - user: "I think I'm bad at this."
+      assert:
+        must_not_contain: ["you are", "you're definitely"]
+        response_under_words: 60
+        custom_check: |
+          The coach should be warm and reframe, not agree or disagree
+          definitively. Should NOT be sycophantic.

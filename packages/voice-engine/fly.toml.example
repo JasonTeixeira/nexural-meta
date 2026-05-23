@@ -1,0 +1,42 @@
+# Fly.io app template for one Nexural voice persona.
+# Pattern: one Fly app per persona (cheap, isolated, scalable independently).
+#
+# 1. Copy:    cp fly.toml.example fly.toml
+# 2. Edit:    app, primary_region, VOICE_PERSONA
+# 3. Secrets: fly secrets set LIVEKIT_URL=... ANTHROPIC_API_KEY=... etc
+# 4. Deploy:  fly deploy
+#
+# Why persistent VMs (not Lambda/serverless): cold starts kill voice latency.
+# Validated in ai-warehouse stacks/voice-agent-sub-500ms.md.
+
+app = "nexural-voice-coach"           # rename per persona
+primary_region = "iad"                # match your user base — iad/sjc/lhr/syd/etc
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  VOICE_PERSONA = "personas/voice_coach.yaml"
+  LOG_LEVEL = "INFO"
+  # Telemetry persists to /data (mounted volume).
+  VOICE_TELEMETRY_DB = "/data/telemetry.sqlite"
+  VOICE_TELEMETRY_JSONL = "/data/telemetry.jsonl"
+
+# Persistent disk so telemetry survives restarts.
+[mounts]
+  source = "voice_data"
+  destination = "/data"
+  initial_size = "1gb"
+
+# Always-on VM — no cold starts.
+[[vm]]
+  size = "shared-cpu-2x"
+  memory_mb = 1024
+
+[deploy]
+  strategy = "rolling"
+
+# LiveKit Agents connects OUT to LiveKit Cloud — no public HTTP needed.
+# Drop the [http_service] block entirely.
+[processes]
+  app = ""

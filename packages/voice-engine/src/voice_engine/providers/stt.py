@@ -1,12 +1,11 @@
-"""STT factory — speech-to-text provider selection."""
+"""STT factory — speech-to-text provider selection with optional fallback chain."""
 
 from __future__ import annotations
 
 from voice_engine.config import STTConfig, STTProvider
 
 
-def build_stt(cfg: STTConfig):
-    """Return a configured LiveKit STT plugin instance."""
+def _build_one(cfg: STTConfig):
     match cfg.provider:
         case STTProvider.DEEPGRAM:
             from livekit.plugins import deepgram
@@ -26,3 +25,13 @@ def build_stt(cfg: STTConfig):
             return google.STT(model=cfg.model, languages=[cfg.language])
         case _:
             raise ValueError(f"Unknown STT provider: {cfg.provider}")
+
+
+def build_stt(cfg: STTConfig):
+    """Return a configured LiveKit STT plugin (or a FallbackAdapter chain)."""
+    primary = _build_one(cfg)
+    if not cfg.fallbacks:
+        return primary
+    from livekit.agents import stt as _stt
+    alternates = [_build_one(f) for f in cfg.fallbacks]
+    return _stt.FallbackAdapter([primary, *alternates])

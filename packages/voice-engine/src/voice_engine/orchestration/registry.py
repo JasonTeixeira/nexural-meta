@@ -22,7 +22,13 @@ class PersonaRegistry:
 
     # ── discovery ────────────────────────────────────────────────────
     def files(self) -> list[Path]:
-        return sorted(self.persona_dir.glob("*.yaml"))
+        # Skip scenario files (`<name>.scenarios.yaml`) and hidden/base
+        # files (anything starting with `_`).
+        return sorted(
+            f for f in self.persona_dir.glob("*.yaml")
+            if not f.name.endswith(".scenarios.yaml")
+            and not f.name.startswith("_")
+        )
 
     def names(self) -> list[str]:
         return [f.stem for f in self.files()]
