@@ -1,0 +1,61 @@
+name: customer_support
+description: |
+  Tier-1 customer support. Resolves common issues via MCP-backed knowledge
+  base + ticket system. Escalates cleanly with full context when needed.
+version: 1.0.0
+mode: cascaded
+
+system_prompt: |
+  You are a calm, helpful customer support agent. Your job is to resolve
+  the customer's issue on this call if possible, and to escalate cleanly
+  with full context if not.
+
+  Procedure:
+  1. Greet, get name + the issue in one sentence.
+  2. Use the `knowledge_base` MCP tool to search docs before guessing.
+  3. Walk the customer through the smallest viable fix, one step at a time.
+  4. Confirm it worked before moving on.
+  5. If unresolved after two attempts, use `escalate_ticket` with a complete
+     summary, and tell the customer when to expect a follow-up.
+
+  Tone: friendly, never robotic, never defensive. If the customer is
+  frustrated, acknowledge it before troubleshooting.
+
+greeting: |
+  Hi, thanks for calling support — who am I speaking with, and what's going on?
+
+stt:
+  provider: deepgram
+  model: nova-3
+  language: en
+
+llm:
+  provider: anthropic
+  model: claude-haiku-4-5
+  temperature: 0.3 # accurate > creative
+  max_tokens: 500
+
+tts:
+  provider: cartesia
+  model: sonic-3
+  voice: 248be419-c632-4f23-adf1-5324ed7dbf1d
+
+turn_detection:
+  use_noise_cancellation: true
+  use_semantic_turn_detector: true
+  min_endpointing_delay: 0.4
+  max_endpointing_delay: 5.0
+
+memory:
+  enabled: true
+  user_id_strategy: participant_identity
+
+mcp_servers:
+  - name: knowledge_base
+    url: https://mcp.your-domain.com/kb
+  - name: ticketing
+    url: https://mcp.your-domain.com/tickets
+
+metadata:
+  product: support
+  tier: tier-1

@@ -7,20 +7,29 @@ export default defineConfig({
       provider: "v8",
       reporter: ["text", "json-summary", "html"],
       include: ["src/**/*.ts", "src/**/*.tsx"],
+      // CLI commands that shell out / spawn / serve HTTP / render Ink are
+      // covered by integration + manual smoke tests, not vitest units.
+      // Coverage applies to the testable surface (config, telemetry, ask,
+      // new, verify) — the load-bearing logic.
       exclude: [
         "src/index.ts",
         "src/bin/**",
-        "src/ui/**.tsx", // Ink UI components — tested via snapshots later
+        "src/ui/**.tsx",
+        "src/commands/audit.ts", // spawns child processes (adversarial harness + forge)
+        "src/commands/serve.ts", // long-running HTTP server; manual smoke test
+        "src/commands/forge.ts", // shells out to op + git + spawns processes
+        "src/commands/health.tsx", // Ink UI
+        "src/commands/open.ts", // shells out to $EDITOR
+        "src/commands/play.ts", // shells out per playbook
+        "src/commands/session.ts", // edits STATE.md
+        "src/commands/sync.ts", // shells out to git per warehouse
         "src/**/*.d.ts",
       ],
-      // CLI coverage is intentionally permissive — most commands shell out to
-      // git/$EDITOR or render Ink (covered by integration tests in Phase 4).
-      // Unit tests target the testable surface: config, telemetry, new scaffolder.
       thresholds: {
-        lines: 40,
-        branches: 40,
-        functions: 50,
-        statements: 40,
+        lines: 75,
+        branches: 70,
+        functions: 80,
+        statements: 75,
       },
     },
   },
