@@ -258,12 +258,37 @@ importers:
 
   packages/warehouse-base:
     dependencies:
+      '@modelcontextprotocol/sdk':
+        specifier: ^1.0.4
+        version: 1.29.0(zod@3.25.76)
       '@nexural/forge-emit':
         specifier: workspace:^
         version: link:../forge-emit
       '@nexural/schema':
         specifier: workspace:^
         version: link:../schema
+      yaml:
+        specifier: ^2.6.0
+        version: 2.9.0
+      zod:
+        specifier: ^3.24.1
+        version: 3.25.76
+    devDependencies:
+      '@types/node':
+        specifier: ^22.10.5
+        version: 22.19.19
+
+  packages/warehouse-server:
+    dependencies:
+      '@modelcontextprotocol/sdk':
+        specifier: ^1.0.4
+        version: 1.29.0(zod@3.25.76)
+      '@nexural/mcp-base':
+        specifier: workspace:^
+        version: link:../mcp-base
+      '@nexural/warehouse-base':
+        specifier: workspace:^
+        version: link:../warehouse-base
       yaml:
         specifier: ^2.6.0
         version: 2.9.0

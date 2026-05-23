@@ -1,11 +1,14 @@
 {
-  "name": "@nexural/warehouse-base",
-  "version": "1.1.0",
-  "description": "Shared kit for warehouse content loading — local-disk loader + MCP stdio client. Per ADR-0011 §2 + ADR-0012 §5 (Phase 11.1 MCP layer).",
+  "name": "@nexural/warehouse-server",
+  "version": "1.0.0",
+  "description": "Generic MCP stdio server for any Nexural warehouse. Reads a warehouse root from args + exposes documents and templates as MCP tools. Phase 11.1 per ADR-0012 §5 (federation MCP layer).",
   "license": "MIT",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "bin": {
+    "nexural-warehouse-server": "./dist/bin/nexural-warehouse-server.js"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -27,8 +30,8 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.4",
-    "@nexural/forge-emit": "workspace:^",
-    "@nexural/schema": "workspace:^",
+    "@nexural/mcp-base": "workspace:^",
+    "@nexural/warehouse-base": "workspace:^",
     "yaml": "^2.6.0",
     "zod": "^3.24.1"
   },
@@ -42,9 +45,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/JasonTeixeira/nexural-meta.git",
-    "directory": "packages/warehouse-base"
+    "directory": "packages/warehouse-server"
   },
-  "homepage": "https://github.com/JasonTeixeira/nexural-meta/tree/main/packages/warehouse-base#readme",
+  "homepage": "https://github.com/JasonTeixeira/nexural-meta/tree/main/packages/warehouse-server#readme",
   "bugs": {
     "url": "https://github.com/JasonTeixeira/nexural-meta/issues"
   }
