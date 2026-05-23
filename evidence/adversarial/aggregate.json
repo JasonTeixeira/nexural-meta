@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "ran_at": "2026-05-23T00:47:20.852Z",
+  "ran_at": "2026-05-23T01:41:51.198Z",
   "summary": {
     "recipes": 8,
     "total_scenarios": 24,
@@ -13,7 +13,7 @@
     {
       "schema_version": 1,
       "recipe": "fintech-ledger-app",
-      "ran_at": "2026-05-23T00:47:20.820Z",
+      "ran_at": "2026-05-23T01:41:51.161Z",
       "summary": {
         "total": 3,
         "caught": 3,
@@ -53,7 +53,7 @@
     {
       "schema_version": 1,
       "recipe": "internal-tool-dashboard",
-      "ran_at": "2026-05-23T00:47:20.834Z",
+      "ran_at": "2026-05-23T01:41:51.176Z",
       "summary": {
         "total": 3,
         "caught": 3,
@@ -93,7 +93,7 @@
     {
       "schema_version": 1,
       "recipe": "saas-agent-platform",
-      "ran_at": "2026-05-23T00:47:20.837Z",
+      "ran_at": "2026-05-23T01:41:51.180Z",
       "summary": {
         "total": 3,
         "caught": 3,
@@ -133,7 +133,7 @@
     {
       "schema_version": 1,
       "recipe": "saas-multitenant-baseline",
-      "ran_at": "2026-05-23T00:47:20.840Z",
+      "ran_at": "2026-05-23T01:41:51.183Z",
       "summary": {
         "total": 3,
         "caught": 3,
@@ -173,7 +173,7 @@
     {
       "schema_version": 1,
       "recipe": "saas-multitenant-baseline-cf",
-      "ran_at": "2026-05-23T00:47:20.843Z",
+      "ran_at": "2026-05-23T01:41:51.187Z",
       "summary": {
         "total": 3,
         "caught": 3,
@@ -213,7 +213,7 @@
     {
       "schema_version": 1,
       "recipe": "saas-rag-chat",
-      "ran_at": "2026-05-23T00:47:20.846Z",
+      "ran_at": "2026-05-23T01:41:51.190Z",
       "summary": {
         "total": 3,
         "caught": 3,
@@ -253,7 +253,7 @@
     {
       "schema_version": 1,
       "recipe": "saas-rag-chat-openai-first",
-      "ran_at": "2026-05-23T00:47:20.848Z",
+      "ran_at": "2026-05-23T01:41:51.192Z",
       "summary": {
         "total": 3,
         "caught": 3,
@@ -293,7 +293,7 @@
     {
       "schema_version": 1,
       "recipe": "saas-rag-chat-qdrant",
-      "ran_at": "2026-05-23T00:47:20.850Z",
+      "ran_at": "2026-05-23T01:41:51.195Z",
       "summary": {
         "total": 3,
         "caught": 3,

@@ -72,6 +72,9 @@ importers:
       '@nexural/model-router':
         specifier: workspace:^
         version: link:../../packages/model-router
+      '@nexural/qa-runners-federation':
+        specifier: workspace:^
+        version: link:../../packages/qa-runners-federation
       '@nexural/schema':
         specifier: workspace:^
         version: link:../../packages/schema

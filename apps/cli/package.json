@@ -1,7 +1,7 @@
 {
   "name": "@nexural/cli",
-  "version": "1.0.0",
-  "description": "The `nx` CLI — single human-facing command for the Nexural Federation. Per ARCHITECTURE.md §4.1.",
+  "version": "1.1.0",
+  "description": "The `nx` CLI — single human-facing command for the Nexural Federation. Commands: ask, audit, forge, health, new, open, play, session save, sync, verify. Per ARCHITECTURE.md §4.1.",
   "license": "MIT",
   "type": "module",
   "bin": {
@@ -34,6 +34,7 @@
     "@nexural/factory": "workspace:^",
     "@nexural/forge-emit": "workspace:^",
     "@nexural/model-router": "workspace:^",
+    "@nexural/qa-runners-federation": "workspace:^",
     "@nexural/schema": "workspace:^",
     "@nexural/sdk": "workspace:^",
     "@nexural/warehouse-base": "workspace:^",

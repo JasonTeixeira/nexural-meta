@@ -13,9 +13,9 @@
  */
 
 import { execFileSync } from "node:child_process";
-import { mkdirSync, writeFileSync } from "node:fs";
-import { dirname, join, resolve } from "node:path";
-import { fileURLToPath, pathToFileURL } from "node:url";
+import { existsSync, mkdirSync, writeFileSync } from "node:fs";
+import { join, resolve } from "node:path";
+import * as federationRunners from "@nexural/qa-runners-federation";
 import type { NexuralConfig } from "../config.js";
 
 export interface AuditOptions {
@@ -62,6 +62,22 @@ export async function runAudit(_config: NexuralConfig, opts: AuditOptions = {}):
   const cwd = process.cwd();
   const startedAt = new Date().toISOString();
   const sections: SectionReport[] = [];
+
+  // Refuse to run outside a federation root. This command only makes sense
+  // inside `nexural-meta` (or a similarly-shaped federation repo) — it
+  // walks recipes/, warehouses/, and docs/. Running it from `~/` would
+  // silently produce empty results.
+  const looksLikeFederation =
+    existsSync(join(cwd, "docs")) &&
+    existsSync(join(cwd, "recipes")) &&
+    existsSync(join(cwd, "warehouses"));
+  if (!looksLikeFederation) {
+    console.error(
+      `✖ nx audit must be run inside a federation root (docs/, recipes/, warehouses/ required). cwd=${cwd}`,
+    );
+    process.exitCode = 1;
+    return;
+  }
 
   if (!opts.json) {
     console.error(`[audit] starting at ${startedAt}`);
@@ -187,62 +203,27 @@ async function runFederationRunners(cwd: string): Promise<
     duration_ms: number;
   }>
 > {
-  const HERE = dirname(fileURLToPath(import.meta.url));
-  // Resolve from the running CLI's perspective. apps/cli/dist or apps/cli/src.
-  const candidates = [
-    resolve(HERE, "../../../packages/qa-runners-federation/dist/index.js"),
-    resolve(HERE, "../../packages/qa-runners-federation/dist/index.js"),
-    resolve(cwd, "packages/qa-runners-federation/dist/index.js"),
-  ];
-  let mod: Record<string, unknown> | undefined;
-  for (const c of candidates) {
-    try {
-      mod = (await import(pathToFileURL(c).href)) as Record<string, unknown>;
-      break;
-    } catch {
-      // try next
-    }
-  }
-  if (!mod) {
-    throw new Error(
-      "could not load @nexural/qa-runners-federation/dist/index.js — run `pnpm --filter @nexural/qa-runners-federation build` first",
-    );
-  }
-
-  const RUNNERS: Array<{ key: string; fn: string }> = [
-    { key: "federation-conformance", fn: "runFederationConformance" },
-    { key: "recipe-validity", fn: "runRecipeValidity" },
-    { key: "prompt-injection-resilience", fn: "runPromptInjectionResilience" },
-    { key: "golden-set-drift", fn: "runGoldenSetDrift" },
-    { key: "forge-emit-conformance", fn: "runForgeEmitConformance" },
+  type RunnerFn = (ctx: { cwd: string }) => Promise<{
+    passed: boolean;
+    score: number;
+    findings: FindingShape[];
+    duration_ms: number;
+  }>;
+  const RUNNERS: Array<{ key: string; fn: RunnerFn }> = [
+    { key: "federation-conformance", fn: federationRunners.runFederationConformance as RunnerFn },
+    { key: "recipe-validity", fn: federationRunners.runRecipeValidity as RunnerFn },
+    {
+      key: "prompt-injection-resilience",
+      fn: federationRunners.runPromptInjectionResilience as RunnerFn,
+    },
+    { key: "golden-set-drift", fn: federationRunners.runGoldenSetDrift as RunnerFn },
+    { key: "forge-emit-conformance", fn: federationRunners.runForgeEmitConformance as RunnerFn },
   ];
 
   const results = [];
   for (const r of RUNNERS) {
-    const fn = mod[r.fn] as ((ctx: { cwd: string }) => Promise<unknown>) | undefined;
-    if (typeof fn !== "function") {
-      results.push({
-        runner: r.key,
-        passed: false,
-        score: 0,
-        findings: [
-          {
-            severity: "error" as const,
-            category: "harness",
-            message: `function ${r.fn} not exported`,
-          },
-        ],
-        duration_ms: 0,
-      });
-      continue;
-    }
     try {
-      const result = (await fn({ cwd })) as {
-        passed: boolean;
-        score: number;
-        findings: FindingShape[];
-        duration_ms: number;
-      };
+      const result = await r.fn({ cwd });
       results.push({ runner: r.key, ...result });
     } catch (err) {
       results.push({
