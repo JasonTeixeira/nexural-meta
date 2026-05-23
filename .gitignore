@@ -61,5 +61,11 @@ sbom.cyclonedx.json
 .qa-memory/
 evidence/*
 qa.manifest.json
-# Exception: ADR-0011 §1 (gate 6) adversarial-proof evidence is tracked.
+# Exceptions: ADR-0011 §1 (gate 6) adversarial-proof, gate-4 runbooks,
+# gate-5 verify reports, operational-blockers checklist, and the weekly
+# health snapshot are tracked.
 !evidence/adversarial/
+!evidence/gate-4/
+!evidence/gate-5/
+!evidence/operational/
+!evidence/health/

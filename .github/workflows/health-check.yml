@@ -1,0 +1,47 @@
+name: Federation health check
+
+on:
+  schedule:
+    - cron: "0 8 * * 1" # Monday 08:00 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write # to push the health report to evidence/health/
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      # Build the federation runner package so the script can import dist
+      - run: pnpm --filter @nexural/qa-runners-federation build
+
+      - name: Run health check
+        # Exit code 1 indicates real findings; we still want to commit the
+        # report so the dashboard reflects current state. `|| true` lets the
+        # commit step run regardless.
+        run: node scripts/health-check.mjs || true
+
+      - name: Commit health report (if changed)
+        run: |
+          if [[ -n "$(git status --porcelain evidence/health/)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add evidence/health/
+            git commit -m "chore(health): weekly federation health report"
+            git push
+          else
+            echo "no changes to commit"
+          fi
