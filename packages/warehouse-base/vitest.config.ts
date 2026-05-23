@@ -7,7 +7,11 @@ export default defineConfig({
       provider: "v8",
       reporter: ["text", "json-summary", "html"],
       include: ["src/**/*.ts"],
-      exclude: ["src/index.ts", "src/**/*.d.ts"],
+      // mcp-client.ts is integration-tested by spawning the real
+      // @nexural/warehouse-server binary (test/mcp-client.test.ts skips in
+      // environments where the binary isn't built). It's covered in dev
+      // + on tag-publish runs, just not at the per-package unit level.
+      exclude: ["src/index.ts", "src/mcp-client.ts", "src/**/*.d.ts"],
       thresholds: {
         lines: 80,
         branches: 75,
