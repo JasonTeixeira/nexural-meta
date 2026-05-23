@@ -1,0 +1,61 @@
+schema_version: 1
+warehouse: runbook
+version: 0.1.0
+description: Operational runbooks — how-to recipes for common AI-app operations (evals, cost optimization, migrations, voice latency, etc.). Vendored from sage's ai-warehouse per ADR-0005.
+documents:
+  - id: add-evals
+    path: documents/add-evals.md
+    title: Add evals to an existing AI app
+    audience: [agents, human]
+    tags: [eval, testing, ai]
+  - id: add-semantic-cache
+    path: documents/add-semantic-cache.md
+    title: Add a semantic cache to cut LLM cost
+    audience: [agents, human]
+    tags: [cost, cache, llm]
+  - id: cost-optimization
+    path: documents/cost-optimization.md
+    title: Cost optimization for LLM apps
+    audience: [agents, human]
+    tags: [cost, llm, optimization]
+  - id: deploy-modal-app
+    path: documents/deploy-modal-app.md
+    title: Deploy a Python LLM app to Modal
+    audience: [agents, human]
+    tags: [deploy, modal, python]
+  - id: fine-tune-unsloth
+    path: documents/fine-tune-unsloth.md
+    title: Fine-tune a model with Unsloth
+    audience: [agents, human]
+    tags: [fine-tune, training, unsloth]
+  - id: migrate-vector-db
+    path: documents/migrate-vector-db.md
+    title: Migrate a vector database without downtime
+    audience: [agents, human]
+    tags: [migration, vector-db, rag]
+  - id: prompt-versioning
+    path: documents/prompt-versioning.md
+    title: Prompt versioning strategy
+    audience: [agents, human]
+    tags: [prompt, versioning, llm]
+  - id: run-ai-newsletter-service
+    path: documents/run-ai-newsletter-service.md
+    title: Run an AI-powered newsletter service
+    audience: [agents, human]
+    tags: [newsletter, automation, llm]
+  - id: set-up-email-deliverability
+    path: documents/set-up-email-deliverability.md
+    title: Set up email deliverability (SPF, DKIM, DMARC, warming)
+    audience: [agents, human]
+    tags: [email, deliverability, ops]
+  - id: ship-mcp-server
+    path: documents/ship-mcp-server.md
+    title: Ship a production MCP server
+    audience: [agents, human]
+    tags: [mcp, server, protocol]
+  - id: sub-500ms-voice-pipeline
+    path: documents/sub-500ms-voice-pipeline.md
+    title: Sub-500ms voice agent pipeline
+    audience: [agents, human]
+    tags: [voice, latency, pipeline]
+templates: []

@@ -1,7 +1,7 @@
 schema_version: 1
 warehouse: architecture
-version: 0.1.0
-description: Baseline TypeScript + Next.js 15 architecture conventions and emit templates.
+version: 0.2.0
+description: Baseline TypeScript + Next.js 15 architecture conventions, decision-tree shape, and emit templates. Cross-references the external ai-warehouse for tool-catalog queries.
 documents:
   - id: nextjs-15-baseline
     path: documents/nextjs-15-baseline.md
@@ -13,6 +13,16 @@ documents:
     title: TypeScript strict-mode discipline
     audience: [agents, human]
     tags: [typescript, baseline]
+  - id: decision-trees
+    path: documents/decision-trees.md
+    title: Decision trees — "use X when Y" pattern
+    audience: [agents, human]
+    tags: [decision, pattern, tool-selection]
+  - id: external-ai-warehouse-protocol
+    path: documents/external-ai-warehouse-protocol.md
+    title: External ai-warehouse — federated tool catalog protocol
+    audience: [agents, human]
+    tags: [ai-warehouse, federation, mcp]
 templates:
   - id: tsconfig
     source: templates/tsconfig.json.template

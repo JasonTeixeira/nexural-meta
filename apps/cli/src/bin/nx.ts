@@ -15,6 +15,7 @@ import { runHealth } from "../commands/health.js";
 import { runNew } from "../commands/new.js";
 import { runOpen } from "../commands/open.js";
 import { runPlay } from "../commands/play.js";
+import { runServe } from "../commands/serve.js";
 import { runSessionSave } from "../commands/session.js";
 import { runSync } from "../commands/sync.js";
 import { runVerify } from "../commands/verify.js";
@@ -181,6 +182,22 @@ program
       );
     },
   );
+
+program
+  .command("serve")
+  .description("Run the federation as a long-running HTTP daemon (localhost:7345)")
+  .option("--port <n>", "HTTP port (default 7345)")
+  .option("--host <host>", "bind host (default 127.0.0.1)")
+  .option("--root <path>", "federation root override")
+  .action(async (opts: { port?: string; host?: string; root?: string }) => {
+    await withTelemetry(config, "serve", [opts.port ?? "7345"], () =>
+      runServe(config, {
+        ...(opts.port !== undefined ? { port: parseInt(opts.port, 10) } : {}),
+        ...(opts.host !== undefined ? { host: opts.host } : {}),
+        ...(opts.root !== undefined ? { root: opts.root } : {}),
+      }),
+    );
+  });
 
 const sessionCmd = program.command("session").description("STATE.md continuity helpers");
 sessionCmd

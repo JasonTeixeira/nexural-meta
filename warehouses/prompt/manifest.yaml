@@ -1,13 +1,43 @@
 schema_version: 1
 warehouse: prompt
-version: 0.1.0
-description: Synthesis prompt + envelope-wrapping defense + citation validator. Per ADR-0008 §1.
+version: 0.2.0
+description: Synthesis prompt + envelope-wrapping defense + citation validator + curated bootstrap prompts (vendored from ai-warehouse). Per ADR-0008 §1.
 documents:
   - id: envelope-wrapping
     path: documents/envelope-wrapping.md
     title: Why warehouse_content envelopes (prompt-injection defense)
     audience: [agents, human]
     tags: [security, prompt-injection]
+  - id: bootstrap-mcp-server
+    path: documents/bootstrap-mcp-server.md
+    title: Bootstrap an MCP server project
+    audience: [agents, human]
+    tags: [mcp, bootstrap, prompt]
+  - id: bootstrap-newsletter
+    path: documents/bootstrap-newsletter.md
+    title: Bootstrap an AI newsletter project
+    audience: [agents, human]
+    tags: [newsletter, bootstrap, prompt]
+  - id: bootstrap-rag-project
+    path: documents/bootstrap-rag-project.md
+    title: Bootstrap a RAG project
+    audience: [agents, human]
+    tags: [rag, bootstrap, prompt]
+  - id: bootstrap-voice-agent
+    path: documents/bootstrap-voice-agent.md
+    title: Bootstrap a voice agent project
+    audience: [agents, human]
+    tags: [voice, bootstrap, prompt]
+  - id: cost-audit-an-llm-app
+    path: documents/cost-audit-an-llm-app.md
+    title: Prompt — cost-audit an existing LLM app
+    audience: [agents, human]
+    tags: [cost, audit, prompt]
+  - id: review-pr-as-staff-engineer
+    path: documents/review-pr-as-staff-engineer.md
+    title: Prompt — review a PR as a staff engineer
+    audience: [agents, human]
+    tags: [review, code-quality, prompt]
 templates:
   - id: synthesis-prompt
     source: templates/lib-prompt-synthesis.ts.template
