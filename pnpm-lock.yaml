@@ -60,6 +60,9 @@ importers:
 
   apps/cli:
     dependencies:
+      '@nexural/ask-engine':
+        specifier: workspace:^
+        version: link:../../packages/ask-engine
       '@nexural/factory':
         specifier: workspace:^
         version: link:../../packages/factory
@@ -161,6 +164,19 @@ importers:
       zod:
         specifier: ^3.24.1
         version: 3.25.76
+
+  packages/ask-engine:
+    dependencies:
+      better-sqlite3:
+        specifier: ^11.7.2
+        version: 11.10.0
+    devDependencies:
+      '@types/better-sqlite3':
+        specifier: ^7.6.12
+        version: 7.6.13
+      '@types/node':
+        specifier: ^22.10.5
+        version: 22.19.19
 
   packages/factory:
     dependencies:

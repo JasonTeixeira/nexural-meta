@@ -30,6 +30,7 @@
     "dev": "tsup --watch"
   },
   "dependencies": {
+    "@nexural/ask-engine": "workspace:^",
     "@nexural/factory": "workspace:^",
     "@nexural/forge-emit": "workspace:^",
     "@nexural/model-router": "workspace:^",

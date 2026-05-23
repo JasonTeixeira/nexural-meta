@@ -28,9 +28,18 @@ program
 
 program
   .command("ask <query>")
-  .description("Synthesize an answer from federation warehouses with citations")
-  .action(async (query: string) => {
-    await withTelemetry(config, "ask", [query], () => runAsk(config, query));
+  .description("Federation-wide search across constitution, ADRs, warehouses, recipes")
+  .option("--kinds <list>", "comma-separated kinds: constitution,adr,warehouse-doc,recipe-doc,eval")
+  .option("--limit <n>", "max results", "5")
+  .option("--json", "machine-readable JSON output")
+  .action(async (query: string, opts: { kinds?: string; limit?: string; json?: boolean }) => {
+    await withTelemetry(config, "ask", [query], () =>
+      runAsk(config, query, {
+        ...(opts.kinds !== undefined ? { kinds: opts.kinds } : {}),
+        ...(opts.limit !== undefined ? { limit: parseInt(opts.limit, 10) } : {}),
+        ...(opts.json !== undefined ? { json: opts.json } : {}),
+      }),
+    );
   });
 
 program

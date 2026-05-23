@@ -1,0 +1,48 @@
+{
+  "name": "@nexural/ask-engine",
+  "version": "1.0.0",
+  "description": "Federation-wide doc collector + FTS5 search engine. Powers `nx ask`. Walks warehouses + ADRs + constitution + recipe THREAT_MODELs/DECISIONS, indexes into local sqlite FTS5, returns ranked excerpts. Phase 11.2 per ADR-0012 §5.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src test",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist .turbo"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.7.2"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.12",
+    "@types/node": "^22.10.5"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JasonTeixeira/nexural-meta.git",
+    "directory": "packages/ask-engine"
+  },
+  "homepage": "https://github.com/JasonTeixeira/nexural-meta/tree/main/packages/ask-engine#readme",
+  "bugs": {
+    "url": "https://github.com/JasonTeixeira/nexural-meta/issues"
+  }
+}
