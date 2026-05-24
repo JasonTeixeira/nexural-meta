@@ -57,7 +57,11 @@ def _persona_keys_required(p: PersonaConfig) -> set[str]:
             for v in ENV_BY_PROVIDER.get((slot, prov), []):
                 needed.add(v)
     if p.orchestration.supervisor.enabled:
-        needed.add("ANTHROPIC_API_KEY")
+        sup_model = p.orchestration.supervisor.model
+        if sup_model.startswith("claude"):
+            needed.add("ANTHROPIC_API_KEY")
+        else:
+            needed.add("OPENAI_API_KEY")
     if p.memory.enabled:
         # mem0 is optional — engine silently disables if missing. Don't gate on it.
         pass

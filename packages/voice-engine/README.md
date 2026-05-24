@@ -1,14 +1,45 @@
 # @nexural/voice-engine
 
-> **One premium voice core. Infinite personas. Zero engine edits.**
+> **The reusable voice ingredient for any Sage Ideas app.**
+> Build it once. Drop it into 100 future apps. Pay $0.78/hr at launch;
+> drop to $0.05/hr when you scale.
 
-A reusable LiveKit Agents-based voice runtime. To launch a new voice product
-— coach, tutor, therapist, sales agent, support agent, interviewer, anything
-— you write **one YAML file** and point the engine at it. The Python code
-never changes.
+A premium voice runtime — LiveKit Agents + your providers + RAG +
+guardrails — designed to be the voice layer of every product you ever
+ship. Pick a tier (free → premium → self-hosted), drop in a persona
+YAML + optional MCP servers, and your app has a production voice agent
+in minutes.
 
-Built for Nexural's "single-operator SaaS factory" — every forged app gets a
-premium voice experience for free.
+## Quick start — add voice to ANY app
+
+```bash
+# 1. Copy the starter recipe
+cp -r packages/voice-engine/recipes/voice-app-starter ../my-new-app
+cd ../my-new-app
+./make-app.sh chess-coach
+
+# 2. Edit one YAML (prompt + greeting)
+$EDITOR persona/agent.yaml
+
+# 3. Optionally ingest knowledge for RAG
+./ingest.sh ./docs
+
+# 4. Run the worker + your Next.js app
+nx-voice serve --persona persona/agent.yaml -- dev   # terminal 1
+cd web && pnpm dev                                    # terminal 2
+
+# Open http://localhost:3030. Talk.
+```
+
+Total time from `cp` to talking agent: **~5 minutes**.
+
+## Why this works as a reusable ingredient
+
+Voice agents are 90% the same plumbing — WebRTC transport, STT, LLM,
+TTS, VAD, turn detection, interruption handling, MCP tool wiring,
+memory, telemetry, cost capping, safety. The 10% that's different per
+app — voice ID, system prompt, tools, vibe, knowledge base — is the
+**content layer.** This engine treats that distinction physically:
 
 ---
 
@@ -142,6 +173,53 @@ same machine or scale them independently in production.
 That's the entire developer loop. Engine code is never touched.
 
 ---
+
+## Tier presets — one-line cost/quality dial
+
+Every persona extends a tier. Switching tiers is one line in the YAML —
+no code changes, no provider swaps to manage.
+
+| Tier                  | `extends:`                    |              $/hr | Use for                                               |
+| --------------------- | ----------------------------- | ----------------: | ----------------------------------------------------- |
+| 🆓 Free               | `_base/tier-free.yaml`        | $0 (free credits) | Prototyping, demos, MVPs                              |
+| ⚖️ Balanced (default) | `_base/tier-balanced.yaml`    |             $0.78 | Most shipped products                                 |
+| 🚀 Premium            | `_base/tier-premium.yaml`     |             $1.05 | First impression matters: sales, receptionist         |
+| ⚡ Realtime           | `_base/tier-realtime.yaml`    |             $4.80 | Emotional prosody: therapist, meditation, storyteller |
+| 🏠 Self-hosted        | `_base/tier-self-hosted.yaml` |             $0.05 | When your app crosses ~50 concurrent users            |
+
+Migration path: start free → balanced as you launch → self-hosted at
+scale. Each switch is one YAML line. Persona prompts, MCP servers, RAG
+knowledge — everything else stays identical.
+
+## RAG — give your agent app-specific knowledge
+
+```bash
+# In your app dir:
+./ingest.sh ./my-docs       # ingests once
+rag-mcp serve --http --port 7800   # serve at runtime
+```
+
+Then in the persona:
+
+```yaml
+mcp_servers:
+  - name: knowledge
+    url: http://localhost:7800/sse
+```
+
+The agent now has a `search_knowledge` tool and uses it for app-specific
+questions. See [docs/RAG.md](./docs/RAG.md).
+
+## Guardrails
+
+- **Pluggable moderation** (OpenAI Moderation API) — pre-input + post-output
+- **Jailbreak pattern detection** — instant + cheap, before LLM call
+- **PII redaction** — emails/phones/cards/SSNs stripped before memory writes
+- **Per-session cost cap** — auto-disconnect on runaway costs
+- **Structured outputs** — typed Pydantic schemas (SBAR, debrief, lead, message)
+
+All opt-in per persona via YAML. See `src/voice_engine/safety.py` +
+`guardrails.py`.
 
 ## Orchestration (multi-persona)
 

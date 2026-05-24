@@ -1,0 +1,18 @@
+# TIER: BALANCED — best $/quality for most production apps.
+# ~$0.78/hr. Same as FREE but with mem0 cross-session memory turned on
+# and tighter latency tuning. Recommended default for shipped products.
+extends: tier-free.yaml
+
+memory:
+  enabled: true
+  user_id_strategy: participant_identity
+  # Set per-app — keeps memories isolated across your products.
+  # app_id: my-app-name
+
+turn_detection:
+  min_endpointing_delay: 0.25 # snappier than free
+  max_endpointing_delay: 3.5
+
+metadata:
+  tier: balanced
+  cost_per_hour_estimate_usd: 0.78

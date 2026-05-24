@@ -90,7 +90,9 @@ def serve(
         forwarded = ["dev"]
     sys.argv = [sys.argv[0], *forwarded]
     reg_dir = registry_dir if registry_dir.is_dir() else None
-    agents.cli.run_app(make_worker(persona, registry_dir=reg_dir))
+    agents.cli.run_app(
+        make_worker(persona, persona_path=persona_path, registry_dir=reg_dir)
+    )
 
 
 @cli.command()

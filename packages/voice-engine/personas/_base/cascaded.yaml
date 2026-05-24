@@ -13,8 +13,10 @@ stt:
   language: en
 
 llm:
-  provider: anthropic
-  model: claude-haiku-4-5
+  # Default brain: OpenAI GPT-4o-mini (no Anthropic key required).
+  # Swap to anthropic/claude-haiku-4-5 once an Anthropic key is in .env.
+  provider: openai
+  model: gpt-4o-mini
   temperature: 0.5
   max_tokens: 500
 
@@ -26,7 +28,10 @@ tts:
 
 turn_detection:
   use_noise_cancellation: true
-  use_semantic_turn_detector: true
+  # Semantic turn detector requires a separate LK inference process not
+  # auto-wired in 1.5.x. Plain Silero VAD endpointing is the reliable
+  # default. Re-enable per-persona once inference proc is configured.
+  use_semantic_turn_detector: false
   min_endpointing_delay: 0.4
   max_endpointing_delay: 6.0
 

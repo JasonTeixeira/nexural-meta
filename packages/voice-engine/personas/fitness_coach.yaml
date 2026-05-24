@@ -37,8 +37,8 @@ stt:
   keyterms: [reps, sets, RPE, rest, deadlift, squat, bench, row, press, swap]
 
 llm:
-  provider: anthropic
-  model: claude-haiku-4-5
+  provider: openai
+  model: gpt-4o-mini
   temperature: 0.4
   max_tokens: 250 # short responses on purpose
 
@@ -50,7 +50,7 @@ tts:
 
 turn_detection:
   use_noise_cancellation: true
-  use_semantic_turn_detector: true
+  use_semantic_turn_detector: false
   min_endpointing_delay: 0.25 # fast — they want the next cue
   max_endpointing_delay: 3.0
 

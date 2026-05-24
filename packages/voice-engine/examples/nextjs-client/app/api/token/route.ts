@@ -32,11 +32,14 @@ export async function GET(req: NextRequest) {
   const at = new AccessToken(apiKey, apiSecret, { identity, ttl: 60 * 15 });
   at.addGrant({ room, roomJoin: true, canPublish: true, canSubscribe: true });
 
-  // Tell LiveKit to dispatch *this specific* agent worker into the room.
-  // The worker must have been started with agent_name === <agent>.
-  at.roomConfig = {
-    agents: [{ agentName: agent }],
-  } as never; // typed loosely across SDK versions
+  // Default mode: worker auto-dispatches into any new room (single-persona dev).
+  // For multi-persona prod with explicit dispatch, set EXPLICIT_AGENT_DISPATCH=1
+  // and start the worker with explicit_dispatch=True.
+  if (process.env.EXPLICIT_AGENT_DISPATCH === "1") {
+    (at as unknown as { roomConfig: unknown }).roomConfig = {
+      agents: [{ agentName: agent }],
+    };
+  }
 
   return NextResponse.json({
     token: await at.toJwt(),

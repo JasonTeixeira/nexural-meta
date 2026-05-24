@@ -51,8 +51,8 @@ stt:
     - tax-advantaged
 
 llm:
-  provider: anthropic
-  model: claude-haiku-4-5
+  provider: openai
+  model: gpt-4o-mini
   temperature: 0.4
   max_tokens: 500
 
@@ -63,7 +63,7 @@ tts:
 
 turn_detection:
   use_noise_cancellation: true
-  use_semantic_turn_detector: true
+  use_semantic_turn_detector: false
   min_endpointing_delay: 0.5
   max_endpointing_delay: 8.0
 
@@ -75,7 +75,7 @@ orchestration:
   handoff_targets: []
   supervisor:
     enabled: true
-    model: claude-sonnet-4-6
+    model: gpt-4o
     temperature: 0.2
 
 # Financial detail is sensitive — no local transcript by default.

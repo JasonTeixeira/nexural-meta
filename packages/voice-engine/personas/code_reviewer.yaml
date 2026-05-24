@@ -43,8 +43,8 @@ stt:
   keyterms: [diff, hunk, race, mutex, transaction, idempotent, migration, JWT]
 
 llm:
-  provider: anthropic
-  model: claude-haiku-4-5 # fast voice; supervisor handles deep stuff
+  provider: openai
+  model: gpt-4o-mini # fast voice; supervisor handles deep stuff
   temperature: 0.3
   max_tokens: 500
 
@@ -58,7 +58,7 @@ tts:
 
 turn_detection:
   use_noise_cancellation: true
-  use_semantic_turn_detector: true
+  use_semantic_turn_detector: false
   min_endpointing_delay: 0.5
   max_endpointing_delay: 8.0
 
@@ -70,7 +70,7 @@ orchestration:
   handoff_targets: []
   supervisor:
     enabled: true
-    model: claude-sonnet-4-6
+    model: gpt-4o
     temperature: 0.3
 
 mcp_servers:

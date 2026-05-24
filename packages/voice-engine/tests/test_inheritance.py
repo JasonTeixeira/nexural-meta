@@ -81,6 +81,6 @@ def test_load_persona_with_extends_validates() -> None:
         assert p.name == "extends_test"
         assert p.mode.value == "cascaded"
         assert p.stt.provider.value == "deepgram"  # inherited
-        assert p.llm.model == "claude-haiku-4-5"  # inherited
+        assert p.llm.model == "gpt-4o-mini"  # inherited from base
     finally:
         child.unlink(missing_ok=True)

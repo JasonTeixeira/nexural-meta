@@ -31,8 +31,8 @@ stt:
   language: en
 
 llm:
-  provider: anthropic
-  model: claude-haiku-4-5
+  provider: openai
+  model: gpt-4o-mini
   temperature: 0.5
   max_tokens: 400
 
@@ -43,7 +43,7 @@ tts:
 
 turn_detection:
   use_noise_cancellation: true
-  use_semantic_turn_detector: true
+  use_semantic_turn_detector: false
   min_endpointing_delay: 0.5
   max_endpointing_delay: 8.0 # learners think — give them room
 

@@ -1,0 +1,26 @@
+[project]
+name = "nexural-mcp-rag"
+version = "0.1.0"
+description = "Drop-in RAG MCP server for any Nexural voice persona. Fork per app."
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+    "mcp>=1.27,<2.0",
+    "openai>=1.50",
+    "pydantic>=2.7",
+    "sqlite-vec>=0.1.6",
+    "numpy>=1.26",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "pytest-asyncio>=0.23"]
+
+[project.scripts]
+rag-mcp = "rag_mcp.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/rag_mcp"]

@@ -38,8 +38,8 @@ stt:
   keyterms: [appointment, booking, reservation, cancel, reschedule, manager]
 
 llm:
-  provider: anthropic
-  model: claude-haiku-4-5
+  provider: openai
+  model: gpt-4o-mini
   temperature: 0.3
   max_tokens: 350
 
@@ -50,7 +50,7 @@ tts:
 
 turn_detection:
   use_noise_cancellation: true
-  use_semantic_turn_detector: true
+  use_semantic_turn_detector: false
   min_endpointing_delay: 0.3
   max_endpointing_delay: 5.0
 

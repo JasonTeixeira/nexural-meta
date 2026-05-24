@@ -44,16 +44,17 @@ def test_check_livekit_auth_mints_token_with_dummy_keys(monkeypatch) -> None:
 
 
 def test_check_persona_voice_coach_missing_keys(monkeypatch) -> None:
-    for v in ("DEEPGRAM_API_KEY", "ANTHROPIC_API_KEY", "CARTESIA_API_KEY"):
+    for v in ("DEEPGRAM_API_KEY", "OPENAI_API_KEY"):
         monkeypatch.delenv(v, raising=False)
     p = load_persona(PERSONA_DIR / "voice_coach.yaml")
     r = check_persona(p)
     assert r.ready is False
-    assert set(r.missing) == {"DEEPGRAM_API_KEY", "ANTHROPIC_API_KEY", "CARTESIA_API_KEY"}
+    # voice_coach v1.1: Deepgram (STT) + OpenAI (brain AND TTS).
+    assert set(r.missing) == {"DEEPGRAM_API_KEY", "OPENAI_API_KEY"}
 
 
 def test_check_persona_with_all_keys_present(monkeypatch) -> None:
-    for v in ("DEEPGRAM_API_KEY", "ANTHROPIC_API_KEY", "CARTESIA_API_KEY"):
+    for v in ("DEEPGRAM_API_KEY", "OPENAI_API_KEY"):
         monkeypatch.setenv(v, "test")
     p = load_persona(PERSONA_DIR / "voice_coach.yaml")
     r = check_persona(p)

@@ -39,8 +39,25 @@ class MemoryStore:
         if not self.cfg.enabled or not self._client:
             return ""
         try:
-            results = self._client.search(query=query, user_id=user_id, limit=limit)
-            mems = [m.get("memory", "") for m in (results or []) if m.get("memory")]
+            # mem0 ≥2.0 requires filters dict, not top-level user_id kwarg.
+            results = self._client.search(
+                query=query,
+                version="v2",
+                filters={"user_id": user_id},
+                limit=limit,
+            )
+            # v2 returns either a list of dicts OR {"results": [...]}.
+            items = results.get("results", []) if isinstance(results, dict) else (results or [])
+            mems: list[str] = []
+            for m in items:
+                if isinstance(m, dict):
+                    text = m.get("memory") or m.get("text") or ""
+                elif isinstance(m, str):
+                    text = m
+                else:
+                    text = ""
+                if text:
+                    mems.append(text)
             if not mems:
                 return ""
             return "Relevant memories from past conversations:\n- " + "\n- ".join(mems)
@@ -49,10 +66,25 @@ class MemoryStore:
             return ""
 
     async def add(self, user_id: str, messages: list[dict]) -> None:
-        """Persist new memories from a finished conversation."""
+        """Persist new memories from a finished conversation.
+
+        PII (emails, phones, credit cards, SSNs) is redacted before write —
+        memories are long-lived and you don't want PHI/PCI sitting in mem0.
+        """
         if not self.cfg.enabled or not self._client:
             return
         try:
-            self._client.add(messages, user_id=user_id)
+            from voice_engine.guardrails import redact_pii
+            cleaned: list[dict] = []
+            total: dict[str, int] = {}
+            for m in messages:
+                content = m.get("content") or ""
+                r = redact_pii(str(content))
+                for k, v in r.redactions.items():
+                    total[k] = total.get(k, 0) + v
+                cleaned.append({**m, "content": r.text})
+            if total:
+                logger.info("memory: redacted %s before write", total)
+            self._client.add(cleaned, user_id=user_id, version="v2")
         except Exception as e:  # noqa: BLE001
             logger.warning("memory add failed: %s", e)

@@ -52,8 +52,8 @@ stt:
     - refill
 
 llm:
-  provider: anthropic
-  model: claude-haiku-4-5
+  provider: openai
+  model: gpt-4o-mini
   temperature: 0.2 # tight, predictable, accurate
   max_tokens: 400
 
@@ -65,7 +65,7 @@ tts:
 
 turn_detection:
   use_noise_cancellation: true
-  use_semantic_turn_detector: true
+  use_semantic_turn_detector: false
   min_endpointing_delay: 0.6
   max_endpointing_delay: 10.0
 

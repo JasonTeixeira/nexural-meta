@@ -45,8 +45,8 @@ stt:
   keyterms: []
   fallbacks: []
 llm:
-  provider: anthropic
-  model: claude-haiku-4-5
+  provider: openai
+  model: gpt-4o-mini
   temperature: 0.3
   max_tokens: 200
   fallbacks: []
@@ -102,7 +102,7 @@ orchestration:
     - voice_coach
   supervisor:
     enabled: false
-    model: claude-sonnet-4-6
+    model: gpt-4o
     max_tokens: 1024
     temperature: 0.4
 recording:

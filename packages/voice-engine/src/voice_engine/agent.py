@@ -22,7 +22,7 @@ from livekit.agents import (
 )
 from livekit.plugins import silero
 
-from voice_engine.config import Mode, PersonaConfig
+from voice_engine.config import Mode, PersonaConfig, load_persona
 from voice_engine.cost_cap import CostCapWatcher
 from voice_engine.memory import MemoryStore
 from voice_engine.orchestration.registry import PersonaRegistry
@@ -36,6 +36,11 @@ from voice_engine.telemetry import (
     new_session_id,
 )
 from voice_engine.tools import build_mcp_servers
+
+# Env vars the worker subprocess uses to rehydrate the persona + registry
+# without needing to pickle a closure across multiprocessing/spawn.
+_ENV_PERSONA = "VOICE_ENGINE_PERSONA_PATH"
+_ENV_REGISTRY = "VOICE_ENGINE_REGISTRY_DIR"
 
 logger = logging.getLogger("voice_engine")
 
@@ -170,11 +175,17 @@ def _build_turn_detector(persona: PersonaConfig):
         return None
     if persona.mode == Mode.REALTIME:
         return None
+    # The multilingual turn-detector needs a separate inference process
+    # (configured via WorkerOptions.prewarm) that LiveKit Agents 1.5 sets up
+    # automatically only when `prewarm_fnc` is wired. Without it the model
+    # errors at runtime with "no inference executor". Falling back to plain
+    # Silero VAD endpointing — slightly less smart on filler-pauses
+    # ("uhmm…") but works reliably out of the box.
     try:
         from livekit.plugins.turn_detector.multilingual import MultilingualModel
         return MultilingualModel()
-    except ImportError:
-        logger.warning("turn-detector not installed — falling back to VAD only")
+    except (ImportError, RuntimeError):
+        logger.warning("turn-detector unavailable — falling back to VAD only")
         return None
 
 
@@ -319,25 +330,56 @@ async def entrypoint(
     ctx.add_shutdown_callback(_on_shutdown)
 
 
+async def _worker_entrypoint(ctx: JobContext) -> None:
+    """Module-level entrypoint — required so that multiprocessing/spawn can
+    pickle the reference. Reads persona + registry paths from env vars set
+    by `make_worker()` so each spawned subprocess can rehydrate them.
+    """
+    persona_path = os.environ.get(_ENV_PERSONA)
+    if not persona_path:
+        raise RuntimeError(
+            f"{_ENV_PERSONA} env var not set — was the worker started via "
+            "make_worker() / `nx-voice serve`?"
+        )
+    persona = load_persona(persona_path)
+    reg_dir = os.environ.get(_ENV_REGISTRY)
+    registry = PersonaRegistry(reg_dir) if reg_dir else None
+    await entrypoint(ctx, persona, registry=registry)
+
+
 def make_worker(
     persona: PersonaConfig,
     *,
+    persona_path: str | Path,
     registry_dir: str | Path | None = None,
+    explicit_dispatch: bool = False,
 ) -> agents.WorkerOptions:
     """Bind a persona to a LiveKit worker. One worker = one persona.
+
+    Persona is identified by YAML path (not the object) so subprocess
+    workers spawned by LiveKit's process pool can reload it independently
+    — required by multiprocessing.spawn. Closing over the persona object
+    would break pickling.
+
+    `explicit_dispatch`:
+      False (default) — worker auto-joins any new room. Best for solo dev
+        and single-persona deployments. **Token does not need agents in
+        roomConfig.**
+      True — worker only handles rooms that explicitly dispatch its
+        agent_name (= persona.name). Use for multi-persona prod where
+        one LiveKit project hosts many personas.
 
     If `registry_dir` is provided, handoff_to() can route to any persona
     in that directory.
     """
-    registry = PersonaRegistry(registry_dir) if registry_dir else None
+    os.environ[_ENV_PERSONA] = str(Path(persona_path).resolve())
+    if registry_dir:
+        os.environ[_ENV_REGISTRY] = str(Path(registry_dir).resolve())
 
-    async def _entry(ctx: JobContext) -> None:
-        await entrypoint(ctx, persona, registry=registry)
-
-    return agents.WorkerOptions(
-        entrypoint_fnc=_entry,
-        agent_name=persona.name,
-    )
+    kwargs: dict = {"entrypoint_fnc": _worker_entrypoint}
+    if explicit_dispatch:
+        kwargs["agent_name"] = persona.name
+    return agents.WorkerOptions(**kwargs)
 
 
 def _configure_logging() -> None:

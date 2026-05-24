@@ -71,7 +71,7 @@ def build_router_agent(registry: PersonaRegistry) -> PersonaConfig:
         system_prompt=ROUTER_PROMPT_TEMPLATE.format(persona_catalog=catalog),
         greeting="Hey — what can I help you with today?",
         stt=STTConfig(),
-        llm=LLMConfig(model="claude-haiku-4-5", temperature=0.3, max_tokens=200),
+        llm=LLMConfig(provider="openai", model="gpt-4o-mini", temperature=0.3, max_tokens=200),
         tts=TTSConfig(),
         turn_detection=TurnDetectionConfig(min_endpointing_delay=0.3),
     )

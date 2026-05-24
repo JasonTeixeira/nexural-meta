@@ -89,7 +89,11 @@ class TurnDetectionConfig(BaseModel):
     """Three layers stacked: noise cancellation → VAD → semantic turn detection."""
 
     use_noise_cancellation: bool = True
-    use_semantic_turn_detector: bool = True
+    # Semantic turn detector needs a separate inference proc that LK Agents
+    # 1.5.x doesn't auto-wire. Disable by default; opt-in per-persona once
+    # the inference executor is configured. Plain VAD endpointing is fine
+    # for ~95% of conversations.
+    use_semantic_turn_detector: bool = False
     # min wait after VAD says "silent" before firing end-of-turn
     min_endpointing_delay: float = 0.5
     # max wait if model is uncertain
@@ -109,10 +113,14 @@ class MemoryConfig(BaseModel):
 
 class SupervisorConfig(BaseModel):
     """Chat-Supervisor pattern. A heavier LLM the voice persona can consult
-    mid-conversation for hard reasoning, without blocking speech."""
+    mid-conversation for hard reasoning, without blocking speech.
+
+    Provider is inferred from the model name (claude-* → Anthropic,
+    gpt-* → OpenAI).
+    """
 
     enabled: bool = False
-    model: str = "claude-sonnet-4-6"
+    model: str = "gpt-4o"
     max_tokens: int = 1024
     temperature: float = 0.4
 

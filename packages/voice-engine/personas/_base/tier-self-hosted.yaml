@@ -1,0 +1,63 @@
+# TIER: SELF-HOSTED — when one of your apps crosses ~50 concurrent users
+# and cloud-API costs start to bite. Flip persona to this tier; engine
+# routes through your own infrastructure.
+# ~$0.05/hr at scale (vs $0.78/hr cloud). 78× cheaper at 1000 users.
+#
+# Requires: `recipes/self-hosted/docker-compose up` running.
+#   - LiveKit Server on :7880
+#   - Moonshine v2 STT on :8001
+#   - Ollama serving Llama 4 on :11434
+#   - Kokoro TTS on :8002
+#   - Qdrant on :6333 (memory + RAG)
+#
+# Engine treats them as OpenAI-compatible endpoints via base_url overrides.
+extends: cascaded.yaml
+
+stt:
+  # Moonshine v2 (open-weights, beats Whisper Large v3 on English).
+  # Served through a thin shim that exposes Deepgram-compatible streaming.
+  provider: deepgram
+  model: moonshine-v2
+  language: en
+  # Override the SDK base URL via DEEPGRAM_BASE_URL env var pointing to your shim.
+
+llm:
+  # Llama 4 70B via local Ollama (or vLLM/Triton at scale).
+  # Exposed as OpenAI-compatible API.
+  provider: openai
+  model: llama-4-70b-instruct
+  temperature: 0.7
+  max_tokens: 300
+
+tts:
+  # Kokoro-82M (Apache 2.0) via Kokoro-FastAPI server.
+  # Exposed as OpenAI-compatible audio API.
+  provider: openai
+  model: kokoro
+  voice: af_bella # Kokoro voice IDs differ — see recipes/self-hosted/README.md
+  speed: 1.0
+  instructions: |
+    Speak naturally and conversationally. Use contractions and short
+    pauses for emphasis.
+
+turn_detection:
+  use_noise_cancellation: true
+  use_semantic_turn_detector: false
+  min_endpointing_delay: 0.3
+  max_endpointing_delay: 4.0
+
+memory:
+  enabled: true
+  user_id_strategy: participant_identity
+  # Self-hosted Zep or Qdrant at the URL below.
+  # provider: mem0 # swap to local later — implement against Zep client.
+
+metadata:
+  tier: self-hosted
+  cost_per_hour_estimate_usd: 0.05
+  notes: |
+    Set these env vars before serving with this tier:
+      OPENAI_BASE_URL=http://localhost:11434/v1   # for Llama
+      DEEPGRAM_BASE_URL=http://localhost:8001     # for Moonshine shim
+      TTS_BASE_URL=http://localhost:8002          # for Kokoro
+      LIVEKIT_URL=ws://localhost:7880             # for self-hosted LiveKit

@@ -1,0 +1,88 @@
+# Self-hosted voice-engine stack.
+# When one of your apps crosses ~50 concurrent users, flip the persona's
+# tier to `tier-self-hosted.yaml` and route through localhost endpoints
+# instead of cloud APIs. ~78× cheaper at scale.
+#
+# Run:
+#   docker compose up -d
+#
+# Required: one GPU machine (16GB+ VRAM) for Llama. The other components
+# are CPU-friendly. For full prod scale, deploy each service to its own
+# host and adjust the host/port env vars in your tier-self-hosted.yaml.
+#
+# Reference VMs:
+#   - Fly.io GPU L40s ($0.96/hr)
+#   - Modal A10G ($0.30/hr)
+#   - RunPod RTX 4090 ($0.34/hr)
+
+version: "3.9"
+
+services:
+  # ── LiveKit Server (WebRTC transport) ────────────────────────────
+  livekit:
+    image: livekit/livekit-server:latest
+    command: --dev --bind 0.0.0.0
+    ports:
+      - "7880:7880" # signaling
+      - "7881:7881" # tcp turn
+      - "7882:7882/udp" # udp turn
+    networks: [voice]
+
+  # ── Ollama (LLM: Llama 4 or Llama 3.3) ───────────────────────────
+  # Exposes an OpenAI-compatible API at http://ollama:11434/v1
+  # On first start, run: docker exec -it self-hosted-ollama-1 ollama pull llama3.3:70b
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-data:/root/.ollama
+    # GPU access — uncomment when on a GPU host (requires nvidia-container-toolkit).
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
+    networks: [voice]
+
+  # ── Kokoro TTS (Apache 2.0) ──────────────────────────────────────
+  # Exposes an OpenAI-compatible audio API at http://kokoro:8880/v1
+  kokoro:
+    image: ghcr.io/remsky/kokoro-fastapi-cpu:latest
+    ports:
+      - "8002:8880"
+    networks: [voice]
+
+  # ── Moonshine STT (open weights) ─────────────────────────────────
+  # Note: no off-the-shelf container with Deepgram-compat wire protocol
+  # exists for Moonshine yet. For now, the engine falls back to OpenAI
+  # Whisper via OPENAI_BASE_URL pointing at the local Whisper container
+  # below. Wire a Moonshine shim later when ready.
+  whisper:
+    image: onerahmet/openai-whisper-asr-webservice:latest
+    environment:
+      - ASR_MODEL=base
+      - ASR_ENGINE=faster_whisper
+    ports:
+      - "8001:9000"
+    networks: [voice]
+
+  # ── Qdrant (vector DB for RAG + memory) ──────────────────────────
+  qdrant:
+    image: qdrant/qdrant:latest
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - qdrant-data:/qdrant/storage
+    networks: [voice]
+
+networks:
+  voice:
+    driver: bridge
+
+volumes:
+  ollama-data:
+  qdrant-data:
