@@ -80,3 +80,14 @@ Full set: [`docs/adr/`](docs/adr/).
 ---
 
 _See also:_ [`AGENTS.md`](AGENTS.md) — same content for Codex / non-Claude agents.
+
+---
+
+## Project brief (Obsidian)
+
+This repo's project brief lives in the Sage Ideas vault:
+**`~/Sage Ideas/01-Projects/nexural-meta.md`**
+
+Before exploring the codebase, read the brief — it contains current focus,
+open questions, decisions log, and links to related projects. Update the
+brief at the end of each work session.

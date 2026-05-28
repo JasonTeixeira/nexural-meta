@@ -1,5 +1,20 @@
 # @nexural/cli
 
+## 1.5.0
+
+Tier-2 daily-ops payoff per ADR-0013.
+
+### New commands
+
+- `nx status` — one-screen dashboard: federation audit/health score, tracked projects flagged at risk, ecosystem digest summary, ADR/warehouse/recipe counts, operational blockers. `--json` for machine output.
+- `nx project add <slug> --recipe <name> [--url <url>]` — track a forged project in `projects.yaml`.
+- `nx project list` — list tracked projects with last verify score + timestamp.
+- `nx project check [<slug>]` — re-run `nx verify` against tracked deploy URLs; persists `last_verify` + `last_verify_score`.
+
+### Infrastructure
+
+- `projects.yaml` (schema_version 1) is now the canonical project ledger.
+
 ## 0.1.0
 
 Initial release. Per ARCHITECTURE §4.1 + ADR-0009 §1.5.

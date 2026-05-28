@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "started_at": "2026-05-23T00:47:08.537Z",
+  "finished_at": "2026-05-23T00:47:31.898Z",
+  "federation_root": "/Users/Sage/code/nexural/nexural-meta",
+  "benchmarks": {
+    "ask": {
+      "doc_count": 68,
+      "collect_ms": 19.08,
+      "index_build_ms": 9.57,
+      "queries": [
+        {
+          "query": "cost discipline LLM",
+          "ms": 1.43,
+          "hits": 5
+        },
+        {
+          "query": "tenant isolation RLS",
+          "ms": 1.49,
+          "hits": 5
+        },
+        {
+          "query": "prompt injection defense",
+          "ms": 1.52,
+          "hits": 5
+        },
+        {
+          "query": "ledger double entry",
+          "ms": 1.39,
+          "hits": 5
+        },
+        {
+          "query": "supabase SSR middleware",
+          "ms": 0.94,
+          "hits": 5
+        },
+        {
+          "query": "stripe webhook idempotency",
+          "ms": 1.21,
+          "hits": 5
+        }
+      ],
+      "avg_query_ms": 1.33
+    },
+    "askScaling": [
+      {
+        "doc_count": 100,
+        "index_build_ms": 0.99,
+        "query_ms": 0.26,
+        "hits": 5
+      },
+      {
+        "doc_count": 500,
+        "index_build_ms": 3.52,
+        "query_ms": 0.45,
+        "hits": 5
+      },
+      {
+        "doc_count": 1000,
+        "index_build_ms": 6.47,
+        "query_ms": 0.77,
+        "hits": 5
+      },
+      {
+        "doc_count": 5000,
+        "index_build_ms": 32.67,
+        "query_ms": 2.51,
+        "hits": 5
+      }
+    ],
+    "forge": [
+      {
+        "recipe": "fintech-ledger-app",
+        "ms": 1652.73,
+        "ok": true
+      },
+      {
+        "recipe": "internal-tool-dashboard",
+        "ms": 1618.63,
+        "ok": true
+      },
+      {
+        "recipe": "saas-agent-platform",
+        "ms": 1574.39,
+        "ok": true
+      },
+      {
+        "recipe": "saas-multitenant-baseline",
+        "ms": 1549.98,
+        "ok": true
+      },
+      {
+        "recipe": "saas-multitenant-baseline-cf",
+        "skipped": true,
+        "reason": "no fixture"
+      },
+      {
+        "recipe": "saas-rag-chat",
+        "ms": 1735.54,
+        "ok": true
+      },
+      {
+        "recipe": "saas-rag-chat-openai-first",
+        "ms": 1551.42,
+        "ok": true
+      },
+      {
+        "recipe": "saas-rag-chat-qdrant",
+        "ms": 1660.72,
+        "ok": true
+      }
+    ],
+    "mcp": {
+      "cold_start_ms": 193.72,
+      "rpc_calls": 20,
+      "total_rpc_ms": 7.1,
+      "avg_rpc_ms": 0.35
+    },
+    "audit": {
+      "ms": 11609.52,
+      "ok": true
+    }
+  }
+}

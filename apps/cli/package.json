@@ -1,7 +1,7 @@
 {
   "name": "@nexural/cli",
-  "version": "1.4.0",
-  "description": "The `nx` CLI — single human-facing command for the Nexural Federation. Commands: ask, audit, ecosystem (list/health/env), forge, health, new, open, play, serve, session save, sync, verify. Per ARCHITECTURE.md §4.1 + docs/ECOSYSTEM.md.",
+  "version": "1.5.0",
+  "description": "The `nx` CLI — single human-facing command for the Nexural Federation. Commands: ask, audit, ecosystem (list/health/env), forge, health, new, open, play, project (add/list/check), serve, session save, status, sync, verify. Per ARCHITECTURE.md §4.1 + docs/ECOSYSTEM.md.",
   "license": "MIT",
   "type": "module",
   "bin": {

@@ -16,8 +16,10 @@ import { runHealth } from "../commands/health.js";
 import { runNew } from "../commands/new.js";
 import { runOpen } from "../commands/open.js";
 import { runPlay } from "../commands/play.js";
+import { runProject } from "../commands/project.js";
 import { runServe } from "../commands/serve.js";
 import { runSessionSave } from "../commands/session.js";
+import { runStatus } from "../commands/status.js";
 import { runSync } from "../commands/sync.js";
 import { runVerify } from "../commands/verify.js";
 
@@ -120,6 +122,59 @@ ecosystemCmd
   .action(async (opts: { json?: boolean }) => {
     await withTelemetry(config, "ecosystem-env", [], () =>
       runEcosystem(config, "env", { ...(opts.json !== undefined ? { json: opts.json } : {}) }),
+    );
+  });
+
+const projectCmd = program.command("project").description("Track forged apps (per ADR-0013)");
+projectCmd
+  .command("add <slug>")
+  .description("Register a forged app in projects.yaml")
+  .requiredOption("--recipe <name>", "recipe slug used to forge this app")
+  .option("--url <url>", "deployed URL")
+  .option("--repo <repo>", "GitHub repo")
+  .option("--notes <notes>", "free-form notes")
+  .option("--status <status>", "scaffold | live | shipped | deprecated (default scaffold)")
+  .action(
+    async (
+      slug: string,
+      opts: { recipe: string; url?: string; repo?: string; notes?: string; status?: string },
+    ) => {
+      await withTelemetry(config, "project-add", [slug], () =>
+        runProject(config, "add", slug, {
+          recipe: opts.recipe,
+          ...(opts.url !== undefined ? { url: opts.url } : {}),
+          ...(opts.repo !== undefined ? { repo: opts.repo } : {}),
+          ...(opts.notes !== undefined ? { notes: opts.notes } : {}),
+          ...(opts.status !== undefined
+            ? { status: opts.status as "scaffold" | "live" | "shipped" | "deprecated" }
+            : {}),
+        }),
+      );
+    },
+  );
+projectCmd
+  .command("list")
+  .description("List tracked projects")
+  .option("--json", "JSON output")
+  .option("--status <status>", "filter to one status (scaffold | live | shipped | deprecated)")
+  .action(async (opts: { json?: boolean; status?: string }) => {
+    await withTelemetry(config, "project-list", [], () =>
+      runProject(config, "list", undefined, {
+        ...(opts.json !== undefined ? { json: opts.json } : {}),
+        ...(opts.status !== undefined
+          ? { status: opts.status as "scaffold" | "live" | "shipped" | "deprecated" }
+          : {}),
+      }),
+    );
+  });
+projectCmd
+  .command("check [slug]")
+  .description(
+    "Run `nx verify` against each project's deploy_url; updates last_verify in projects.yaml",
+  )
+  .action(async (slug: string | undefined) => {
+    await withTelemetry(config, "project-check", [slug ?? "all"], () =>
+      runProject(config, "check", slug, {}),
     );
   });
 
@@ -228,6 +283,18 @@ program
         ...(opts.host !== undefined ? { host: opts.host } : {}),
         ...(opts.root !== undefined ? { root: opts.root } : {}),
       }),
+    );
+  });
+
+program
+  .command("status")
+  .description(
+    '"What should I look at first today?" — federation health + projects + ecosystem digest',
+  )
+  .option("--json", "machine-readable output")
+  .action(async (opts: { json?: boolean }) => {
+    await withTelemetry(config, "status", [], () =>
+      runStatus(config, { ...(opts.json !== undefined ? { json: opts.json } : {}) }),
     );
   });
 

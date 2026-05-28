@@ -1,0 +1,496 @@
+{
+  "schema_version": 1,
+  "started_at": "2026-05-23T00:45:52.421Z",
+  "finished_at": "2026-05-23T00:46:03.576Z",
+  "federation_root": "/Users/Sage/code/nexural/nexural-meta",
+  "summary": {
+    "sections": 7,
+    "avg_score": 97,
+    "errors": 0,
+    "warnings": 4,
+    "passed": true
+  },
+  "sections": [
+    {
+      "name": "runner:federation-conformance",
+      "passed": true,
+      "score": 100,
+      "findings": [
+        {
+          "category": "federation-conformance",
+          "severity": "info",
+          "message": "control-plane repo detected (warehouses/ + recipes/ present, no .nexural/) — runner skipped",
+          "rule": "lockfile-presence"
+        }
+      ],
+      "duration_ms": 0
+    },
+    {
+      "name": "runner:recipe-validity",
+      "passed": true,
+      "score": 100,
+      "findings": [],
+      "duration_ms": 1
+    },
+    {
+      "name": "runner:prompt-injection-resilience",
+      "passed": true,
+      "score": 100,
+      "findings": [],
+      "duration_ms": 0
+    },
+    {
+      "name": "runner:golden-set-drift",
+      "passed": true,
+      "score": 100,
+      "findings": [],
+      "duration_ms": 0
+    },
+    {
+      "name": "runner:forge-emit-conformance",
+      "passed": true,
+      "score": 80,
+      "findings": [
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "fintech-ledger-app: default_applied — variable \"defaultLocale\" missing; using default",
+          "file": "app/layout.tsx.template",
+          "rule": "emit-default_applied"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "fintech-ledger-app: unused_input — recipe input \"rootDomain\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "fintech-ledger-app: unused_input — recipe input \"trialDays\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "fintech-ledger-app: unused_input — recipe input \"ledgerRetentionYears\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "fintech-ledger-app: unused_input — recipe input \"pastDueGraceDays\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "fintech-ledger-app: unused_input — recipe input \"reconciliationEnabled\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "fintech-ledger-app: unused_input — recipe input \"slug\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "fintech-ledger-app: unused_input — recipe input \"outputLicense\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "fintech-ledger-app: unused_input — recipe input \"nexuralVersion\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "internal-tool-dashboard: default_applied — variable \"defaultLocale\" missing; using default",
+          "file": "app/layout.tsx.template",
+          "rule": "emit-default_applied"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "internal-tool-dashboard: unused_input — recipe input \"rootDomain\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "internal-tool-dashboard: unused_input — recipe input \"trialDays\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "internal-tool-dashboard: unused_input — recipe input \"signupEmailDomains\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "internal-tool-dashboard: unused_input — recipe input \"bulkConfirmThreshold\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "internal-tool-dashboard: unused_input — recipe input \"sentryTracesSampleRate\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "internal-tool-dashboard: unused_input — recipe input \"slug\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "internal-tool-dashboard: unused_input — recipe input \"forgedAt\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "internal-tool-dashboard: unused_input — recipe input \"outputLicense\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "internal-tool-dashboard: unused_input — recipe input \"nexuralVersion\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit",
+          "severity": "warn",
+          "message": "saas-agent-platform: emitted tree has no service anchor (package.json/fly.toml/pyproject.toml/etc)",
+          "rule": "service-anchor-present"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-agent-platform: unused_input — recipe input \"displayName\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-agent-platform: unused_input — recipe input \"rootDomain\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-agent-platform: unused_input — recipe input \"trialDays\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-agent-platform: unused_input — recipe input \"defaultTools\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-agent-platform: unused_input — recipe input \"maxSteps\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-agent-platform: unused_input — recipe input \"observationRetentionDays\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-agent-platform: unused_input — recipe input \"slug\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-agent-platform: unused_input — recipe input \"forgedAt\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-agent-platform: unused_input — recipe input \"outputLicense\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-agent-platform: unused_input — recipe input \"nexuralVersion\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-agent-platform: unused_input — recipe input \"recipeName\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-agent-platform: unused_input — recipe input \"recipeVersion\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-multitenant-baseline: default_applied — variable \"defaultLocale\" missing; using default",
+          "file": "app/layout.tsx.template",
+          "rule": "emit-default_applied"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-multitenant-baseline: unused_input — recipe input \"rootDomain\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-multitenant-baseline: unused_input — recipe input \"trialDays\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-multitenant-baseline: unused_input — recipe input \"slug\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-multitenant-baseline: unused_input — recipe input \"outputLicense\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-multitenant-baseline: unused_input — recipe input \"nexuralVersion\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "inputs-fixture",
+          "severity": "warn",
+          "message": "saas-multitenant-baseline-cf: no fixture at test/fixtures/saas-multitenant-baseline-cf.inputs.json — emit conformance skipped",
+          "rule": "fixture-recommended"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-rag-chat: default_applied — variable \"defaultLocale\" missing; using default",
+          "file": "app/layout.tsx.template",
+          "rule": "emit-default_applied"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-rag-chat: unused_input — recipe input \"rootDomain\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-rag-chat: unused_input — recipe input \"trialDays\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-rag-chat: unused_input — recipe input \"slug\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-rag-chat: unused_input — recipe input \"outputLicense\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-rag-chat: unused_input — recipe input \"nexuralVersion\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit",
+          "severity": "warn",
+          "message": "saas-rag-chat-openai-first: emitted tree has no service anchor (package.json/fly.toml/pyproject.toml/etc)",
+          "rule": "service-anchor-present"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-rag-chat-openai-first: unused_input — recipe input \"appName\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-rag-chat-openai-first: unused_input — recipe input \"displayName\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-rag-chat-openai-first: unused_input — recipe input \"rootDomain\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-rag-chat-openai-first: unused_input — recipe input \"trialDays\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-rag-chat-openai-first: unused_input — recipe input \"slug\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-rag-chat-openai-first: unused_input — recipe input \"forgedAt\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-rag-chat-openai-first: unused_input — recipe input \"outputLicense\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-rag-chat-openai-first: unused_input — recipe input \"nexuralVersion\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-rag-chat-openai-first: unused_input — recipe input \"recipeName\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-rag-chat-openai-first: unused_input — recipe input \"recipeVersion\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit",
+          "severity": "warn",
+          "message": "saas-rag-chat-qdrant: emitted tree has no service anchor (package.json/fly.toml/pyproject.toml/etc)",
+          "rule": "service-anchor-present"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-rag-chat-qdrant: unused_input — recipe input \"appName\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-rag-chat-qdrant: unused_input — recipe input \"displayName\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-rag-chat-qdrant: unused_input — recipe input \"rootDomain\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-rag-chat-qdrant: unused_input — recipe input \"trialDays\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-rag-chat-qdrant: unused_input — recipe input \"qdrantUrl\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-rag-chat-qdrant: unused_input — recipe input \"qdrantTenantIsolation\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-rag-chat-qdrant: unused_input — recipe input \"slug\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-rag-chat-qdrant: unused_input — recipe input \"forgedAt\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-rag-chat-qdrant: unused_input — recipe input \"outputLicense\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-rag-chat-qdrant: unused_input — recipe input \"nexuralVersion\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-rag-chat-qdrant: unused_input — recipe input \"recipeName\" never referenced by any template",
+          "rule": "emit-unused_input"
+        },
+        {
+          "category": "emit-warning",
+          "severity": "info",
+          "message": "saas-rag-chat-qdrant: unused_input — recipe input \"recipeVersion\" never referenced by any template",
+          "rule": "emit-unused_input"
+        }
+      ],
+      "duration_ms": 32
+    },
+    {
+      "name": "adversarial-cross-recipe",
+      "passed": true,
+      "score": 100,
+      "findings": [],
+      "duration_ms": 187
+    },
+    {
+      "name": "forge-dry-runs",
+      "passed": true,
+      "score": 100,
+      "findings": [
+        {
+          "severity": "info",
+          "category": "forge-dry-run",
+          "message": "saas-multitenant-baseline-cf: no fixture, skipped"
+        }
+      ],
+      "duration_ms": 10931
+    }
+  ]
+}

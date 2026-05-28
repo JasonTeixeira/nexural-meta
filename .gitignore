@@ -61,11 +61,22 @@ sbom.cyclonedx.json
 .qa-memory/
 evidence/*
 qa.manifest.json
-# Exceptions: ADR-0011 §1 (gate 6) adversarial-proof, gate-4 runbooks,
-# gate-5 verify reports, operational-blockers checklist, and the weekly
-# health snapshot are tracked.
+# Tracked evidence subdirectories (everything else under evidence/ is ignored):
+#  - adversarial: ADR-0011 §1 gate 6 proofs
+#  - gate-4: deploy runbooks
+#  - gate-5: nx verify reports
+#  - operational: Sage's checklist + operational notes
+#  - health: weekly health-check snapshots (cron-committed)
+#  - ecosystem: weekly ecosystem digests (cron-committed per ADR-0013)
+#  - audit: nx audit outputs
+#  - benchmarks: V1.0 performance baseline
+#  - templates: copy-paste templates for the ecosystem repos
 !evidence/adversarial/
 !evidence/gate-4/
 !evidence/gate-5/
 !evidence/operational/
 !evidence/health/
+!evidence/ecosystem/
+!evidence/audit/
+!evidence/benchmarks/
+!evidence/templates/
