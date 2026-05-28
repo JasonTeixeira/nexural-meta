@@ -22,7 +22,9 @@ export default defineConfig({
         "src/commands/health.tsx", // Ink UI
         "src/commands/open.ts", // shells out to $EDITOR
         "src/commands/play.ts", // shells out per playbook
+        "src/commands/project.ts", // spawns nx verify; mutates projects.yaml
         "src/commands/session.ts", // edits STATE.md
+        "src/commands/status.ts", // reads disk dashboards; manual smoke test
         "src/commands/sync.ts", // shells out to git per warehouse
         "src/**/*.d.ts",
       ],
