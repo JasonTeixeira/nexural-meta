@@ -30,6 +30,7 @@
     "session:save": "node scripts/session-save.mjs",
     "aggregate-changelogs": "node scripts/aggregate-changelogs.mjs",
     "ops-calendar": "node scripts/ops-calendar-export.mjs",
+    "ecosystem:inventory": "node scripts/ecosystem-inventory.mjs",
     "prepare": "husky"
   },
   "lint-staged": {

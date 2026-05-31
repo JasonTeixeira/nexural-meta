@@ -25,7 +25,8 @@ Read these first:
 1. **`docs/SAGE_IDEAS_ENGINEERING_OS.md`** - the ecosystem purpose and layer map.
 2. **`docs/BRAND_ARCHITECTURE.md`** - company, product, engine, and proof naming.
 3. **`docs/ECOSYSTEM_CONSTITUTION.md`** - doctrine, asset types, maturity levels.
-4. **`docs/adr/0014-sage-ideas-engineering-os-umbrella.md`** - decision record.
+4. **`docs/ECOSYSTEM_INVENTORY.md`** - generated Phase 1 repository inventory.
+5. **`docs/adr/0014-sage-ideas-engineering-os-umbrella.md`** - decision record.
 
 ---
 
