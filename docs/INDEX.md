@@ -28,7 +28,8 @@ Read these first:
 4. **`docs/ECOSYSTEM_INVENTORY.md`** - generated Phase 1 repository inventory.
 5. **`docs/ECOSYSTEM_SCORECARD.md`** - generated Phase 2 maturity and gap map.
 6. **`docs/ECOSYSTEM_CONTROL_PLANE.md`** - Phase 3 operator dashboard and workflow.
-7. **`docs/adr/0014-sage-ideas-engineering-os-umbrella.md`** - decision record.
+7. **`docs/ECOSYSTEM_RESOURCE_FACTORY.md`** - Phase 4 generated use-case resource map.
+8. **`docs/adr/0014-sage-ideas-engineering-os-umbrella.md`** - decision record.
 
 ---
 

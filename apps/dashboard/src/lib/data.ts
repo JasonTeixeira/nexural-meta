@@ -171,6 +171,53 @@ export interface EcosystemScorecardData {
   readonly public_repositories: ReadonlyArray<EcosystemScoredRepository>;
 }
 
+export interface EcosystemResourceAsset {
+  readonly name: string;
+  readonly url: string;
+  readonly layer: string;
+  readonly asset_type: string;
+  readonly maturity: string;
+  readonly role: string;
+  readonly score: number;
+  readonly band: string;
+  readonly status: string;
+  readonly language: string | null;
+  readonly gaps: ReadonlyArray<string>;
+}
+
+export interface EcosystemResourceUseCase {
+  readonly id: string;
+  readonly title: string;
+  readonly question: string;
+  readonly layers: ReadonlyArray<string>;
+  readonly minimum_maturity: string;
+  readonly minimum_score: number;
+  readonly guidance: ReadonlyArray<string>;
+  readonly commands: ReadonlyArray<string>;
+  readonly asset_counts: {
+    readonly candidates: number;
+    readonly recommended: number;
+    readonly improve_first: number;
+    readonly reference_only: number;
+  };
+  readonly recommended_assets: ReadonlyArray<EcosystemResourceAsset>;
+  readonly improve_first: ReadonlyArray<EcosystemResourceAsset>;
+  readonly reference_assets: ReadonlyArray<EcosystemResourceAsset>;
+}
+
+export interface EcosystemResourceMapData {
+  readonly present: boolean;
+  readonly generated_at?: string;
+  readonly source_generated_at?: string;
+  readonly totals?: {
+    readonly use_cases: number;
+    readonly public_assets_considered: number;
+    readonly recommended_assets: number;
+    readonly improve_first_assets: number;
+  };
+  readonly use_cases: ReadonlyArray<EcosystemResourceUseCase>;
+}
+
 export function readRegistry(federation: "factory" | "lifeops"): ReadonlyArray<WarehouseEntry> {
   const p = join(META_ROOT, `registry-${federation}.yaml`);
   if (!existsSync(p)) return [];
@@ -226,6 +273,17 @@ export function readEcosystemScorecard(): EcosystemScorecardData {
     return { ...raw, present: true, public_repositories: raw.public_repositories ?? [] };
   } catch {
     return { present: false, public_repositories: [] };
+  }
+}
+
+export function readEcosystemResourceMap(): EcosystemResourceMapData {
+  const p = join(META_ROOT, "data/ecosystem-resource-map.public.json");
+  if (!existsSync(p)) return { present: false, use_cases: [] };
+  try {
+    const raw = JSON.parse(readFileSync(p, "utf8")) as Omit<EcosystemResourceMapData, "present">;
+    return { ...raw, present: true, use_cases: raw.use_cases ?? [] };
+  } catch {
+    return { present: false, use_cases: [] };
   }
 }
 

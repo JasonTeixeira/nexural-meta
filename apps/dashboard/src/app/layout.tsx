@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 const NAV: ReadonlyArray<{ href: string; label: string }> = [
   { href: "/", label: "Overview" },
   { href: "/ecosystem", label: "Ecosystem" },
+  { href: "/resources", label: "Resources" },
   { href: "/health", label: "Health" },
   { href: "/factory", label: "Factory" },
   { href: "/lifeops", label: "Lifeops" },
@@ -33,14 +34,17 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           style={{
             display: "flex",
             alignItems: "center",
+            flexWrap: "wrap",
             gap: "2rem",
-            padding: "1rem 2rem",
+            padding: "1rem clamp(1rem, 4vw, 2rem)",
             borderBottom: "1px solid #262626",
             background: "#0f0f0f",
           }}
         >
           <strong style={{ fontSize: "1.1rem" }}>Sage Ideas OS</strong>
-          <nav style={{ display: "flex", gap: "1.5rem", fontSize: "0.9rem" }}>
+          <nav
+            style={{ display: "flex", flexWrap: "wrap", gap: "1rem 1.5rem", fontSize: "0.9rem" }}
+          >
             {NAV.map((n) => (
               <a key={n.href} href={n.href} style={{ color: "#e5e5e5", textDecoration: "none" }}>
                 {n.label}
@@ -48,7 +52,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             ))}
           </nav>
         </header>
-        <main style={{ padding: "2rem", maxWidth: 1100, margin: "0 auto" }}>{children}</main>
+        <main style={{ padding: "clamp(1rem, 4vw, 2rem)", maxWidth: 1100, margin: "0 auto" }}>
+          {children}
+        </main>
       </body>
     </html>
   );

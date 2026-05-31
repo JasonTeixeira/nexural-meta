@@ -1,5 +1,6 @@
 import {
   readEcosystemRegistry,
+  readEcosystemResourceMap,
   readEcosystemScorecard,
   readExternalMcps,
   readRegistry,
@@ -17,6 +18,7 @@ export default function Overview() {
   const externals = readExternalMcps();
   const ecosystem = readEcosystemRegistry();
   const ecosystemScore = readEcosystemScorecard();
+  const resourceMap = readEcosystemResourceMap();
 
   return (
     <section>
@@ -59,6 +61,10 @@ export default function Overview() {
           }
           tone={(ecosystemScore.totals?.load_bearing_average_score ?? 0) < 70 ? "warn" : "ok"}
         />
+        <Card
+          label="Resource use cases"
+          value={resourceMap.present ? String(resourceMap.totals?.use_cases ?? 0) : "-"}
+        />
       </div>
 
       {externals.length > 0 && (
@@ -84,8 +90,8 @@ export default function Overview() {
       )}
 
       <p style={{ marginTop: "3rem", color: "#737373", fontSize: "0.85rem" }}>
-        The Ecosystem page is the Phase 3 service-level control plane. Additional public proof
-        exports populate in later phases.
+        The Ecosystem page is the service-level control plane. The Resources page is the Phase 4
+        daily-use factory navigator.
       </p>
     </section>
   );

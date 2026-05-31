@@ -28,6 +28,7 @@ This runs:
 
 1. `pnpm ecosystem:inventory`
 2. `pnpm ecosystem:score`
+3. `pnpm ecosystem:map`
 
 Then start the dashboard:
 
@@ -130,5 +131,4 @@ Use the control plane before starting a build:
 - The public proof layer on `sageideas.dev` is not wired yet.
 
 Those limits are intentional. Phase 3 establishes the control plane. Later
-phases can add richer UI, API routes, local write actions, and public proof
-exports.
+phases can add API routes, local write actions, and public proof exports.

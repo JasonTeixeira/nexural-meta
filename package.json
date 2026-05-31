@@ -32,7 +32,8 @@
     "ops-calendar": "node scripts/ops-calendar-export.mjs",
     "ecosystem:inventory": "node scripts/ecosystem-inventory.mjs",
     "ecosystem:score": "node scripts/ecosystem-scorecard.mjs",
-    "ecosystem:refresh": "pnpm ecosystem:inventory && pnpm ecosystem:score",
+    "ecosystem:map": "node scripts/ecosystem-resource-map.mjs",
+    "ecosystem:refresh": "pnpm ecosystem:inventory && pnpm ecosystem:score && pnpm ecosystem:map",
     "prepare": "husky"
   },
   "lint-staged": {

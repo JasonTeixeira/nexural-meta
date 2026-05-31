@@ -1,0 +1,644 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-05-31T22:28:38.920Z",
+  "generated_by": "scripts/ecosystem-resource-map.mjs",
+  "source_generated_at": "2026-05-31T21:25:40.966Z",
+  "privacy": "public-safe",
+  "note": "Resource recommendations use public repository metadata only. Private assets remain summarized in scorecards and require local review.",
+  "totals": {
+    "use_cases": 7,
+    "public_assets_considered": 136,
+    "recommended_assets": 9,
+    "improve_first_assets": 7
+  },
+  "use_cases": [
+    {
+      "id": "ship-saas-app",
+      "title": "Ship a SaaS or internal app",
+      "question": "I need to build and deploy an application quickly.",
+      "layers": ["app-factory-runtime", "control-plane", "quality-system", "resource-library"],
+      "minimum_maturity": "L2",
+      "minimum_score": 60,
+      "guidance": [
+        "Start from the control plane and factory runtime.",
+        "Prefer assets with a reusable contract, setup docs, and QA evidence.",
+        "Fix any load-bearing-under-70 gap before building a new dependency on it."
+      ],
+      "commands": ["pnpm ecosystem:refresh", "pnpm --filter @nexural/dashboard dev"],
+      "asset_counts": {
+        "candidates": 3,
+        "recommended": 1,
+        "improve_first": 2,
+        "reference_only": 0
+      },
+      "recommended_assets": [
+        {
+          "name": "nexural-meta",
+          "url": "https://github.com/JasonTeixeira/nexural-meta",
+          "layer": "control-plane",
+          "asset_type": "control-plane",
+          "maturity": "L4",
+          "role": "Registry, warehouses, ADRs, recipes, CLI, and service-level governance.",
+          "score": 100,
+          "band": "95-100 elite",
+          "status": "active",
+          "language": "TypeScript",
+          "gaps": ["missing-license", "missing-topics"]
+        }
+      ],
+      "improve_first": [
+        {
+          "name": "TOGAF-Master-Documenting-Template",
+          "url": "https://github.com/JasonTeixeira/TOGAF-Master-Documenting-Template",
+          "layer": "resource-library",
+          "asset_type": "kit",
+          "maturity": "L0",
+          "role": "Reusable tool, SDK, stack, or playbook intelligence.",
+          "score": 18,
+          "band": "0-49 raw/reference",
+          "status": "stale",
+          "language": null,
+          "gaps": ["maturity-l0", "stale", "missing-license", "load-bearing-under-70"]
+        },
+        {
+          "name": "micro-saas-starter",
+          "url": "https://github.com/JasonTeixeira/micro-saas-starter",
+          "layer": "resource-library",
+          "asset_type": "kit",
+          "maturity": "L2",
+          "role": "Reusable tool, SDK, stack, or playbook intelligence.",
+          "score": 58,
+          "band": "50-69 incomplete",
+          "status": "watch",
+          "language": "TypeScript",
+          "gaps": ["missing-license", "missing-topics", "load-bearing-under-70"]
+        }
+      ],
+      "reference_assets": []
+    },
+    {
+      "id": "choose-stack-or-sdk",
+      "title": "Choose a stack, SDK, or provider",
+      "question": "I need to know what tool or SDK to use for a build.",
+      "layers": ["resource-library", "control-plane", "reference-library"],
+      "minimum_maturity": "L1",
+      "minimum_score": 45,
+      "guidance": [
+        "Use resource-library assets for verdicts and repeatable choices.",
+        "Treat reference-library assets as comparison material, not production dependencies.",
+        "Promote repeated wins into recipes or playbooks."
+      ],
+      "commands": ["pnpm ecosystem:refresh"],
+      "asset_counts": {
+        "candidates": 121,
+        "recommended": 2,
+        "improve_first": 2,
+        "reference_only": 6
+      },
+      "recommended_assets": [
+        {
+          "name": "nexural-meta",
+          "url": "https://github.com/JasonTeixeira/nexural-meta",
+          "layer": "control-plane",
+          "asset_type": "control-plane",
+          "maturity": "L4",
+          "role": "Registry, warehouses, ADRs, recipes, CLI, and service-level governance.",
+          "score": 100,
+          "band": "95-100 elite",
+          "status": "active",
+          "language": "TypeScript",
+          "gaps": ["missing-license", "missing-topics"]
+        },
+        {
+          "name": "micro-saas-starter",
+          "url": "https://github.com/JasonTeixeira/micro-saas-starter",
+          "layer": "resource-library",
+          "asset_type": "kit",
+          "maturity": "L2",
+          "role": "Reusable tool, SDK, stack, or playbook intelligence.",
+          "score": 58,
+          "band": "50-69 incomplete",
+          "status": "watch",
+          "language": "TypeScript",
+          "gaps": ["missing-license", "missing-topics", "load-bearing-under-70"]
+        }
+      ],
+      "improve_first": [
+        {
+          "name": "TOGAF-Master-Documenting-Template",
+          "url": "https://github.com/JasonTeixeira/TOGAF-Master-Documenting-Template",
+          "layer": "resource-library",
+          "asset_type": "kit",
+          "maturity": "L0",
+          "role": "Reusable tool, SDK, stack, or playbook intelligence.",
+          "score": 18,
+          "band": "0-49 raw/reference",
+          "status": "stale",
+          "language": null,
+          "gaps": ["maturity-l0", "stale", "missing-license", "load-bearing-under-70"]
+        },
+        {
+          "name": "micro-saas-starter",
+          "url": "https://github.com/JasonTeixeira/micro-saas-starter",
+          "layer": "resource-library",
+          "asset_type": "kit",
+          "maturity": "L2",
+          "role": "Reusable tool, SDK, stack, or playbook intelligence.",
+          "score": 58,
+          "band": "50-69 incomplete",
+          "status": "watch",
+          "language": "TypeScript",
+          "gaps": ["missing-license", "missing-topics", "load-bearing-under-70"]
+        }
+      ],
+      "reference_assets": [
+        {
+          "name": "sage-after-dark",
+          "url": "https://github.com/JasonTeixeira/sage-after-dark",
+          "layer": "reference-library",
+          "asset_type": "reference",
+          "maturity": "L0",
+          "role": "Reference source kept for learning or future implementation mining.",
+          "score": 33,
+          "band": "0-49 raw/reference",
+          "status": "active",
+          "language": "TypeScript",
+          "gaps": ["maturity-l0", "missing-license", "missing-topics"]
+        },
+        {
+          "name": "E-Commerce-Test-Suite",
+          "url": "https://github.com/JasonTeixeira/E-Commerce-Test-Suite",
+          "layer": "reference-library",
+          "asset_type": "reference",
+          "maturity": "L0",
+          "role": "Reference source kept for learning or future implementation mining.",
+          "score": 23,
+          "band": "0-49 raw/reference",
+          "status": "watch",
+          "language": "Python",
+          "gaps": ["maturity-l0", "missing-topics"]
+        },
+        {
+          "name": "RiskRadar",
+          "url": "https://github.com/JasonTeixeira/RiskRadar",
+          "layer": "reference-library",
+          "asset_type": "reference",
+          "maturity": "L0",
+          "role": "Reference source kept for learning or future implementation mining.",
+          "score": 23,
+          "band": "0-49 raw/reference",
+          "status": "watch",
+          "language": "Python",
+          "gaps": ["maturity-l0", "missing-topics"]
+        },
+        {
+          "name": "sage-cli",
+          "url": "https://github.com/JasonTeixeira/sage-cli",
+          "layer": "reference-library",
+          "asset_type": "reference",
+          "maturity": "L0",
+          "role": "Reference source kept for learning or future implementation mining.",
+          "score": 23,
+          "band": "0-49 raw/reference",
+          "status": "watch",
+          "language": "JavaScript",
+          "gaps": ["maturity-l0", "missing-topics"]
+        },
+        {
+          "name": "API-Testing-Framework",
+          "url": "https://github.com/JasonTeixeira/API-Testing-Framework",
+          "layer": "reference-library",
+          "asset_type": "reference",
+          "maturity": "L0",
+          "role": "Reference source kept for learning or future implementation mining.",
+          "score": 18,
+          "band": "0-49 raw/reference",
+          "status": "watch",
+          "language": "Python",
+          "gaps": ["maturity-l0", "missing-license", "missing-topics"]
+        },
+        {
+          "name": "Nexural-Research",
+          "url": "https://github.com/JasonTeixeira/Nexural-Research",
+          "layer": "reference-library",
+          "asset_type": "reference",
+          "maturity": "L0",
+          "role": "Reference source kept for learning or future implementation mining.",
+          "score": 18,
+          "band": "0-49 raw/reference",
+          "status": "watch",
+          "language": "TypeScript",
+          "gaps": ["maturity-l0", "missing-license", "missing-topics"]
+        }
+      ]
+    },
+    {
+      "id": "qa-release-proof",
+      "title": "Create QA and release proof",
+      "question": "I need confidence gates, evidence, scorecards, or proof bundles.",
+      "layers": ["quality-system", "control-plane"],
+      "minimum_maturity": "L2",
+      "minimum_score": 60,
+      "guidance": [
+        "Use the QA layer before public proof or client-facing claims.",
+        "Capture commands, outputs, screenshots, hashes, and remaining gaps.",
+        "Do not promote an asset without repeatable verification evidence."
+      ],
+      "commands": ["pnpm verify-all", "pnpm typecheck"],
+      "asset_counts": {
+        "candidates": 1,
+        "recommended": 1,
+        "improve_first": 0,
+        "reference_only": 0
+      },
+      "recommended_assets": [
+        {
+          "name": "nexural-meta",
+          "url": "https://github.com/JasonTeixeira/nexural-meta",
+          "layer": "control-plane",
+          "asset_type": "control-plane",
+          "maturity": "L4",
+          "role": "Registry, warehouses, ADRs, recipes, CLI, and service-level governance.",
+          "score": 100,
+          "band": "95-100 elite",
+          "status": "active",
+          "language": "TypeScript",
+          "gaps": ["missing-license", "missing-topics"]
+        }
+      ],
+      "improve_first": [],
+      "reference_assets": []
+    },
+    {
+      "id": "build-agent-workflow",
+      "title": "Build an agent workflow",
+      "question": "I need agents, RAG, evals, memory, or background workers.",
+      "layers": ["agent-engine", "resource-library", "quality-system", "control-plane"],
+      "minimum_maturity": "L2",
+      "minimum_score": 60,
+      "guidance": [
+        "Start with agent-engine assets, then pull resource-library references.",
+        "Require evals, logs, and observability before the workflow becomes reusable.",
+        "Keep private prompts and credentials out of public proof artifacts."
+      ],
+      "commands": ["pnpm ecosystem:refresh"],
+      "asset_counts": {
+        "candidates": 4,
+        "recommended": 1,
+        "improve_first": 2,
+        "reference_only": 0
+      },
+      "recommended_assets": [
+        {
+          "name": "nexural-meta",
+          "url": "https://github.com/JasonTeixeira/nexural-meta",
+          "layer": "control-plane",
+          "asset_type": "control-plane",
+          "maturity": "L4",
+          "role": "Registry, warehouses, ADRs, recipes, CLI, and service-level governance.",
+          "score": 100,
+          "band": "95-100 elite",
+          "status": "active",
+          "language": "TypeScript",
+          "gaps": ["missing-license", "missing-topics"]
+        }
+      ],
+      "improve_first": [
+        {
+          "name": "TOGAF-Master-Documenting-Template",
+          "url": "https://github.com/JasonTeixeira/TOGAF-Master-Documenting-Template",
+          "layer": "resource-library",
+          "asset_type": "kit",
+          "maturity": "L0",
+          "role": "Reusable tool, SDK, stack, or playbook intelligence.",
+          "score": 18,
+          "band": "0-49 raw/reference",
+          "status": "stale",
+          "language": null,
+          "gaps": ["maturity-l0", "stale", "missing-license", "load-bearing-under-70"]
+        },
+        {
+          "name": "micro-saas-starter",
+          "url": "https://github.com/JasonTeixeira/micro-saas-starter",
+          "layer": "resource-library",
+          "asset_type": "kit",
+          "maturity": "L2",
+          "role": "Reusable tool, SDK, stack, or playbook intelligence.",
+          "score": 58,
+          "band": "50-69 incomplete",
+          "status": "watch",
+          "language": "TypeScript",
+          "gaps": ["missing-license", "missing-topics", "load-bearing-under-70"]
+        }
+      ],
+      "reference_assets": []
+    },
+    {
+      "id": "build-trading-system",
+      "title": "Build or audit trading infrastructure",
+      "question": "I need quant research, validation, execution, or trading automation.",
+      "layers": ["quant-trading", "quality-system", "resource-library", "control-plane"],
+      "minimum_maturity": "L2",
+      "minimum_score": 60,
+      "guidance": [
+        "Separate research references from execution-capable engines.",
+        "Demand anti-lookahead, walk-forward, and overfit checks before trusting output.",
+        "Public proof should show architecture and validation, not private edge details."
+      ],
+      "commands": ["pnpm ecosystem:refresh"],
+      "asset_counts": {
+        "candidates": 11,
+        "recommended": 6,
+        "improve_first": 7,
+        "reference_only": 0
+      },
+      "recommended_assets": [
+        {
+          "name": "nexural-meta",
+          "url": "https://github.com/JasonTeixeira/nexural-meta",
+          "layer": "control-plane",
+          "asset_type": "control-plane",
+          "maturity": "L4",
+          "role": "Registry, warehouses, ADRs, recipes, CLI, and service-level governance.",
+          "score": 100,
+          "band": "95-100 elite",
+          "status": "active",
+          "language": "TypeScript",
+          "gaps": ["missing-license", "missing-topics"]
+        },
+        {
+          "name": "Nexural_Automation",
+          "url": "https://github.com/JasonTeixeira/Nexural_Automation",
+          "layer": "quant-trading",
+          "asset_type": "engine",
+          "maturity": "L3",
+          "role": "Local-first futures automation and strategy research hub.",
+          "score": 100,
+          "band": "95-100 elite",
+          "status": "active",
+          "language": "TypeScript",
+          "gaps": []
+        },
+        {
+          "name": "nexural-automation-starter",
+          "url": "https://github.com/JasonTeixeira/nexural-automation-starter",
+          "layer": "quant-trading",
+          "asset_type": "kit",
+          "maturity": "L2",
+          "role": "Paper-money-safe webhook and paper-order starter kit.",
+          "score": 78,
+          "band": "70-84 usable",
+          "status": "active",
+          "language": "Python",
+          "gaps": ["missing-topics"]
+        },
+        {
+          "name": "AlphaStream",
+          "url": "https://github.com/JasonTeixeira/AlphaStream",
+          "layer": "quant-trading",
+          "asset_type": "engine",
+          "maturity": "L2",
+          "role": "Trading, strategy research, backtesting, or execution capability.",
+          "score": 73,
+          "band": "70-84 usable",
+          "status": "active",
+          "language": "TypeScript",
+          "gaps": ["missing-license"]
+        },
+        {
+          "name": "trade-engine",
+          "url": "https://github.com/JasonTeixeira/trade-engine",
+          "layer": "quant-trading",
+          "asset_type": "engine",
+          "maturity": "L2",
+          "role": "Trading, strategy research, backtesting, or execution capability.",
+          "score": 68,
+          "band": "50-69 incomplete",
+          "status": "active",
+          "language": "Python",
+          "gaps": ["missing-license", "missing-topics", "load-bearing-under-70"]
+        },
+        {
+          "name": "NexQuantSite",
+          "url": "https://github.com/JasonTeixeira/NexQuantSite",
+          "layer": "quant-trading",
+          "asset_type": "engine",
+          "maturity": "L2",
+          "role": "Trading, strategy research, backtesting, or execution capability.",
+          "score": 63,
+          "band": "50-69 incomplete",
+          "status": "watch",
+          "language": "TypeScript",
+          "gaps": ["missing-license", "load-bearing-under-70"]
+        }
+      ],
+      "improve_first": [
+        {
+          "name": "jason-teixeira-portfolio",
+          "url": "https://github.com/JasonTeixeira/jason-teixeira-portfolio",
+          "layer": "quant-trading",
+          "asset_type": "engine",
+          "maturity": "L0",
+          "role": "Trading, strategy research, backtesting, or execution capability.",
+          "score": 18,
+          "band": "0-49 raw/reference",
+          "status": "stale",
+          "language": "JavaScript",
+          "gaps": ["maturity-l0", "stale", "missing-topics", "load-bearing-under-70"]
+        },
+        {
+          "name": "TOGAF-Master-Documenting-Template",
+          "url": "https://github.com/JasonTeixeira/TOGAF-Master-Documenting-Template",
+          "layer": "resource-library",
+          "asset_type": "kit",
+          "maturity": "L0",
+          "role": "Reusable tool, SDK, stack, or playbook intelligence.",
+          "score": 18,
+          "band": "0-49 raw/reference",
+          "status": "stale",
+          "language": null,
+          "gaps": ["maturity-l0", "stale", "missing-license", "load-bearing-under-70"]
+        },
+        {
+          "name": "NexusEncryption",
+          "url": "https://github.com/JasonTeixeira/NexusEncryption",
+          "layer": "quant-trading",
+          "asset_type": "engine",
+          "maturity": "L0",
+          "role": "Trading, strategy research, backtesting, or execution capability.",
+          "score": 23,
+          "band": "0-49 raw/reference",
+          "status": "stale",
+          "language": "Makefile",
+          "gaps": ["maturity-l0", "stale", "load-bearing-under-70"]
+        },
+        {
+          "name": "QuantumTrader",
+          "url": "https://github.com/JasonTeixeira/QuantumTrader",
+          "layer": "quant-trading",
+          "asset_type": "engine",
+          "maturity": "L1",
+          "role": "Trading, strategy research, backtesting, or execution capability.",
+          "score": 38,
+          "band": "0-49 raw/reference",
+          "status": "watch",
+          "language": "Python",
+          "gaps": ["missing-license", "missing-topics", "load-bearing-under-70"]
+        },
+        {
+          "name": "micro-saas-starter",
+          "url": "https://github.com/JasonTeixeira/micro-saas-starter",
+          "layer": "resource-library",
+          "asset_type": "kit",
+          "maturity": "L2",
+          "role": "Reusable tool, SDK, stack, or playbook intelligence.",
+          "score": 58,
+          "band": "50-69 incomplete",
+          "status": "watch",
+          "language": "TypeScript",
+          "gaps": ["missing-license", "missing-topics", "load-bearing-under-70"]
+        },
+        {
+          "name": "NexQuantSite",
+          "url": "https://github.com/JasonTeixeira/NexQuantSite",
+          "layer": "quant-trading",
+          "asset_type": "engine",
+          "maturity": "L2",
+          "role": "Trading, strategy research, backtesting, or execution capability.",
+          "score": 63,
+          "band": "50-69 incomplete",
+          "status": "watch",
+          "language": "TypeScript",
+          "gaps": ["missing-license", "load-bearing-under-70"]
+        },
+        {
+          "name": "trade-engine",
+          "url": "https://github.com/JasonTeixeira/trade-engine",
+          "layer": "quant-trading",
+          "asset_type": "engine",
+          "maturity": "L2",
+          "role": "Trading, strategy research, backtesting, or execution capability.",
+          "score": 68,
+          "band": "50-69 incomplete",
+          "status": "active",
+          "language": "Python",
+          "gaps": ["missing-license", "missing-topics", "load-bearing-under-70"]
+        }
+      ],
+      "reference_assets": []
+    },
+    {
+      "id": "publish-proof-page",
+      "title": "Publish a public proof page",
+      "question": "I need to show the system safely on sageideas.dev.",
+      "layers": ["public-proof-surface", "product-proof", "quality-system", "control-plane"],
+      "minimum_maturity": "L2",
+      "minimum_score": 60,
+      "guidance": [
+        "Use public-proof-surface assets for the publishing target.",
+        "Use product-proof assets only as examples, not as umbrella branding.",
+        "Include at least four proof elements: architecture, QA, runtime, narrative, metrics, or gaps."
+      ],
+      "commands": ["pnpm ecosystem:refresh"],
+      "asset_counts": {
+        "candidates": 3,
+        "recommended": 3,
+        "improve_first": 0,
+        "reference_only": 0
+      },
+      "recommended_assets": [
+        {
+          "name": "nexural-meta",
+          "url": "https://github.com/JasonTeixeira/nexural-meta",
+          "layer": "control-plane",
+          "asset_type": "control-plane",
+          "maturity": "L4",
+          "role": "Registry, warehouses, ADRs, recipes, CLI, and service-level governance.",
+          "score": 100,
+          "band": "95-100 elite",
+          "status": "active",
+          "language": "TypeScript",
+          "gaps": ["missing-license", "missing-topics"]
+        },
+        {
+          "name": "sageideas.dev",
+          "url": "https://github.com/JasonTeixeira/sageideas.dev",
+          "layer": "public-proof-surface",
+          "asset_type": "product-proof",
+          "maturity": "L3",
+          "role": "Public company and proof surface for Sage Ideas.",
+          "score": 93,
+          "band": "85-94 strong",
+          "status": "active",
+          "language": "TypeScript",
+          "gaps": ["missing-license", "missing-topics"]
+        },
+        {
+          "name": "JasonTeixeira",
+          "url": "https://github.com/JasonTeixeira/JasonTeixeira",
+          "layer": "public-proof-surface",
+          "asset_type": "product-proof",
+          "maturity": "L2",
+          "role": "GitHub profile and public engineering identity surface.",
+          "score": 73,
+          "band": "70-84 usable",
+          "status": "active",
+          "language": null,
+          "gaps": ["missing-public-proof", "missing-license"]
+        }
+      ],
+      "improve_first": [],
+      "reference_assets": []
+    },
+    {
+      "id": "reuse-product-pattern",
+      "title": "Reuse a product pattern",
+      "question": "I need to retrofit an existing product idea into a new project.",
+      "layers": ["product-proof", "app-factory-runtime", "quality-system", "resource-library"],
+      "minimum_maturity": "L2",
+      "minimum_score": 60,
+      "guidance": [
+        "Mine product proofs for repeatable patterns, not copy-paste product identity.",
+        "Move reusable parts into engines, kits, recipes, or playbooks.",
+        "Capture the extracted pattern in the registry before reusing it broadly."
+      ],
+      "commands": ["pnpm ecosystem:refresh"],
+      "asset_counts": {
+        "candidates": 2,
+        "recommended": 0,
+        "improve_first": 2,
+        "reference_only": 0
+      },
+      "recommended_assets": [],
+      "improve_first": [
+        {
+          "name": "TOGAF-Master-Documenting-Template",
+          "url": "https://github.com/JasonTeixeira/TOGAF-Master-Documenting-Template",
+          "layer": "resource-library",
+          "asset_type": "kit",
+          "maturity": "L0",
+          "role": "Reusable tool, SDK, stack, or playbook intelligence.",
+          "score": 18,
+          "band": "0-49 raw/reference",
+          "status": "stale",
+          "language": null,
+          "gaps": ["maturity-l0", "stale", "missing-license", "load-bearing-under-70"]
+        },
+        {
+          "name": "micro-saas-starter",
+          "url": "https://github.com/JasonTeixeira/micro-saas-starter",
+          "layer": "resource-library",
+          "asset_type": "kit",
+          "maturity": "L2",
+          "role": "Reusable tool, SDK, stack, or playbook intelligence.",
+          "score": 58,
+          "band": "50-69 incomplete",
+          "status": "watch",
+          "language": "TypeScript",
+          "gaps": ["missing-license", "missing-topics", "load-bearing-under-70"]
+        }
+      ],
+      "reference_assets": []
+    }
+  ]
+}
