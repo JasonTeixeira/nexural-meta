@@ -31,6 +31,8 @@
     "aggregate-changelogs": "node scripts/aggregate-changelogs.mjs",
     "ops-calendar": "node scripts/ops-calendar-export.mjs",
     "ecosystem:inventory": "node scripts/ecosystem-inventory.mjs",
+    "ecosystem:score": "node scripts/ecosystem-scorecard.mjs",
+    "ecosystem:refresh": "pnpm ecosystem:inventory && pnpm ecosystem:score",
     "prepare": "husky"
   },
   "lint-staged": {
