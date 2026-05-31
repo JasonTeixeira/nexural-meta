@@ -1,7 +1,10 @@
+import { resolve } from "node:path";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  outputFileTracingRoot: resolve(process.cwd()),
 
   // Strict security headers per security warehouse + recipe DECISIONS.md.
   async headers() {
@@ -35,9 +38,7 @@ const nextConfig = {
     ],
   },
 
-  experimental: {
-    typedRoutes: true,
-  },
+  typedRoutes: true,
 };
 
 export default nextConfig;

@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "run_id": "client-intake-portal-2026-05-31T234646217Z",
+  "generated_at": "2026-05-31T23:46:46.217Z",
+  "generated_by": "scripts/golden-path-proof.mjs",
+  "privacy": "public-safe",
+  "spec": {
+    "id": "client-intake-portal",
+    "title": "Client Intake Portal",
+    "path": "data/golden-path-specs/client-intake-portal.json",
+    "intent": "Prove the Engineering OS can select resources, forge a real app, run QA/build gates, start a runtime, verify the live health/security surface, and capture reusable lessons.",
+    "recipe": "internal-tool-dashboard",
+    "app_slug": "client-intake-portal",
+    "use_case_id": "ship-saas-app"
+  },
+  "selected_resources": [
+    {
+      "name": "nexural-meta",
+      "url": "https://github.com/JasonTeixeira/nexural-meta",
+      "layer": "control-plane",
+      "score": 100,
+      "maturity": "L4"
+    }
+  ],
+  "generated_app": {
+    "local_path": "%TEMP%\\sage-golden-path-client-intake-portal-2026-05-31T234646217Z\\client-intake-portal",
+    "file_count": 31,
+    "tree_hash": "sha256:97ed607944ffc87872ba5d06f5223c364f75000171179a33a3ea6b90555d5977",
+    "hashed_files": 31
+  },
+  "runtime": {
+    "mode": "local-next-start",
+    "url": "http://127.0.0.1:3041",
+    "health_path": "/api/health",
+    "deploy_status": "blocked-no-vercel-token",
+    "deployed_url": null
+  },
+  "gates": [
+    {
+      "id": "resource_selection",
+      "label": "Resource selection",
+      "status": "passed",
+      "detail": "1 recommended assets selected from 4 layers."
+    },
+    {
+      "id": "forge_emit",
+      "label": "Forge emit",
+      "status": "passed",
+      "detail": "31 files emitted by internal-tool-dashboard.",
+      "command": "npx.cmd --yes tsx apps/cli/src/bin/nx.ts forge internal-tool-dashboard client-intake-portal --inputs %TEMP%\\sage-golden-path-client-intake-portal-2026-05-31T234646217Z\\inputs.json --mock-secrets --out-dir %TEMP%\\sage-golden-path-client-intake-portal-2026-05-31T234646217Z\\client-intake-portal",
+      "duration_ms": 2566
+    },
+    {
+      "id": "install",
+      "label": "Install dependencies",
+      "status": "passed",
+      "detail": "exit 0",
+      "command": "pnpm.cmd install --ignore-scripts",
+      "duration_ms": 28562
+    },
+    {
+      "id": "typecheck",
+      "label": "Typecheck generated app",
+      "status": "passed",
+      "detail": "exit 0",
+      "command": "pnpm.cmd typecheck",
+      "duration_ms": 2953
+    },
+    {
+      "id": "build",
+      "label": "Build generated app",
+      "status": "passed",
+      "detail": "exit 0",
+      "command": "pnpm.cmd build",
+      "duration_ms": 27954
+    },
+    {
+      "id": "local_runtime",
+      "label": "Start local runtime",
+      "status": "passed",
+      "detail": "HTTP 200 from /api/health.",
+      "duration_ms": 1219
+    },
+    {
+      "id": "nx_verify",
+      "label": "Verify live local app",
+      "status": "passed",
+      "detail": "8/8 checks passed.",
+      "command": "npx.cmd --yes tsx apps/cli/src/bin/nx.ts verify http://127.0.0.1:3041 --evidence-slug client-intake-portal-local --timeout 20000",
+      "duration_ms": 2919
+    }
+  ],
+  "evidence": {
+    "gate5_report": "evidence/gate-5/client-intake-portal-local/report.json",
+    "latest_report": "evidence/golden-path/latest.json",
+    "public_index": "data/golden-path-runs.public.json"
+  },
+  "reusable_lessons": [
+    {
+      "lesson": "Run forge with tsx until recipe input schemas ship compiled JS siblings.",
+      "fed_back": "Captured in golden-path script command path."
+    },
+    {
+      "lesson": "Generated Next apps should use top-level typedRoutes and explicit outputFileTracingRoot.",
+      "fed_back": "Patched architecture warehouse next.config template."
+    },
+    {
+      "lesson": "Local runtime proof needs a generated .env.local with safe mock values when using mock secrets.",
+      "fed_back": "Golden-path runner writes public-safe mock env locally and keeps it out of committed artifacts."
+    }
+  ],
+  "remaining_gaps": [
+    "No public Vercel preview was created because VERCEL_TOKEN is not set in this shell.",
+    "Runtime proof uses mock credentials and local Next server; production auth/database credentials are intentionally not committed."
+  ],
+  "wall_clock_ms": 69280
+}

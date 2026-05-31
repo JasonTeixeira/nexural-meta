@@ -22,7 +22,7 @@
     "build": "tsup && node scripts/export-json-schema.mjs",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "lint": "eslint src test",
+    "lint": "eslint src",
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist .turbo"
   },

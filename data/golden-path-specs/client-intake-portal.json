@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "client-intake-portal",
+  "title": "Client Intake Portal",
+  "phase": "Phase 5",
+  "use_case_id": "ship-saas-app",
+  "recipe": "internal-tool-dashboard",
+  "app_slug": "client-intake-portal",
+  "intent": "Prove the Engineering OS can select resources, forge a real app, run QA/build gates, start a runtime, verify the live health/security surface, and capture reusable lessons.",
+  "constraints": [
+    "Use public-safe metadata only.",
+    "Do not publish secrets.",
+    "Use mock local credentials for runtime proof.",
+    "Record deploy status honestly if no Vercel token is available."
+  ],
+  "inputs": {
+    "appName": "client-intake-portal",
+    "displayName": "Client Intake Portal",
+    "primaryColor": "#0f766e",
+    "tenantRouting": "path",
+    "rootDomain": "sageideas.dev",
+    "billingModel": "seat",
+    "trialDays": 0,
+    "requireCardOnTrial": false,
+    "oauthProviders": ["google"],
+    "ssoEnabled": true,
+    "defaultLocale": "en",
+    "additionalLocales": [],
+    "auditRetentionYears": 7,
+    "llmEnabled": false,
+    "adminRoles": ["super_admin", "admin", "viewer"],
+    "signupEmailDomains": ["sageideas.dev"],
+    "bulkConfirmThreshold": 10,
+    "sentryTracesSampleRate": 0.5
+  },
+  "proof_targets": {
+    "forge_min_files": 25,
+    "verify_min_checks": 8,
+    "local_runtime_health_path": "/api/health"
+  }
+}

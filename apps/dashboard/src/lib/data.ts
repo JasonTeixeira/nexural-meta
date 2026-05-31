@@ -218,6 +218,80 @@ export interface EcosystemResourceMapData {
   readonly use_cases: ReadonlyArray<EcosystemResourceUseCase>;
 }
 
+export interface GoldenPathGate {
+  readonly id: string;
+  readonly label: string;
+  readonly status: "passed" | "failed" | string;
+  readonly detail: string;
+  readonly command?: string;
+  readonly duration_ms?: number;
+}
+
+export interface GoldenPathRun {
+  readonly schema_version: number;
+  readonly run_id: string;
+  readonly generated_at: string;
+  readonly generated_by: string;
+  readonly privacy: string;
+  readonly spec: {
+    readonly id: string;
+    readonly title: string;
+    readonly path: string;
+    readonly intent: string;
+    readonly recipe: string;
+    readonly app_slug: string;
+    readonly use_case_id: string;
+  };
+  readonly selected_resources: ReadonlyArray<{
+    readonly name: string;
+    readonly url: string;
+    readonly layer: string;
+    readonly score: number;
+    readonly maturity: string;
+  }>;
+  readonly generated_app: {
+    readonly local_path: string;
+    readonly file_count: number;
+    readonly tree_hash: string;
+    readonly hashed_files: number;
+  };
+  readonly runtime: {
+    readonly mode: string;
+    readonly url: string;
+    readonly health_path: string;
+    readonly deploy_status: string;
+    readonly deployed_url: string | null;
+  };
+  readonly gates: ReadonlyArray<GoldenPathGate>;
+  readonly evidence: {
+    readonly gate5_report: string;
+    readonly latest_report: string;
+    readonly public_index: string;
+  };
+  readonly reusable_lessons: ReadonlyArray<{
+    readonly lesson: string;
+    readonly fed_back: string;
+  }>;
+  readonly remaining_gaps: ReadonlyArray<string>;
+  readonly wall_clock_ms: number;
+}
+
+export interface GoldenPathRunsData {
+  readonly present: boolean;
+  readonly schema_version?: number;
+  readonly generated_at?: string;
+  readonly generated_by?: string;
+  readonly privacy?: string;
+  readonly current_run_id?: string;
+  readonly totals?: {
+    readonly runs: number;
+    readonly passed_runs: number;
+    readonly latest_gate_count: number;
+    readonly latest_wall_clock_ms: number;
+  };
+  readonly runs: ReadonlyArray<GoldenPathRun>;
+}
+
 export function readRegistry(federation: "factory" | "lifeops"): ReadonlyArray<WarehouseEntry> {
   const p = join(META_ROOT, `registry-${federation}.yaml`);
   if (!existsSync(p)) return [];
@@ -284,6 +358,17 @@ export function readEcosystemResourceMap(): EcosystemResourceMapData {
     return { ...raw, present: true, use_cases: raw.use_cases ?? [] };
   } catch {
     return { present: false, use_cases: [] };
+  }
+}
+
+export function readGoldenPathRuns(): GoldenPathRunsData {
+  const p = join(META_ROOT, "data/golden-path-runs.public.json");
+  if (!existsSync(p)) return { present: false, runs: [] };
+  try {
+    const raw = JSON.parse(readFileSync(p, "utf8")) as Omit<GoldenPathRunsData, "present">;
+    return { ...raw, present: true, runs: raw.runs ?? [] };
+  } catch {
+    return { present: false, runs: [] };
   }
 }
 

@@ -12,6 +12,7 @@ const NAV: ReadonlyArray<{ href: string; label: string }> = [
   { href: "/", label: "Overview" },
   { href: "/ecosystem", label: "Ecosystem" },
   { href: "/resources", label: "Resources" },
+  { href: "/golden-path", label: "Golden Path" },
   { href: "/health", label: "Health" },
   { href: "/factory", label: "Factory" },
   { href: "/lifeops", label: "Lifeops" },

@@ -3,6 +3,7 @@ import {
   readEcosystemResourceMap,
   readEcosystemScorecard,
   readExternalMcps,
+  readGoldenPathRuns,
   readRegistry,
   readRevocations,
   readScorecard,
@@ -19,6 +20,7 @@ export default function Overview() {
   const ecosystem = readEcosystemRegistry();
   const ecosystemScore = readEcosystemScorecard();
   const resourceMap = readEcosystemResourceMap();
+  const goldenPath = readGoldenPathRuns();
 
   return (
     <section>
@@ -65,6 +67,15 @@ export default function Overview() {
           label="Resource use cases"
           value={resourceMap.present ? String(resourceMap.totals?.use_cases ?? 0) : "-"}
         />
+        <Card
+          label="Golden path"
+          value={
+            goldenPath.present
+              ? `${goldenPath.totals?.passed_runs ?? 0}/${goldenPath.totals?.runs ?? 0} passed`
+              : "-"
+          }
+          tone={(goldenPath.totals?.passed_runs ?? 0) < 1 ? "warn" : "ok"}
+        />
       </div>
 
       {externals.length > 0 && (
@@ -91,7 +102,7 @@ export default function Overview() {
 
       <p style={{ marginTop: "3rem", color: "#737373", fontSize: "0.85rem" }}>
         The Ecosystem page is the service-level control plane. The Resources page is the Phase 4
-        daily-use factory navigator.
+        daily-use factory navigator. The Golden Path page is the Phase 5 local proof surface.
       </p>
     </section>
   );
