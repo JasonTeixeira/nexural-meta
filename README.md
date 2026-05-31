@@ -1,8 +1,24 @@
-# Nexural Federation
+# Sage Ideas Engineering OS
 
 **A solo-operator SaaS factory.** Forge production-grade apps from signed, audited recipes — across SaaS, fintech, AI, and internal tools — without restarting from scratch every time.
 
 **Status: V1.0.0 — General Availability.** See [`docs/V1_ANNOUNCEMENT.md`](docs/V1_ANNOUNCEMENT.md).
+
+---
+
+## Phase 0 naming clarification
+
+Sage Ideas is the company and ecosystem umbrella. Sage Ideas Engineering OS is
+the internal resource factory. Nexural is a trading/investment product name and
+legacy implementation namespace, not the umbrella for the company or the whole
+engineering ecosystem.
+
+Start here:
+
+- [`docs/SAGE_IDEAS_ENGINEERING_OS.md`](docs/SAGE_IDEAS_ENGINEERING_OS.md)
+- [`docs/BRAND_ARCHITECTURE.md`](docs/BRAND_ARCHITECTURE.md)
+- [`docs/ECOSYSTEM_CONSTITUTION.md`](docs/ECOSYSTEM_CONSTITUTION.md)
+- [`docs/adr/0014-sage-ideas-engineering-os-umbrella.md`](docs/adr/0014-sage-ideas-engineering-os-umbrella.md)
 
 ---
 

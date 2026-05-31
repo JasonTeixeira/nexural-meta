@@ -8,6 +8,18 @@
 
 ---
 
+## 2026-05-31 Supersession Note
+
+ADR-0014 clarifies the umbrella naming model. Sage Ideas is the company and
+ecosystem umbrella. Sage Ideas Engineering OS is the internal resource factory.
+Nexural is a trading/investment product name and legacy implementation namespace.
+
+This document still governs existing `nexural-*`, `@nexural/*`, and `nx`
+implementation names. It no longer means that Nexural is the company or the
+umbrella identity for the whole ecosystem.
+
+---
+
 ## 0. Purpose
 
 Naming is the cheapest decision to get right and the most expensive to change. This document fixes the conventions for every name that appears in Nexural — repos, packages, files, tools, branches, env vars, content slugs, ULIDs, badges, URLs.

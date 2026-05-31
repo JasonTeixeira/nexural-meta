@@ -4,6 +4,16 @@
 
 ---
 
+## Phase 0 Naming Authority
+
+Per ADR-0014, Sage Ideas is the company and ecosystem umbrella. Sage Ideas
+Engineering OS is the internal resource factory. Nexural is scoped to the
+trading/investment product and legacy implementation namespaces. Existing
+`nexural-*` repo names remain stable implementation names unless a future ADR
+approves a rename.
+
+---
+
 ## The four repos
 
 | Repo                | Role                                                      | MCP server                           | Search tool               |

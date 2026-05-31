@@ -1,9 +1,9 @@
 # INDEX.md
 
-**Nexural Federation — Documentation Map (v1.0)**
+**Sage Ideas Engineering OS - Documentation Map (v1.1)**
 **Status:** Canonical.
 **Owner:** Sage
-**Last reviewed:** 2026-05-21
+**Last reviewed:** 2026-05-31
 
 ---
 
@@ -12,6 +12,20 @@
 Single entry point to the constitution. Read this first; everything else branches from here.
 
 If you are a future-Sage or a new AI session, start here, not in the codebase.
+
+## Phase 0 naming authority
+
+The current umbrella is **Sage Ideas Engineering OS**. Older `Nexural
+Federation` wording is historical implementation language unless a current
+canonical document explicitly keeps it. Nexural is a trading/investment product
+name and legacy namespace, not the company or full ecosystem umbrella.
+
+Read these first:
+
+1. **`docs/SAGE_IDEAS_ENGINEERING_OS.md`** - the ecosystem purpose and layer map.
+2. **`docs/BRAND_ARCHITECTURE.md`** - company, product, engine, and proof naming.
+3. **`docs/ECOSYSTEM_CONSTITUTION.md`** - doctrine, asset types, maturity levels.
+4. **`docs/adr/0014-sage-ideas-engineering-os-umbrella.md`** - decision record.
 
 ---
 
