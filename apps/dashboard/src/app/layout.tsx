@@ -2,14 +2,15 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: "Nexural Dashboard",
-  description: "Federation health, scorecard, decay, costs, revocations.",
+  title: "Sage Ideas Engineering OS",
+  description: "Service-level control plane for registries, scorecards, gaps, and evidence.",
 };
 
 // typedRoutes regenerates the route union at `next build` time; tsc --noEmit
 // can race against it for newly added routes. Cast to string at the boundary.
 const NAV: ReadonlyArray<{ href: string; label: string }> = [
   { href: "/", label: "Overview" },
+  { href: "/ecosystem", label: "Ecosystem" },
   { href: "/health", label: "Health" },
   { href: "/factory", label: "Factory" },
   { href: "/lifeops", label: "Lifeops" },
@@ -38,7 +39,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             background: "#0f0f0f",
           }}
         >
-          <strong style={{ fontSize: "1.1rem" }}>Nexural</strong>
+          <strong style={{ fontSize: "1.1rem" }}>Sage Ideas OS</strong>
           <nav style={{ display: "flex", gap: "1.5rem", fontSize: "0.9rem" }}>
             {NAV.map((n) => (
               <a key={n.href} href={n.href} style={{ color: "#e5e5e5", textDecoration: "none" }}>

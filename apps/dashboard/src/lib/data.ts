@@ -67,6 +67,110 @@ export interface RevocationEntry {
   readonly reason: string;
 }
 
+export interface EcosystemRepository {
+  readonly name: string;
+  readonly full_name: string;
+  readonly url: string;
+  readonly visibility: string;
+  readonly is_private: boolean;
+  readonly is_archived: boolean;
+  readonly is_fork: boolean;
+  readonly primary_language: string | null;
+  readonly topics: ReadonlyArray<string>;
+  readonly homepage_url: string | null;
+  readonly pushed_at: string;
+  readonly canonical: {
+    readonly canonical_name: string;
+    readonly layer: string;
+    readonly asset_type: string;
+    readonly maturity: string;
+    readonly role: string;
+    readonly public_exposure: string;
+  };
+  readonly operational: {
+    readonly status: string;
+    readonly stale_days: number | null;
+    readonly needs_private_review: boolean;
+  };
+}
+
+export interface EcosystemRegistryData {
+  readonly present: boolean;
+  readonly generated_at?: string;
+  readonly totals?: {
+    readonly total: number;
+    readonly public: number;
+    readonly private: number;
+    readonly archived: number;
+    readonly forks: number;
+    readonly by_layer: Record<string, number>;
+    readonly by_asset_type: Record<string, number>;
+    readonly by_maturity: Record<string, number>;
+    readonly by_status: Record<string, number>;
+  };
+  readonly private_summary?: {
+    readonly total_private: number;
+    readonly by_layer: Record<string, number>;
+    readonly by_asset_type: Record<string, number>;
+    readonly by_maturity: Record<string, number>;
+    readonly needing_private_review: number;
+  };
+  readonly public_repositories: ReadonlyArray<EcosystemRepository>;
+}
+
+export interface EcosystemScoredRepository extends EcosystemRepository {
+  readonly score: {
+    readonly total: number;
+    readonly band: string;
+    readonly load_bearing: boolean;
+    readonly components: {
+      readonly maturity: number;
+      readonly status: number;
+      readonly metadata: number;
+      readonly load_bearing_bonus: number;
+    };
+    readonly gaps: ReadonlyArray<string>;
+  };
+}
+
+export interface EcosystemScorecardData {
+  readonly present: boolean;
+  readonly generated_at?: string;
+  readonly totals?: {
+    readonly total: number;
+    readonly average_score: number;
+    readonly load_bearing_count: number;
+    readonly load_bearing_average_score: number;
+    readonly by_band: Record<string, number>;
+    readonly by_maturity: Record<string, number>;
+    readonly top_gap_types: Record<string, number>;
+  };
+  readonly private_summary?: {
+    readonly total_private: number;
+    readonly average_score: number;
+    readonly by_band: Record<string, number>;
+    readonly by_layer: Record<
+      string,
+      {
+        readonly count: number;
+        readonly average_score: number;
+        readonly load_bearing_count: number;
+      }
+    >;
+    readonly top_gap_types: Record<string, number>;
+  };
+  readonly public_layer_summary?: Record<
+    string,
+    { readonly count: number; readonly average_score: number; readonly load_bearing_count: number }
+  >;
+  readonly next_actions?: ReadonlyArray<{
+    readonly action: string;
+    readonly reason: string;
+    readonly phase: string;
+  }>;
+  readonly public_repositories: ReadonlyArray<EcosystemScoredRepository>;
+}
+
 export function readRegistry(federation: "factory" | "lifeops"): ReadonlyArray<WarehouseEntry> {
   const p = join(META_ROOT, `registry-${federation}.yaml`);
   if (!existsSync(p)) return [];
@@ -101,6 +205,28 @@ export function readRevocations(): ReadonlyArray<RevocationEntry> {
     revoked_at: extractField(b, "revoked_at") ?? "",
     reason: extractField(b, "reason") ?? "",
   }));
+}
+
+export function readEcosystemRegistry(): EcosystemRegistryData {
+  const p = join(META_ROOT, "data/ecosystem-registry.public.json");
+  if (!existsSync(p)) return { present: false, public_repositories: [] };
+  try {
+    const raw = JSON.parse(readFileSync(p, "utf8")) as Omit<EcosystemRegistryData, "present">;
+    return { ...raw, present: true, public_repositories: raw.public_repositories ?? [] };
+  } catch {
+    return { present: false, public_repositories: [] };
+  }
+}
+
+export function readEcosystemScorecard(): EcosystemScorecardData {
+  const p = join(META_ROOT, "data/ecosystem-scorecard.public.json");
+  if (!existsSync(p)) return { present: false, public_repositories: [] };
+  try {
+    const raw = JSON.parse(readFileSync(p, "utf8")) as Omit<EcosystemScorecardData, "present">;
+    return { ...raw, present: true, public_repositories: raw.public_repositories ?? [] };
+  } catch {
+    return { present: false, public_repositories: [] };
+  }
 }
 
 // ── Phase 11.3 additions — federation server view ───────────────────────────
