@@ -1,0 +1,18 @@
+{
+  "appName": "cloudflare-saas-test",
+  "displayName": "Cloudflare SaaS Test",
+  "rootDomain": "cloudflare-saas-test.dev",
+  "tenantRouting": "path",
+  "billingModel": "seat+metered",
+  "trialDays": 14,
+  "requireCardOnTrial": false,
+  "oauthProviders": ["google"],
+  "ssoEnabled": false,
+  "defaultLocale": "en",
+  "additionalLocales": [],
+  "auditRetentionYears": 7,
+  "llmEnabled": false,
+  "cloudflareAccountId": "0123456789abcdef0123456789abcdef",
+  "d1DatabaseName": "cloudflare-saas-test-db",
+  "workersCustomDomain": "cloudflare-saas-test.dev"
+}

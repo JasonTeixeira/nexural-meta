@@ -1,7 +1,7 @@
 # Resource Library
 
 **Status:** Phase 12/13 generated resource library and maturity lift queue
-**Generated:** 2026-06-01T18:57:15.521Z
+**Generated:** 2026-06-01T19:55:27.346Z
 
 ## Summary
 
@@ -22,8 +22,8 @@
 
 | Asset                        | Layer                | Current | Target | Reason                                                          |
 | ---------------------------- | -------------------- | ------: | -----: | --------------------------------------------------------------- |
-| saas-multitenant-baseline-cf | app-factory-runtime  |      55 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
 | saas-multitenant-baseline    | app-factory-runtime  |      70 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
+| saas-multitenant-baseline-cf | app-factory-runtime  |      70 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
 | saas-rag-chat                | app-factory-runtime  |      70 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
 | saas-rag-chat-openai-first   | app-factory-runtime  |      70 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
 | saas-rag-chat-qdrant         | app-factory-runtime  |      70 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |

@@ -68,7 +68,7 @@ export default function OperatorCockpit() {
     dbProof.status === "passed",
     latestTotal > 0 && latestPassed === latestTotal,
     (recipeCatalog.totals?.forge_ready ?? 0) >= 6,
-    (recipeCatalog.totals?.proof_backed ?? 0) >= 1,
+    (recipeCatalog.totals?.proof_backed ?? 0) >= 3,
     (scorecard.totals?.load_bearing_average_score ?? 0) >= 70,
     (resourceLibrary.totals?.assets ?? 0) >= 100,
   ]);
@@ -113,7 +113,7 @@ export default function OperatorCockpit() {
         <Signal
           label="DB proof"
           value={dbProof.status ?? "-"}
-          detail={`${dbProof.summary?.gates_passed ?? 0}/${dbProof.summary?.gates_total ?? 0} gates; migration ${dbProof.summary?.migration_status ?? "unknown"}`}
+          detail={`${dbProof.summary?.gates_passed ?? 0}/${dbProof.summary?.gates_total ?? 0} gates; drift ${dbProof.summary?.schema_drift_status ?? "unknown"}`}
           href="/db-proof"
           tone={dbProof.status === "passed" ? "ok" : "warn"}
         />

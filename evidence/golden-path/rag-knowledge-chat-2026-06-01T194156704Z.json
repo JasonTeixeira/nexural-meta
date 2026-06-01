@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "run_id": "rag-knowledge-chat-2026-06-01T195349129Z",
-  "generated_at": "2026-06-01T19:53:49.129Z",
+  "run_id": "rag-knowledge-chat-2026-06-01T194156704Z",
+  "generated_at": "2026-06-01T19:41:56.704Z",
   "generated_by": "scripts/golden-path-proof.mjs",
   "privacy": "public-safe",
   "spec": {
@@ -23,9 +23,9 @@
     }
   ],
   "generated_app": {
-    "local_path": "%USERPROFILE%\\nexural-meta\\.nexural\\cache\\golden-path\\rag-knowledge-chat-2026-06-01T195349129Z\\rag-knowledge-chat",
+    "local_path": "%USERPROFILE%\\nexural-meta\\.nexural\\cache\\golden-path\\rag-knowledge-chat-2026-06-01T194156704Z\\rag-knowledge-chat",
     "file_count": 46,
-    "tree_hash": "sha256:73d32666d246cc83852b6657539eea304e6617980512adadbf66b2700bd5de14",
+    "tree_hash": "sha256:52ce6bd10e7167af05f677f4259dee34d4992e102ff1915fedfe0c5b699d9d96",
     "hashed_files": 46
   },
   "runtime": {
@@ -58,8 +58,8 @@
       "label": "Forge emit",
       "status": "passed",
       "detail": "46 files emitted by saas-rag-chat.",
-      "command": "npx.cmd --yes tsx apps/cli/src/bin/nx.ts forge saas-rag-chat rag-knowledge-chat --inputs %USERPROFILE%\\nexural-meta\\.nexural\\cache\\golden-path\\rag-knowledge-chat-2026-06-01T195349129Z\\inputs.json --mock-secrets --out-dir %USERPROFILE%\\nexural-meta\\.nexural\\cache\\golden-path\\rag-knowledge-chat-2026-06-01T195349129Z\\rag-knowledge-chat",
-      "duration_ms": 3971
+      "command": "npx.cmd --yes tsx apps/cli/src/bin/nx.ts forge saas-rag-chat rag-knowledge-chat --inputs %USERPROFILE%\\nexural-meta\\.nexural\\cache\\golden-path\\rag-knowledge-chat-2026-06-01T194156704Z\\inputs.json --mock-secrets --out-dir %USERPROFILE%\\nexural-meta\\.nexural\\cache\\golden-path\\rag-knowledge-chat-2026-06-01T194156704Z\\rag-knowledge-chat",
+      "duration_ms": 4314
     },
     {
       "id": "generated_app_usability",
@@ -87,7 +87,7 @@
       "status": "passed",
       "detail": "exit 0",
       "command": "pnpm.cmd install --ignore-workspace --ignore-scripts",
-      "duration_ms": 36899
+      "duration_ms": 36862
     },
     {
       "id": "standalone_lockfile",
@@ -101,7 +101,7 @@
       "status": "passed",
       "detail": "exit 0",
       "command": "pnpm.cmd typecheck",
-      "duration_ms": 5839
+      "duration_ms": 6265
     },
     {
       "id": "build",
@@ -109,14 +109,14 @@
       "status": "passed",
       "detail": "exit 0",
       "command": "pnpm.cmd build",
-      "duration_ms": 36083
+      "duration_ms": 41456
     },
     {
       "id": "local_runtime",
       "label": "Start local runtime",
       "status": "passed",
       "detail": "HTTP 200 from /api/health.",
-      "duration_ms": 1306
+      "duration_ms": 2818
     },
     {
       "id": "db_crud_health",
@@ -142,7 +142,7 @@
       "status": "passed",
       "detail": "8/8 checks passed.",
       "command": "npx.cmd --yes tsx apps/cli/src/bin/nx.ts verify http://127.0.0.1:3042 --evidence-slug rag-knowledge-chat-local --timeout 20000",
-      "duration_ms": 2791
+      "duration_ms": 11302
     }
   ],
   "evidence": {
@@ -170,5 +170,5 @@
     "Database migrations and DB-backed CRUD proof are skipped because neither DATABASE_URL nor SUPABASE_ACCESS_TOKEN is set in this shell.",
     "Production auth/database credentials are intentionally not committed."
   ],
-  "wall_clock_ms": 89895
+  "wall_clock_ms": 106155
 }

@@ -1,5 +1,6 @@
 -- {{appName}} — double-entry ledger schema.
--- Applies AFTER 0001_init.sql (multi-tenant baseline) and 0002_billing.sql.
+-- Applies AFTER 0001_init.sql (multi-tenant baseline), 0002 agent escapes, and
+-- 0003 admin/internal-tool extensions when they share the staging proof DB.
 --
 -- Per fintech-ledger-app DECISIONS.md:
 --   * Double-entry bookkeeping: every transaction = 1+ debit + 1+ credit, sum = 0.

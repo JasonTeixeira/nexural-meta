@@ -2,7 +2,7 @@
 
 **Status:** Phase 7 self-maintenance loop
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-06-01T19:07:14.661Z
+**Generated:** 2026-06-01T19:55:39.468Z
 **Overall:** passed
 
 ## Purpose
@@ -27,12 +27,14 @@ pnpm ecosystem:maintain -- --skip-golden
 - Public assets scored: 136
 - Resource use cases: 7
 - Recipes indexed: 8
-- Forge-ready recipes: 7
+- Forge-ready recipes: 8
 - Resource library assets: 144
 - Golden path: 14/14 gates
+- Hosted golden paths: 1/7
+- Proof-backed recipes: 1
 - Proof environment: passed
-- DB proof: passed
-- Public proof hash: `sha256:2f88d2e0904d2309ab8826363600d71076cf7d58d1e98982330b38af872188a5`
+- DB proof: degraded
+- Public proof hash: `sha256:70d3d644a4e50e0711d731418847572c55c3a496aa563aca44b8178fe37c9fc8`
 
 ## Commands
 
@@ -44,22 +46,24 @@ pnpm ecosystem:maintain -- --skip-golden
 
 | Artifact                                         | Status |   Age | Hash                                                                      |
 | ------------------------------------------------ | ------ | ----: | ------------------------------------------------------------------------- |
-| `data/ecosystem-registry.public.json`            | fresh  | 18.3h | `sha256:eccae4582652a1b26166e2ef685cbd1ba23e9046602381ead0ecf07d673aa6ad` |
-| `data/ecosystem-scorecard.public.json`           | fresh  | 16.7h | `sha256:0578a0d8934e82d82a1f368e579e4aec11211921599d6258e54f53dfe166343b` |
-| `data/ecosystem-resource-map.public.json`        | fresh  | 18.3h | `sha256:fc1c0fdc2eb8911f39f56e57d9a542c73caae3bfaf32f75a64ee250216241d9a` |
-| `data/recipe-catalog.public.json`                | fresh  |  0.2h | `sha256:974123766fc99b9d05b0b4bcfe442597180a4fa48595ce44b2965ebc68101308` |
-| `data/resource-library.public.json`              | fresh  |  0.2h | `sha256:203c847b02be260725efaaf062782bef78b6911f995bd2232df6af78f92bf8fe` |
-| `data/golden-path-runs.public.json`              | fresh  |  2.1h | `sha256:6105df962fc076430f96a7a2b846ddd8eb16830abf31def819941ffc73006c7f` |
-| `data/proof-environment.public.json`             | fresh  |  2.1h | `sha256:068a91de918ea17522352ce83de31df94a18c004b7f4a8844507dd6afd6ded3b` |
-| `data/db-proof.public.json`                      | fresh  |  0.2h | `sha256:5349bfabc3ede2eef65ce5f1550f452bfe53e7075bcebfffabb7e32da8ea5123` |
-| `data/public-proof-layer.public.json`            | fresh  |  2.1h | `sha256:d12f24267cc3bfbeed97604ced6ab158da9838b714db809b8725bb1fd4c42b96` |
-| `exports/proof-packet/engineering-os-proof.json` | fresh  |  2.1h | `sha256:d12f24267cc3bfbeed97604ced6ab158da9838b714db809b8725bb1fd4c42b96` |
-| `exports/proof-packet/engineering-os-proof.md`   | fresh  |    2h | `sha256:0bf1df9da81e2a1fde08464f88bf4e542e75cc698a104a5d07a717ab403327fd` |
+| `data/ecosystem-registry.public.json`            | fresh  | 19.1h | `sha256:eccae4582652a1b26166e2ef685cbd1ba23e9046602381ead0ecf07d673aa6ad` |
+| `data/ecosystem-scorecard.public.json`           | fresh  | 17.5h | `sha256:0578a0d8934e82d82a1f368e579e4aec11211921599d6258e54f53dfe166343b` |
+| `data/ecosystem-resource-map.public.json`        | fresh  | 19.1h | `sha256:fc1c0fdc2eb8911f39f56e57d9a542c73caae3bfaf32f75a64ee250216241d9a` |
+| `data/recipe-catalog.public.json`                | fresh  |    0h | `sha256:bbda6421c54fd9db10cfe7c62ec4233191c24f30f07f829174c3ce2cdd462568` |
+| `data/resource-library.public.json`              | fresh  |    0h | `sha256:4a14cc8d632c9b85b6449d91dcb96c469035f3baa91e70bbc7e7e5d3d435605a` |
+| `data/golden-path-runs.public.json`              | fresh  |    0h | `sha256:b1a4bf7c38a77314afcb5453dd9aa991e041bcda0f6f8c4de857aa74c0afe313` |
+| `data/proof-environment.public.json`             | fresh  |  2.9h | `sha256:068a91de918ea17522352ce83de31df94a18c004b7f4a8844507dd6afd6ded3b` |
+| `data/db-proof.public.json`                      | fresh  |    0h | `sha256:d25a9cf19d1f8c5a207f16d3747f88d31d73028cc512b12fec910d38f5fe6fb5` |
+| `data/public-proof-layer.public.json`            | fresh  |    0h | `sha256:766a4eb50bec1131db653c65a2d05bddac01f534192c9c90da4cd3c82fe42157` |
+| `exports/proof-packet/engineering-os-proof.json` | fresh  |    0h | `sha256:766a4eb50bec1131db653c65a2d05bddac01f534192c9c90da4cd3c82fe42157` |
+| `exports/proof-packet/engineering-os-proof.md`   | fresh  |    0h | `sha256:bb06d30dc5c180c9f39b140ba00aa93467157b8bb50ff8ae09c7b5f565a8a59f` |
 
 ## Next Actions
 
+- **warn: Provide live deploy credentials when Phase 8 requires hosted proof** blocked-no-vercel-token
+- **warn: Finish DB proof hardening** db proof status is degraded; migration status is passed.
 - **info: Review public-safe packet remaining gaps before making external claims** 1 remaining gaps in public-safe packet.
-- **info: Review and commit generated maintenance artifacts** 24 changed path(s) after maintenance run.
+- **info: Review and commit generated maintenance artifacts** 51 changed path(s) after maintenance run.
 
 ## Generated Artifacts
 

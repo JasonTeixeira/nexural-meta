@@ -1,25 +1,29 @@
 # DB Proof
 
 **Status:** Phase 15 generated DB proof and migration-readiness check
-**Generated:** 2026-06-01T18:57:08.012Z
+**Generated:** 2026-06-01T19:55:27.373Z
 
 ## Summary
 
-- Gates: 4/4
-- Latest run: client-intake-portal-2026-06-01T165601095Z
-- Hosted URL: https://sage-client-intake-portal-vercel.vercel.app
-- Database mode: staging-postgres
+- Gates: 3/6
+- Latest run: rag-knowledge-chat-2026-06-01T195349129Z
+- Hosted URL: missing
+- Database mode: not-configured
+- Schema drift: failed
+- Seed data: failed
 - DATABASE_URL inventory: present
 
 ## Gates
 
-| Gate                  | Status | Detail                                                                                                                       |
-| --------------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------- |
-| db_crud_health        | passed | Generated /api/health completed insert-read-update-delete against staging Postgres.                                          |
-| vercel_db_crud_health | passed | Deployed /api/health completed insert-read-update-delete against staging Postgres.                                           |
-| migration_readiness   | passed | Latest local run skipped migration push, but DATABASE_URL is present in GitHub secret inventory for scheduled proof refresh. |
-| proof_environment_db  | passed | Proof environment passed; hosted health 200.                                                                                 |
+| Gate                   | Status | Detail                                                                                                                       |
+| ---------------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------- |
+| db_crud_health         | passed | Skipped DB-backed health proof because staging credentials are not configured.                                               |
+| vercel_db_crud_health  | failed | Latest golden-path evidence has no vercel_db_crud_health gate.                                                               |
+| migration_readiness    | passed | Latest local run skipped migration push, but DATABASE_URL is present in GitHub secret inventory for scheduled proof refresh. |
+| db_schema_drift_health | failed | Schema drift proof missing or failed. Hosted health: Latest golden-path run has no deployed URL.                             |
+| db_seed_data_health    | failed | Seed-data proof missing or failed. Hosted health: Latest golden-path run has no deployed URL.                                |
+| proof_environment_db   | passed | Proof environment passed; hosted health 200.                                                                                 |
 
 ## Next Actions
 
-- **Phase 15:** Add schema drift and seed-data proof as the next DB hardening increment. CRUD and migration readiness are green; drift detection is the next higher bar.
+- **Phase 15:** Run pnpm golden:path in an environment with staging Supabase DB credentials. The DB proof should include migration readiness and CRUD proof in the same evidence chain.

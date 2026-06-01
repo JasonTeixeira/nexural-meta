@@ -1,17 +1,17 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-01T18:57:07.975Z",
+  "generated_at": "2026-06-01T19:55:27.263Z",
   "generated_by": "scripts/recipe-catalog.mjs",
   "privacy": "public-safe",
   "status": "expanded",
   "purpose": "Recipe readiness catalog for deciding what the factory can generate, what is proof-backed, and what needs hardening before reuse.",
   "totals": {
     "recipes": 8,
-    "forge_ready": 7,
+    "forge_ready": 8,
     "proof_backed": 1,
-    "needs_fixture": 1,
+    "needs_fixture": 0,
     "needs_templates": 0,
-    "average_readiness_score": 74.4
+    "average_readiness_score": 76.3
   },
   "coverage": {
     "by_warehouse": {
@@ -125,6 +125,32 @@
       }
     },
     {
+      "name": "saas-multitenant-baseline-cf",
+      "version": "0.1.0",
+      "description": "Cloudflare Pages + Workers + D1 escape variant of saas-multitenant-baseline.",
+      "extends": "saas-multitenant-baseline",
+      "warehouses": ["architecture"],
+      "services": [],
+      "cost_envelope": {
+        "per_request_p50_usd": 0,
+        "per_request_p99_usd": 0,
+        "monthly_baseline_usd": 0
+      },
+      "secrets_required": 1,
+      "readiness": {
+        "score": 70,
+        "band": "usable",
+        "forge_ready": true,
+        "proof_backed": false,
+        "has_templates": true,
+        "has_fixture": true,
+        "has_threat_model": true,
+        "has_decisions": true,
+        "migration_count": 0,
+        "gaps": ["missing-golden-path-proof"]
+      }
+    },
+    {
       "name": "saas-rag-chat",
       "version": "0.1.0",
       "description": "Chat product with RAG (Retrieval-Augmented Generation) over user-uploaded",
@@ -201,43 +227,12 @@
         "migration_count": 0,
         "gaps": ["missing-golden-path-proof"]
       }
-    },
-    {
-      "name": "saas-multitenant-baseline-cf",
-      "version": "0.1.0",
-      "description": "Cloudflare Pages + Workers + D1 escape variant of saas-multitenant-baseline.",
-      "extends": "saas-multitenant-baseline",
-      "warehouses": ["architecture"],
-      "services": [],
-      "cost_envelope": {
-        "per_request_p50_usd": 0,
-        "per_request_p99_usd": 0,
-        "monthly_baseline_usd": 0
-      },
-      "secrets_required": 1,
-      "readiness": {
-        "score": 55,
-        "band": "incomplete",
-        "forge_ready": false,
-        "proof_backed": false,
-        "has_templates": true,
-        "has_fixture": false,
-        "has_threat_model": true,
-        "has_decisions": true,
-        "migration_count": 0,
-        "gaps": ["missing-fixture", "missing-golden-path-proof"]
-      }
     }
   ],
   "next_actions": [
     {
       "action": "Add two more golden-path specs for high-value recipes.",
       "reason": "Only 1 recipe is proof-backed today.",
-      "phase": "Phase 11"
-    },
-    {
-      "action": "Add fixtures for saas-multitenant-baseline-cf.",
-      "reason": "Fixtures make recipe validity automation deterministic.",
       "phase": "Phase 11"
     },
     {

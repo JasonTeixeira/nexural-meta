@@ -37,10 +37,12 @@ async function main() {
       `Deployed verification failed for ${args.url}: ${report.summary?.passed ?? 0}/${report.summary?.total ?? 0} checks passed.`,
     );
   }
-  const deployedDbHealth = await verifyDeployedDbHealth(args.url, latestRuntimeNeedsDatabase());
-
   const latestPath = join(EVIDENCE_DIR, "latest.json");
-  const latest = readJson(latestPath);
+  const sourceRunPath = args.runId
+    ? join(EVIDENCE_DIR, `${args.runId}.json`)
+    : join(EVIDENCE_DIR, "latest.json");
+  const latest = readJson(sourceRunPath);
+  const deployedDbHealth = await verifyDeployedDbHealth(args.url, runNeedsDatabase(latest));
   const runPath = join(EVIDENCE_DIR, `${latest.run_id}.json`);
   const indexPath = join(DATA_DIR, "golden-path-runs.public.json");
   const index = readJson(indexPath);
@@ -56,20 +58,24 @@ async function main() {
     deployedDbHealth,
   });
 
+  const replaced = (index.runs ?? []).map((run) =>
+    run.run_id === updatedRun.run_id ? updatedRun : run,
+  );
+  const updatedRuns = replaced.some((run) => run.run_id === updatedRun.run_id)
+    ? replaced
+    : [updatedRun, ...replaced];
+  const latestForTotals =
+    updatedRuns.find((run) => run.run_id === (index.current_run_id ?? updatedRun.run_id)) ??
+    updatedRun;
   const updatedIndex = {
     ...index,
     generated_at: verifiedAt,
     generated_by: GENERATED_BY,
-    runs: [updatedRun, ...(index.runs ?? []).filter((run) => run.run_id !== updatedRun.run_id)],
-    totals: {
-      ...index.totals,
-      passed_runs: updatedRun.gates.every((gate) => gate.status === "passed") ? 1 : 0,
-      latest_gate_count: updatedRun.gates.length,
-      latest_wall_clock_ms: updatedRun.wall_clock_ms,
-    },
+    runs: updatedRuns,
+    totals: buildTotals(updatedRuns, latestForTotals),
   };
 
-  writeJson(latestPath, updatedRun);
+  if (!args.runId || index.current_run_id === updatedRun.run_id) writeJson(latestPath, updatedRun);
   writeJson(runPath, updatedRun);
   writeJson(indexPath, updatedIndex);
   writeFileSync(join(DOCS_DIR, "GOLDEN_PATH.md"), renderMarkdown(updatedIndex), "utf8");
@@ -86,6 +92,7 @@ function parseArgs(argv) {
     timeout: "30000",
     deploymentId: "",
     inspectorUrl: "",
+    runId: "",
   };
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i];
@@ -104,6 +111,9 @@ function parseArgs(argv) {
       i += 1;
     } else if (arg === "--inspector-url" && next) {
       args.inspectorUrl = next;
+      i += 1;
+    } else if (arg === "--run-id" && next) {
+      args.runId = next;
       i += 1;
     } else if (arg === "--help" || arg === "-h") {
       printHelp();
@@ -126,6 +136,7 @@ Options:
   --timeout <ms>          Verifier timeout. Default: 30000.
   --deployment-id <id>    Optional Vercel deployment id.
   --inspector-url <url>   Optional Vercel inspector URL.
+  --run-id <id>           Attach to a specific golden-path run.
 `);
 }
 
@@ -249,9 +260,21 @@ async function verifyDeployedDbHealth(url, requireCrud) {
   }
 }
 
-function latestRuntimeNeedsDatabase() {
-  const latest = readJson(join(EVIDENCE_DIR, "latest.json"));
-  return latest.runtime?.database_mode === "staging-postgres";
+function runNeedsDatabase(run) {
+  return run.runtime?.database_mode === "staging-postgres";
+}
+
+function buildTotals(runs, latestRun) {
+  const passedRuns = runs.filter((run) => run.gates.every((gate) => gate.status === "passed"));
+  const hostedRuns = runs.filter((run) => run.runtime?.deploy_status === "verified-vercel-url");
+  return {
+    runs: runs.length,
+    passed_runs: passedRuns.length,
+    hosted_runs: hostedRuns.length,
+    proof_backed_recipes: new Set(hostedRuns.map((run) => run.spec?.recipe).filter(Boolean)).size,
+    latest_gate_count: latestRun.gates.length,
+    latest_wall_clock_ms: latestRun.wall_clock_ms,
+  };
 }
 
 function renderMarkdown(index) {

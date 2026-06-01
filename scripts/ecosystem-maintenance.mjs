@@ -381,6 +381,9 @@ function buildSummary({
     latest_golden_path_gates_passed:
       latestRun?.gates?.filter((gate) => gate.status === "passed").length ?? null,
     latest_golden_path_gate_count: latestRun?.gates?.length ?? null,
+    golden_path_runs: goldenPath?.totals?.runs ?? null,
+    golden_path_hosted_runs: goldenPath?.totals?.hosted_runs ?? null,
+    proof_backed_recipes: goldenPath?.totals?.proof_backed_recipes ?? null,
     proof_environment_status: proofEnvironment?.status ?? null,
     db_proof_status: dbProof?.status ?? null,
     public_proof_packet_hash: proofHash,
@@ -444,6 +447,9 @@ function buildSourceMetrics({
       gate_count: latestRun?.gates?.length ?? null,
       wall_clock_seconds: latestRun ? Math.round(latestRun.wall_clock_ms / 1000) : null,
       deploy_status: latestRun?.runtime?.deploy_status ?? null,
+      runs: goldenPath?.totals?.runs ?? null,
+      hosted_runs: goldenPath?.totals?.hosted_runs ?? null,
+      proof_backed_recipes: goldenPath?.totals?.proof_backed_recipes ?? null,
     },
     proof_environment: {
       generated_at: proofEnvironment?.generated_at ?? null,
@@ -458,6 +464,8 @@ function buildSourceMetrics({
       gate_count: dbProof?.summary?.gates_total ?? null,
       migration_status: dbProof?.summary?.migration_status ?? null,
       hosted_crud_status: dbProof?.summary?.hosted_crud_status ?? null,
+      schema_drift_status: dbProof?.summary?.schema_drift_status ?? null,
+      seed_data_status: dbProof?.summary?.seed_data_status ?? null,
     },
     public_proof: {
       generated_at: proof?.generated_at ?? null,
@@ -616,6 +624,10 @@ function renderMarkdown(report) {
   lines.push(
     `- Golden path: ${report.summary.latest_golden_path_gates_passed}/${report.summary.latest_golden_path_gate_count} gates`,
   );
+  lines.push(
+    `- Hosted golden paths: ${report.summary.golden_path_hosted_runs ?? 0}/${report.summary.golden_path_runs ?? 0}`,
+  );
+  lines.push(`- Proof-backed recipes: ${report.summary.proof_backed_recipes ?? 0}`);
   lines.push(`- Proof environment: ${report.summary.proof_environment_status}`);
   lines.push(`- DB proof: ${report.summary.db_proof_status}`);
   lines.push(`- Public proof hash: \`${report.summary.public_proof_packet_hash}\``);

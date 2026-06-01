@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "id": "fintech-ledger-ops",
+  "title": "Fintech Ledger Ops",
+  "phase": "Phase 11",
+  "use_case_id": "ship-saas-app",
+  "recipe": "fintech-ledger-app",
+  "app_slug": "fintech-ledger-ops",
+  "intent": "Prove the factory can generate a finance-grade ledger SaaS with tenant auth, double-entry ledger migrations, precision-safe helpers, build verification, runtime health, and hosted DB proof.",
+  "constraints": [
+    "Use public-safe metadata only.",
+    "Do not publish secrets.",
+    "Use staging Supabase/Auth credentials for runtime proof when configured.",
+    "Verify schema drift for baseline and ledger-specific tables.",
+    "Record deployment status honestly if hosted automation is unavailable."
+  ],
+  "inputs": {
+    "appName": "fintech-ledger-ops",
+    "displayName": "Fintech Ledger Ops",
+    "primaryColor": "#0f766e",
+    "tenantRouting": "path",
+    "rootDomain": "sage-internal.tools",
+    "billingModel": "metered",
+    "trialDays": 0,
+    "requireCardOnTrial": true,
+    "oauthProviders": ["google"],
+    "ssoEnabled": true,
+    "defaultLocale": "en",
+    "additionalLocales": [],
+    "auditRetentionYears": 7,
+    "llmEnabled": false,
+    "baseCurrency": "USD",
+    "decimalPrecision": 4,
+    "ledgerRetentionYears": 7,
+    "pastDueGraceDays": 1,
+    "reconciliationEnabled": true
+  },
+  "proof_targets": {
+    "forge_min_files": 25,
+    "verify_min_checks": 8,
+    "local_runtime_health_path": "/api/health"
+  }
+}

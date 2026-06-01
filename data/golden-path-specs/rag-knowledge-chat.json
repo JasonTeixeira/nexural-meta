@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "id": "rag-knowledge-chat",
+  "title": "RAG Knowledge Chat",
+  "phase": "Phase 11",
+  "use_case_id": "ship-saas-app",
+  "recipe": "saas-rag-chat",
+  "app_slug": "rag-knowledge-chat",
+  "intent": "Prove the factory can generate an AI/RAG SaaS surface with tenant auth, chat routes, eval assets, build verification, runtime health, and hosted DB proof.",
+  "constraints": [
+    "Use public-safe metadata only.",
+    "Do not publish secrets.",
+    "Use staging Supabase/Auth credentials for runtime proof when configured.",
+    "Verify schema drift for baseline tenant tables.",
+    "Record deployment status honestly if hosted automation is unavailable."
+  ],
+  "inputs": {
+    "appName": "rag-knowledge-chat",
+    "displayName": "RAG Knowledge Chat",
+    "primaryColor": "#0f766e",
+    "tenantRouting": "path",
+    "rootDomain": "sage-internal.tools",
+    "billingModel": "seat+metered",
+    "trialDays": 7,
+    "requireCardOnTrial": true,
+    "oauthProviders": ["google", "github"],
+    "ssoEnabled": true,
+    "defaultLocale": "en",
+    "additionalLocales": [],
+    "auditRetentionYears": 7,
+    "llmEnabled": true,
+    "embeddingDimensions": 3072,
+    "vectorStore": "pgvector",
+    "hybridSearchBm25Weight": 0.4,
+    "topK": 20,
+    "rerankK": 5,
+    "rerankEnabled": true,
+    "maxDocSizeMb": 50,
+    "maxDocsPerTenantPaid": 10000,
+    "goldenSetStrict": true
+  },
+  "proof_targets": {
+    "forge_min_files": 25,
+    "verify_min_checks": 8,
+    "local_runtime_health_path": "/api/health"
+  }
+}

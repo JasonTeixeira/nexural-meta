@@ -44,7 +44,9 @@ function main() {
   const publicRepos = registry.public_repositories ?? [];
   const scoredRepos = scorecard.public_repositories ?? [];
   const publicLoadBearing = scoredRepos.filter((repo) => repo.score?.load_bearing);
-  const goldenRun = goldenPath.runs?.[0];
+  const goldenRun =
+    goldenPath.runs?.find((run) => run.runtime?.deploy_status === "verified-vercel-url") ??
+    goldenPath.runs?.[0];
   if (!goldenRun) throw new Error("Golden path evidence missing. Run `pnpm golden:path` first.");
   const hasDeployedProof = goldenRun.runtime?.deploy_status === "verified-vercel-url";
 
