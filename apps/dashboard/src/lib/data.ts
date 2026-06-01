@@ -24,7 +24,8 @@ function resolveMetaRoot(): string {
 
   const cwd = process.cwd();
   // If we're inside apps/dashboard, go up two levels.
-  if (cwd.endsWith("/apps/dashboard")) return resolve(cwd, "../..");
+  const normalized = cwd.replaceAll("\\", "/");
+  if (normalized.endsWith("/apps/dashboard")) return resolve(cwd, "../..");
   return cwd;
 }
 
@@ -362,6 +363,150 @@ export interface PublicProofLayerData {
   readonly remaining_gaps?: ReadonlyArray<string>;
 }
 
+export interface RecipeCatalogRecipe {
+  readonly name: string;
+  readonly version: string;
+  readonly description: string;
+  readonly extends: string | null;
+  readonly warehouses: ReadonlyArray<string>;
+  readonly services: ReadonlyArray<{
+    readonly id: string;
+    readonly runtime: string;
+    readonly language: string;
+    readonly host: string;
+  }>;
+  readonly secrets_required: number;
+  readonly readiness: {
+    readonly score: number;
+    readonly band: string;
+    readonly forge_ready: boolean;
+    readonly proof_backed: boolean;
+    readonly has_templates: boolean;
+    readonly has_fixture: boolean;
+    readonly has_threat_model: boolean;
+    readonly has_decisions: boolean;
+    readonly migration_count: number;
+    readonly gaps: ReadonlyArray<string>;
+  };
+}
+
+export interface RecipeCatalogData {
+  readonly present: boolean;
+  readonly generated_at?: string;
+  readonly status?: string;
+  readonly totals?: {
+    readonly recipes: number;
+    readonly forge_ready: number;
+    readonly proof_backed: number;
+    readonly needs_fixture: number;
+    readonly needs_templates: number;
+    readonly average_readiness_score: number;
+  };
+  readonly coverage?: {
+    readonly by_warehouse: Record<string, number>;
+    readonly by_runtime: Record<string, number>;
+  };
+  readonly recipes: ReadonlyArray<RecipeCatalogRecipe>;
+  readonly next_actions?: ReadonlyArray<{
+    readonly action: string;
+    readonly reason: string;
+    readonly phase: string;
+  }>;
+}
+
+export interface ResourceLibraryData {
+  readonly present: boolean;
+  readonly generated_at?: string;
+  readonly status?: string;
+  readonly totals?: {
+    readonly assets: number;
+    readonly use_cases: number;
+    readonly recipes: number;
+    readonly proof_backed_recipes: number;
+    readonly load_bearing_assets: number;
+    readonly load_bearing_average_score: number;
+    readonly proof_environment_status: string;
+    readonly golden_path_passed_runs: number;
+  };
+  readonly operator_paths?: ReadonlyArray<{
+    readonly label: string;
+    readonly start: string;
+    readonly proof_required: string;
+  }>;
+  readonly use_case_routes?: ReadonlyArray<{
+    readonly id: string;
+    readonly title: string;
+    readonly question: string;
+    readonly command: string;
+    readonly recommended_assets: number;
+    readonly improve_first_assets: number;
+  }>;
+  readonly maturity_lift_queue?: ReadonlyArray<{
+    readonly name: string;
+    readonly layer: string;
+    readonly asset_type: string;
+    readonly current_score: number;
+    readonly target_score: number;
+    readonly reason: string;
+    readonly gaps: ReadonlyArray<string>;
+  }>;
+  readonly top_assets?: ReadonlyArray<{
+    readonly name: string;
+    readonly layer: string;
+    readonly asset_type: string;
+    readonly maturity: string;
+    readonly status: string;
+    readonly score: number;
+    readonly proof: string;
+    readonly gaps: ReadonlyArray<string>;
+    readonly recommended_use: string;
+  }>;
+}
+
+export interface ProofEnvironmentData {
+  readonly present: boolean;
+  readonly generated_at?: string;
+  readonly status?: string;
+  readonly summary?: {
+    readonly gates_passed: number;
+    readonly gates_total: number;
+    readonly required_secrets_present: number;
+    readonly required_secrets_total: number;
+    readonly hosted_url: string;
+    readonly hosted_health_status: number;
+    readonly latest_run_id: string;
+    readonly latest_app_hash: string;
+    readonly latest_gate_count: number;
+  };
+}
+
+export interface DbProofData {
+  readonly present: boolean;
+  readonly generated_at?: string;
+  readonly status?: string;
+  readonly summary?: {
+    readonly gates_passed: number;
+    readonly gates_total: number;
+    readonly latest_run_id: string | null;
+    readonly deployed_url: string | null;
+    readonly database_mode: string | null;
+    readonly migration_status: string;
+    readonly hosted_crud_status: string;
+    readonly database_url_available_by_inventory: boolean;
+  };
+  readonly gates?: ReadonlyArray<{
+    readonly id: string;
+    readonly label?: string;
+    readonly status: string;
+    readonly detail: string;
+  }>;
+  readonly next_actions?: ReadonlyArray<{
+    readonly action: string;
+    readonly reason: string;
+    readonly phase: string;
+  }>;
+}
+
 export function readRegistry(federation: "factory" | "lifeops"): ReadonlyArray<WarehouseEntry> {
   const p = join(META_ROOT, `registry-${federation}.yaml`);
   if (!existsSync(p)) return [];
@@ -447,6 +592,50 @@ export function readPublicProofLayer(): PublicProofLayerData {
   if (!existsSync(p)) return { present: false };
   try {
     const raw = JSON.parse(readFileSync(p, "utf8")) as Omit<PublicProofLayerData, "present">;
+    return { ...raw, present: true };
+  } catch {
+    return { present: false };
+  }
+}
+
+export function readRecipeCatalog(): RecipeCatalogData {
+  const p = join(META_ROOT, "data/recipe-catalog.public.json");
+  if (!existsSync(p)) return { present: false, recipes: [] };
+  try {
+    const raw = JSON.parse(readFileSync(p, "utf8")) as Omit<RecipeCatalogData, "present">;
+    return { ...raw, present: true, recipes: raw.recipes ?? [] };
+  } catch {
+    return { present: false, recipes: [] };
+  }
+}
+
+export function readResourceLibrary(): ResourceLibraryData {
+  const p = join(META_ROOT, "data/resource-library.public.json");
+  if (!existsSync(p)) return { present: false };
+  try {
+    const raw = JSON.parse(readFileSync(p, "utf8")) as Omit<ResourceLibraryData, "present">;
+    return { ...raw, present: true };
+  } catch {
+    return { present: false };
+  }
+}
+
+export function readProofEnvironment(): ProofEnvironmentData {
+  const p = join(META_ROOT, "data/proof-environment.public.json");
+  if (!existsSync(p)) return { present: false };
+  try {
+    const raw = JSON.parse(readFileSync(p, "utf8")) as Omit<ProofEnvironmentData, "present">;
+    return { ...raw, present: true };
+  } catch {
+    return { present: false };
+  }
+}
+
+export function readDbProof(): DbProofData {
+  const p = join(META_ROOT, "data/db-proof.public.json");
+  if (!existsSync(p)) return { present: false };
+  try {
+    const raw = JSON.parse(readFileSync(p, "utf8")) as Omit<DbProofData, "present">;
     return { ...raw, present: true };
   } catch {
     return { present: false };

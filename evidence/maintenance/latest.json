@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-01T17:00:49.017Z",
+  "generated_at": "2026-06-01T19:07:14.661Z",
   "generated_by": "scripts/ecosystem-maintenance.mjs",
   "privacy": "public-safe",
   "phase": "Phase 7",
@@ -9,18 +9,22 @@
     "status": "passed",
     "commands_total": 0,
     "commands_passed": 0,
-    "artifacts_total": 8,
-    "fresh_artifacts": 8,
+    "artifacts_total": 11,
+    "fresh_artifacts": 11,
     "stale_or_missing_artifacts": 0,
     "public_repositories_indexed": 136,
     "private_repositories_summarized": 26,
     "public_assets_scored": 136,
     "load_bearing_average_score": 73,
     "resource_use_cases": 7,
+    "recipes_indexed": 8,
+    "forge_ready_recipes": 7,
+    "resource_library_assets": 144,
     "latest_golden_path_run_id": "client-intake-portal-2026-06-01T165601095Z",
     "latest_golden_path_gates_passed": 14,
     "latest_golden_path_gate_count": 14,
     "proof_environment_status": "passed",
+    "db_proof_status": "passed",
     "public_proof_packet_hash": "sha256:2f88d2e0904d2309ab8826363600d71076cf7d58d1e98982330b38af872188a5"
   },
   "commands": [],
@@ -34,7 +38,7 @@
       "status": "fresh",
       "hash": "sha256:eccae4582652a1b26166e2ef685cbd1ba23e9046602381ead0ecf07d673aa6ad",
       "generated_at": "2026-06-01T00:48:50.044Z",
-      "age_hours": 16.2,
+      "age_hours": 18.3,
       "size_bytes": 158588
     },
     {
@@ -46,7 +50,7 @@
       "status": "fresh",
       "hash": "sha256:0578a0d8934e82d82a1f368e579e4aec11211921599d6258e54f53dfe166343b",
       "generated_at": "2026-06-01T02:23:55.922Z",
-      "age_hours": 14.6,
+      "age_hours": 16.7,
       "size_bytes": 205084
     },
     {
@@ -58,8 +62,32 @@
       "status": "fresh",
       "hash": "sha256:fc1c0fdc2eb8911f39f56e57d9a542c73caae3bfaf32f75a64ee250216241d9a",
       "generated_at": "2026-06-01T00:49:06.766Z",
-      "age_hours": 16.2,
+      "age_hours": 18.3,
       "size_bytes": 24436
+    },
+    {
+      "id": "recipe_catalog",
+      "path": "data/recipe-catalog.public.json",
+      "max_age_hours": 48,
+      "required": true,
+      "present": true,
+      "status": "fresh",
+      "hash": "sha256:974123766fc99b9d05b0b4bcfe442597180a4fa48595ce44b2965ebc68101308",
+      "generated_at": "2026-06-01T18:57:07.975Z",
+      "age_hours": 0.2,
+      "size_bytes": 7406
+    },
+    {
+      "id": "resource_library",
+      "path": "data/resource-library.public.json",
+      "max_age_hours": 48,
+      "required": true,
+      "present": true,
+      "status": "fresh",
+      "hash": "sha256:203c847b02be260725efaaf062782bef78b6911f995bd2232df6af78f92bf8fe",
+      "generated_at": "2026-06-01T18:57:15.521Z",
+      "age_hours": 0.2,
+      "size_bytes": 16072
     },
     {
       "id": "golden_path",
@@ -68,10 +96,10 @@
       "required": true,
       "present": true,
       "status": "fresh",
-      "hash": "sha256:fbc79608bd3482dc0d1b4538ace2f778d0fd95b6c0b7542c1302b3b0d559b23c",
+      "hash": "sha256:6105df962fc076430f96a7a2b846ddd8eb16830abf31def819941ffc73006c7f",
       "generated_at": "2026-06-01T17:00:24.045Z",
-      "age_hours": 0,
-      "size_bytes": 7730
+      "age_hours": 2.1,
+      "size_bytes": 7714
     },
     {
       "id": "proof_environment",
@@ -82,8 +110,20 @@
       "status": "fresh",
       "hash": "sha256:068a91de918ea17522352ce83de31df94a18c004b7f4a8844507dd6afd6ded3b",
       "generated_at": "2026-06-01T17:00:41.487Z",
-      "age_hours": 0,
+      "age_hours": 2.1,
       "size_bytes": 6226
+    },
+    {
+      "id": "db_proof",
+      "path": "data/db-proof.public.json",
+      "max_age_hours": 168,
+      "required": true,
+      "present": true,
+      "status": "fresh",
+      "hash": "sha256:5349bfabc3ede2eef65ce5f1550f452bfe53e7075bcebfffabb7e32da8ea5123",
+      "generated_at": "2026-06-01T18:57:08.012Z",
+      "age_hours": 0.2,
+      "size_bytes": 2175
     },
     {
       "id": "public_proof",
@@ -92,10 +132,10 @@
       "required": true,
       "present": true,
       "status": "fresh",
-      "hash": "sha256:0c1bf14dc10dfdcd3d4a3fd84b06a4056ec6b2ad670f7f1bc2822a6b78ebf9aa",
+      "hash": "sha256:d12f24267cc3bfbeed97604ced6ab158da9838b714db809b8725bb1fd4c42b96",
       "generated_at": "2026-06-01T17:00:41.485Z",
-      "age_hours": 0,
-      "size_bytes": 6761
+      "age_hours": 2.1,
+      "size_bytes": 6737
     },
     {
       "id": "proof_export_json",
@@ -104,10 +144,10 @@
       "required": true,
       "present": true,
       "status": "fresh",
-      "hash": "sha256:0c1bf14dc10dfdcd3d4a3fd84b06a4056ec6b2ad670f7f1bc2822a6b78ebf9aa",
+      "hash": "sha256:d12f24267cc3bfbeed97604ced6ab158da9838b714db809b8725bb1fd4c42b96",
       "generated_at": "2026-06-01T17:00:41.485Z",
-      "age_hours": 0,
-      "size_bytes": 6761
+      "age_hours": 2.1,
+      "size_bytes": 6737
     },
     {
       "id": "proof_export_markdown",
@@ -118,7 +158,7 @@
       "status": "fresh",
       "hash": "sha256:0bf1df9da81e2a1fde08464f88bf4e542e75cc698a104a5d07a717ab403327fd",
       "generated_at": null,
-      "age_hours": 0,
+      "age_hours": 2,
       "size_bytes": 4010
     }
   ],
@@ -151,6 +191,19 @@
       "use_cases": 7,
       "recommended_assets": 9
     },
+    "recipe_catalog": {
+      "generated_at": "2026-06-01T18:57:07.975Z",
+      "recipes": 8,
+      "forge_ready": 7,
+      "proof_backed": 1,
+      "average_readiness_score": 74.4
+    },
+    "resource_library": {
+      "generated_at": "2026-06-01T18:57:15.521Z",
+      "assets": 144,
+      "maturity_lift_queue": 25,
+      "proof_backed_recipes": 1
+    },
     "golden_path": {
       "generated_at": "2026-06-01T17:00:24.045Z",
       "run_id": "client-intake-portal-2026-06-01T165601095Z",
@@ -165,6 +218,14 @@
       "gates_passed": 6,
       "gate_count": 6
     },
+    "db_proof": {
+      "generated_at": "2026-06-01T18:57:08.012Z",
+      "status": "passed",
+      "gates_passed": 4,
+      "gate_count": 4,
+      "migration_status": "passed",
+      "hosted_crud_status": "passed"
+    },
     "public_proof": {
       "generated_at": "2026-06-01T17:00:41.485Z",
       "packet_hash": "sha256:2f88d2e0904d2309ab8826363600d71076cf7d58d1e98982330b38af872188a5",
@@ -175,47 +236,35 @@
     }
   },
   "git": {
-    "branch": "phase9-proof-hardening-phase10-usability",
-    "head_sha": "a63f1fa25de11573aa58c4fa4a0cff7fced813dd",
+    "branch": "phase16-operator-cockpit",
+    "head_sha": "b8152042de9083cff1a390d752bd0cc445caa6dc",
     "changed_paths": [
       "M .github/workflows/ecosystem-maintenance.yml",
       "M .gitignore",
+      "M apps/dashboard/README.md",
+      "M apps/dashboard/src/app/layout.tsx",
+      "M apps/dashboard/src/app/page.tsx",
+      "M apps/dashboard/src/lib/data.ts",
       "M data/ecosystem-maintenance.public.json",
-      "M data/golden-path-runs.public.json",
-      "M data/golden-path-specs/client-intake-portal.json",
-      "M data/public-proof-layer.public.json",
       "M docs/ECOSYSTEM_MAINTENANCE.md",
-      "M docs/GOLDEN_PATH.md",
-      "M docs/PUBLIC_PROOF_LAYER.md",
-      "M docs/SAGE_IDEAS_ENGINEERING_OS_STANDARD.md",
-      "M evidence/gate-5/client-intake-portal-local/report.json",
-      "M evidence/gate-5/client-intake-portal-vercel/report.json",
-      "M evidence/golden-path/latest.json",
       "M evidence/maintenance/latest.json",
-      "M evidence/public-proof/latest.json",
-      "RM exports/sageideas-dev/engineering-os-proof.json -> exports/proof-packet/engineering-os-proof.json",
-      "RM exports/sageideas-dev/engineering-os-proof.md -> exports/proof-packet/engineering-os-proof.md",
       "M package.json",
-      "M recipes/internal-tool-dashboard/templates/app/dashboard/page.tsx.template",
-      "M recipes/internal-tool-dashboard/templates/app/layout.tsx.template",
-      "M recipes/internal-tool-dashboard/templates/app/page.tsx.template",
-      "M scripts/deploy-golden-path-vercel.mjs",
       "M scripts/ecosystem-maintenance.mjs",
-      "M scripts/golden-path-proof.mjs",
-      "M scripts/public-proof-export.mjs",
-      "M warehouses/auth/manifest.yaml",
-      "M warehouses/auth/templates/app-auth-login-page.tsx.template",
-      "?? data/proof-environment.public.json",
-      "?? docs/PROOF_ENVIRONMENT.md",
-      "?? evidence/golden-path/client-intake-portal-2026-06-01T164911265Z.json",
-      "?? evidence/golden-path/client-intake-portal-2026-06-01T165601095Z.json",
-      "?? evidence/proof-environment/",
-      "?? recipes/internal-tool-dashboard/templates/app/dashboard/layout.tsx.template",
-      "?? recipes/internal-tool-dashboard/templates/app/dashboard/tenants/",
-      "?? scripts/proof-environment-check.mjs",
-      "?? warehouses/auth/templates/lib-supabase-admin.ts.template"
+      "?? apps/dashboard/src/app/db-proof/",
+      "?? apps/dashboard/src/app/proof-environment/",
+      "?? apps/dashboard/src/app/recipes/",
+      "?? data/db-proof.public.json",
+      "?? data/recipe-catalog.public.json",
+      "?? data/resource-library.public.json",
+      "?? docs/DB_PROOF.md",
+      "?? docs/RECIPE_CATALOG.md",
+      "?? docs/RESOURCE_LIBRARY.md",
+      "?? evidence/db-proof/",
+      "?? scripts/db-proof-check.mjs",
+      "?? scripts/recipe-catalog.mjs",
+      "?? scripts/resource-library-catalog.mjs"
     ],
-    "changed_count": 36
+    "changed_count": 24
   },
   "next_actions": [
     {
@@ -228,9 +277,9 @@
       "severity": "info",
       "owner": "operator",
       "action": "Review and commit generated maintenance artifacts",
-      "evidence": "36 changed path(s) after maintenance run."
+      "evidence": "24 changed path(s) after maintenance run."
     }
   ],
-  "started_at": "2026-06-01T17:00:49.017Z",
-  "finished_at": "2026-06-01T17:00:49.017Z"
+  "started_at": "2026-06-01T19:07:14.661Z",
+  "finished_at": "2026-06-01T19:07:14.661Z"
 }

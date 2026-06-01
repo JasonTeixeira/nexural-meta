@@ -1,0 +1,482 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-06-01T18:57:15.521Z",
+  "generated_by": "scripts/resource-library-catalog.mjs",
+  "privacy": "public-safe",
+  "status": "generated",
+  "purpose": "Unified resource library for choosing reusable engines, kits, recipes, SDKs, playbooks, QA assets, and proof-backed paths.",
+  "totals": {
+    "assets": 144,
+    "use_cases": 7,
+    "recipes": 8,
+    "proof_backed_recipes": 1,
+    "load_bearing_assets": 11,
+    "load_bearing_average_score": 73,
+    "proof_environment_status": "passed",
+    "golden_path_passed_runs": 1
+  },
+  "operator_paths": [
+    {
+      "label": "Build an app",
+      "start": "/resources?useCase=ship-saas-app",
+      "proof_required": "golden-path plus hosted health"
+    },
+    {
+      "label": "Pick a stack or SDK",
+      "start": "/resources?useCase=choose-stack-or-sdk",
+      "proof_required": "scorecard and gap review"
+    },
+    {
+      "label": "Release with QA evidence",
+      "start": "/resources?useCase=qa-release-proof",
+      "proof_required": "verify-all, proof packet, evidence hash"
+    },
+    {
+      "label": "Audit trading infrastructure",
+      "start": "/resources?useCase=build-trading-system",
+      "proof_required": "anti-lookahead, walk-forward, overfit checks"
+    }
+  ],
+  "use_case_routes": [
+    {
+      "id": "ship-saas-app",
+      "title": "Ship a SaaS or internal app",
+      "question": "I need to build and deploy an application quickly.",
+      "command": "/resources?useCase=ship-saas-app",
+      "recommended_assets": 1,
+      "improve_first_assets": 2
+    },
+    {
+      "id": "choose-stack-or-sdk",
+      "title": "Choose a stack, SDK, or provider",
+      "question": "I need to know what tool or SDK to use for a build.",
+      "command": "/resources?useCase=choose-stack-or-sdk",
+      "recommended_assets": 2,
+      "improve_first_assets": 2
+    },
+    {
+      "id": "qa-release-proof",
+      "title": "Create QA and release proof",
+      "question": "I need confidence gates, evidence, scorecards, or proof bundles.",
+      "command": "/resources?useCase=qa-release-proof",
+      "recommended_assets": 1,
+      "improve_first_assets": 0
+    },
+    {
+      "id": "build-agent-workflow",
+      "title": "Build an agent workflow",
+      "question": "I need agents, RAG, evals, memory, or background workers.",
+      "command": "/resources?useCase=build-agent-workflow",
+      "recommended_assets": 1,
+      "improve_first_assets": 2
+    },
+    {
+      "id": "build-trading-system",
+      "title": "Build or audit trading infrastructure",
+      "question": "I need quant research, validation, execution, or trading automation.",
+      "command": "/resources?useCase=build-trading-system",
+      "recommended_assets": 6,
+      "improve_first_assets": 7
+    },
+    {
+      "id": "publish-proof-page",
+      "title": "Publish a public proof page",
+      "question": "I need to show the system safely on sageideas.dev.",
+      "command": "/resources?useCase=publish-proof-page",
+      "recommended_assets": 3,
+      "improve_first_assets": 0
+    },
+    {
+      "id": "reuse-product-pattern",
+      "title": "Reuse a product pattern",
+      "question": "I need to retrofit an existing product idea into a new project.",
+      "command": "/resources?useCase=reuse-product-pattern",
+      "recommended_assets": 0,
+      "improve_first_assets": 2
+    }
+  ],
+  "maturity_lift_queue": [
+    {
+      "name": "saas-multitenant-baseline-cf",
+      "layer": "app-factory-runtime",
+      "asset_type": "recipe",
+      "current_score": 55,
+      "target_score": 90,
+      "reason": "Recipe must be forge-ready and proof-backed before broad reuse.",
+      "gaps": ["missing-fixture", "missing-golden-path-proof"]
+    },
+    {
+      "name": "saas-multitenant-baseline",
+      "layer": "app-factory-runtime",
+      "asset_type": "recipe",
+      "current_score": 70,
+      "target_score": 90,
+      "reason": "Recipe must be forge-ready and proof-backed before broad reuse.",
+      "gaps": ["missing-golden-path-proof"]
+    },
+    {
+      "name": "saas-rag-chat",
+      "layer": "app-factory-runtime",
+      "asset_type": "recipe",
+      "current_score": 70,
+      "target_score": 90,
+      "reason": "Recipe must be forge-ready and proof-backed before broad reuse.",
+      "gaps": ["missing-golden-path-proof"]
+    },
+    {
+      "name": "saas-rag-chat-openai-first",
+      "layer": "app-factory-runtime",
+      "asset_type": "recipe",
+      "current_score": 70,
+      "target_score": 90,
+      "reason": "Recipe must be forge-ready and proof-backed before broad reuse.",
+      "gaps": ["missing-golden-path-proof"]
+    },
+    {
+      "name": "saas-rag-chat-qdrant",
+      "layer": "app-factory-runtime",
+      "asset_type": "recipe",
+      "current_score": 70,
+      "target_score": 90,
+      "reason": "Recipe must be forge-ready and proof-backed before broad reuse.",
+      "gaps": ["missing-golden-path-proof"]
+    },
+    {
+      "name": "fintech-ledger-app",
+      "layer": "app-factory-runtime",
+      "asset_type": "recipe",
+      "current_score": 80,
+      "target_score": 90,
+      "reason": "Recipe must be forge-ready and proof-backed before broad reuse.",
+      "gaps": ["missing-golden-path-proof"]
+    },
+    {
+      "name": "saas-agent-platform",
+      "layer": "app-factory-runtime",
+      "asset_type": "recipe",
+      "current_score": 80,
+      "target_score": 90,
+      "reason": "Recipe must be forge-ready and proof-backed before broad reuse.",
+      "gaps": ["missing-golden-path-proof"]
+    },
+    {
+      "name": "QuantumTrader",
+      "layer": "quant-trading",
+      "asset_type": "engine",
+      "current_score": 38,
+      "target_score": 90,
+      "reason": "Load-bearing asset under target maturity.",
+      "gaps": ["missing-license", "missing-topics", "load-bearing-under-70"]
+    },
+    {
+      "name": "micro-saas-starter",
+      "layer": "resource-library",
+      "asset_type": "kit",
+      "current_score": 58,
+      "target_score": 90,
+      "reason": "Load-bearing asset under target maturity.",
+      "gaps": ["missing-license", "missing-topics", "load-bearing-under-70"]
+    },
+    {
+      "name": "terraform-aws-modules",
+      "layer": "ops-knowledge",
+      "asset_type": "playbook",
+      "current_score": 58,
+      "target_score": 90,
+      "reason": "Load-bearing asset under target maturity.",
+      "gaps": ["missing-license", "missing-topics", "load-bearing-under-70"]
+    },
+    {
+      "name": "NexQuantSite",
+      "layer": "quant-trading",
+      "asset_type": "engine",
+      "current_score": 63,
+      "target_score": 90,
+      "reason": "Load-bearing asset under target maturity.",
+      "gaps": ["missing-license", "load-bearing-under-70"]
+    },
+    {
+      "name": "trade-engine",
+      "layer": "quant-trading",
+      "asset_type": "engine",
+      "current_score": 68,
+      "target_score": 90,
+      "reason": "Load-bearing asset under target maturity.",
+      "gaps": ["missing-license", "missing-topics", "load-bearing-under-70"]
+    },
+    {
+      "name": "AlphaStream",
+      "layer": "quant-trading",
+      "asset_type": "engine",
+      "current_score": 73,
+      "target_score": 90,
+      "reason": "Load-bearing asset under target maturity.",
+      "gaps": ["missing-license"]
+    },
+    {
+      "name": "JasonTeixeira",
+      "layer": "public-proof-surface",
+      "asset_type": "product-proof",
+      "current_score": 73,
+      "target_score": 90,
+      "reason": "Load-bearing asset under target maturity.",
+      "gaps": ["missing-public-proof", "missing-license"]
+    },
+    {
+      "name": "nexural-automation-starter",
+      "layer": "quant-trading",
+      "asset_type": "kit",
+      "current_score": 78,
+      "target_score": 90,
+      "reason": "Load-bearing asset under target maturity.",
+      "gaps": ["missing-topics"]
+    },
+    {
+      "name": "awesome-cloud-native",
+      "layer": "reference-library",
+      "asset_type": "reference",
+      "current_score": 0,
+      "target_score": 70,
+      "reason": "Missing metadata makes the ecosystem less legible.",
+      "gaps": ["maturity-l0", "archived", "missing-topics"]
+    },
+    {
+      "name": "awesome-quant",
+      "layer": "reference-library",
+      "asset_type": "reference",
+      "current_score": 0,
+      "target_score": 70,
+      "reason": "Missing metadata makes the ecosystem less legible.",
+      "gaps": ["maturity-l0", "archived", "missing-license", "missing-topics"]
+    },
+    {
+      "name": "awesome-react",
+      "layer": "reference-library",
+      "asset_type": "reference",
+      "current_score": 0,
+      "target_score": 70,
+      "reason": "Missing metadata makes the ecosystem less legible.",
+      "gaps": ["maturity-l0", "archived", "missing-license", "missing-topics"]
+    },
+    {
+      "name": "awesome-systematic-trading",
+      "layer": "reference-library",
+      "asset_type": "reference",
+      "current_score": 0,
+      "target_score": 70,
+      "reason": "Missing metadata makes the ecosystem less legible.",
+      "gaps": ["maturity-l0", "archived", "missing-license", "missing-topics"]
+    },
+    {
+      "name": "aws-cloudformation-templates",
+      "layer": "reference-library",
+      "asset_type": "reference",
+      "current_score": 0,
+      "target_score": 70,
+      "reason": "Missing metadata makes the ecosystem less legible.",
+      "gaps": ["maturity-l0", "archived", "missing-topics"]
+    },
+    {
+      "name": "bicep",
+      "layer": "reference-library",
+      "asset_type": "reference",
+      "current_score": 0,
+      "target_score": 70,
+      "reason": "Missing metadata makes the ecosystem less legible.",
+      "gaps": ["maturity-l0", "archived", "missing-topics"]
+    },
+    {
+      "name": "build-your-own-x",
+      "layer": "reference-library",
+      "asset_type": "reference",
+      "current_score": 0,
+      "target_score": 70,
+      "reason": "Missing metadata makes the ecosystem less legible.",
+      "gaps": ["maturity-l0", "archived", "missing-license", "missing-topics"]
+    },
+    {
+      "name": "CLIMarketPlace",
+      "layer": "reference-library",
+      "asset_type": "reference",
+      "current_score": 0,
+      "target_score": 70,
+      "reason": "Missing metadata makes the ecosystem less legible.",
+      "gaps": ["maturity-l0", "archived", "missing-license", "missing-topics"]
+    },
+    {
+      "name": "dashboard",
+      "layer": "reference-library",
+      "asset_type": "reference",
+      "current_score": 0,
+      "target_score": 70,
+      "reason": "Missing metadata makes the ecosystem less legible.",
+      "gaps": ["maturity-l0", "archived", "missing-topics"]
+    },
+    {
+      "name": "google-cloud-Cheat-Sheats",
+      "layer": "reference-library",
+      "asset_type": "reference",
+      "current_score": 0,
+      "target_score": 70,
+      "reason": "Missing metadata makes the ecosystem less legible.",
+      "gaps": ["maturity-l0", "archived", "missing-topics"]
+    }
+  ],
+  "top_assets": [
+    {
+      "name": "internal-tool-dashboard",
+      "layer": "app-factory-runtime",
+      "asset_type": "recipe",
+      "maturity": "L4",
+      "status": "usable",
+      "score": 100,
+      "proof": "golden-path",
+      "gaps": [],
+      "recommended_use": "Recipe for internal-team admin tools. Extends saas-multitenant-baseline with"
+    },
+    {
+      "name": "Nexural_Automation",
+      "url": "https://github.com/JasonTeixeira/Nexural_Automation",
+      "layer": "quant-trading",
+      "asset_type": "engine",
+      "maturity": "L3",
+      "status": "active",
+      "score": 100,
+      "proof": "repo-metadata",
+      "gaps": [],
+      "recommended_use": "Local-first futures automation and strategy research hub.",
+      "load_bearing": true
+    },
+    {
+      "name": "nexural-meta",
+      "url": "https://github.com/JasonTeixeira/nexural-meta",
+      "layer": "control-plane",
+      "asset_type": "control-plane",
+      "maturity": "L4",
+      "status": "active",
+      "score": 100,
+      "proof": "repo-metadata",
+      "gaps": ["missing-license", "missing-topics"],
+      "recommended_use": "Registry, warehouses, ADRs, recipes, CLI, and service-level governance.",
+      "load_bearing": true
+    },
+    {
+      "name": "sageideas.dev",
+      "url": "https://github.com/JasonTeixeira/sageideas.dev",
+      "layer": "public-proof-surface",
+      "asset_type": "product-proof",
+      "maturity": "L3",
+      "status": "active",
+      "score": 93,
+      "proof": "repo-metadata",
+      "gaps": ["missing-license", "missing-topics"],
+      "recommended_use": "Public company and proof surface for Sage Ideas.",
+      "load_bearing": true
+    },
+    {
+      "name": "fintech-ledger-app",
+      "layer": "app-factory-runtime",
+      "asset_type": "recipe",
+      "maturity": "L3",
+      "status": "usable",
+      "score": 80,
+      "proof": "catalog-only",
+      "gaps": ["missing-golden-path-proof"],
+      "recommended_use": "SaaS recipe for finance + ledger applications. Extends saas-multitenant-baseline"
+    },
+    {
+      "name": "saas-agent-platform",
+      "layer": "app-factory-runtime",
+      "asset_type": "recipe",
+      "maturity": "L3",
+      "status": "usable",
+      "score": 80,
+      "proof": "catalog-only",
+      "gaps": ["missing-golden-path-proof"],
+      "recommended_use": "Agent-as-a-service product. Extends saas-multitenant-baseline. Custom agent"
+    },
+    {
+      "name": "nexural-automation-starter",
+      "url": "https://github.com/JasonTeixeira/nexural-automation-starter",
+      "layer": "quant-trading",
+      "asset_type": "kit",
+      "maturity": "L2",
+      "status": "active",
+      "score": 78,
+      "proof": "repo-metadata",
+      "gaps": ["missing-topics"],
+      "recommended_use": "Paper-money-safe webhook and paper-order starter kit.",
+      "load_bearing": true
+    },
+    {
+      "name": "AlphaStream",
+      "url": "https://github.com/JasonTeixeira/AlphaStream",
+      "layer": "quant-trading",
+      "asset_type": "engine",
+      "maturity": "L2",
+      "status": "active",
+      "score": 73,
+      "proof": "repo-metadata",
+      "gaps": ["missing-license"],
+      "recommended_use": "Trading, strategy research, backtesting, or execution capability.",
+      "load_bearing": true
+    },
+    {
+      "name": "JasonTeixeira",
+      "url": "https://github.com/JasonTeixeira/JasonTeixeira",
+      "layer": "public-proof-surface",
+      "asset_type": "product-proof",
+      "maturity": "L2",
+      "status": "active",
+      "score": 73,
+      "proof": "missing",
+      "gaps": ["missing-public-proof", "missing-license"],
+      "recommended_use": "GitHub profile and public engineering identity surface.",
+      "load_bearing": true
+    },
+    {
+      "name": "saas-multitenant-baseline",
+      "layer": "app-factory-runtime",
+      "asset_type": "recipe",
+      "maturity": "L3",
+      "status": "usable",
+      "score": 70,
+      "proof": "catalog-only",
+      "gaps": ["missing-golden-path-proof"],
+      "recommended_use": "Multi-tenant SaaS baseline — Next.js 15 + Supabase (Auth + Postgres + RLS) +"
+    },
+    {
+      "name": "saas-rag-chat",
+      "layer": "app-factory-runtime",
+      "asset_type": "recipe",
+      "maturity": "L3",
+      "status": "usable",
+      "score": 70,
+      "proof": "catalog-only",
+      "gaps": ["missing-golden-path-proof"],
+      "recommended_use": "Chat product with RAG (Retrieval-Augmented Generation) over user-uploaded"
+    },
+    {
+      "name": "saas-rag-chat-openai-first",
+      "layer": "app-factory-runtime",
+      "asset_type": "recipe",
+      "maturity": "L3",
+      "status": "usable",
+      "score": 70,
+      "proof": "catalog-only",
+      "gaps": ["missing-golden-path-proof"],
+      "recommended_use": "OpenAI-primary variant of saas-rag-chat. Same architecture, different model"
+    },
+    {
+      "name": "saas-rag-chat-qdrant",
+      "layer": "app-factory-runtime",
+      "asset_type": "recipe",
+      "maturity": "L3",
+      "status": "usable",
+      "score": 70,
+      "proof": "catalog-only",
+      "gaps": ["missing-golden-path-proof"],
+      "recommended_use": "Qdrant primary escape variant of saas-rag-chat. Use when chunk count"
+    }
+  ]
+}

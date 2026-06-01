@@ -9,16 +9,17 @@ export const metadata: Metadata = {
 // typedRoutes regenerates the route union at `next build` time; tsc --noEmit
 // can race against it for newly added routes. Cast to string at the boundary.
 const NAV: ReadonlyArray<{ href: string; label: string }> = [
-  { href: "/", label: "Overview" },
+  { href: "/", label: "Cockpit" },
   { href: "/ecosystem", label: "Ecosystem" },
   { href: "/resources", label: "Resources" },
+  { href: "/recipes", label: "Recipes" },
   { href: "/golden-path", label: "Golden Path" },
-  { href: "/public-proof", label: "Public Proof" },
+  { href: "/proof-environment", label: "Proof Env" },
+  { href: "/db-proof", label: "DB Proof" },
   { href: "/health", label: "Health" },
   { href: "/factory", label: "Factory" },
-  { href: "/lifeops", label: "Lifeops" },
+  { href: "/public-proof", label: "Proof Packet" },
   { href: "/scorecard", label: "Scorecard" },
-  { href: "/security/revocations", label: "Revocations" },
 ];
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -27,9 +28,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body
         style={{
           margin: 0,
-          fontFamily: "ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Helvetica, Arial",
-          background: "#0a0a0a",
-          color: "#e5e5e5",
+          fontFamily: "'Space Grotesk', 'Aptos Display', 'Segoe UI', sans-serif",
+          background: "#0b0d0c",
+          color: "#ece7dc",
         }}
       >
         <header
@@ -37,24 +38,45 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             display: "flex",
             alignItems: "center",
             flexWrap: "wrap",
-            gap: "2rem",
+            gap: "1.25rem",
             padding: "1rem clamp(1rem, 4vw, 2rem)",
-            borderBottom: "1px solid #262626",
-            background: "#0f0f0f",
+            borderBottom: "1px solid #242923",
+            background: "#101310",
+            position: "sticky",
+            top: 0,
+            zIndex: 10,
           }}
         >
-          <strong style={{ fontSize: "1.1rem" }}>Sage Ideas OS</strong>
+          <strong style={{ fontSize: "1rem", letterSpacing: "0.02em", marginRight: "0.5rem" }}>
+            Sage Ideas OS
+          </strong>
           <nav
-            style={{ display: "flex", flexWrap: "wrap", gap: "1rem 1.5rem", fontSize: "0.9rem" }}
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "0.45rem",
+              fontSize: "0.82rem",
+            }}
           >
             {NAV.map((n) => (
-              <a key={n.href} href={n.href} style={{ color: "#e5e5e5", textDecoration: "none" }}>
+              <a
+                key={n.href}
+                href={n.href}
+                style={{
+                  color: "#d8d1c2",
+                  textDecoration: "none",
+                  border: "1px solid #2a312b",
+                  borderRadius: 8,
+                  padding: "0.38rem 0.55rem",
+                  cursor: "pointer",
+                }}
+              >
                 {n.label}
               </a>
             ))}
           </nav>
         </header>
-        <main style={{ padding: "clamp(1rem, 4vw, 2rem)", maxWidth: 1100, margin: "0 auto" }}>
+        <main style={{ padding: "clamp(1rem, 3vw, 2rem)", maxWidth: 1320, margin: "0 auto" }}>
           {children}
         </main>
       </body>
