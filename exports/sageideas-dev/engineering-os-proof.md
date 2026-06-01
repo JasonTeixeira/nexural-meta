@@ -2,8 +2,8 @@
 
 **Status:** Phase 6 export-ready
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-06-01T00:02:06.443Z
-**Packet hash:** `sha256:657307e634c055a6b49c1a1e003cd0044d55ed3241603ec151240e7d27ea77ea`
+**Generated:** 2026-06-01T01:15:17.599Z
+**Packet hash:** `sha256:61820a47255d17ec4d41931588cafb024363fa56d08e79374db7dec433929faa`
 
 ## Positioning
 
@@ -14,19 +14,19 @@ Brand boundary: Nexural is a trading/investment product proof, not the umbrella 
 ## Proof Metrics
 
 - Public repositories indexed: 136
-- Private repositories summarized: 24
-- Public assets scored: 160
-- Broad public average: 20/100
-- Load-bearing average: 60/100
+- Private repositories summarized: 26
+- Public assets scored: 136
+- Broad public average: 14/100
+- Load-bearing average: 54/100
 - Resource use cases: 7
-- Golden path: 7/7 gates in 69s
+- Golden path: 8/8 gates in 113s
 
 ## Public Claims
 
-- **The ecosystem has an indexed public registry.** 136 public repositories indexed; 24 private repositories summarized without names. Source: `data/ecosystem-registry.public.json`.
-- **Assets are scored before they are reused.** 160 public assets scored; broad average 20/100, load-bearing average 60/100. This is a gap map, not vanity scoring. Source: `data/ecosystem-scorecard.public.json`.
+- **The ecosystem has an indexed public registry.** 136 public repositories indexed; 26 private repositories summarized without names. Source: `data/ecosystem-registry.public.json`.
+- **Assets are scored before they are reused.** 136 public assets scored; public average 14/100, public load-bearing average 54/100. This is a gap map, not vanity scoring. Source: `data/ecosystem-scorecard.public.json`.
 - **Build choices are mapped to reusable resources.** 7 use cases mapped for daily navigation. Source: `data/ecosystem-resource-map.public.json`.
-- **The factory path has a repeatable local proof.** 7/7 golden-path gates passed in 69 seconds. Source: `data/golden-path-runs.public.json`.
+- **The factory path has deployed public proof.** 8/8 golden-path gates passed; deployed URL verified at https://sage-client-intake-portal-vercel.vercel.app. Source: `data/golden-path-runs.public.json`.
 
 ## Architecture
 
@@ -53,7 +53,7 @@ Show registry counts, scorecard averages, use-case coverage, and golden-path gat
 
 ### Golden Path
 
-Latest proof run client-intake-portal-2026-05-31T234646217Z generated, built, started, and verified a local app with hash sha256:97ed607944ffc87872ba5d06f5223c364f75000171179a33a3ea6b90555d5977.
+Latest proof run client-intake-portal-2026-06-01T004907152Z generated, built, started, verified locally, and verified the deployed app at https://sage-client-intake-portal-vercel.vercel.app with hash sha256:b9fbd4e6187a96a67160d20ea4c55f71b86d5c288974d0b92b86e4b9d69b3f6f.
 
 ### Redaction Boundary
 
@@ -61,7 +61,7 @@ The public page should show architecture, evidence, and high-level metrics while
 
 ### Honest Gaps
 
-Publish current limitations directly: live Vercel deploy proof is blocked without VERCEL_TOKEN, and private asset details require local review.
+Publish current limitations directly: deployed proof uses public-safe mock runtime credentials, and private asset details require local review.
 
 ## Redaction Policy
 
@@ -69,12 +69,11 @@ Publish current limitations directly: live Vercel deploy proof is blocked withou
 - Summarize private repositories by count, layer, maturity, and score band only.
 - Do not publish private repo names, descriptions, URLs, local paths, secrets, customer data, or provider tokens.
 - Frame product proofs as examples; do not imply Nexural is the umbrella brand.
-- Publish gaps honestly, including missing live deploy credentials or non-production mock credentials.
+- Publish gaps honestly, including non-production mock credentials or missing hosted proof when applicable.
 
 ## Remaining Gaps
 
 - sageideas.dev has not consumed this export in this commit because that repo currently has a large pre-existing dirty worktree.
-- The golden path is local-runtime proof; Vercel deployment remains blocked until VERCEL_TOKEN is available.
 - Private asset maturity still needs local review before public claims can include deeper implementation detail.
 
 ## Export Targets

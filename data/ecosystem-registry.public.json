@@ -1,22 +1,22 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-31T21:22:30.447Z",
+  "generated_at": "2026-06-01T00:48:50.044Z",
   "generated_by": "scripts/ecosystem-inventory.mjs",
   "owner": "JasonTeixeira",
   "privacy": "public-safe",
   "note": "Private repositories are summarized by count only. Full inventory is generated locally at .nexural/private/ecosystem-registry.internal.json.",
   "totals": {
-    "total": 160,
+    "total": 162,
     "public": 136,
-    "private": 24,
+    "private": 26,
     "archived": 47,
     "forks": 91,
     "by_layer": {
       "reference-library": 122,
+      "agent-engine": 3,
       "resource-library": 4,
       "quant-trading": 14,
-      "agent-engine": 2,
-      "ops-knowledge": 6,
+      "ops-knowledge": 7,
       "public-proof-surface": 2,
       "product-proof": 3,
       "app-factory-runtime": 4,
@@ -26,55 +26,55 @@
     },
     "by_asset_type": {
       "reference": 128,
+      "engine": 16,
       "kit": 4,
-      "engine": 15,
-      "playbook": 6,
+      "playbook": 7,
       "product-proof": 5,
       "control-plane": 1,
       "resource-library": 1
     },
     "by_maturity": {
       "L0": 134,
-      "L2": 19,
+      "L2": 21,
       "L3": 2,
       "L1": 4,
       "L4": 1
     },
     "by_status": {
       "reference": 48,
-      "active": 30,
+      "active": 32,
       "stale": 22,
       "watch": 13,
       "archived": 47
     }
   },
   "private_summary": {
-    "total_private": 24,
+    "total_private": 26,
     "by_layer": {
+      "agent-engine": 2,
       "resource-library": 2,
-      "agent-engine": 1,
       "reference-library": 4,
       "product-proof": 3,
       "quant-trading": 6,
       "app-factory-runtime": 4,
       "quality-system": 1,
       "voice-engine": 1,
-      "ops-knowledge": 2
+      "ops-knowledge": 3
     },
     "by_asset_type": {
+      "engine": 9,
       "kit": 1,
-      "engine": 8,
       "reference": 9,
       "product-proof": 3,
       "resource-library": 1,
-      "playbook": 2
+      "playbook": 3
     },
     "by_maturity": {
-      "L2": 12,
+      "L2": 14,
       "L0": 9,
       "L1": 3
     },
-    "needing_private_review": 24
+    "needing_private_review": 26
   },
   "public_repositories": [
     {
@@ -269,7 +269,7 @@
       },
       "operational": {
         "status": "active",
-        "stale_days": 29,
+        "stale_days": 30,
         "needs_private_review": false
       }
     },
@@ -305,7 +305,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 143,
+        "stale_days": 144,
         "needs_private_review": false
       }
     },
@@ -593,7 +593,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 638,
+        "stale_days": 639,
         "needs_private_review": false
       }
     },
@@ -737,7 +737,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 472,
+        "stale_days": 473,
         "needs_private_review": false
       }
     },
@@ -989,7 +989,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 16,
+        "stale_days": 17,
         "needs_private_review": false
       }
     },
@@ -1205,7 +1205,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 30,
+        "stale_days": 31,
         "needs_private_review": false
       }
     },
@@ -1385,7 +1385,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 199,
+        "stale_days": 200,
         "needs_private_review": false
       }
     },
@@ -1781,7 +1781,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 143,
+        "stale_days": 144,
         "needs_private_review": false
       }
     },
@@ -1925,7 +1925,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 15,
+        "stale_days": 16,
         "needs_private_review": false
       }
     },
@@ -1961,7 +1961,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 12,
+        "stale_days": 13,
         "needs_private_review": false
       }
     },
@@ -2069,7 +2069,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 6,
+        "stale_days": 7,
         "needs_private_review": false
       }
     },
@@ -2429,7 +2429,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 140,
+        "stale_days": 141,
         "needs_private_review": false
       }
     },
@@ -2717,7 +2717,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 143,
+        "stale_days": 144,
         "needs_private_review": false
       }
     },
@@ -2753,7 +2753,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 10,
+        "stale_days": 11,
         "needs_private_review": false
       }
     },
@@ -3042,12 +3042,12 @@
       "topics": [],
       "homepage_url": null,
       "created_at": "2026-05-22T12:11:28Z",
-      "pushed_at": "2026-05-31T21:18:09Z",
-      "updated_at": "2026-05-31T21:18:13Z",
+      "pushed_at": "2026-06-01T00:08:36Z",
+      "updated_at": "2026-06-01T00:08:40Z",
       "default_branch": "main",
       "license": null,
       "parent": null,
-      "disk_usage_kb": 1248,
+      "disk_usage_kb": 1335,
       "stargazers": 0,
       "canonical": {
         "canonical_name": "Sage Ideas Engineering OS Control Plane",
@@ -3354,7 +3354,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 477,
+        "stale_days": 478,
         "needs_private_review": false
       }
     },
@@ -3534,7 +3534,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 33,
+        "stale_days": 34,
         "needs_private_review": false
       }
     },
@@ -3786,7 +3786,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 33,
+        "stale_days": 34,
         "needs_private_review": false
       }
     },
@@ -3805,7 +3805,7 @@
       "topics": [],
       "homepage_url": "https://qa-portfolio-peach.vercel.app",
       "created_at": "2026-01-07T18:07:52Z",
-      "pushed_at": "2026-05-31T06:32:26Z",
+      "pushed_at": "2026-06-01T00:43:07Z",
       "updated_at": "2026-05-31T06:32:29Z",
       "default_branch": "main",
       "license": null,
@@ -4182,7 +4182,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 200,
+        "stale_days": 201,
         "needs_private_review": false
       }
     },
@@ -4218,7 +4218,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 33,
+        "stale_days": 34,
         "needs_private_review": false
       }
     },
@@ -4362,7 +4362,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 536,
+        "stale_days": 537,
         "needs_private_review": false
       }
     },
@@ -4542,7 +4542,7 @@
       },
       "operational": {
         "status": "active",
-        "stale_days": 28,
+        "stale_days": 29,
         "needs_private_review": false
       }
     },
@@ -4902,7 +4902,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 143,
+        "stale_days": 144,
         "needs_private_review": false
       }
     },

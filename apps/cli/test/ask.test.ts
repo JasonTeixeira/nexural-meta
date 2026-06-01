@@ -75,6 +75,7 @@ describe("runAsk", () => {
       expect(process.exitCode).toBe(1);
       expect(errSpy).toHaveBeenCalledWith(expect.stringMatching(/cannot find a federation root/));
     } finally {
+      process.chdir(originalCwd);
       rmSync(tmp, { recursive: true, force: true });
     }
   });
@@ -89,6 +90,7 @@ describe("runAsk", () => {
       expect(output).toMatch(/Cost guardrails/);
       expect(output).toMatch(/adr:/);
     } finally {
+      process.chdir(originalCwd);
       rmSync(root, { recursive: true, force: true });
     }
   });
@@ -104,6 +106,7 @@ describe("runAsk", () => {
       expect(parsed.indexed).toBeGreaterThan(0);
       expect(Array.isArray(parsed.hits)).toBe(true);
     } finally {
+      process.chdir(originalCwd);
       rmSync(root, { recursive: true, force: true });
     }
   });
@@ -117,6 +120,7 @@ describe("runAsk", () => {
       const parsed = JSON.parse(output);
       expect(parsed.hits.every((h: { kind: string }) => h.kind === "adr")).toBe(true);
     } finally {
+      process.chdir(originalCwd);
       rmSync(root, { recursive: true, force: true });
     }
   });
@@ -128,6 +132,7 @@ describe("runAsk", () => {
       await runAsk(cfg(), "test", { kinds: "not-a-real-kind" });
       expect(errSpy).toHaveBeenCalledWith(expect.stringMatching(/unknown kind/));
     } finally {
+      process.chdir(originalCwd);
       rmSync(root, { recursive: true, force: true });
     }
   });

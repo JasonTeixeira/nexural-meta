@@ -63,6 +63,7 @@ describe("runForge", () => {
       expect(process.exitCode).toBe(1);
       expect(errSpy).toHaveBeenCalledWith(expect.stringMatching(/recipe not found/));
     } finally {
+      process.chdir(originalCwd);
       rmSync(tmp, { recursive: true, force: true });
     }
   });
