@@ -124,7 +124,21 @@ function main() {
   mkdirSync(PRIVATE_DIR, { recursive: true });
   mkdirSync(DATA_DIR, { recursive: true });
 
-  const repos = fetchRepos();
+  let repos;
+  try {
+    repos = fetchRepos();
+  } catch (err) {
+    if (
+      isTransientGitHubError(err) &&
+      existsSync(join(DATA_DIR, "ecosystem-registry.public.json"))
+    ) {
+      console.error(
+        `[ecosystem-inventory] GitHub inventory unavailable after retries; keeping cached public-safe registry: ${tailError(err)}`,
+      );
+      return;
+    }
+    throw err;
+  }
   const overrides = loadPrivateOverrides();
   const classified = repos
     .map((repo) => classifyRepo(repo, overrides))
@@ -181,6 +195,14 @@ function fetchRepos() {
 function isTransientGitHubError(err) {
   const message = `${err?.stderr ?? ""}\n${err?.message ?? ""}`;
   return /HTTP (429|500|502|503|504)|Bad Gateway|Service Unavailable|rate limit/i.test(message);
+}
+
+function tailError(err) {
+  return String(err?.stderr ?? err?.message ?? err)
+    .trim()
+    .split(/\r?\n/)
+    .slice(-2)
+    .join(" ");
 }
 
 function sleep(ms) {

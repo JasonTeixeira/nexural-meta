@@ -287,13 +287,9 @@ function vercelCurl(url) {
     `${parsed.pathname || "/"}${parsed.search}`,
     "--deployment",
     `${parsed.protocol}//${parsed.host}`,
-    "-i",
-    "-L",
-    "-sS",
-    "--max-time",
-    "30",
   ];
   if (process.env.VERCEL_TOKEN) args.push("--token", process.env.VERCEL_TOKEN);
+  args.push("--", "-i", "-L", "-sS", "--max-time", "30");
   const result = spawnSync(npxBin, args, {
     cwd: ROOT,
     shell: process.platform === "win32",
