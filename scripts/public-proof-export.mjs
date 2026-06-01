@@ -114,7 +114,6 @@ function main() {
       "Publish gaps honestly, including non-production mock credentials or missing hosted proof when applicable.",
     ],
     remaining_gaps: [
-      "sageideas.dev has not consumed this export in this commit because that repo currently has a large pre-existing dirty worktree.",
       ...(hasDeployedProof
         ? []
         : [

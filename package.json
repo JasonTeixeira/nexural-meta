@@ -36,6 +36,7 @@
     "ecosystem:refresh": "pnpm ecosystem:inventory && pnpm ecosystem:score && pnpm ecosystem:map",
     "ecosystem:maintain": "node scripts/ecosystem-maintenance.mjs",
     "golden:path": "node scripts/golden-path-proof.mjs",
+    "golden:path:deploy": "node scripts/deploy-golden-path-vercel.mjs",
     "golden:path:attach-deploy": "node scripts/attach-golden-path-deploy.mjs",
     "proof:export": "node scripts/public-proof-export.mjs",
     "prepare": "husky"

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-01T01:15:17.599Z",
+  "generated_at": "2026-06-01T02:23:56.488Z",
   "generated_by": "scripts/public-proof-export.mjs",
   "privacy": "public-safe",
   "target_surface": {
@@ -24,7 +24,7 @@
     },
     {
       "claim": "Assets are scored before they are reused.",
-      "evidence": "136 public assets scored; public average 14/100, public load-bearing average 54/100. This is a gap map, not vanity scoring.",
+      "evidence": "136 public assets scored; public average 14/100, public load-bearing average 73/100. This is a gap map, not vanity scoring.",
       "source": "data/ecosystem-scorecard.public.json"
     },
     {
@@ -34,7 +34,7 @@
     },
     {
       "claim": "The factory path has deployed public proof.",
-      "evidence": "8/8 golden-path gates passed; deployed URL verified at https://sage-client-intake-portal-vercel.vercel.app.",
+      "evidence": "9/9 golden-path gates passed; deployed URL verified at https://sage-client-intake-portal-vercel.vercel.app.",
       "source": "data/golden-path-runs.public.json"
     }
   ],
@@ -65,12 +65,12 @@
     "private_repositories_summarized": 26,
     "public_assets_scored": 136,
     "average_public_score": 14,
-    "load_bearing_assets": 17,
-    "load_bearing_average_score": 54,
+    "load_bearing_assets": 11,
+    "load_bearing_average_score": 73,
     "resource_use_cases": 7,
-    "golden_path_wall_clock_seconds": 113,
-    "golden_path_gates_passed": 8,
-    "golden_path_gate_count": 8,
+    "golden_path_wall_clock_seconds": 83,
+    "golden_path_gates_passed": 9,
+    "golden_path_gate_count": 9,
     "golden_path_verify_checks": {
       "passed": 8,
       "total": 8
@@ -121,7 +121,7 @@
     {
       "slug": "golden-path",
       "title": "Golden Path",
-      "body": "Latest proof run client-intake-portal-2026-06-01T004907152Z generated, built, started, verified locally, and verified the deployed app at https://sage-client-intake-portal-vercel.vercel.app with hash sha256:b9fbd4e6187a96a67160d20ea4c55f71b86d5c288974d0b92b86e4b9d69b3f6f."
+      "body": "Latest proof run client-intake-portal-2026-06-01T021207279Z generated, built, started, verified locally, and verified the deployed app at https://sage-client-intake-portal-vercel.vercel.app with hash sha256:559b63641017c3ed7377476f5f5590391a571cf0c2e6f1bc98954abad95960fc."
     },
     {
       "slug": "redaction-boundary",
@@ -148,11 +148,11 @@
       "exports/sageideas-dev/engineering-os-proof.json",
       "exports/sageideas-dev/engineering-os-proof.md"
     ],
-    "golden_path_hash": "sha256:b9fbd4e6187a96a67160d20ea4c55f71b86d5c288974d0b92b86e4b9d69b3f6f",
-    "golden_path_run_id": "client-intake-portal-2026-06-01T004907152Z",
+    "golden_path_hash": "sha256:559b63641017c3ed7377476f5f5590391a571cf0c2e6f1bc98954abad95960fc",
+    "golden_path_run_id": "client-intake-portal-2026-06-01T021207279Z",
     "golden_path_deployed_url": "https://sage-client-intake-portal-vercel.vercel.app",
     "golden_path_deploy_status": "verified-vercel-url",
-    "packet_hash": "sha256:61820a47255d17ec4d41931588cafb024363fa56d08e79374db7dec433929faa"
+    "packet_hash": "sha256:443d3b63cd075a0babfa4a72b754d0a84f210a2ade6b7522a2b4044f594a0b97"
   },
   "redaction_policy": [
     "Commit public repository metadata only.",
@@ -162,7 +162,6 @@
     "Publish gaps honestly, including non-production mock credentials or missing hosted proof when applicable."
   ],
   "remaining_gaps": [
-    "sageideas.dev has not consumed this export in this commit because that repo currently has a large pre-existing dirty worktree.",
     "Private asset maturity still needs local review before public claims can include deeper implementation detail."
   ]
 }

@@ -2,8 +2,8 @@
 
 **Status:** Phase 6 export-ready
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-06-01T01:15:17.599Z
-**Packet hash:** `sha256:61820a47255d17ec4d41931588cafb024363fa56d08e79374db7dec433929faa`
+**Generated:** 2026-06-01T02:23:56.488Z
+**Packet hash:** `sha256:443d3b63cd075a0babfa4a72b754d0a84f210a2ade6b7522a2b4044f594a0b97`
 
 ## Positioning
 
@@ -17,16 +17,16 @@ Brand boundary: Nexural is a trading/investment product proof, not the umbrella 
 - Private repositories summarized: 26
 - Public assets scored: 136
 - Broad public average: 14/100
-- Load-bearing average: 54/100
+- Load-bearing average: 73/100
 - Resource use cases: 7
-- Golden path: 8/8 gates in 113s
+- Golden path: 9/9 gates in 83s
 
 ## Public Claims
 
 - **The ecosystem has an indexed public registry.** 136 public repositories indexed; 26 private repositories summarized without names. Source: `data/ecosystem-registry.public.json`.
-- **Assets are scored before they are reused.** 136 public assets scored; public average 14/100, public load-bearing average 54/100. This is a gap map, not vanity scoring. Source: `data/ecosystem-scorecard.public.json`.
+- **Assets are scored before they are reused.** 136 public assets scored; public average 14/100, public load-bearing average 73/100. This is a gap map, not vanity scoring. Source: `data/ecosystem-scorecard.public.json`.
 - **Build choices are mapped to reusable resources.** 7 use cases mapped for daily navigation. Source: `data/ecosystem-resource-map.public.json`.
-- **The factory path has deployed public proof.** 8/8 golden-path gates passed; deployed URL verified at https://sage-client-intake-portal-vercel.vercel.app. Source: `data/golden-path-runs.public.json`.
+- **The factory path has deployed public proof.** 9/9 golden-path gates passed; deployed URL verified at https://sage-client-intake-portal-vercel.vercel.app. Source: `data/golden-path-runs.public.json`.
 
 ## Architecture
 
@@ -53,7 +53,7 @@ Show registry counts, scorecard averages, use-case coverage, and golden-path gat
 
 ### Golden Path
 
-Latest proof run client-intake-portal-2026-06-01T004907152Z generated, built, started, verified locally, and verified the deployed app at https://sage-client-intake-portal-vercel.vercel.app with hash sha256:b9fbd4e6187a96a67160d20ea4c55f71b86d5c288974d0b92b86e4b9d69b3f6f.
+Latest proof run client-intake-portal-2026-06-01T021207279Z generated, built, started, verified locally, and verified the deployed app at https://sage-client-intake-portal-vercel.vercel.app with hash sha256:559b63641017c3ed7377476f5f5590391a571cf0c2e6f1bc98954abad95960fc.
 
 ### Redaction Boundary
 
@@ -73,7 +73,6 @@ Publish current limitations directly: deployed proof uses public-safe mock runti
 
 ## Remaining Gaps
 
-- sageideas.dev has not consumed this export in this commit because that repo currently has a large pre-existing dirty worktree.
 - Private asset maturity still needs local review before public claims can include deeper implementation detail.
 
 ## Export Targets
