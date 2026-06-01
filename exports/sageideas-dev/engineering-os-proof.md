@@ -2,8 +2,8 @@
 
 **Status:** Phase 6 export-ready
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-06-01T00:02:06.443Z
-**Packet hash:** `sha256:657307e634c055a6b49c1a1e003cd0044d55ed3241603ec151240e7d27ea77ea`
+**Generated:** 2026-06-01T00:53:07.360Z
+**Packet hash:** `sha256:d3333044f4e57a7dbd5320b5896d7e4b9e7003c96baff489f1fda45d2871cb07`
 
 ## Positioning
 
@@ -14,19 +14,19 @@ Brand boundary: Nexural is a trading/investment product proof, not the umbrella 
 ## Proof Metrics
 
 - Public repositories indexed: 136
-- Private repositories summarized: 24
-- Public assets scored: 160
-- Broad public average: 20/100
-- Load-bearing average: 60/100
+- Private repositories summarized: 26
+- Public assets scored: 136
+- Broad public average: 14/100
+- Load-bearing average: 54/100
 - Resource use cases: 7
-- Golden path: 7/7 gates in 69s
+- Golden path: 7/7 gates in 113s
 
 ## Public Claims
 
-- **The ecosystem has an indexed public registry.** 136 public repositories indexed; 24 private repositories summarized without names. Source: `data/ecosystem-registry.public.json`.
-- **Assets are scored before they are reused.** 160 public assets scored; broad average 20/100, load-bearing average 60/100. This is a gap map, not vanity scoring. Source: `data/ecosystem-scorecard.public.json`.
+- **The ecosystem has an indexed public registry.** 136 public repositories indexed; 26 private repositories summarized without names. Source: `data/ecosystem-registry.public.json`.
+- **Assets are scored before they are reused.** 136 public assets scored; public average 14/100, public load-bearing average 54/100. This is a gap map, not vanity scoring. Source: `data/ecosystem-scorecard.public.json`.
 - **Build choices are mapped to reusable resources.** 7 use cases mapped for daily navigation. Source: `data/ecosystem-resource-map.public.json`.
-- **The factory path has a repeatable local proof.** 7/7 golden-path gates passed in 69 seconds. Source: `data/golden-path-runs.public.json`.
+- **The factory path has a repeatable local proof.** 7/7 golden-path gates passed in 113 seconds. Source: `data/golden-path-runs.public.json`.
 
 ## Architecture
 
@@ -53,7 +53,7 @@ Show registry counts, scorecard averages, use-case coverage, and golden-path gat
 
 ### Golden Path
 
-Latest proof run client-intake-portal-2026-05-31T234646217Z generated, built, started, and verified a local app with hash sha256:97ed607944ffc87872ba5d06f5223c364f75000171179a33a3ea6b90555d5977.
+Latest proof run client-intake-portal-2026-06-01T004907152Z generated, built, started, and verified a local app with hash sha256:b9fbd4e6187a96a67160d20ea4c55f71b86d5c288974d0b92b86e4b9d69b3f6f.
 
 ### Redaction Boundary
 

@@ -1,20 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-31T23:47:55.499Z",
+  "generated_at": "2026-06-01T00:51:00.187Z",
   "generated_by": "scripts/golden-path-proof.mjs",
   "privacy": "public-safe",
-  "current_run_id": "client-intake-portal-2026-05-31T234646217Z",
+  "current_run_id": "client-intake-portal-2026-06-01T004907152Z",
   "totals": {
     "runs": 1,
     "passed_runs": 1,
     "latest_gate_count": 7,
-    "latest_wall_clock_ms": 69280
+    "latest_wall_clock_ms": 113033
   },
   "runs": [
     {
       "schema_version": 1,
-      "run_id": "client-intake-portal-2026-05-31T234646217Z",
-      "generated_at": "2026-05-31T23:46:46.217Z",
+      "run_id": "client-intake-portal-2026-06-01T004907152Z",
+      "generated_at": "2026-06-01T00:49:07.152Z",
       "generated_by": "scripts/golden-path-proof.mjs",
       "privacy": "public-safe",
       "spec": {
@@ -36,9 +36,9 @@
         }
       ],
       "generated_app": {
-        "local_path": "%TEMP%\\sage-golden-path-client-intake-portal-2026-05-31T234646217Z\\client-intake-portal",
+        "local_path": "%TEMP%\\sage-golden-path-client-intake-portal-2026-06-01T004907152Z\\client-intake-portal",
         "file_count": 31,
-        "tree_hash": "sha256:97ed607944ffc87872ba5d06f5223c364f75000171179a33a3ea6b90555d5977",
+        "tree_hash": "sha256:b9fbd4e6187a96a67160d20ea4c55f71b86d5c288974d0b92b86e4b9d69b3f6f",
         "hashed_files": 31
       },
       "runtime": {
@@ -60,8 +60,8 @@
           "label": "Forge emit",
           "status": "passed",
           "detail": "31 files emitted by internal-tool-dashboard.",
-          "command": "npx.cmd --yes tsx apps/cli/src/bin/nx.ts forge internal-tool-dashboard client-intake-portal --inputs %TEMP%\\sage-golden-path-client-intake-portal-2026-05-31T234646217Z\\inputs.json --mock-secrets --out-dir %TEMP%\\sage-golden-path-client-intake-portal-2026-05-31T234646217Z\\client-intake-portal",
-          "duration_ms": 2566
+          "command": "npx.cmd --yes tsx apps/cli/src/bin/nx.ts forge internal-tool-dashboard client-intake-portal --inputs %TEMP%\\sage-golden-path-client-intake-portal-2026-06-01T004907152Z\\inputs.json --mock-secrets --out-dir %TEMP%\\sage-golden-path-client-intake-portal-2026-06-01T004907152Z\\client-intake-portal",
+          "duration_ms": 21190
         },
         {
           "id": "install",
@@ -69,7 +69,7 @@
           "status": "passed",
           "detail": "exit 0",
           "command": "pnpm.cmd install --ignore-scripts",
-          "duration_ms": 28562
+          "duration_ms": 27222
         },
         {
           "id": "typecheck",
@@ -77,7 +77,7 @@
           "status": "passed",
           "detail": "exit 0",
           "command": "pnpm.cmd typecheck",
-          "duration_ms": 2953
+          "duration_ms": 14423
         },
         {
           "id": "build",
@@ -85,14 +85,14 @@
           "status": "passed",
           "detail": "exit 0",
           "command": "pnpm.cmd build",
-          "duration_ms": 27954
+          "duration_ms": 43372
         },
         {
           "id": "local_runtime",
           "label": "Start local runtime",
           "status": "passed",
           "detail": "HTTP 200 from /api/health.",
-          "duration_ms": 1219
+          "duration_ms": 1434
         },
         {
           "id": "nx_verify",
@@ -100,7 +100,7 @@
           "status": "passed",
           "detail": "8/8 checks passed.",
           "command": "npx.cmd --yes tsx apps/cli/src/bin/nx.ts verify http://127.0.0.1:3041 --evidence-slug client-intake-portal-local --timeout 20000",
-          "duration_ms": 2919
+          "duration_ms": 2425
         }
       ],
       "evidence": {
@@ -126,7 +126,7 @@
         "No public Vercel preview was created because VERCEL_TOKEN is not set in this shell.",
         "Runtime proof uses mock credentials and local Next server; production auth/database credentials are intentionally not committed."
       ],
-      "wall_clock_ms": 69280
+      "wall_clock_ms": 113033
     }
   ]
 }

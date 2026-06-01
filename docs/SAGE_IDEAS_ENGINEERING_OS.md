@@ -74,17 +74,17 @@ Sage Ideas is the umbrella. Nexural is not the umbrella.
 
 ## Phase Path
 
-| Phase | Outcome                                                                    |
-| ----- | -------------------------------------------------------------------------- |
-| 0     | Naming, constitution, and brand hierarchy are locked.                      |
-| 1     | Ecosystem registry inventories all repos, engines, and capabilities.       |
-| 2     | Maturity model scores every asset and exposes real gaps.                   |
-| 3     | Service-level control plane syncs GitHub, QA, evidence, and registry data. |
-| 4     | Internal resource factory UI makes the registry usable every day.          |
-| 5     | Golden path proves idea to deployed app to evidence.                       |
-| 6     | Public proof layer on `sageideas.dev` shows the system safely.             |
-| 7     | Automation loops keep the ecosystem current.                               |
-| 8     | Hardening brings the system to 95-99+ across the board.                    |
+| Phase | Outcome                                                                        |
+| ----- | ------------------------------------------------------------------------------ |
+| 0     | Naming, constitution, and brand hierarchy are locked.                          |
+| 1     | Ecosystem registry inventories all repos, engines, and capabilities.           |
+| 2     | Maturity model scores every asset and exposes real gaps.                       |
+| 3     | Service-level control plane syncs GitHub, QA, evidence, and registry data.     |
+| 4     | Internal resource factory UI makes the registry usable every day.              |
+| 5     | Golden path proves idea to deployed app to evidence.                           |
+| 6     | Public proof layer on `sageideas.dev` shows the system safely.                 |
+| 7     | Automation loops keep the ecosystem current through `pnpm ecosystem:maintain`. |
+| 8     | Hardening brings the system to 95-99+ across the board.                        |
 
 ## Done For Phase 0
 

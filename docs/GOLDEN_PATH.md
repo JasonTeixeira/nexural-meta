@@ -2,7 +2,7 @@
 
 **Status:** Phase 5 local golden path passed
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-05-31T23:47:55.499Z
+**Generated:** 2026-06-01T00:51:00.187Z
 
 ## What This Proves
 
@@ -10,13 +10,13 @@ A public-safe app spec can select resources, forge a real Next.js app, install d
 
 ## Latest Run
 
-- Run ID: `client-intake-portal-2026-05-31T234646217Z`
+- Run ID: `client-intake-portal-2026-06-01T004907152Z`
 - Spec: `data/golden-path-specs/client-intake-portal.json`
 - Recipe: `internal-tool-dashboard`
 - App: `client-intake-portal`
 - Local runtime: `http://127.0.0.1:3041`
-- Generated app hash: `sha256:97ed607944ffc87872ba5d06f5223c364f75000171179a33a3ea6b90555d5977`
-- Wall clock: 69s
+- Generated app hash: `sha256:b9fbd4e6187a96a67160d20ea4c55f71b86d5c288974d0b92b86e4b9d69b3f6f`
+- Wall clock: 113s
 
 ## Gates
 

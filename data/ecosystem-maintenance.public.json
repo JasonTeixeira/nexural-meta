@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-06-01T00:59:19.663Z",
+  "generated_by": "scripts/ecosystem-maintenance.mjs",
+  "privacy": "public-safe",
+  "phase": "Phase 7",
+  "mode": "check-only",
+  "summary": {
+    "status": "passed",
+    "commands_total": 0,
+    "commands_passed": 0,
+    "artifacts_total": 7,
+    "fresh_artifacts": 7,
+    "stale_or_missing_artifacts": 0,
+    "public_repositories_indexed": 136,
+    "private_repositories_summarized": 26,
+    "public_assets_scored": 136,
+    "load_bearing_average_score": 54,
+    "resource_use_cases": 7,
+    "latest_golden_path_run_id": "client-intake-portal-2026-06-01T004907152Z",
+    "latest_golden_path_gates_passed": 7,
+    "latest_golden_path_gate_count": 7,
+    "public_proof_packet_hash": "sha256:d3333044f4e57a7dbd5320b5896d7e4b9e7003c96baff489f1fda45d2871cb07"
+  },
+  "commands": [],
+  "artifacts": [
+    {
+      "id": "registry",
+      "path": "data/ecosystem-registry.public.json",
+      "max_age_hours": 48,
+      "required": true,
+      "present": true,
+      "status": "fresh",
+      "hash": "sha256:eccae4582652a1b26166e2ef685cbd1ba23e9046602381ead0ecf07d673aa6ad",
+      "generated_at": "2026-06-01T00:48:50.044Z",
+      "age_hours": 0.2,
+      "size_bytes": 158588
+    },
+    {
+      "id": "scorecard",
+      "path": "data/ecosystem-scorecard.public.json",
+      "max_age_hours": 48,
+      "required": true,
+      "present": true,
+      "status": "fresh",
+      "hash": "sha256:ca1c0b7b675a5f794f7b9992697fa9dcbc7d01aa4ccb63ce55d255c2b54eda42",
+      "generated_at": "2026-06-01T00:49:06.387Z",
+      "age_hours": 0.2,
+      "size_bytes": 205289
+    },
+    {
+      "id": "resource_map",
+      "path": "data/ecosystem-resource-map.public.json",
+      "max_age_hours": 48,
+      "required": true,
+      "present": true,
+      "status": "fresh",
+      "hash": "sha256:fc1c0fdc2eb8911f39f56e57d9a542c73caae3bfaf32f75a64ee250216241d9a",
+      "generated_at": "2026-06-01T00:49:06.766Z",
+      "age_hours": 0.2,
+      "size_bytes": 24436
+    },
+    {
+      "id": "golden_path",
+      "path": "data/golden-path-runs.public.json",
+      "max_age_hours": 168,
+      "required": true,
+      "present": true,
+      "status": "fresh",
+      "hash": "sha256:ac8126744dba143f6c62c5483b50ffb9151fc5989f050c6e8fe244ac3e90b098",
+      "generated_at": "2026-06-01T00:51:00.187Z",
+      "age_hours": 0.1,
+      "size_bytes": 5074
+    },
+    {
+      "id": "public_proof",
+      "path": "data/public-proof-layer.public.json",
+      "max_age_hours": 48,
+      "required": true,
+      "present": true,
+      "status": "fresh",
+      "hash": "sha256:6e8841ae84f4e6b682877ce88299cb7dd415c3afc473a51b3af55636504dc84d",
+      "generated_at": "2026-06-01T00:53:07.360Z",
+      "age_hours": 0.1,
+      "size_bytes": 6630
+    },
+    {
+      "id": "proof_export_json",
+      "path": "exports/sageideas-dev/engineering-os-proof.json",
+      "max_age_hours": 48,
+      "required": true,
+      "present": true,
+      "status": "fresh",
+      "hash": "sha256:6e8841ae84f4e6b682877ce88299cb7dd415c3afc473a51b3af55636504dc84d",
+      "generated_at": "2026-06-01T00:53:07.360Z",
+      "age_hours": 0.1,
+      "size_bytes": 6630
+    },
+    {
+      "id": "proof_export_markdown",
+      "path": "exports/sageideas-dev/engineering-os-proof.md",
+      "max_age_hours": 48,
+      "required": true,
+      "present": true,
+      "status": "fresh",
+      "hash": "sha256:82330521117c50fa866195f38c758c3c82eaf7d0d4010799f794defe21f3812f",
+      "generated_at": null,
+      "age_hours": 0.1,
+      "size_bytes": 4103
+    }
+  ],
+  "source_metrics": {
+    "registry": {
+      "generated_at": "2026-06-01T00:48:50.044Z",
+      "public": 136,
+      "private_summary": 26
+    },
+    "scorecard": {
+      "generated_at": "2026-06-01T00:49:06.387Z",
+      "public_assets": 136,
+      "public_average_score": 14,
+      "public_load_bearing_average_score": 54,
+      "all_assets_summarized": 162,
+      "top_gap_types": {
+        "missing-topics": 147,
+        "maturity-l0": 134,
+        "reference-only": 48,
+        "archived": 47,
+        "missing-license": 44,
+        "needs-private-override-review": 26,
+        "load-bearing-under-70": 22,
+        "stale": 22,
+        "missing-public-proof": 1
+      }
+    },
+    "resource_map": {
+      "generated_at": "2026-06-01T00:49:06.766Z",
+      "use_cases": 7,
+      "recommended_assets": 9
+    },
+    "golden_path": {
+      "generated_at": "2026-06-01T00:51:00.187Z",
+      "run_id": "client-intake-portal-2026-06-01T004907152Z",
+      "gates_passed": 7,
+      "gate_count": 7,
+      "wall_clock_seconds": 113,
+      "deploy_status": "blocked-no-vercel-token"
+    },
+    "public_proof": {
+      "generated_at": "2026-06-01T00:53:07.360Z",
+      "packet_hash": "sha256:d3333044f4e57a7dbd5320b5896d7e4b9e7003c96baff489f1fda45d2871cb07",
+      "target_route": "/engineering-os",
+      "remaining_gaps": [
+        "sageideas.dev has not consumed this export in this commit because that repo currently has a large pre-existing dirty worktree.",
+        "The golden path is local-runtime proof; Vercel deployment remains blocked until VERCEL_TOKEN is available.",
+        "Private asset maturity still needs local review before public claims can include deeper implementation detail."
+      ]
+    }
+  },
+  "git": {
+    "branch": "phase7-ecosystem-maintenance-loop",
+    "head_sha": "208106ddac96df78ccdfeeb3b145aa100c2a3314",
+    "changed_paths": [
+      "A  .github/workflows/ecosystem-maintenance.yml",
+      "M  .gitignore",
+      "M  apps/cli/test/ask.test.ts",
+      "M  apps/cli/test/forge.test.ts",
+      "A  data/ecosystem-maintenance.public.json",
+      "M  data/ecosystem-registry.public.json",
+      "M  data/ecosystem-resource-map.public.json",
+      "M  data/ecosystem-scorecard.public.json",
+      "M  data/golden-path-runs.public.json",
+      "M  data/public-proof-layer.public.json",
+      "M  docs/DAILY_OPS.md",
+      "M  docs/ECOSYSTEM_INVENTORY.md",
+      "A  docs/ECOSYSTEM_MAINTENANCE.md",
+      "M  docs/ECOSYSTEM_RESOURCE_FACTORY.md",
+      "M  docs/ECOSYSTEM_SCORECARD.md",
+      "M  docs/GOLDEN_PATH.md",
+      "M  docs/INDEX.md",
+      "M  docs/PUBLIC_PROOF_LAYER.md",
+      "M  docs/SAGE_IDEAS_ENGINEERING_OS.md",
+      "M  evidence/gate-5/client-intake-portal-local/report.json",
+      "A  evidence/golden-path/client-intake-portal-2026-06-01T004907152Z.json",
+      "M  evidence/golden-path/latest.json",
+      "A  evidence/maintenance/latest.json",
+      "M  evidence/public-proof/latest.json",
+      "M  exports/sageideas-dev/engineering-os-proof.json",
+      "M  exports/sageideas-dev/engineering-os-proof.md",
+      "M  package.json",
+      "AM scripts/ecosystem-maintenance.mjs",
+      "M  scripts/public-proof-export.mjs"
+    ],
+    "changed_count": 29
+  },
+  "next_actions": [
+    {
+      "severity": "warn",
+      "owner": "Sage",
+      "action": "Raise load-bearing ecosystem average above 70",
+      "evidence": "Current load-bearing average is 60/100."
+    },
+    {
+      "severity": "warn",
+      "owner": "Sage",
+      "action": "Provide live deploy credentials when Phase 8 requires hosted proof",
+      "evidence": "blocked-no-vercel-token"
+    },
+    {
+      "severity": "info",
+      "owner": "Sage",
+      "action": "Review public proof remaining gaps before publishing claims",
+      "evidence": "3 remaining gaps in public proof packet."
+    },
+    {
+      "severity": "info",
+      "owner": "operator",
+      "action": "Review and commit generated maintenance artifacts",
+      "evidence": "29 changed path(s) after maintenance run."
+    }
+  ],
+  "started_at": "2026-06-01T00:59:19.662Z",
+  "finished_at": "2026-06-01T00:59:19.663Z"
+}

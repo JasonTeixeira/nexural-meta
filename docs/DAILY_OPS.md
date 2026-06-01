@@ -99,6 +99,9 @@ cd ~/code/nexural/nexural-meta
 # Pull anything that landed remotely
 git pull --rebase
 
+# Regenerate the self-maintenance report
+pnpm ecosystem:maintain -- --check
+
 # Run the federation health check
 node scripts/health-check.mjs
 
@@ -108,6 +111,15 @@ cat evidence/health/$(ls -t evidence/health/ | head -1) | jq .summary
 ```
 
 The 5 federation runners catch decay before it becomes drift.
+
+When you want the full Phase 7 loop instead of a check-only glance:
+
+```bash
+pnpm ecosystem:maintain
+```
+
+That regenerates the ecosystem inventory, maturity scorecard, resource map,
+golden-path proof, public proof packet, and `docs/ECOSYSTEM_MAINTENANCE.md`.
 
 ---
 

@@ -2,7 +2,7 @@
 
 **Status:** Phase 2 generated maturity map
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-05-31T21:25:40.966Z
+**Generated:** 2026-06-01T00:49:06.387Z
 
 ## Read This Correctly
 
@@ -12,16 +12,16 @@ A large reference library intentionally scores low because reference repos are r
 ## Executive Scores
 
 - Average across all repos: **20/100**
-- Load-bearing asset average: **60/100** across **32** assets
-- Private repo average: **52/100**
+- Load-bearing asset average: **60/100** across **34** assets
+- Private repo average: **53/100**
 
 ## Score Bands
 
 | Band               | Count |
 | ------------------ | ----: |
 | 0-49 raw/reference |   138 |
+| 50-69 incomplete   |    12 |
 | 70-84 usable       |     9 |
-| 50-69 incomplete   |    10 |
 | 95-100 elite       |     2 |
 | 85-94 strong       |     1 |
 
@@ -41,14 +41,14 @@ A large reference library intentionally scores low because reference repos are r
 
 | Gap                           | Count |
 | ----------------------------- | ----: |
-| missing-topics                |   145 |
+| missing-topics                |   147 |
 | maturity-l0                   |   134 |
 | reference-only                |    48 |
 | archived                      |    47 |
 | missing-license               |    44 |
-| needs-private-override-review |    24 |
+| needs-private-override-review |    26 |
+| load-bearing-under-70         |    22 |
 | stale                         |    22 |
-| load-bearing-under-70         |    20 |
 | missing-public-proof          |     1 |
 
 ## Public Load-Bearing Assets Below 70
@@ -69,6 +69,6 @@ A large reference library intentionally scores low because reference repos are r
 
 ## Next Actions
 
-- **Review private overrides:** 24 private repos are still classified by generic inference.
+- **Review private overrides:** 26 private repos are still classified by generic inference.
 - **Separate reference library from product proof narrative:** 122 repos are reference/library assets and should not dilute the public engineering story.
-- **Raise load-bearing assets below 70:** 20 load-bearing assets need docs, evidence, topics, homepage, or maturity upgrades.
+- **Raise load-bearing assets below 70:** 22 load-bearing assets need docs, evidence, topics, homepage, or maturity upgrades.

@@ -1,54 +1,54 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-31T21:25:40.966Z",
+  "generated_at": "2026-06-01T00:49:06.387Z",
   "generated_by": "scripts/ecosystem-scorecard.mjs",
-  "source_generated_at": "2026-05-31T21:22:30.447Z",
+  "source_generated_at": "2026-06-01T00:48:50.044Z",
   "privacy": "public-safe",
   "note": "Private repositories are scored internally and summarized by count only. Full scorecard is generated locally at .nexural/private/ecosystem-scorecard.internal.json.",
   "totals": {
-    "total": 160,
+    "total": 162,
     "average_score": 20,
-    "load_bearing_count": 32,
+    "load_bearing_count": 34,
     "load_bearing_average_score": 60,
     "by_band": {
       "0-49 raw/reference": 138,
+      "50-69 incomplete": 12,
       "70-84 usable": 9,
-      "50-69 incomplete": 10,
       "95-100 elite": 2,
       "85-94 strong": 1
     },
     "by_maturity": {
       "L0": 134,
-      "L2": 19,
+      "L2": 21,
       "L3": 2,
       "L1": 4,
       "L4": 1
     },
     "top_gap_types": {
-      "missing-topics": 145,
+      "missing-topics": 147,
       "maturity-l0": 134,
       "reference-only": 48,
       "archived": 47,
       "missing-license": 44,
-      "needs-private-override-review": 24,
+      "needs-private-override-review": 26,
+      "load-bearing-under-70": 22,
       "stale": 22,
-      "load-bearing-under-70": 20,
       "missing-public-proof": 1
     }
   },
   "private_summary": {
-    "total_private": 24,
-    "average_score": 52,
+    "total_private": 26,
+    "average_score": 53,
     "by_band": {
+      "50-69 incomplete": 8,
       "70-84 usable": 6,
-      "0-49 raw/reference": 12,
-      "50-69 incomplete": 6
+      "0-49 raw/reference": 12
     },
     "by_layer": {
       "agent-engine": {
-        "count": 1,
-        "average_score": 73,
-        "load_bearing_count": 1
+        "count": 2,
+        "average_score": 71,
+        "load_bearing_count": 2
       },
       "app-factory-runtime": {
         "count": 4,
@@ -56,9 +56,9 @@
         "load_bearing_count": 0
       },
       "ops-knowledge": {
-        "count": 2,
+        "count": 3,
         "average_score": 68,
-        "load_bearing_count": 2
+        "load_bearing_count": 3
       },
       "product-proof": {
         "count": 3,
@@ -92,10 +92,10 @@
       }
     },
     "top_gap_types": {
-      "needs-private-override-review": 24,
-      "missing-topics": 22,
+      "needs-private-override-review": 26,
+      "missing-topics": 24,
+      "load-bearing-under-70": 11,
       "maturity-l0": 9,
-      "load-bearing-under-70": 9,
       "stale": 1
     }
   },
@@ -340,7 +340,7 @@
       },
       "operational": {
         "status": "active",
-        "stale_days": 29,
+        "stale_days": 30,
         "needs_private_review": false
       },
       "score": {
@@ -388,7 +388,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 143,
+        "stale_days": 144,
         "needs_private_review": false
       },
       "score": {
@@ -772,7 +772,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 638,
+        "stale_days": 639,
         "needs_private_review": false
       },
       "score": {
@@ -964,7 +964,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 472,
+        "stale_days": 473,
         "needs_private_review": false
       },
       "score": {
@@ -1300,7 +1300,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 16,
+        "stale_days": 17,
         "needs_private_review": false
       },
       "score": {
@@ -1588,7 +1588,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 30,
+        "stale_days": 31,
         "needs_private_review": false
       },
       "score": {
@@ -1828,7 +1828,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 199,
+        "stale_days": 200,
         "needs_private_review": false
       },
       "score": {
@@ -2356,7 +2356,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 143,
+        "stale_days": 144,
         "needs_private_review": false
       },
       "score": {
@@ -2548,7 +2548,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 15,
+        "stale_days": 16,
         "needs_private_review": false
       },
       "score": {
@@ -2596,7 +2596,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 12,
+        "stale_days": 13,
         "needs_private_review": false
       },
       "score": {
@@ -2740,7 +2740,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 6,
+        "stale_days": 7,
         "needs_private_review": false
       },
       "score": {
@@ -3220,7 +3220,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 140,
+        "stale_days": 141,
         "needs_private_review": false
       },
       "score": {
@@ -3604,7 +3604,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 143,
+        "stale_days": 144,
         "needs_private_review": false
       },
       "score": {
@@ -3652,7 +3652,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 10,
+        "stale_days": 11,
         "needs_private_review": false
       },
       "score": {
@@ -4037,12 +4037,12 @@
       "topics": [],
       "homepage_url": null,
       "created_at": "2026-05-22T12:11:28Z",
-      "pushed_at": "2026-05-31T21:18:09Z",
-      "updated_at": "2026-05-31T21:18:13Z",
+      "pushed_at": "2026-06-01T00:08:36Z",
+      "updated_at": "2026-06-01T00:08:40Z",
       "default_branch": "main",
       "license": null,
       "parent": null,
-      "disk_usage_kb": 1248,
+      "disk_usage_kb": 1335,
       "stargazers": 0,
       "canonical": {
         "canonical_name": "Sage Ideas Engineering OS Control Plane",
@@ -4445,7 +4445,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 477,
+        "stale_days": 478,
         "needs_private_review": false
       },
       "score": {
@@ -4685,7 +4685,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 33,
+        "stale_days": 34,
         "needs_private_review": false
       },
       "score": {
@@ -5021,7 +5021,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 33,
+        "stale_days": 34,
         "needs_private_review": false
       },
       "score": {
@@ -5052,7 +5052,7 @@
       "topics": [],
       "homepage_url": "https://qa-portfolio-peach.vercel.app",
       "created_at": "2026-01-07T18:07:52Z",
-      "pushed_at": "2026-05-31T06:32:26Z",
+      "pushed_at": "2026-06-01T00:43:07Z",
       "updated_at": "2026-05-31T06:32:29Z",
       "default_branch": "main",
       "license": null,
@@ -5549,7 +5549,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 200,
+        "stale_days": 201,
         "needs_private_review": false
       },
       "score": {
@@ -5597,7 +5597,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 33,
+        "stale_days": 34,
         "needs_private_review": false
       },
       "score": {
@@ -5789,7 +5789,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 536,
+        "stale_days": 537,
         "needs_private_review": false
       },
       "score": {
@@ -6029,7 +6029,7 @@
       },
       "operational": {
         "status": "active",
-        "stale_days": 28,
+        "stale_days": 29,
         "needs_private_review": false
       },
       "score": {
@@ -6509,7 +6509,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 143,
+        "stale_days": 144,
         "needs_private_review": false
       },
       "score": {
@@ -6710,7 +6710,7 @@
   "next_actions": [
     {
       "action": "Review private overrides",
-      "reason": "24 private repos are still classified by generic inference.",
+      "reason": "26 private repos are still classified by generic inference.",
       "phase": "Phase 2"
     },
     {
@@ -6720,7 +6720,7 @@
     },
     {
       "action": "Raise load-bearing assets below 70",
-      "reason": "20 load-bearing assets need docs, evidence, topics, homepage, or maturity upgrades.",
+      "reason": "22 load-bearing assets need docs, evidence, topics, homepage, or maturity upgrades.",
       "phase": "Phase 3-5"
     }
   ]

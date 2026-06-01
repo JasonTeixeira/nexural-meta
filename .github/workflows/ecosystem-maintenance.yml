@@ -1,0 +1,75 @@
+name: Ecosystem maintenance
+
+on:
+  schedule:
+    - cron: "0 9 * * 1" # Monday 09:00 UTC, after weekly health check
+  workflow_dispatch:
+    inputs:
+      run_golden:
+        description: "Run the local golden-path proof"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  maintain:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Run Phase 7 maintenance loop
+        env:
+          GH_TOKEN: ${{ secrets.SAGE_ECOSYSTEM_GITHUB_TOKEN || github.token }}
+        run: |
+          args="--allow-failures"
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" && "${{ inputs.run_golden }}" == "false" ]]; then
+            args="$args --skip-golden"
+          fi
+          pnpm ecosystem:maintain -- $args
+
+      - name: Open PR if generated artifacts changed
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: "chore(ecosystem): phase 7 maintenance refresh"
+          title: "chore(ecosystem): phase 7 maintenance refresh"
+          body: |
+            Automated Phase 7 maintenance refresh.
+
+            This workflow regenerates the Sage Ideas Engineering OS registry,
+            scorecard, resource map, golden-path proof, public proof export,
+            and maintenance report.
+
+            If private repository totals look low, configure
+            `SAGE_ECOSYSTEM_GITHUB_TOKEN` with read access across the ecosystem.
+          branch: chore/ecosystem-maintenance
+          delete-branch: true
+          add-paths: |
+            data/ecosystem-registry.public.json
+            data/ecosystem-scorecard.public.json
+            data/ecosystem-resource-map.public.json
+            data/golden-path-runs.public.json
+            data/public-proof-layer.public.json
+            data/ecosystem-maintenance.public.json
+            docs/ECOSYSTEM_INVENTORY.md
+            docs/ECOSYSTEM_SCORECARD.md
+            docs/ECOSYSTEM_RESOURCE_FACTORY.md
+            docs/GOLDEN_PATH.md
+            docs/PUBLIC_PROOF_LAYER.md
+            docs/ECOSYSTEM_MAINTENANCE.md
+            evidence/gate-5/client-intake-portal-local/report.json
+            evidence/golden-path/
+            evidence/public-proof/
+            evidence/maintenance/
+            exports/sageideas-dev/

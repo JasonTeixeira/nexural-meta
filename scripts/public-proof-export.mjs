@@ -43,6 +43,7 @@ function main() {
 
   const publicRepos = registry.public_repositories ?? [];
   const scoredRepos = scorecard.public_repositories ?? [];
+  const publicLoadBearing = scoredRepos.filter((repo) => repo.score?.load_bearing);
   const goldenRun = goldenPath.runs?.[0];
   if (!goldenRun) throw new Error("Golden path evidence missing. Run `pnpm golden:path` first.");
 
@@ -71,10 +72,10 @@ function main() {
     proof_metrics: {
       public_repositories_indexed: registry.totals?.public ?? publicRepos.length,
       private_repositories_summarized: registry.private_summary?.total_private ?? 0,
-      public_assets_scored: scorecard.totals?.total ?? scoredRepos.length,
-      average_public_score: scorecard.totals?.average_score ?? 0,
-      load_bearing_assets: scorecard.totals?.load_bearing_count ?? 0,
-      load_bearing_average_score: scorecard.totals?.load_bearing_average_score ?? 0,
+      public_assets_scored: scoredRepos.length,
+      average_public_score: average(scoredRepos.map((repo) => repo.score?.total)),
+      load_bearing_assets: publicLoadBearing.length,
+      load_bearing_average_score: average(publicLoadBearing.map((repo) => repo.score?.total)),
       resource_use_cases: resourceMap.totals?.use_cases ?? 0,
       golden_path_wall_clock_seconds: Math.round(goldenRun.wall_clock_ms / 1000),
       golden_path_gates_passed: goldenRun.gates.filter((gate) => gate.status === "passed").length,
@@ -152,7 +153,7 @@ function buildClaims({ registry, scorecard, resourceMap, goldenRun }) {
     },
     {
       claim: "Assets are scored before they are reused.",
-      evidence: `${scorecard.totals?.total ?? 0} public assets scored; broad average ${scorecard.totals?.average_score ?? 0}/100, load-bearing average ${scorecard.totals?.load_bearing_average_score ?? 0}/100. This is a gap map, not vanity scoring.`,
+      evidence: `${scorecard.public_repositories?.length ?? 0} public assets scored; public average ${average((scorecard.public_repositories ?? []).map((repo) => repo.score?.total))}/100, public load-bearing average ${average((scorecard.public_repositories ?? []).filter((repo) => repo.score?.load_bearing).map((repo) => repo.score?.total))}/100. This is a gap map, not vanity scoring.`,
       source: "data/ecosystem-scorecard.public.json",
     },
     {
@@ -240,6 +241,12 @@ function parseVerifyChecks(goldenRun) {
   const verify = goldenRun.gates.find((gate) => gate.id === "nx_verify");
   const match = verify?.detail?.match(/(\d+)\/(\d+)/);
   return match ? { passed: Number(match[1]), total: Number(match[2]) } : { passed: 0, total: 0 };
+}
+
+function average(values) {
+  const clean = values.filter((value) => Number.isFinite(value));
+  if (clean.length === 0) return 0;
+  return Math.round(clean.reduce((sum, value) => sum + value, 0) / clean.length);
 }
 
 function renderMarkdown(proof) {

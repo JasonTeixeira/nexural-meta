@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-01T00:02:06.443Z",
+  "generated_at": "2026-06-01T00:53:07.360Z",
   "generated_by": "scripts/public-proof-export.mjs",
   "privacy": "public-safe",
   "target_surface": {
@@ -19,12 +19,12 @@
   "public_claims": [
     {
       "claim": "The ecosystem has an indexed public registry.",
-      "evidence": "136 public repositories indexed; 24 private repositories summarized without names.",
+      "evidence": "136 public repositories indexed; 26 private repositories summarized without names.",
       "source": "data/ecosystem-registry.public.json"
     },
     {
       "claim": "Assets are scored before they are reused.",
-      "evidence": "160 public assets scored; broad average 20/100, load-bearing average 60/100. This is a gap map, not vanity scoring.",
+      "evidence": "136 public assets scored; public average 14/100, public load-bearing average 54/100. This is a gap map, not vanity scoring.",
       "source": "data/ecosystem-scorecard.public.json"
     },
     {
@@ -34,7 +34,7 @@
     },
     {
       "claim": "The factory path has a repeatable local proof.",
-      "evidence": "7/7 golden-path gates passed in 69 seconds.",
+      "evidence": "7/7 golden-path gates passed in 113 seconds.",
       "source": "data/golden-path-runs.public.json"
     }
   ],
@@ -62,13 +62,13 @@
   ],
   "proof_metrics": {
     "public_repositories_indexed": 136,
-    "private_repositories_summarized": 24,
-    "public_assets_scored": 160,
-    "average_public_score": 20,
-    "load_bearing_assets": 32,
-    "load_bearing_average_score": 60,
+    "private_repositories_summarized": 26,
+    "public_assets_scored": 136,
+    "average_public_score": 14,
+    "load_bearing_assets": 17,
+    "load_bearing_average_score": 54,
     "resource_use_cases": 7,
-    "golden_path_wall_clock_seconds": 69,
+    "golden_path_wall_clock_seconds": 113,
     "golden_path_gates_passed": 7,
     "golden_path_gate_count": 7,
     "golden_path_verify_checks": {
@@ -119,7 +119,7 @@
     {
       "slug": "golden-path",
       "title": "Golden Path",
-      "body": "Latest proof run client-intake-portal-2026-05-31T234646217Z generated, built, started, and verified a local app with hash sha256:97ed607944ffc87872ba5d06f5223c364f75000171179a33a3ea6b90555d5977."
+      "body": "Latest proof run client-intake-portal-2026-06-01T004907152Z generated, built, started, and verified a local app with hash sha256:b9fbd4e6187a96a67160d20ea4c55f71b86d5c288974d0b92b86e4b9d69b3f6f."
     },
     {
       "slug": "redaction-boundary",
@@ -146,9 +146,9 @@
       "exports/sageideas-dev/engineering-os-proof.json",
       "exports/sageideas-dev/engineering-os-proof.md"
     ],
-    "golden_path_hash": "sha256:97ed607944ffc87872ba5d06f5223c364f75000171179a33a3ea6b90555d5977",
-    "golden_path_run_id": "client-intake-portal-2026-05-31T234646217Z",
-    "packet_hash": "sha256:657307e634c055a6b49c1a1e003cd0044d55ed3241603ec151240e7d27ea77ea"
+    "golden_path_hash": "sha256:b9fbd4e6187a96a67160d20ea4c55f71b86d5c288974d0b92b86e4b9d69b3f6f",
+    "golden_path_run_id": "client-intake-portal-2026-06-01T004907152Z",
+    "packet_hash": "sha256:d3333044f4e57a7dbd5320b5896d7e4b9e7003c96baff489f1fda45d2871cb07"
   },
   "redaction_policy": [
     "Commit public repository metadata only.",
