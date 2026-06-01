@@ -212,7 +212,8 @@ function parseArgs(argv) {
     allowFailures: false,
   };
   for (const arg of argv) {
-    if (arg === "--check") args.check = true;
+    if (arg === "--") continue;
+    else if (arg === "--check") args.check = true;
     else if (arg === "--skip-refresh") args.skipRefresh = true;
     else if (arg === "--skip-golden") args.skipGolden = true;
     else if (arg === "--skip-deploy") args.skipDeploy = true;
