@@ -2,7 +2,7 @@
 
 **Status:** Phase 2 generated maturity map
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-06-01T02:23:55.922Z
+**Generated:** 2026-06-01T21:29:02.738Z
 
 ## Read This Correctly
 
@@ -11,17 +11,17 @@ A large reference library intentionally scores low because reference repos are r
 
 ## Executive Scores
 
-- Average across all repos: **20/100**
+- Average across all repos: **14/100**
 - Load-bearing asset average: **73/100** across **11** assets
-- Private repo average: **50/100**
+- Private repo average: **0/100**
 
 ## Score Bands
 
 | Band               | Count |
 | ------------------ | ----: |
-| 0-49 raw/reference |   138 |
-| 50-69 incomplete   |    18 |
+| 0-49 raw/reference |   126 |
 | 70-84 usable       |     3 |
+| 50-69 incomplete   |     4 |
 | 95-100 elite       |     2 |
 | 85-94 strong       |     1 |
 
@@ -39,17 +39,16 @@ A large reference library intentionally scores low because reference repos are r
 
 ## Top Gap Types
 
-| Gap                           | Count |
-| ----------------------------- | ----: |
-| missing-topics                |   147 |
-| maturity-l0                   |   134 |
-| reference-only                |    48 |
-| archived                      |    47 |
-| missing-license               |    44 |
-| needs-private-override-review |    26 |
-| stale                         |    22 |
-| load-bearing-under-70         |     5 |
-| missing-public-proof          |     1 |
+| Gap                   | Count |
+| --------------------- | ----: |
+| maturity-l0           |   125 |
+| missing-topics        |   123 |
+| reference-only        |    48 |
+| archived              |    47 |
+| missing-license       |    44 |
+| stale                 |    21 |
+| load-bearing-under-70 |     5 |
+| missing-public-proof  |     1 |
 
 ## Public Load-Bearing Assets Below 70
 
@@ -63,6 +62,6 @@ A large reference library intentionally scores low because reference repos are r
 
 ## Next Actions
 
-- **Review private overrides:** 26 private repos are still classified by generic inference.
-- **Separate reference library from product proof narrative:** 122 repos are reference/library assets and should not dilute the public engineering story.
+- **Review private overrides:** 0 private repos are still classified by generic inference.
+- **Separate reference library from product proof narrative:** 118 repos are reference/library assets and should not dilute the public engineering story.
 - **Raise load-bearing assets below 70:** 5 load-bearing assets need docs, evidence, topics, homepage, or maturity upgrades.

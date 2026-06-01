@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-01T00:49:06.766Z",
+  "generated_at": "2026-06-01T21:29:03.038Z",
   "generated_by": "scripts/ecosystem-resource-map.mjs",
-  "source_generated_at": "2026-06-01T00:49:06.387Z",
+  "source_generated_at": "2026-06-01T21:29:02.738Z",
   "privacy": "public-safe",
   "note": "Resource recommendations use public repository metadata only. Private assets remain summarized in scorecards and require local review.",
   "totals": {
     "use_cases": 7,
     "public_assets_considered": 136,
     "recommended_assets": 9,
-    "improve_first_assets": 7
+    "improve_first_assets": 4
   },
   "use_cases": [
     {
@@ -28,7 +28,7 @@
       "asset_counts": {
         "candidates": 3,
         "recommended": 1,
-        "improve_first": 2,
+        "improve_first": 1,
         "reference_only": 0
       },
       "recommended_assets": [
@@ -47,19 +47,6 @@
         }
       ],
       "improve_first": [
-        {
-          "name": "TOGAF-Master-Documenting-Template",
-          "url": "https://github.com/JasonTeixeira/TOGAF-Master-Documenting-Template",
-          "layer": "resource-library",
-          "asset_type": "kit",
-          "maturity": "L0",
-          "role": "Reusable tool, SDK, stack, or playbook intelligence.",
-          "score": 18,
-          "band": "0-49 raw/reference",
-          "status": "stale",
-          "language": null,
-          "gaps": ["maturity-l0", "stale", "missing-license", "load-bearing-under-70"]
-        },
         {
           "name": "micro-saas-starter",
           "url": "https://github.com/JasonTeixeira/micro-saas-starter",
@@ -92,7 +79,7 @@
       "asset_counts": {
         "candidates": 121,
         "recommended": 2,
-        "improve_first": 2,
+        "improve_first": 1,
         "reference_only": 6
       },
       "recommended_assets": [
@@ -124,19 +111,6 @@
         }
       ],
       "improve_first": [
-        {
-          "name": "TOGAF-Master-Documenting-Template",
-          "url": "https://github.com/JasonTeixeira/TOGAF-Master-Documenting-Template",
-          "layer": "resource-library",
-          "asset_type": "kit",
-          "maturity": "L0",
-          "role": "Reusable tool, SDK, stack, or playbook intelligence.",
-          "score": 18,
-          "band": "0-49 raw/reference",
-          "status": "stale",
-          "language": null,
-          "gaps": ["maturity-l0", "stale", "missing-license", "load-bearing-under-70"]
-        },
         {
           "name": "micro-saas-starter",
           "url": "https://github.com/JasonTeixeira/micro-saas-starter",
@@ -285,7 +259,7 @@
       "asset_counts": {
         "candidates": 4,
         "recommended": 1,
-        "improve_first": 2,
+        "improve_first": 1,
         "reference_only": 0
       },
       "recommended_assets": [
@@ -304,19 +278,6 @@
         }
       ],
       "improve_first": [
-        {
-          "name": "TOGAF-Master-Documenting-Template",
-          "url": "https://github.com/JasonTeixeira/TOGAF-Master-Documenting-Template",
-          "layer": "resource-library",
-          "asset_type": "kit",
-          "maturity": "L0",
-          "role": "Reusable tool, SDK, stack, or playbook intelligence.",
-          "score": 18,
-          "band": "0-49 raw/reference",
-          "status": "stale",
-          "language": null,
-          "gaps": ["maturity-l0", "stale", "missing-license", "load-bearing-under-70"]
-        },
         {
           "name": "micro-saas-starter",
           "url": "https://github.com/JasonTeixeira/micro-saas-starter",
@@ -349,7 +310,7 @@
       "asset_counts": {
         "candidates": 11,
         "recommended": 6,
-        "improve_first": 7,
+        "improve_first": 4,
         "reference_only": 0
       },
       "recommended_assets": [
@@ -433,45 +394,6 @@
         }
       ],
       "improve_first": [
-        {
-          "name": "jason-teixeira-portfolio",
-          "url": "https://github.com/JasonTeixeira/jason-teixeira-portfolio",
-          "layer": "quant-trading",
-          "asset_type": "engine",
-          "maturity": "L0",
-          "role": "Trading, strategy research, backtesting, or execution capability.",
-          "score": 18,
-          "band": "0-49 raw/reference",
-          "status": "stale",
-          "language": "JavaScript",
-          "gaps": ["maturity-l0", "stale", "missing-topics", "load-bearing-under-70"]
-        },
-        {
-          "name": "TOGAF-Master-Documenting-Template",
-          "url": "https://github.com/JasonTeixeira/TOGAF-Master-Documenting-Template",
-          "layer": "resource-library",
-          "asset_type": "kit",
-          "maturity": "L0",
-          "role": "Reusable tool, SDK, stack, or playbook intelligence.",
-          "score": 18,
-          "band": "0-49 raw/reference",
-          "status": "stale",
-          "language": null,
-          "gaps": ["maturity-l0", "stale", "missing-license", "load-bearing-under-70"]
-        },
-        {
-          "name": "NexusEncryption",
-          "url": "https://github.com/JasonTeixeira/NexusEncryption",
-          "layer": "quant-trading",
-          "asset_type": "engine",
-          "maturity": "L0",
-          "role": "Trading, strategy research, backtesting, or execution capability.",
-          "score": 23,
-          "band": "0-49 raw/reference",
-          "status": "stale",
-          "language": "Makefile",
-          "gaps": ["maturity-l0", "stale", "load-bearing-under-70"]
-        },
         {
           "name": "QuantumTrader",
           "url": "https://github.com/JasonTeixeira/QuantumTrader",
@@ -606,24 +528,11 @@
       "asset_counts": {
         "candidates": 2,
         "recommended": 0,
-        "improve_first": 2,
+        "improve_first": 1,
         "reference_only": 0
       },
       "recommended_assets": [],
       "improve_first": [
-        {
-          "name": "TOGAF-Master-Documenting-Template",
-          "url": "https://github.com/JasonTeixeira/TOGAF-Master-Documenting-Template",
-          "layer": "resource-library",
-          "asset_type": "kit",
-          "maturity": "L0",
-          "role": "Reusable tool, SDK, stack, or playbook intelligence.",
-          "score": 18,
-          "band": "0-49 raw/reference",
-          "status": "stale",
-          "language": null,
-          "gaps": ["maturity-l0", "stale", "missing-license", "load-bearing-under-70"]
-        },
         {
           "name": "micro-saas-starter",
           "url": "https://github.com/JasonTeixeira/micro-saas-starter",

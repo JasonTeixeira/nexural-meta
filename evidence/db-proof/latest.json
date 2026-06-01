@@ -1,19 +1,19 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-01T19:55:27.373Z",
+  "generated_at": "2026-06-01T21:35:43.832Z",
   "generated_by": "scripts/db-proof-check.mjs",
   "privacy": "public-safe",
-  "status": "degraded",
+  "status": "passed",
   "summary": {
-    "gates_passed": 3,
+    "gates_passed": 6,
     "gates_total": 6,
-    "latest_run_id": "rag-knowledge-chat-2026-06-01T195349129Z",
-    "deployed_url": null,
-    "database_mode": "not-configured",
+    "latest_run_id": "rag-knowledge-chat-2026-06-01T213051295Z",
+    "deployed_url": "https://sage-client-intake-portal-vercel-8f62ooaxe-sage-ideas.vercel.app",
+    "database_mode": "staging-postgres",
     "migration_status": "passed",
-    "hosted_crud_status": "failed",
-    "schema_drift_status": "failed",
-    "seed_data_status": "failed",
+    "hosted_crud_status": "passed",
+    "schema_drift_status": "passed",
+    "seed_data_status": "passed",
     "database_url_available_by_inventory": true
   },
   "gates": [
@@ -21,13 +21,13 @@
       "id": "db_crud_health",
       "label": "Local generated app DB CRUD",
       "status": "passed",
-      "detail": "Skipped DB-backed health proof because staging credentials are not configured."
+      "detail": "Generated /api/health completed insert-read-update-delete against staging Postgres."
     },
     {
       "id": "vercel_db_crud_health",
       "label": "Hosted generated app DB CRUD",
-      "status": "failed",
-      "detail": "Latest golden-path evidence has no vercel_db_crud_health gate."
+      "status": "passed",
+      "detail": "Deployed /api/health completed insert-read-update-delete against staging Postgres."
     },
     {
       "id": "migration_readiness",
@@ -38,14 +38,14 @@
     {
       "id": "db_schema_drift_health",
       "label": "Hosted schema drift proof",
-      "status": "failed",
-      "detail": "Schema drift proof missing or failed. Hosted health: Latest golden-path run has no deployed URL."
+      "status": "passed",
+      "detail": "Expected tables verified: tenants, tenant_memberships, audit_events."
     },
     {
       "id": "db_seed_data_health",
       "label": "Hosted seed-data proof",
-      "status": "failed",
-      "detail": "Seed-data proof missing or failed. Hosted health: Latest golden-path run has no deployed URL."
+      "status": "passed",
+      "detail": "Seed row health-seed-rag-knowledge-chat completed upsert-read."
     },
     {
       "id": "proof_environment_db",
@@ -59,18 +59,18 @@
     "required_names_checked": ["DATABASE_URL"],
     "database_url_present": true,
     "values_exposed": false,
-    "detail": "DATABASE_URL is present in GitHub secret inventory."
+    "detail": "DATABASE_URL is present in local environment."
   },
   "evidence": {
     "golden_path_latest": "evidence/golden-path/latest.json",
     "proof_environment": "data/proof-environment.public.json",
-    "hosted_health_checked": false,
-    "report_hash": "sha256:3592db97afc540db8b21854d8195cadce32b0ed7f479b2dfcd3f383157bf8e82"
+    "hosted_health_checked": true,
+    "report_hash": "sha256:a72695a37eaf8b1e0bc92bf7dc1d21a308295ae0de49e43ba695cdb7bff238a9"
   },
   "next_actions": [
     {
-      "action": "Run pnpm golden:path in an environment with staging Supabase DB credentials.",
-      "reason": "The DB proof should include migration readiness and CRUD proof in the same evidence chain.",
+      "action": "Expand schema drift proof to recipe-specific invariants and RLS policy checks.",
+      "reason": "CRUD, migration readiness, schema drift, and seed-data proof are green.",
       "phase": "Phase 15"
     }
   ]

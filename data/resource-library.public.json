@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-01T19:55:27.346Z",
+  "generated_at": "2026-06-01T21:29:03.620Z",
   "generated_by": "scripts/resource-library-catalog.mjs",
   "privacy": "public-safe",
   "status": "generated",
@@ -44,7 +44,7 @@
       "question": "I need to build and deploy an application quickly.",
       "command": "/resources?useCase=ship-saas-app",
       "recommended_assets": 1,
-      "improve_first_assets": 2
+      "improve_first_assets": 1
     },
     {
       "id": "choose-stack-or-sdk",
@@ -52,7 +52,7 @@
       "question": "I need to know what tool or SDK to use for a build.",
       "command": "/resources?useCase=choose-stack-or-sdk",
       "recommended_assets": 2,
-      "improve_first_assets": 2
+      "improve_first_assets": 1
     },
     {
       "id": "qa-release-proof",
@@ -68,7 +68,7 @@
       "question": "I need agents, RAG, evals, memory, or background workers.",
       "command": "/resources?useCase=build-agent-workflow",
       "recommended_assets": 1,
-      "improve_first_assets": 2
+      "improve_first_assets": 1
     },
     {
       "id": "build-trading-system",
@@ -76,7 +76,7 @@
       "question": "I need quant research, validation, execution, or trading automation.",
       "command": "/resources?useCase=build-trading-system",
       "recommended_assets": 6,
-      "improve_first_assets": 7
+      "improve_first_assets": 4
     },
     {
       "id": "publish-proof-page",
@@ -92,7 +92,7 @@
       "question": "I need to retrofit an existing product idea into a new project.",
       "command": "/resources?useCase=reuse-product-pattern",
       "recommended_assets": 0,
-      "improve_first_assets": 2
+      "improve_first_assets": 1
     }
   ],
   "maturity_lift_queue": [

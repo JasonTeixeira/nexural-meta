@@ -2,7 +2,7 @@
 
 **Status:** Phase 4 generated resource map
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-06-01T00:49:06.766Z
+**Generated:** 2026-06-01T21:29:03.038Z
 
 ## Purpose
 
@@ -36,7 +36,6 @@ Recommended assets:
 
 Fix first:
 
-- [TOGAF-Master-Documenting-Template](https://github.com/JasonTeixeira/TOGAF-Master-Documenting-Template) - 18/100, maturity-l0, stale, missing-license, load-bearing-under-70
 - [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 58/100, missing-license, missing-topics, load-bearing-under-70
 
 ### Choose a stack, SDK, or provider
@@ -52,7 +51,6 @@ Recommended assets:
 
 Fix first:
 
-- [TOGAF-Master-Documenting-Template](https://github.com/JasonTeixeira/TOGAF-Master-Documenting-Template) - 18/100, maturity-l0, stale, missing-license, load-bearing-under-70
 - [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 58/100, missing-license, missing-topics, load-bearing-under-70
 
 ### Create QA and release proof
@@ -81,7 +79,6 @@ Recommended assets:
 
 Fix first:
 
-- [TOGAF-Master-Documenting-Template](https://github.com/JasonTeixeira/TOGAF-Master-Documenting-Template) - 18/100, maturity-l0, stale, missing-license, load-bearing-under-70
 - [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 58/100, missing-license, missing-topics, load-bearing-under-70
 
 ### Build or audit trading infrastructure
@@ -100,11 +97,10 @@ Recommended assets:
 
 Fix first:
 
-- [jason-teixeira-portfolio](https://github.com/JasonTeixeira/jason-teixeira-portfolio) - 18/100, maturity-l0, stale, missing-topics, load-bearing-under-70
-- [TOGAF-Master-Documenting-Template](https://github.com/JasonTeixeira/TOGAF-Master-Documenting-Template) - 18/100, maturity-l0, stale, missing-license, load-bearing-under-70
-- [NexusEncryption](https://github.com/JasonTeixeira/NexusEncryption) - 23/100, maturity-l0, stale, load-bearing-under-70
 - [QuantumTrader](https://github.com/JasonTeixeira/QuantumTrader) - 38/100, missing-license, missing-topics, load-bearing-under-70
 - [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 58/100, missing-license, missing-topics, load-bearing-under-70
+- [NexQuantSite](https://github.com/JasonTeixeira/NexQuantSite) - 63/100, missing-license, load-bearing-under-70
+- [trade-engine](https://github.com/JasonTeixeira/trade-engine) - 68/100, missing-license, missing-topics, load-bearing-under-70
 
 ### Publish a public proof page
 
@@ -134,5 +130,4 @@ Recommended assets:
 
 Fix first:
 
-- [TOGAF-Master-Documenting-Template](https://github.com/JasonTeixeira/TOGAF-Master-Documenting-Template) - 18/100, maturity-l0, stale, missing-license, load-bearing-under-70
 - [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 58/100, missing-license, missing-topics, load-bearing-under-70

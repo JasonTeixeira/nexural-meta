@@ -1,101 +1,46 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-01T02:23:55.922Z",
+  "generated_at": "2026-06-01T21:29:02.738Z",
   "generated_by": "scripts/ecosystem-scorecard.mjs",
   "source_generated_at": "2026-06-01T00:48:50.044Z",
   "privacy": "public-safe",
   "note": "Private repositories are scored internally and summarized by count only. Full scorecard is generated locally at .nexural/private/ecosystem-scorecard.internal.json.",
   "totals": {
-    "total": 162,
-    "average_score": 20,
+    "total": 136,
+    "average_score": 14,
     "load_bearing_count": 11,
     "load_bearing_average_score": 73,
     "by_band": {
-      "0-49 raw/reference": 138,
-      "50-69 incomplete": 18,
+      "0-49 raw/reference": 126,
       "70-84 usable": 3,
+      "50-69 incomplete": 4,
       "95-100 elite": 2,
       "85-94 strong": 1
     },
     "by_maturity": {
-      "L0": 134,
-      "L2": 21,
+      "L0": 125,
+      "L2": 7,
       "L3": 2,
-      "L1": 4,
-      "L4": 1
+      "L4": 1,
+      "L1": 1
     },
     "top_gap_types": {
-      "missing-topics": 147,
-      "maturity-l0": 134,
+      "maturity-l0": 125,
+      "missing-topics": 123,
       "reference-only": 48,
       "archived": 47,
       "missing-license": 44,
-      "needs-private-override-review": 26,
-      "stale": 22,
+      "stale": 21,
       "load-bearing-under-70": 5,
       "missing-public-proof": 1
     }
   },
   "private_summary": {
-    "total_private": 26,
-    "average_score": 50,
-    "by_band": {
-      "50-69 incomplete": 14,
-      "0-49 raw/reference": 12
-    },
-    "by_layer": {
-      "agent-engine": {
-        "count": 2,
-        "average_score": 66,
-        "load_bearing_count": 0
-      },
-      "app-factory-runtime": {
-        "count": 4,
-        "average_score": 26,
-        "load_bearing_count": 0
-      },
-      "ops-knowledge": {
-        "count": 3,
-        "average_score": 63,
-        "load_bearing_count": 0
-      },
-      "product-proof": {
-        "count": 3,
-        "average_score": 68,
-        "load_bearing_count": 0
-      },
-      "quality-system": {
-        "count": 1,
-        "average_score": 33,
-        "load_bearing_count": 0
-      },
-      "quant-trading": {
-        "count": 6,
-        "average_score": 52,
-        "load_bearing_count": 0
-      },
-      "reference-library": {
-        "count": 4,
-        "average_score": 29,
-        "load_bearing_count": 0
-      },
-      "resource-library": {
-        "count": 2,
-        "average_score": 66,
-        "load_bearing_count": 0
-      },
-      "voice-engine": {
-        "count": 1,
-        "average_score": 68,
-        "load_bearing_count": 0
-      }
-    },
-    "top_gap_types": {
-      "needs-private-override-review": 26,
-      "missing-topics": 24,
-      "maturity-l0": 9,
-      "stale": 1
-    }
+    "total_private": 0,
+    "average_score": 0,
+    "by_band": {},
+    "by_layer": {},
+    "top_gap_types": {}
   },
   "public_repositories": [
     {
@@ -6708,12 +6653,12 @@
   "next_actions": [
     {
       "action": "Review private overrides",
-      "reason": "26 private repos are still classified by generic inference.",
+      "reason": "0 private repos are still classified by generic inference.",
       "phase": "Phase 2"
     },
     {
       "action": "Separate reference library from product proof narrative",
-      "reason": "122 repos are reference/library assets and should not dilute the public engineering story.",
+      "reason": "118 repos are reference/library assets and should not dilute the public engineering story.",
       "phase": "Phase 2"
     },
     {

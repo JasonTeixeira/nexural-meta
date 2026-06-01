@@ -2,7 +2,7 @@
 
 **Status:** Internal proof environment lock
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-06-01T17:00:41.487Z
+**Generated:** 2026-06-01T21:35:40.302Z
 **Overall:** passed
 
 ## Purpose
@@ -17,41 +17,41 @@ pnpm proof:env
 
 ## Gates
 
-| Gate                           | Status | Detail                                                                 |
-| ------------------------------ | ------ | ---------------------------------------------------------------------- |
-| secret_inventory_available     | passed | GitHub secret inventory is readable without exposing values.           |
-| required_secrets_present       | passed | All required proof secrets are present.                                |
-| required_secrets_fresh         | passed | Required proof secrets are within rotation policy.                     |
-| hosted_db_crud_health          | passed | Hosted /api/health completed DB CRUD proof.                            |
-| golden_path_evidence_present   | passed | Latest run client-intake-portal-2026-06-01T165601095Z has 14/14 gates. |
-| golden_path_has_hosted_db_gate | passed | Golden-path evidence includes a passed hosted DB CRUD gate.            |
+| Gate                           | Status | Detail                                                               |
+| ------------------------------ | ------ | -------------------------------------------------------------------- |
+| secret_inventory_available     | passed | GitHub secret inventory is readable without exposing values.         |
+| required_secrets_present       | passed | All required proof secrets are present.                              |
+| required_secrets_fresh         | passed | Required proof secrets are within rotation policy.                   |
+| hosted_db_crud_health          | passed | Hosted /api/health completed DB CRUD proof.                          |
+| golden_path_evidence_present   | passed | Latest run rag-knowledge-chat-2026-06-01T213051295Z has 16/16 gates. |
+| golden_path_has_hosted_db_gate | passed | Golden-path evidence includes a passed hosted DB CRUD gate.          |
 
 ## Required Secrets
 
 | Name                            | Status  |  Age | Rotation | Purpose                                                    |
 | ------------------------------- | ------- | ---: | -------- | ---------------------------------------------------------- |
-| `VERCEL_TOKEN`                  | present | 0.1d | 90       | Automated hosted golden-path deployment.                   |
-| `VERCEL_TEAM_ID`                | present | 0.6d | stable   | Vercel team/project binding.                               |
-| `VERCEL_PROJECT_ID`             | present | 0.6d | stable   | Vercel project binding.                                    |
-| `VERCEL_PROOF_ALIAS`            | present | 0.6d | stable   | Stable hostname used for hosted proof verification.        |
-| `NEXT_PUBLIC_SUPABASE_URL`      | present |   0d | stable   | Staging Supabase project URL.                              |
-| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | present | 0.1d | 180      | Browser-safe staging Supabase anon key.                    |
-| `SUPABASE_SERVICE_ROLE_KEY`     | present | 0.1d | 90       | Server-side CRUD proof and generated app admin operations. |
-| `DATABASE_URL`                  | present |   0d | 90       | Staging Postgres migration path for generated apps.        |
+| `VERCEL_TOKEN`                  | present | n/ad | 90       | Automated hosted golden-path deployment.                   |
+| `VERCEL_TEAM_ID`                | present | n/ad | stable   | Vercel team/project binding.                               |
+| `VERCEL_PROJECT_ID`             | present | n/ad | stable   | Vercel project binding.                                    |
+| `VERCEL_PROOF_ALIAS`            | present | n/ad | stable   | Stable hostname used for hosted proof verification.        |
+| `NEXT_PUBLIC_SUPABASE_URL`      | present | n/ad | stable   | Staging Supabase project URL.                              |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | present | n/ad | 180      | Browser-safe staging Supabase anon key.                    |
+| `SUPABASE_SERVICE_ROLE_KEY`     | present | n/ad | 90       | Server-side CRUD proof and generated app admin operations. |
+| `DATABASE_URL`                  | present | n/ad | 90       | Staging Postgres migration path for generated apps.        |
 
 ## Hosted Runtime
 
-- URL: https://sage-client-intake-portal-vercel.vercel.app
+- URL: https://sage-client-intake-portal-vercel-8f62ooaxe-sage-ideas.vercel.app
 - HTTP status: 200
 - Database mode: crud_probe
 - Database operation: insert-read-update-delete
 
 ## Evidence
 
-- Latest run: `client-intake-portal-2026-06-01T165601095Z`
-- App hash: `sha256:220e1bd8d055e052eff47ee7d7c8255e7a0aecfb4150abff0c52bdc67274071e`
-- Gates: 14/14
-- Evidence hash: `sha256:60673bf3ef18a11211f3280c342302cbbaefa56dc64211baf81edbf69aefb62e`
+- Latest run: `rag-knowledge-chat-2026-06-01T213051295Z`
+- App hash: `sha256:3747581a28b026151e03af27ae35282aeaab8c4c98724e58a4da737986b1abd4`
+- Gates: 16/16
+- Evidence hash: `sha256:34d11e9baaac3f06cc1bfa385d19db6f1e7063592e99d7e16811ac16d77b8b8a`
 
 ## Operating Rules
 
