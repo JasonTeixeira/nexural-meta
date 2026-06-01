@@ -645,18 +645,24 @@ async function applySupabaseMigrations(appRoot, runtimeEnv, spec) {
       result = runSupabaseDbPush(migrationRoot, runtimeEnv);
     }
   }
+  let directSql = null;
+  if (result.status !== 0) {
+    directSql = applyMigrationsWithPsql(migrationRoot, selectedMigrations, runtimeEnv);
+  }
 
   return {
-    ok: result.status === 0,
+    ok: result.status === 0 || directSql?.ok === true,
     detail:
       result.status === 0
         ? repair?.ok
           ? `Supabase migrations are applied to staging Postgres after repairing remote migration history (${repair.versions.join(", ")}).`
           : "Supabase migrations are applied to staging Postgres."
-        : repair?.attempted
-          ? `exit ${result.status}; migration history repair ${repair.status}`
-          : `exit ${result.status}`,
-    command: result.command,
+        : directSql?.ok
+          ? `Supabase CLI migration history is out of sync; applied ${directSql.applied} selected SQL migration file(s) directly with psql and will verify schema through /api/health.`
+          : repair?.attempted
+            ? `exit ${result.status}; migration history repair ${repair.status}`
+            : `exit ${result.status}`,
+    command: directSql?.ok ? directSql.command : result.command,
     duration_ms: Date.now() - started,
   };
 }
@@ -715,6 +721,38 @@ function extractMigrationRepairVersions(result) {
     .trim()
     .split(/\s+/)
     .filter((value) => /^\d{8,}$/.test(value));
+}
+
+function applyMigrationsWithPsql(migrationRoot, migrationNames, runtimeEnv) {
+  const sourceDir = join(migrationRoot, "supabase", "migrations");
+  let applied = 0;
+  for (const migrationName of migrationNames) {
+    const migrationPath = join(sourceDir, migrationName);
+    const result = run(
+      "psql",
+      [runtimeEnv.databaseUrl, "-v", "ON_ERROR_STOP=1", "-f", migrationPath],
+      {
+        cwd: migrationRoot,
+        timeoutMs: 120_000,
+        displayCommand: `psql <DATABASE_URL> -v ON_ERROR_STOP=1 -f ${migrationName}`,
+        redactValues: [runtimeEnv.databaseUrl],
+      },
+    );
+    if (result.status !== 0) {
+      return {
+        ok: false,
+        command: result.command,
+        applied,
+        status: `failed-exit-${result.status}`,
+      };
+    }
+    applied += 1;
+  }
+  return {
+    ok: true,
+    command: `psql <DATABASE_URL> -v ON_ERROR_STOP=1 -f <${migrationNames.length} migration(s)>`,
+    applied,
+  };
 }
 
 async function applySupabaseMigrationsViaManagementApi(appRoot, runtimeEnv, spec, started) {
@@ -818,6 +856,7 @@ function selectedMigrationNames(appRoot, spec) {
 }
 
 function shouldApplyMigration(name, spec) {
+  if (spec.recipe === "internal-tool-dashboard") return false;
   if (spec.recipe === "fintech-ledger-app") return name.includes("ledger");
   if (spec.recipe === "saas-agent-platform") return name.includes("agent");
   if (spec.recipe === "saas-rag-chat") return false;
