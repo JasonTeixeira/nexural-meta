@@ -1,20 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-01T01:14:33.745Z",
+  "generated_at": "2026-06-01T02:20:09.791Z",
   "generated_by": "scripts/attach-golden-path-deploy.mjs",
   "privacy": "public-safe",
-  "current_run_id": "client-intake-portal-2026-06-01T004907152Z",
+  "current_run_id": "client-intake-portal-2026-06-01T021207279Z",
   "totals": {
     "runs": 1,
     "passed_runs": 1,
-    "latest_gate_count": 8,
-    "latest_wall_clock_ms": 113033
+    "latest_gate_count": 9,
+    "latest_wall_clock_ms": 82892
   },
   "runs": [
     {
       "schema_version": 1,
-      "run_id": "client-intake-portal-2026-06-01T004907152Z",
-      "generated_at": "2026-06-01T00:49:07.152Z",
+      "run_id": "client-intake-portal-2026-06-01T021207279Z",
+      "generated_at": "2026-06-01T02:12:07.279Z",
       "generated_by": "scripts/golden-path-proof.mjs",
       "privacy": "public-safe",
       "spec": {
@@ -36,20 +36,21 @@
         }
       ],
       "generated_app": {
-        "local_path": "%TEMP%\\sage-golden-path-client-intake-portal-2026-06-01T004907152Z\\client-intake-portal",
+        "local_path": "%USERPROFILE%\\nexural-meta\\.nexural\\cache\\golden-path\\client-intake-portal-2026-06-01T021207279Z\\client-intake-portal",
         "file_count": 31,
-        "tree_hash": "sha256:b9fbd4e6187a96a67160d20ea4c55f71b86d5c288974d0b92b86e4b9d69b3f6f",
+        "tree_hash": "sha256:559b63641017c3ed7377476f5f5590391a571cf0c2e6f1bc98954abad95960fc",
         "hashed_files": 31
       },
       "runtime": {
         "mode": "local-next-start+vercel",
+        "credentials_mode": "public-safe-mock",
         "url": "http://127.0.0.1:3041",
         "health_path": "/api/health",
         "deploy_status": "verified-vercel-url",
         "deployed_url": "https://sage-client-intake-portal-vercel.vercel.app",
-        "deployed_verified_at": "2026-06-01T01:14:33.745Z",
-        "deployment_id": "dpl_26daj7qmCY1sAnTqUzfcnxD6i74Q",
-        "inspector_url": "https://vercel.com/sage-ideas/sage-client-intake-portal-vercel/26daj7qmCY1sAnTqUzfcnxD6i74Q"
+        "deployed_verified_at": "2026-06-01T02:20:09.791Z",
+        "deployment_id": "dpl_HcxtTXvCc3Zokag2SsUAWhZdk6Ud",
+        "inspector_url": null
       },
       "gates": [
         {
@@ -63,16 +64,22 @@
           "label": "Forge emit",
           "status": "passed",
           "detail": "31 files emitted by internal-tool-dashboard.",
-          "command": "npx.cmd --yes tsx apps/cli/src/bin/nx.ts forge internal-tool-dashboard client-intake-portal --inputs %TEMP%\\sage-golden-path-client-intake-portal-2026-06-01T004907152Z\\inputs.json --mock-secrets --out-dir %TEMP%\\sage-golden-path-client-intake-portal-2026-06-01T004907152Z\\client-intake-portal",
-          "duration_ms": 21190
+          "command": "npx.cmd --yes tsx apps/cli/src/bin/nx.ts forge internal-tool-dashboard client-intake-portal --inputs %USERPROFILE%\\nexural-meta\\.nexural\\cache\\golden-path\\client-intake-portal-2026-06-01T021207279Z\\inputs.json --mock-secrets --out-dir %USERPROFILE%\\nexural-meta\\.nexural\\cache\\golden-path\\client-intake-portal-2026-06-01T021207279Z\\client-intake-portal",
+          "duration_ms": 2271
         },
         {
           "id": "install",
           "label": "Install dependencies",
           "status": "passed",
           "detail": "exit 0",
-          "command": "pnpm.cmd install --ignore-scripts",
-          "duration_ms": 27222
+          "command": "pnpm.cmd install --ignore-workspace --ignore-scripts",
+          "duration_ms": 24192
+        },
+        {
+          "id": "standalone_lockfile",
+          "label": "Standalone lockfile",
+          "status": "passed",
+          "detail": "Generated app includes its own pnpm-lock.yaml for isolated Vercel installs."
         },
         {
           "id": "typecheck",
@@ -80,7 +87,7 @@
           "status": "passed",
           "detail": "exit 0",
           "command": "pnpm.cmd typecheck",
-          "duration_ms": 14423
+          "duration_ms": 13807
         },
         {
           "id": "build",
@@ -88,14 +95,14 @@
           "status": "passed",
           "detail": "exit 0",
           "command": "pnpm.cmd build",
-          "duration_ms": 43372
+          "duration_ms": 36459
         },
         {
           "id": "local_runtime",
           "label": "Start local runtime",
           "status": "passed",
           "detail": "HTTP 200 from /api/health.",
-          "duration_ms": 1434
+          "duration_ms": 1240
         },
         {
           "id": "nx_verify",
@@ -103,7 +110,7 @@
           "status": "passed",
           "detail": "8/8 checks passed.",
           "command": "npx.cmd --yes tsx apps/cli/src/bin/nx.ts verify http://127.0.0.1:3041 --evidence-slug client-intake-portal-local --timeout 20000",
-          "duration_ms": 2425
+          "duration_ms": 2128
         },
         {
           "id": "vercel_runtime",
@@ -131,14 +138,15 @@
         },
         {
           "lesson": "Local runtime proof needs a generated .env.local with safe mock values when using mock secrets.",
-          "fed_back": "Golden-path runner writes public-safe mock env locally and keeps it out of committed artifacts."
+          "fed_back": "Golden-path runner writes staging credentials when configured, otherwise public-safe mock env, and keeps both out of committed artifacts."
         }
       ],
       "remaining_gaps": [
-        "Runtime proof uses mock credentials and local Next server; production auth/database credentials are intentionally not committed."
+        "Runtime proof uses mock credentials because staging Supabase/Auth environment variables are not set in this shell.",
+        "Production auth/database credentials are intentionally not committed."
       ],
-      "wall_clock_ms": 113033,
-      "deployment_attached_at": "2026-06-01T01:14:33.745Z",
+      "wall_clock_ms": 82892,
+      "deployment_attached_at": "2026-06-01T02:20:09.791Z",
       "deployment_attached_by": "scripts/attach-golden-path-deploy.mjs"
     }
   ]

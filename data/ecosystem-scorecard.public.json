@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-01T00:49:06.387Z",
+  "generated_at": "2026-06-01T02:23:55.922Z",
   "generated_by": "scripts/ecosystem-scorecard.mjs",
   "source_generated_at": "2026-06-01T00:48:50.044Z",
   "privacy": "public-safe",
@@ -8,12 +8,12 @@
   "totals": {
     "total": 162,
     "average_score": 20,
-    "load_bearing_count": 34,
-    "load_bearing_average_score": 60,
+    "load_bearing_count": 11,
+    "load_bearing_average_score": 73,
     "by_band": {
       "0-49 raw/reference": 138,
-      "50-69 incomplete": 12,
-      "70-84 usable": 9,
+      "50-69 incomplete": 18,
+      "70-84 usable": 3,
       "95-100 elite": 2,
       "85-94 strong": 1
     },
@@ -31,24 +31,23 @@
       "archived": 47,
       "missing-license": 44,
       "needs-private-override-review": 26,
-      "load-bearing-under-70": 22,
       "stale": 22,
+      "load-bearing-under-70": 5,
       "missing-public-proof": 1
     }
   },
   "private_summary": {
     "total_private": 26,
-    "average_score": 53,
+    "average_score": 50,
     "by_band": {
-      "50-69 incomplete": 8,
-      "70-84 usable": 6,
+      "50-69 incomplete": 14,
       "0-49 raw/reference": 12
     },
     "by_layer": {
       "agent-engine": {
         "count": 2,
-        "average_score": 71,
-        "load_bearing_count": 2
+        "average_score": 66,
+        "load_bearing_count": 0
       },
       "app-factory-runtime": {
         "count": 4,
@@ -57,13 +56,13 @@
       },
       "ops-knowledge": {
         "count": 3,
-        "average_score": 68,
-        "load_bearing_count": 3
+        "average_score": 63,
+        "load_bearing_count": 0
       },
       "product-proof": {
         "count": 3,
-        "average_score": 73,
-        "load_bearing_count": 3
+        "average_score": 68,
+        "load_bearing_count": 0
       },
       "quality-system": {
         "count": 1,
@@ -72,8 +71,8 @@
       },
       "quant-trading": {
         "count": 6,
-        "average_score": 57,
-        "load_bearing_count": 6
+        "average_score": 52,
+        "load_bearing_count": 0
       },
       "reference-library": {
         "count": 4,
@@ -82,19 +81,18 @@
       },
       "resource-library": {
         "count": 2,
-        "average_score": 71,
-        "load_bearing_count": 2
+        "average_score": 66,
+        "load_bearing_count": 0
       },
       "voice-engine": {
         "count": 1,
-        "average_score": 73,
-        "load_bearing_count": 1
+        "average_score": 68,
+        "load_bearing_count": 0
       }
     },
     "top_gap_types": {
       "needs-private-override-review": 26,
       "missing-topics": 24,
-      "load-bearing-under-70": 11,
       "maturity-l0": 9,
       "stale": 1
     }
@@ -1736,16 +1734,16 @@
         "needs_private_review": false
       },
       "score": {
-        "total": 18,
+        "total": 13,
         "band": "0-49 raw/reference",
-        "load_bearing": true,
+        "load_bearing": false,
         "components": {
           "maturity": 10,
           "status": -10,
           "metadata": 13,
-          "load_bearing_bonus": 5
+          "load_bearing_bonus": 0
         },
-        "gaps": ["maturity-l0", "stale", "missing-license", "load-bearing-under-70"]
+        "gaps": ["maturity-l0", "stale", "missing-license"]
       }
     },
     {
@@ -1784,16 +1782,16 @@
         "needs_private_review": false
       },
       "score": {
-        "total": 23,
+        "total": 18,
         "band": "0-49 raw/reference",
-        "load_bearing": true,
+        "load_bearing": false,
         "components": {
           "maturity": 10,
           "status": -10,
           "metadata": 18,
-          "load_bearing_bonus": 5
+          "load_bearing_bonus": 0
         },
-        "gaps": ["maturity-l0", "stale", "load-bearing-under-70"]
+        "gaps": ["maturity-l0", "stale"]
       }
     },
     {
@@ -1832,16 +1830,16 @@
         "needs_private_review": false
       },
       "score": {
-        "total": 18,
+        "total": 13,
         "band": "0-49 raw/reference",
-        "load_bearing": true,
+        "load_bearing": false,
         "components": {
           "maturity": 10,
           "status": -10,
           "metadata": 13,
-          "load_bearing_bonus": 5
+          "load_bearing_bonus": 0
         },
-        "gaps": ["maturity-l0", "stale", "missing-license", "load-bearing-under-70"]
+        "gaps": ["maturity-l0", "stale", "missing-license"]
       }
     },
     {
@@ -2936,16 +2934,16 @@
         "needs_private_review": false
       },
       "score": {
-        "total": 18,
+        "total": 13,
         "band": "0-49 raw/reference",
-        "load_bearing": true,
+        "load_bearing": false,
         "components": {
           "maturity": 10,
           "status": -10,
           "metadata": 13,
-          "load_bearing_bonus": 5
+          "load_bearing_bonus": 0
         },
-        "gaps": ["maturity-l0", "stale", "missing-topics", "load-bearing-under-70"]
+        "gaps": ["maturity-l0", "stale", "missing-topics"]
       }
     },
     {
@@ -4209,16 +4207,16 @@
         "needs_private_review": false
       },
       "score": {
-        "total": 23,
+        "total": 18,
         "band": "0-49 raw/reference",
-        "load_bearing": true,
+        "load_bearing": false,
         "components": {
           "maturity": 10,
           "status": -10,
           "metadata": 18,
-          "load_bearing_bonus": 5
+          "load_bearing_bonus": 0
         },
-        "gaps": ["maturity-l0", "stale", "load-bearing-under-70"]
+        "gaps": ["maturity-l0", "stale"]
       }
     },
     {
@@ -5937,16 +5935,16 @@
         "needs_private_review": false
       },
       "score": {
-        "total": 18,
+        "total": 13,
         "band": "0-49 raw/reference",
-        "load_bearing": true,
+        "load_bearing": false,
         "components": {
           "maturity": 10,
           "status": -10,
           "metadata": 13,
-          "load_bearing_bonus": 5
+          "load_bearing_bonus": 0
         },
-        "gaps": ["maturity-l0", "stale", "missing-license", "load-bearing-under-70"]
+        "gaps": ["maturity-l0", "stale", "missing-license"]
       }
     },
     {
@@ -6683,8 +6681,8 @@
     },
     "ops-knowledge": {
       "count": 4,
-      "average_score": 29,
-      "load_bearing_count": 4
+      "average_score": 26,
+      "load_bearing_count": 1
     },
     "public-proof-surface": {
       "count": 2,
@@ -6693,8 +6691,8 @@
     },
     "quant-trading": {
       "count": 8,
-      "average_score": 58,
-      "load_bearing_count": 8
+      "average_score": 56,
+      "load_bearing_count": 6
     },
     "reference-library": {
       "count": 118,
@@ -6703,8 +6701,8 @@
     },
     "resource-library": {
       "count": 2,
-      "average_score": 38,
-      "load_bearing_count": 2
+      "average_score": 36,
+      "load_bearing_count": 1
     }
   },
   "next_actions": [
@@ -6720,7 +6718,7 @@
     },
     {
       "action": "Raise load-bearing assets below 70",
-      "reason": "22 load-bearing assets need docs, evidence, topics, homepage, or maturity upgrades.",
+      "reason": "5 load-bearing assets need docs, evidence, topics, homepage, or maturity upgrades.",
       "phase": "Phase 3-5"
     }
   ]

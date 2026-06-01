@@ -2,7 +2,7 @@
 
 **Status:** Phase 5 golden path passed with public deployment evidence
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-06-01T01:14:33.745Z
+**Generated:** 2026-06-01T02:20:09.791Z
 
 ## What This Proves
 
@@ -10,28 +10,29 @@ A public-safe app spec can select resources, forge a real Next.js app, install d
 
 ## Latest Run
 
-- Run ID: `client-intake-portal-2026-06-01T004907152Z`
+- Run ID: `client-intake-portal-2026-06-01T021207279Z`
 - Spec: `data/golden-path-specs/client-intake-portal.json`
 - Recipe: `internal-tool-dashboard`
 - App: `client-intake-portal`
 - Local runtime: `http://127.0.0.1:3041`
 - Deployed URL: `https://sage-client-intake-portal-vercel.vercel.app`
 - Deploy status: `verified-vercel-url`
-- Generated app hash: `sha256:b9fbd4e6187a96a67160d20ea4c55f71b86d5c288974d0b92b86e4b9d69b3f6f`
-- Wall clock: 113s
+- Generated app hash: `sha256:559b63641017c3ed7377476f5f5590391a571cf0c2e6f1bc98954abad95960fc`
+- Wall clock: 83s
 
 ## Gates
 
-| Gate                            | Status | Detail                                                                    |
-| ------------------------------- | ------ | ------------------------------------------------------------------------- |
-| Resource selection              | passed | 1 recommended assets selected from 4 layers.                              |
-| Forge emit                      | passed | 31 files emitted by internal-tool-dashboard.                              |
-| Install dependencies            | passed | exit 0                                                                    |
-| Typecheck generated app         | passed | exit 0                                                                    |
-| Build generated app             | passed | exit 0                                                                    |
-| Start local runtime             | passed | HTTP 200 from /api/health.                                                |
-| Verify live local app           | passed | 8/8 checks passed.                                                        |
-| Verify public Vercel deployment | passed | 8/8 checks passed at https://sage-client-intake-portal-vercel.vercel.app. |
+| Gate                            | Status | Detail                                                                      |
+| ------------------------------- | ------ | --------------------------------------------------------------------------- |
+| Resource selection              | passed | 1 recommended assets selected from 4 layers.                                |
+| Forge emit                      | passed | 31 files emitted by internal-tool-dashboard.                                |
+| Install dependencies            | passed | exit 0                                                                      |
+| Standalone lockfile             | passed | Generated app includes its own pnpm-lock.yaml for isolated Vercel installs. |
+| Typecheck generated app         | passed | exit 0                                                                      |
+| Build generated app             | passed | exit 0                                                                      |
+| Start local runtime             | passed | HTTP 200 from /api/health.                                                  |
+| Verify live local app           | passed | 8/8 checks passed.                                                          |
+| Verify public Vercel deployment | passed | 8/8 checks passed at https://sage-client-intake-portal-vercel.vercel.app.   |
 
 ## Selected Resources
 
@@ -39,7 +40,8 @@ A public-safe app spec can select resources, forge a real Next.js app, install d
 
 ## Remaining Gaps
 
-- Runtime proof uses mock credentials and local Next server; production auth/database credentials are intentionally not committed.
+- Runtime proof uses mock credentials because staging Supabase/Auth environment variables are not set in this shell.
+- Production auth/database credentials are intentionally not committed.
 
 ## Run It
 

@@ -87,6 +87,13 @@ function main() {
     if (!args.skipGolden) {
       commandResults.push(runStep("golden_path", pnpmBin, ["golden:path"]));
     }
+    if (!args.skipGolden && !args.skipDeploy) {
+      if (hasVercelDeployEnv()) {
+        commandResults.push(runStep("golden_path_vercel", pnpmBin, ["golden:path:deploy"]));
+      } else if (args.requireDeploy) {
+        commandResults.push(runStep("golden_path_vercel", pnpmBin, ["golden:path:deploy"]));
+      }
+    }
     commandResults.push(runStep("public_proof_export", pnpmBin, ["proof:export"]));
   }
 
@@ -153,12 +160,16 @@ function parseArgs(argv) {
     check: false,
     skipRefresh: false,
     skipGolden: false,
+    skipDeploy: false,
+    requireDeploy: false,
     allowFailures: false,
   };
   for (const arg of argv) {
     if (arg === "--check") args.check = true;
     else if (arg === "--skip-refresh") args.skipRefresh = true;
     else if (arg === "--skip-golden") args.skipGolden = true;
+    else if (arg === "--skip-deploy") args.skipDeploy = true;
+    else if (arg === "--require-deploy") args.requireDeploy = true;
     else if (arg === "--allow-failures") args.allowFailures = true;
     else if (arg === "--help" || arg === "-h") {
       printHelp();
@@ -177,6 +188,8 @@ Options:
   --check           Read current artifacts and write a report without regenerating.
   --skip-refresh    Skip inventory/scorecard/resource-map regeneration.
   --skip-golden     Skip the expensive local golden-path proof.
+  --skip-deploy     Skip automated Vercel deploy proof even when secrets exist.
+  --require-deploy  Fail if Vercel deploy secrets are missing.
   --allow-failures  Write the report even if commands or freshness checks fail.
 `);
 }
@@ -211,6 +224,12 @@ function runStep(id, command, args) {
     stdout_tail: tail(result.stdout),
     stderr_tail: tail(result.stderr),
   };
+}
+
+function hasVercelDeployEnv() {
+  return ["VERCEL_TOKEN", "VERCEL_TEAM_ID", "VERCEL_PROJECT_ID"].every((key) =>
+    Boolean(process.env[key]),
+  );
 }
 
 function inspectArtifact(artifact, generatedAt) {

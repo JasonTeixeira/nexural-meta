@@ -23,6 +23,8 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, "..");
 const DATA_DIR = join(ROOT, "data");
 const DOCS_DIR = join(ROOT, "docs");
+const PRIVATE_DIR = join(ROOT, ".nexural", "private");
+const CACHE_DIR = join(ROOT, ".nexural", "cache", "golden-path");
 const EVIDENCE_DIR = join(ROOT, "evidence", "golden-path");
 const GATE5_SLUG = "client-intake-portal-local";
 const SPEC_PATH = join(DATA_DIR, "golden-path-specs", "client-intake-portal.json");
@@ -44,10 +46,12 @@ async function main() {
   if (!useCase) throw new Error(`Resource use case not found: ${spec.use_case_id}`);
 
   mkdirSync(DATA_DIR, { recursive: true });
+  mkdirSync(PRIVATE_DIR, { recursive: true });
+  mkdirSync(CACHE_DIR, { recursive: true });
   mkdirSync(EVIDENCE_DIR, { recursive: true });
 
   const runId = `${spec.id}-${stamp(generatedAt)}`;
-  const runRoot = join(tmpdir(), `sage-golden-path-${runId}`);
+  const runRoot = join(CACHE_DIR, runId);
   const appRoot = join(runRoot, spec.app_slug);
   const specInputPath = join(runRoot, "inputs.json");
   log(`starting ${runId}`);
@@ -99,15 +103,26 @@ async function main() {
   });
   assertGate(gates.at(-1));
 
-  log("write local mock env");
-  await writeLocalEnv(appRoot, spec);
+  const runtimeEnv = resolveRuntimeEnv(spec);
+  log(`write ${runtimeEnv.mode} env`);
+  await writeLocalEnv(appRoot, runtimeEnv);
 
   log("install dependencies");
-  const install = run(pnpmBin, ["install", "--ignore-scripts"], {
+  const install = run(pnpmBin, ["install", "--ignore-workspace", "--ignore-scripts"], {
     cwd: appRoot,
     timeoutMs: 300_000,
   });
   gates.push(gateFromCommand("install", "Install dependencies", install));
+  assertGate(gates.at(-1));
+
+  gates.push({
+    id: "standalone_lockfile",
+    label: "Standalone lockfile",
+    status: existsSync(join(appRoot, "pnpm-lock.yaml")) ? "passed" : "failed",
+    detail: existsSync(join(appRoot, "pnpm-lock.yaml"))
+      ? "Generated app includes its own pnpm-lock.yaml for isolated Vercel installs."
+      : "Generated app is missing pnpm-lock.yaml after install.",
+  });
   assertGate(gates.at(-1));
 
   log("typecheck generated app");
@@ -202,6 +217,7 @@ async function main() {
     },
     runtime: {
       mode: "local-next-start",
+      credentials_mode: runtimeEnv.mode,
       url: runtime.url,
       health_path: spec.proof_targets.local_runtime_health_path,
       deploy_status: process.env.VERCEL_TOKEN
@@ -229,18 +245,24 @@ async function main() {
         lesson:
           "Local runtime proof needs a generated .env.local with safe mock values when using mock secrets.",
         fed_back:
-          "Golden-path runner writes public-safe mock env locally and keeps it out of committed artifacts.",
+          "Golden-path runner writes staging credentials when configured, otherwise public-safe mock env, and keeps both out of committed artifacts.",
       },
     ],
     remaining_gaps: [
       "No public Vercel preview was created because VERCEL_TOKEN is not set in this shell.",
-      "Runtime proof uses mock credentials and local Next server; production auth/database credentials are intentionally not committed.",
+      ...(runtimeEnv.mode === "staging-supabase"
+        ? []
+        : [
+            "Runtime proof uses mock credentials because staging Supabase/Auth environment variables are not set in this shell.",
+          ]),
+      "Production auth/database credentials are intentionally not committed.",
     ],
     wall_clock_ms: Date.now() - started,
   };
 
   log("write evidence artifacts");
   const publicPayload = maskLocalPaths(evidencePayload);
+  writeJson(join(PRIVATE_DIR, "golden-path-latest.internal.json"), evidencePayload);
   writeJson(join(EVIDENCE_DIR, "latest.json"), publicPayload);
   writeJson(join(EVIDENCE_DIR, `${runId}.json`), publicPayload);
 
@@ -309,19 +331,42 @@ function run(command, args, options) {
   };
 }
 
-async function writeLocalEnv(appRoot, spec) {
+function resolveRuntimeEnv(spec) {
+  const requiredStaging = [
+    "NEXT_PUBLIC_SUPABASE_URL",
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+    "SUPABASE_SERVICE_ROLE_KEY",
+  ];
+  const hasStagingSupabase = requiredStaging.every((name) => Boolean(process.env[name]));
+  const values = {
+    NEXT_PUBLIC_SUPABASE_URL: hasStagingSupabase
+      ? process.env.NEXT_PUBLIC_SUPABASE_URL
+      : "https://example.supabase.co",
+    NEXT_PUBLIC_SUPABASE_ANON_KEY: hasStagingSupabase
+      ? process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+      : "mock-anon-key",
+    SUPABASE_SERVICE_ROLE_KEY: hasStagingSupabase
+      ? process.env.SUPABASE_SERVICE_ROLE_KEY
+      : "mock-service-role-key",
+    RESEND_API_KEY: process.env.RESEND_API_KEY || "mock-resend-key",
+    NEXT_PUBLIC_SENTRY_DSN: process.env.NEXT_PUBLIC_SENTRY_DSN || "",
+    NEXT_PUBLIC_POSTHOG_KEY: process.env.NEXT_PUBLIC_POSTHOG_KEY || "mock-posthog-key",
+    NEXT_PUBLIC_POSTHOG_HOST: process.env.NEXT_PUBLIC_POSTHOG_HOST || "https://us.i.posthog.com",
+    NEXT_PUBLIC_APP_NAME: spec.inputs.displayName,
+    NEXT_PUBLIC_ROOT_DOMAIN: spec.inputs.rootDomain,
+    NEXT_PUBLIC_TENANT_ROUTING: spec.inputs.tenantRouting,
+    NEXT_PUBLIC_DEFAULT_LOCALE: spec.inputs.defaultLocale,
+  };
+  return {
+    mode: hasStagingSupabase ? "staging-supabase" : "public-safe-mock",
+    values,
+    missing: requiredStaging.filter((name) => !process.env[name]),
+  };
+}
+
+async function writeLocalEnv(appRoot, runtimeEnv) {
   const value = [
-    "NEXT_PUBLIC_SUPABASE_URL=https://example.supabase.co",
-    "NEXT_PUBLIC_SUPABASE_ANON_KEY=mock-anon-key",
-    "SUPABASE_SERVICE_ROLE_KEY=mock-service-role-key",
-    "RESEND_API_KEY=mock-resend-key",
-    "NEXT_PUBLIC_SENTRY_DSN=",
-    "NEXT_PUBLIC_POSTHOG_KEY=mock-posthog-key",
-    "NEXT_PUBLIC_POSTHOG_HOST=https://us.i.posthog.com",
-    `NEXT_PUBLIC_APP_NAME=${spec.inputs.displayName}`,
-    `NEXT_PUBLIC_ROOT_DOMAIN=${spec.inputs.rootDomain}`,
-    `NEXT_PUBLIC_TENANT_ROUTING=${spec.inputs.tenantRouting}`,
-    `NEXT_PUBLIC_DEFAULT_LOCALE=${spec.inputs.defaultLocale}`,
+    ...Object.entries(runtimeEnv.values).map(([key, val]) => `${key}=${val ?? ""}`),
     "",
   ].join("\n");
   await writeFile(join(appRoot, ".env.local"), value, "utf8");

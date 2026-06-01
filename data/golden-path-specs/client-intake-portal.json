@@ -10,8 +10,9 @@
   "constraints": [
     "Use public-safe metadata only.",
     "Do not publish secrets.",
-    "Use mock local credentials for runtime proof.",
-    "Record deploy status honestly if no Vercel token is available."
+    "Use staging Supabase/Auth credentials for runtime proof when configured.",
+    "Use public-safe mock credentials only as an explicitly reported fallback.",
+    "Record deploy status honestly if Vercel automation secrets are unavailable."
   ],
   "inputs": {
     "appName": "client-intake-portal",

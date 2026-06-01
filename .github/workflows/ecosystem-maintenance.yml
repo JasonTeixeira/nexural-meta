@@ -2,11 +2,16 @@ name: Ecosystem maintenance
 
 on:
   schedule:
-    - cron: "0 9 * * 1" # Monday 09:00 UTC, after weekly health check
+    - cron: "0 9 * * *" # Nightly proof refresh.
+    - cron: "0 10 * * 1" # Weekly proof review after the nightly refresh.
   workflow_dispatch:
     inputs:
       run_golden:
         description: "Run the local golden-path proof"
+        type: boolean
+        default: true
+      run_deploy:
+        description: "Deploy and verify the golden-path app when Vercel secrets exist"
         type: boolean
         default: true
 
@@ -32,10 +37,25 @@ jobs:
       - name: Run Phase 7 maintenance loop
         env:
           GH_TOKEN: ${{ secrets.SAGE_ECOSYSTEM_GITHUB_TOKEN || github.token }}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_TEAM_ID: ${{ secrets.VERCEL_TEAM_ID }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_TEAM_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          VERCEL_PROOF_ALIAS: ${{ secrets.VERCEL_PROOF_ALIAS }}
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          NEXT_PUBLIC_SENTRY_DSN: ${{ secrets.NEXT_PUBLIC_SENTRY_DSN }}
+          NEXT_PUBLIC_POSTHOG_KEY: ${{ secrets.NEXT_PUBLIC_POSTHOG_KEY }}
+          NEXT_PUBLIC_POSTHOG_HOST: ${{ secrets.NEXT_PUBLIC_POSTHOG_HOST }}
         run: |
           args="--allow-failures"
           if [[ "${{ github.event_name }}" == "workflow_dispatch" && "${{ inputs.run_golden }}" == "false" ]]; then
             args="$args --skip-golden"
+          fi
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" && "${{ inputs.run_deploy }}" == "false" ]]; then
+            args="$args --skip-deploy"
           fi
           pnpm ecosystem:maintain -- $args
 

@@ -153,9 +153,12 @@ function gaps(repo, total) {
 function isLoadBearing(repo) {
   const layer = repo.canonical?.layer;
   const type = repo.canonical?.asset_type;
+  const maturity = repo.canonical?.maturity;
   if (layer === "reference-library") return false;
   if (repo.operational?.status === "archived" || repo.operational?.status === "reference")
     return false;
+  if (repo.operational?.needs_private_review) return false;
+  if (repo.operational?.status === "stale" || maturity === "L0") return false;
   return [
     "control-plane",
     "engine",
@@ -314,7 +317,7 @@ function renderMarkdown(scorecard) {
     lines.push(`- **${item.action}:** ${item.reason}`);
   }
   lines.push("");
-  return `${lines.join("\n")}\n`;
+  return `${lines.join("\n").trimEnd()}\n`;
 }
 
 function band(score) {
