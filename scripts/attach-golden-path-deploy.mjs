@@ -219,9 +219,8 @@ function attachDeployEvidence(run, deploy) {
 
 async function verifyDeployedDbHealth(url, requireCrud) {
   const started = Date.now();
-  const response = await fetch(new URL("/api/health", url).toString());
-  const body = await response.text();
-  if (!response.ok) {
+  const response = await fetchProtected(new URL("/api/health", url).toString(), 30_000);
+  if (response.status < 200 || response.status >= 300) {
     return {
       ok: false,
       detail: `HTTP ${response.status} from deployed /api/health.`,
@@ -237,7 +236,7 @@ async function verifyDeployedDbHealth(url, requireCrud) {
   }
 
   try {
-    const parsed = JSON.parse(body);
+    const parsed = JSON.parse(response.body);
     const database = parsed.database;
     const ok =
       parsed.ok === true &&
@@ -257,6 +256,88 @@ async function verifyDeployedDbHealth(url, requireCrud) {
       detail: err instanceof Error ? err.message : String(err),
       duration_ms: Date.now() - started,
     };
+  }
+}
+
+async function fetchProtected(url, timeoutMs) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const headers = { accept: "application/json" };
+    if (process.env.VERCEL_AUTOMATION_BYPASS_SECRET && isVercelUrl(url)) {
+      headers["x-vercel-protection-bypass"] = process.env.VERCEL_AUTOMATION_BYPASS_SECRET;
+    }
+    const response = await fetch(url, { headers, signal: controller.signal });
+    const body = await response.text();
+    if (
+      (response.status === 401 || response.status === 403) &&
+      process.env.VERCEL_TOKEN &&
+      isVercelUrl(url)
+    ) {
+      return vercelCurl(url, timeoutMs);
+    }
+    return { status: response.status, body };
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+function vercelCurl(url, timeoutMs) {
+  const parsed = new URL(url);
+  const args = [
+    "--yes",
+    "vercel@latest",
+    "curl",
+    `${parsed.pathname || "/"}${parsed.search}`,
+    "--deployment",
+    `${parsed.protocol}//${parsed.host}`,
+    "--",
+    "-i",
+    "-L",
+    "-sS",
+    "--max-time",
+    String(Math.max(5, Math.ceil(timeoutMs / 1000))),
+  ];
+  const result = spawnSync(npxBin, args, {
+    cwd: ROOT,
+    shell: isWindows,
+    encoding: "utf8",
+    stdio: ["ignore", "pipe", "pipe"],
+    timeout: timeoutMs + 120_000,
+    env: { ...process.env, CI: "1" },
+  });
+  if ((result.status ?? 1) !== 0) {
+    throw new Error(
+      `vercel curl failed with exit ${result.status ?? 1}: ${tail(result.stderr || result.stdout)}`,
+    );
+  }
+  return parseRawHttpResponse(result.stdout);
+}
+
+function parseRawHttpResponse(raw) {
+  const parts = String(raw ?? "").split(/\r?\n\r?\n/);
+  let headerIndex = -1;
+  for (let i = parts.length - 1; i >= 0; i -= 1) {
+    if (/^HTTP\/\d(?:\.\d)?\s+\d{3}/i.test(parts[i] ?? "")) {
+      headerIndex = i;
+      break;
+    }
+  }
+  if (headerIndex < 0) throw new Error("vercel curl output did not include headers");
+  const headerLines = (parts[headerIndex] ?? "").split(/\r?\n/);
+  const statusMatch = headerLines[0]?.match(/^HTTP\/\d(?:\.\d)?\s+(\d{3})/i);
+  return {
+    status: statusMatch ? Number(statusMatch[1]) : 0,
+    body: parts.slice(headerIndex + 1).join("\n\n"),
+  };
+}
+
+function isVercelUrl(url) {
+  try {
+    const parsed = new URL(url);
+    return parsed.hostname === "vercel.app" || parsed.hostname.endsWith(".vercel.app");
+  } catch {
+    return false;
   }
 }
 
@@ -345,6 +426,14 @@ function writeJson(path, value) {
 
 function projectPath(path) {
   return relative(ROOT, path).replaceAll("\\", "/");
+}
+
+function tail(value) {
+  return String(value ?? "")
+    .trim()
+    .split(/\r?\n/)
+    .slice(-8)
+    .join("\n");
 }
 
 main().catch((err) => {

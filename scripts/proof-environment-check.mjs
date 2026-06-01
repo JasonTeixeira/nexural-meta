@@ -102,9 +102,11 @@ async function main() {
   const goldenPath = readJsonIfPresent("data/golden-path-runs.public.json");
   const latestRun = goldenPath?.runs?.[0] ?? null;
   const hostedUrl =
-    process.env.VERCEL_PROOF_ALIAS !== undefined
-      ? normalizeUrl(process.env.VERCEL_PROOF_ALIAS)
-      : latestRun?.runtime?.deployed_url;
+    latestRun?.runtime?.deploy_status === "verified-vercel-url" && latestRun?.runtime?.deployed_url
+      ? latestRun.runtime.deployed_url
+      : process.env.VERCEL_PROOF_ALIAS !== undefined
+        ? normalizeUrl(process.env.VERCEL_PROOF_ALIAS)
+        : latestRun?.runtime?.deployed_url;
   const hosted = hostedUrl ? await verifyHostedHealth(hostedUrl) : missingHosted();
   const evidence = inspectEvidence(goldenPath);
   const gates = buildGates({ secretInventory, hosted, evidence });
