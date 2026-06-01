@@ -4,6 +4,7 @@ import {
   readEcosystemScorecard,
   readExternalMcps,
   readGoldenPathRuns,
+  readPublicProofLayer,
   readRegistry,
   readRevocations,
   readScorecard,
@@ -21,6 +22,7 @@ export default function Overview() {
   const ecosystemScore = readEcosystemScorecard();
   const resourceMap = readEcosystemResourceMap();
   const goldenPath = readGoldenPathRuns();
+  const publicProof = readPublicProofLayer();
 
   return (
     <section>
@@ -76,6 +78,11 @@ export default function Overview() {
           }
           tone={(goldenPath.totals?.passed_runs ?? 0) < 1 ? "warn" : "ok"}
         />
+        <Card
+          label="Public proof"
+          value={publicProof.present ? (publicProof.target_surface?.status ?? "ready") : "-"}
+          tone={publicProof.present ? "ok" : "warn"}
+        />
       </div>
 
       {externals.length > 0 && (
@@ -102,7 +109,8 @@ export default function Overview() {
 
       <p style={{ marginTop: "3rem", color: "#737373", fontSize: "0.85rem" }}>
         The Ecosystem page is the service-level control plane. The Resources page is the Phase 4
-        daily-use factory navigator. The Golden Path page is the Phase 5 local proof surface.
+        daily-use factory navigator. The Golden Path page is the Phase 5 local proof surface. The
+        Public Proof page is the Phase 6 export packet for sageideas.dev.
       </p>
     </section>
   );

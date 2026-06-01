@@ -30,7 +30,8 @@ Read these first:
 6. **`docs/ECOSYSTEM_CONTROL_PLANE.md`** - Phase 3 operator dashboard and workflow.
 7. **`docs/ECOSYSTEM_RESOURCE_FACTORY.md`** - Phase 4 generated use-case resource map.
 8. **`docs/GOLDEN_PATH.md`** - Phase 5 generated local app factory proof.
-9. **`docs/adr/0014-sage-ideas-engineering-os-umbrella.md`** - decision record.
+9. **`docs/PUBLIC_PROOF_LAYER.md`** - Phase 6 public-safe proof export for sageideas.dev.
+10. **`docs/adr/0014-sage-ideas-engineering-os-umbrella.md`** - decision record.
 
 ---
 

@@ -35,6 +35,7 @@
     "ecosystem:map": "node scripts/ecosystem-resource-map.mjs",
     "ecosystem:refresh": "pnpm ecosystem:inventory && pnpm ecosystem:score && pnpm ecosystem:map",
     "golden:path": "node scripts/golden-path-proof.mjs",
+    "proof:export": "node scripts/public-proof-export.mjs",
     "prepare": "husky"
   },
   "lint-staged": {

@@ -292,6 +292,76 @@ export interface GoldenPathRunsData {
   readonly runs: ReadonlyArray<GoldenPathRun>;
 }
 
+export interface PublicProofLayerData {
+  readonly present: boolean;
+  readonly schema_version?: number;
+  readonly generated_at?: string;
+  readonly generated_by?: string;
+  readonly privacy?: string;
+  readonly target_surface?: {
+    readonly repo: string;
+    readonly site: string;
+    readonly recommended_route: string;
+    readonly status: string;
+  };
+  readonly positioning?: {
+    readonly company: string;
+    readonly system_name: string;
+    readonly one_liner: string;
+    readonly audience: ReadonlyArray<string>;
+    readonly brand_boundary: string;
+  };
+  readonly public_claims?: ReadonlyArray<{
+    readonly claim: string;
+    readonly evidence: string;
+    readonly source: string;
+  }>;
+  readonly architecture?: ReadonlyArray<{
+    readonly layer: string;
+    readonly public_label: string;
+    readonly public_detail: string;
+  }>;
+  readonly proof_metrics?: {
+    readonly public_repositories_indexed: number;
+    readonly private_repositories_summarized: number;
+    readonly public_assets_scored: number;
+    readonly average_public_score: number;
+    readonly load_bearing_assets: number;
+    readonly load_bearing_average_score: number;
+    readonly resource_use_cases: number;
+    readonly golden_path_wall_clock_seconds: number;
+    readonly golden_path_gates_passed: number;
+    readonly golden_path_gate_count: number;
+    readonly golden_path_verify_checks: {
+      readonly passed: number;
+      readonly total: number;
+    };
+  };
+  readonly recommended_assets?: ReadonlyArray<{
+    readonly name: string;
+    readonly url: string;
+    readonly layer: string;
+    readonly asset_type: string;
+    readonly maturity: string;
+    readonly score: number;
+    readonly status: string;
+  }>;
+  readonly publishable_sections?: ReadonlyArray<{
+    readonly slug: string;
+    readonly title: string;
+    readonly body: string;
+  }>;
+  readonly evidence?: {
+    readonly source_files: ReadonlyArray<string>;
+    readonly generated_files: ReadonlyArray<string>;
+    readonly golden_path_hash: string;
+    readonly golden_path_run_id: string;
+    readonly packet_hash: string;
+  };
+  readonly redaction_policy?: ReadonlyArray<string>;
+  readonly remaining_gaps?: ReadonlyArray<string>;
+}
+
 export function readRegistry(federation: "factory" | "lifeops"): ReadonlyArray<WarehouseEntry> {
   const p = join(META_ROOT, `registry-${federation}.yaml`);
   if (!existsSync(p)) return [];
@@ -369,6 +439,17 @@ export function readGoldenPathRuns(): GoldenPathRunsData {
     return { ...raw, present: true, runs: raw.runs ?? [] };
   } catch {
     return { present: false, runs: [] };
+  }
+}
+
+export function readPublicProofLayer(): PublicProofLayerData {
+  const p = join(META_ROOT, "data/public-proof-layer.public.json");
+  if (!existsSync(p)) return { present: false };
+  try {
+    const raw = JSON.parse(readFileSync(p, "utf8")) as Omit<PublicProofLayerData, "present">;
+    return { ...raw, present: true };
+  } catch {
+    return { present: false };
   }
 }
 
