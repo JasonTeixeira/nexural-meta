@@ -107,6 +107,17 @@ async function main() {
   log(`write ${runtimeEnv.mode} env`);
   await writeLocalEnv(appRoot, runtimeEnv);
 
+  log("verify Supabase/Auth runtime configuration");
+  const supabaseRuntime = await verifySupabaseRuntime(runtimeEnv);
+  gates.push({
+    id: "supabase_runtime",
+    label: "Verify Supabase/Auth runtime",
+    status: supabaseRuntime.ok ? "passed" : "failed",
+    detail: supabaseRuntime.detail,
+    duration_ms: supabaseRuntime.duration_ms,
+  });
+  assertGate(gates.at(-1));
+
   log("install dependencies");
   const install = run(pnpmBin, ["install", "--ignore-workspace", "--ignore-scripts"], {
     cwd: appRoot,
@@ -218,6 +229,7 @@ async function main() {
     runtime: {
       mode: "local-next-start",
       credentials_mode: runtimeEnv.mode,
+      supabase_project_ref: runtimeEnv.publicProjectRef,
       url: runtime.url,
       health_path: spec.proof_targets.local_runtime_health_path,
       deploy_status: process.env.VERCEL_TOKEN
@@ -361,7 +373,53 @@ function resolveRuntimeEnv(spec) {
     mode: hasStagingSupabase ? "staging-supabase" : "public-safe-mock",
     values,
     missing: requiredStaging.filter((name) => !process.env[name]),
+    publicProjectRef: parseSupabaseProjectRef(values.NEXT_PUBLIC_SUPABASE_URL),
   };
+}
+
+async function verifySupabaseRuntime(runtimeEnv) {
+  const started = Date.now();
+  if (runtimeEnv.mode !== "staging-supabase") {
+    return {
+      ok: true,
+      detail: "Skipped real Supabase/Auth probe because staging credentials are not configured.",
+      duration_ms: Date.now() - started,
+    };
+  }
+
+  const baseUrl = runtimeEnv.values.NEXT_PUBLIC_SUPABASE_URL;
+  const anonKey = runtimeEnv.values.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  try {
+    const res = await fetch(`${baseUrl}/auth/v1/settings`, {
+      headers: {
+        apikey: anonKey,
+      },
+    });
+    return {
+      ok: res.status >= 200 && res.status < 300,
+      detail:
+        res.status >= 200 && res.status < 300
+          ? `HTTP ${res.status} from Supabase Auth settings for project ${runtimeEnv.publicProjectRef}.`
+          : `HTTP ${res.status} from Supabase Auth settings for project ${runtimeEnv.publicProjectRef}.`,
+      duration_ms: Date.now() - started,
+    };
+  } catch (err) {
+    return {
+      ok: false,
+      detail: err instanceof Error ? err.message : String(err),
+      duration_ms: Date.now() - started,
+    };
+  }
+}
+
+function parseSupabaseProjectRef(value) {
+  try {
+    const url = new URL(value);
+    const [ref] = url.hostname.split(".");
+    return ref || null;
+  } catch {
+    return null;
+  }
 }
 
 async function writeLocalEnv(appRoot, runtimeEnv) {
