@@ -1,31 +1,31 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-01T17:00:41.487Z",
+  "generated_at": "2026-06-01T20:14:00.095Z",
   "generated_by": "scripts/proof-environment-check.mjs",
   "privacy": "public-safe",
-  "status": "passed",
+  "status": "failed",
   "repo": "JasonTeixeira/nexural-meta",
   "summary": {
-    "gates_passed": 6,
+    "gates_passed": 3,
     "gates_total": 6,
-    "required_secrets_present": 8,
+    "required_secrets_present": 0,
     "required_secrets_total": 8,
     "hosted_url": "https://sage-client-intake-portal-vercel.vercel.app",
     "hosted_health_status": 200,
-    "latest_run_id": "client-intake-portal-2026-06-01T165601095Z",
-    "latest_app_hash": "sha256:220e1bd8d055e052eff47ee7d7c8255e7a0aecfb4150abff0c52bdc67274071e",
+    "latest_run_id": "rag-knowledge-chat-2026-06-01T195349129Z",
+    "latest_app_hash": "sha256:73d32666d246cc83852b6657539eea304e6617980512adadbf66b2700bd5de14",
     "latest_gate_count": 14
   },
   "gates": [
     {
       "id": "secret_inventory_available",
-      "status": "passed",
-      "detail": "GitHub secret inventory is readable without exposing values."
+      "status": "failed",
+      "detail": "GitHub secret inventory unavailable: failed to get secrets: HTTP 403: Resource not accessible by integration (https://api.github.com/repos/JasonTeixeira/nexural-meta/actions/secrets?per_page=100)\n"
     },
     {
       "id": "required_secrets_present",
-      "status": "passed",
-      "detail": "All required proof secrets are present."
+      "status": "failed",
+      "detail": "Missing required proof secrets: VERCEL_TOKEN, VERCEL_TEAM_ID, VERCEL_PROJECT_ID, VERCEL_PROOF_ALIAS, NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY, SUPABASE_SERVICE_ROLE_KEY, DATABASE_URL."
     },
     {
       "id": "required_secrets_fresh",
@@ -40,12 +40,12 @@
     {
       "id": "golden_path_evidence_present",
       "status": "passed",
-      "detail": "Latest run client-intake-portal-2026-06-01T165601095Z has 14/14 gates."
+      "detail": "Latest run rag-knowledge-chat-2026-06-01T195349129Z has 14/14 gates."
     },
     {
       "id": "golden_path_has_hosted_db_gate",
-      "status": "passed",
-      "detail": "Golden-path evidence includes a passed hosted DB CRUD gate."
+      "status": "failed",
+      "detail": "Hosted DB CRUD gate status is missing."
     }
   ],
   "secrets": [
@@ -53,99 +53,99 @@
       "name": "VERCEL_TOKEN",
       "purpose": "Automated hosted golden-path deployment.",
       "required": true,
-      "present": true,
-      "updated_at": "2026-06-01T13:27:54Z",
-      "age_days": 0.1,
+      "present": false,
+      "updated_at": null,
+      "age_days": null,
       "max_age_days": 90,
-      "status": "present",
+      "status": "missing",
       "rotation": "Rotate through Vercel account tokens."
     },
     {
       "name": "VERCEL_TEAM_ID",
       "purpose": "Vercel team/project binding.",
       "required": true,
-      "present": true,
-      "updated_at": "2026-06-01T02:09:27Z",
-      "age_days": 0.6,
+      "present": false,
+      "updated_at": null,
+      "age_days": null,
       "max_age_days": null,
-      "status": "present",
+      "status": "missing",
       "rotation": "Stable identifier; rotate only if project ownership changes."
     },
     {
       "name": "VERCEL_PROJECT_ID",
       "purpose": "Vercel project binding.",
       "required": true,
-      "present": true,
-      "updated_at": "2026-06-01T02:09:27Z",
-      "age_days": 0.6,
+      "present": false,
+      "updated_at": null,
+      "age_days": null,
       "max_age_days": null,
-      "status": "present",
+      "status": "missing",
       "rotation": "Stable identifier; rotate only if project ownership changes."
     },
     {
       "name": "VERCEL_PROOF_ALIAS",
       "purpose": "Stable hostname used for hosted proof verification.",
       "required": true,
-      "present": true,
-      "updated_at": "2026-06-01T02:18:55Z",
-      "age_days": 0.6,
+      "present": false,
+      "updated_at": null,
+      "age_days": null,
       "max_age_days": null,
-      "status": "present",
+      "status": "missing",
       "rotation": "Stable hostname; update when proof hostname changes."
     },
     {
       "name": "NEXT_PUBLIC_SUPABASE_URL",
       "purpose": "Staging Supabase project URL.",
       "required": true,
-      "present": true,
-      "updated_at": "2026-06-01T15:51:10Z",
-      "age_days": 0,
+      "present": false,
+      "updated_at": null,
+      "age_days": null,
       "max_age_days": null,
-      "status": "present",
+      "status": "missing",
       "rotation": "Stable project URL; update when staging project changes."
     },
     {
       "name": "NEXT_PUBLIC_SUPABASE_ANON_KEY",
       "purpose": "Browser-safe staging Supabase anon key.",
       "required": true,
-      "present": true,
-      "updated_at": "2026-06-01T14:20:18Z",
-      "age_days": 0.1,
+      "present": false,
+      "updated_at": null,
+      "age_days": null,
       "max_age_days": 180,
-      "status": "present",
+      "status": "missing",
       "rotation": "Rotate with Supabase project API keys."
     },
     {
       "name": "SUPABASE_SERVICE_ROLE_KEY",
       "purpose": "Server-side CRUD proof and generated app admin operations.",
       "required": true,
-      "present": true,
-      "updated_at": "2026-06-01T14:20:18Z",
-      "age_days": 0.1,
+      "present": false,
+      "updated_at": null,
+      "age_days": null,
       "max_age_days": 90,
-      "status": "present",
+      "status": "missing",
       "rotation": "Rotate with Supabase project API keys."
     },
     {
       "name": "DATABASE_URL",
       "purpose": "Staging Postgres migration path for generated apps.",
       "required": true,
-      "present": true,
-      "updated_at": "2026-06-01T15:50:13Z",
-      "age_days": 0,
+      "present": false,
+      "updated_at": null,
+      "age_days": null,
       "max_age_days": 90,
-      "status": "present",
+      "status": "missing",
       "rotation": "Rotate after DB password reset."
     },
     {
       "name": "NPM_TOKEN",
       "purpose": "Package publishing, not required for proof.",
       "required": false,
-      "present": true,
-      "updated_at": "2026-05-22T14:50:39Z",
-      "age_days": 10.1,
+      "present": false,
+      "updated_at": null,
+      "age_days": null,
       "max_age_days": 180,
-      "status": "present",
+      "status": "optional-missing",
       "rotation": "Rotate before package publishing cycles."
     }
   ],
@@ -153,20 +153,20 @@
     "ok": true,
     "url": "https://sage-client-intake-portal-vercel.vercel.app",
     "status": 200,
-    "duration_ms": 585,
+    "duration_ms": 898,
     "database_mode": "crud_probe",
     "database_operation": "insert-read-update-delete",
     "detail": "Hosted /api/health completed DB CRUD proof."
   },
   "evidence": {
     "golden_path_present": true,
-    "latest_run_id": "client-intake-portal-2026-06-01T165601095Z",
-    "generated_at": "2026-06-01T17:00:24.045Z",
-    "app_hash": "sha256:220e1bd8d055e052eff47ee7d7c8255e7a0aecfb4150abff0c52bdc67274071e",
+    "latest_run_id": "rag-knowledge-chat-2026-06-01T195349129Z",
+    "generated_at": "2026-06-01T19:55:19.028Z",
+    "app_hash": "sha256:73d32666d246cc83852b6657539eea304e6617980512adadbf66b2700bd5de14",
     "gate_count": 14,
     "gates_passed": 14,
-    "vercel_db_crud_gate": "passed",
-    "latest_evidence_hash": "sha256:60673bf3ef18a11211f3280c342302cbbaefa56dc64211baf81edbf69aefb62e"
+    "vercel_db_crud_gate": "missing",
+    "latest_evidence_hash": "sha256:6765b25eafa18a97e3d5feadb3ca0b618a95b4ad3c9190190d3eb7be01f9f7f3"
   },
   "operating_rules": [
     "No secret values are written to evidence, docs, or generated public-safe JSON.",
@@ -176,6 +176,51 @@
     "Generated app evidence links run ID, app tree hash, deployed URL, and gate results."
   ],
   "next_actions": [
+    {
+      "severity": "critical",
+      "action": "Set GitHub secret VERCEL_TOKEN",
+      "evidence": "Automated hosted golden-path deployment."
+    },
+    {
+      "severity": "critical",
+      "action": "Set GitHub secret VERCEL_TEAM_ID",
+      "evidence": "Vercel team/project binding."
+    },
+    {
+      "severity": "critical",
+      "action": "Set GitHub secret VERCEL_PROJECT_ID",
+      "evidence": "Vercel project binding."
+    },
+    {
+      "severity": "critical",
+      "action": "Set GitHub secret VERCEL_PROOF_ALIAS",
+      "evidence": "Stable hostname used for hosted proof verification."
+    },
+    {
+      "severity": "critical",
+      "action": "Set GitHub secret NEXT_PUBLIC_SUPABASE_URL",
+      "evidence": "Staging Supabase project URL."
+    },
+    {
+      "severity": "critical",
+      "action": "Set GitHub secret NEXT_PUBLIC_SUPABASE_ANON_KEY",
+      "evidence": "Browser-safe staging Supabase anon key."
+    },
+    {
+      "severity": "critical",
+      "action": "Set GitHub secret SUPABASE_SERVICE_ROLE_KEY",
+      "evidence": "Server-side CRUD proof and generated app admin operations."
+    },
+    {
+      "severity": "critical",
+      "action": "Set GitHub secret DATABASE_URL",
+      "evidence": "Staging Postgres migration path for generated apps."
+    },
+    {
+      "severity": "critical",
+      "action": "Run golden path and attach a hosted DB CRUD deployment",
+      "evidence": "vercel_db_crud_health=missing"
+    },
     {
       "severity": "security",
       "action": "Revoke any Supabase personal access token exposed outside the terminal",

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-01T19:55:27.323Z",
+  "generated_at": "2026-06-01T20:14:01.849Z",
   "generated_by": "scripts/public-proof-export.mjs",
   "privacy": "public-safe",
   "target_surface": {
@@ -152,7 +152,7 @@
     "golden_path_run_id": "client-intake-portal-2026-06-01T165601095Z",
     "golden_path_deployed_url": "https://sage-client-intake-portal-vercel.vercel.app",
     "golden_path_deploy_status": "verified-vercel-url",
-    "packet_hash": "sha256:70d3d644a4e50e0711d731418847572c55c3a496aa563aca44b8178fe37c9fc8"
+    "packet_hash": "sha256:20f145c19f73db17da732e6d250c77489a8a13c0893d1ff59e8c4253726880ac"
   },
   "redaction_policy": [
     "Commit public repository metadata only.",
