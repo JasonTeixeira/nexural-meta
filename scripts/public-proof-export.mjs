@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
- * Phase 6 public proof layer.
+ * Phase 6 public-safe proof packet.
  *
- * Produces a public-safe packet that sageideas.dev can publish without
+ * Produces an internal packet that can later be published after review without
  * exposing private repository names, local machine paths, secrets, or internal
  * implementation details.
  */
@@ -20,7 +20,7 @@ const ROOT = resolve(HERE, "..");
 const DATA_DIR = join(ROOT, "data");
 const DOCS_DIR = join(ROOT, "docs");
 const EVIDENCE_DIR = join(ROOT, "evidence", "public-proof");
-const EXPORT_DIR = join(ROOT, "exports", "sageideas-dev");
+const EXPORT_DIR = join(ROOT, "exports", "proof-packet");
 
 const REGISTRY_PATH = join(DATA_DIR, "ecosystem-registry.public.json");
 const SCORECARD_PATH = join(DATA_DIR, "ecosystem-scorecard.public.json");
@@ -54,10 +54,10 @@ function main() {
     generated_by: GENERATED_BY,
     privacy: "public-safe",
     target_surface: {
-      repo: "JasonTeixeira/sageideas.dev",
-      site: "https://www.sageideas.dev",
-      recommended_route: "/engineering-os",
-      status: "export-ready",
+      repo: null,
+      site: null,
+      recommended_route: null,
+      status: "internal-packet-ready",
     },
     positioning: {
       company: "Sage Ideas",
@@ -98,8 +98,8 @@ function main() {
         "data/public-proof-layer.public.json",
         "docs/PUBLIC_PROOF_LAYER.md",
         "evidence/public-proof/latest.json",
-        "exports/sageideas-dev/engineering-os-proof.json",
-        "exports/sageideas-dev/engineering-os-proof.md",
+        "exports/proof-packet/engineering-os-proof.json",
+        "exports/proof-packet/engineering-os-proof.md",
       ],
       golden_path_hash: goldenRun.generated_app.tree_hash,
       golden_path_run_id: goldenRun.run_id,
@@ -111,7 +111,7 @@ function main() {
       "Summarize private repositories by count, layer, maturity, and score band only.",
       "Do not publish private repo names, descriptions, URLs, local paths, secrets, customer data, or provider tokens.",
       "Frame product proofs as examples; do not imply Nexural is the umbrella brand.",
-      "Publish gaps honestly, including non-production mock credentials or missing hosted proof when applicable.",
+      "Publish gaps honestly, including staging-only proof or missing hosted proof when applicable.",
     ],
     remaining_gaps: [
       ...(hasDeployedProof
@@ -172,7 +172,7 @@ function buildClaims({ registry, scorecard, resourceMap, goldenRun }) {
     {
       claim:
         goldenRun.runtime?.deploy_status === "verified-vercel-url"
-          ? "The factory path has deployed public proof."
+          ? "The factory path has deployed hosted proof."
           : "The factory path has a repeatable local proof.",
       evidence:
         goldenRun.runtime?.deploy_status === "verified-vercel-url"
@@ -232,15 +232,15 @@ function buildPublishableSections(goldenRun) {
     {
       slug: "redaction-boundary",
       title: "Redaction Boundary",
-      body: "The public page should show architecture, evidence, and high-level metrics while keeping private repo names, secrets, customer details, and local paths out.",
+      body: "A future public surface can show architecture, evidence, and high-level metrics while keeping private repo names, secrets, customer details, and local paths out.",
     },
     {
       slug: "gaps",
       title: "Honest Gaps",
       body:
         goldenRun.runtime?.deploy_status === "verified-vercel-url"
-          ? "Publish current limitations directly: deployed proof uses public-safe mock runtime credentials, and private asset details require local review."
-          : "Publish current limitations directly: live Vercel deploy proof is blocked without VERCEL_TOKEN, and private asset details require local review.",
+          ? "State current limitations directly: deployed proof uses staging infrastructure, and private asset details require local review."
+          : "State current limitations directly: live Vercel deploy proof is blocked without VERCEL_TOKEN, and private asset details require local review.",
     },
   ];
 }
@@ -271,9 +271,9 @@ function average(values) {
 
 function renderMarkdown(proof) {
   const lines = [];
-  lines.push("# Public Proof Layer");
+  lines.push("# Public-Safe Proof Packet");
   lines.push("");
-  lines.push("**Status:** Phase 6 export-ready");
+  lines.push("**Status:** Phase 6 internal packet ready");
   lines.push("**Owner:** Sage Ideas LLC");
   lines.push(`**Generated:** ${proof.generated_at}`);
   lines.push(`**Packet hash:** \`${proof.evidence.packet_hash}\``);
@@ -310,7 +310,7 @@ function renderMarkdown(proof) {
     lines.push(`- **${item.layer}:** ${item.public_label}. ${item.public_detail}`);
   }
   lines.push("");
-  lines.push("## Recommended Public Assets");
+  lines.push("## Recommended Assets");
   lines.push("");
   for (const asset of proof.recommended_assets) {
     lines.push(
@@ -318,7 +318,7 @@ function renderMarkdown(proof) {
     );
   }
   lines.push("");
-  lines.push("## Publishable Sections");
+  lines.push("## Future Publishable Sections");
   lines.push("");
   for (const section of proof.publishable_sections) {
     lines.push(`### ${section.title}`);
@@ -334,10 +334,10 @@ function renderMarkdown(proof) {
   lines.push("");
   for (const gap of proof.remaining_gaps) lines.push(`- ${gap}`);
   lines.push("");
-  lines.push("## Export Targets");
+  lines.push("## Internal Export Targets");
   lines.push("");
-  lines.push("- `exports/sageideas-dev/engineering-os-proof.json`");
-  lines.push("- `exports/sageideas-dev/engineering-os-proof.md`");
+  lines.push("- `exports/proof-packet/engineering-os-proof.json`");
+  lines.push("- `exports/proof-packet/engineering-os-proof.md`");
   return `${lines.join("\n")}\n`;
 }
 

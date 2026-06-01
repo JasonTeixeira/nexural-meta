@@ -3,7 +3,8 @@
  * Phase 7 self-maintenance loop for Sage Ideas Engineering OS.
  *
  * This is the operator-grade wrapper around the existing generated artifacts:
- * inventory -> scorecard -> resource map -> golden path -> public proof.
+ * inventory -> scorecard -> resource map -> golden path -> proof environment
+ * -> public-safe packet.
  *
  * It writes a public-safe report that answers:
  * - what was regenerated,
@@ -56,6 +57,12 @@ const ARTIFACTS = [
     required: true,
   },
   {
+    id: "proof_environment",
+    path: "data/proof-environment.public.json",
+    max_age_hours: 168,
+    required: true,
+  },
+  {
     id: "public_proof",
     path: "data/public-proof-layer.public.json",
     max_age_hours: 48,
@@ -63,13 +70,13 @@ const ARTIFACTS = [
   },
   {
     id: "proof_export_json",
-    path: "exports/sageideas-dev/engineering-os-proof.json",
+    path: "exports/proof-packet/engineering-os-proof.json",
     max_age_hours: 48,
     required: true,
   },
   {
     id: "proof_export_markdown",
-    path: "exports/sageideas-dev/engineering-os-proof.md",
+    path: "exports/proof-packet/engineering-os-proof.md",
     max_age_hours: 48,
     required: true,
   },
@@ -94,6 +101,7 @@ function main() {
         commandResults.push(runStep("golden_path_vercel", pnpmBin, ["golden:path:deploy"]));
       }
     }
+    commandResults.push(runStep("proof_environment", pnpmBin, ["proof:env"]));
     commandResults.push(runStep("public_proof_export", pnpmBin, ["proof:export"]));
   }
 
@@ -103,6 +111,7 @@ function main() {
   const scorecard = readJsonIfPresent("data/ecosystem-scorecard.public.json");
   const resourceMap = readJsonIfPresent("data/ecosystem-resource-map.public.json");
   const goldenPath = readJsonIfPresent("data/golden-path-runs.public.json");
+  const proofEnvironment = readJsonIfPresent("data/proof-environment.public.json");
   const proof = readJsonIfPresent("data/public-proof-layer.public.json");
   const git = inspectGit();
 
@@ -120,18 +129,27 @@ function main() {
       scorecard,
       resourceMap,
       goldenPath,
+      proofEnvironment,
       proof,
       git,
     }),
     commands: commandResults,
     artifacts,
-    source_metrics: buildSourceMetrics({ registry, scorecard, resourceMap, goldenPath, proof }),
+    source_metrics: buildSourceMetrics({
+      registry,
+      scorecard,
+      resourceMap,
+      goldenPath,
+      proofEnvironment,
+      proof,
+    }),
     git,
     next_actions: buildNextActions({
       commandResults,
       artifacts,
       scorecard,
       goldenPath,
+      proofEnvironment,
       proof,
       git,
     }),
@@ -298,6 +316,7 @@ function buildSummary({
   scorecard,
   resourceMap,
   goldenPath,
+  proofEnvironment,
   proof,
 }) {
   const failedCommands = commandResults.filter((command) => command.status !== "passed");
@@ -327,11 +346,19 @@ function buildSummary({
     latest_golden_path_gates_passed:
       latestRun?.gates?.filter((gate) => gate.status === "passed").length ?? null,
     latest_golden_path_gate_count: latestRun?.gates?.length ?? null,
+    proof_environment_status: proofEnvironment?.status ?? null,
     public_proof_packet_hash: proofHash,
   };
 }
 
-function buildSourceMetrics({ registry, scorecard, resourceMap, goldenPath, proof }) {
+function buildSourceMetrics({
+  registry,
+  scorecard,
+  resourceMap,
+  goldenPath,
+  proofEnvironment,
+  proof,
+}) {
   const latestRun = goldenPath?.runs?.[0];
   return {
     registry: {
@@ -366,6 +393,12 @@ function buildSourceMetrics({ registry, scorecard, resourceMap, goldenPath, proo
       wall_clock_seconds: latestRun ? Math.round(latestRun.wall_clock_ms / 1000) : null,
       deploy_status: latestRun?.runtime?.deploy_status ?? null,
     },
+    proof_environment: {
+      generated_at: proofEnvironment?.generated_at ?? null,
+      status: proofEnvironment?.status ?? null,
+      gates_passed: proofEnvironment?.summary?.gates_passed ?? null,
+      gate_count: proofEnvironment?.summary?.gates_total ?? null,
+    },
     public_proof: {
       generated_at: proof?.generated_at ?? null,
       packet_hash: proof?.evidence?.packet_hash ?? null,
@@ -375,7 +408,15 @@ function buildSourceMetrics({ registry, scorecard, resourceMap, goldenPath, proo
   };
 }
 
-function buildNextActions({ commandResults, artifacts, scorecard, goldenPath, proof, git }) {
+function buildNextActions({
+  commandResults,
+  artifacts,
+  scorecard,
+  goldenPath,
+  proofEnvironment,
+  proof,
+  git,
+}) {
   const actions = [];
 
   for (const command of commandResults.filter((item) => item.status !== "passed")) {
@@ -425,12 +466,21 @@ function buildNextActions({ commandResults, artifacts, scorecard, goldenPath, pr
     });
   }
 
+  if (proofEnvironment?.status && proofEnvironment.status !== "passed") {
+    actions.push({
+      severity: "critical",
+      owner: "operator",
+      action: "Fix proof environment lock gates",
+      evidence: `proof environment status is ${proofEnvironment.status}.`,
+    });
+  }
+
   if (proof?.remaining_gaps?.length > 0) {
     actions.push({
       severity: "info",
       owner: "Sage",
-      action: "Review public proof remaining gaps before publishing claims",
-      evidence: `${proof.remaining_gaps.length} remaining gaps in public proof packet.`,
+      action: "Review public-safe packet remaining gaps before making external claims",
+      evidence: `${proof.remaining_gaps.length} remaining gaps in public-safe packet.`,
     });
   }
 
@@ -464,7 +514,7 @@ function renderMarkdown(report) {
   lines.push("## Purpose");
   lines.push("");
   lines.push(
-    "Phase 7 turns the Sage Ideas Engineering OS from static proof artifacts into a repeatable maintenance loop. The loop regenerates the registry, maturity scorecard, resource map, golden-path proof, public proof export, and this machine-readable maintenance report.",
+    "Phase 7 turns the Sage Ideas Engineering OS from static proof artifacts into a repeatable maintenance loop. The loop regenerates the registry, maturity scorecard, resource map, golden-path proof, proof environment lock, public-safe packet, and this machine-readable maintenance report.",
   );
   lines.push("");
   lines.push("## Run It");
@@ -491,6 +541,7 @@ function renderMarkdown(report) {
   lines.push(
     `- Golden path: ${report.summary.latest_golden_path_gates_passed}/${report.summary.latest_golden_path_gate_count} gates`,
   );
+  lines.push(`- Proof environment: ${report.summary.proof_environment_status}`);
   lines.push(`- Public proof hash: \`${report.summary.public_proof_packet_hash}\``);
   lines.push("");
   lines.push("## Commands");
@@ -528,8 +579,11 @@ function renderMarkdown(report) {
   lines.push("## Generated Artifacts");
   lines.push("");
   lines.push("- `data/ecosystem-maintenance.public.json`");
+  lines.push("- `data/proof-environment.public.json`");
   lines.push("- `evidence/maintenance/latest.json`");
+  lines.push("- `evidence/proof-environment/latest.json`");
   lines.push("- `docs/ECOSYSTEM_MAINTENANCE.md`");
+  lines.push("- `docs/PROOF_ENVIRONMENT.md`");
   return `${lines.join("\n")}\n`;
 }
 

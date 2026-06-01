@@ -38,6 +38,18 @@ A deployable asset must have:
 - Health verification after deploy.
 - Evidence linking the deploy URL to the generated source hash, commit SHA, or run ID.
 
+## Proof Environment
+
+The proof environment is the internal runtime that keeps factory claims repeatable. It is green only when:
+
+- Required GitHub secret names are present and within rotation policy.
+- The hosted proof URL returns HTTP 200 from `/api/health`.
+- The hosted health response includes staging Postgres CRUD proof, not only process liveness.
+- Latest golden-path evidence includes a passed hosted DB CRUD gate.
+- The evidence bundle records run ID, app tree hash, deployed URL, and gate results.
+
+Required proof secrets are tracked by name only in `docs/PROOF_ENVIRONMENT.md`. Secret values must never be copied into docs, evidence, generated JSON, commits, screenshots, or chat. `SUPABASE_ACCESS_TOKEN` is an operator-only personal token for setup and migration fallback; it must not be stored as a GitHub secret. If a personal access token is exposed outside the terminal, revoke it and create a new one before relying on the environment again.
+
 ## Reusable
 
 A reusable asset must have:

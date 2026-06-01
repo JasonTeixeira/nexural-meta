@@ -70,7 +70,8 @@ qa.manifest.json
 #  - health: weekly health-check snapshots (cron-committed)
 #  - ecosystem: weekly ecosystem digests (cron-committed per ADR-0013)
 #  - golden-path: Phase 5 proof runs
-#  - public-proof: Phase 6 proof exports for sageideas.dev
+#  - public-proof: Phase 6 public-safe proof packet
+#  - proof-environment: internal hosted proof environment lock
 #  - maintenance: Phase 7 self-maintenance loop reports
 #  - audit: nx audit outputs
 #  - benchmarks: V1.0 performance baseline
@@ -83,6 +84,7 @@ qa.manifest.json
 !evidence/ecosystem/
 !evidence/golden-path/
 !evidence/public-proof/
+!evidence/proof-environment/
 !evidence/maintenance/
 !evidence/audit/
 !evidence/benchmarks/

@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-06-01T17:00:41.487Z",
+  "generated_by": "scripts/proof-environment-check.mjs",
+  "privacy": "public-safe",
+  "status": "passed",
+  "repo": "JasonTeixeira/nexural-meta",
+  "summary": {
+    "gates_passed": 6,
+    "gates_total": 6,
+    "required_secrets_present": 8,
+    "required_secrets_total": 8,
+    "hosted_url": "https://sage-client-intake-portal-vercel.vercel.app",
+    "hosted_health_status": 200,
+    "latest_run_id": "client-intake-portal-2026-06-01T165601095Z",
+    "latest_app_hash": "sha256:220e1bd8d055e052eff47ee7d7c8255e7a0aecfb4150abff0c52bdc67274071e",
+    "latest_gate_count": 14
+  },
+  "gates": [
+    {
+      "id": "secret_inventory_available",
+      "status": "passed",
+      "detail": "GitHub secret inventory is readable without exposing values."
+    },
+    {
+      "id": "required_secrets_present",
+      "status": "passed",
+      "detail": "All required proof secrets are present."
+    },
+    {
+      "id": "required_secrets_fresh",
+      "status": "passed",
+      "detail": "Required proof secrets are within rotation policy."
+    },
+    {
+      "id": "hosted_db_crud_health",
+      "status": "passed",
+      "detail": "Hosted /api/health completed DB CRUD proof."
+    },
+    {
+      "id": "golden_path_evidence_present",
+      "status": "passed",
+      "detail": "Latest run client-intake-portal-2026-06-01T165601095Z has 14/14 gates."
+    },
+    {
+      "id": "golden_path_has_hosted_db_gate",
+      "status": "passed",
+      "detail": "Golden-path evidence includes a passed hosted DB CRUD gate."
+    }
+  ],
+  "secrets": [
+    {
+      "name": "VERCEL_TOKEN",
+      "purpose": "Automated hosted golden-path deployment.",
+      "required": true,
+      "present": true,
+      "updated_at": "2026-06-01T13:27:54Z",
+      "age_days": 0.1,
+      "max_age_days": 90,
+      "status": "present",
+      "rotation": "Rotate through Vercel account tokens."
+    },
+    {
+      "name": "VERCEL_TEAM_ID",
+      "purpose": "Vercel team/project binding.",
+      "required": true,
+      "present": true,
+      "updated_at": "2026-06-01T02:09:27Z",
+      "age_days": 0.6,
+      "max_age_days": null,
+      "status": "present",
+      "rotation": "Stable identifier; rotate only if project ownership changes."
+    },
+    {
+      "name": "VERCEL_PROJECT_ID",
+      "purpose": "Vercel project binding.",
+      "required": true,
+      "present": true,
+      "updated_at": "2026-06-01T02:09:27Z",
+      "age_days": 0.6,
+      "max_age_days": null,
+      "status": "present",
+      "rotation": "Stable identifier; rotate only if project ownership changes."
+    },
+    {
+      "name": "VERCEL_PROOF_ALIAS",
+      "purpose": "Stable hostname used for hosted proof verification.",
+      "required": true,
+      "present": true,
+      "updated_at": "2026-06-01T02:18:55Z",
+      "age_days": 0.6,
+      "max_age_days": null,
+      "status": "present",
+      "rotation": "Stable hostname; update when proof hostname changes."
+    },
+    {
+      "name": "NEXT_PUBLIC_SUPABASE_URL",
+      "purpose": "Staging Supabase project URL.",
+      "required": true,
+      "present": true,
+      "updated_at": "2026-06-01T15:51:10Z",
+      "age_days": 0,
+      "max_age_days": null,
+      "status": "present",
+      "rotation": "Stable project URL; update when staging project changes."
+    },
+    {
+      "name": "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+      "purpose": "Browser-safe staging Supabase anon key.",
+      "required": true,
+      "present": true,
+      "updated_at": "2026-06-01T14:20:18Z",
+      "age_days": 0.1,
+      "max_age_days": 180,
+      "status": "present",
+      "rotation": "Rotate with Supabase project API keys."
+    },
+    {
+      "name": "SUPABASE_SERVICE_ROLE_KEY",
+      "purpose": "Server-side CRUD proof and generated app admin operations.",
+      "required": true,
+      "present": true,
+      "updated_at": "2026-06-01T14:20:18Z",
+      "age_days": 0.1,
+      "max_age_days": 90,
+      "status": "present",
+      "rotation": "Rotate with Supabase project API keys."
+    },
+    {
+      "name": "DATABASE_URL",
+      "purpose": "Staging Postgres migration path for generated apps.",
+      "required": true,
+      "present": true,
+      "updated_at": "2026-06-01T15:50:13Z",
+      "age_days": 0,
+      "max_age_days": 90,
+      "status": "present",
+      "rotation": "Rotate after DB password reset."
+    },
+    {
+      "name": "NPM_TOKEN",
+      "purpose": "Package publishing, not required for proof.",
+      "required": false,
+      "present": true,
+      "updated_at": "2026-05-22T14:50:39Z",
+      "age_days": 10.1,
+      "max_age_days": 180,
+      "status": "present",
+      "rotation": "Rotate before package publishing cycles."
+    }
+  ],
+  "hosted_runtime": {
+    "ok": true,
+    "url": "https://sage-client-intake-portal-vercel.vercel.app",
+    "status": 200,
+    "duration_ms": 585,
+    "database_mode": "crud_probe",
+    "database_operation": "insert-read-update-delete",
+    "detail": "Hosted /api/health completed DB CRUD proof."
+  },
+  "evidence": {
+    "golden_path_present": true,
+    "latest_run_id": "client-intake-portal-2026-06-01T165601095Z",
+    "generated_at": "2026-06-01T17:00:24.045Z",
+    "app_hash": "sha256:220e1bd8d055e052eff47ee7d7c8255e7a0aecfb4150abff0c52bdc67274071e",
+    "gate_count": 14,
+    "gates_passed": 14,
+    "vercel_db_crud_gate": "passed",
+    "latest_evidence_hash": "sha256:60673bf3ef18a11211f3280c342302cbbaefa56dc64211baf81edbf69aefb62e"
+  },
+  "operating_rules": [
+    "No secret values are written to evidence, docs, or generated public-safe JSON.",
+    "SUPABASE_ACCESS_TOKEN is an operator-only personal token and must not be persisted as a GitHub secret.",
+    "Any personal access token pasted into chat, logs, or screenshots must be revoked and replaced.",
+    "Hosted proof is not green unless /api/health verifies DB CRUD against staging Postgres.",
+    "Generated app evidence links run ID, app tree hash, deployed URL, and gate results."
+  ],
+  "next_actions": [
+    {
+      "severity": "security",
+      "action": "Revoke any Supabase personal access token exposed outside the terminal",
+      "evidence": "Personal access tokens are operator credentials and are never persisted by this repo."
+    }
+  ]
+}

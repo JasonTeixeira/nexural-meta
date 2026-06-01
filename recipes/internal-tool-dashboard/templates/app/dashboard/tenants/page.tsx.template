@@ -1,0 +1,175 @@
+import { redirect } from "next/navigation";
+import { createSupabaseAdminClient } from "@/lib/supabase/admin";
+import { currentUserRole, hasAtLeast } from "@/lib/rbac";
+import { archiveTenant, createTenant, renameTenant } from "./actions";
+
+export const dynamic = "force-dynamic";
+
+export default async function TenantsPage() {
+  const current = await currentUserRole();
+  if (!current) redirect("/login");
+
+  const canMutate = hasAtLeast(current.role, "admin");
+  const supabase = createSupabaseAdminClient();
+  const { data: tenants, error } = await supabase
+    .from("tenants")
+    .select("id, slug, display_name, subscription_status, created_at")
+    .is("deleted_at", null)
+    .order("created_at", { ascending: false })
+    .limit(50);
+
+  if (error) throw new Error(error.message);
+
+  return (
+    <div style={{ display: "grid", gap: "1.25rem" }}>
+      <section
+        style={{
+          alignItems: "end",
+          display: "grid",
+          gap: "1rem",
+          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))",
+        }}
+      >
+        <div>
+          <p
+            style={{
+              color: "#6d6255",
+              fontSize: "0.78rem",
+              fontWeight: 700,
+              letterSpacing: "0.08em",
+              margin: "0 0 0.5rem",
+              textTransform: "uppercase",
+            }}
+          >
+            {current.role}
+          </p>
+          <h1 style={{ fontSize: "2rem", lineHeight: 1.05, margin: 0 }}>Tenants</h1>
+          <p style={{ color: "#6d6255", margin: "0.5rem 0 0" }}>
+            Create, rename, and archive tenant records backed by staging Postgres.
+          </p>
+        </div>
+
+        <form
+          action={createTenant}
+          style={{
+            background: "#fffefa",
+            border: "1px solid #d8d2c4",
+            display: "grid",
+            gap: "0.65rem",
+            opacity: canMutate ? 1 : 0.55,
+            padding: "1rem",
+          }}
+        >
+          <strong>New tenant</strong>
+          <input
+            aria-label="Tenant name"
+            disabled={!canMutate}
+            name="display_name"
+            placeholder="Tenant name"
+            required
+            style={inputStyle}
+          />
+          <input
+            aria-label="Tenant slug"
+            disabled={!canMutate}
+            name="slug"
+            placeholder="tenant-slug"
+            style={inputStyle}
+          />
+          <button disabled={!canMutate} style={buttonStyle} type="submit">
+            Create
+          </button>
+        </form>
+      </section>
+
+      <section style={{ display: "grid", gap: "0.65rem" }}>
+        {(tenants ?? []).map((tenant) => (
+          <article
+            key={tenant.id}
+            style={{
+              alignItems: "center",
+              background: "#fffefa",
+              border: "1px solid #d8d2c4",
+              display: "grid",
+              gap: "0.75rem",
+              gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 220px), 1fr))",
+              padding: "0.85rem",
+            }}
+          >
+            <div>
+              <strong>{tenant.display_name}</strong>
+              <div style={{ color: "#6d6255", fontSize: "0.85rem", marginTop: "0.2rem" }}>
+                /{tenant.slug}
+              </div>
+            </div>
+
+            <form action={renameTenant} style={{ display: "flex", gap: "0.5rem" }}>
+              <input name="id" type="hidden" value={tenant.id} />
+              <input
+                aria-label={`Rename ${tenant.display_name}`}
+                defaultValue={tenant.display_name}
+                disabled={!canMutate}
+                name="display_name"
+                required
+                style={inputStyle}
+              />
+              <button disabled={!canMutate} style={secondaryButtonStyle} type="submit">
+                Save
+              </button>
+            </form>
+
+            <form action={archiveTenant}>
+              <input name="id" type="hidden" value={tenant.id} />
+              <button disabled={!canMutate} style={dangerButtonStyle} type="submit">
+                Archive
+              </button>
+            </form>
+          </article>
+        ))}
+        {(tenants ?? []).length === 0 ? (
+          <div
+            style={{
+              background: "#fffefa",
+              border: "1px dashed #b9ae9c",
+              color: "#6d6255",
+              padding: "1rem",
+            }}
+          >
+            No tenants yet.
+          </div>
+        ) : null}
+      </section>
+    </div>
+  );
+}
+
+const inputStyle = {
+  border: "1px solid #b9ae9c",
+  boxSizing: "border-box" as const,
+  font: "inherit",
+  minWidth: 0,
+  padding: "0.6rem 0.65rem",
+  width: "100%",
+};
+
+const buttonStyle = {
+  background: "#0f766e",
+  border: "1px solid #0b5f59",
+  color: "white",
+  cursor: "pointer",
+  font: "inherit",
+  fontWeight: 700,
+  padding: "0.6rem 0.75rem",
+};
+
+const secondaryButtonStyle = {
+  ...buttonStyle,
+  background: "#171717",
+  border: "1px solid #171717",
+};
+
+const dangerButtonStyle = {
+  ...buttonStyle,
+  background: "#8a1f11",
+  border: "1px solid #6f180d",
+};

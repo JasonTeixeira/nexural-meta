@@ -1,0 +1,67 @@
+"use server";
+
+import { revalidatePath } from "next/cache";
+import { createSupabaseAdminClient } from "@/lib/supabase/admin";
+import { requireRole } from "@/lib/rbac";
+
+export async function createTenant(formData: FormData) {
+  await requireRole("admin");
+  const displayName = String(formData.get("display_name") ?? "").trim();
+  const slugInput = String(formData.get("slug") ?? "").trim();
+  const slug = slugify(slugInput || displayName);
+
+  if (!displayName || !slug) {
+    throw new Error("Tenant name and slug are required.");
+  }
+
+  const supabase = createSupabaseAdminClient();
+  const { error } = await supabase.from("tenants").insert({
+    display_name: displayName,
+    slug,
+  });
+  if (error) throw new Error(error.message);
+
+  revalidatePath("/dashboard");
+  revalidatePath("/dashboard/tenants");
+}
+
+export async function renameTenant(formData: FormData) {
+  await requireRole("admin");
+  const id = String(formData.get("id") ?? "");
+  const displayName = String(formData.get("display_name") ?? "").trim();
+  if (!id || !displayName) throw new Error("Tenant id and name are required.");
+
+  const supabase = createSupabaseAdminClient();
+  const { error } = await supabase
+    .from("tenants")
+    .update({ display_name: displayName })
+    .eq("id", id);
+  if (error) throw new Error(error.message);
+
+  revalidatePath("/dashboard");
+  revalidatePath("/dashboard/tenants");
+}
+
+export async function archiveTenant(formData: FormData) {
+  await requireRole("admin");
+  const id = String(formData.get("id") ?? "");
+  if (!id) throw new Error("Tenant id is required.");
+
+  const supabase = createSupabaseAdminClient();
+  const { error } = await supabase
+    .from("tenants")
+    .update({ deleted_at: new Date().toISOString() })
+    .eq("id", id);
+  if (error) throw new Error(error.message);
+
+  revalidatePath("/dashboard");
+  revalidatePath("/dashboard/tenants");
+}
+
+function slugify(value: string) {
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 48);
+}
