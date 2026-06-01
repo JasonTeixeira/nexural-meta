@@ -280,15 +280,14 @@ async function fetchProtected(url) {
 function vercelCurl(url) {
   const parsed = new URL(url);
   const npxBin = process.platform === "win32" ? "npx.cmd" : "npx";
-  const args = [
-    "--yes",
-    "vercel@latest",
+  const args = ["--yes", "vercel@latest"];
+  if (process.env.VERCEL_TOKEN) args.push("--token", process.env.VERCEL_TOKEN);
+  args.push(
     "curl",
     `${parsed.pathname || "/"}${parsed.search}`,
     "--deployment",
     `${parsed.protocol}//${parsed.host}`,
-  ];
-  if (process.env.VERCEL_TOKEN) args.push("--token", process.env.VERCEL_TOKEN);
+  );
   args.push("--", "-i", "-L", "-sS", "--max-time", "30");
   const result = spawnSync(npxBin, args, {
     cwd: ROOT,
