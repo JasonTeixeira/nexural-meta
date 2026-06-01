@@ -185,9 +185,7 @@ function ensureStandaloneLockfile(appRoot) {
 
 function deployToVercel(appRoot, latest, options) {
   const runtimeEnv = buildRuntimeEnv(latest, appRoot);
-  const args = [
-    "--yes",
-    "vercel@latest",
+  const args = buildVercelArgs([
     "deploy",
     appRoot,
     "--yes",
@@ -200,10 +198,7 @@ function deployToVercel(appRoot, latest, options) {
     `golden_path_run_id=${latest.run_id}`,
     "--meta",
     `golden_path_hash=${latest.generated_app.tree_hash}`,
-  ];
-  if (process.env.VERCEL_TOKEN) {
-    args.push("--token", process.env.VERCEL_TOKEN);
-  }
+  ]);
   for (const [key, value] of Object.entries(runtimeEnv)) {
     args.push("--env", shellArgValue(`${key}=${value}`));
     args.push("--build-env", shellArgValue(`${key}=${value}`));
@@ -242,8 +237,7 @@ function deployToVercel(appRoot, latest, options) {
 
 function setAlias(deploymentUrl, alias) {
   const target = normalizeHostname(alias);
-  const args = ["--yes", "vercel@latest", "alias", "set", deploymentUrl, target];
-  if (process.env.VERCEL_TOKEN) args.push("--token", process.env.VERCEL_TOKEN);
+  const args = buildVercelArgs(["alias", "set", deploymentUrl, target]);
   const result = spawnSync(npxBin, args, {
     cwd: ROOT,
     shell: isWindows,
@@ -258,6 +252,13 @@ function setAlias(deploymentUrl, alias) {
     throw new Error(`vercel alias failed with exit ${result.status ?? 1}`);
   }
   return normalizeUrl(target);
+}
+
+function buildVercelArgs(commandArgs) {
+  const args = ["--yes", "vercel@latest"];
+  if (process.env.VERCEL_TOKEN) args.push("--token", process.env.VERCEL_TOKEN);
+  args.push(...commandArgs);
+  return args;
 }
 
 function buildRuntimeEnv(latest, appRoot) {
