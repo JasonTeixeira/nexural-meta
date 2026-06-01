@@ -12,9 +12,14 @@
 -- Accounts
 -- ============================================================================
 
-create type public.account_type as enum ('asset', 'liability', 'equity', 'revenue', 'expense');
+do $$
+begin
+  if not exists (select 1 from pg_type where typname = 'account_type' and typnamespace = 'public'::regnamespace) then
+    create type public.account_type as enum ('asset', 'liability', 'equity', 'revenue', 'expense');
+  end if;
+end $$;
 
-create table public.accounts (
+create table if not exists public.accounts (
   id uuid primary key default gen_random_uuid(),
   tenant_id uuid not null references public.tenants(id) on delete cascade,
   code text not null,                                  -- e.g. '1000-cash', '2000-ap'
@@ -27,13 +32,13 @@ create table public.accounts (
   unique (tenant_id, code)
 );
 
-create index idx_accounts_tenant on public.accounts (tenant_id) where archived_at is null;
+create index if not exists idx_accounts_tenant on public.accounts (tenant_id) where archived_at is null;
 
 -- ============================================================================
 -- Ledger transactions + entries (double-entry)
 -- ============================================================================
 
-create table public.ledger_transactions (
+create table if not exists public.ledger_transactions (
   id uuid primary key default gen_random_uuid(),
   tenant_id uuid not null references public.tenants(id) on delete cascade,
   external_ref text,                                   -- stripe charge id / wire ref / etc.
@@ -44,10 +49,10 @@ create table public.ledger_transactions (
   metadata jsonb not null default '{}'::jsonb
 );
 
-create unique index idx_ledger_tx_external on public.ledger_transactions (tenant_id, external_ref)
+create unique index if not exists idx_ledger_tx_external on public.ledger_transactions (tenant_id, external_ref)
   where external_ref is not null;
 
-create table public.ledger_entries (
+create table if not exists public.ledger_entries (
   id uuid primary key default gen_random_uuid(),
   transaction_id uuid not null references public.ledger_transactions(id) on delete restrict,
   account_id uuid not null references public.accounts(id),
@@ -57,8 +62,8 @@ create table public.ledger_entries (
   posted_at timestamptz not null default now()
 );
 
-create index idx_ledger_entries_account on public.ledger_entries (account_id, posted_at desc);
-create index idx_ledger_entries_tx on public.ledger_entries (transaction_id);
+create index if not exists idx_ledger_entries_account on public.ledger_entries (account_id, posted_at desc);
+create index if not exists idx_ledger_entries_tx on public.ledger_entries (transaction_id);
 
 -- Per-transaction balance check via trigger: sum of entries within a tx must be 0
 create or replace function public.assert_ledger_tx_balanced()
@@ -77,6 +82,7 @@ begin
 end;
 $$ language plpgsql;
 
+drop trigger if exists ledger_entries_balance_check on public.ledger_entries;
 create trigger ledger_entries_balance_check
   after insert on public.ledger_entries
   for each row execute function public.assert_ledger_tx_balanced();
@@ -89,10 +95,12 @@ begin
 end;
 $$ language plpgsql;
 
+drop trigger if exists prevent_ledger_entries_mutation on public.ledger_entries;
 create trigger prevent_ledger_entries_mutation
   before update or delete on public.ledger_entries
   for each row execute function public.prevent_ledger_mutation();
 
+drop trigger if exists prevent_ledger_tx_delete on public.ledger_transactions;
 create trigger prevent_ledger_tx_delete
   before delete on public.ledger_transactions
   for each row execute function public.prevent_ledger_mutation();
@@ -105,6 +113,7 @@ alter table public.accounts enable row level security;
 alter table public.ledger_transactions enable row level security;
 alter table public.ledger_entries enable row level security;
 
+drop policy if exists accounts_select on public.accounts;
 create policy accounts_select on public.accounts for select
   using (
     exists (
@@ -113,6 +122,7 @@ create policy accounts_select on public.accounts for select
     )
   );
 
+drop policy if exists accounts_insert on public.accounts;
 create policy accounts_insert on public.accounts for insert
   with check (
     exists (
@@ -122,6 +132,7 @@ create policy accounts_insert on public.accounts for insert
     )
   );
 
+drop policy if exists ledger_tx_select on public.ledger_transactions;
 create policy ledger_tx_select on public.ledger_transactions for select
   using (
     exists (
@@ -131,6 +142,7 @@ create policy ledger_tx_select on public.ledger_transactions for select
   );
 
 -- Inserts go through the app's typed posting helper; raw inserts denied
+drop policy if exists ledger_tx_insert on public.ledger_transactions;
 create policy ledger_tx_insert on public.ledger_transactions for insert
   with check (
     exists (
@@ -140,6 +152,7 @@ create policy ledger_tx_insert on public.ledger_transactions for insert
     )
   );
 
+drop policy if exists ledger_entries_select on public.ledger_entries;
 create policy ledger_entries_select on public.ledger_entries for select
   using (
     exists (
@@ -150,7 +163,7 @@ create policy ledger_entries_select on public.ledger_entries for select
   );
 
 -- Reconciliation runs (per recipe DECISIONS.md)
-create table public.reconciliation_runs (
+create table if not exists public.reconciliation_runs (
   id uuid primary key default gen_random_uuid(),
   tenant_id uuid not null references public.tenants(id) on delete cascade,
   ran_at timestamptz not null default now(),
@@ -160,6 +173,7 @@ create table public.reconciliation_runs (
 );
 
 alter table public.reconciliation_runs enable row level security;
+drop policy if exists recon_runs_select on public.reconciliation_runs;
 create policy recon_runs_select on public.reconciliation_runs for select
   using (
     exists (

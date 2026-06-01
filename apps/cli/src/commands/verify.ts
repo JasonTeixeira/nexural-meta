@@ -244,20 +244,16 @@ function tryVercelCurl(url: string, timeoutMs: number): FetchOk | FetchErr {
   const deployment = `${parsed.protocol}//${parsed.host}`;
   const path = `${parsed.pathname || "/"}${parsed.search}`;
   const npxBin = process.platform === "win32" ? "npx.cmd" : "npx";
-  const args = [
-    "--yes",
-    "vercel@latest",
-    "curl",
-    path,
-    "--deployment",
-    deployment,
+  const args = ["--yes", "vercel@latest", "curl", path, "--deployment", deployment];
+  if (process.env.VERCEL_TOKEN) args.push("--token", process.env.VERCEL_TOKEN);
+  args.push(
+    "--",
     "-i",
     "-L",
     "-sS",
     "--max-time",
     String(Math.max(5, Math.ceil(timeoutMs / 1000))),
-  ];
-  if (process.env.VERCEL_TOKEN) args.push("--token", process.env.VERCEL_TOKEN);
+  );
 
   const result = spawnSync(npxBin, args, {
     shell: process.platform === "win32",
