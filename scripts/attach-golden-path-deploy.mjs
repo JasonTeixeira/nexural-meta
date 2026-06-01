@@ -24,7 +24,7 @@ const GATE5_DIR = join(ROOT, "evidence", "gate-5");
 const isWindows = process.platform === "win32";
 const npxBin = isWindows ? "npx.cmd" : "npx";
 
-function main() {
+async function main() {
   const args = parseArgs(process.argv.slice(2));
   const verifiedAt = new Date().toISOString();
   const evidenceSlug = args.evidenceSlug ?? "client-intake-portal-vercel";
@@ -37,6 +37,7 @@ function main() {
       `Deployed verification failed for ${args.url}: ${report.summary?.passed ?? 0}/${report.summary?.total ?? 0} checks passed.`,
     );
   }
+  const deployedDbHealth = await verifyDeployedDbHealth(args.url, latestRuntimeNeedsDatabase());
 
   const latestPath = join(EVIDENCE_DIR, "latest.json");
   const latest = readJson(latestPath);
@@ -52,6 +53,7 @@ function main() {
     report,
     deploymentId: args.deploymentId,
     inspectorUrl: args.inspectorUrl,
+    deployedDbHealth,
   });
 
   const updatedIndex = {
@@ -163,7 +165,20 @@ function attachDeployEvidence(run, deploy) {
     duration_ms: null,
   };
 
-  const gates = [...run.gates.filter((gate) => gate.id !== deployedGate.id), deployedGate];
+  const deployedDbGate = {
+    id: "vercel_db_crud_health",
+    label: "Verify deployed DB-backed health",
+    status: deploy.deployedDbHealth.ok ? "passed" : "failed",
+    detail: deploy.deployedDbHealth.detail,
+    command: `fetch ${deploy.url}/api/health`,
+    duration_ms: deploy.deployedDbHealth.duration_ms,
+  };
+
+  const gates = [
+    ...run.gates.filter((gate) => gate.id !== deployedGate.id && gate.id !== deployedDbGate.id),
+    deployedGate,
+    deployedDbGate,
+  ];
 
   const remainingGaps = (run.remaining_gaps ?? []).filter(
     (gap) => !gap.toLowerCase().includes("no public vercel preview"),
@@ -189,6 +204,54 @@ function attachDeployEvidence(run, deploy) {
     },
     remaining_gaps: remainingGaps,
   };
+}
+
+async function verifyDeployedDbHealth(url, requireCrud) {
+  const started = Date.now();
+  const response = await fetch(new URL("/api/health", url).toString());
+  const body = await response.text();
+  if (!response.ok) {
+    return {
+      ok: false,
+      detail: `HTTP ${response.status} from deployed /api/health.`,
+      duration_ms: Date.now() - started,
+    };
+  }
+  if (!requireCrud) {
+    return {
+      ok: true,
+      detail: "Deployed /api/health returned 200; CRUD proof is not required for this run.",
+      duration_ms: Date.now() - started,
+    };
+  }
+
+  try {
+    const parsed = JSON.parse(body);
+    const database = parsed.database;
+    const ok =
+      parsed.ok === true &&
+      database?.ok === true &&
+      database?.mode === "crud_probe" &&
+      database?.operation === "insert-read-update-delete";
+    return {
+      ok,
+      detail: ok
+        ? "Deployed /api/health completed insert-read-update-delete against staging Postgres."
+        : `Deployed /api/health did not return a CRUD database proof: ${JSON.stringify(database ?? null)}`,
+      duration_ms: Date.now() - started,
+    };
+  } catch (err) {
+    return {
+      ok: false,
+      detail: err instanceof Error ? err.message : String(err),
+      duration_ms: Date.now() - started,
+    };
+  }
+}
+
+function latestRuntimeNeedsDatabase() {
+  const latest = readJson(join(EVIDENCE_DIR, "latest.json"));
+  return latest.runtime?.database_mode === "staging-postgres";
 }
 
 function renderMarkdown(index) {
@@ -261,4 +324,7 @@ function projectPath(path) {
   return relative(ROOT, path).replaceAll("\\", "/");
 }
 
-main();
+main().catch((err) => {
+  console.error("[golden-path-deploy] fatal:", err instanceof Error ? err.stack : err);
+  process.exit(1);
+});

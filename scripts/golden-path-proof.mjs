@@ -118,6 +118,18 @@ async function main() {
   });
   assertGate(gates.at(-1));
 
+  log("apply Supabase migrations when database credentials are configured");
+  const migrationProof = applySupabaseMigrations(appRoot, runtimeEnv);
+  gates.push({
+    id: "supabase_migrations",
+    label: "Apply Supabase migrations",
+    status: migrationProof.ok ? "passed" : "failed",
+    detail: migrationProof.detail,
+    command: migrationProof.command,
+    duration_ms: migrationProof.duration_ms,
+  });
+  assertGate(gates.at(-1));
+
   log("install dependencies");
   const install = run(pnpmBin, ["install", "--ignore-workspace", "--ignore-scripts"], {
     cwd: appRoot,
@@ -157,6 +169,15 @@ async function main() {
       ? `HTTP ${runtime.health.status} from ${spec.proof_targets.local_runtime_health_path}.`
       : runtime.health.error,
     duration_ms: runtime.duration_ms,
+  });
+  assertGate(gates.at(-1));
+
+  const dbHealth = verifyDbHealthBody(runtime.health.body, runtimeEnv);
+  gates.push({
+    id: "db_crud_health",
+    label: "DB-backed CRUD health proof",
+    status: dbHealth.ok ? "passed" : "failed",
+    detail: dbHealth.detail,
   });
   assertGate(gates.at(-1));
 
@@ -230,6 +251,7 @@ async function main() {
       mode: "local-next-start",
       credentials_mode: runtimeEnv.mode,
       supabase_project_ref: runtimeEnv.publicProjectRef,
+      database_mode: runtimeEnv.databaseUrl ? "staging-postgres" : "not-configured",
       url: runtime.url,
       health_path: spec.proof_targets.local_runtime_health_path,
       deploy_status: process.env.VERCEL_TOKEN
@@ -266,6 +288,11 @@ async function main() {
         ? []
         : [
             "Runtime proof uses mock credentials because staging Supabase/Auth environment variables are not set in this shell.",
+          ]),
+      ...(runtimeEnv.databaseUrl
+        ? []
+        : [
+            "Database migrations and DB-backed CRUD proof are skipped because DATABASE_URL is not set in this shell.",
           ]),
       "Production auth/database credentials are intentionally not committed.",
     ],
@@ -319,7 +346,7 @@ function assertGate(gate) {
 
 function run(command, args, options) {
   const started = Date.now();
-  const display = [command, ...args].join(" ");
+  const display = options.displayCommand ?? [command, ...args].join(" ");
   log(`run: ${display}`);
   const result = spawnSync(command, args, {
     cwd: options.cwd,
@@ -331,16 +358,24 @@ function run(command, args, options) {
   });
   const status = result.status ?? 1;
   if (status !== 0) {
-    process.stderr.write(result.stdout ?? "");
-    process.stderr.write(result.stderr ?? "");
+    process.stderr.write(redact(result.stdout, options.redactValues));
+    process.stderr.write(redact(result.stderr, options.redactValues));
   }
   return {
     command: display,
     status,
     duration_ms: Date.now() - started,
-    stdout_tail: tail(result.stdout),
-    stderr_tail: tail(result.stderr),
+    stdout_tail: tail(redact(result.stdout, options.redactValues)),
+    stderr_tail: tail(redact(result.stderr, options.redactValues)),
   };
+}
+
+function redact(value, secrets = []) {
+  let out = String(value ?? "");
+  for (const secret of secrets ?? []) {
+    if (secret) out = out.split(secret).join("<redacted>");
+  }
+  return out;
 }
 
 function resolveRuntimeEnv(spec) {
@@ -360,6 +395,7 @@ function resolveRuntimeEnv(spec) {
     SUPABASE_SERVICE_ROLE_KEY: hasStagingSupabase
       ? process.env.SUPABASE_SERVICE_ROLE_KEY
       : "mock-service-role-key",
+    HEALTH_DB_CRUD_PROOF: hasStagingSupabase && process.env.DATABASE_URL ? "1" : "0",
     RESEND_API_KEY: process.env.RESEND_API_KEY || "mock-resend-key",
     NEXT_PUBLIC_SENTRY_DSN: process.env.NEXT_PUBLIC_SENTRY_DSN || "",
     NEXT_PUBLIC_POSTHOG_KEY: process.env.NEXT_PUBLIC_POSTHOG_KEY || "mock-posthog-key",
@@ -374,6 +410,7 @@ function resolveRuntimeEnv(spec) {
     values,
     missing: requiredStaging.filter((name) => !process.env[name]),
     publicProjectRef: parseSupabaseProjectRef(values.NEXT_PUBLIC_SUPABASE_URL),
+    databaseUrl: process.env.DATABASE_URL || "",
   };
 }
 
@@ -408,6 +445,81 @@ async function verifySupabaseRuntime(runtimeEnv) {
       ok: false,
       detail: err instanceof Error ? err.message : String(err),
       duration_ms: Date.now() - started,
+    };
+  }
+}
+
+function applySupabaseMigrations(appRoot, runtimeEnv) {
+  const started = Date.now();
+  if (runtimeEnv.mode !== "staging-supabase") {
+    return {
+      ok: true,
+      detail: "Skipped Supabase migrations because staging credentials are not configured.",
+      duration_ms: Date.now() - started,
+    };
+  }
+  if (!runtimeEnv.databaseUrl) {
+    return {
+      ok: true,
+      detail: "Skipped Supabase migrations because DATABASE_URL is not configured.",
+      duration_ms: Date.now() - started,
+    };
+  }
+
+  const result = run(
+    npxBin,
+    ["--yes", "supabase@latest", "db", "push", "--db-url", runtimeEnv.databaseUrl, "--include-all"],
+    {
+      cwd: appRoot,
+      timeoutMs: 300_000,
+      displayCommand: "npx --yes supabase@latest db push --db-url <DATABASE_URL> --include-all",
+      redactValues: [runtimeEnv.databaseUrl],
+    },
+  );
+
+  return {
+    ok: result.status === 0,
+    detail:
+      result.status === 0
+        ? "Supabase migrations are applied to staging Postgres."
+        : `exit ${result.status}`,
+    command: result.command,
+    duration_ms: result.duration_ms,
+  };
+}
+
+function verifyDbHealthBody(body, runtimeEnv) {
+  if (runtimeEnv.mode !== "staging-supabase") {
+    return {
+      ok: true,
+      detail: "Skipped DB-backed health proof because staging credentials are not configured.",
+    };
+  }
+  if (!runtimeEnv.databaseUrl) {
+    return {
+      ok: true,
+      detail: "Skipped DB-backed health proof because DATABASE_URL is not configured.",
+    };
+  }
+
+  try {
+    const parsed = JSON.parse(body);
+    const database = parsed.database;
+    const ok =
+      parsed.ok === true &&
+      database?.ok === true &&
+      database?.mode === "crud_probe" &&
+      database?.operation === "insert-read-update-delete";
+    return {
+      ok,
+      detail: ok
+        ? "Generated /api/health completed insert-read-update-delete against staging Postgres."
+        : `Generated /api/health did not return a CRUD database proof: ${JSON.stringify(database ?? null)}`,
+    };
+  } catch (err) {
+    return {
+      ok: false,
+      detail: err instanceof Error ? err.message : String(err),
     };
   }
 }
