@@ -1,20 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-01T14:25:05.303Z",
+  "generated_at": "2026-06-01T15:59:59.200Z",
   "generated_by": "scripts/attach-golden-path-deploy.mjs",
   "privacy": "public-safe",
-  "current_run_id": "client-intake-portal-2026-06-01T142154299Z",
+  "current_run_id": "client-intake-portal-2026-06-01T155533774Z",
   "totals": {
     "runs": 1,
     "passed_runs": 1,
-    "latest_gate_count": 10,
-    "latest_wall_clock_ms": 107499
+    "latest_gate_count": 13,
+    "latest_wall_clock_ms": 66910
   },
   "runs": [
     {
       "schema_version": 1,
-      "run_id": "client-intake-portal-2026-06-01T142154299Z",
-      "generated_at": "2026-06-01T14:21:54.299Z",
+      "run_id": "client-intake-portal-2026-06-01T155533774Z",
+      "generated_at": "2026-06-01T15:55:33.774Z",
       "generated_by": "scripts/golden-path-proof.mjs",
       "privacy": "public-safe",
       "spec": {
@@ -36,21 +36,22 @@
         }
       ],
       "generated_app": {
-        "local_path": "%USERPROFILE%\\nexural-meta\\.nexural\\cache\\golden-path\\client-intake-portal-2026-06-01T142154299Z\\client-intake-portal",
+        "local_path": "%USERPROFILE%\\nexural-meta\\.nexural\\cache\\golden-path\\client-intake-portal-2026-06-01T155533774Z\\client-intake-portal",
         "file_count": 31,
-        "tree_hash": "sha256:9fc0f5bcfc0a6a7b03da7364985427ae7da9d5d3e0a1ad3bffafba3e4d6c626d",
+        "tree_hash": "sha256:a49620a467049a06e4aadff34971756aa01ec0d9cea61e69ff4a6d32e2522dad",
         "hashed_files": 31
       },
       "runtime": {
         "mode": "local-next-start+vercel",
         "credentials_mode": "staging-supabase",
         "supabase_project_ref": "xacwaprwlbqgmswgodsk",
-        "url": "http://127.0.0.1:3041",
+        "database_mode": "staging-postgres",
+        "url": "http://127.0.0.1:3042",
         "health_path": "/api/health",
         "deploy_status": "verified-vercel-url",
         "deployed_url": "https://sage-client-intake-portal-vercel.vercel.app",
-        "deployed_verified_at": "2026-06-01T14:25:05.303Z",
-        "deployment_id": "dpl_9XCxJYDixZCumSWmrZhNAqEjHT1j",
+        "deployed_verified_at": "2026-06-01T15:59:59.200Z",
+        "deployment_id": "dpl_5fFCQXk9FTGsN3EvXwLRtoEKcW6A",
         "inspector_url": null
       },
       "gates": [
@@ -65,15 +66,23 @@
           "label": "Forge emit",
           "status": "passed",
           "detail": "31 files emitted by internal-tool-dashboard.",
-          "command": "npx.cmd --yes tsx apps/cli/src/bin/nx.ts forge internal-tool-dashboard client-intake-portal --inputs %USERPROFILE%\\nexural-meta\\.nexural\\cache\\golden-path\\client-intake-portal-2026-06-01T142154299Z\\inputs.json --mock-secrets --out-dir %USERPROFILE%\\nexural-meta\\.nexural\\cache\\golden-path\\client-intake-portal-2026-06-01T142154299Z\\client-intake-portal",
-          "duration_ms": 15772
+          "command": "npx.cmd --yes tsx apps/cli/src/bin/nx.ts forge internal-tool-dashboard client-intake-portal --inputs %USERPROFILE%\\nexural-meta\\.nexural\\cache\\golden-path\\client-intake-portal-2026-06-01T155533774Z\\inputs.json --mock-secrets --out-dir %USERPROFILE%\\nexural-meta\\.nexural\\cache\\golden-path\\client-intake-portal-2026-06-01T155533774Z\\client-intake-portal",
+          "duration_ms": 2551
         },
         {
           "id": "supabase_runtime",
           "label": "Verify Supabase/Auth runtime",
           "status": "passed",
           "detail": "HTTP 200 from Supabase Auth settings for project xacwaprwlbqgmswgodsk.",
-          "duration_ms": 148
+          "duration_ms": 243
+        },
+        {
+          "id": "supabase_migrations",
+          "label": "Apply Supabase migrations",
+          "status": "passed",
+          "detail": "Supabase migrations applied through Management API (0 applied, 2 already present).",
+          "command": "POST /v1/projects/<ref>/database/migrations",
+          "duration_ms": 552
         },
         {
           "id": "install",
@@ -81,7 +90,7 @@
           "status": "passed",
           "detail": "exit 0",
           "command": "pnpm.cmd install --ignore-workspace --ignore-scripts",
-          "duration_ms": 30680
+          "duration_ms": 28771
         },
         {
           "id": "standalone_lockfile",
@@ -95,7 +104,7 @@
           "status": "passed",
           "detail": "exit 0",
           "command": "pnpm.cmd typecheck",
-          "duration_ms": 14545
+          "duration_ms": 2798
         },
         {
           "id": "build",
@@ -103,22 +112,28 @@
           "status": "passed",
           "detail": "exit 0",
           "command": "pnpm.cmd build",
-          "duration_ms": 39564
+          "duration_ms": 25163
         },
         {
           "id": "local_runtime",
           "label": "Start local runtime",
           "status": "passed",
           "detail": "HTTP 200 from /api/health.",
-          "duration_ms": 1330
+          "duration_ms": 1620
+        },
+        {
+          "id": "db_crud_health",
+          "label": "DB-backed CRUD health proof",
+          "status": "passed",
+          "detail": "Generated /api/health completed insert-read-update-delete against staging Postgres."
         },
         {
           "id": "nx_verify",
           "label": "Verify live local app",
           "status": "passed",
           "detail": "8/8 checks passed.",
-          "command": "npx.cmd --yes tsx apps/cli/src/bin/nx.ts verify http://127.0.0.1:3041 --evidence-slug client-intake-portal-local --timeout 20000",
-          "duration_ms": 2463
+          "command": "npx.cmd --yes tsx apps/cli/src/bin/nx.ts verify http://127.0.0.1:3042 --evidence-slug client-intake-portal-local --timeout 20000",
+          "duration_ms": 2645
         },
         {
           "id": "vercel_runtime",
@@ -127,6 +142,14 @@
           "detail": "8/8 checks passed at https://sage-client-intake-portal-vercel.vercel.app.",
           "command": "nx verify https://sage-client-intake-portal-vercel.vercel.app --evidence-slug client-intake-portal-vercel",
           "duration_ms": null
+        },
+        {
+          "id": "vercel_db_crud_health",
+          "label": "Verify deployed DB-backed health",
+          "status": "passed",
+          "detail": "Deployed /api/health completed insert-read-update-delete against staging Postgres.",
+          "command": "fetch https://sage-client-intake-portal-vercel.vercel.app/api/health",
+          "duration_ms": 473
         }
       ],
       "evidence": {
@@ -150,8 +173,8 @@
         }
       ],
       "remaining_gaps": ["Production auth/database credentials are intentionally not committed."],
-      "wall_clock_ms": 107499,
-      "deployment_attached_at": "2026-06-01T14:25:05.303Z",
+      "wall_clock_ms": 66910,
+      "deployment_attached_at": "2026-06-01T15:59:59.200Z",
       "deployment_attached_by": "scripts/attach-golden-path-deploy.mjs"
     }
   ]

@@ -107,6 +107,16 @@ function Set-DatabaseUrlSecret {
   }
 }
 
+function Get-SupabaseApiKeys {
+  param([string]$ProjectRef)
+  $response = Invoke-WebRequest `
+    -Method "Get" `
+    -Uri "https://api.supabase.com/v1/projects/$ProjectRef/api-keys" `
+    -Headers @{ Authorization = "Bearer $env:SUPABASE_ACCESS_TOKEN" } `
+    -UseBasicParsing
+  @($response.Content | ConvertFrom-Json)
+}
+
 function Get-Items {
   param($Value, [string[]]$ContainerNames)
   if ($null -eq $Value) {
@@ -228,19 +238,29 @@ try {
   $keys = @()
   for ($attempt = 1; $attempt -le 30; $attempt++) {
     try {
-      $keys = @(Get-Items (Invoke-SupabaseJson -CliArgs @("projects", "api-keys", "--project-ref", $projectRef)) @("api_keys", "keys"))
+      $keys = @(Get-SupabaseApiKeys -ProjectRef $projectRef)
       if ($keys.Count -gt 0) { break }
     } catch {
       Start-Sleep -Seconds 10
     }
   }
 
-  $anon = $keys | Where-Object {
-    "$($_.name) $($_.type)" -match "anon|publishable"
-  } | Select-Object -First 1
-  $service = $keys | Where-Object {
-    "$($_.name) $($_.type)" -match "service"
-  } | Select-Object -First 1
+  $anon = $keys |
+    Where-Object { $_.name -eq "anon" -and $_.type -eq "legacy" } |
+    Select-Object -First 1
+  if (-not $anon) {
+    $anon = $keys |
+      Where-Object { "$($_.name) $($_.type)" -match "anon|publishable" } |
+      Select-Object -First 1
+  }
+  $service = $keys |
+    Where-Object { $_.name -eq "service_role" -and $_.type -eq "legacy" } |
+    Select-Object -First 1
+  if (-not $service) {
+    $service = $keys |
+      Where-Object { "$($_.name) $($_.type)" -match "service|secret" } |
+      Select-Object -First 1
+  }
 
   $anonKey = Get-Value $anon @("api_key", "key", "value")
   $serviceKey = Get-Value $service @("api_key", "key", "value")

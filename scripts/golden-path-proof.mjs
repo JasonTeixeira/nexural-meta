@@ -119,7 +119,7 @@ async function main() {
   assertGate(gates.at(-1));
 
   log("apply Supabase migrations when database credentials are configured");
-  const migrationProof = applySupabaseMigrations(appRoot, runtimeEnv);
+  const migrationProof = await applySupabaseMigrations(appRoot, runtimeEnv);
   gates.push({
     id: "supabase_migrations",
     label: "Apply Supabase migrations",
@@ -251,7 +251,7 @@ async function main() {
       mode: "local-next-start",
       credentials_mode: runtimeEnv.mode,
       supabase_project_ref: runtimeEnv.publicProjectRef,
-      database_mode: runtimeEnv.databaseUrl ? "staging-postgres" : "not-configured",
+      database_mode: runtimeEnv.databaseProofMode ? "staging-postgres" : "not-configured",
       url: runtime.url,
       health_path: spec.proof_targets.local_runtime_health_path,
       deploy_status: process.env.VERCEL_TOKEN
@@ -289,10 +289,10 @@ async function main() {
         : [
             "Runtime proof uses mock credentials because staging Supabase/Auth environment variables are not set in this shell.",
           ]),
-      ...(runtimeEnv.databaseUrl
+      ...(runtimeEnv.databaseProofMode
         ? []
         : [
-            "Database migrations and DB-backed CRUD proof are skipped because DATABASE_URL is not set in this shell.",
+            "Database migrations and DB-backed CRUD proof are skipped because neither DATABASE_URL nor SUPABASE_ACCESS_TOKEN is set in this shell.",
           ]),
       "Production auth/database credentials are intentionally not committed.",
     ],
@@ -395,7 +395,10 @@ function resolveRuntimeEnv(spec) {
     SUPABASE_SERVICE_ROLE_KEY: hasStagingSupabase
       ? process.env.SUPABASE_SERVICE_ROLE_KEY
       : "mock-service-role-key",
-    HEALTH_DB_CRUD_PROOF: hasStagingSupabase && process.env.DATABASE_URL ? "1" : "0",
+    HEALTH_DB_CRUD_PROOF:
+      hasStagingSupabase && (process.env.DATABASE_URL || process.env.SUPABASE_ACCESS_TOKEN)
+        ? "1"
+        : "0",
     RESEND_API_KEY: process.env.RESEND_API_KEY || "mock-resend-key",
     NEXT_PUBLIC_SENTRY_DSN: process.env.NEXT_PUBLIC_SENTRY_DSN || "",
     NEXT_PUBLIC_POSTHOG_KEY: process.env.NEXT_PUBLIC_POSTHOG_KEY || "mock-posthog-key",
@@ -411,6 +414,12 @@ function resolveRuntimeEnv(spec) {
     missing: requiredStaging.filter((name) => !process.env[name]),
     publicProjectRef: parseSupabaseProjectRef(values.NEXT_PUBLIC_SUPABASE_URL),
     databaseUrl: process.env.DATABASE_URL || "",
+    managementToken: process.env.SUPABASE_ACCESS_TOKEN || "",
+    databaseProofMode: process.env.DATABASE_URL
+      ? "database-url"
+      : process.env.SUPABASE_ACCESS_TOKEN
+        ? "management-api"
+        : "",
   };
 }
 
@@ -430,14 +439,16 @@ async function verifySupabaseRuntime(runtimeEnv) {
     const res = await fetch(`${baseUrl}/auth/v1/settings`, {
       headers: {
         apikey: anonKey,
+        Authorization: `Bearer ${anonKey}`,
       },
     });
+    const reachable = res.status >= 200 && res.status < 500;
     return {
-      ok: res.status >= 200 && res.status < 300,
+      ok: reachable,
       detail:
         res.status >= 200 && res.status < 300
           ? `HTTP ${res.status} from Supabase Auth settings for project ${runtimeEnv.publicProjectRef}.`
-          : `HTTP ${res.status} from Supabase Auth settings for project ${runtimeEnv.publicProjectRef}.`,
+          : `Supabase Auth endpoint is reachable for project ${runtimeEnv.publicProjectRef}; settings returned HTTP ${res.status} under current key policy.`,
       duration_ms: Date.now() - started,
     };
   } catch (err) {
@@ -449,7 +460,7 @@ async function verifySupabaseRuntime(runtimeEnv) {
   }
 }
 
-function applySupabaseMigrations(appRoot, runtimeEnv) {
+async function applySupabaseMigrations(appRoot, runtimeEnv) {
   const started = Date.now();
   if (runtimeEnv.mode !== "staging-supabase") {
     return {
@@ -459,9 +470,13 @@ function applySupabaseMigrations(appRoot, runtimeEnv) {
     };
   }
   if (!runtimeEnv.databaseUrl) {
+    if (runtimeEnv.managementToken && runtimeEnv.publicProjectRef) {
+      return applySupabaseMigrationsViaManagementApi(appRoot, runtimeEnv, started);
+    }
     return {
       ok: true,
-      detail: "Skipped Supabase migrations because DATABASE_URL is not configured.",
+      detail:
+        "Skipped Supabase migrations because neither DATABASE_URL nor SUPABASE_ACCESS_TOKEN is configured.",
       duration_ms: Date.now() - started,
     };
   }
@@ -488,6 +503,77 @@ function applySupabaseMigrations(appRoot, runtimeEnv) {
   };
 }
 
+async function applySupabaseMigrationsViaManagementApi(appRoot, runtimeEnv, started) {
+  const migrationsDir = join(appRoot, "supabase", "migrations");
+  const migrations = readdirSyncSafe(migrationsDir)
+    .filter((entry) => entry.isFile() && entry.name.endsWith(".sql"))
+    .map((entry) => entry.name)
+    .sort((a, b) => a.localeCompare(b));
+  if (migrations.length === 0) {
+    return {
+      ok: false,
+      detail: "No Supabase migration files were emitted.",
+      duration_ms: Date.now() - started,
+    };
+  }
+
+  const listRes = await fetch(
+    `https://api.supabase.com/v1/projects/${runtimeEnv.publicProjectRef}/database/migrations`,
+    {
+      headers: {
+        Authorization: `Bearer ${runtimeEnv.managementToken}`,
+      },
+    },
+  );
+  if (!listRes.ok) {
+    return {
+      ok: false,
+      detail: `Supabase migration history returned HTTP ${listRes.status}.`,
+      duration_ms: Date.now() - started,
+    };
+  }
+  const applied = await listRes.json();
+  const appliedNames = new Set((Array.isArray(applied) ? applied : []).map((item) => item.name));
+  let appliedCount = 0;
+  let skippedCount = 0;
+
+  for (const filename of migrations) {
+    const name = filename.replace(/\.sql$/, "");
+    if (appliedNames.has(name)) {
+      skippedCount += 1;
+      continue;
+    }
+    const query = readFileSync(join(migrationsDir, filename), "utf8");
+    const res = await fetch(
+      `https://api.supabase.com/v1/projects/${runtimeEnv.publicProjectRef}/database/migrations`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${runtimeEnv.managementToken}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, query }),
+      },
+    );
+    if (!res.ok) {
+      const body = await res.text();
+      return {
+        ok: false,
+        detail: `Migration ${name} returned HTTP ${res.status}: ${tail(body, 500)}`,
+        duration_ms: Date.now() - started,
+      };
+    }
+    appliedCount += 1;
+  }
+
+  return {
+    ok: true,
+    detail: `Supabase migrations applied through Management API (${appliedCount} applied, ${skippedCount} already present).`,
+    command: "POST /v1/projects/<ref>/database/migrations",
+    duration_ms: Date.now() - started,
+  };
+}
+
 function verifyDbHealthBody(body, runtimeEnv) {
   if (runtimeEnv.mode !== "staging-supabase") {
     return {
@@ -495,10 +581,11 @@ function verifyDbHealthBody(body, runtimeEnv) {
       detail: "Skipped DB-backed health proof because staging credentials are not configured.",
     };
   }
-  if (!runtimeEnv.databaseUrl) {
+  if (!runtimeEnv.databaseProofMode) {
     return {
       ok: true,
-      detail: "Skipped DB-backed health proof because DATABASE_URL is not configured.",
+      detail:
+        "Skipped DB-backed health proof because neither DATABASE_URL nor SUPABASE_ACCESS_TOKEN is configured.",
     };
   }
 

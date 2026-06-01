@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-01T14:25:16.669Z",
+  "generated_at": "2026-06-01T16:00:11.604Z",
   "generated_by": "scripts/public-proof-export.mjs",
   "privacy": "public-safe",
   "target_surface": {
@@ -34,7 +34,7 @@
     },
     {
       "claim": "The factory path has deployed public proof.",
-      "evidence": "10/10 golden-path gates passed; deployed URL verified at https://sage-client-intake-portal-vercel.vercel.app.",
+      "evidence": "13/13 golden-path gates passed; deployed URL verified at https://sage-client-intake-portal-vercel.vercel.app.",
       "source": "data/golden-path-runs.public.json"
     }
   ],
@@ -68,9 +68,9 @@
     "load_bearing_assets": 11,
     "load_bearing_average_score": 73,
     "resource_use_cases": 7,
-    "golden_path_wall_clock_seconds": 107,
-    "golden_path_gates_passed": 10,
-    "golden_path_gate_count": 10,
+    "golden_path_wall_clock_seconds": 67,
+    "golden_path_gates_passed": 13,
+    "golden_path_gate_count": 13,
     "golden_path_verify_checks": {
       "passed": 8,
       "total": 8
@@ -121,7 +121,7 @@
     {
       "slug": "golden-path",
       "title": "Golden Path",
-      "body": "Latest proof run client-intake-portal-2026-06-01T142154299Z generated, built, started, verified locally, and verified the deployed app at https://sage-client-intake-portal-vercel.vercel.app with hash sha256:9fc0f5bcfc0a6a7b03da7364985427ae7da9d5d3e0a1ad3bffafba3e4d6c626d."
+      "body": "Latest proof run client-intake-portal-2026-06-01T155533774Z generated, built, started, verified locally, and verified the deployed app at https://sage-client-intake-portal-vercel.vercel.app with hash sha256:a49620a467049a06e4aadff34971756aa01ec0d9cea61e69ff4a6d32e2522dad."
     },
     {
       "slug": "redaction-boundary",
@@ -148,11 +148,11 @@
       "exports/sageideas-dev/engineering-os-proof.json",
       "exports/sageideas-dev/engineering-os-proof.md"
     ],
-    "golden_path_hash": "sha256:9fc0f5bcfc0a6a7b03da7364985427ae7da9d5d3e0a1ad3bffafba3e4d6c626d",
-    "golden_path_run_id": "client-intake-portal-2026-06-01T142154299Z",
+    "golden_path_hash": "sha256:a49620a467049a06e4aadff34971756aa01ec0d9cea61e69ff4a6d32e2522dad",
+    "golden_path_run_id": "client-intake-portal-2026-06-01T155533774Z",
     "golden_path_deployed_url": "https://sage-client-intake-portal-vercel.vercel.app",
     "golden_path_deploy_status": "verified-vercel-url",
-    "packet_hash": "sha256:d2b247e135bb5eed0dd8de7abb7d1f6ab05479d8d474f7f342c7a1161fb6c617"
+    "packet_hash": "sha256:b2f98eca2ddca00e3009b0d9ae14e3ebbb593eb6812206fc6c5c4208c8da6ca5"
   },
   "redaction_policy": [
     "Commit public repository metadata only.",

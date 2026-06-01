@@ -223,7 +223,7 @@ function buildRuntimeEnv(latest, appRoot) {
   env.NEXT_PUBLIC_ROOT_DOMAIN ??= "sageideas.dev";
   env.NEXT_PUBLIC_TENANT_ROUTING ??= "path";
   env.NEXT_PUBLIC_DEFAULT_LOCALE ??= "en";
-  env.HEALTH_DB_CRUD_PROOF ??= process.env.DATABASE_URL ? "1" : "0";
+  env.HEALTH_DB_CRUD_PROOF ??= latest.runtime?.database_mode === "staging-postgres" ? "1" : "0";
   return env;
 }
 
