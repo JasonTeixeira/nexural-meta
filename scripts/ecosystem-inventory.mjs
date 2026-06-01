@@ -154,16 +154,37 @@ function main() {
 }
 
 function fetchRepos() {
-  const raw = execFileSync(
-    "gh",
-    ["repo", "list", OWNER, "--limit", "1000", "--json", GH_FIELDS.join(",")],
-    { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] },
-  );
-  const parsed = JSON.parse(raw);
-  if (!Array.isArray(parsed)) {
-    throw new Error("gh repo list did not return an array");
+  const args = ["repo", "list", OWNER, "--limit", "1000", "--json", GH_FIELDS.join(",")];
+  let lastError = null;
+  for (let attempt = 1; attempt <= 3; attempt += 1) {
+    try {
+      const raw = execFileSync("gh", args, {
+        cwd: ROOT,
+        encoding: "utf8",
+        stdio: ["ignore", "pipe", "pipe"],
+      });
+      const parsed = JSON.parse(raw);
+      if (!Array.isArray(parsed)) {
+        throw new Error("gh repo list did not return an array");
+      }
+      return parsed;
+    } catch (err) {
+      lastError = err;
+      if (attempt === 3 || !isTransientGitHubError(err)) break;
+      console.error(`[ecosystem-inventory] gh repo list transient failure; retry ${attempt + 1}/3`);
+      sleep(2_000 * attempt);
+    }
   }
-  return parsed;
+  throw lastError;
+}
+
+function isTransientGitHubError(err) {
+  const message = `${err?.stderr ?? ""}\n${err?.message ?? ""}`;
+  return /HTTP (429|500|502|503|504)|Bad Gateway|Service Unavailable|rate limit/i.test(message);
+}
+
+function sleep(ms) {
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
 }
 
 function loadPrivateOverrides() {

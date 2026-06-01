@@ -23,6 +23,7 @@ describe("runVerify", () => {
   let warnSpy: ReturnType<typeof vi.spyOn>;
   let fetchSpy: ReturnType<typeof vi.spyOn>;
   let originalExitCode: number | string | undefined;
+  let originalBypassSecret: string | undefined;
 
   beforeEach(() => {
     logSpy = vi.spyOn(console, "log").mockImplementation(() => {});
@@ -30,6 +31,8 @@ describe("runVerify", () => {
     warnSpy = vi.spyOn(console, "warn").mockImplementation(() => {});
     fetchSpy = vi.spyOn(globalThis, "fetch");
     originalExitCode = process.exitCode;
+    originalBypassSecret = process.env.VERCEL_AUTOMATION_BYPASS_SECRET;
+    delete process.env.VERCEL_AUTOMATION_BYPASS_SECRET;
   });
 
   afterEach(() => {
@@ -38,6 +41,8 @@ describe("runVerify", () => {
     warnSpy.mockRestore();
     fetchSpy.mockRestore();
     process.exitCode = originalExitCode;
+    if (originalBypassSecret === undefined) delete process.env.VERCEL_AUTOMATION_BYPASS_SECRET;
+    else process.env.VERCEL_AUTOMATION_BYPASS_SECRET = originalBypassSecret;
   });
 
   function mockResponse(opts: {
@@ -132,6 +137,34 @@ describe("runVerify", () => {
     expect(process.exitCode).not.toBe(1);
     // Only one fetch call (no health)
     expect(fetchSpy).toHaveBeenCalledTimes(1);
+  });
+
+  it("sends Vercel automation bypass header for protected deployment URLs", async () => {
+    process.env.VERCEL_AUTOMATION_BYPASS_SECRET = "test-bypass-secret";
+    fetchSpy.mockResolvedValueOnce(
+      mockResponse({
+        status: 200,
+        headers: {
+          "strict-transport-security": "max-age=63072000",
+          "x-content-type-options": "nosniff",
+          "referrer-policy": "no-referrer",
+          "x-frame-options": "DENY",
+          "permissions-policy": "camera=()",
+        },
+      }),
+    );
+
+    await runVerify(cfg(), "https://example-project.vercel.app", { skipHealth: true });
+
+    expect(fetchSpy).toHaveBeenCalledWith(
+      "https://example-project.vercel.app",
+      expect.objectContaining({
+        headers: expect.objectContaining({
+          "x-vercel-protection-bypass": "test-bypass-secret",
+        }),
+      }),
+    );
+    expect(process.exitCode).not.toBe(1);
   });
 
   it("warns but continues for non-HTTPS local URLs", async () => {

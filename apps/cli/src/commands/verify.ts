@@ -14,6 +14,7 @@
  * Exit code 0 = pass; 1 = any check failed.
  */
 
+import { spawnSync } from "node:child_process";
 import { mkdir, writeFile } from "node:fs/promises";
 import { join, resolve } from "node:path";
 import type { NexuralConfig } from "../config.js";
@@ -198,19 +199,122 @@ async function tryFetch(url: string, timeoutMs: number): Promise<FetchOk | Fetch
     const res = await fetch(url, {
       redirect: "follow",
       signal: controller.signal,
-      headers: { "user-agent": "nx-verify/0.1.0" },
+      headers: buildFetchHeaders(url),
     });
     const headers: Record<string, string> = {};
     res.headers.forEach((v, k) => {
       headers[k.toLowerCase()] = v;
     });
     const body = await res.text();
+    if ((res.status === 401 || res.status === 403) && shouldTryVercelCurl(url)) {
+      return tryVercelCurl(url, timeoutMs);
+    }
     return { ok: true, status: res.status, headers, body };
   } catch (err) {
     return { ok: false, error: (err as Error).message };
   } finally {
     clearTimeout(timer);
   }
+}
+
+function buildFetchHeaders(url: string): Record<string, string> {
+  const headers: Record<string, string> = { "user-agent": "nx-verify/0.1.0" };
+  const bypass = process.env.VERCEL_AUTOMATION_BYPASS_SECRET;
+  if (bypass && isVercelUrl(url)) {
+    headers["x-vercel-protection-bypass"] = bypass;
+  }
+  return headers;
+}
+
+function shouldTryVercelCurl(url: string): boolean {
+  return Boolean(process.env.VERCEL_TOKEN) && isVercelUrl(url);
+}
+
+function isVercelUrl(url: string): boolean {
+  try {
+    const parsed = new URL(url);
+    return parsed.hostname === "vercel.app" || parsed.hostname.endsWith(".vercel.app");
+  } catch {
+    return false;
+  }
+}
+
+function tryVercelCurl(url: string, timeoutMs: number): FetchOk | FetchErr {
+  const parsed = new URL(url);
+  const deployment = `${parsed.protocol}//${parsed.host}`;
+  const path = `${parsed.pathname || "/"}${parsed.search}`;
+  const npxBin = process.platform === "win32" ? "npx.cmd" : "npx";
+  const args = [
+    "--yes",
+    "vercel@latest",
+    "curl",
+    path,
+    "--deployment",
+    deployment,
+    "-i",
+    "-L",
+    "-sS",
+    "--max-time",
+    String(Math.max(5, Math.ceil(timeoutMs / 1000))),
+  ];
+  if (process.env.VERCEL_TOKEN) args.push("--token", process.env.VERCEL_TOKEN);
+
+  const result = spawnSync(npxBin, args, {
+    shell: process.platform === "win32",
+    encoding: "utf8",
+    stdio: ["ignore", "pipe", "pipe"],
+    timeout: timeoutMs + 120_000,
+    env: { ...process.env, CI: "1" },
+  });
+  if ((result.status ?? 1) !== 0) {
+    return {
+      ok: false,
+      error: `vercel curl failed with exit ${result.status ?? 1}: ${tail(result.stderr || result.stdout)}`,
+    };
+  }
+  return parseRawHttpResponse(result.stdout);
+}
+
+function parseRawHttpResponse(raw: string): FetchOk | FetchErr {
+  const parts = String(raw ?? "").split(/\r?\n\r?\n/);
+  let headerIndex = -1;
+  for (let i = parts.length - 1; i >= 0; i -= 1) {
+    if (/^HTTP\/\d(?:\.\d)?\s+\d{3}/i.test(parts[i] ?? "")) {
+      headerIndex = i;
+      break;
+    }
+  }
+  if (headerIndex < 0) return { ok: false, error: "vercel curl output did not include headers" };
+
+  const headerLines = (parts[headerIndex] ?? "").split(/\r?\n/);
+  const statusMatch = headerLines[0]?.match(/^HTTP\/\d(?:\.\d)?\s+(\d{3})/i);
+  const status = statusMatch ? Number(statusMatch[1]) : NaN;
+  if (!Number.isFinite(status)) {
+    return { ok: false, error: "vercel curl output did not include a status code" };
+  }
+
+  const headers: Record<string, string> = {};
+  for (const line of headerLines.slice(1)) {
+    const index = line.indexOf(":");
+    if (index <= 0) continue;
+    const key = line.slice(0, index).trim().toLowerCase();
+    const value = line.slice(index + 1).trim();
+    headers[key] = headers[key] ? `${headers[key]}, ${value}` : value;
+  }
+  return {
+    ok: true,
+    status,
+    headers,
+    body: parts.slice(headerIndex + 1).join("\n\n"),
+  };
+}
+
+function tail(value: string): string {
+  return String(value ?? "")
+    .trim()
+    .split(/\r?\n/)
+    .slice(-8)
+    .join("\n");
 }
 
 function checkHeader(res: FetchOk, id: CheckId, headerName: string, pattern: RegExp): CheckResult {
