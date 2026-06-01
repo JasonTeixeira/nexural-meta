@@ -1,14 +1,122 @@
 import { NextResponse } from "next/server";
+import { randomUUID } from "node:crypto";
+import { createClient } from "@supabase/supabase-js";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
+type SupabaseProofClient = {
+  from: (table: string) => any;
+};
+
 export async function GET() {
-  return NextResponse.json({
-    ok: true,
-    app: "{{appName}}",
-    forged_at: "{{forgedAt}}",
-    recipe: "{{recipeName}}@{{recipeVersion}}",
-    timestamp: new Date().toISOString(),
+  const database = await verifyDatabase();
+  const ok = database.ok;
+
+  return NextResponse.json(
+    {
+      ok,
+      app: "{{appName}}",
+      forged_at: "{{forgedAt}}",
+      recipe: "{{recipeName}}@{{recipeVersion}}",
+      database,
+      timestamp: new Date().toISOString(),
+    },
+    { status: ok ? 200 : 503 },
+  );
+}
+
+async function verifyDatabase() {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+  const mode =
+    process.env.HEALTH_DB_CRUD_PROOF === "1"
+      ? "crud"
+      : process.env.HEALTH_DB_SCHEMA_PROOF === "1"
+        ? "schema"
+        : "skip";
+
+  if (!url || !serviceRoleKey || url === "https://example.supabase.co" || mode === "skip") {
+    return {
+      ok: true,
+      mode: "not_configured",
+      detail: "Supabase/Postgres proof skipped because staging credentials are not configured.",
+    };
+  }
+
+  const supabase = createClient(url, serviceRoleKey, {
+    auth: {
+      autoRefreshToken: false,
+      persistSession: false,
+    },
   });
+
+  if (mode === "crud") {
+    return verifyCrud(supabase);
+  }
+
+  const { count, error } = await supabase
+    .from("tenants")
+    .select("id", { count: "exact", head: true });
+  if (error) {
+    return {
+      ok: false,
+      mode: "schema_probe",
+      detail: error.message,
+    };
+  }
+
+  return {
+    ok: true,
+    mode: "schema_probe",
+    table: "tenants",
+    count,
+  };
+}
+
+async function verifyCrud(supabase: SupabaseProofClient) {
+  const slug = `health-${randomUUID()}`;
+  const inserted = await supabase
+    .from("tenants")
+    .insert({
+      slug,
+      display_name: "Health Proof",
+    })
+    .select("id")
+    .single();
+  if (inserted.error || !inserted.data?.id) {
+    return fail("insert", inserted.error?.message ?? "missing inserted row id");
+  }
+
+  const id = inserted.data.id;
+  const read = await supabase.from("tenants").select("id,display_name").eq("id", id).single();
+  if (read.error) return fail("read", read.error.message);
+
+  const updated = await supabase
+    .from("tenants")
+    .update({ display_name: "Health Proof Verified" })
+    .eq("id", id)
+    .select("display_name")
+    .single();
+  if (updated.error) return fail("update", updated.error.message);
+
+  const deleted = await supabase.from("tenants").delete().eq("id", id);
+  if (deleted.error) return fail("delete", deleted.error.message);
+
+  return {
+    ok: true,
+    mode: "crud_probe",
+    table: "tenants",
+    operation: "insert-read-update-delete",
+  };
+}
+
+function fail(operation: string, detail: string) {
+  return {
+    ok: false,
+    mode: "crud_probe",
+    operation,
+    detail,
+  };
 }

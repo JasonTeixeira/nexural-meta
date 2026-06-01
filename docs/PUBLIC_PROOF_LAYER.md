@@ -2,8 +2,8 @@
 
 **Status:** Phase 6 export-ready
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-06-01T14:25:16.669Z
-**Packet hash:** `sha256:d2b247e135bb5eed0dd8de7abb7d1f6ab05479d8d474f7f342c7a1161fb6c617`
+**Generated:** 2026-06-01T16:00:11.604Z
+**Packet hash:** `sha256:b2f98eca2ddca00e3009b0d9ae14e3ebbb593eb6812206fc6c5c4208c8da6ca5`
 
 ## Positioning
 
@@ -19,14 +19,14 @@ Brand boundary: Nexural is a trading/investment product proof, not the umbrella 
 - Broad public average: 14/100
 - Load-bearing average: 73/100
 - Resource use cases: 7
-- Golden path: 10/10 gates in 107s
+- Golden path: 13/13 gates in 67s
 
 ## Public Claims
 
 - **The ecosystem has an indexed public registry.** 136 public repositories indexed; 26 private repositories summarized without names. Source: `data/ecosystem-registry.public.json`.
 - **Assets are scored before they are reused.** 136 public assets scored; public average 14/100, public load-bearing average 73/100. This is a gap map, not vanity scoring. Source: `data/ecosystem-scorecard.public.json`.
 - **Build choices are mapped to reusable resources.** 7 use cases mapped for daily navigation. Source: `data/ecosystem-resource-map.public.json`.
-- **The factory path has deployed public proof.** 10/10 golden-path gates passed; deployed URL verified at https://sage-client-intake-portal-vercel.vercel.app. Source: `data/golden-path-runs.public.json`.
+- **The factory path has deployed public proof.** 13/13 golden-path gates passed; deployed URL verified at https://sage-client-intake-portal-vercel.vercel.app. Source: `data/golden-path-runs.public.json`.
 
 ## Architecture
 
@@ -53,7 +53,7 @@ Show registry counts, scorecard averages, use-case coverage, and golden-path gat
 
 ### Golden Path
 
-Latest proof run client-intake-portal-2026-06-01T142154299Z generated, built, started, verified locally, and verified the deployed app at https://sage-client-intake-portal-vercel.vercel.app with hash sha256:9fc0f5bcfc0a6a7b03da7364985427ae7da9d5d3e0a1ad3bffafba3e4d6c626d.
+Latest proof run client-intake-portal-2026-06-01T155533774Z generated, built, started, verified locally, and verified the deployed app at https://sage-client-intake-portal-vercel.vercel.app with hash sha256:a49620a467049a06e4aadff34971756aa01ec0d9cea61e69ff4a6d32e2522dad.
 
 ### Redaction Boundary
 

@@ -19,7 +19,12 @@ function ConvertFrom-SecureStringPlain {
 
 function New-DatabasePassword {
   $bytes = [byte[]]::new(30)
-  [Security.Cryptography.RandomNumberGenerator]::Fill($bytes)
+  $rng = [Security.Cryptography.RandomNumberGenerator]::Create()
+  try {
+    $rng.GetBytes($bytes)
+  } finally {
+    $rng.Dispose()
+  }
   [Convert]::ToBase64String($bytes).Replace("+", "A").Replace("/", "b").Replace("=", "9")
 }
 
@@ -30,6 +35,86 @@ function Invoke-SupabaseJson {
     throw "supabase $($CliArgs -join ' ') failed with exit $LASTEXITCODE"
   }
   ($output -join "`n") | ConvertFrom-Json
+}
+
+function Invoke-SupabaseManagementApi {
+  param(
+    [string]$Method,
+    [string]$Path,
+    $Body = $null
+  )
+  $headers = @{
+    Authorization = "Bearer $env:SUPABASE_ACCESS_TOKEN"
+  }
+  $uri = "https://api.supabase.com$Path"
+  if ($null -eq $Body) {
+    return Invoke-RestMethod -Method $Method -Uri $uri -Headers $headers
+  }
+
+  $headers["Content-Type"] = "application/json"
+  return Invoke-RestMethod `
+    -Method $Method `
+    -Uri $uri `
+    -Headers $headers `
+    -Body ($Body | ConvertTo-Json -Compress -Depth 10)
+}
+
+function Set-DatabaseUrlSecret {
+  param(
+    [string]$ProjectRef,
+    [string]$Repo
+  )
+
+  $dbPassword = New-DatabasePassword
+  Invoke-SupabaseManagementApi `
+    -Method "Patch" `
+    -Path "/v1/projects/$ProjectRef/database/password" `
+    -Body @{ password = $dbPassword } | Out-Null
+
+  Write-Host "Database password rotated. Waiting for pooler config to accept it..."
+  Start-Sleep -Seconds 25
+
+  $poolers = @(Invoke-SupabaseManagementApi `
+      -Method "Get" `
+      -Path "/v1/projects/$ProjectRef/config/database/pooler")
+  $pooler = $poolers |
+    Where-Object { $_.database_type -eq "PRIMARY" -and $_.pool_mode -eq "session" } |
+    Select-Object -First 1
+  if (-not $pooler) {
+    $pooler = $poolers |
+      Where-Object { $_.database_type -eq "PRIMARY" } |
+      Select-Object -First 1
+  }
+  if (-not $pooler) {
+    throw "No primary Supabase pooler config returned."
+  }
+
+  $encodedPassword = [System.Uri]::EscapeDataString($dbPassword)
+  $databaseUrl = "postgresql://$($pooler.db_user):$encodedPassword@$($pooler.db_host):$($pooler.db_port)/$($pooler.db_name)?sslmode=require"
+  $testOut = & npx --yes supabase@latest db query --db-url $databaseUrl "select 1 as ok;" -o json 2>&1
+  if ($LASTEXITCODE -ne 0) {
+    $safe = ($testOut -join "`n").
+      Replace($databaseUrl, "<DATABASE_URL>").
+      Replace($dbPassword, "<DB_PASSWORD>").
+      Replace($encodedPassword, "<DB_PASSWORD>")
+    throw "Database connection test failed: $safe"
+  }
+
+  gh secret set DATABASE_URL --repo $Repo --body $databaseUrl | Out-Null
+  return @{
+    database_url_secret_set = $true
+    database_connection_mode = "supavisor-session-pooler"
+  }
+}
+
+function Get-SupabaseApiKeys {
+  param([string]$ProjectRef)
+  $response = Invoke-WebRequest `
+    -Method "Get" `
+    -Uri "https://api.supabase.com/v1/projects/$ProjectRef/api-keys" `
+    -Headers @{ Authorization = "Bearer $env:SUPABASE_ACCESS_TOKEN" } `
+    -UseBasicParsing
+  @($response.Content | ConvertFrom-Json)
 }
 
 function Get-Items {
@@ -153,19 +238,29 @@ try {
   $keys = @()
   for ($attempt = 1; $attempt -le 30; $attempt++) {
     try {
-      $keys = @(Get-Items (Invoke-SupabaseJson -CliArgs @("projects", "api-keys", "--project-ref", $projectRef)) @("api_keys", "keys"))
+      $keys = @(Get-SupabaseApiKeys -ProjectRef $projectRef)
       if ($keys.Count -gt 0) { break }
     } catch {
       Start-Sleep -Seconds 10
     }
   }
 
-  $anon = $keys | Where-Object {
-    "$($_.name) $($_.type)" -match "anon|publishable"
-  } | Select-Object -First 1
-  $service = $keys | Where-Object {
-    "$($_.name) $($_.type)" -match "service"
-  } | Select-Object -First 1
+  $anon = $keys |
+    Where-Object { $_.name -eq "anon" -and $_.type -eq "legacy" } |
+    Select-Object -First 1
+  if (-not $anon) {
+    $anon = $keys |
+      Where-Object { "$($_.name) $($_.type)" -match "anon|publishable" } |
+      Select-Object -First 1
+  }
+  $service = $keys |
+    Where-Object { $_.name -eq "service_role" -and $_.type -eq "legacy" } |
+    Select-Object -First 1
+  if (-not $service) {
+    $service = $keys |
+      Where-Object { "$($_.name) $($_.type)" -match "service|secret" } |
+      Select-Object -First 1
+  }
 
   $anonKey = Get-Value $anon @("api_key", "key", "value")
   $serviceKey = Get-Value $service @("api_key", "key", "value")
@@ -177,6 +272,7 @@ try {
   gh secret set NEXT_PUBLIC_SUPABASE_URL --repo $Repo --body $projectUrl | Out-Null
   gh secret set NEXT_PUBLIC_SUPABASE_ANON_KEY --repo $Repo --body $anonKey | Out-Null
   gh secret set SUPABASE_SERVICE_ROLE_KEY --repo $Repo --body $serviceKey | Out-Null
+  $databaseSecret = Set-DatabaseUrlSecret -ProjectRef $projectRef -Repo $Repo
 
   [pscustomobject]@{
     project_name = $ProjectName
@@ -185,10 +281,13 @@ try {
     organization = $orgName
     region = $Region
     github_repo = $Repo
+    database_url_secret_set = $databaseSecret.database_url_secret_set
+    database_connection_mode = $databaseSecret.database_connection_mode
     secrets_written = @(
       "NEXT_PUBLIC_SUPABASE_URL",
       "NEXT_PUBLIC_SUPABASE_ANON_KEY",
-      "SUPABASE_SERVICE_ROLE_KEY"
+      "SUPABASE_SERVICE_ROLE_KEY",
+      "DATABASE_URL"
     )
     generated_at = (Get-Date).ToUniversalTime().ToString("o")
   } | ConvertTo-Json -Depth 4 | Set-Content -Encoding utf8 (Join-Path $privateDir "supabase-staging.json")

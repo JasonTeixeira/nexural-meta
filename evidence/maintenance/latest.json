@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-01T14:25:17.331Z",
+  "generated_at": "2026-06-01T16:00:11.653Z",
   "generated_by": "scripts/ecosystem-maintenance.mjs",
   "privacy": "public-safe",
   "phase": "Phase 7",
@@ -17,10 +17,10 @@
     "public_assets_scored": 136,
     "load_bearing_average_score": 73,
     "resource_use_cases": 7,
-    "latest_golden_path_run_id": "client-intake-portal-2026-06-01T142154299Z",
-    "latest_golden_path_gates_passed": 10,
-    "latest_golden_path_gate_count": 10,
-    "public_proof_packet_hash": "sha256:d2b247e135bb5eed0dd8de7abb7d1f6ab05479d8d474f7f342c7a1161fb6c617"
+    "latest_golden_path_run_id": "client-intake-portal-2026-06-01T155533774Z",
+    "latest_golden_path_gates_passed": 13,
+    "latest_golden_path_gate_count": 13,
+    "public_proof_packet_hash": "sha256:b2f98eca2ddca00e3009b0d9ae14e3ebbb593eb6812206fc6c5c4208c8da6ca5"
   },
   "commands": [],
   "artifacts": [
@@ -33,7 +33,7 @@
       "status": "fresh",
       "hash": "sha256:eccae4582652a1b26166e2ef685cbd1ba23e9046602381ead0ecf07d673aa6ad",
       "generated_at": "2026-06-01T00:48:50.044Z",
-      "age_hours": 13.6,
+      "age_hours": 15.2,
       "size_bytes": 158588
     },
     {
@@ -45,7 +45,7 @@
       "status": "fresh",
       "hash": "sha256:0578a0d8934e82d82a1f368e579e4aec11211921599d6258e54f53dfe166343b",
       "generated_at": "2026-06-01T02:23:55.922Z",
-      "age_hours": 12,
+      "age_hours": 13.6,
       "size_bytes": 205084
     },
     {
@@ -57,7 +57,7 @@
       "status": "fresh",
       "hash": "sha256:fc1c0fdc2eb8911f39f56e57d9a542c73caae3bfaf32f75a64ee250216241d9a",
       "generated_at": "2026-06-01T00:49:06.766Z",
-      "age_hours": 13.6,
+      "age_hours": 15.2,
       "size_bytes": 24436
     },
     {
@@ -67,10 +67,10 @@
       "required": true,
       "present": true,
       "status": "fresh",
-      "hash": "sha256:cfa152d4bb103d543b58aa1e92447f5a83b79c174a447e7d95b40973cf37cf6a",
-      "generated_at": "2026-06-01T14:25:05.303Z",
+      "hash": "sha256:e4fd10dadd5f955ed187761b1d800deb3394e3b89591d5d11a0dc68355f804ee",
+      "generated_at": "2026-06-01T15:59:59.200Z",
       "age_hours": 0,
-      "size_bytes": 6510
+      "size_bytes": 7508
     },
     {
       "id": "public_proof",
@@ -79,10 +79,10 @@
       "required": true,
       "present": true,
       "status": "fresh",
-      "hash": "sha256:844ba42d5b30b913c8d97ba14f1765f1c69b0597c4b448078882da476f40b97b",
-      "generated_at": "2026-06-01T14:25:16.669Z",
+      "hash": "sha256:59f4cf69d9568ec5c82e3c65f7eb80b882d803d15a145df6ce302d69e6279e58",
+      "generated_at": "2026-06-01T16:00:11.604Z",
       "age_hours": 0,
-      "size_bytes": 6839
+      "size_bytes": 6838
     },
     {
       "id": "proof_export_json",
@@ -91,10 +91,10 @@
       "required": true,
       "present": true,
       "status": "fresh",
-      "hash": "sha256:844ba42d5b30b913c8d97ba14f1765f1c69b0597c4b448078882da476f40b97b",
-      "generated_at": "2026-06-01T14:25:16.669Z",
+      "hash": "sha256:59f4cf69d9568ec5c82e3c65f7eb80b882d803d15a145df6ce302d69e6279e58",
+      "generated_at": "2026-06-01T16:00:11.604Z",
       "age_hours": 0,
-      "size_bytes": 6839
+      "size_bytes": 6838
     },
     {
       "id": "proof_export_markdown",
@@ -103,10 +103,10 @@
       "required": true,
       "present": true,
       "status": "fresh",
-      "hash": "sha256:6d7fc7374f3196a910efa210e1516cc4eca5f65383f49b62891e82306e6548e4",
+      "hash": "sha256:b823a6b29b0a755513a65a57a72836e98ec07308ccd906e0e6980260fd5f92b2",
       "generated_at": null,
       "age_hours": 0,
-      "size_bytes": 4012
+      "size_bytes": 4011
     }
   ],
   "source_metrics": {
@@ -139,16 +139,16 @@
       "recommended_assets": 9
     },
     "golden_path": {
-      "generated_at": "2026-06-01T14:25:05.303Z",
-      "run_id": "client-intake-portal-2026-06-01T142154299Z",
-      "gates_passed": 10,
-      "gate_count": 10,
-      "wall_clock_seconds": 107,
+      "generated_at": "2026-06-01T15:59:59.200Z",
+      "run_id": "client-intake-portal-2026-06-01T155533774Z",
+      "gates_passed": 13,
+      "gate_count": 13,
+      "wall_clock_seconds": 67,
       "deploy_status": "verified-vercel-url"
     },
     "public_proof": {
-      "generated_at": "2026-06-01T14:25:16.669Z",
-      "packet_hash": "sha256:d2b247e135bb5eed0dd8de7abb7d1f6ab05479d8d474f7f342c7a1161fb6c617",
+      "generated_at": "2026-06-01T16:00:11.604Z",
+      "packet_hash": "sha256:b2f98eca2ddca00e3009b0d9ae14e3ebbb593eb6812206fc6c5c4208c8da6ca5",
       "target_route": "/engineering-os",
       "remaining_gaps": [
         "Private asset maturity still needs local review before public claims can include deeper implementation detail."
@@ -156,9 +156,10 @@
     }
   },
   "git": {
-    "branch": "main",
-    "head_sha": "7b71a45ef6aca31c2f1601bca21ce3c4ac3315cb",
+    "branch": "phase8-db-crud-proof",
+    "head_sha": "23663adf88fac30f2c2414f89e578b3278695690",
     "changed_paths": [
+      "M .github/workflows/ecosystem-maintenance.yml",
       "M data/golden-path-runs.public.json",
       "M data/public-proof-layer.public.json",
       "M docs/GOLDEN_PATH.md",
@@ -169,12 +170,12 @@
       "M evidence/public-proof/latest.json",
       "M exports/sageideas-dev/engineering-os-proof.json",
       "M exports/sageideas-dev/engineering-os-proof.md",
+      "M scripts/deploy-golden-path-vercel.mjs",
       "M scripts/golden-path-proof.mjs",
-      "?? evidence/golden-path/client-intake-portal-2026-06-01T142154299Z.json",
-      "?? scripts/setup-supabase-staging.ps1",
-      "?? supabase/"
+      "M scripts/setup-supabase-staging.ps1",
+      "?? evidence/golden-path/client-intake-portal-2026-06-01T155533774Z.json"
     ],
-    "changed_count": 14
+    "changed_count": 15
   },
   "next_actions": [
     {
@@ -187,9 +188,9 @@
       "severity": "info",
       "owner": "operator",
       "action": "Review and commit generated maintenance artifacts",
-      "evidence": "14 changed path(s) after maintenance run."
+      "evidence": "15 changed path(s) after maintenance run."
     }
   ],
-  "started_at": "2026-06-01T14:25:17.331Z",
-  "finished_at": "2026-06-01T14:25:17.331Z"
+  "started_at": "2026-06-01T16:00:11.653Z",
+  "finished_at": "2026-06-01T16:00:11.653Z"
 }
