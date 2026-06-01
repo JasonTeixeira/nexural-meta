@@ -2,12 +2,12 @@
 
 **Status:** Phase 7 self-maintenance loop
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-06-01T16:00:11.653Z
+**Generated:** 2026-06-01T17:00:49.017Z
 **Overall:** passed
 
 ## Purpose
 
-Phase 7 turns the Sage Ideas Engineering OS from static proof artifacts into a repeatable maintenance loop. The loop regenerates the registry, maturity scorecard, resource map, golden-path proof, public proof export, and this machine-readable maintenance report.
+Phase 7 turns the Sage Ideas Engineering OS from static proof artifacts into a repeatable maintenance loop. The loop regenerates the registry, maturity scorecard, resource map, golden-path proof, proof environment lock, public-safe packet, and this machine-readable maintenance report.
 
 ## Run It
 
@@ -22,12 +22,13 @@ pnpm ecosystem:maintain -- --skip-golden
 ## Summary
 
 - Commands passed: 0/0
-- Fresh artifacts: 7/7
+- Fresh artifacts: 8/8
 - Public repositories indexed: 136
 - Public assets scored: 136
 - Resource use cases: 7
-- Golden path: 13/13 gates
-- Public proof hash: `sha256:b2f98eca2ddca00e3009b0d9ae14e3ebbb593eb6812206fc6c5c4208c8da6ca5`
+- Golden path: 14/14 gates
+- Proof environment: passed
+- Public proof hash: `sha256:2f88d2e0904d2309ab8826363600d71076cf7d58d1e98982330b38af872188a5`
 
 ## Commands
 
@@ -37,23 +38,27 @@ pnpm ecosystem:maintain -- --skip-golden
 
 ## Artifact Freshness
 
-| Artifact                                          | Status |   Age | Hash                                                                      |
-| ------------------------------------------------- | ------ | ----: | ------------------------------------------------------------------------- |
-| `data/ecosystem-registry.public.json`             | fresh  | 15.2h | `sha256:eccae4582652a1b26166e2ef685cbd1ba23e9046602381ead0ecf07d673aa6ad` |
-| `data/ecosystem-scorecard.public.json`            | fresh  | 13.6h | `sha256:0578a0d8934e82d82a1f368e579e4aec11211921599d6258e54f53dfe166343b` |
-| `data/ecosystem-resource-map.public.json`         | fresh  | 15.2h | `sha256:fc1c0fdc2eb8911f39f56e57d9a542c73caae3bfaf32f75a64ee250216241d9a` |
-| `data/golden-path-runs.public.json`               | fresh  |    0h | `sha256:e4fd10dadd5f955ed187761b1d800deb3394e3b89591d5d11a0dc68355f804ee` |
-| `data/public-proof-layer.public.json`             | fresh  |    0h | `sha256:59f4cf69d9568ec5c82e3c65f7eb80b882d803d15a145df6ce302d69e6279e58` |
-| `exports/sageideas-dev/engineering-os-proof.json` | fresh  |    0h | `sha256:59f4cf69d9568ec5c82e3c65f7eb80b882d803d15a145df6ce302d69e6279e58` |
-| `exports/sageideas-dev/engineering-os-proof.md`   | fresh  |    0h | `sha256:b823a6b29b0a755513a65a57a72836e98ec07308ccd906e0e6980260fd5f92b2` |
+| Artifact                                         | Status |   Age | Hash                                                                      |
+| ------------------------------------------------ | ------ | ----: | ------------------------------------------------------------------------- |
+| `data/ecosystem-registry.public.json`            | fresh  | 16.2h | `sha256:eccae4582652a1b26166e2ef685cbd1ba23e9046602381ead0ecf07d673aa6ad` |
+| `data/ecosystem-scorecard.public.json`           | fresh  | 14.6h | `sha256:0578a0d8934e82d82a1f368e579e4aec11211921599d6258e54f53dfe166343b` |
+| `data/ecosystem-resource-map.public.json`        | fresh  | 16.2h | `sha256:fc1c0fdc2eb8911f39f56e57d9a542c73caae3bfaf32f75a64ee250216241d9a` |
+| `data/golden-path-runs.public.json`              | fresh  |    0h | `sha256:fbc79608bd3482dc0d1b4538ace2f778d0fd95b6c0b7542c1302b3b0d559b23c` |
+| `data/proof-environment.public.json`             | fresh  |    0h | `sha256:068a91de918ea17522352ce83de31df94a18c004b7f4a8844507dd6afd6ded3b` |
+| `data/public-proof-layer.public.json`            | fresh  |    0h | `sha256:0c1bf14dc10dfdcd3d4a3fd84b06a4056ec6b2ad670f7f1bc2822a6b78ebf9aa` |
+| `exports/proof-packet/engineering-os-proof.json` | fresh  |    0h | `sha256:0c1bf14dc10dfdcd3d4a3fd84b06a4056ec6b2ad670f7f1bc2822a6b78ebf9aa` |
+| `exports/proof-packet/engineering-os-proof.md`   | fresh  |    0h | `sha256:0bf1df9da81e2a1fde08464f88bf4e542e75cc698a104a5d07a717ab403327fd` |
 
 ## Next Actions
 
-- **info: Review public proof remaining gaps before publishing claims** 1 remaining gaps in public proof packet.
-- **info: Review and commit generated maintenance artifacts** 15 changed path(s) after maintenance run.
+- **info: Review public-safe packet remaining gaps before making external claims** 1 remaining gaps in public-safe packet.
+- **info: Review and commit generated maintenance artifacts** 36 changed path(s) after maintenance run.
 
 ## Generated Artifacts
 
 - `data/ecosystem-maintenance.public.json`
+- `data/proof-environment.public.json`
 - `evidence/maintenance/latest.json`
+- `evidence/proof-environment/latest.json`
 - `docs/ECOSYSTEM_MAINTENANCE.md`
+- `docs/PROOF_ENVIRONMENT.md`

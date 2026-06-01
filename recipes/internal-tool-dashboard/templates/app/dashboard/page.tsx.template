@@ -1,22 +1,132 @@
-import { requireRole } from "@/lib/rbac";
+import Link from "next/link";
+import { redirect } from "next/navigation";
+import { createSupabaseAdminClient } from "@/lib/supabase/admin";
+import { currentUserRole } from "@/lib/rbac";
 
 export const dynamic = "force-dynamic";
 
 export default async function DashboardPage() {
-  // Recipe ships a placeholder — replace with your tool's home view.
-  // requireRole throws ForbiddenError if the user lacks the role.
-  await requireRole("viewer");
+  const current = await currentUserRole();
+  if (!current) redirect("/login");
+
+  const supabase = createSupabaseAdminClient();
+  const [tenants, admins, auditEvents] = await Promise.all([
+    supabase.from("tenants").select("id", { count: "exact", head: true }).is("deleted_at", null),
+    supabase
+      .from("admin_users")
+      .select("user_id", { count: "exact", head: true })
+      .is("revoked_at", null),
+    supabase.from("audit_events").select("id", { count: "exact", head: true }),
+  ]);
+
+  const metrics = [
+    {
+      label: "Active tenants",
+      value: tenants.count ?? 0,
+      detail: tenants.error ? tenants.error.message : "Current non-archived tenant records.",
+    },
+    {
+      label: "Admin users",
+      value: admins.count ?? 0,
+      detail: admins.error ? admins.error.message : "Users with active admin roles.",
+    },
+    {
+      label: "Audit events",
+      value: auditEvents.count ?? 0,
+      detail: auditEvents.error
+        ? auditEvents.error.message
+        : "Immutable platform activity records.",
+    },
+  ];
 
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <p>
-        Welcome. This is the admin home for <strong>{{displayName}}</strong>.
-      </p>
-      <p style={{ color: "#64748b", fontSize: "0.9rem" }}>
-        Replace this template at <code>app/dashboard/page.tsx</code> with your
-        tool's actual home view.
-      </p>
+    <div style={{ display: "grid", gap: "1.25rem" }}>
+      <section
+        style={{
+          alignItems: "end",
+          display: "grid",
+          gap: "1rem",
+          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 260px), 1fr))",
+        }}
+      >
+        <div>
+          <p
+            style={{
+              color: "#6d6255",
+              fontSize: "0.78rem",
+              fontWeight: 700,
+              letterSpacing: "0.08em",
+              margin: "0 0 0.5rem",
+              textTransform: "uppercase",
+            }}
+          >
+            {current.role}
+          </p>
+          <h1 style={{ fontSize: "2rem", lineHeight: 1.05, margin: 0 }}>
+            {{ displayName }} operations
+          </h1>
+        </div>
+        <Link
+          href="/dashboard/tenants"
+          style={{
+            background: "#0f766e",
+            border: "1px solid #0b5f59",
+            color: "white",
+            cursor: "pointer",
+            display: "inline-flex",
+            fontWeight: 700,
+            padding: "0.72rem 0.9rem",
+            textDecoration: "none",
+          }}
+        >
+          Manage tenants
+        </Link>
+      </section>
+
+      <section
+        style={{
+          display: "grid",
+          gap: "0.8rem",
+          gridTemplateColumns: "repeat(auto-fit, minmax(190px, 1fr))",
+        }}
+      >
+        {metrics.map((metric) => (
+          <article
+            key={metric.label}
+            style={{
+              background: "#fffefa",
+              border: "1px solid #d8d2c4",
+              padding: "1rem",
+            }}
+          >
+            <div style={{ color: "#6d6255", fontSize: "0.82rem", fontWeight: 700 }}>
+              {metric.label}
+            </div>
+            <div style={{ fontSize: "2rem", fontWeight: 800, marginTop: "0.35rem" }}>
+              {metric.value}
+            </div>
+            <p style={{ color: "#6d6255", fontSize: "0.88rem", margin: "0.45rem 0 0" }}>
+              {metric.detail}
+            </p>
+          </article>
+        ))}
+      </section>
+
+      <section
+        style={{
+          background: "#171717",
+          color: "#f8f5ed",
+          display: "grid",
+          gap: "0.75rem",
+          padding: "1rem",
+        }}
+      >
+        <h2 style={{ fontSize: "1rem", margin: 0 }}>Runtime proof</h2>
+        <p style={{ color: "#d8d2c4", margin: 0 }}>
+          This generated app ships auth, RBAC, staging Postgres migrations, a DB-backed health
+          probe, and a real tenant CRUD surface.
+        </p>
+      </section>
     </div>
   );
 }

@@ -103,6 +103,15 @@ async function main() {
   });
   assertGate(gates.at(-1));
 
+  const usability = verifyGeneratedUsability(appRoot);
+  gates.push({
+    id: "generated_app_usability",
+    label: "Generated app usability surface",
+    status: usability.ok ? "passed" : "failed",
+    detail: usability.detail,
+  });
+  assertGate(gates.at(-1));
+
   const runtimeEnv = resolveRuntimeEnv(spec);
   log(`write ${runtimeEnv.mode} env`);
   await writeLocalEnv(appRoot, runtimeEnv);
@@ -338,6 +347,31 @@ function gateFromCommand(id, label, result) {
   };
 }
 
+function verifyGeneratedUsability(appRoot) {
+  const requiredFiles = [
+    "app/dashboard/page.tsx",
+    "app/dashboard/layout.tsx",
+    "app/dashboard/tenants/page.tsx",
+    "app/dashboard/tenants/actions.ts",
+    "lib/supabase/admin.ts",
+    "lib/rbac.ts",
+    "supabase/migrations/0001_init.sql",
+    "supabase/migrations/0003_admin.sql",
+  ];
+  const missing = requiredFiles.filter((file) => !existsSync(join(appRoot, file)));
+  if (missing.length > 0) {
+    return {
+      ok: false,
+      detail: `Missing generated usability files: ${missing.join(", ")}.`,
+    };
+  }
+  return {
+    ok: true,
+    detail:
+      "Generated app includes dashboard, tenant CRUD actions, Supabase admin client, RBAC, and DB migrations.",
+  };
+}
+
 function assertGate(gate) {
   if (gate?.status !== "passed") {
     throw new Error(`${gate?.id ?? "unknown gate"} failed: ${gate?.detail ?? "no detail"}`);
@@ -385,6 +419,7 @@ function resolveRuntimeEnv(spec) {
     "SUPABASE_SERVICE_ROLE_KEY",
   ];
   const hasStagingSupabase = requiredStaging.every((name) => Boolean(process.env[name]));
+  const databaseProofMode = resolveDatabaseProofMode(hasStagingSupabase);
   const values = {
     NEXT_PUBLIC_SUPABASE_URL: hasStagingSupabase
       ? process.env.NEXT_PUBLIC_SUPABASE_URL
@@ -395,10 +430,7 @@ function resolveRuntimeEnv(spec) {
     SUPABASE_SERVICE_ROLE_KEY: hasStagingSupabase
       ? process.env.SUPABASE_SERVICE_ROLE_KEY
       : "mock-service-role-key",
-    HEALTH_DB_CRUD_PROOF:
-      hasStagingSupabase && (process.env.DATABASE_URL || process.env.SUPABASE_ACCESS_TOKEN)
-        ? "1"
-        : "0",
+    HEALTH_DB_CRUD_PROOF: databaseProofMode ? "1" : "0",
     RESEND_API_KEY: process.env.RESEND_API_KEY || "mock-resend-key",
     NEXT_PUBLIC_SENTRY_DSN: process.env.NEXT_PUBLIC_SENTRY_DSN || "",
     NEXT_PUBLIC_POSTHOG_KEY: process.env.NEXT_PUBLIC_POSTHOG_KEY || "mock-posthog-key",
@@ -413,14 +445,24 @@ function resolveRuntimeEnv(spec) {
     values,
     missing: requiredStaging.filter((name) => !process.env[name]),
     publicProjectRef: parseSupabaseProjectRef(values.NEXT_PUBLIC_SUPABASE_URL),
-    databaseUrl: process.env.DATABASE_URL || "",
-    managementToken: process.env.SUPABASE_ACCESS_TOKEN || "",
-    databaseProofMode: process.env.DATABASE_URL
-      ? "database-url"
-      : process.env.SUPABASE_ACCESS_TOKEN
-        ? "management-api"
+    databaseUrl:
+      hasStagingSupabase && databaseProofMode === "database-url"
+        ? process.env.DATABASE_URL || ""
         : "",
+    managementToken:
+      hasStagingSupabase && databaseProofMode === "management-api"
+        ? process.env.SUPABASE_ACCESS_TOKEN || ""
+        : "",
+    databaseProofMode,
   };
+}
+
+function resolveDatabaseProofMode(hasStagingSupabase) {
+  if (!hasStagingSupabase) return "";
+  if (process.env.DATABASE_URL) return "database-url";
+  if (process.env.SUPABASE_ACCESS_TOKEN) return "management-api";
+  if (process.env.HEALTH_DB_CRUD_PROOF === "1") return "service-role-crud";
+  return "";
 }
 
 async function verifySupabaseRuntime(runtimeEnv) {

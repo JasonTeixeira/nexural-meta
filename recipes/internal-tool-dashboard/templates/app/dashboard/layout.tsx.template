@@ -1,0 +1,43 @@
+import Link from "next/link";
+
+const navItems = [
+  { href: "/dashboard", label: "Overview" },
+  { href: "/dashboard/tenants", label: "Tenants" },
+] as const;
+
+export default function DashboardLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <div style={{ display: "grid", gap: "1rem" }}>
+      <nav
+        aria-label="Dashboard"
+        style={{
+          alignItems: "center",
+          borderBottom: "1px solid #d8d2c4",
+          display: "flex",
+          gap: "0.5rem",
+          overflowX: "auto",
+          paddingBottom: "0.85rem",
+        }}
+      >
+        {navItems.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            style={{
+              border: "1px solid #d8d2c4",
+              color: "#171717",
+              cursor: "pointer",
+              fontSize: "0.9rem",
+              fontWeight: 700,
+              padding: "0.55rem 0.75rem",
+              textDecoration: "none",
+            }}
+          >
+            {item.label}
+          </Link>
+        ))}
+      </nav>
+      {children}
+    </div>
+  );
+}

@@ -19,7 +19,7 @@
     "displayName": "Client Intake Portal",
     "primaryColor": "#0f766e",
     "tenantRouting": "path",
-    "rootDomain": "sageideas.dev",
+    "rootDomain": "sage-internal.tools",
     "billingModel": "seat",
     "trialDays": 0,
     "requireCardOnTrial": false,
@@ -30,7 +30,7 @@
     "auditRetentionYears": 7,
     "llmEnabled": false,
     "adminRoles": ["super_admin", "admin", "viewer"],
-    "signupEmailDomains": ["sageideas.dev"],
+    "signupEmailDomains": ["sage-internal.tools"],
     "bulkConfirmThreshold": 10,
     "sentryTracesSampleRate": 0.5
   },

@@ -69,8 +69,8 @@ jobs:
             Automated Phase 7 maintenance refresh.
 
             This workflow regenerates the Sage Ideas Engineering OS registry,
-            scorecard, resource map, golden-path proof, public proof export,
-            and maintenance report.
+            scorecard, resource map, golden-path proof, proof environment
+            lock, public-safe packet, and maintenance report.
 
             If private repository totals look low, configure
             `SAGE_ECOSYSTEM_GITHUB_TOKEN` with read access across the ecosystem.
@@ -81,17 +81,20 @@ jobs:
             data/ecosystem-scorecard.public.json
             data/ecosystem-resource-map.public.json
             data/golden-path-runs.public.json
+            data/proof-environment.public.json
             data/public-proof-layer.public.json
             data/ecosystem-maintenance.public.json
             docs/ECOSYSTEM_INVENTORY.md
             docs/ECOSYSTEM_SCORECARD.md
             docs/ECOSYSTEM_RESOURCE_FACTORY.md
             docs/GOLDEN_PATH.md
+            docs/PROOF_ENVIRONMENT.md
             docs/PUBLIC_PROOF_LAYER.md
             docs/ECOSYSTEM_MAINTENANCE.md
             evidence/gate-5/client-intake-portal-local/report.json
             evidence/gate-5/client-intake-portal-vercel/report.json
             evidence/golden-path/
+            evidence/proof-environment/
             evidence/public-proof/
             evidence/maintenance/
-            exports/sageideas-dev/
+            exports/proof-packet/

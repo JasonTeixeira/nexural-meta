@@ -21,6 +21,10 @@ templates:
     source: templates/lib-supabase-server.ts.template
     target_path: lib/supabase/server.ts
     consumers: [saas-multitenant-baseline]
+  - id: supabase-admin-client
+    source: templates/lib-supabase-admin.ts.template
+    target_path: lib/supabase/admin.ts
+    consumers: [saas-multitenant-baseline]
   - id: login-page
     source: templates/app-auth-login-page.tsx.template
     target_path: app/(auth)/login/page.tsx

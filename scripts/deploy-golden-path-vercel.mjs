@@ -220,7 +220,7 @@ function buildRuntimeEnv(latest, appRoot) {
     else if (fileEnv[key]) env[key] = fileEnv[key];
   }
   env.NEXT_PUBLIC_APP_NAME ??= latest.spec?.title ?? "Client Intake Portal";
-  env.NEXT_PUBLIC_ROOT_DOMAIN ??= "sageideas.dev";
+  env.NEXT_PUBLIC_ROOT_DOMAIN ??= "sage-internal.tools";
   env.NEXT_PUBLIC_TENANT_ROUTING ??= "path";
   env.NEXT_PUBLIC_DEFAULT_LOCALE ??= "en";
   env.HEALTH_DB_CRUD_PROOF ??= latest.runtime?.database_mode === "staging-postgres" ? "1" : "0";

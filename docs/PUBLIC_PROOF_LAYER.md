@@ -1,9 +1,9 @@
-# Public Proof Layer
+# Public-Safe Proof Packet
 
-**Status:** Phase 6 export-ready
+**Status:** Phase 6 internal packet ready
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-06-01T16:00:11.604Z
-**Packet hash:** `sha256:b2f98eca2ddca00e3009b0d9ae14e3ebbb593eb6812206fc6c5c4208c8da6ca5`
+**Generated:** 2026-06-01T17:00:41.485Z
+**Packet hash:** `sha256:2f88d2e0904d2309ab8826363600d71076cf7d58d1e98982330b38af872188a5`
 
 ## Positioning
 
@@ -19,14 +19,14 @@ Brand boundary: Nexural is a trading/investment product proof, not the umbrella 
 - Broad public average: 14/100
 - Load-bearing average: 73/100
 - Resource use cases: 7
-- Golden path: 13/13 gates in 67s
+- Golden path: 14/14 gates in 159s
 
 ## Public Claims
 
 - **The ecosystem has an indexed public registry.** 136 public repositories indexed; 26 private repositories summarized without names. Source: `data/ecosystem-registry.public.json`.
 - **Assets are scored before they are reused.** 136 public assets scored; public average 14/100, public load-bearing average 73/100. This is a gap map, not vanity scoring. Source: `data/ecosystem-scorecard.public.json`.
 - **Build choices are mapped to reusable resources.** 7 use cases mapped for daily navigation. Source: `data/ecosystem-resource-map.public.json`.
-- **The factory path has deployed public proof.** 13/13 golden-path gates passed; deployed URL verified at https://sage-client-intake-portal-vercel.vercel.app. Source: `data/golden-path-runs.public.json`.
+- **The factory path has deployed hosted proof.** 14/14 golden-path gates passed; deployed URL verified at https://sage-client-intake-portal-vercel.vercel.app. Source: `data/golden-path-runs.public.json`.
 
 ## Architecture
 
@@ -35,13 +35,13 @@ Brand boundary: Nexural is a trading/investment product proof, not the umbrella 
 - **Quality system:** QA OS, evidence hashes, release gates. Captures proof before claims are made publicly.
 - **Product proofs:** Apps that demonstrate reusable patterns. Examples are shown as proof, not as umbrella branding.
 
-## Recommended Public Assets
+## Recommended Assets
 
 - [nexural-meta](https://github.com/JasonTeixeira/nexural-meta) - control-plane, 100/100, L4
 - [sageideas.dev](https://github.com/JasonTeixeira/sageideas.dev) - public-proof-surface, 93/100, L3
 - [JasonTeixeira](https://github.com/JasonTeixeira/JasonTeixeira) - public-proof-surface, 73/100, L2
 
-## Publishable Sections
+## Future Publishable Sections
 
 ### What It Is
 
@@ -53,15 +53,15 @@ Show registry counts, scorecard averages, use-case coverage, and golden-path gat
 
 ### Golden Path
 
-Latest proof run client-intake-portal-2026-06-01T155533774Z generated, built, started, verified locally, and verified the deployed app at https://sage-client-intake-portal-vercel.vercel.app with hash sha256:a49620a467049a06e4aadff34971756aa01ec0d9cea61e69ff4a6d32e2522dad.
+Latest proof run client-intake-portal-2026-06-01T165601095Z generated, built, started, verified locally, and verified the deployed app at https://sage-client-intake-portal-vercel.vercel.app with hash sha256:220e1bd8d055e052eff47ee7d7c8255e7a0aecfb4150abff0c52bdc67274071e.
 
 ### Redaction Boundary
 
-The public page should show architecture, evidence, and high-level metrics while keeping private repo names, secrets, customer details, and local paths out.
+A future public surface can show architecture, evidence, and high-level metrics while keeping private repo names, secrets, customer details, and local paths out.
 
 ### Honest Gaps
 
-Publish current limitations directly: deployed proof uses public-safe mock runtime credentials, and private asset details require local review.
+State current limitations directly: deployed proof uses staging infrastructure, and private asset details require local review.
 
 ## Redaction Policy
 
@@ -69,13 +69,13 @@ Publish current limitations directly: deployed proof uses public-safe mock runti
 - Summarize private repositories by count, layer, maturity, and score band only.
 - Do not publish private repo names, descriptions, URLs, local paths, secrets, customer data, or provider tokens.
 - Frame product proofs as examples; do not imply Nexural is the umbrella brand.
-- Publish gaps honestly, including non-production mock credentials or missing hosted proof when applicable.
+- Publish gaps honestly, including staging-only proof or missing hosted proof when applicable.
 
 ## Remaining Gaps
 
 - Private asset maturity still needs local review before public claims can include deeper implementation detail.
 
-## Export Targets
+## Internal Export Targets
 
-- `exports/sageideas-dev/engineering-os-proof.json`
-- `exports/sageideas-dev/engineering-os-proof.md`
+- `exports/proof-packet/engineering-os-proof.json`
+- `exports/proof-packet/engineering-os-proof.md`
