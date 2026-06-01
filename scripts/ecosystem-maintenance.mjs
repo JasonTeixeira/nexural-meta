@@ -3,8 +3,8 @@
  * Phase 7 self-maintenance loop for Sage Ideas Engineering OS.
  *
  * This is the operator-grade wrapper around the existing generated artifacts:
- * inventory -> scorecard -> resource map -> golden path -> proof environment
- * -> public-safe packet.
+ * inventory -> scorecard -> resource map -> recipe catalog -> resource library
+ * -> golden path -> proof environment -> DB proof -> public-safe packet.
  *
  * It writes a public-safe report that answers:
  * - what was regenerated,
@@ -51,6 +51,18 @@ const ARTIFACTS = [
     required: true,
   },
   {
+    id: "recipe_catalog",
+    path: "data/recipe-catalog.public.json",
+    max_age_hours: 48,
+    required: true,
+  },
+  {
+    id: "resource_library",
+    path: "data/resource-library.public.json",
+    max_age_hours: 48,
+    required: true,
+  },
+  {
     id: "golden_path",
     path: "data/golden-path-runs.public.json",
     max_age_hours: 168,
@@ -59,6 +71,12 @@ const ARTIFACTS = [
   {
     id: "proof_environment",
     path: "data/proof-environment.public.json",
+    max_age_hours: 168,
+    required: true,
+  },
+  {
+    id: "db_proof",
+    path: "data/db-proof.public.json",
     max_age_hours: 168,
     required: true,
   },
@@ -102,6 +120,7 @@ function main() {
       }
     }
     commandResults.push(runStep("proof_environment", pnpmBin, ["proof:env"]));
+    commandResults.push(runStep("db_proof", pnpmBin, ["proof:db"]));
     commandResults.push(runStep("public_proof_export", pnpmBin, ["proof:export"]));
   }
 
@@ -110,8 +129,11 @@ function main() {
   const registry = readJsonIfPresent("data/ecosystem-registry.public.json");
   const scorecard = readJsonIfPresent("data/ecosystem-scorecard.public.json");
   const resourceMap = readJsonIfPresent("data/ecosystem-resource-map.public.json");
+  const recipeCatalog = readJsonIfPresent("data/recipe-catalog.public.json");
+  const resourceLibrary = readJsonIfPresent("data/resource-library.public.json");
   const goldenPath = readJsonIfPresent("data/golden-path-runs.public.json");
   const proofEnvironment = readJsonIfPresent("data/proof-environment.public.json");
+  const dbProof = readJsonIfPresent("data/db-proof.public.json");
   const proof = readJsonIfPresent("data/public-proof-layer.public.json");
   const git = inspectGit();
 
@@ -128,8 +150,11 @@ function main() {
       registry,
       scorecard,
       resourceMap,
+      recipeCatalog,
+      resourceLibrary,
       goldenPath,
       proofEnvironment,
+      dbProof,
       proof,
       git,
     }),
@@ -139,8 +164,11 @@ function main() {
       registry,
       scorecard,
       resourceMap,
+      recipeCatalog,
+      resourceLibrary,
       goldenPath,
       proofEnvironment,
+      dbProof,
       proof,
     }),
     git,
@@ -150,6 +178,7 @@ function main() {
       scorecard,
       goldenPath,
       proofEnvironment,
+      dbProof,
       proof,
       git,
     }),
@@ -315,8 +344,11 @@ function buildSummary({
   registry,
   scorecard,
   resourceMap,
+  recipeCatalog,
+  resourceLibrary,
   goldenPath,
   proofEnvironment,
+  dbProof,
   proof,
 }) {
   const failedCommands = commandResults.filter((command) => command.status !== "passed");
@@ -342,11 +374,15 @@ function buildSummary({
         .map((repo) => repo.score?.total),
     ),
     resource_use_cases: resourceMap?.totals?.use_cases ?? null,
+    recipes_indexed: recipeCatalog?.totals?.recipes ?? null,
+    forge_ready_recipes: recipeCatalog?.totals?.forge_ready ?? null,
+    resource_library_assets: resourceLibrary?.totals?.assets ?? null,
     latest_golden_path_run_id: latestRun?.run_id ?? null,
     latest_golden_path_gates_passed:
       latestRun?.gates?.filter((gate) => gate.status === "passed").length ?? null,
     latest_golden_path_gate_count: latestRun?.gates?.length ?? null,
     proof_environment_status: proofEnvironment?.status ?? null,
+    db_proof_status: dbProof?.status ?? null,
     public_proof_packet_hash: proofHash,
   };
 }
@@ -355,8 +391,11 @@ function buildSourceMetrics({
   registry,
   scorecard,
   resourceMap,
+  recipeCatalog,
+  resourceLibrary,
   goldenPath,
   proofEnvironment,
+  dbProof,
   proof,
 }) {
   const latestRun = goldenPath?.runs?.[0];
@@ -385,6 +424,19 @@ function buildSourceMetrics({
       use_cases: resourceMap?.totals?.use_cases ?? null,
       recommended_assets: resourceMap?.totals?.recommended_assets ?? null,
     },
+    recipe_catalog: {
+      generated_at: recipeCatalog?.generated_at ?? null,
+      recipes: recipeCatalog?.totals?.recipes ?? null,
+      forge_ready: recipeCatalog?.totals?.forge_ready ?? null,
+      proof_backed: recipeCatalog?.totals?.proof_backed ?? null,
+      average_readiness_score: recipeCatalog?.totals?.average_readiness_score ?? null,
+    },
+    resource_library: {
+      generated_at: resourceLibrary?.generated_at ?? null,
+      assets: resourceLibrary?.totals?.assets ?? null,
+      maturity_lift_queue: resourceLibrary?.maturity_lift_queue?.length ?? null,
+      proof_backed_recipes: resourceLibrary?.totals?.proof_backed_recipes ?? null,
+    },
     golden_path: {
       generated_at: goldenPath?.generated_at ?? null,
       run_id: latestRun?.run_id ?? null,
@@ -398,6 +450,14 @@ function buildSourceMetrics({
       status: proofEnvironment?.status ?? null,
       gates_passed: proofEnvironment?.summary?.gates_passed ?? null,
       gate_count: proofEnvironment?.summary?.gates_total ?? null,
+    },
+    db_proof: {
+      generated_at: dbProof?.generated_at ?? null,
+      status: dbProof?.status ?? null,
+      gates_passed: dbProof?.summary?.gates_passed ?? null,
+      gate_count: dbProof?.summary?.gates_total ?? null,
+      migration_status: dbProof?.summary?.migration_status ?? null,
+      hosted_crud_status: dbProof?.summary?.hosted_crud_status ?? null,
     },
     public_proof: {
       generated_at: proof?.generated_at ?? null,
@@ -414,6 +474,7 @@ function buildNextActions({
   scorecard,
   goldenPath,
   proofEnvironment,
+  dbProof,
   proof,
   git,
 }) {
@@ -472,6 +533,17 @@ function buildNextActions({
       owner: "operator",
       action: "Fix proof environment lock gates",
       evidence: `proof environment status is ${proofEnvironment.status}.`,
+    });
+  }
+
+  if (dbProof?.status && dbProof.status !== "passed") {
+    actions.push({
+      severity: "warn",
+      owner: "operator",
+      action: "Finish DB proof hardening",
+      evidence: `db proof status is ${dbProof.status}; migration status is ${
+        dbProof.summary?.migration_status ?? "unknown"
+      }.`,
     });
   }
 
@@ -538,10 +610,14 @@ function renderMarkdown(report) {
   lines.push(`- Public repositories indexed: ${report.summary.public_repositories_indexed}`);
   lines.push(`- Public assets scored: ${report.summary.public_assets_scored}`);
   lines.push(`- Resource use cases: ${report.summary.resource_use_cases}`);
+  lines.push(`- Recipes indexed: ${report.summary.recipes_indexed}`);
+  lines.push(`- Forge-ready recipes: ${report.summary.forge_ready_recipes}`);
+  lines.push(`- Resource library assets: ${report.summary.resource_library_assets}`);
   lines.push(
     `- Golden path: ${report.summary.latest_golden_path_gates_passed}/${report.summary.latest_golden_path_gate_count} gates`,
   );
   lines.push(`- Proof environment: ${report.summary.proof_environment_status}`);
+  lines.push(`- DB proof: ${report.summary.db_proof_status}`);
   lines.push(`- Public proof hash: \`${report.summary.public_proof_packet_hash}\``);
   lines.push("");
   lines.push("## Commands");
@@ -579,11 +655,18 @@ function renderMarkdown(report) {
   lines.push("## Generated Artifacts");
   lines.push("");
   lines.push("- `data/ecosystem-maintenance.public.json`");
+  lines.push("- `data/recipe-catalog.public.json`");
+  lines.push("- `data/resource-library.public.json`");
   lines.push("- `data/proof-environment.public.json`");
+  lines.push("- `data/db-proof.public.json`");
   lines.push("- `evidence/maintenance/latest.json`");
   lines.push("- `evidence/proof-environment/latest.json`");
+  lines.push("- `evidence/db-proof/latest.json`");
   lines.push("- `docs/ECOSYSTEM_MAINTENANCE.md`");
+  lines.push("- `docs/RECIPE_CATALOG.md`");
+  lines.push("- `docs/RESOURCE_LIBRARY.md`");
   lines.push("- `docs/PROOF_ENVIRONMENT.md`");
+  lines.push("- `docs/DB_PROOF.md`");
   return `${lines.join("\n")}\n`;
 }
 

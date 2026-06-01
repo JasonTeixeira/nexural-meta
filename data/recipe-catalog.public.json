@@ -1,0 +1,249 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-06-01T18:57:07.975Z",
+  "generated_by": "scripts/recipe-catalog.mjs",
+  "privacy": "public-safe",
+  "status": "expanded",
+  "purpose": "Recipe readiness catalog for deciding what the factory can generate, what is proof-backed, and what needs hardening before reuse.",
+  "totals": {
+    "recipes": 8,
+    "forge_ready": 7,
+    "proof_backed": 1,
+    "needs_fixture": 1,
+    "needs_templates": 0,
+    "average_readiness_score": 74.4
+  },
+  "coverage": {
+    "by_warehouse": {
+      "architecture": 5
+    },
+    "by_runtime": {}
+  },
+  "recipes": [
+    {
+      "name": "internal-tool-dashboard",
+      "version": "0.1.0",
+      "description": "Recipe for internal-team admin tools. Extends saas-multitenant-baseline with",
+      "extends": "saas-multitenant-baseline",
+      "warehouses": ["architecture"],
+      "services": [],
+      "cost_envelope": {
+        "per_request_p50_usd": 0.001,
+        "per_request_p99_usd": 0.005,
+        "monthly_baseline_usd": 5
+      },
+      "secrets_required": 1,
+      "readiness": {
+        "score": 100,
+        "band": "elite",
+        "forge_ready": true,
+        "proof_backed": true,
+        "has_templates": true,
+        "has_fixture": true,
+        "has_threat_model": true,
+        "has_decisions": true,
+        "migration_count": 1,
+        "gaps": []
+      }
+    },
+    {
+      "name": "fintech-ledger-app",
+      "version": "0.1.0",
+      "description": "SaaS recipe for finance + ledger applications. Extends saas-multitenant-baseline",
+      "extends": "saas-multitenant-baseline",
+      "warehouses": [],
+      "services": [],
+      "cost_envelope": {
+        "per_request_p50_usd": 0.001,
+        "per_request_p99_usd": 0.01,
+        "monthly_baseline_usd": 30
+      },
+      "secrets_required": 0,
+      "readiness": {
+        "score": 80,
+        "band": "strong",
+        "forge_ready": true,
+        "proof_backed": false,
+        "has_templates": true,
+        "has_fixture": true,
+        "has_threat_model": true,
+        "has_decisions": true,
+        "migration_count": 1,
+        "gaps": ["missing-golden-path-proof"]
+      }
+    },
+    {
+      "name": "saas-agent-platform",
+      "version": "0.1.0",
+      "description": "Agent-as-a-service product. Extends saas-multitenant-baseline. Custom agent",
+      "extends": "saas-multitenant-baseline",
+      "warehouses": [],
+      "services": [],
+      "cost_envelope": {
+        "per_request_p50_usd": 0.02,
+        "per_request_p99_usd": 0.5,
+        "monthly_baseline_usd": 50
+      },
+      "secrets_required": 1,
+      "readiness": {
+        "score": 80,
+        "band": "strong",
+        "forge_ready": true,
+        "proof_backed": false,
+        "has_templates": true,
+        "has_fixture": true,
+        "has_threat_model": true,
+        "has_decisions": true,
+        "migration_count": 1,
+        "gaps": ["missing-golden-path-proof"]
+      }
+    },
+    {
+      "name": "saas-multitenant-baseline",
+      "version": "0.1.0",
+      "description": "Multi-tenant SaaS baseline — Next.js 15 + Supabase (Auth + Postgres + RLS) +",
+      "extends": null,
+      "warehouses": ["architecture"],
+      "services": [],
+      "cost_envelope": {
+        "per_request_p50_usd": 0,
+        "per_request_p99_usd": 0,
+        "monthly_baseline_usd": 0
+      },
+      "secrets_required": 1,
+      "readiness": {
+        "score": 70,
+        "band": "usable",
+        "forge_ready": true,
+        "proof_backed": false,
+        "has_templates": true,
+        "has_fixture": true,
+        "has_threat_model": true,
+        "has_decisions": true,
+        "migration_count": 0,
+        "gaps": ["missing-golden-path-proof"]
+      }
+    },
+    {
+      "name": "saas-rag-chat",
+      "version": "0.1.0",
+      "description": "Chat product with RAG (Retrieval-Augmented Generation) over user-uploaded",
+      "extends": "saas-multitenant-baseline",
+      "warehouses": [],
+      "services": [],
+      "cost_envelope": {
+        "per_request_p50_usd": 0.005,
+        "per_request_p99_usd": 0.05,
+        "monthly_baseline_usd": 25
+      },
+      "secrets_required": 0,
+      "readiness": {
+        "score": 70,
+        "band": "usable",
+        "forge_ready": true,
+        "proof_backed": false,
+        "has_templates": true,
+        "has_fixture": true,
+        "has_threat_model": true,
+        "has_decisions": true,
+        "migration_count": 0,
+        "gaps": ["missing-golden-path-proof"]
+      }
+    },
+    {
+      "name": "saas-rag-chat-openai-first",
+      "version": "0.1.0",
+      "description": "OpenAI-primary variant of saas-rag-chat. Same architecture, different model",
+      "extends": "saas-rag-chat",
+      "warehouses": ["architecture"],
+      "services": [],
+      "cost_envelope": {
+        "per_request_p50_usd": 0.003,
+        "per_request_p99_usd": 0.03,
+        "monthly_baseline_usd": 20
+      },
+      "secrets_required": 1,
+      "readiness": {
+        "score": 70,
+        "band": "usable",
+        "forge_ready": true,
+        "proof_backed": false,
+        "has_templates": true,
+        "has_fixture": true,
+        "has_threat_model": true,
+        "has_decisions": true,
+        "migration_count": 0,
+        "gaps": ["missing-golden-path-proof"]
+      }
+    },
+    {
+      "name": "saas-rag-chat-qdrant",
+      "version": "0.1.0",
+      "description": "Qdrant primary escape variant of saas-rag-chat. Use when chunk count",
+      "extends": "saas-rag-chat",
+      "warehouses": ["architecture"],
+      "services": [],
+      "cost_envelope": {
+        "per_request_p50_usd": 0.005,
+        "per_request_p99_usd": 0.05,
+        "monthly_baseline_usd": 25
+      },
+      "secrets_required": 1,
+      "readiness": {
+        "score": 70,
+        "band": "usable",
+        "forge_ready": true,
+        "proof_backed": false,
+        "has_templates": true,
+        "has_fixture": true,
+        "has_threat_model": true,
+        "has_decisions": true,
+        "migration_count": 0,
+        "gaps": ["missing-golden-path-proof"]
+      }
+    },
+    {
+      "name": "saas-multitenant-baseline-cf",
+      "version": "0.1.0",
+      "description": "Cloudflare Pages + Workers + D1 escape variant of saas-multitenant-baseline.",
+      "extends": "saas-multitenant-baseline",
+      "warehouses": ["architecture"],
+      "services": [],
+      "cost_envelope": {
+        "per_request_p50_usd": 0,
+        "per_request_p99_usd": 0,
+        "monthly_baseline_usd": 0
+      },
+      "secrets_required": 1,
+      "readiness": {
+        "score": 55,
+        "band": "incomplete",
+        "forge_ready": false,
+        "proof_backed": false,
+        "has_templates": true,
+        "has_fixture": false,
+        "has_threat_model": true,
+        "has_decisions": true,
+        "migration_count": 0,
+        "gaps": ["missing-fixture", "missing-golden-path-proof"]
+      }
+    }
+  ],
+  "next_actions": [
+    {
+      "action": "Add two more golden-path specs for high-value recipes.",
+      "reason": "Only 1 recipe is proof-backed today.",
+      "phase": "Phase 11"
+    },
+    {
+      "action": "Add fixtures for saas-multitenant-baseline-cf.",
+      "reason": "Fixtures make recipe validity automation deterministic.",
+      "phase": "Phase 11"
+    },
+    {
+      "action": "Promote fintech-ledger-app into the next hosted proof run.",
+      "reason": "The factory should prove more than one app shape.",
+      "phase": "Phase 14"
+    }
+  ]
+}
