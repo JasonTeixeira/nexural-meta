@@ -492,6 +492,8 @@ export interface DbProofData {
     readonly database_mode: string | null;
     readonly migration_status: string;
     readonly hosted_crud_status: string;
+    readonly schema_drift_status?: string;
+    readonly seed_data_status?: string;
     readonly database_url_available_by_inventory: boolean;
   };
   readonly gates?: ReadonlyArray<{

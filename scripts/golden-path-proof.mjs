@@ -26,9 +26,8 @@ const DOCS_DIR = join(ROOT, "docs");
 const PRIVATE_DIR = join(ROOT, ".nexural", "private");
 const CACHE_DIR = join(ROOT, ".nexural", "cache", "golden-path");
 const EVIDENCE_DIR = join(ROOT, "evidence", "golden-path");
-const GATE5_SLUG = "client-intake-portal-local";
-const SPEC_PATH = join(DATA_DIR, "golden-path-specs", "client-intake-portal.json");
 const RESOURCE_MAP_PATH = join(DATA_DIR, "ecosystem-resource-map.public.json");
+const SPEC_DIR = join(DATA_DIR, "golden-path-specs");
 
 const isWindows = process.platform === "win32";
 const pnpmBin = isWindows ? "pnpm.cmd" : "pnpm";
@@ -38,9 +37,17 @@ const IGNORED_HASH_DIRS = new Set(["node_modules", ".next", ".git"]);
 const IGNORED_HASH_FILES = new Set(["pnpm-lock.yaml", "next-env.d.ts", "tsconfig.tsbuildinfo"]);
 
 async function main() {
+  const args = parseArgs(process.argv.slice(2));
+  const specPaths = resolveSpecPaths(args);
+  for (const specPath of specPaths) {
+    await runSpec(specPath);
+  }
+}
+
+async function runSpec(specPath) {
   const started = Date.now();
   const generatedAt = new Date().toISOString();
-  const spec = readJson(SPEC_PATH);
+  const spec = readJson(specPath);
   const resourceMap = readJson(RESOURCE_MAP_PATH);
   const useCase = resourceMap.use_cases.find((item) => item.id === spec.use_case_id);
   if (!useCase) throw new Error(`Resource use case not found: ${spec.use_case_id}`);
@@ -103,7 +110,7 @@ async function main() {
   });
   assertGate(gates.at(-1));
 
-  const usability = verifyGeneratedUsability(appRoot);
+  const usability = verifyGeneratedUsability(appRoot, spec);
   gates.push({
     id: "generated_app_usability",
     label: "Generated app usability surface",
@@ -128,7 +135,7 @@ async function main() {
   assertGate(gates.at(-1));
 
   log("apply Supabase migrations when database credentials are configured");
-  const migrationProof = await applySupabaseMigrations(appRoot, runtimeEnv);
+  const migrationProof = await applySupabaseMigrations(appRoot, runtimeEnv, spec);
   gates.push({
     id: "supabase_migrations",
     label: "Apply Supabase migrations",
@@ -190,7 +197,26 @@ async function main() {
   });
   assertGate(gates.at(-1));
 
+  const schemaHealth = verifyNestedDbHealth(runtime.health.body, runtimeEnv, "schema");
+  gates.push({
+    id: "db_schema_drift_health",
+    label: "DB schema drift health proof",
+    status: schemaHealth.ok ? "passed" : "failed",
+    detail: schemaHealth.detail,
+  });
+  assertGate(gates.at(-1));
+
+  const seedHealth = verifyNestedDbHealth(runtime.health.body, runtimeEnv, "seed");
+  gates.push({
+    id: "db_seed_data_health",
+    label: "DB seed-data health proof",
+    status: seedHealth.ok ? "passed" : "failed",
+    detail: seedHealth.detail,
+  });
+  assertGate(gates.at(-1));
+
   log("run live verifier");
+  const localEvidenceSlug = `${spec.id}-local`;
   const verify = run(
     npxBin,
     [
@@ -200,13 +226,13 @@ async function main() {
       "verify",
       runtime.url,
       "--evidence-slug",
-      GATE5_SLUG,
+      localEvidenceSlug,
       "--timeout",
       "20000",
     ],
     { cwd: ROOT, timeoutMs: 120_000 },
   );
-  const verifyReportPath = join(ROOT, "evidence", "gate-5", GATE5_SLUG, "report.json");
+  const verifyReportPath = join(ROOT, "evidence", "gate-5", localEvidenceSlug, "report.json");
   const verifyReport = existsSync(verifyReportPath) ? readJson(verifyReportPath) : undefined;
   gates.push({
     id: "nx_verify",
@@ -237,7 +263,7 @@ async function main() {
     spec: {
       id: spec.id,
       title: spec.title,
-      path: relative(ROOT, SPEC_PATH).replaceAll("\\", "/"),
+      path: relative(ROOT, specPath).replaceAll("\\", "/"),
       intent: spec.intent,
       recipe: spec.recipe,
       app_slug: spec.app_slug,
@@ -263,6 +289,7 @@ async function main() {
       database_mode: runtimeEnv.databaseProofMode ? "staging-postgres" : "not-configured",
       url: runtime.url,
       health_path: spec.proof_targets.local_runtime_health_path,
+      db_health: parseHealthBody(runtime.health.body),
       deploy_status: process.env.VERCEL_TOKEN
         ? "vercel-token-present-not-used"
         : "blocked-no-vercel-token",
@@ -311,22 +338,25 @@ async function main() {
   log("write evidence artifacts");
   const publicPayload = maskLocalPaths(evidencePayload);
   writeJson(join(PRIVATE_DIR, "golden-path-latest.internal.json"), evidencePayload);
+  writeJson(join(PRIVATE_DIR, "golden-path", `${runId}.internal.json`), evidencePayload);
   writeJson(join(EVIDENCE_DIR, "latest.json"), publicPayload);
   writeJson(join(EVIDENCE_DIR, `${runId}.json`), publicPayload);
 
+  const previousIndex = existsSync(join(DATA_DIR, "golden-path-runs.public.json"))
+    ? readJson(join(DATA_DIR, "golden-path-runs.public.json"))
+    : { runs: [] };
+  const runs = [
+    publicPayload,
+    ...(previousIndex.runs ?? []).filter((run) => run.run_id !== publicPayload.run_id),
+  ];
   const publicIndex = {
     schema_version: SCHEMA_VERSION,
     generated_at: new Date().toISOString(),
     generated_by: GENERATED_BY,
     privacy: "public-safe",
     current_run_id: runId,
-    totals: {
-      runs: 1,
-      passed_runs: gates.every((gate) => gate.status === "passed") ? 1 : 0,
-      latest_gate_count: gates.length,
-      latest_wall_clock_ms: evidencePayload.wall_clock_ms,
-    },
-    runs: [publicPayload],
+    totals: buildTotals(runs, publicPayload),
+    runs,
   };
   writeJson(join(DATA_DIR, "golden-path-runs.public.json"), publicIndex);
   writeFileSync(join(DOCS_DIR, "GOLDEN_PATH.md"), renderMarkdown(publicIndex), "utf8");
@@ -334,6 +364,56 @@ async function main() {
   console.error(
     `[golden-path] ${runId}: ${gates.length}/${gates.length} gates passed; hash ${appTree.hash}`,
   );
+}
+
+function parseArgs(argv) {
+  const args = { spec: "", all: false };
+  for (let i = 0; i < argv.length; i += 1) {
+    const arg = argv[i];
+    const next = argv[i + 1];
+    if (arg === "--spec" && next) {
+      args.spec = next;
+      i += 1;
+    } else if (arg === "--all") {
+      args.all = true;
+    } else if (arg === "--help" || arg === "-h") {
+      console.log(`Usage: node scripts/golden-path-proof.mjs [--spec <id-or-path>] [--all]`);
+      process.exit(0);
+    } else {
+      throw new Error(`Unknown or incomplete argument: ${arg}`);
+    }
+  }
+  return args;
+}
+
+function resolveSpecPaths(args) {
+  if (args.all) {
+    return readdirSync(SPEC_DIR)
+      .filter((file) => file.endsWith(".json"))
+      .map((file) => join(SPEC_DIR, file))
+      .sort((a, b) => a.localeCompare(b));
+  }
+  if (args.spec) {
+    const direct = resolve(ROOT, args.spec);
+    if (existsSync(direct)) return [direct];
+    const byId = join(SPEC_DIR, `${args.spec.replace(/\.json$/, "")}.json`);
+    if (existsSync(byId)) return [byId];
+    throw new Error(`Golden-path spec not found: ${args.spec}`);
+  }
+  return [join(SPEC_DIR, "client-intake-portal.json")];
+}
+
+function buildTotals(runs, latestRun) {
+  const passedRuns = runs.filter((run) => run.gates.every((gate) => gate.status === "passed"));
+  const hostedRuns = runs.filter((run) => run.runtime?.deploy_status === "verified-vercel-url");
+  return {
+    runs: runs.length,
+    passed_runs: passedRuns.length,
+    hosted_runs: hostedRuns.length,
+    proof_backed_recipes: new Set(hostedRuns.map((run) => run.spec?.recipe).filter(Boolean)).size,
+    latest_gate_count: latestRun.gates.length,
+    latest_wall_clock_ms: latestRun.wall_clock_ms,
+  };
 }
 
 function gateFromCommand(id, label, result) {
@@ -347,17 +427,37 @@ function gateFromCommand(id, label, result) {
   };
 }
 
-function verifyGeneratedUsability(appRoot) {
+function verifyGeneratedUsability(appRoot, spec) {
   const requiredFiles = [
-    "app/dashboard/page.tsx",
-    "app/dashboard/layout.tsx",
-    "app/dashboard/tenants/page.tsx",
-    "app/dashboard/tenants/actions.ts",
+    "package.json",
+    "app/page.tsx",
+    "app/api/health/route.ts",
     "lib/supabase/admin.ts",
-    "lib/rbac.ts",
     "supabase/migrations/0001_init.sql",
-    "supabase/migrations/0003_admin.sql",
   ];
+  if (spec.recipe === "internal-tool-dashboard") {
+    requiredFiles.push(
+      "app/dashboard/page.tsx",
+      "app/dashboard/layout.tsx",
+      "app/dashboard/tenants/page.tsx",
+      "app/dashboard/tenants/actions.ts",
+      "lib/rbac.ts",
+      "supabase/migrations/0003_admin.sql",
+    );
+  }
+  if (spec.recipe === "fintech-ledger-app") {
+    requiredFiles.push(
+      "lib/ledger/decimal.ts",
+      "lib/ledger/post.ts",
+      "supabase/migrations/0004_ledger.sql",
+    );
+  }
+  if (spec.recipe === "saas-agent-platform") {
+    requiredFiles.push("eval/adversarial.json", "supabase/migrations/0005_agent.sql");
+  }
+  if (spec.recipe === "saas-rag-chat") {
+    requiredFiles.push("app/(app)/chat/page.tsx", "app/api/chat/route.ts", "eval/golden-set.json");
+  }
   const missing = requiredFiles.filter((file) => !existsSync(join(appRoot, file)));
   if (missing.length > 0) {
     return {
@@ -367,8 +467,7 @@ function verifyGeneratedUsability(appRoot) {
   }
   return {
     ok: true,
-    detail:
-      "Generated app includes dashboard, tenant CRUD actions, Supabase admin client, RBAC, and DB migrations.",
+    detail: `Generated app includes ${requiredFiles.length} required runtime, DB, and recipe-specific files.`,
   };
 }
 
@@ -431,6 +530,10 @@ function resolveRuntimeEnv(spec) {
       ? process.env.SUPABASE_SERVICE_ROLE_KEY
       : "mock-service-role-key",
     HEALTH_DB_CRUD_PROOF: databaseProofMode ? "1" : "0",
+    HEALTH_DB_SCHEMA_PROOF: databaseProofMode ? "1" : "0",
+    HEALTH_DB_SEED_PROOF: databaseProofMode ? "1" : "0",
+    HEALTH_DB_EXPECTED_TABLES: expectedDbTables(spec),
+    HEALTH_DB_SEED_SLUG: `health-seed-${spec.app_slug}`,
     RESEND_API_KEY: process.env.RESEND_API_KEY || "mock-resend-key",
     NEXT_PUBLIC_SENTRY_DSN: process.env.NEXT_PUBLIC_SENTRY_DSN || "",
     NEXT_PUBLIC_POSTHOG_KEY: process.env.NEXT_PUBLIC_POSTHOG_KEY || "mock-posthog-key",
@@ -502,7 +605,7 @@ async function verifySupabaseRuntime(runtimeEnv) {
   }
 }
 
-async function applySupabaseMigrations(appRoot, runtimeEnv) {
+async function applySupabaseMigrations(appRoot, runtimeEnv, spec) {
   const started = Date.now();
   if (runtimeEnv.mode !== "staging-supabase") {
     return {
@@ -513,7 +616,7 @@ async function applySupabaseMigrations(appRoot, runtimeEnv) {
   }
   if (!runtimeEnv.databaseUrl) {
     if (runtimeEnv.managementToken && runtimeEnv.publicProjectRef) {
-      return applySupabaseMigrationsViaManagementApi(appRoot, runtimeEnv, started);
+      return applySupabaseMigrationsViaManagementApi(appRoot, runtimeEnv, spec, started);
     }
     return {
       ok: true,
@@ -523,11 +626,22 @@ async function applySupabaseMigrations(appRoot, runtimeEnv) {
     };
   }
 
+  const selectedMigrations = selectedMigrationNames(appRoot, spec);
+  if (selectedMigrations.length === 0) {
+    return {
+      ok: true,
+      detail:
+        "No additional recipe-specific migrations are required for this proof; baseline schema is verified by DB health.",
+      duration_ms: Date.now() - started,
+    };
+  }
+
+  const migrationRoot = prepareMigrationRoot(appRoot, spec);
   const result = run(
     npxBin,
     ["--yes", "supabase@latest", "db", "push", "--db-url", runtimeEnv.databaseUrl, "--include-all"],
     {
-      cwd: appRoot,
+      cwd: migrationRoot,
       timeoutMs: 300_000,
       displayCommand: "npx --yes supabase@latest db push --db-url <DATABASE_URL> --include-all",
       redactValues: [runtimeEnv.databaseUrl],
@@ -545,16 +659,18 @@ async function applySupabaseMigrations(appRoot, runtimeEnv) {
   };
 }
 
-async function applySupabaseMigrationsViaManagementApi(appRoot, runtimeEnv, started) {
+async function applySupabaseMigrationsViaManagementApi(appRoot, runtimeEnv, spec, started) {
   const migrationsDir = join(appRoot, "supabase", "migrations");
   const migrations = readdirSyncSafe(migrationsDir)
     .filter((entry) => entry.isFile() && entry.name.endsWith(".sql"))
     .map((entry) => entry.name)
+    .filter((name) => shouldApplyMigration(name, spec))
     .sort((a, b) => a.localeCompare(b));
   if (migrations.length === 0) {
     return {
-      ok: false,
-      detail: "No Supabase migration files were emitted.",
+      ok: true,
+      detail:
+        "No additional recipe-specific migrations are required for this proof; baseline schema is verified by DB health.",
       duration_ms: Date.now() - started,
     };
   }
@@ -616,6 +732,40 @@ async function applySupabaseMigrationsViaManagementApi(appRoot, runtimeEnv, star
   };
 }
 
+function prepareMigrationRoot(appRoot, spec) {
+  const sourceDir = join(appRoot, "supabase", "migrations");
+  const allMigrationCount = readdirSyncSafe(sourceDir).filter(
+    (entry) => entry.isFile() && entry.name.endsWith(".sql"),
+  ).length;
+  const migrationNames = selectedMigrationNames(appRoot, spec);
+  if (migrationNames.length === allMigrationCount) {
+    return appRoot;
+  }
+  const subsetRoot = join(tmpdir(), `nexural-migrations-${spec.id}-${Date.now()}`);
+  const targetDir = join(subsetRoot, "supabase", "migrations");
+  mkdirSync(targetDir, { recursive: true });
+  for (const name of migrationNames) {
+    writeFileSync(join(targetDir, name), readFileSync(join(sourceDir, name), "utf8"), "utf8");
+  }
+  return subsetRoot;
+}
+
+function selectedMigrationNames(appRoot, spec) {
+  const sourceDir = join(appRoot, "supabase", "migrations");
+  return readdirSyncSafe(sourceDir)
+    .filter((entry) => entry.isFile() && entry.name.endsWith(".sql"))
+    .map((entry) => entry.name)
+    .filter((name) => shouldApplyMigration(name, spec))
+    .sort((a, b) => a.localeCompare(b));
+}
+
+function shouldApplyMigration(name, spec) {
+  if (spec.recipe === "fintech-ledger-app") return name.includes("ledger");
+  if (spec.recipe === "saas-agent-platform") return name.includes("agent");
+  if (spec.recipe === "saas-rag-chat") return false;
+  return true;
+}
+
 function verifyDbHealthBody(body, runtimeEnv) {
   if (runtimeEnv.mode !== "staging-supabase") {
     return {
@@ -650,6 +800,63 @@ function verifyDbHealthBody(body, runtimeEnv) {
       ok: false,
       detail: err instanceof Error ? err.message : String(err),
     };
+  }
+}
+
+function verifyNestedDbHealth(body, runtimeEnv, key) {
+  if (runtimeEnv.mode !== "staging-supabase" || !runtimeEnv.databaseProofMode) {
+    return {
+      ok: true,
+      detail: `Skipped ${key} proof because staging DB proof credentials are not configured.`,
+    };
+  }
+  try {
+    const parsed = JSON.parse(body);
+    const proof = parsed.database?.[key];
+    return {
+      ok: proof?.ok === true,
+      detail:
+        proof?.ok === true
+          ? `${proof.mode ?? key} passed.`
+          : `${key} proof did not pass: ${JSON.stringify(proof ?? null)}`,
+    };
+  } catch (err) {
+    return {
+      ok: false,
+      detail: err instanceof Error ? err.message : String(err),
+    };
+  }
+}
+
+function expectedDbTables(spec) {
+  const tables = new Set(["tenants", "tenant_memberships", "audit_events"]);
+  if (spec.recipe === "fintech-ledger-app") {
+    for (const table of [
+      "accounts",
+      "ledger_transactions",
+      "ledger_entries",
+      "reconciliation_runs",
+    ]) {
+      tables.add(table);
+    }
+  }
+  if (spec.recipe === "saas-agent-platform") {
+    for (const table of ["agent_invocations", "agent_observations", "tool_call_audit"]) {
+      tables.add(table);
+    }
+  }
+  return [...tables].join(",");
+}
+
+function parseHealthBody(body) {
+  try {
+    const parsed = JSON.parse(body);
+    return {
+      ok: parsed.ok === true,
+      database: parsed.database ?? null,
+    };
+  } catch {
+    return null;
   }
 }
 

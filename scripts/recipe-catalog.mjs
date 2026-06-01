@@ -23,7 +23,8 @@ const FIXTURES_DIR = join(ROOT, "test", "fixtures");
 
 function main() {
   const generatedAt = new Date().toISOString();
-  const recipes = readRecipes();
+  const proofedRecipes = readProofedRecipes();
+  const recipes = readRecipes(proofedRecipes);
   const catalog = {
     schema_version: SCHEMA_VERSION,
     generated_at: generatedAt,
@@ -56,17 +57,17 @@ function main() {
   );
 }
 
-function readRecipes() {
+function readRecipes(proofedRecipes) {
   if (!existsSync(RECIPES_DIR)) return [];
   return readdirSync(RECIPES_DIR)
     .map((name) => join(RECIPES_DIR, name))
     .filter((path) => statSync(path).isDirectory())
     .filter((path) => existsSync(join(path, "recipe.yaml")))
-    .map(readRecipe)
+    .map((path) => readRecipe(path, proofedRecipes))
     .sort((a, b) => b.readiness.score - a.readiness.score || a.name.localeCompare(b.name));
 }
 
-function readRecipe(dir) {
+function readRecipe(dir, proofedRecipes) {
   const name = dir.split(/[\\/]/).at(-1);
   const manifest = readFileSync(join(dir, "recipe.yaml"), "utf8");
   const parsed = parseRecipeManifest(manifest);
@@ -83,6 +84,7 @@ function readRecipe(dir) {
   const secretCount = countManifestList(manifest, "secrets_required");
   const warehouseCount = countManifestList(manifest, "warehouses");
   const services = parseServices(manifest);
+  const proofBacked = proofedRecipes.has(name);
   const scoreParts = {
     manifest: 15,
     templates: hasTemplates ? 20 : 0,
@@ -90,7 +92,7 @@ function readRecipe(dir) {
     docs: (hasThreatModel ? 10 : 0) + (hasDecisions ? 10 : 0),
     database: migrationCount > 0 ? 10 : 0,
     services: services.length > 0 ? 10 : 0,
-    proof: name === "internal-tool-dashboard" ? 20 : 0,
+    proof: proofBacked ? 20 : 0,
   };
   const score = Object.values(scoreParts).reduce((sum, value) => sum + value, 0);
   const gaps = [];
@@ -99,7 +101,7 @@ function readRecipe(dir) {
   if (!hasThreatModel) gaps.push("missing-threat-model");
   if (!hasDecisions) gaps.push("missing-decisions");
   if (migrationCount === 0 && usesDatabase(parsed.warehouses)) gaps.push("missing-db-migrations");
-  if (name !== "internal-tool-dashboard") gaps.push("missing-golden-path-proof");
+  if (!proofBacked) gaps.push("missing-golden-path-proof");
 
   return {
     name,
@@ -114,7 +116,7 @@ function readRecipe(dir) {
       score,
       band: score >= 90 ? "elite" : score >= 75 ? "strong" : score >= 60 ? "usable" : "incomplete",
       forge_ready: hasTemplates && hasFixture && hasThreatModel && hasDecisions,
-      proof_backed: name === "internal-tool-dashboard",
+      proof_backed: proofBacked,
       has_templates: hasTemplates,
       has_fixture: hasFixture,
       has_threat_model: hasThreatModel,
@@ -123,6 +125,21 @@ function readRecipe(dir) {
       gaps,
     },
   };
+}
+
+function readProofedRecipes() {
+  const path = join(DATA_DIR, "golden-path-runs.public.json");
+  if (!existsSync(path)) return new Set(["internal-tool-dashboard"]);
+  try {
+    const index = JSON.parse(readFileSync(path, "utf8"));
+    const recipes = (index.runs ?? [])
+      .filter((run) => run.runtime?.deploy_status === "verified-vercel-url")
+      .map((run) => run.spec?.recipe)
+      .filter(Boolean);
+    return new Set(recipes.length > 0 ? recipes : ["internal-tool-dashboard"]);
+  } catch {
+    return new Set(["internal-tool-dashboard"]);
+  }
 }
 
 function parseRecipeManifest(text) {

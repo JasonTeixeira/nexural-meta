@@ -9,6 +9,13 @@ type SupabaseProofClient = {
   from: (table: string) => any;
 };
 
+type ProofResult = {
+  ok: boolean;
+  mode: string;
+  detail?: string;
+  [key: string]: unknown;
+};
+
 export async function GET() {
   const database = await verifyDatabase();
   const ok = database.ok;
@@ -30,14 +37,16 @@ async function verifyDatabase() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-  const mode =
-    process.env.HEALTH_DB_CRUD_PROOF === "1"
-      ? "crud"
-      : process.env.HEALTH_DB_SCHEMA_PROOF === "1"
-        ? "schema"
-        : "skip";
+  const shouldCrud = process.env.HEALTH_DB_CRUD_PROOF === "1";
+  const shouldSchema = process.env.HEALTH_DB_SCHEMA_PROOF === "1";
+  const shouldSeed = process.env.HEALTH_DB_SEED_PROOF === "1";
 
-  if (!url || !serviceRoleKey || url === "https://example.supabase.co" || mode === "skip") {
+  if (
+    !url ||
+    !serviceRoleKey ||
+    url === "https://example.supabase.co" ||
+    (!shouldCrud && !shouldSchema && !shouldSeed)
+  ) {
     return {
       ok: true,
       mode: "not_configured",
@@ -52,26 +61,96 @@ async function verifyDatabase() {
     },
   });
 
-  if (mode === "crud") {
-    return verifyCrud(supabase);
+  const schema = shouldSchema ? await verifySchema(supabase) : null;
+  const seed = shouldSeed ? await verifySeed(supabase) : null;
+  const crud = shouldCrud ? await verifyCrud(supabase) : null;
+  const checks = [schema, seed, crud].filter(Boolean) as ProofResult[];
+  const ok = checks.every((check) => check.ok);
+
+  if (crud) {
+    return {
+      ...crud,
+      ok,
+      schema,
+      seed,
+    };
   }
 
-  const { count, error } = await supabase
+  return {
+    ok,
+    mode: "schema_seed_probe",
+    schema,
+    seed,
+  };
+}
+
+async function verifySchema(supabase: SupabaseProofClient): Promise<ProofResult> {
+  const expectedTables = (
+    process.env.HEALTH_DB_EXPECTED_TABLES || "tenants,tenant_memberships,audit_events"
+  )
+    .split(",")
+    .map((table) => table.trim())
+    .filter(Boolean);
+  const checked: string[] = [];
+  for (const table of expectedTables) {
+    const { error } = await supabase.from(table).select("*", { count: "exact", head: true });
+    if (error) {
+      return {
+        ok: false,
+        mode: "schema_drift_probe",
+        expected_tables: expectedTables,
+        checked_tables: checked,
+        missing_or_inaccessible_table: table,
+        detail: error.message,
+      };
+    }
+    checked.push(table);
+  }
+  return {
+    ok: true,
+    mode: "schema_drift_probe",
+    expected_tables: expectedTables,
+    checked_tables: checked,
+  };
+}
+
+async function verifySeed(supabase: SupabaseProofClient): Promise<ProofResult> {
+  const slug = process.env.HEALTH_DB_SEED_SLUG || "health-seed-{{appName}}";
+  const displayName = "Health Seed Proof";
+  const upserted = await supabase
     .from("tenants")
-    .select("id", { count: "exact", head: true });
-  if (error) {
+    .upsert({ slug, display_name: displayName }, { onConflict: "slug" })
+    .select("id,slug,display_name")
+    .single();
+  if (upserted.error || !upserted.data?.id) {
     return {
       ok: false,
-      mode: "schema_probe",
-      detail: error.message,
+      mode: "seed_data_probe",
+      operation: "upsert",
+      detail: upserted.error?.message ?? "missing seed row id",
+    };
+  }
+
+  const read = await supabase
+    .from("tenants")
+    .select("id,slug,display_name")
+    .eq("slug", slug)
+    .single();
+  if (read.error || read.data?.display_name !== displayName) {
+    return {
+      ok: false,
+      mode: "seed_data_probe",
+      operation: "read",
+      detail: read.error?.message ?? "seed row did not round-trip",
     };
   }
 
   return {
     ok: true,
-    mode: "schema_probe",
+    mode: "seed_data_probe",
     table: "tenants",
-    count,
+    slug,
+    operation: "upsert-read",
   };
 }
 

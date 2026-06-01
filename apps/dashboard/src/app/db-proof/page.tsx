@@ -12,8 +12,8 @@ export default function DbProofPage() {
         <div>
           <h1 style={title}>DB proof</h1>
           <p style={muted}>
-            Phase 15 database hardening surface for hosted CRUD, migration readiness, and
-            staging-secret inventory.
+            Phase 15 database hardening surface for hosted CRUD, migration readiness, schema drift,
+            seed-data proof, and staging-secret inventory.
           </p>
         </div>
         <code style={code}>pnpm proof:db</code>
@@ -31,6 +31,8 @@ export default function DbProofPage() {
             />
             <Metric label="Migration" value={proof.summary.migration_status} />
             <Metric label="Hosted CRUD" value={proof.summary.hosted_crud_status} />
+            <Metric label="Schema drift" value={proof.summary.schema_drift_status ?? "-"} />
+            <Metric label="Seed data" value={proof.summary.seed_data_status ?? "-"} />
           </div>
 
           <section style={panel}>

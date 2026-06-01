@@ -24,11 +24,12 @@ const DATA_DIR = join(ROOT, "data");
 const DOCS_DIR = join(ROOT, "docs");
 const EVIDENCE_DIR = join(ROOT, "evidence", "db-proof");
 
-function main() {
+async function main() {
   const generatedAt = new Date().toISOString();
   const latest = readJson("evidence/golden-path/latest.json", null);
   const proofEnv = readJson("data/proof-environment.public.json", null);
   const secretInventory = readSecretInventory();
+  const hostedHealth = await readHostedHealth(latest);
   const gates = [];
 
   const migrationGate = migrationGateFromLatest(latest, secretInventory);
@@ -52,7 +53,17 @@ function main() {
       : "Missing proof-environment artifact.",
   };
 
-  gates.push(localCrudGate, hostedCrudGate, migrationGate, proofEnvGate);
+  const schemaDriftGate = schemaDriftGateFromHealth(latest, hostedHealth);
+  const seedDataGate = seedDataGateFromHealth(latest, hostedHealth);
+
+  gates.push(
+    localCrudGate,
+    hostedCrudGate,
+    migrationGate,
+    schemaDriftGate,
+    seedDataGate,
+    proofEnvGate,
+  );
   const passed = gates.filter((gate) => gate.status === "passed").length;
   const status = passed === gates.length ? "passed" : "degraded";
   const report = {
@@ -69,6 +80,8 @@ function main() {
       database_mode: latest?.runtime?.database_mode ?? null,
       migration_status: migrationGate.status,
       hosted_crud_status: hostedCrudGate.status,
+      schema_drift_status: schemaDriftGate.status,
+      seed_data_status: seedDataGate.status,
       database_url_available_by_inventory: secretInventory.has_database_url,
     },
     gates,
@@ -83,6 +96,7 @@ function main() {
     evidence: {
       golden_path_latest: "evidence/golden-path/latest.json",
       proof_environment: "data/proof-environment.public.json",
+      hosted_health_checked: hostedHealth.checked,
       report_hash: null,
     },
     next_actions: buildNextActions(gates, secretInventory),
@@ -153,6 +167,66 @@ function crudGateFromLatest(latest, id, label) {
   };
 }
 
+async function readHostedHealth(latest) {
+  const url = latest?.runtime?.deployed_url;
+  if (!url) {
+    return {
+      checked: false,
+      ok: false,
+      detail: "Latest golden-path run has no deployed URL.",
+      body: null,
+    };
+  }
+  try {
+    const response = await fetch(new URL("/api/health", url).toString());
+    const text = await response.text();
+    return {
+      checked: true,
+      ok: response.ok,
+      status: response.status,
+      detail: `HTTP ${response.status} from hosted /api/health.`,
+      body: JSON.parse(text),
+    };
+  } catch (err) {
+    return {
+      checked: true,
+      ok: false,
+      detail: err instanceof Error ? err.message : String(err),
+      body: null,
+    };
+  }
+}
+
+function schemaDriftGateFromHealth(latest, hostedHealth) {
+  const local = latest?.runtime?.db_health?.database?.schema;
+  const hosted = hostedHealth.body?.database?.schema;
+  const proof = hosted ?? local;
+  const ok = proof?.ok === true && proof?.mode === "schema_drift_probe";
+  return {
+    id: "db_schema_drift_health",
+    label: "Hosted schema drift proof",
+    status: ok ? "passed" : "failed",
+    detail: ok
+      ? `Expected tables verified: ${(proof.checked_tables ?? []).join(", ")}.`
+      : `Schema drift proof missing or failed. Hosted health: ${hostedHealth.detail}`,
+  };
+}
+
+function seedDataGateFromHealth(latest, hostedHealth) {
+  const local = latest?.runtime?.db_health?.database?.seed;
+  const hosted = hostedHealth.body?.database?.seed;
+  const proof = hosted ?? local;
+  const ok = proof?.ok === true && proof?.mode === "seed_data_probe";
+  return {
+    id: "db_seed_data_health",
+    label: "Hosted seed-data proof",
+    status: ok ? "passed" : "failed",
+    detail: ok
+      ? `Seed row ${proof.slug ?? "unknown"} completed ${proof.operation ?? "upsert-read"}.`
+      : `Seed-data proof missing or failed. Hosted health: ${hostedHealth.detail}`,
+  };
+}
+
 function readSecretInventory() {
   if (process.env.DATABASE_URL) {
     return {
@@ -211,8 +285,8 @@ function buildNextActions(gates, secretInventory) {
   }
   if (actions.length === 0) {
     actions.push({
-      action: "Add schema drift and seed-data proof as the next DB hardening increment.",
-      reason: "CRUD and migration readiness are green; drift detection is the next higher bar.",
+      action: "Expand schema drift proof to recipe-specific invariants and RLS policy checks.",
+      reason: "CRUD, migration readiness, schema drift, and seed-data proof are green.",
       phase: "Phase 15",
     });
   }
@@ -232,6 +306,8 @@ function renderMarkdown(report) {
   lines.push(`- Latest run: ${report.summary.latest_run_id ?? "missing"}`);
   lines.push(`- Hosted URL: ${report.summary.deployed_url ?? "missing"}`);
   lines.push(`- Database mode: ${report.summary.database_mode ?? "unknown"}`);
+  lines.push(`- Schema drift: ${report.summary.schema_drift_status}`);
+  lines.push(`- Seed data: ${report.summary.seed_data_status}`);
   lines.push(
     `- DATABASE_URL inventory: ${report.summary.database_url_available_by_inventory ? "present" : "missing"}`,
   );
@@ -281,4 +357,7 @@ function writeJson(path, value) {
   writeFileSync(path, `${JSON.stringify(value, null, 2)}\n`, "utf8");
 }
 
-main();
+main().catch((err) => {
+  console.error("[db-proof] fatal:", err instanceof Error ? err.stack : err);
+  process.exit(1);
+});

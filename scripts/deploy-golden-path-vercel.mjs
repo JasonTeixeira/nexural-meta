@@ -27,6 +27,8 @@ import { fileURLToPath } from "node:url";
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, "..");
 const PRIVATE_LATEST = join(ROOT, ".nexural", "private", "golden-path-latest.internal.json");
+const PRIVATE_RUN_DIR = join(ROOT, ".nexural", "private", "golden-path");
+const PUBLIC_INDEX = join(ROOT, "data", "golden-path-runs.public.json");
 
 const isWindows = process.platform === "win32";
 const pnpmBin = isWindows ? "pnpm.cmd" : "pnpm";
@@ -41,6 +43,10 @@ const APP_ENV_KEYS = [
   "NEXT_PUBLIC_POSTHOG_KEY",
   "NEXT_PUBLIC_POSTHOG_HOST",
   "HEALTH_DB_CRUD_PROOF",
+  "HEALTH_DB_SCHEMA_PROOF",
+  "HEALTH_DB_SEED_PROOF",
+  "HEALTH_DB_EXPECTED_TABLES",
+  "HEALTH_DB_SEED_SLUG",
   "NEXT_PUBLIC_APP_NAME",
   "NEXT_PUBLIC_ROOT_DOMAIN",
   "NEXT_PUBLIC_TENANT_ROUTING",
@@ -61,7 +67,13 @@ function main() {
     throw new Error(message);
   }
 
-  const latest = readJson(PRIVATE_LATEST);
+  const runs = resolveRuns(args);
+  for (const latest of runs) {
+    deployRun(latest, { useAlias: !args.all });
+  }
+}
+
+function deployRun(latest, options) {
   const appRoot = latest.generated_app?.local_path;
   if (!appRoot || !existsSync(appRoot)) {
     throw new Error(
@@ -72,8 +84,16 @@ function main() {
   ensureVercelProject(appRoot);
   ensureStandaloneLockfile(appRoot);
 
-  const deploy = deployToVercel(appRoot, latest);
-  const attachArgs = [join("scripts", "attach-golden-path-deploy.mjs"), "--url", deploy.url];
+  const deploy = deployToVercel(appRoot, latest, options);
+  const attachArgs = [
+    join("scripts", "attach-golden-path-deploy.mjs"),
+    "--url",
+    deploy.url,
+    "--run-id",
+    latest.run_id,
+    "--evidence-slug",
+    `${latest.spec.id}-vercel`,
+  ];
   if (deploy.id) attachArgs.push("--deployment-id", deploy.id);
   if (deploy.inspectorUrl) attachArgs.push("--inspector-url", deploy.inspectorUrl);
 
@@ -94,17 +114,44 @@ function main() {
 }
 
 function parseArgs(argv) {
-  const args = { allowMissing: false };
-  for (const arg of argv) {
+  const args = { allowMissing: false, runId: "", all: false };
+  for (let i = 0; i < argv.length; i += 1) {
+    const arg = argv[i];
+    const next = argv[i + 1];
     if (arg === "--allow-missing") args.allowMissing = true;
+    else if (arg === "--run-id" && next) {
+      args.runId = next;
+      i += 1;
+    } else if (arg === "--all") args.all = true;
     else if (arg === "--help" || arg === "-h") {
-      console.log(`Usage: node scripts/deploy-golden-path-vercel.mjs [--allow-missing]`);
+      console.log(
+        `Usage: node scripts/deploy-golden-path-vercel.mjs [--allow-missing] [--all] [--run-id <id>]`,
+      );
       process.exit(0);
     } else {
       throw new Error(`Unknown argument: ${arg}`);
     }
   }
   return args;
+}
+
+function resolveRuns(args) {
+  if (args.all) {
+    const index = readJson(PUBLIC_INDEX);
+    return (index.runs ?? [])
+      .filter((run) => existsSync(privateRunPath(run.run_id)))
+      .map((run) => readPrivateRun(run.run_id));
+  }
+  if (args.runId) return [readPrivateRun(args.runId)];
+  return [readJson(PRIVATE_LATEST)];
+}
+
+function readPrivateRun(runId) {
+  return readJson(privateRunPath(runId));
+}
+
+function privateRunPath(runId) {
+  return join(PRIVATE_RUN_DIR, `${runId}.internal.json`);
 }
 
 function ensureVercelProject(appRoot) {
@@ -136,7 +183,7 @@ function ensureStandaloneLockfile(appRoot) {
   }
 }
 
-function deployToVercel(appRoot, latest) {
+function deployToVercel(appRoot, latest, options) {
   const runtimeEnv = buildRuntimeEnv(latest, appRoot);
   const args = [
     "--yes",
@@ -182,9 +229,10 @@ function deployToVercel(appRoot, latest) {
     process.stderr.write(redact(result.stdout ?? ""));
     throw new Error("vercel deploy output did not include a deployment URL");
   }
-  const aliasUrl = process.env.VERCEL_PROOF_ALIAS
-    ? setAlias(deploymentUrl, process.env.VERCEL_PROOF_ALIAS)
-    : normalizeUrl(parsed.alias?.[0]);
+  const aliasUrl =
+    options.useAlias && process.env.VERCEL_PROOF_ALIAS
+      ? setAlias(deploymentUrl, process.env.VERCEL_PROOF_ALIAS)
+      : normalizeUrl(parsed.alias?.[0]);
   return {
     url: aliasUrl || deploymentUrl,
     id: parsed.id ?? parsed.deployment?.id ?? parsed.uid ?? "",
@@ -224,7 +272,31 @@ function buildRuntimeEnv(latest, appRoot) {
   env.NEXT_PUBLIC_TENANT_ROUTING ??= "path";
   env.NEXT_PUBLIC_DEFAULT_LOCALE ??= "en";
   env.HEALTH_DB_CRUD_PROOF ??= latest.runtime?.database_mode === "staging-postgres" ? "1" : "0";
+  env.HEALTH_DB_SCHEMA_PROOF ??= latest.runtime?.database_mode === "staging-postgres" ? "1" : "0";
+  env.HEALTH_DB_SEED_PROOF ??= latest.runtime?.database_mode === "staging-postgres" ? "1" : "0";
+  env.HEALTH_DB_EXPECTED_TABLES ??= expectedDbTables(latest);
+  env.HEALTH_DB_SEED_SLUG ??= `health-seed-${latest.spec?.app_slug ?? "app"}`;
   return env;
+}
+
+function expectedDbTables(latest) {
+  const tables = new Set(["tenants", "tenant_memberships", "audit_events"]);
+  if (latest.spec?.recipe === "fintech-ledger-app") {
+    for (const table of [
+      "accounts",
+      "ledger_transactions",
+      "ledger_entries",
+      "reconciliation_runs",
+    ]) {
+      tables.add(table);
+    }
+  }
+  if (latest.spec?.recipe === "saas-agent-platform") {
+    for (const table of ["agent_invocations", "agent_observations", "tool_call_audit"]) {
+      tables.add(table);
+    }
+  }
+  return [...tables].join(",");
 }
 
 function parseEnvFile(path) {
