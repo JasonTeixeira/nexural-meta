@@ -2,7 +2,7 @@
 
 **Status:** Phase 7 self-maintenance loop
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-06-01T00:59:19.663Z
+**Generated:** 2026-06-01T01:15:55.907Z
 **Overall:** passed
 
 ## Purpose
@@ -26,8 +26,8 @@ pnpm ecosystem:maintain -- --skip-golden
 - Public repositories indexed: 136
 - Public assets scored: 136
 - Resource use cases: 7
-- Golden path: 7/7 gates
-- Public proof hash: `sha256:d3333044f4e57a7dbd5320b5896d7e4b9e7003c96baff489f1fda45d2871cb07`
+- Golden path: 8/8 gates
+- Public proof hash: `sha256:61820a47255d17ec4d41931588cafb024363fa56d08e79374db7dec433929faa`
 
 ## Commands
 
@@ -39,20 +39,19 @@ pnpm ecosystem:maintain -- --skip-golden
 
 | Artifact                                          | Status |  Age | Hash                                                                      |
 | ------------------------------------------------- | ------ | ---: | ------------------------------------------------------------------------- |
-| `data/ecosystem-registry.public.json`             | fresh  | 0.2h | `sha256:eccae4582652a1b26166e2ef685cbd1ba23e9046602381ead0ecf07d673aa6ad` |
-| `data/ecosystem-scorecard.public.json`            | fresh  | 0.2h | `sha256:ca1c0b7b675a5f794f7b9992697fa9dcbc7d01aa4ccb63ce55d255c2b54eda42` |
-| `data/ecosystem-resource-map.public.json`         | fresh  | 0.2h | `sha256:fc1c0fdc2eb8911f39f56e57d9a542c73caae3bfaf32f75a64ee250216241d9a` |
-| `data/golden-path-runs.public.json`               | fresh  | 0.1h | `sha256:ac8126744dba143f6c62c5483b50ffb9151fc5989f050c6e8fe244ac3e90b098` |
-| `data/public-proof-layer.public.json`             | fresh  | 0.1h | `sha256:6e8841ae84f4e6b682877ce88299cb7dd415c3afc473a51b3af55636504dc84d` |
-| `exports/sageideas-dev/engineering-os-proof.json` | fresh  | 0.1h | `sha256:6e8841ae84f4e6b682877ce88299cb7dd415c3afc473a51b3af55636504dc84d` |
-| `exports/sageideas-dev/engineering-os-proof.md`   | fresh  | 0.1h | `sha256:82330521117c50fa866195f38c758c3c82eaf7d0d4010799f794defe21f3812f` |
+| `data/ecosystem-registry.public.json`             | fresh  | 0.5h | `sha256:eccae4582652a1b26166e2ef685cbd1ba23e9046602381ead0ecf07d673aa6ad` |
+| `data/ecosystem-scorecard.public.json`            | fresh  | 0.4h | `sha256:ca1c0b7b675a5f794f7b9992697fa9dcbc7d01aa4ccb63ce55d255c2b54eda42` |
+| `data/ecosystem-resource-map.public.json`         | fresh  | 0.4h | `sha256:fc1c0fdc2eb8911f39f56e57d9a542c73caae3bfaf32f75a64ee250216241d9a` |
+| `data/golden-path-runs.public.json`               | fresh  |   0h | `sha256:8ffd2fb5bf1e31e10e887364ad8008478db19059f123b63fbb4eceed5cdcd43f` |
+| `data/public-proof-layer.public.json`             | fresh  |   0h | `sha256:377e5da5d7b4be610d42a29a1664da0a9d7aaedcfff6e271438383198c9df50f` |
+| `exports/sageideas-dev/engineering-os-proof.json` | fresh  |   0h | `sha256:377e5da5d7b4be610d42a29a1664da0a9d7aaedcfff6e271438383198c9df50f` |
+| `exports/sageideas-dev/engineering-os-proof.md`   | fresh  |   0h | `sha256:77f2df0660902208cab6203b4594b0bdb51ceeb5dbaabaf4e22c3742aae892db` |
 
 ## Next Actions
 
 - **warn: Raise load-bearing ecosystem average above 70** Current load-bearing average is 60/100.
-- **warn: Provide live deploy credentials when Phase 8 requires hosted proof** blocked-no-vercel-token
-- **info: Review public proof remaining gaps before publishing claims** 3 remaining gaps in public proof packet.
-- **info: Review and commit generated maintenance artifacts** 29 changed path(s) after maintenance run.
+- **info: Review public proof remaining gaps before publishing claims** 2 remaining gaps in public proof packet.
+- **info: Review and commit generated maintenance artifacts** 17 changed path(s) after maintenance run.
 
 ## Generated Artifacts
 

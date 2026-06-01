@@ -29,11 +29,14 @@
     "hashed_files": 31
   },
   "runtime": {
-    "mode": "local-next-start",
+    "mode": "local-next-start+vercel",
     "url": "http://127.0.0.1:3041",
     "health_path": "/api/health",
-    "deploy_status": "blocked-no-vercel-token",
-    "deployed_url": null
+    "deploy_status": "verified-vercel-url",
+    "deployed_url": "https://sage-client-intake-portal-vercel.vercel.app",
+    "deployed_verified_at": "2026-06-01T01:14:33.745Z",
+    "deployment_id": "dpl_26daj7qmCY1sAnTqUzfcnxD6i74Q",
+    "inspector_url": "https://vercel.com/sage-ideas/sage-client-intake-portal-vercel/26daj7qmCY1sAnTqUzfcnxD6i74Q"
   },
   "gates": [
     {
@@ -88,12 +91,21 @@
       "detail": "8/8 checks passed.",
       "command": "npx.cmd --yes tsx apps/cli/src/bin/nx.ts verify http://127.0.0.1:3041 --evidence-slug client-intake-portal-local --timeout 20000",
       "duration_ms": 2425
+    },
+    {
+      "id": "vercel_runtime",
+      "label": "Verify public Vercel deployment",
+      "status": "passed",
+      "detail": "8/8 checks passed at https://sage-client-intake-portal-vercel.vercel.app.",
+      "command": "nx verify https://sage-client-intake-portal-vercel.vercel.app --evidence-slug client-intake-portal-vercel",
+      "duration_ms": null
     }
   ],
   "evidence": {
     "gate5_report": "evidence/gate-5/client-intake-portal-local/report.json",
     "latest_report": "evidence/golden-path/latest.json",
-    "public_index": "data/golden-path-runs.public.json"
+    "public_index": "data/golden-path-runs.public.json",
+    "gate5_vercel_report": "evidence/gate-5/client-intake-portal-vercel/report.json"
   },
   "reusable_lessons": [
     {
@@ -110,8 +122,9 @@
     }
   ],
   "remaining_gaps": [
-    "No public Vercel preview was created because VERCEL_TOKEN is not set in this shell.",
     "Runtime proof uses mock credentials and local Next server; production auth/database credentials are intentionally not committed."
   ],
-  "wall_clock_ms": 113033
+  "wall_clock_ms": 113033,
+  "deployment_attached_at": "2026-06-01T01:14:33.745Z",
+  "deployment_attached_by": "scripts/attach-golden-path-deploy.mjs"
 }

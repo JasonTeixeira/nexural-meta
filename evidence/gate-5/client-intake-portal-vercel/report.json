@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "ran_at": "2026-06-01T01:14:36.437Z",
+  "url": "https://sage-client-intake-portal-vercel.vercel.app",
+  "results": [
+    {
+      "id": "root_reachable",
+      "passed": true,
+      "detail": "HTTP 200"
+    },
+    {
+      "id": "hsts",
+      "passed": true,
+      "detail": "strict-transport-security=\"max-age=63072000; includeSubDomains; preload\""
+    },
+    {
+      "id": "x_content_type_options",
+      "passed": true,
+      "detail": "x-content-type-options=\"nosniff\""
+    },
+    {
+      "id": "referrer_policy",
+      "passed": true,
+      "detail": "referrer-policy=\"strict-origin-when-cross-origin\""
+    },
+    {
+      "id": "x_frame_options",
+      "passed": true,
+      "detail": "x-frame-options=\"DENY\""
+    },
+    {
+      "id": "permissions_policy",
+      "passed": true,
+      "detail": "permissions-policy=\"camera=(), microphone=(), geolocation=()\""
+    },
+    {
+      "id": "no_powered_by",
+      "passed": true,
+      "detail": "absent (correct)"
+    },
+    {
+      "id": "health_endpoint",
+      "passed": true,
+      "detail": "HTTP 200; content-type=application/json"
+    }
+  ],
+  "summary": {
+    "total": 8,
+    "passed": 8,
+    "failed": 0
+  }
+}

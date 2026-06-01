@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-01T00:53:07.360Z",
+  "generated_at": "2026-06-01T01:15:17.599Z",
   "generated_by": "scripts/public-proof-export.mjs",
   "privacy": "public-safe",
   "target_surface": {
@@ -33,8 +33,8 @@
       "source": "data/ecosystem-resource-map.public.json"
     },
     {
-      "claim": "The factory path has a repeatable local proof.",
-      "evidence": "7/7 golden-path gates passed in 113 seconds.",
+      "claim": "The factory path has deployed public proof.",
+      "evidence": "8/8 golden-path gates passed; deployed URL verified at https://sage-client-intake-portal-vercel.vercel.app.",
       "source": "data/golden-path-runs.public.json"
     }
   ],
@@ -69,12 +69,14 @@
     "load_bearing_average_score": 54,
     "resource_use_cases": 7,
     "golden_path_wall_clock_seconds": 113,
-    "golden_path_gates_passed": 7,
-    "golden_path_gate_count": 7,
+    "golden_path_gates_passed": 8,
+    "golden_path_gate_count": 8,
     "golden_path_verify_checks": {
       "passed": 8,
       "total": 8
-    }
+    },
+    "golden_path_deploy_status": "verified-vercel-url",
+    "golden_path_deployed_url": "https://sage-client-intake-portal-vercel.vercel.app"
   },
   "recommended_assets": [
     {
@@ -119,7 +121,7 @@
     {
       "slug": "golden-path",
       "title": "Golden Path",
-      "body": "Latest proof run client-intake-portal-2026-06-01T004907152Z generated, built, started, and verified a local app with hash sha256:b9fbd4e6187a96a67160d20ea4c55f71b86d5c288974d0b92b86e4b9d69b3f6f."
+      "body": "Latest proof run client-intake-portal-2026-06-01T004907152Z generated, built, started, verified locally, and verified the deployed app at https://sage-client-intake-portal-vercel.vercel.app with hash sha256:b9fbd4e6187a96a67160d20ea4c55f71b86d5c288974d0b92b86e4b9d69b3f6f."
     },
     {
       "slug": "redaction-boundary",
@@ -129,7 +131,7 @@
     {
       "slug": "gaps",
       "title": "Honest Gaps",
-      "body": "Publish current limitations directly: live Vercel deploy proof is blocked without VERCEL_TOKEN, and private asset details require local review."
+      "body": "Publish current limitations directly: deployed proof uses public-safe mock runtime credentials, and private asset details require local review."
     }
   ],
   "evidence": {
@@ -148,18 +150,19 @@
     ],
     "golden_path_hash": "sha256:b9fbd4e6187a96a67160d20ea4c55f71b86d5c288974d0b92b86e4b9d69b3f6f",
     "golden_path_run_id": "client-intake-portal-2026-06-01T004907152Z",
-    "packet_hash": "sha256:d3333044f4e57a7dbd5320b5896d7e4b9e7003c96baff489f1fda45d2871cb07"
+    "golden_path_deployed_url": "https://sage-client-intake-portal-vercel.vercel.app",
+    "golden_path_deploy_status": "verified-vercel-url",
+    "packet_hash": "sha256:61820a47255d17ec4d41931588cafb024363fa56d08e79374db7dec433929faa"
   },
   "redaction_policy": [
     "Commit public repository metadata only.",
     "Summarize private repositories by count, layer, maturity, and score band only.",
     "Do not publish private repo names, descriptions, URLs, local paths, secrets, customer data, or provider tokens.",
     "Frame product proofs as examples; do not imply Nexural is the umbrella brand.",
-    "Publish gaps honestly, including missing live deploy credentials or non-production mock credentials."
+    "Publish gaps honestly, including non-production mock credentials or missing hosted proof when applicable."
   ],
   "remaining_gaps": [
     "sageideas.dev has not consumed this export in this commit because that repo currently has a large pre-existing dirty worktree.",
-    "The golden path is local-runtime proof; Vercel deployment remains blocked until VERCEL_TOKEN is available.",
     "Private asset maturity still needs local review before public claims can include deeper implementation detail."
   ]
 }

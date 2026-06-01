@@ -46,6 +46,7 @@ function main() {
   const publicLoadBearing = scoredRepos.filter((repo) => repo.score?.load_bearing);
   const goldenRun = goldenPath.runs?.[0];
   if (!goldenRun) throw new Error("Golden path evidence missing. Run `pnpm golden:path` first.");
+  const hasDeployedProof = goldenRun.runtime?.deploy_status === "verified-vercel-url";
 
   const proof = {
     schema_version: SCHEMA_VERSION,
@@ -81,6 +82,8 @@ function main() {
       golden_path_gates_passed: goldenRun.gates.filter((gate) => gate.status === "passed").length,
       golden_path_gate_count: goldenRun.gates.length,
       golden_path_verify_checks: parseVerifyChecks(goldenRun),
+      golden_path_deploy_status: goldenRun.runtime?.deploy_status ?? "unknown",
+      golden_path_deployed_url: goldenRun.runtime?.deployed_url ?? null,
     },
     recommended_assets: publicProofUseCase.recommended_assets.map(projectAsset),
     publishable_sections: buildPublishableSections(goldenRun),
@@ -100,17 +103,23 @@ function main() {
       ],
       golden_path_hash: goldenRun.generated_app.tree_hash,
       golden_path_run_id: goldenRun.run_id,
+      golden_path_deployed_url: goldenRun.runtime?.deployed_url ?? null,
+      golden_path_deploy_status: goldenRun.runtime?.deploy_status ?? "unknown",
     },
     redaction_policy: [
       "Commit public repository metadata only.",
       "Summarize private repositories by count, layer, maturity, and score band only.",
       "Do not publish private repo names, descriptions, URLs, local paths, secrets, customer data, or provider tokens.",
       "Frame product proofs as examples; do not imply Nexural is the umbrella brand.",
-      "Publish gaps honestly, including missing live deploy credentials or non-production mock credentials.",
+      "Publish gaps honestly, including non-production mock credentials or missing hosted proof when applicable.",
     ],
     remaining_gaps: [
       "sageideas.dev has not consumed this export in this commit because that repo currently has a large pre-existing dirty worktree.",
-      "The golden path is local-runtime proof; Vercel deployment remains blocked until VERCEL_TOKEN is available.",
+      ...(hasDeployedProof
+        ? []
+        : [
+            "The golden path is local-runtime proof; Vercel deployment remains blocked until VERCEL_TOKEN is available.",
+          ]),
       "Private asset maturity still needs local review before public claims can include deeper implementation detail.",
     ],
   };
@@ -162,8 +171,14 @@ function buildClaims({ registry, scorecard, resourceMap, goldenRun }) {
       source: "data/ecosystem-resource-map.public.json",
     },
     {
-      claim: "The factory path has a repeatable local proof.",
-      evidence: `${goldenRun.gates.filter((gate) => gate.status === "passed").length}/${goldenRun.gates.length} golden-path gates passed in ${Math.round(goldenRun.wall_clock_ms / 1000)} seconds.`,
+      claim:
+        goldenRun.runtime?.deploy_status === "verified-vercel-url"
+          ? "The factory path has deployed public proof."
+          : "The factory path has a repeatable local proof.",
+      evidence:
+        goldenRun.runtime?.deploy_status === "verified-vercel-url"
+          ? `${goldenRun.gates.filter((gate) => gate.status === "passed").length}/${goldenRun.gates.length} golden-path gates passed; deployed URL verified at ${goldenRun.runtime.deployed_url}.`
+          : `${goldenRun.gates.filter((gate) => gate.status === "passed").length}/${goldenRun.gates.length} golden-path gates passed in ${Math.round(goldenRun.wall_clock_ms / 1000)} seconds.`,
       source: "data/golden-path-runs.public.json",
     },
   ];
@@ -210,7 +225,10 @@ function buildPublishableSections(goldenRun) {
     {
       slug: "golden-path",
       title: "Golden Path",
-      body: `Latest proof run ${goldenRun.run_id} generated, built, started, and verified a local app with hash ${goldenRun.generated_app.tree_hash}.`,
+      body:
+        goldenRun.runtime?.deploy_status === "verified-vercel-url"
+          ? `Latest proof run ${goldenRun.run_id} generated, built, started, verified locally, and verified the deployed app at ${goldenRun.runtime.deployed_url} with hash ${goldenRun.generated_app.tree_hash}.`
+          : `Latest proof run ${goldenRun.run_id} generated, built, started, and verified a local app with hash ${goldenRun.generated_app.tree_hash}.`,
     },
     {
       slug: "redaction-boundary",
@@ -220,7 +238,10 @@ function buildPublishableSections(goldenRun) {
     {
       slug: "gaps",
       title: "Honest Gaps",
-      body: "Publish current limitations directly: live Vercel deploy proof is blocked without VERCEL_TOKEN, and private asset details require local review.",
+      body:
+        goldenRun.runtime?.deploy_status === "verified-vercel-url"
+          ? "Publish current limitations directly: deployed proof uses public-safe mock runtime credentials, and private asset details require local review."
+          : "Publish current limitations directly: live Vercel deploy proof is blocked without VERCEL_TOKEN, and private asset details require local review.",
     },
   ];
 }
@@ -318,7 +339,6 @@ function renderMarkdown(proof) {
   lines.push("");
   lines.push("- `exports/sageideas-dev/engineering-os-proof.json`");
   lines.push("- `exports/sageideas-dev/engineering-os-proof.md`");
-  lines.push("");
   return `${lines.join("\n")}\n`;
 }
 
