@@ -34,6 +34,8 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
+      - run: pnpm build
+
       - name: Run maintenance, proof refresh, and DB proof loop
         env:
           GH_TOKEN: ${{ secrets.SAGE_ECOSYSTEM_GITHUB_TOKEN || github.token }}
@@ -51,7 +53,10 @@ jobs:
           NEXT_PUBLIC_POSTHOG_KEY: ${{ secrets.NEXT_PUBLIC_POSTHOG_KEY }}
           NEXT_PUBLIC_POSTHOG_HOST: ${{ secrets.NEXT_PUBLIC_POSTHOG_HOST }}
         run: |
-          args="--allow-failures"
+          args=""
+          if [[ "${{ github.event_name }}" != "workflow_dispatch" ]]; then
+            args="$args --allow-failures"
+          fi
           if [[ "${{ github.event_name }}" == "workflow_dispatch" && "${{ inputs.run_golden }}" == "false" ]]; then
             args="$args --skip-golden"
           fi
@@ -60,48 +65,41 @@ jobs:
           fi
           pnpm ecosystem:maintain -- $args
 
-      - name: Open PR if generated artifacts changed
-        uses: peter-evans/create-pull-request@v7
-        with:
-          commit-message: "chore(ecosystem): phase 7 maintenance refresh"
-          title: "chore(ecosystem): phase 7 maintenance refresh"
-          body: |
-            Automated Phase 7 maintenance refresh.
-
-            This workflow regenerates the Sage Ideas Engineering OS registry,
-            scorecard, resource map, recipe catalog, resource library,
-            golden-path proof, proof environment lock, DB proof,
-            public-safe packet, and maintenance report.
-
-            If private repository totals look low, configure
-            `SAGE_ECOSYSTEM_GITHUB_TOKEN` with read access across the ecosystem.
-          branch: chore/ecosystem-maintenance
-          delete-branch: true
-          add-paths: |
-            data/ecosystem-registry.public.json
-            data/ecosystem-scorecard.public.json
-            data/ecosystem-resource-map.public.json
-            data/recipe-catalog.public.json
-            data/resource-library.public.json
-            data/golden-path-runs.public.json
-            data/proof-environment.public.json
-            data/db-proof.public.json
-            data/public-proof-layer.public.json
-            data/ecosystem-maintenance.public.json
-            docs/ECOSYSTEM_INVENTORY.md
-            docs/ECOSYSTEM_SCORECARD.md
-            docs/ECOSYSTEM_RESOURCE_FACTORY.md
-            docs/RECIPE_CATALOG.md
-            docs/RESOURCE_LIBRARY.md
-            docs/GOLDEN_PATH.md
-            docs/PROOF_ENVIRONMENT.md
-            docs/DB_PROOF.md
-            docs/PUBLIC_PROOF_LAYER.md
-            docs/ECOSYSTEM_MAINTENANCE.md
-            evidence/gate-5/
-            evidence/golden-path/
-            evidence/proof-environment/
-            evidence/db-proof/
-            evidence/public-proof/
-            evidence/maintenance/
+      - name: Commit generated artifacts if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            data/ecosystem-registry.public.json \
+            data/ecosystem-scorecard.public.json \
+            data/ecosystem-resource-map.public.json \
+            data/recipe-catalog.public.json \
+            data/resource-library.public.json \
+            data/golden-path-runs.public.json \
+            data/proof-environment.public.json \
+            data/db-proof.public.json \
+            data/public-proof-layer.public.json \
+            data/ecosystem-maintenance.public.json \
+            docs/ECOSYSTEM_INVENTORY.md \
+            docs/ECOSYSTEM_SCORECARD.md \
+            docs/ECOSYSTEM_RESOURCE_FACTORY.md \
+            docs/RECIPE_CATALOG.md \
+            docs/RESOURCE_LIBRARY.md \
+            docs/GOLDEN_PATH.md \
+            docs/PROOF_ENVIRONMENT.md \
+            docs/DB_PROOF.md \
+            docs/PUBLIC_PROOF_LAYER.md \
+            docs/ECOSYSTEM_MAINTENANCE.md \
+            evidence/gate-5/ \
+            evidence/golden-path/ \
+            evidence/proof-environment/ \
+            evidence/db-proof/ \
+            evidence/public-proof/ \
+            evidence/maintenance/ \
             exports/proof-packet/
+          if git diff --cached --quiet; then
+            echo "No generated artifact changes."
+            exit 0
+          fi
+          git commit -m "chore(ecosystem): maintenance proof refresh [skip ci]"
+          git push
