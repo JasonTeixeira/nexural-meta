@@ -637,7 +637,32 @@ async function applySupabaseMigrations(appRoot, runtimeEnv, spec) {
   }
 
   const migrationRoot = prepareMigrationRoot(appRoot, spec);
-  const result = run(
+  let result = runSupabaseDbPush(migrationRoot, runtimeEnv);
+  let repair = null;
+  if (result.status !== 0) {
+    repair = repairSupabaseMigrationHistory(result, migrationRoot, runtimeEnv);
+    if (repair.ok) {
+      result = runSupabaseDbPush(migrationRoot, runtimeEnv);
+    }
+  }
+
+  return {
+    ok: result.status === 0,
+    detail:
+      result.status === 0
+        ? repair?.ok
+          ? `Supabase migrations are applied to staging Postgres after repairing remote migration history (${repair.versions.join(", ")}).`
+          : "Supabase migrations are applied to staging Postgres."
+        : repair?.attempted
+          ? `exit ${result.status}; migration history repair ${repair.status}`
+          : `exit ${result.status}`,
+    command: result.command,
+    duration_ms: Date.now() - started,
+  };
+}
+
+function runSupabaseDbPush(migrationRoot, runtimeEnv) {
+  return run(
     npxBin,
     ["--yes", "supabase@latest", "db", "push", "--db-url", runtimeEnv.databaseUrl, "--include-all"],
     {
@@ -647,16 +672,49 @@ async function applySupabaseMigrations(appRoot, runtimeEnv, spec) {
       redactValues: [runtimeEnv.databaseUrl],
     },
   );
+}
 
+function repairSupabaseMigrationHistory(failedPush, migrationRoot, runtimeEnv) {
+  const versions = extractMigrationRepairVersions(failedPush);
+  if (versions.length === 0) {
+    return { attempted: false, ok: false, status: "not-suggested", versions };
+  }
+  const result = run(
+    npxBin,
+    [
+      "--yes",
+      "supabase@latest",
+      "migration",
+      "repair",
+      "--status",
+      "reverted",
+      "--db-url",
+      runtimeEnv.databaseUrl,
+      ...versions,
+    ],
+    {
+      cwd: migrationRoot,
+      timeoutMs: 120_000,
+      displayCommand: `npx --yes supabase@latest migration repair --status reverted --db-url <DATABASE_URL> ${versions.join(" ")}`,
+      redactValues: [runtimeEnv.databaseUrl],
+    },
+  );
   return {
+    attempted: true,
     ok: result.status === 0,
-    detail:
-      result.status === 0
-        ? "Supabase migrations are applied to staging Postgres."
-        : `exit ${result.status}`,
-    command: result.command,
-    duration_ms: result.duration_ms,
+    status: result.status === 0 ? "passed" : `failed-exit-${result.status}`,
+    versions,
   };
+}
+
+function extractMigrationRepairVersions(result) {
+  const text = `${result.stdout_tail ?? ""}\n${result.stderr_tail ?? ""}`;
+  const match = text.match(/migration repair --status reverted\s+([0-9\s]+)/);
+  if (!match) return [];
+  return match[1]
+    .trim()
+    .split(/\s+/)
+    .filter((value) => /^\d{8,}$/.test(value));
 }
 
 async function applySupabaseMigrationsViaManagementApi(appRoot, runtimeEnv, spec, started) {
