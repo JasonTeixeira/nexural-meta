@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-02T02:13:42.504Z",
+  "generated_at": "2026-06-02T03:03:44.307Z",
   "generated_by": "scripts/maturity-lift-plan.mjs",
   "privacy": "public-safe",
   "phase": "Phase 19",
   "status": "elite",
   "summary": {
-    "current_load_bearing_average": 95,
+    "current_load_bearing_average": 96,
     "target_1": 85,
     "target_2": 90,
     "load_bearing_assets": 11,
@@ -31,13 +31,10 @@
     {
       "asset": "micro-saas-starter",
       "layer": "resource-library",
-      "current_score": 58,
+      "current_score": 63,
       "target_score": 90,
-      "missing": ["missing-license", "missing-topics", "load-bearing-under-70", "missing-docs"],
-      "required_work": [
-        "Add concise operator docs with setup, proof, and ownership.",
-        "Add searchable repo metadata/topics."
-      ]
+      "missing": ["missing-license", "load-bearing-under-70", "missing-docs"],
+      "required_work": ["Add concise operator docs with setup, proof, and ownership."]
     },
     {
       "asset": "agent-workflow-app",
@@ -113,5 +110,5 @@
     }
   ],
   "score_model_note": "This report does not inflate maturity scores. It defines the work required to raise the scorecard in subsequent proof refreshes.",
-  "evidence_hash": "sha256:a2bc7367638f8a6010c8f687c94136933918f9673406bf5c9b45b2839279675b"
+  "evidence_hash": "sha256:8521725023251221036359ac890bbd597bf93c03210b834f7d8a3a6646d2686d"
 }

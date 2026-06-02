@@ -2,7 +2,7 @@
 
 **Status:** Phase 4 generated resource map
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-06-02T02:13:13.609Z
+**Generated:** 2026-06-02T03:03:09.322Z
 
 ## Purpose
 
@@ -33,10 +33,11 @@ Layers: `app-factory-runtime`, `control-plane`, `quality-system`, `resource-libr
 Recommended assets:
 
 - [nexural-meta](https://github.com/JasonTeixeira/nexural-meta) - 100/100, L4
+- [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 63/100, L2
 
 Fix first:
 
-- [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 58/100, missing-license, missing-topics, load-bearing-under-70, missing-docs
+- [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 63/100, missing-license, load-bearing-under-70, missing-docs
 
 ### Choose a stack, SDK, or provider
 
@@ -47,11 +48,11 @@ Layers: `resource-library`, `control-plane`, `reference-library`
 Recommended assets:
 
 - [nexural-meta](https://github.com/JasonTeixeira/nexural-meta) - 100/100, L4
-- [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 58/100, L2
+- [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 63/100, L2
 
 Fix first:
 
-- [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 58/100, missing-license, missing-topics, load-bearing-under-70, missing-docs
+- [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 63/100, missing-license, load-bearing-under-70, missing-docs
 
 ### Create QA and release proof
 
@@ -76,10 +77,11 @@ Layers: `agent-engine`, `resource-library`, `quality-system`, `control-plane`
 Recommended assets:
 
 - [nexural-meta](https://github.com/JasonTeixeira/nexural-meta) - 100/100, L4
+- [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 63/100, L2
 
 Fix first:
 
-- [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 58/100, missing-license, missing-topics, load-bearing-under-70, missing-docs
+- [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 63/100, missing-license, load-bearing-under-70, missing-docs
 
 ### Build or audit trading infrastructure
 
@@ -92,12 +94,12 @@ Recommended assets:
 - [AlphaStream](https://github.com/JasonTeixeira/AlphaStream) - 100/100, L4
 - [nexural-automation-starter](https://github.com/JasonTeixeira/nexural-automation-starter) - 100/100, L4
 - [nexural-meta](https://github.com/JasonTeixeira/nexural-meta) - 100/100, L4
+- [QuantumTrader](https://github.com/JasonTeixeira/QuantumTrader) - 100/100, L4
 - [trade-engine](https://github.com/JasonTeixeira/trade-engine) - 100/100, L4
-- [Nexural_Automation](https://github.com/JasonTeixeira/Nexural_Automation) - 100/100, L3
 
 Fix first:
 
-- [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 58/100, missing-license, missing-topics, load-bearing-under-70, missing-docs
+- [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 63/100, missing-license, load-bearing-under-70, missing-docs
 
 ### Publish a public proof page
 
@@ -110,7 +112,7 @@ Recommended assets:
 - [JasonTeixeira](https://github.com/JasonTeixeira/JasonTeixeira) - 100/100, L4
 - [NexQuantSite](https://github.com/JasonTeixeira/NexQuantSite) - 100/100, L4
 - [nexural-meta](https://github.com/JasonTeixeira/nexural-meta) - 100/100, L4
-- [sageideas.dev](https://github.com/JasonTeixeira/sageideas.dev) - 93/100, L3
+- [sageideas.dev](https://github.com/JasonTeixeira/sageideas.dev) - 98/100, L3
 
 Fix first:
 
@@ -124,8 +126,8 @@ Layers: `product-proof`, `app-factory-runtime`, `quality-system`, `resource-libr
 
 Recommended assets:
 
-- None yet. Use the improve-first queue before depending on this path.
+- [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 63/100, L2
 
 Fix first:
 
-- [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 58/100, missing-license, missing-topics, load-bearing-under-70, missing-docs
+- [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 63/100, missing-license, load-bearing-under-70, missing-docs

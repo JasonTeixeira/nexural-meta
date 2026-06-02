@@ -2,7 +2,7 @@
 
 **Status:** Phase 1 generated inventory
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-06-02T00:44:27.608Z
+**Generated:** 2026-06-02T03:02:54.602Z
 **Source:** GitHub owner `JasonTeixeira`
 
 ## Privacy Boundary
@@ -27,9 +27,9 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | control-plane        |     1 |
 | ops-knowledge        |     7 |
 | product-proof        |     3 |
-| public-proof-surface |     2 |
+| public-proof-surface |     3 |
 | quality-system       |     1 |
-| quant-trading        |    14 |
+| quant-trading        |    13 |
 | reference-library    |   122 |
 | resource-library     |     4 |
 | voice-engine         |     1 |
@@ -59,7 +59,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [500-ai-agents-projects](https://github.com/JasonTeixeira/500-ai-agents-projects)                                                                                     | reference-library    | reference     | L0       | reference |
 | [agent-browser](https://github.com/JasonTeixeira/agent-browser)                                                                                                       | reference-library    | reference     | L0       | reference |
 | [AI-Trader](https://github.com/JasonTeixeira/AI-Trader)                                                                                                               | reference-library    | reference     | L0       | reference |
-| [AlphaStream](https://github.com/JasonTeixeira/AlphaStream)                                                                                                           | quant-trading        | engine        | L2       | watch     |
+| [AlphaStream](https://github.com/JasonTeixeira/AlphaStream)                                                                                                           | quant-trading        | engine        | L4       | watch     |
 | [API-Test-Automation-Wireframe](https://github.com/JasonTeixeira/API-Test-Automation-Wireframe)                                                                       | reference-library    | reference     | L0       | stale     |
 | [API-Testing-Framework](https://github.com/JasonTeixeira/API-Testing-Framework)                                                                                       | reference-library    | reference     | L0       | watch     |
 | [autogen](https://github.com/JasonTeixeira/autogen)                                                                                                                   | reference-library    | reference     | L0       | reference |
@@ -114,7 +114,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [ib_insync](https://github.com/JasonTeixeira/ib_insync)                                                                                                               | reference-library    | reference     | L0       | archived  |
 | [istio](https://github.com/JasonTeixeira/istio)                                                                                                                       | reference-library    | reference     | L0       | archived  |
 | [jason-teixeira-portfolio](https://github.com/JasonTeixeira/jason-teixeira-portfolio)                                                                                 | quant-trading        | engine        | L0       | stale     |
-| [JasonTeixeira](https://github.com/JasonTeixeira/JasonTeixeira)                                                                                                       | public-proof-surface | product-proof | L2       | active    |
+| [JasonTeixeira](https://github.com/JasonTeixeira/JasonTeixeira)                                                                                                       | public-proof-surface | product-proof | L4       | active    |
 | [juice-shop](https://github.com/JasonTeixeira/juice-shop)                                                                                                             | reference-library    | reference     | L0       | archived  |
 | [K8-Examples](https://github.com/JasonTeixeira/K8-Examples)                                                                                                           | reference-library    | reference     | L0       | reference |
 | [kimi-cli](https://github.com/JasonTeixeira/kimi-cli)                                                                                                                 | reference-library    | reference     | L0       | reference |
@@ -130,12 +130,12 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [Mobile-Testing-Framework](https://github.com/JasonTeixeira/Mobile-Testing-Framework)                                                                                 | reference-library    | reference     | L0       | stale     |
 | [nautilus_trader](https://github.com/JasonTeixeira/nautilus_trader)                                                                                                   | reference-library    | reference     | L0       | reference |
 | [nautobot](https://github.com/JasonTeixeira/nautobot)                                                                                                                 | reference-library    | reference     | L0       | archived  |
-| [NexQuantSite](https://github.com/JasonTeixeira/NexQuantSite)                                                                                                         | quant-trading        | engine        | L2       | watch     |
+| [NexQuantSite](https://github.com/JasonTeixeira/NexQuantSite)                                                                                                         | public-proof-surface | product-proof | L4       | watch     |
 | [next.js](https://github.com/JasonTeixeira/next.js)                                                                                                                   | reference-library    | reference     | L0       | archived  |
 | [Nexural_Automation](https://github.com/JasonTeixeira/Nexural_Automation)                                                                                             | quant-trading        | engine        | L3       | active    |
 | [Nexural_Sierra_Studies](https://github.com/JasonTeixeira/Nexural_Sierra_Studies)                                                                                     | reference-library    | reference     | L0       | archived  |
 | [Nexural_Website_ARCHIVED](https://github.com/JasonTeixeira/Nexural_Website_ARCHIVED)                                                                                 | reference-library    | reference     | L0       | archived  |
-| [nexural-automation-starter](https://github.com/JasonTeixeira/nexural-automation-starter)                                                                             | quant-trading        | kit           | L2       | active    |
+| [nexural-automation-starter](https://github.com/JasonTeixeira/nexural-automation-starter)                                                                             | quant-trading        | kit           | L4       | active    |
 | [nexural-meta](https://github.com/JasonTeixeira/nexural-meta)                                                                                                         | control-plane        | control-plane | L4       | active    |
 | [Nexural-Research](https://github.com/JasonTeixeira/Nexural-Research)                                                                                                 | reference-library    | reference     | L0       | watch     |
 | [NexuralFlow](https://github.com/JasonTeixeira/NexuralFlow)                                                                                                           | reference-library    | reference     | L0       | archived  |
@@ -148,7 +148,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [Prowler](https://github.com/JasonTeixeira/Prowler)                                                                                                                   | reference-library    | reference     | L0       | archived  |
 | [public-apis](https://github.com/JasonTeixeira/public-apis)                                                                                                           | reference-library    | reference     | L0       | archived  |
 | [qlib](https://github.com/JasonTeixeira/qlib)                                                                                                                         | reference-library    | reference     | L0       | archived  |
-| [QuantumTrader](https://github.com/JasonTeixeira/QuantumTrader)                                                                                                       | quant-trading        | engine        | L1       | watch     |
+| [QuantumTrader](https://github.com/JasonTeixeira/QuantumTrader)                                                                                                       | quant-trading        | engine        | L4       | watch     |
 | [realtime-market-dash](https://github.com/JasonTeixeira/realtime-market-dash)                                                                                         | reference-library    | reference     | L0       | watch     |
 | [realworld](https://github.com/JasonTeixeira/realworld)                                                                                                               | reference-library    | reference     | L0       | archived  |
 | [RiskRadar](https://github.com/JasonTeixeira/RiskRadar)                                                                                                               | reference-library    | reference     | L0       | watch     |
@@ -168,7 +168,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [system-design-primer](https://github.com/JasonTeixeira/system-design-primer)                                                                                         | reference-library    | reference     | L0       | archived  |
 | [tabler](https://github.com/JasonTeixeira/tabler)                                                                                                                     | reference-library    | reference     | L0       | archived  |
 | [tech-interview-handbook](https://github.com/JasonTeixeira/tech-interview-handbook)                                                                                   | reference-library    | reference     | L0       | archived  |
-| [terraform-aws-modules](https://github.com/JasonTeixeira/terraform-aws-modules)                                                                                       | ops-knowledge        | playbook      | L2       | watch     |
+| [terraform-aws-modules](https://github.com/JasonTeixeira/terraform-aws-modules)                                                                                       | ops-knowledge        | playbook      | L4       | watch     |
 | [terraform-aws-vpc](https://github.com/JasonTeixeira/terraform-aws-vpc)                                                                                               | reference-library    | reference     | L0       | reference |
 | [Terraform-Cookbook](https://github.com/JasonTeixeira/Terraform-Cookbook)                                                                                             | reference-library    | reference     | L0       | reference |
 | [terraform-guides](https://github.com/JasonTeixeira/terraform-guides)                                                                                                 | reference-library    | reference     | L0       | archived  |
@@ -177,7 +177,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [three-man-team](https://github.com/JasonTeixeira/three-man-team)                                                                                                     | reference-library    | reference     | L0       | reference |
 | [TOGAF-Master-Documenting-Template](https://github.com/JasonTeixeira/TOGAF-Master-Documenting-Template)                                                               | resource-library     | kit           | L0       | stale     |
 | [toprank](https://github.com/JasonTeixeira/toprank)                                                                                                                   | reference-library    | reference     | L0       | reference |
-| [trade-engine](https://github.com/JasonTeixeira/trade-engine)                                                                                                         | quant-trading        | engine        | L2       | active    |
+| [trade-engine](https://github.com/JasonTeixeira/trade-engine)                                                                                                         | quant-trading        | engine        | L4       | active    |
 | [TradingAgents](https://github.com/JasonTeixeira/TradingAgents)                                                                                                       | reference-library    | reference     | L0       | reference |
 | [training-data-analyst](https://github.com/JasonTeixeira/training-data-analyst)                                                                                       | reference-library    | reference     | L0       | archived  |
 | [trigger.dev](https://github.com/JasonTeixeira/trigger.dev)                                                                                                           | reference-library    | reference     | L0       | reference |

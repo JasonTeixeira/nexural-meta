@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-02T02:13:15.435Z",
+  "generated_at": "2026-06-02T03:03:16.767Z",
   "generated_by": "scripts/resource-library-catalog.mjs",
   "privacy": "public-safe",
   "status": "generated",
@@ -11,7 +11,7 @@
     "recipes": 12,
     "proof_backed_recipes": 3,
     "load_bearing_assets": 11,
-    "load_bearing_average_score": 95,
+    "load_bearing_average_score": 96,
     "proof_environment_status": "passed",
     "golden_path_passed_runs": 10
   },
@@ -43,7 +43,7 @@
       "title": "Ship a SaaS or internal app",
       "question": "I need to build and deploy an application quickly.",
       "command": "/resources?useCase=ship-saas-app",
-      "recommended_assets": 1,
+      "recommended_assets": 2,
       "improve_first_assets": 1
     },
     {
@@ -67,7 +67,7 @@
       "title": "Build an agent workflow",
       "question": "I need agents, RAG, evals, memory, or background workers.",
       "command": "/resources?useCase=build-agent-workflow",
-      "recommended_assets": 1,
+      "recommended_assets": 2,
       "improve_first_assets": 1
     },
     {
@@ -75,7 +75,7 @@
       "title": "Build or audit trading infrastructure",
       "question": "I need quant research, validation, execution, or trading automation.",
       "command": "/resources?useCase=build-trading-system",
-      "recommended_assets": 6,
+      "recommended_assets": 7,
       "improve_first_assets": 1
     },
     {
@@ -91,7 +91,7 @@
       "title": "Reuse a product pattern",
       "question": "I need to retrofit an existing product idea into a new project.",
       "command": "/resources?useCase=reuse-product-pattern",
-      "recommended_assets": 0,
+      "recommended_assets": 1,
       "improve_first_assets": 1
     }
   ],
@@ -136,10 +136,10 @@
       "name": "micro-saas-starter",
       "layer": "resource-library",
       "asset_type": "kit",
-      "current_score": 58,
+      "current_score": 63,
       "target_score": 90,
       "reason": "Load-bearing asset under target maturity.",
-      "gaps": ["missing-license", "missing-topics", "load-bearing-under-70", "missing-docs"]
+      "gaps": ["missing-license", "load-bearing-under-70", "missing-docs"]
     },
     {
       "name": "awesome-cloud-native",
@@ -366,8 +366,8 @@
       "maturity": "L4",
       "status": "active",
       "score": 100,
-      "proof": "missing",
-      "gaps": ["missing-public-proof", "missing-license"],
+      "proof": "repo-metadata",
+      "gaps": ["missing-license"],
       "recommended_use": "Public engineering identity surface that connects Sage Ideas, Nexural, trading systems, AI apps, cloud architecture, and proof assets.",
       "load_bearing": true
     },
@@ -406,7 +406,7 @@
       "status": "active",
       "score": 100,
       "proof": "repo-metadata",
-      "gaps": ["missing-topics"],
+      "gaps": [],
       "recommended_use": "Paper-money-safe webhook and paper-order starter kit with Python, Node, Pine Script, shared env schema, webhook secret validation, logging, and notional caps.",
       "load_bearing": true
     },
@@ -419,8 +419,21 @@
       "status": "active",
       "score": 100,
       "proof": "repo-metadata",
-      "gaps": ["missing-license", "missing-topics"],
+      "gaps": ["missing-license"],
       "recommended_use": "Registry, warehouses, ADRs, recipes, CLI, and service-level governance.",
+      "load_bearing": true
+    },
+    {
+      "name": "QuantumTrader",
+      "url": "https://github.com/JasonTeixeira/QuantumTrader",
+      "layer": "quant-trading",
+      "asset_type": "engine",
+      "maturity": "L4",
+      "status": "watch",
+      "score": 100,
+      "proof": "repo-metadata",
+      "gaps": ["missing-license"],
+      "recommended_use": "Event-driven quantitative trading engine with backtesting, execution simulation, risk management, market data, PostgreSQL, and Redis integration.",
       "load_bearing": true
     },
     {
@@ -435,6 +448,19 @@
       "recommended_use": "Chat product with RAG (Retrieval-Augmented Generation) over user-uploaded"
     },
     {
+      "name": "terraform-aws-modules",
+      "url": "https://github.com/JasonTeixeira/terraform-aws-modules",
+      "layer": "ops-knowledge",
+      "asset_type": "playbook",
+      "maturity": "L4",
+      "status": "watch",
+      "score": 100,
+      "proof": "repo-metadata",
+      "gaps": ["missing-license"],
+      "recommended_use": "Reusable AWS infrastructure module library covering VPC, S3 plus CloudFront, Lambda API, and GitHub OIDC patterns.",
+      "load_bearing": true
+    },
+    {
       "name": "trade-engine",
       "url": "https://github.com/JasonTeixeira/trade-engine",
       "layer": "quant-trading",
@@ -443,34 +469,8 @@
       "status": "active",
       "score": 100,
       "proof": "repo-metadata",
-      "gaps": ["missing-license", "missing-topics"],
+      "gaps": ["missing-license"],
       "recommended_use": "Reusable event-driven order execution engine with strict order state machines, position tracking, risk management, event sourcing, and test entrypoint.",
-      "load_bearing": true
-    },
-    {
-      "name": "QuantumTrader",
-      "url": "https://github.com/JasonTeixeira/QuantumTrader",
-      "layer": "quant-trading",
-      "asset_type": "engine",
-      "maturity": "L4",
-      "status": "watch",
-      "score": 98,
-      "proof": "repo-metadata",
-      "gaps": ["missing-license", "missing-topics"],
-      "recommended_use": "Event-driven quantitative trading engine with backtesting, execution simulation, risk management, market data, PostgreSQL, and Redis integration.",
-      "load_bearing": true
-    },
-    {
-      "name": "terraform-aws-modules",
-      "url": "https://github.com/JasonTeixeira/terraform-aws-modules",
-      "layer": "ops-knowledge",
-      "asset_type": "playbook",
-      "maturity": "L4",
-      "status": "watch",
-      "score": 98,
-      "proof": "repo-metadata",
-      "gaps": ["missing-license", "missing-topics"],
-      "recommended_use": "Reusable AWS infrastructure module library covering VPC, S3 plus CloudFront, Lambda API, and GitHub OIDC patterns.",
       "load_bearing": true
     },
     {
@@ -480,9 +480,9 @@
       "asset_type": "product-proof",
       "maturity": "L3",
       "status": "active",
-      "score": 93,
+      "score": 98,
       "proof": "repo-metadata",
-      "gaps": ["missing-license", "missing-topics"],
+      "gaps": ["missing-license"],
       "recommended_use": "Public company and proof surface for Sage Ideas.",
       "load_bearing": true
     },

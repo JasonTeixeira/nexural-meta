@@ -1,7 +1,7 @@
 # Resource Library
 
 **Status:** Phase 12/13 generated resource library and maturity lift queue
-**Generated:** 2026-06-02T02:13:15.435Z
+**Generated:** 2026-06-02T03:03:16.767Z
 
 ## Summary
 
@@ -9,7 +9,7 @@
 - Use cases: 7
 - Recipes: 12
 - Proof-backed recipes: 3
-- Load-bearing average: 95/100
+- Load-bearing average: 96/100
 
 ## Operator Paths
 
@@ -26,7 +26,7 @@
 | saas-multitenant-baseline-cf | app-factory-runtime |      80 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
 | saas-rag-chat-openai-first   | app-factory-runtime |      80 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
 | saas-rag-chat-qdrant         | app-factory-runtime |      80 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
-| micro-saas-starter           | resource-library    |      58 |     90 | Load-bearing asset under target maturity.                       |
+| micro-saas-starter           | resource-library    |      63 |     90 | Load-bearing asset under target maturity.                       |
 | awesome-cloud-native         | reference-library   |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
 | awesome-quant                | reference-library   |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
 | awesome-react                | reference-library   |       0 |     70 | Missing metadata makes the ecosystem less legible.              |

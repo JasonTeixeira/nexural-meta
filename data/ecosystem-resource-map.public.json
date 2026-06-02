@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-02T02:13:13.609Z",
+  "generated_at": "2026-06-02T03:03:09.322Z",
   "generated_by": "scripts/ecosystem-resource-map.mjs",
-  "source_generated_at": "2026-06-02T02:13:13.215Z",
+  "source_generated_at": "2026-06-02T03:03:08.672Z",
   "privacy": "public-safe",
   "note": "Resource recommendations use public repository metadata only. Private assets remain summarized in scorecards and require local review.",
   "totals": {
@@ -27,7 +27,7 @@
       "commands": ["pnpm ecosystem:refresh", "pnpm --filter @nexural/dashboard dev"],
       "asset_counts": {
         "candidates": 3,
-        "recommended": 1,
+        "recommended": 2,
         "improve_first": 1,
         "reference_only": 0
       },
@@ -43,7 +43,20 @@
           "band": "95-100 elite",
           "status": "active",
           "language": "TypeScript",
-          "gaps": ["missing-license", "missing-topics"]
+          "gaps": ["missing-license"]
+        },
+        {
+          "name": "micro-saas-starter",
+          "url": "https://github.com/JasonTeixeira/micro-saas-starter",
+          "layer": "resource-library",
+          "asset_type": "kit",
+          "maturity": "L2",
+          "role": "Candidate SaaS starter kit. It remains below L4 until the public README documents the actual Supabase, Stripe, RLS, webhook, and deployment contract.",
+          "score": 63,
+          "band": "50-69 incomplete",
+          "status": "watch",
+          "language": "TypeScript",
+          "gaps": ["missing-license", "load-bearing-under-70", "missing-docs"]
         }
       ],
       "improve_first": [
@@ -54,11 +67,11 @@
           "asset_type": "kit",
           "maturity": "L2",
           "role": "Candidate SaaS starter kit. It remains below L4 until the public README documents the actual Supabase, Stripe, RLS, webhook, and deployment contract.",
-          "score": 58,
+          "score": 63,
           "band": "50-69 incomplete",
           "status": "watch",
           "language": "TypeScript",
-          "gaps": ["missing-license", "missing-topics", "load-bearing-under-70", "missing-docs"]
+          "gaps": ["missing-license", "load-bearing-under-70", "missing-docs"]
         }
       ],
       "reference_assets": []
@@ -94,7 +107,7 @@
           "band": "95-100 elite",
           "status": "active",
           "language": "TypeScript",
-          "gaps": ["missing-license", "missing-topics"]
+          "gaps": ["missing-license"]
         },
         {
           "name": "micro-saas-starter",
@@ -103,11 +116,11 @@
           "asset_type": "kit",
           "maturity": "L2",
           "role": "Candidate SaaS starter kit. It remains below L4 until the public README documents the actual Supabase, Stripe, RLS, webhook, and deployment contract.",
-          "score": 58,
+          "score": 63,
           "band": "50-69 incomplete",
           "status": "watch",
           "language": "TypeScript",
-          "gaps": ["missing-license", "missing-topics", "load-bearing-under-70", "missing-docs"]
+          "gaps": ["missing-license", "load-bearing-under-70", "missing-docs"]
         }
       ],
       "improve_first": [
@@ -118,11 +131,11 @@
           "asset_type": "kit",
           "maturity": "L2",
           "role": "Candidate SaaS starter kit. It remains below L4 until the public README documents the actual Supabase, Stripe, RLS, webhook, and deployment contract.",
-          "score": 58,
+          "score": 63,
           "band": "50-69 incomplete",
           "status": "watch",
           "language": "TypeScript",
-          "gaps": ["missing-license", "missing-topics", "load-bearing-under-70", "missing-docs"]
+          "gaps": ["missing-license", "load-bearing-under-70", "missing-docs"]
         }
       ],
       "reference_assets": [
@@ -237,7 +250,7 @@
           "band": "95-100 elite",
           "status": "active",
           "language": "TypeScript",
-          "gaps": ["missing-license", "missing-topics"]
+          "gaps": ["missing-license"]
         }
       ],
       "improve_first": [],
@@ -258,7 +271,7 @@
       "commands": ["pnpm ecosystem:refresh"],
       "asset_counts": {
         "candidates": 4,
-        "recommended": 1,
+        "recommended": 2,
         "improve_first": 1,
         "reference_only": 0
       },
@@ -274,7 +287,20 @@
           "band": "95-100 elite",
           "status": "active",
           "language": "TypeScript",
-          "gaps": ["missing-license", "missing-topics"]
+          "gaps": ["missing-license"]
+        },
+        {
+          "name": "micro-saas-starter",
+          "url": "https://github.com/JasonTeixeira/micro-saas-starter",
+          "layer": "resource-library",
+          "asset_type": "kit",
+          "maturity": "L2",
+          "role": "Candidate SaaS starter kit. It remains below L4 until the public README documents the actual Supabase, Stripe, RLS, webhook, and deployment contract.",
+          "score": 63,
+          "band": "50-69 incomplete",
+          "status": "watch",
+          "language": "TypeScript",
+          "gaps": ["missing-license", "load-bearing-under-70", "missing-docs"]
         }
       ],
       "improve_first": [
@@ -285,11 +311,11 @@
           "asset_type": "kit",
           "maturity": "L2",
           "role": "Candidate SaaS starter kit. It remains below L4 until the public README documents the actual Supabase, Stripe, RLS, webhook, and deployment contract.",
-          "score": 58,
+          "score": 63,
           "band": "50-69 incomplete",
           "status": "watch",
           "language": "TypeScript",
-          "gaps": ["missing-license", "missing-topics", "load-bearing-under-70", "missing-docs"]
+          "gaps": ["missing-license", "load-bearing-under-70", "missing-docs"]
         }
       ],
       "reference_assets": []
@@ -309,7 +335,7 @@
       "commands": ["pnpm ecosystem:refresh"],
       "asset_counts": {
         "candidates": 10,
-        "recommended": 6,
+        "recommended": 7,
         "improve_first": 1,
         "reference_only": 0
       },
@@ -338,7 +364,7 @@
           "band": "95-100 elite",
           "status": "active",
           "language": "Python",
-          "gaps": ["missing-topics"]
+          "gaps": []
         },
         {
           "name": "nexural-meta",
@@ -351,7 +377,20 @@
           "band": "95-100 elite",
           "status": "active",
           "language": "TypeScript",
-          "gaps": ["missing-license", "missing-topics"]
+          "gaps": ["missing-license"]
+        },
+        {
+          "name": "QuantumTrader",
+          "url": "https://github.com/JasonTeixeira/QuantumTrader",
+          "layer": "quant-trading",
+          "asset_type": "engine",
+          "maturity": "L4",
+          "role": "Event-driven quantitative trading engine with backtesting, execution simulation, risk management, market data, PostgreSQL, and Redis integration.",
+          "score": 100,
+          "band": "95-100 elite",
+          "status": "watch",
+          "language": "Python",
+          "gaps": ["missing-license"]
         },
         {
           "name": "trade-engine",
@@ -364,7 +403,7 @@
           "band": "95-100 elite",
           "status": "active",
           "language": "Python",
-          "gaps": ["missing-license", "missing-topics"]
+          "gaps": ["missing-license"]
         },
         {
           "name": "Nexural_Automation",
@@ -380,17 +419,17 @@
           "gaps": []
         },
         {
-          "name": "QuantumTrader",
-          "url": "https://github.com/JasonTeixeira/QuantumTrader",
-          "layer": "quant-trading",
-          "asset_type": "engine",
-          "maturity": "L4",
-          "role": "Event-driven quantitative trading engine with backtesting, execution simulation, risk management, market data, PostgreSQL, and Redis integration.",
-          "score": 98,
-          "band": "95-100 elite",
+          "name": "micro-saas-starter",
+          "url": "https://github.com/JasonTeixeira/micro-saas-starter",
+          "layer": "resource-library",
+          "asset_type": "kit",
+          "maturity": "L2",
+          "role": "Candidate SaaS starter kit. It remains below L4 until the public README documents the actual Supabase, Stripe, RLS, webhook, and deployment contract.",
+          "score": 63,
+          "band": "50-69 incomplete",
           "status": "watch",
-          "language": "Python",
-          "gaps": ["missing-license", "missing-topics"]
+          "language": "TypeScript",
+          "gaps": ["missing-license", "load-bearing-under-70", "missing-docs"]
         }
       ],
       "improve_first": [
@@ -401,11 +440,11 @@
           "asset_type": "kit",
           "maturity": "L2",
           "role": "Candidate SaaS starter kit. It remains below L4 until the public README documents the actual Supabase, Stripe, RLS, webhook, and deployment contract.",
-          "score": 58,
+          "score": 63,
           "band": "50-69 incomplete",
           "status": "watch",
           "language": "TypeScript",
-          "gaps": ["missing-license", "missing-topics", "load-bearing-under-70", "missing-docs"]
+          "gaps": ["missing-license", "load-bearing-under-70", "missing-docs"]
         }
       ],
       "reference_assets": []
@@ -441,7 +480,7 @@
           "band": "95-100 elite",
           "status": "active",
           "language": null,
-          "gaps": ["missing-public-proof", "missing-license"]
+          "gaps": ["missing-license"]
         },
         {
           "name": "NexQuantSite",
@@ -467,7 +506,7 @@
           "band": "95-100 elite",
           "status": "active",
           "language": "TypeScript",
-          "gaps": ["missing-license", "missing-topics"]
+          "gaps": ["missing-license"]
         },
         {
           "name": "sageideas.dev",
@@ -476,11 +515,11 @@
           "asset_type": "product-proof",
           "maturity": "L3",
           "role": "Public company and proof surface for Sage Ideas.",
-          "score": 93,
-          "band": "85-94 strong",
+          "score": 98,
+          "band": "95-100 elite",
           "status": "active",
           "language": "TypeScript",
-          "gaps": ["missing-license", "missing-topics"]
+          "gaps": ["missing-license"]
         }
       ],
       "improve_first": [],
@@ -501,11 +540,25 @@
       "commands": ["pnpm ecosystem:refresh"],
       "asset_counts": {
         "candidates": 2,
-        "recommended": 0,
+        "recommended": 1,
         "improve_first": 1,
         "reference_only": 0
       },
-      "recommended_assets": [],
+      "recommended_assets": [
+        {
+          "name": "micro-saas-starter",
+          "url": "https://github.com/JasonTeixeira/micro-saas-starter",
+          "layer": "resource-library",
+          "asset_type": "kit",
+          "maturity": "L2",
+          "role": "Candidate SaaS starter kit. It remains below L4 until the public README documents the actual Supabase, Stripe, RLS, webhook, and deployment contract.",
+          "score": 63,
+          "band": "50-69 incomplete",
+          "status": "watch",
+          "language": "TypeScript",
+          "gaps": ["missing-license", "load-bearing-under-70", "missing-docs"]
+        }
+      ],
       "improve_first": [
         {
           "name": "micro-saas-starter",
@@ -514,11 +567,11 @@
           "asset_type": "kit",
           "maturity": "L2",
           "role": "Candidate SaaS starter kit. It remains below L4 until the public README documents the actual Supabase, Stripe, RLS, webhook, and deployment contract.",
-          "score": 58,
+          "score": 63,
           "band": "50-69 incomplete",
           "status": "watch",
           "language": "TypeScript",
-          "gaps": ["missing-license", "missing-topics", "load-bearing-under-70", "missing-docs"]
+          "gaps": ["missing-license", "load-bearing-under-70", "missing-docs"]
         }
       ],
       "reference_assets": []

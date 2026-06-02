@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-02T00:44:27.608Z",
+  "generated_at": "2026-06-02T03:02:54.602Z",
   "generated_by": "scripts/ecosystem-inventory.mjs",
   "owner": "JasonTeixeira",
   "privacy": "public-safe",
@@ -15,9 +15,9 @@
       "reference-library": 122,
       "agent-engine": 3,
       "resource-library": 4,
-      "quant-trading": 14,
+      "quant-trading": 13,
       "ops-knowledge": 7,
-      "public-proof-surface": 2,
+      "public-proof-surface": 3,
       "product-proof": 3,
       "app-factory-runtime": 4,
       "control-plane": 1,
@@ -26,19 +26,19 @@
     },
     "by_asset_type": {
       "reference": 128,
-      "engine": 16,
+      "engine": 15,
       "kit": 4,
       "playbook": 7,
-      "product-proof": 5,
+      "product-proof": 6,
       "control-plane": 1,
       "resource-library": 1
     },
     "by_maturity": {
       "L0": 134,
-      "L2": 21,
+      "L2": 15,
+      "L4": 8,
       "L3": 2,
-      "L1": 4,
-      "L4": 1
+      "L1": 3
     },
     "by_status": {
       "reference": 48,
@@ -87,7 +87,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -105,6 +105,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -141,6 +142,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -159,7 +161,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Rust",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://agent-browser.dev",
@@ -167,7 +169,7 @@
       "pushed_at": "2026-04-29T15:39:13Z",
       "updated_at": "2026-05-04T22:42:12Z",
       "default_branch": "main",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 16272,
       "stargazers": 0,
@@ -177,6 +179,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -195,7 +198,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://ai4trade.ai",
@@ -213,6 +216,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -232,7 +236,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "TypeScript",
-      "languages": [],
+      "languages": ["TypeScript"],
       "topics": [
         "algorithmic-trading",
         "backtesting",
@@ -263,8 +267,9 @@
         "canonical_name": "AlphaStream",
         "layer": "quant-trading",
         "asset_type": "engine",
-        "maturity": "L2",
-        "role": "Trading, strategy research, backtesting, or execution capability.",
+        "maturity": "L4",
+        "role": "ML-powered futures signal system with FastAPI, model training, feature engineering, Supabase schema, and Next.js operator frontend.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -284,7 +289,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Python",
-      "languages": [],
+      "languages": ["Python"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2025-11-10T21:02:00Z",
@@ -301,6 +306,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for learning or future implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -320,7 +326,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Python",
-      "languages": [],
+      "languages": ["Python"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2025-12-28T04:28:13Z",
@@ -337,11 +343,12 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for learning or future implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
         "status": "watch",
-        "stale_days": 37,
+        "stale_days": 38,
         "needs_private_review": false
       }
     },
@@ -355,7 +362,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://microsoft.github.io/autogen/",
@@ -363,7 +370,7 @@
       "pushed_at": "2026-04-15T11:59:09Z",
       "updated_at": "2026-05-04T16:56:58Z",
       "default_branch": "main",
-      "license": "Creative Commons Attribution 4.0 International",
+      "license": "CC-BY-4.0",
       "parent": null,
       "disk_usage_kb": 148692,
       "stargazers": 0,
@@ -373,6 +380,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -391,7 +399,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -399,7 +407,7 @@
       "pushed_at": "2024-10-14T13:17:59Z",
       "updated_at": "2024-10-25T17:32:09Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 132678,
       "stargazers": 0,
@@ -409,6 +417,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -427,7 +436,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "HTML",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -435,7 +444,7 @@
       "pushed_at": "2025-01-27T10:53:18Z",
       "updated_at": "2026-05-13T02:10:48Z",
       "default_branch": "main",
-      "license": "Creative Commons Zero v1.0 Universal",
+      "license": "CC0-1.0",
       "parent": null,
       "disk_usage_kb": 2939,
       "stargazers": 0,
@@ -445,6 +454,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -463,7 +473,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Shell",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://ramitsurana.github.io/awesome-kubernetes",
@@ -481,6 +491,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -507,7 +518,7 @@
       "pushed_at": "2024-12-17T14:01:52Z",
       "updated_at": "2026-05-13T02:10:49Z",
       "default_branch": "main",
-      "license": "Creative Commons Zero v1.0 Universal",
+      "license": "CC0-1.0",
       "parent": null,
       "disk_usage_kb": 1575,
       "stargazers": 0,
@@ -517,6 +528,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -535,7 +547,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://awesome-python.com/",
@@ -553,6 +565,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -571,7 +584,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -579,7 +592,7 @@
       "pushed_at": "2024-08-30T23:50:40Z",
       "updated_at": "2024-10-25T17:32:03Z",
       "default_branch": "master",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 10125,
       "stargazers": 0,
@@ -589,6 +602,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -607,7 +621,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Jupyter Notebook",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://wilsonfreitas.github.io/awesome-quant/",
@@ -625,11 +639,12 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
         "status": "archived",
-        "stale_days": 246,
+        "stale_days": 247,
         "needs_private_review": false
       }
     },
@@ -661,6 +676,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -679,7 +695,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://paperswithbacktest.com",
@@ -697,6 +713,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -715,7 +732,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -723,7 +740,7 @@
       "pushed_at": "2025-02-12T23:19:28Z",
       "updated_at": "2026-05-13T02:10:46Z",
       "default_branch": "main",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 3011,
       "stargazers": 0,
@@ -733,6 +750,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -751,7 +769,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "JavaScript",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "http://wildrydes.com",
@@ -759,7 +777,7 @@
       "pushed_at": "2024-07-29T18:03:00Z",
       "updated_at": "2025-03-23T16:05:00Z",
       "default_branch": "master",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 200446,
       "stargazers": 0,
@@ -769,6 +787,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -787,7 +806,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "CSS",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://www.azuredevopslabs.com",
@@ -795,7 +814,7 @@
       "pushed_at": "2025-01-16T10:34:35Z",
       "updated_at": "2026-05-13T02:10:37Z",
       "default_branch": "master",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 579481,
       "stargazers": 0,
@@ -805,6 +824,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -823,7 +843,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://www.backtrader.com",
@@ -831,7 +851,7 @@
       "pushed_at": "2024-08-19T17:47:36Z",
       "updated_at": "2026-05-04T17:00:58Z",
       "default_branch": "master",
-      "license": "GNU General Public License v3.0",
+      "license": "GPL-3.0",
       "parent": null,
       "disk_usage_kb": 22460,
       "stargazers": 0,
@@ -841,6 +861,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -860,7 +881,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Python",
-      "languages": [],
+      "languages": ["Python"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2026-01-03T20:01:38Z",
@@ -877,6 +898,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for learning or future implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -895,7 +917,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Bicep",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -903,7 +925,7 @@
       "pushed_at": "2025-02-19T15:48:19Z",
       "updated_at": "2026-05-13T02:10:34Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 173789,
       "stargazers": 0,
@@ -913,6 +935,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -931,7 +954,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://aws.amazon.com/sdk-for-python/",
@@ -939,7 +962,7 @@
       "pushed_at": "2024-10-24T19:16:58Z",
       "updated_at": "2026-05-13T02:10:40Z",
       "default_branch": "develop",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 8243,
       "stargazers": 0,
@@ -949,6 +972,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -967,7 +991,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://browser-use.com",
@@ -975,7 +999,7 @@
       "pushed_at": "2026-05-15T00:09:18Z",
       "updated_at": "2026-05-18T12:44:28Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 31171,
       "stargazers": 0,
@@ -985,6 +1009,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -1003,7 +1028,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://build-your-own-openclaw.kiyo-n-zane.com/",
@@ -1011,7 +1036,7 @@
       "pushed_at": "2026-04-28T14:35:14Z",
       "updated_at": "2026-05-04T13:37:43Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 958,
       "stargazers": 0,
@@ -1021,6 +1046,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -1039,7 +1065,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Markdown",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://codecrafters.io",
@@ -1057,6 +1083,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -1075,7 +1102,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://www.checkov.io/",
@@ -1083,7 +1110,7 @@
       "pushed_at": "2025-02-19T15:03:58Z",
       "updated_at": "2026-05-13T02:10:47Z",
       "default_branch": "main",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 92225,
       "stargazers": 0,
@@ -1093,6 +1120,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -1112,7 +1140,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Dockerfile",
-      "languages": [],
+      "languages": ["Dockerfile"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2025-12-28T05:29:05Z",
@@ -1129,6 +1157,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for learning or future implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -1148,7 +1177,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "TypeScript",
-      "languages": [],
+      "languages": ["TypeScript"],
       "topics": ["certification", "cissp", "cybersecurity", "exam", "security"],
       "homepage_url": null,
       "created_at": "2024-10-09T22:42:16Z",
@@ -1165,6 +1194,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Agent runtime, workflow worker, memory, or RAG capability.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -1201,6 +1231,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -1219,7 +1250,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://cloudcustodian.io",
@@ -1227,7 +1258,7 @@
       "pushed_at": "2024-10-24T05:19:12Z",
       "updated_at": "2026-05-13T02:10:37Z",
       "default_branch": "main",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 134129,
       "stargazers": 0,
@@ -1237,6 +1268,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -1255,7 +1287,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "C#",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://aka.ms/cloud-design-patterns",
@@ -1273,6 +1305,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -1292,7 +1325,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Shell",
-      "languages": [],
+      "languages": ["Shell"],
       "topics": ["cloud", "devops", "engineering", "infrastructure", "library"],
       "homepage_url": null,
       "created_at": "2024-10-20T13:25:01Z",
@@ -1309,6 +1342,7 @@
         "asset_type": "playbook",
         "maturity": "L0",
         "role": "Operational knowledge, automation, cloud, DevOps, or maintenance reference.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -1328,14 +1362,14 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Python",
-      "languages": [],
+      "languages": ["Python"],
       "topics": ["ai", "cloud", "machine-learning", "monitoring", "optimization", "python"],
       "homepage_url": null,
       "created_at": "2025-09-01T00:37:46Z",
       "pushed_at": "2025-11-13T03:52:18Z",
       "updated_at": "2025-11-13T03:52:23Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 1958,
       "stargazers": 0,
@@ -1345,6 +1379,7 @@
         "asset_type": "playbook",
         "maturity": "L0",
         "role": "Operational knowledge, automation, cloud, DevOps, or maintenance reference.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -1364,7 +1399,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "CSS",
-      "languages": [],
+      "languages": ["CSS"],
       "topics": ["aws", "cloud", "hosting", "resume", "website"],
       "homepage_url": null,
       "created_at": "2024-10-29T17:48:02Z",
@@ -1381,6 +1416,7 @@
         "asset_type": "playbook",
         "maturity": "L0",
         "role": "Operational knowledge, automation, cloud, DevOps, or maintenance reference.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -1417,6 +1453,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for learning or future implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -1435,7 +1472,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "JavaScript",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://coreui.io/product/free-react-admin-template/",
@@ -1443,7 +1480,7 @@
       "pushed_at": "2025-02-07T12:27:45Z",
       "updated_at": "2026-05-13T02:10:59Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 4705,
       "stargazers": 0,
@@ -1453,6 +1490,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -1471,7 +1509,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://crewai.com",
@@ -1479,7 +1517,7 @@
       "pushed_at": "2026-05-04T15:48:53Z",
       "updated_at": "2026-05-04T16:57:08Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 230205,
       "stargazers": 0,
@@ -1489,6 +1527,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -1507,7 +1546,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Go",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -1515,7 +1554,7 @@
       "pushed_at": "2025-02-07T14:39:40Z",
       "updated_at": "2026-05-13T02:10:31Z",
       "default_branch": "master",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 185406,
       "stargazers": 0,
@@ -1525,6 +1564,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -1543,7 +1583,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Shell",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://www.linkedin.com/in/HariSekhon",
@@ -1551,7 +1591,7 @@
       "pushed_at": "2024-10-25T13:34:51Z",
       "updated_at": "2024-10-25T17:32:22Z",
       "default_branch": "master",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 11468,
       "stargazers": 0,
@@ -1561,6 +1601,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -1579,7 +1620,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -1597,6 +1638,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -1615,7 +1657,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "HTML",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://docs.docker.com/compose/",
@@ -1623,7 +1665,7 @@
       "pushed_at": "2024-10-25T05:27:36Z",
       "updated_at": "2024-10-25T17:40:45Z",
       "default_branch": "master",
-      "license": "Creative Commons Zero v1.0 Universal",
+      "license": "CC0-1.0",
       "parent": null,
       "disk_usage_kb": 7763,
       "stargazers": 0,
@@ -1633,6 +1675,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -1651,7 +1694,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "C++",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://www.dragonflydb.io/",
@@ -1669,6 +1712,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -1687,7 +1731,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://dspy.ai",
@@ -1695,7 +1739,7 @@
       "pushed_at": "2026-05-17T13:55:36Z",
       "updated_at": "2026-05-18T12:45:21Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 178548,
       "stargazers": 0,
@@ -1705,6 +1749,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -1724,14 +1769,14 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Python",
-      "languages": [],
+      "languages": ["Python"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2025-11-11T19:28:49Z",
       "pushed_at": "2026-04-25T01:26:56Z",
       "updated_at": "2026-04-25T01:27:00Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 123,
       "stargazers": 0,
@@ -1741,11 +1786,12 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for learning or future implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
         "status": "watch",
-        "stale_days": 37,
+        "stale_days": 38,
         "needs_private_review": false
       }
     },
@@ -1760,7 +1806,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Python",
-      "languages": [],
+      "languages": ["Python"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2025-12-28T02:01:55Z",
@@ -1777,6 +1823,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for learning or future implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -1796,7 +1843,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "JavaScript",
-      "languages": [],
+      "languages": ["JavaScript"],
       "topics": ["cryptography", "decryption", "encryption", "javascript", "security"],
       "homepage_url": null,
       "created_at": "2025-02-08T21:13:02Z",
@@ -1813,6 +1860,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for learning or future implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -1831,7 +1879,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "PowerShell",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://aka.ms/finops/toolkit",
@@ -1839,7 +1887,7 @@
       "pushed_at": "2024-10-24T20:12:12Z",
       "updated_at": "2024-10-25T18:14:41Z",
       "default_branch": "dev",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 912396,
       "stargazers": 0,
@@ -1849,6 +1897,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -1867,7 +1916,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": true,
-      "primary_language": "Jupyter Notebook",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://ai4finance.org",
@@ -1875,7 +1924,7 @@
       "pushed_at": "2025-08-22T01:23:24Z",
       "updated_at": "2026-05-13T02:10:54Z",
       "default_branch": "master",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 83967,
       "stargazers": 0,
@@ -1885,11 +1934,12 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
         "status": "archived",
-        "stale_days": 283,
+        "stale_days": 284,
         "needs_private_review": false
       }
     },
@@ -1903,7 +1953,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "TypeScript",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://firebase.google.com/docs/admin/setup",
@@ -1911,7 +1961,7 @@
       "pushed_at": "2026-05-15T21:25:40Z",
       "updated_at": "2026-05-19T17:30:53Z",
       "default_branch": "main",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 12546,
       "stargazers": 0,
@@ -1921,6 +1971,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -1939,7 +1990,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -1947,7 +1998,7 @@
       "pushed_at": "2026-05-19T00:29:33Z",
       "updated_at": "2026-05-19T22:21:41Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 2854,
       "stargazers": 0,
@@ -1957,6 +2008,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -1993,6 +2045,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -2011,7 +2064,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://graphifylabs.ai/",
@@ -2019,7 +2072,7 @@
       "pushed_at": "2026-05-24T19:42:37Z",
       "updated_at": "2026-05-24T23:35:40Z",
       "default_branch": "v8",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 3139,
       "stargazers": 0,
@@ -2029,6 +2082,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -2047,7 +2101,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://hermes-agent.nousresearch.com",
@@ -2055,7 +2109,7 @@
       "pushed_at": "2026-05-24T23:52:40Z",
       "updated_at": "2026-05-25T00:21:17Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 254999,
       "stargazers": 0,
@@ -2065,6 +2119,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -2083,7 +2138,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://hummingbot.org",
@@ -2091,7 +2146,7 @@
       "pushed_at": "2025-09-26T03:03:40Z",
       "updated_at": "2026-05-13T02:10:35Z",
       "default_branch": "master",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 559601,
       "stargazers": 0,
@@ -2101,6 +2156,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -2119,7 +2175,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -2127,7 +2183,7 @@
       "pushed_at": "2024-03-14T19:50:06Z",
       "updated_at": "2026-05-13T02:10:58Z",
       "default_branch": "master",
-      "license": "BSD 2-Clause \"Simplified\" License",
+      "license": "BSD-2-Clause",
       "parent": null,
       "disk_usage_kb": 14831,
       "stargazers": 0,
@@ -2137,6 +2193,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -2155,7 +2212,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Go",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://istio.io",
@@ -2163,7 +2220,7 @@
       "pushed_at": "2025-02-19T15:47:51Z",
       "updated_at": "2026-05-13T02:10:33Z",
       "default_branch": "master",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 277308,
       "stargazers": 0,
@@ -2173,6 +2230,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -2192,14 +2250,14 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "JavaScript",
-      "languages": [],
+      "languages": ["JavaScript"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2025-11-15T03:33:15Z",
       "pushed_at": "2025-12-28T20:15:22Z",
       "updated_at": "2025-12-28T20:15:25Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 55548,
       "stargazers": 0,
@@ -2209,6 +2267,7 @@
         "asset_type": "engine",
         "maturity": "L0",
         "role": "Trading, strategy research, backtesting, or execution capability.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -2230,10 +2289,10 @@
       "primary_language": null,
       "languages": [],
       "topics": ["cloud-architect", "developer", "portfolio", "profile", "resume"],
-      "homepage_url": null,
+      "homepage_url": "https://www.sageideas.dev",
       "created_at": "2024-10-10T00:13:10Z",
       "pushed_at": "2026-05-13T01:54:32Z",
-      "updated_at": "2026-05-13T01:54:36Z",
+      "updated_at": "2026-06-02T02:08:02Z",
       "default_branch": "main",
       "license": null,
       "parent": null,
@@ -2243,13 +2302,14 @@
         "canonical_name": "JasonTeixeira GitHub Profile",
         "layer": "public-proof-surface",
         "asset_type": "product-proof",
-        "maturity": "L2",
-        "role": "GitHub profile and public engineering identity surface.",
+        "maturity": "L4",
+        "role": "Public engineering identity surface that connects Sage Ideas, Nexural, trading systems, AI apps, cloud architecture, and proof assets.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
         "status": "active",
-        "stale_days": 19,
+        "stale_days": 20,
         "needs_private_review": false
       }
     },
@@ -2263,7 +2323,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "TypeScript",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://owasp-juice.shop",
@@ -2271,7 +2331,7 @@
       "pushed_at": "2025-02-24T16:10:36Z",
       "updated_at": "2026-05-13T02:10:33Z",
       "default_branch": "master",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 250507,
       "stargazers": 0,
@@ -2281,6 +2341,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -2299,7 +2360,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Shell",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -2307,7 +2368,7 @@
       "pushed_at": "2024-09-19T11:42:45Z",
       "updated_at": "2024-10-25T17:35:34Z",
       "default_branch": "master",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 17293,
       "stargazers": 0,
@@ -2317,6 +2378,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -2335,7 +2397,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://moonshotai.github.io/kimi-cli/",
@@ -2343,7 +2405,7 @@
       "pushed_at": "2026-05-22T07:30:15Z",
       "updated_at": "2026-05-23T12:46:50Z",
       "default_branch": "main",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 24429,
       "stargazers": 0,
@@ -2353,6 +2415,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -2371,7 +2434,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Jsonnet",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://prometheus-operator.dev/",
@@ -2379,7 +2442,7 @@
       "pushed_at": "2024-10-24T13:59:04Z",
       "updated_at": "2026-05-13T02:10:40Z",
       "default_branch": "main",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 12763,
       "stargazers": 0,
@@ -2389,6 +2452,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -2408,7 +2472,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "HCL",
-      "languages": [],
+      "languages": ["HCL"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2026-01-10T22:48:59Z",
@@ -2425,6 +2489,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for learning or future implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -2443,7 +2508,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "http://www.langflow.org",
@@ -2451,7 +2516,7 @@
       "pushed_at": "2026-05-08T20:24:24Z",
       "updated_at": "2026-05-08T20:40:38Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 1261399,
       "stargazers": 0,
@@ -2461,6 +2526,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -2479,7 +2545,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "C#",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://lean.io",
@@ -2487,7 +2553,7 @@
       "pushed_at": "2025-08-26T20:25:39Z",
       "updated_at": "2026-05-13T02:10:35Z",
       "default_branch": "master",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 544942,
       "stargazers": 0,
@@ -2497,6 +2563,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -2515,7 +2582,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Jupyter Notebook",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -2523,7 +2590,7 @@
       "pushed_at": "2025-09-05T11:28:17Z",
       "updated_at": "2026-05-13T02:10:53Z",
       "default_branch": "master",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 447185,
       "stargazers": 0,
@@ -2533,6 +2600,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -2551,7 +2619,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "JavaScript",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://marketing-skills.com",
@@ -2559,7 +2627,7 @@
       "pushed_at": "2026-05-06T06:56:58Z",
       "updated_at": "2026-05-09T10:50:57Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 1772,
       "stargazers": 0,
@@ -2569,6 +2637,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -2605,6 +2674,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for learning or future implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -2623,7 +2693,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://mem0.ai",
@@ -2631,7 +2701,7 @@
       "pushed_at": "2026-05-18T10:57:45Z",
       "updated_at": "2026-05-18T12:22:01Z",
       "default_branch": "main",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 55539,
       "stargazers": 0,
@@ -2641,6 +2711,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -2660,12 +2731,20 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "TypeScript",
-      "languages": [],
-      "topics": [],
+      "languages": ["TypeScript"],
+      "topics": [
+        "app-factory",
+        "nextjs",
+        "resource-library",
+        "saas-starter",
+        "sage-ideas",
+        "supabase",
+        "vercel"
+      ],
       "homepage_url": null,
       "created_at": "2026-04-28T11:13:21Z",
       "pushed_at": "2026-04-28T11:14:40Z",
-      "updated_at": "2026-05-01T05:01:03Z",
+      "updated_at": "2026-06-02T02:01:43Z",
       "default_branch": "main",
       "license": null,
       "parent": null,
@@ -2676,7 +2755,8 @@
         "layer": "resource-library",
         "asset_type": "kit",
         "maturity": "L2",
-        "role": "Reusable tool, SDK, stack, or playbook intelligence.",
+        "role": "Candidate SaaS starter kit. It remains below L4 until the public README documents the actual Supabase, Stripe, RLS, webhook, and deployment contract.",
+        "maturity_gaps": ["missing-docs"],
         "public_exposure": "public"
       },
       "operational": {
@@ -2696,7 +2776,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Python",
-      "languages": [],
+      "languages": ["Python"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2025-12-28T05:06:34Z",
@@ -2713,6 +2793,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for learning or future implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -2731,7 +2812,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Rust",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://nautilustrader.io",
@@ -2739,7 +2820,7 @@
       "pushed_at": "2026-05-21T00:08:31Z",
       "updated_at": "2026-05-21T01:46:32Z",
       "default_branch": "develop",
-      "license": "GNU Lesser General Public License v3.0",
+      "license": "LGPL-3.0",
       "parent": null,
       "disk_usage_kb": 216158,
       "stargazers": 0,
@@ -2749,6 +2830,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -2767,7 +2849,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://docs.nautobot.com",
@@ -2775,7 +2857,7 @@
       "pushed_at": "2024-11-01T02:12:18Z",
       "updated_at": "2026-05-13T02:10:38Z",
       "default_branch": "develop",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 150824,
       "stargazers": 0,
@@ -2785,11 +2867,12 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
         "status": "archived",
-        "stale_days": 577,
+        "stale_days": 578,
         "needs_private_review": false
       }
     },
@@ -2804,7 +2887,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "TypeScript",
-      "languages": [],
+      "languages": ["TypeScript"],
       "topics": ["finance", "fintech", "nextjs", "quantitative", "trading", "typescript"],
       "homepage_url": null,
       "created_at": "2025-08-30T17:23:44Z",
@@ -2817,10 +2900,11 @@
       "stargazers": 0,
       "canonical": {
         "canonical_name": "NexQuantSite",
-        "layer": "quant-trading",
-        "asset_type": "engine",
-        "maturity": "L2",
-        "role": "Trading, strategy research, backtesting, or execution capability.",
+        "layer": "public-proof-surface",
+        "asset_type": "product-proof",
+        "maturity": "L4",
+        "role": "Trading platform product proof demonstrating a large Next.js/React app with admin, auth, PostgreSQL, Prisma, realtime readiness, tests, and Docker setup.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -2839,7 +2923,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "JavaScript",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://nextjs.org",
@@ -2847,7 +2931,7 @@
       "pushed_at": "2025-02-19T15:51:14Z",
       "updated_at": "2026-05-13T02:10:29Z",
       "default_branch": "canary",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 2192063,
       "stargazers": 0,
@@ -2857,6 +2941,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -2876,7 +2961,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "TypeScript",
-      "languages": [],
+      "languages": ["TypeScript"],
       "topics": [
         "agent-tools",
         "algorithmic-trading",
@@ -2911,11 +2996,12 @@
         "asset_type": "engine",
         "maturity": "L3",
         "role": "Local-first futures automation and strategy research hub.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
         "status": "active",
-        "stale_days": 6,
+        "stale_days": 7,
         "needs_private_review": false
       }
     },
@@ -2947,6 +3033,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -2966,7 +3053,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "TypeScript",
-      "languages": [],
+      "languages": ["TypeScript"],
       "topics": [],
       "homepage_url": "https://nexural-website.vercel.app",
       "created_at": "2025-12-17T20:06:46Z",
@@ -2983,6 +3070,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -3002,12 +3090,12 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Python",
-      "languages": [],
-      "topics": [],
-      "homepage_url": "https://www.nexural.com/learn/automation",
+      "languages": ["Python"],
+      "topics": ["automation", "nexural", "paper-trading", "starter-kit", "trading", "webhooks"],
+      "homepage_url": "https://www.nexural.io",
       "created_at": "2026-05-26T01:43:14Z",
       "pushed_at": "2026-05-26T01:43:45Z",
-      "updated_at": "2026-05-26T01:43:50Z",
+      "updated_at": "2026-06-02T02:01:43Z",
       "default_branch": "main",
       "license": "Other",
       "parent": null,
@@ -3017,13 +3105,14 @@
         "canonical_name": "Nexural Automation Starter",
         "layer": "quant-trading",
         "asset_type": "kit",
-        "maturity": "L2",
-        "role": "Paper-money-safe webhook and paper-order starter kit.",
+        "maturity": "L4",
+        "role": "Paper-money-safe webhook and paper-order starter kit with Python, Node, Pine Script, shared env schema, webhook secret validation, logging, and notional caps.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
         "status": "active",
-        "stale_days": 6,
+        "stale_days": 7,
         "needs_private_review": false
       }
     },
@@ -3038,16 +3127,23 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "TypeScript",
-      "languages": [],
-      "topics": [],
+      "languages": ["TypeScript"],
+      "topics": [
+        "app-factory",
+        "control-plane",
+        "engineering-os",
+        "evidence-ledger",
+        "resource-library",
+        "sage-ideas"
+      ],
       "homepage_url": null,
       "created_at": "2026-05-22T12:11:28Z",
-      "pushed_at": "2026-06-01T21:36:05Z",
-      "updated_at": "2026-06-01T21:36:09Z",
+      "pushed_at": "2026-06-02T02:15:19Z",
+      "updated_at": "2026-06-02T02:15:23Z",
       "default_branch": "main",
       "license": null,
       "parent": null,
-      "disk_usage_kb": 1381,
+      "disk_usage_kb": 1462,
       "stargazers": 0,
       "canonical": {
         "canonical_name": "Sage Ideas Engineering OS Control Plane",
@@ -3055,6 +3151,7 @@
         "asset_type": "control-plane",
         "maturity": "L4",
         "role": "Registry, warehouses, ADRs, recipes, CLI, and service-level governance.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -3074,7 +3171,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "TypeScript",
-      "languages": [],
+      "languages": ["TypeScript"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2026-04-12T03:23:15Z",
@@ -3091,6 +3188,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for learning or future implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -3127,6 +3225,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -3146,7 +3245,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Makefile",
-      "languages": [],
+      "languages": ["Makefile"],
       "topics": [
         "cryptography",
         "cybersecurity",
@@ -3170,6 +3269,7 @@
         "asset_type": "engine",
         "maturity": "L0",
         "role": "Trading, strategy research, backtesting, or execution capability.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -3206,6 +3306,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for learning or future implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -3224,7 +3325,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Shell",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -3232,7 +3333,7 @@
       "pushed_at": "2024-08-16T02:51:54Z",
       "updated_at": "2026-05-13T02:10:44Z",
       "default_branch": "master",
-      "license": "Creative Commons Attribution 4.0 International",
+      "license": "CC-BY-4.0",
       "parent": null,
       "disk_usage_kb": 7680,
       "stargazers": 0,
@@ -3242,11 +3343,12 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
         "status": "archived",
-        "stale_days": 654,
+        "stale_days": 655,
         "needs_private_review": false
       }
     },
@@ -3260,7 +3362,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://openbb.co",
@@ -3278,6 +3380,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -3297,7 +3400,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Python",
-      "languages": [],
+      "languages": ["Python"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2025-12-28T04:56:46Z",
@@ -3314,6 +3417,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for learning or future implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -3332,7 +3436,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Go",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://prometheus.io/",
@@ -3340,7 +3444,7 @@
       "pushed_at": "2025-02-07T23:24:30Z",
       "updated_at": "2026-05-13T02:10:30Z",
       "default_branch": "main",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 252320,
       "stargazers": 0,
@@ -3350,6 +3454,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -3368,7 +3473,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://prowler.com",
@@ -3376,7 +3481,7 @@
       "pushed_at": "2024-10-25T17:51:41Z",
       "updated_at": "2026-05-13T02:10:38Z",
       "default_branch": "master",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 92596,
       "stargazers": 0,
@@ -3386,6 +3491,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -3404,7 +3510,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://APILayer.com/?utm_source=Github&utm_medium=Referral&utm_campaign=Public-apis-repo",
@@ -3412,7 +3518,7 @@
       "pushed_at": "2025-11-04T18:29:01Z",
       "updated_at": "2026-05-13T02:10:51Z",
       "default_branch": "master",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 4955,
       "stargazers": 0,
@@ -3422,6 +3528,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -3440,7 +3547,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://qlib.readthedocs.io/en/latest/",
@@ -3448,7 +3555,7 @@
       "pushed_at": "2025-08-27T11:17:34Z",
       "updated_at": "2026-05-13T02:10:54Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 17896,
       "stargazers": 0,
@@ -3458,6 +3565,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -3477,12 +3585,12 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Python",
-      "languages": [],
-      "topics": [],
+      "languages": ["Python"],
+      "topics": ["backtesting", "nexural", "quant-trading", "strategy-research", "trading-engine"],
       "homepage_url": null,
       "created_at": "2025-09-10T23:33:53Z",
       "pushed_at": "2026-04-25T04:26:40Z",
-      "updated_at": "2026-04-25T04:26:43Z",
+      "updated_at": "2026-06-02T02:01:43Z",
       "default_branch": "main",
       "license": null,
       "parent": null,
@@ -3492,8 +3600,9 @@
         "canonical_name": "QuantumTrader",
         "layer": "quant-trading",
         "asset_type": "engine",
-        "maturity": "L1",
-        "role": "Trading, strategy research, backtesting, or execution capability.",
+        "maturity": "L4",
+        "role": "Event-driven quantitative trading engine with backtesting, execution simulation, risk management, market data, PostgreSQL, and Redis integration.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -3513,7 +3622,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "TypeScript",
-      "languages": [],
+      "languages": ["TypeScript"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2026-04-27T22:41:55Z",
@@ -3530,6 +3639,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for learning or future implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -3548,7 +3658,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "TypeScript",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://realworld-docs.netlify.app/",
@@ -3556,7 +3666,7 @@
       "pushed_at": "2024-12-02T17:20:18Z",
       "updated_at": "2026-05-13T02:10:43Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 35366,
       "stargazers": 0,
@@ -3566,6 +3676,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -3585,14 +3696,14 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Python",
-      "languages": [],
+      "languages": ["Python"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2025-09-11T12:38:17Z",
       "pushed_at": "2026-04-27T20:57:33Z",
       "updated_at": "2026-04-27T20:57:37Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 127,
       "stargazers": 0,
@@ -3602,6 +3713,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for learning or future implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -3621,7 +3733,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Python",
-      "languages": [],
+      "languages": ["Python"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2025-09-13T12:39:05Z",
@@ -3638,6 +3750,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for learning or future implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -3656,7 +3769,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "TypeScript",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://Cognitum.One",
@@ -3664,7 +3777,7 @@
       "pushed_at": "2026-05-04T03:31:37Z",
       "updated_at": "2026-05-04T13:39:01Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 518253,
       "stargazers": 0,
@@ -3674,6 +3787,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -3692,7 +3806,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "TypeScript",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://react-saas.com/",
@@ -3700,7 +3814,7 @@
       "pushed_at": "2024-12-20T19:31:53Z",
       "updated_at": "2025-02-20T16:58:45Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 3252,
       "stargazers": 0,
@@ -3710,6 +3824,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -3729,7 +3844,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "TypeScript",
-      "languages": [],
+      "languages": ["TypeScript"],
       "topics": [],
       "homepage_url": "https://sage-after-dark.vercel.app",
       "created_at": "2026-05-04T15:40:02Z",
@@ -3746,6 +3861,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for learning or future implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -3765,14 +3881,14 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "JavaScript",
-      "languages": [],
+      "languages": ["JavaScript"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2026-04-27T22:17:53Z",
       "pushed_at": "2026-04-27T22:18:49Z",
       "updated_at": "2026-04-27T22:18:53Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 12,
       "stargazers": 0,
@@ -3782,6 +3898,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for learning or future implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -3801,12 +3918,12 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "TypeScript",
-      "languages": [],
-      "topics": [],
+      "languages": ["TypeScript"],
+      "topics": ["agency-site", "case-studies", "portfolio", "public-proof", "sage-ideas"],
       "homepage_url": "https://qa-portfolio-peach.vercel.app",
       "created_at": "2026-01-07T18:07:52Z",
       "pushed_at": "2026-06-01T06:40:22Z",
-      "updated_at": "2026-06-01T06:40:26Z",
+      "updated_at": "2026-06-02T02:08:02Z",
       "default_branch": "main",
       "license": null,
       "parent": null,
@@ -3818,6 +3935,7 @@
         "asset_type": "product-proof",
         "maturity": "L3",
         "role": "Public company and proof surface for Sage Ideas.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -3836,7 +3954,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://saleor.io",
@@ -3844,7 +3962,7 @@
       "pushed_at": "2025-02-24T16:37:43Z",
       "updated_at": "2026-05-13T02:10:32Z",
       "default_branch": "main",
-      "license": "BSD 3-Clause \"New\" or \"Revised\" License",
+      "license": "BSD-3-Clause",
       "parent": null,
       "disk_usage_kb": 265615,
       "stargazers": 0,
@@ -3854,6 +3972,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -3873,7 +3992,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Python",
-      "languages": [],
+      "languages": ["Python"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2025-12-28T05:20:56Z",
@@ -3890,6 +4009,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for learning or future implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -3909,7 +4029,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Python",
-      "languages": [],
+      "languages": ["Python"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2025-12-31T21:18:45Z",
@@ -3926,11 +4046,12 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for learning or future implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
         "status": "watch",
-        "stale_days": 37,
+        "stale_days": 38,
         "needs_private_review": false
       }
     },
@@ -3944,7 +4065,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": true,
-      "primary_language": "TypeScript",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://nextjstemplates.com/templates/solid",
@@ -3952,7 +4073,7 @@
       "pushed_at": "2025-01-30T05:24:26Z",
       "updated_at": "2025-02-20T16:59:00Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 13253,
       "stargazers": 0,
@@ -3962,6 +4083,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -3980,7 +4102,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "TypeScript",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://storybook.js.org",
@@ -3988,7 +4110,7 @@
       "pushed_at": "2026-05-09T11:53:43Z",
       "updated_at": "2026-05-09T20:10:40Z",
       "default_branch": "next",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 1044084,
       "stargazers": 0,
@@ -3998,6 +4120,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -4034,6 +4157,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -4070,6 +4194,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -4088,7 +4213,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -4106,6 +4231,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -4124,7 +4250,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "HTML",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://tabler.io",
@@ -4132,7 +4258,7 @@
       "pushed_at": "2025-02-09T12:02:15Z",
       "updated_at": "2026-05-13T02:10:31Z",
       "default_branch": "dev",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 349415,
       "stargazers": 0,
@@ -4142,6 +4268,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -4160,7 +4287,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "TypeScript",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://www.techinterviewhandbook.org",
@@ -4168,7 +4295,7 @@
       "pushed_at": "2025-11-11T23:18:16Z",
       "updated_at": "2026-05-13T02:10:52Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 32845,
       "stargazers": 0,
@@ -4178,6 +4305,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -4197,12 +4325,19 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "HCL",
-      "languages": [],
-      "topics": [],
+      "languages": ["HCL"],
+      "topics": [
+        "aws",
+        "devops",
+        "infrastructure-as-code",
+        "ops-knowledge",
+        "sage-ideas",
+        "terraform"
+      ],
       "homepage_url": null,
       "created_at": "2026-04-27T14:35:02Z",
       "pushed_at": "2026-04-27T21:32:18Z",
-      "updated_at": "2026-04-27T21:32:22Z",
+      "updated_at": "2026-06-02T02:01:43Z",
       "default_branch": "main",
       "license": null,
       "parent": null,
@@ -4212,8 +4347,9 @@
         "canonical_name": "terraform-aws-modules",
         "layer": "ops-knowledge",
         "asset_type": "playbook",
-        "maturity": "L2",
-        "role": "Operational knowledge, automation, cloud, DevOps, or maintenance reference.",
+        "maturity": "L4",
+        "role": "Reusable AWS infrastructure module library covering VPC, S3 plus CloudFront, Lambda API, and GitHub OIDC patterns.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -4232,7 +4368,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "HCL",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws",
@@ -4240,7 +4376,7 @@
       "pushed_at": "2024-10-18T14:20:10Z",
       "updated_at": "2024-10-25T17:35:08Z",
       "default_branch": "master",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 1103,
       "stargazers": 0,
@@ -4250,6 +4386,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -4268,7 +4405,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "HCL",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -4276,7 +4413,7 @@
       "pushed_at": "2023-01-18T10:06:54Z",
       "updated_at": "2024-10-25T17:31:50Z",
       "default_branch": "master",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 27846,
       "stargazers": 0,
@@ -4286,6 +4423,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -4304,7 +4442,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "HCL",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -4312,7 +4450,7 @@
       "pushed_at": "2023-07-07T06:49:00Z",
       "updated_at": "2026-05-13T02:10:45Z",
       "default_branch": "master",
-      "license": "Mozilla Public License 2.0",
+      "license": "MPL-2.0",
       "parent": null,
       "disk_usage_kb": 4017,
       "stargazers": 0,
@@ -4322,6 +4460,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -4340,7 +4479,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Go",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://runterrascan.io",
@@ -4348,7 +4487,7 @@
       "pushed_at": "2024-12-10T23:43:17Z",
       "updated_at": "2026-05-13T02:10:47Z",
       "default_branch": "master",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 16073,
       "stargazers": 0,
@@ -4358,6 +4497,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -4394,6 +4534,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -4412,7 +4553,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Shell",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -4420,7 +4561,7 @@
       "pushed_at": "2026-05-04T13:20:28Z",
       "updated_at": "2026-05-04T13:38:15Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 6809,
       "stargazers": 0,
@@ -4430,6 +4571,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -4466,6 +4608,7 @@
         "asset_type": "kit",
         "maturity": "L0",
         "role": "Reusable tool, SDK, stack, or playbook intelligence.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -4484,7 +4627,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -4492,7 +4635,7 @@
       "pushed_at": "2026-05-03T08:02:42Z",
       "updated_at": "2026-05-04T13:49:32Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 1175,
       "stargazers": 0,
@@ -4502,6 +4645,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -4521,12 +4665,19 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Python",
-      "languages": [],
-      "topics": [],
+      "languages": ["Python"],
+      "topics": [
+        "event-sourcing",
+        "execution-engine",
+        "nexural",
+        "quant-trading",
+        "risk-management",
+        "trade-engine"
+      ],
       "homepage_url": null,
       "created_at": "2026-04-27T16:06:11Z",
       "pushed_at": "2026-05-02T23:32:42Z",
-      "updated_at": "2026-05-02T23:32:46Z",
+      "updated_at": "2026-06-02T02:01:43Z",
       "default_branch": "main",
       "license": null,
       "parent": null,
@@ -4536,8 +4687,9 @@
         "canonical_name": "trade-engine",
         "layer": "quant-trading",
         "asset_type": "engine",
-        "maturity": "L2",
-        "role": "Trading, strategy research, backtesting, or execution capability.",
+        "maturity": "L4",
+        "role": "Reusable event-driven order execution engine with strict order state machines, position tracking, risk management, event sourcing, and test entrypoint.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -4556,7 +4708,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://arxiv.org/pdf/2412.20138",
@@ -4564,7 +4716,7 @@
       "pushed_at": "2026-05-01T19:23:24Z",
       "updated_at": "2026-05-04T13:49:18Z",
       "default_branch": "main",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 4582,
       "stargazers": 0,
@@ -4574,6 +4726,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -4592,7 +4745,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Jupyter Notebook",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -4600,7 +4753,7 @@
       "pushed_at": "2025-02-14T07:20:25Z",
       "updated_at": "2026-05-13T02:10:36Z",
       "default_branch": "master",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 724799,
       "stargazers": 0,
@@ -4610,6 +4763,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -4628,7 +4782,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "TypeScript",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://trigger.dev/changelog",
@@ -4636,7 +4790,7 @@
       "pushed_at": "2026-05-08T17:44:00Z",
       "updated_at": "2026-05-08T20:34:42Z",
       "default_branch": "main",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 167008,
       "stargazers": 0,
@@ -4646,6 +4800,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -4664,7 +4819,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Makefile",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "http://tutorial.djangogirls.org/",
@@ -4682,6 +4837,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -4700,7 +4856,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://www.uupm.cc/",
@@ -4708,7 +4864,7 @@
       "pushed_at": "2026-04-03T05:08:19Z",
       "updated_at": "2026-05-09T13:46:23Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 3949,
       "stargazers": 0,
@@ -4718,6 +4874,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -4736,7 +4893,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "TypeScript",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://ui.tailus.io/",
@@ -4744,7 +4901,7 @@
       "pushed_at": "2025-06-03T16:09:28Z",
       "updated_at": "2026-05-16T12:58:21Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 3710,
       "stargazers": 0,
@@ -4754,6 +4911,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -4772,7 +4930,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://vectorbt.dev",
@@ -4790,6 +4948,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -4808,7 +4967,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://pypi.org/project/vibe-trading-ai/",
@@ -4816,7 +4975,7 @@
       "pushed_at": "2026-05-04T04:15:32Z",
       "updated_at": "2026-05-04T13:39:55Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 37747,
       "stargazers": 0,
@@ -4826,6 +4985,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -4844,7 +5004,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://visionagents.ai",
@@ -4852,7 +5012,7 @@
       "pushed_at": "2025-11-11T19:42:36Z",
       "updated_at": "2025-11-11T20:12:00Z",
       "default_branch": "main",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 16784,
       "stargazers": 0,
@@ -4862,6 +5022,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -4881,7 +5042,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Python",
-      "languages": [],
+      "languages": ["Python"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2025-12-31T19:09:20Z",
@@ -4898,6 +5059,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for learning or future implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -4916,7 +5078,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "http://www.vnpy.com",
@@ -4924,7 +5086,7 @@
       "pushed_at": "2026-05-17T08:05:41Z",
       "updated_at": "2026-05-21T01:46:26Z",
       "default_branch": "master",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 303262,
       "stargazers": 0,
@@ -4934,6 +5096,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -4953,14 +5116,14 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Python",
-      "languages": [],
+      "languages": ["Python"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2025-11-10T17:44:23Z",
       "pushed_at": "2025-11-13T17:00:55Z",
       "updated_at": "2025-11-13T17:00:59Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 71,
       "stargazers": 0,
@@ -4970,6 +5133,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for learning or future implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {
@@ -4988,7 +5152,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://ziplime.limex.com",
@@ -4996,7 +5160,7 @@
       "pushed_at": "2026-05-22T15:28:27Z",
       "updated_at": "2026-05-23T11:32:40Z",
       "default_branch": "master",
-      "license": "GNU General Public License v3.0",
+      "license": "GPL-3.0",
       "parent": null,
       "disk_usage_kb": 151519,
       "stargazers": 0,
@@ -5006,6 +5170,7 @@
         "asset_type": "reference",
         "maturity": "L0",
         "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
         "public_exposure": "public"
       },
       "operational": {

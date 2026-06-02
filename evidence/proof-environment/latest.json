@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-02T02:13:15.914Z",
+  "generated_at": "2026-06-02T03:03:18.312Z",
   "generated_by": "scripts/proof-environment-check.mjs",
   "privacy": "public-safe",
   "status": "passed",
@@ -55,7 +55,7 @@
       "required": true,
       "present": true,
       "updated_at": "2026-06-01T13:27:54Z",
-      "age_days": 0.5,
+      "age_days": 0.6,
       "max_age_days": 90,
       "status": "present",
       "rotation": "Rotate through Vercel account tokens."
@@ -110,7 +110,7 @@
       "required": true,
       "present": true,
       "updated_at": "2026-06-01T15:51:10Z",
-      "age_days": 0.4,
+      "age_days": 0.5,
       "max_age_days": null,
       "status": "present",
       "rotation": "Stable project URL; update when staging project changes."
@@ -143,7 +143,7 @@
       "required": true,
       "present": true,
       "updated_at": "2026-06-01T15:50:13Z",
-      "age_days": 0.4,
+      "age_days": 0.5,
       "max_age_days": 90,
       "status": "present",
       "rotation": "Rotate after DB password reset."
@@ -164,7 +164,7 @@
     "ok": true,
     "url": "https://sage-client-intake-portal-vercel-8f62ooaxe-sage-ideas.vercel.app",
     "status": 200,
-    "duration_ms": 18800,
+    "duration_ms": 14943,
     "database_mode": "crud_probe",
     "database_operation": "insert-read-update-delete",
     "detail": "Hosted /api/health completed DB CRUD proof."

@@ -157,32 +157,97 @@ function main() {
 
 function fetchRepos() {
   const args = ["repo", "list", OWNER, "--limit", "1000", "--json", GH_FIELDS.join(",")];
-  let lastError = null;
-  for (let attempt = 1; attempt <= 3; attempt += 1) {
-    try {
-      const raw = execFileSync("gh", args, {
-        cwd: ROOT,
-        encoding: "utf8",
-        stdio: ["ignore", "pipe", "pipe"],
-      });
-      const parsed = JSON.parse(raw);
-      if (!Array.isArray(parsed)) {
-        throw new Error("gh repo list did not return an array");
-      }
-      return parsed;
-    } catch (err) {
-      lastError = err;
-      if (attempt === 3 || !isTransientGitHubError(err)) break;
-      console.error(`[ecosystem-inventory] gh repo list transient failure; retry ${attempt + 1}/3`);
-      sleep(2_000 * attempt);
+  try {
+    const raw = execFileSync("gh", args, {
+      cwd: ROOT,
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "pipe"],
+    });
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) {
+      throw new Error("gh repo list did not return an array");
     }
+    return parsed;
+  } catch (err) {
+    if (!isTransientGitHubError(err)) throw err;
+    return fetchReposViaRest();
   }
-  throw lastError;
+}
+
+function fetchReposViaRest() {
+  const endpoint =
+    OWNER === authenticatedLogin()
+      ? "/user/repos?visibility=all&affiliation=owner&per_page=100"
+      : `/users/${encodeURIComponent(OWNER)}/repos?type=owner&per_page=100`;
+  const raw = execFileSync("gh", ["api", "--paginate", "--slurp", endpoint], {
+    cwd: ROOT,
+    encoding: "utf8",
+    stdio: ["ignore", "pipe", "pipe"],
+  });
+  const pages = JSON.parse(raw);
+  const repos = pages
+    .flat()
+    .filter((repo) => repo?.owner?.login === OWNER || repo?.full_name?.startsWith(`${OWNER}/`))
+    .map(normalizeRestRepo);
+  if (repos.length === 0) {
+    throw new Error(`REST inventory fallback returned no repositories for ${OWNER}`);
+  }
+  return repos;
+}
+
+function authenticatedLogin() {
+  try {
+    return execFileSync("gh", ["api", "user", "--jq", ".login"], {
+      cwd: ROOT,
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "ignore"],
+    }).trim();
+  } catch {
+    return null;
+  }
+}
+
+function normalizeRestRepo(repo) {
+  const language = repo.language ? { name: repo.language } : null;
+  return {
+    name: repo.name,
+    nameWithOwner: repo.full_name,
+    description: repo.description,
+    isPrivate: Boolean(repo.private),
+    isArchived: Boolean(repo.archived),
+    isFork: Boolean(repo.fork),
+    isMirror: Boolean(repo.mirror_url),
+    isTemplate: Boolean(repo.is_template),
+    primaryLanguage: language,
+    languages: { nodes: language ? [language] : [] },
+    updatedAt: repo.updated_at,
+    url: repo.html_url,
+    repositoryTopics: (repo.topics ?? []).map((name) => ({ name })),
+    createdAt: repo.created_at,
+    pushedAt: repo.pushed_at,
+    homepageUrl: repo.homepage || null,
+    parent: repo.parent?.full_name ? { nameWithOwner: repo.parent.full_name } : null,
+    stargazerCount: repo.stargazers_count ?? 0,
+    diskUsage: repo.size ?? null,
+    defaultBranchRef: repo.default_branch ? { name: repo.default_branch } : null,
+    licenseInfo: normalizeRestLicense(repo.license),
+    visibility: String(repo.visibility ?? (repo.private ? "private" : "public")).toUpperCase(),
+  };
+}
+
+function normalizeRestLicense(license) {
+  if (!license) return null;
+  return {
+    spdxId: license.spdx_id && license.spdx_id !== "NOASSERTION" ? license.spdx_id : null,
+    name: license.name ?? null,
+  };
 }
 
 function isTransientGitHubError(err) {
   const message = `${err?.stderr ?? ""}\n${err?.message ?? ""}`;
-  return /HTTP (429|500|502|503|504)|Bad Gateway|Service Unavailable|rate limit/i.test(message);
+  return /HTTP (429|500|502|503|504)|Bad Gateway|Service Unavailable|rate limit|cannot allocate memory|fatal error: runtime/i.test(
+    message,
+  );
 }
 
 function tailError(err) {
@@ -191,10 +256,6 @@ function tailError(err) {
     .split(/\r?\n/)
     .slice(-2)
     .join(" ");
-}
-
-function sleep(ms) {
-  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
 }
 
 function loadPrivateOverrides() {
