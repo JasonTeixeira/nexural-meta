@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-06-02T00:45:14.305Z",
+  "generated_by": "scripts/dogfood-e2e.mjs",
+  "privacy": "public-safe",
+  "phase": "Phase 21",
+  "run_id": "dogfood-2026-06-02T004514305Z",
+  "status": "passed",
+  "summary": {
+    "recipes_total": 3,
+    "recipes_passed": 3,
+    "gates_total": 15,
+    "gates_passed": 15
+  },
+  "results": [
+    {
+      "recipe": "marketplace-starter",
+      "status": "passed",
+      "app_root": "<repo>\\.nexural\\cache\\dogfood\\dogfood-2026-06-02T004514305Z\\marketplace-starter",
+      "gates": [
+        {
+          "id": "fixture",
+          "status": "passed",
+          "detail": "fixture=<repo>\\test\\fixtures\\marketplace-starter.inputs.json"
+        },
+        {
+          "id": "forge",
+          "status": "passed",
+          "detail": "exit 0",
+          "command": "npx.cmd --yes tsx apps/cli/src/bin/nx.ts forge marketplace-starter marketplace-starter --inputs <repo>\\test\\fixtures\\marketplace-starter.inputs.json --mock-secrets --out-dir <repo>\\.nexural\\cache\\dogfood\\dogfood-2026-06-02T004514305Z\\marketplace-starter",
+          "duration_ms": 2744,
+          "stderr_tail": "   ⚠ missing warehouses (skipped): storage, email, design, accessibility, performance, multi-tenancy, onboarding, admin, analytics, marketplace\n"
+        },
+        {
+          "id": "install",
+          "status": "passed",
+          "detail": "exit 0",
+          "command": "pnpm.cmd install --ignore-workspace --ignore-scripts",
+          "duration_ms": 647,
+          "stderr_tail": ""
+        },
+        {
+          "id": "typecheck",
+          "status": "passed",
+          "detail": "exit 0",
+          "command": "pnpm.cmd typecheck",
+          "duration_ms": 683,
+          "stderr_tail": ""
+        },
+        {
+          "id": "build",
+          "status": "passed",
+          "detail": "exit 0",
+          "command": "pnpm.cmd build",
+          "duration_ms": 598,
+          "stderr_tail": ""
+        }
+      ]
+    },
+    {
+      "recipe": "analytics-workbench",
+      "status": "passed",
+      "app_root": "<repo>\\.nexural\\cache\\dogfood\\dogfood-2026-06-02T004514305Z\\analytics-workbench",
+      "gates": [
+        {
+          "id": "fixture",
+          "status": "passed",
+          "detail": "fixture=<repo>\\test\\fixtures\\analytics-workbench.inputs.json"
+        },
+        {
+          "id": "forge",
+          "status": "passed",
+          "detail": "exit 0",
+          "command": "npx.cmd --yes tsx apps/cli/src/bin/nx.ts forge analytics-workbench analytics-workbench --inputs <repo>\\test\\fixtures\\analytics-workbench.inputs.json --mock-secrets --out-dir <repo>\\.nexural\\cache\\dogfood\\dogfood-2026-06-02T004514305Z\\analytics-workbench",
+          "duration_ms": 2459,
+          "stderr_tail": "   ⚠ missing warehouses (skipped): storage, design, accessibility, performance, multi-tenancy, analytics, admin\n"
+        },
+        {
+          "id": "install",
+          "status": "passed",
+          "detail": "exit 0",
+          "command": "pnpm.cmd install --ignore-workspace --ignore-scripts",
+          "duration_ms": 531,
+          "stderr_tail": ""
+        },
+        {
+          "id": "typecheck",
+          "status": "passed",
+          "detail": "exit 0",
+          "command": "pnpm.cmd typecheck",
+          "duration_ms": 595,
+          "stderr_tail": ""
+        },
+        {
+          "id": "build",
+          "status": "passed",
+          "detail": "exit 0",
+          "command": "pnpm.cmd build",
+          "duration_ms": 599,
+          "stderr_tail": ""
+        }
+      ]
+    },
+    {
+      "recipe": "agent-workflow-app",
+      "status": "passed",
+      "app_root": "<repo>\\.nexural\\cache\\dogfood\\dogfood-2026-06-02T004514305Z\\agent-workflow-app",
+      "gates": [
+        {
+          "id": "fixture",
+          "status": "passed",
+          "detail": "fixture=<repo>\\test\\fixtures\\agent-workflow-app.inputs.json"
+        },
+        {
+          "id": "forge",
+          "status": "passed",
+          "detail": "exit 0",
+          "command": "npx.cmd --yes tsx apps/cli/src/bin/nx.ts forge agent-workflow-app agent-workflow-app --inputs <repo>\\test\\fixtures\\agent-workflow-app.inputs.json --mock-secrets --out-dir <repo>\\.nexural\\cache\\dogfood\\dogfood-2026-06-02T004514305Z\\agent-workflow-app",
+          "duration_ms": 2542,
+          "stderr_tail": "   ⚠ missing warehouses (skipped): design, accessibility, performance, multi-tenancy, admin, analytics, agent, eval, model-routing\n"
+        },
+        {
+          "id": "install",
+          "status": "passed",
+          "detail": "exit 0",
+          "command": "pnpm.cmd install --ignore-workspace --ignore-scripts",
+          "duration_ms": 517,
+          "stderr_tail": ""
+        },
+        {
+          "id": "typecheck",
+          "status": "passed",
+          "detail": "exit 0",
+          "command": "pnpm.cmd typecheck",
+          "duration_ms": 743,
+          "stderr_tail": ""
+        },
+        {
+          "id": "build",
+          "status": "passed",
+          "detail": "exit 0",
+          "command": "pnpm.cmd build",
+          "duration_ms": 721,
+          "stderr_tail": ""
+        }
+      ]
+    }
+  ],
+  "evidence_hash": "sha256:899349c6107e07af6380c2fcdd11c502725be422d52ecb6a8731e29a04f714e7"
+}

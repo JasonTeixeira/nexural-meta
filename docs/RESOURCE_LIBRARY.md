@@ -1,15 +1,15 @@
 # Resource Library
 
 **Status:** Phase 12/13 generated resource library and maturity lift queue
-**Generated:** 2026-06-01T21:29:03.620Z
+**Generated:** 2026-06-02T00:44:45.152Z
 
 ## Summary
 
-- Assets: 144
+- Assets: 148
 - Use cases: 7
-- Recipes: 8
-- Proof-backed recipes: 1
-- Load-bearing average: 73/100
+- Recipes: 12
+- Proof-backed recipes: 3
+- Load-bearing average: 72/100
 
 ## Operator Paths
 
@@ -22,18 +22,18 @@
 
 | Asset                        | Layer                | Current | Target | Reason                                                          |
 | ---------------------------- | -------------------- | ------: | -----: | --------------------------------------------------------------- |
-| saas-multitenant-baseline    | app-factory-runtime  |      70 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
-| saas-multitenant-baseline-cf | app-factory-runtime  |      70 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
-| saas-rag-chat                | app-factory-runtime  |      70 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
-| saas-rag-chat-openai-first   | app-factory-runtime  |      70 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
-| saas-rag-chat-qdrant         | app-factory-runtime  |      70 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
-| fintech-ledger-app           | app-factory-runtime  |      80 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
-| saas-agent-platform          | app-factory-runtime  |      80 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
+| saas-multitenant-baseline    | app-factory-runtime  |      80 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
+| saas-multitenant-baseline-cf | app-factory-runtime  |      80 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
+| saas-rag-chat-openai-first   | app-factory-runtime  |      80 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
+| saas-rag-chat-qdrant         | app-factory-runtime  |      80 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
 | QuantumTrader                | quant-trading        |      38 |     90 | Load-bearing asset under target maturity.                       |
 | micro-saas-starter           | resource-library     |      58 |     90 | Load-bearing asset under target maturity.                       |
 | terraform-aws-modules        | ops-knowledge        |      58 |     90 | Load-bearing asset under target maturity.                       |
+| AlphaStream                  | quant-trading        |      63 |     90 | Load-bearing asset under target maturity.                       |
 | NexQuantSite                 | quant-trading        |      63 |     90 | Load-bearing asset under target maturity.                       |
 | trade-engine                 | quant-trading        |      68 |     90 | Load-bearing asset under target maturity.                       |
-| AlphaStream                  | quant-trading        |      73 |     90 | Load-bearing asset under target maturity.                       |
 | JasonTeixeira                | public-proof-surface |      73 |     90 | Load-bearing asset under target maturity.                       |
 | nexural-automation-starter   | quant-trading        |      78 |     90 | Load-bearing asset under target maturity.                       |
+| awesome-cloud-native         | reference-library    |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
+| awesome-quant                | reference-library    |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
+| awesome-react                | reference-library    |       0 |     70 | Missing metadata makes the ecosystem less legible.              |

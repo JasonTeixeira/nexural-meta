@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-01T21:29:03.038Z",
+  "generated_at": "2026-06-02T00:44:43.673Z",
   "generated_by": "scripts/ecosystem-resource-map.mjs",
-  "source_generated_at": "2026-06-01T21:29:02.738Z",
+  "source_generated_at": "2026-06-02T00:44:43.326Z",
   "privacy": "public-safe",
   "note": "Resource recommendations use public repository metadata only. Private assets remain summarized in scorecards and require local review.",
   "totals": {
     "use_cases": 7,
     "public_assets_considered": 136,
     "recommended_assets": 9,
-    "improve_first_assets": 4
+    "improve_first_assets": 5
   },
   "use_cases": [
     {
@@ -310,7 +310,7 @@
       "asset_counts": {
         "candidates": 11,
         "recommended": 6,
-        "improve_first": 4,
+        "improve_first": 5,
         "reference_only": 0
       },
       "recommended_assets": [
@@ -354,19 +354,6 @@
           "gaps": ["missing-topics"]
         },
         {
-          "name": "AlphaStream",
-          "url": "https://github.com/JasonTeixeira/AlphaStream",
-          "layer": "quant-trading",
-          "asset_type": "engine",
-          "maturity": "L2",
-          "role": "Trading, strategy research, backtesting, or execution capability.",
-          "score": 73,
-          "band": "70-84 usable",
-          "status": "active",
-          "language": "TypeScript",
-          "gaps": ["missing-license"]
-        },
-        {
           "name": "trade-engine",
           "url": "https://github.com/JasonTeixeira/trade-engine",
           "layer": "quant-trading",
@@ -378,6 +365,19 @@
           "status": "active",
           "language": "Python",
           "gaps": ["missing-license", "missing-topics", "load-bearing-under-70"]
+        },
+        {
+          "name": "AlphaStream",
+          "url": "https://github.com/JasonTeixeira/AlphaStream",
+          "layer": "quant-trading",
+          "asset_type": "engine",
+          "maturity": "L2",
+          "role": "Trading, strategy research, backtesting, or execution capability.",
+          "score": 63,
+          "band": "50-69 incomplete",
+          "status": "watch",
+          "language": "TypeScript",
+          "gaps": ["missing-license", "load-bearing-under-70"]
         },
         {
           "name": "NexQuantSite",
@@ -419,6 +419,19 @@
           "status": "watch",
           "language": "TypeScript",
           "gaps": ["missing-license", "missing-topics", "load-bearing-under-70"]
+        },
+        {
+          "name": "AlphaStream",
+          "url": "https://github.com/JasonTeixeira/AlphaStream",
+          "layer": "quant-trading",
+          "asset_type": "engine",
+          "maturity": "L2",
+          "role": "Trading, strategy research, backtesting, or execution capability.",
+          "score": 63,
+          "band": "50-69 incomplete",
+          "status": "watch",
+          "language": "TypeScript",
+          "gaps": ["missing-license", "load-bearing-under-70"]
         },
         {
           "name": "NexQuantSite",

@@ -1,0 +1,25 @@
+create table if not exists analytics_events (
+  id uuid primary key default gen_random_uuid(),
+  tenant_id uuid not null references tenants(id) on delete cascade,
+  event_name text not null,
+  properties jsonb not null default '{}'::jsonb,
+  occurred_at timestamptz not null default now()
+);
+
+create table if not exists metric_definitions (
+  id uuid primary key default gen_random_uuid(),
+  tenant_id uuid not null references tenants(id) on delete cascade,
+  key text not null,
+  expression text not null,
+  status text not null default 'draft',
+  created_at timestamptz not null default now(),
+  unique (tenant_id, key)
+);
+
+create table if not exists export_jobs (
+  id uuid primary key default gen_random_uuid(),
+  tenant_id uuid not null references tenants(id) on delete cascade,
+  format text not null,
+  status text not null default 'queued',
+  created_at timestamptz not null default now()
+);

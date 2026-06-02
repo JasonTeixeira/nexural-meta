@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-06-02T00:44:55.311Z",
+  "generated_by": "scripts/public-portfolio-packaging.mjs",
+  "privacy": "public-safe",
+  "phase": "Phase 22",
+  "status": "ready-to-review",
+  "summary": {
+    "featured_runs": 3,
+    "proof_backed_recipes": 3,
+    "public_proof_hash": "sha256:74acbb3c1f55fee889091cf07852f8574b48756918ed2ac0cb3b0e1f4fff818e",
+    "operator_test_status": "passed"
+  },
+  "public_safe_claims": [
+    "Sage Ideas Engineering OS maintains a searchable resource library.",
+    "Factory recipes are scored for forge readiness and proof backing.",
+    "Hosted golden-path app proofs include build, runtime, DB, and health checks.",
+    "Maturity and maintenance queues make gaps explicit instead of hiding them."
+  ],
+  "featured_runs": [
+    {
+      "title": "RAG Knowledge Chat",
+      "recipe": "saas-rag-chat",
+      "deployed_url": "https://sage-client-intake-portal-vercel-8f62ooaxe-sage-ideas.vercel.app",
+      "tree_hash": "sha256:3747581a28b026151e03af27ae35282aeaab8c4c98724e58a4da737986b1abd4",
+      "gates": "16/16"
+    },
+    {
+      "title": "Fintech Ledger Ops",
+      "recipe": "fintech-ledger-app",
+      "deployed_url": "https://sage-client-intake-portal-vercel-mrn39ed20-sage-ideas.vercel.app",
+      "tree_hash": "sha256:9c1a4e3d808afb3d2e1109f01c7502fed43cb660e96aea47a528b9b66d6c4672",
+      "gates": "16/16"
+    },
+    {
+      "title": "Client Intake Portal",
+      "recipe": "internal-tool-dashboard",
+      "deployed_url": "https://sage-client-intake-portal-vercel-47nj2araj-sage-ideas.vercel.app",
+      "tree_hash": "sha256:f52d5a4613a6b4686e608f5f4b0eedaa539b73c2ffac084eb94f9bf79883c19f",
+      "gates": "16/16"
+    }
+  ],
+  "publish_blockers": [
+    "Review all screenshots/copy manually before public posting.",
+    "Keep private repository names/details summarized, not exposed.",
+    "Rotate any tokens pasted into chat before using proof in public."
+  ],
+  "evidence_hash": "sha256:4494f68a9d24ac95a459929ead934305c6634b64db6e625ef575ee6431f227ea"
+}

@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-06-02T00:44:54.557Z",
+  "generated_by": "scripts/maturity-lift-plan.mjs",
+  "privacy": "public-safe",
+  "phase": "Phase 19",
+  "status": "lift-required",
+  "summary": {
+    "current_load_bearing_average": 72,
+    "target_1": 85,
+    "target_2": 90,
+    "load_bearing_assets": 11,
+    "lift_items": 17,
+    "resource_library_queue_items": 25
+  },
+  "l4_l5_operating_standard": {
+    "l4": [
+      "Public-safe docs explain purpose, ownership, and usage.",
+      "Automated health or proof artifact exists.",
+      "Known gaps are explicit and routed to an owner.",
+      "Example or recipe path proves reuse."
+    ],
+    "l5": [
+      "Hosted proof or CI evidence refreshes on schedule.",
+      "E2E path covers build, runtime, data, and failure behavior.",
+      "Security/secrets posture is documented and machine checked.",
+      "Maintenance queue keeps freshness and maturity from drifting."
+    ]
+  },
+  "lift_queue": [
+    {
+      "asset": "QuantumTrader",
+      "layer": "quant-trading",
+      "current_score": 38,
+      "target_score": 90,
+      "missing": ["missing-license", "missing-topics", "load-bearing-under-70"],
+      "required_work": ["Add searchable repo metadata/topics."]
+    },
+    {
+      "asset": "micro-saas-starter",
+      "layer": "resource-library",
+      "current_score": 58,
+      "target_score": 90,
+      "missing": ["missing-license", "missing-topics", "load-bearing-under-70"],
+      "required_work": ["Add searchable repo metadata/topics."]
+    },
+    {
+      "asset": "terraform-aws-modules",
+      "layer": "ops-knowledge",
+      "current_score": 58,
+      "target_score": 90,
+      "missing": ["missing-license", "missing-topics", "load-bearing-under-70"],
+      "required_work": ["Add searchable repo metadata/topics."]
+    },
+    {
+      "asset": "AlphaStream",
+      "layer": "quant-trading",
+      "current_score": 63,
+      "target_score": 90,
+      "missing": ["missing-license", "load-bearing-under-70"],
+      "required_work": ["Review maturity gap and either improve or mark reference-only."]
+    },
+    {
+      "asset": "NexQuantSite",
+      "layer": "quant-trading",
+      "current_score": 63,
+      "target_score": 90,
+      "missing": ["missing-license", "load-bearing-under-70"],
+      "required_work": ["Review maturity gap and either improve or mark reference-only."]
+    },
+    {
+      "asset": "trade-engine",
+      "layer": "quant-trading",
+      "current_score": 68,
+      "target_score": 90,
+      "missing": ["missing-license", "missing-topics", "load-bearing-under-70"],
+      "required_work": ["Add searchable repo metadata/topics."]
+    },
+    {
+      "asset": "JasonTeixeira",
+      "layer": "public-proof-surface",
+      "current_score": 73,
+      "target_score": 90,
+      "missing": ["missing-public-proof", "missing-license"],
+      "required_work": ["Attach public-safe proof evidence."]
+    },
+    {
+      "asset": "nexural-automation-starter",
+      "layer": "quant-trading",
+      "current_score": 78,
+      "target_score": 90,
+      "missing": ["missing-topics"],
+      "required_work": ["Add searchable repo metadata/topics."]
+    },
+    {
+      "asset": "agent-workflow-app",
+      "layer": "app-factory-runtime",
+      "current_score": 90,
+      "target_score": 90,
+      "missing": ["missing-golden-path-proof"],
+      "required_work": ["Attach public-safe proof evidence."]
+    },
+    {
+      "asset": "analytics-workbench",
+      "layer": "app-factory-runtime",
+      "current_score": 90,
+      "target_score": 90,
+      "missing": ["missing-golden-path-proof"],
+      "required_work": ["Attach public-safe proof evidence."]
+    },
+    {
+      "asset": "marketplace-starter",
+      "layer": "app-factory-runtime",
+      "current_score": 90,
+      "target_score": 90,
+      "missing": ["missing-golden-path-proof"],
+      "required_work": ["Attach public-safe proof evidence."]
+    },
+    {
+      "asset": "ops-admin-portal",
+      "layer": "app-factory-runtime",
+      "current_score": 90,
+      "target_score": 90,
+      "missing": ["missing-golden-path-proof"],
+      "required_work": ["Attach public-safe proof evidence."]
+    },
+    {
+      "asset": "saas-agent-platform",
+      "layer": "app-factory-runtime",
+      "current_score": 90,
+      "target_score": 90,
+      "missing": ["missing-golden-path-proof"],
+      "required_work": ["Attach public-safe proof evidence."]
+    },
+    {
+      "asset": "saas-multitenant-baseline",
+      "layer": "app-factory-runtime",
+      "current_score": 80,
+      "target_score": 90,
+      "missing": ["missing-golden-path-proof"],
+      "required_work": ["Attach public-safe proof evidence."]
+    },
+    {
+      "asset": "saas-multitenant-baseline-cf",
+      "layer": "app-factory-runtime",
+      "current_score": 80,
+      "target_score": 90,
+      "missing": ["missing-golden-path-proof"],
+      "required_work": ["Attach public-safe proof evidence."]
+    },
+    {
+      "asset": "saas-rag-chat-openai-first",
+      "layer": "app-factory-runtime",
+      "current_score": 80,
+      "target_score": 90,
+      "missing": ["missing-golden-path-proof"],
+      "required_work": ["Attach public-safe proof evidence."]
+    },
+    {
+      "asset": "saas-rag-chat-qdrant",
+      "layer": "app-factory-runtime",
+      "current_score": 80,
+      "target_score": 90,
+      "missing": ["missing-golden-path-proof"],
+      "required_work": ["Attach public-safe proof evidence."]
+    }
+  ],
+  "score_model_note": "This report does not inflate maturity scores. It defines the work required to raise the scorecard in subsequent proof refreshes.",
+  "evidence_hash": "sha256:c9b6df5ed23d5e5d038c77522c3541f2bf39b57a6164900790e526f91e109136"
+}

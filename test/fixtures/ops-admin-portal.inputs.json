@@ -1,0 +1,11 @@
+{
+  "appName": "ops-admin-portal",
+  "displayName": "Ops Admin Portal",
+  "rootDomain": "opsportal.dev",
+  "trialDays": 0,
+  "adminRoles": ["super_admin", "admin", "viewer"],
+  "bulkConfirmThreshold": 10,
+  "queueSlaMinutes": 240,
+  "incidentSeverityLevels": ["sev1", "sev2", "sev3"],
+  "approvalMode": "dual-control"
+}

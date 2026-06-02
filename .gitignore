@@ -74,6 +74,11 @@ qa.manifest.json
 #  - proof-environment: internal hosted proof environment lock
 #  - db-proof: hosted DB CRUD + migration-readiness proof
 #  - maintenance: Phase 7 self-maintenance loop reports
+#  - operator-test: Phase 17 operator app-factory test pass
+#  - maturity-lift: Phase 19 maturity lift queue
+#  - daily-ops: Phase 20 daily operating loop
+#  - dogfood: Phase 21 hard E2E factory dogfood
+#  - portfolio-packaging: Phase 22 public-safe packaging scaffold
 #  - audit: nx audit outputs
 #  - benchmarks: V1.0 performance baseline
 #  - templates: copy-paste templates for the ecosystem repos
@@ -88,6 +93,13 @@ qa.manifest.json
 !evidence/proof-environment/
 !evidence/db-proof/
 !evidence/maintenance/
+!evidence/operator-test/
+!evidence/maturity-lift/
+!evidence/daily-ops/
+!evidence/dogfood/
+!evidence/portfolio-packaging/
 !evidence/audit/
 !evidence/benchmarks/
 !evidence/templates/
+
+.vercel

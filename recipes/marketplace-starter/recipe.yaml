@@ -1,0 +1,90 @@
+schema_version: 1
+name: marketplace-starter
+version: 0.1.0
+description: >-
+  Two-sided marketplace starter for listings, offers, payouts, dispute review,
+  and operator moderation. Extends the multi-tenant SaaS baseline.
+
+extends: saas-multitenant-baseline
+output_license: MIT
+commercial_restricted_ok: false
+composes: []
+inputs_schema: inputs.zod.ts
+
+warehouses:
+  - architecture
+  - auth
+  - payments
+  - database
+  - storage
+  - email
+  - observability
+  - security
+  - dx
+  - design
+  - accessibility
+  - performance
+  - runbook
+  - billing
+  - multi-tenancy
+  - onboarding
+  - admin
+  - analytics
+  - marketplace
+
+services:
+  - id: web
+    runtime: nextjs
+    language: typescript
+    host: vercel
+
+qa_profile: standard
+
+cost_envelope:
+  per_request_p50_usd: 0.002
+  per_request_p99_usd: 0.02
+  monthly_baseline_usd: 20
+  hard_caps:
+    per_request_usd: 0.10
+    per_user_per_day_usd: 3
+    per_app_per_day_usd: 75
+
+model_families: []
+
+secrets_required:
+  - logical_name: supabase-anon-key
+    op_path: op://Nexural/Supabase/anon-key
+    target_file: .env.local
+    target_var: NEXT_PUBLIC_SUPABASE_ANON_KEY
+  - logical_name: supabase-service-role-key
+    op_path: op://Nexural/Supabase/service-role-key
+    target_file: .env.local
+    target_var: SUPABASE_SERVICE_ROLE_KEY
+  - logical_name: stripe-secret-key
+    op_path: op://Nexural/Stripe/secret-key
+    target_file: .env.local
+    target_var: STRIPE_SECRET_KEY
+  - logical_name: resend-api-key
+    op_path: op://Nexural/Resend/api-key
+    target_file: .env.local
+    target_var: RESEND_API_KEY
+  - logical_name: sentry-dsn
+    op_path: op://Nexural/Sentry/dsn
+    target_file: .env.local
+    target_var: NEXT_PUBLIC_SENTRY_DSN
+  - logical_name: posthog-api-key
+    op_path: op://Nexural/PostHog/api-key
+    target_file: .env.local
+    target_var: NEXT_PUBLIC_POSTHOG_KEY
+
+emit:
+  template_path: templates/
+  pre_emit_hooks: []
+  post_emit_hooks: []
+
+threat_model_path: THREAT_MODEL.md
+decisions_path: DECISIONS.md
+
+forge_sandbox:
+  ignore_scripts: true
+  allowed_postinstalls: []

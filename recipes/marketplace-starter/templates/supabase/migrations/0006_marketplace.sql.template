@@ -1,0 +1,25 @@
+create table if not exists marketplace_listings (
+  id uuid primary key default gen_random_uuid(),
+  tenant_id uuid not null references tenants(id) on delete cascade,
+  title text not null,
+  status text not null default 'draft',
+  price_cents bigint not null default 0,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists marketplace_offers (
+  id uuid primary key default gen_random_uuid(),
+  listing_id uuid not null references marketplace_listings(id) on delete cascade,
+  tenant_id uuid not null references tenants(id) on delete cascade,
+  amount_cents bigint not null,
+  status text not null default 'pending',
+  created_at timestamptz not null default now()
+);
+
+create table if not exists marketplace_disputes (
+  id uuid primary key default gen_random_uuid(),
+  offer_id uuid not null references marketplace_offers(id) on delete cascade,
+  status text not null default 'open',
+  summary text not null,
+  created_at timestamptz not null default now()
+);

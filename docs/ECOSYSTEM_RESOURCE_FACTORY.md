@@ -2,7 +2,7 @@
 
 **Status:** Phase 4 generated resource map
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-06-01T21:29:03.038Z
+**Generated:** 2026-06-02T00:44:43.673Z
 
 ## Purpose
 
@@ -92,13 +92,14 @@ Recommended assets:
 - [nexural-meta](https://github.com/JasonTeixeira/nexural-meta) - 100/100, L4
 - [Nexural_Automation](https://github.com/JasonTeixeira/Nexural_Automation) - 100/100, L3
 - [nexural-automation-starter](https://github.com/JasonTeixeira/nexural-automation-starter) - 78/100, L2
-- [AlphaStream](https://github.com/JasonTeixeira/AlphaStream) - 73/100, L2
 - [trade-engine](https://github.com/JasonTeixeira/trade-engine) - 68/100, L2
+- [AlphaStream](https://github.com/JasonTeixeira/AlphaStream) - 63/100, L2
 
 Fix first:
 
 - [QuantumTrader](https://github.com/JasonTeixeira/QuantumTrader) - 38/100, missing-license, missing-topics, load-bearing-under-70
 - [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 58/100, missing-license, missing-topics, load-bearing-under-70
+- [AlphaStream](https://github.com/JasonTeixeira/AlphaStream) - 63/100, missing-license, load-bearing-under-70
 - [NexQuantSite](https://github.com/JasonTeixeira/NexQuantSite) - 63/100, missing-license, load-bearing-under-70
 - [trade-engine](https://github.com/JasonTeixeira/trade-engine) - 68/100, missing-license, missing-topics, load-bearing-under-70
 

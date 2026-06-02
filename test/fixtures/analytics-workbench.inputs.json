@@ -1,0 +1,10 @@
+{
+  "appName": "analytics-workbench",
+  "displayName": "Analytics Workbench",
+  "rootDomain": "analytics.dev",
+  "trialDays": 14,
+  "eventRetentionDays": 365,
+  "dashboardRefreshMinutes": 15,
+  "exportFormats": ["csv", "json"],
+  "metricApprovalRequired": true
+}

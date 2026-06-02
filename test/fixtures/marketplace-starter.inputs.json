@@ -1,0 +1,10 @@
+{
+  "appName": "marketplace-starter",
+  "displayName": "Marketplace Starter",
+  "rootDomain": "marketplace.dev",
+  "trialDays": 14,
+  "listingModeration": "pre-publish",
+  "commissionBps": 1000,
+  "disputeSlaHours": 72,
+  "payoutProvider": "stripe-connect"
+}

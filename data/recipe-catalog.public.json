@@ -1,40 +1,49 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-01T21:29:03.326Z",
+  "generated_at": "2026-06-02T00:44:44.782Z",
   "generated_by": "scripts/recipe-catalog.mjs",
   "privacy": "public-safe",
   "status": "expanded",
   "purpose": "Recipe readiness catalog for deciding what the factory can generate, what is proof-backed, and what needs hardening before reuse.",
   "totals": {
-    "recipes": 8,
-    "forge_ready": 8,
-    "proof_backed": 1,
+    "recipes": 12,
+    "forge_ready": 12,
+    "proof_backed": 3,
     "needs_fixture": 0,
     "needs_templates": 0,
-    "average_readiness_score": 76.3
+    "average_readiness_score": 90.8
   },
   "coverage": {
     "by_warehouse": {
-      "architecture": 5
+      "architecture": 9
     },
-    "by_runtime": {}
+    "by_runtime": {
+      "unknown": 12
+    }
   },
   "recipes": [
     {
-      "name": "internal-tool-dashboard",
+      "name": "fintech-ledger-app",
       "version": "0.1.0",
-      "description": "Recipe for internal-team admin tools. Extends saas-multitenant-baseline with",
+      "description": "SaaS recipe for finance + ledger applications. Extends saas-multitenant-baseline",
       "extends": "saas-multitenant-baseline",
-      "warehouses": ["architecture"],
-      "services": [],
+      "warehouses": [],
+      "services": [
+        {
+          "id": "web",
+          "runtime": "unknown",
+          "language": "unknown",
+          "host": "unknown"
+        }
+      ],
       "cost_envelope": {
         "per_request_p50_usd": 0.001,
-        "per_request_p99_usd": 0.005,
-        "monthly_baseline_usd": 5
+        "per_request_p99_usd": 0.01,
+        "monthly_baseline_usd": 30
       },
-      "secrets_required": 1,
+      "secrets_required": 0,
       "readiness": {
-        "score": 100,
+        "score": 110,
         "band": "elite",
         "forge_ready": true,
         "proof_backed": true,
@@ -47,21 +56,193 @@
       }
     },
     {
-      "name": "fintech-ledger-app",
+      "name": "internal-tool-dashboard",
       "version": "0.1.0",
-      "description": "SaaS recipe for finance + ledger applications. Extends saas-multitenant-baseline",
+      "description": "Recipe for internal-team admin tools. Extends saas-multitenant-baseline with",
       "extends": "saas-multitenant-baseline",
-      "warehouses": [],
-      "services": [],
+      "warehouses": ["architecture"],
+      "services": [
+        {
+          "id": "web",
+          "runtime": "unknown",
+          "language": "unknown",
+          "host": "unknown"
+        }
+      ],
       "cost_envelope": {
         "per_request_p50_usd": 0.001,
-        "per_request_p99_usd": 0.01,
-        "monthly_baseline_usd": 30
+        "per_request_p99_usd": 0.005,
+        "monthly_baseline_usd": 5
+      },
+      "secrets_required": 1,
+      "readiness": {
+        "score": 110,
+        "band": "elite",
+        "forge_ready": true,
+        "proof_backed": true,
+        "has_templates": true,
+        "has_fixture": true,
+        "has_threat_model": true,
+        "has_decisions": true,
+        "migration_count": 1,
+        "gaps": []
+      }
+    },
+    {
+      "name": "saas-rag-chat",
+      "version": "0.1.0",
+      "description": "Chat product with RAG (Retrieval-Augmented Generation) over user-uploaded",
+      "extends": "saas-multitenant-baseline",
+      "warehouses": [],
+      "services": [
+        {
+          "id": "web",
+          "runtime": "unknown",
+          "language": "unknown",
+          "host": "unknown"
+        }
+      ],
+      "cost_envelope": {
+        "per_request_p50_usd": 0.005,
+        "per_request_p99_usd": 0.05,
+        "monthly_baseline_usd": 25
       },
       "secrets_required": 0,
       "readiness": {
-        "score": 80,
-        "band": "strong",
+        "score": 100,
+        "band": "elite",
+        "forge_ready": true,
+        "proof_backed": true,
+        "has_templates": true,
+        "has_fixture": true,
+        "has_threat_model": true,
+        "has_decisions": true,
+        "migration_count": 0,
+        "gaps": []
+      }
+    },
+    {
+      "name": "agent-workflow-app",
+      "version": "0.1.0",
+      "description": "Agent workflow application for tool orchestration, human approval, run",
+      "extends": "saas-multitenant-baseline",
+      "warehouses": ["architecture"],
+      "services": [
+        {
+          "id": "web",
+          "runtime": "unknown",
+          "language": "unknown",
+          "host": "unknown"
+        }
+      ],
+      "cost_envelope": {
+        "per_request_p50_usd": 0.01,
+        "per_request_p99_usd": 0.1,
+        "monthly_baseline_usd": 30
+      },
+      "secrets_required": 1,
+      "readiness": {
+        "score": 90,
+        "band": "elite",
+        "forge_ready": true,
+        "proof_backed": false,
+        "has_templates": true,
+        "has_fixture": true,
+        "has_threat_model": true,
+        "has_decisions": true,
+        "migration_count": 1,
+        "gaps": ["missing-golden-path-proof"]
+      }
+    },
+    {
+      "name": "analytics-workbench",
+      "version": "0.1.0",
+      "description": "Product analytics and BI workbench for event capture, metric definitions,",
+      "extends": "saas-multitenant-baseline",
+      "warehouses": ["architecture"],
+      "services": [
+        {
+          "id": "web",
+          "runtime": "unknown",
+          "language": "unknown",
+          "host": "unknown"
+        }
+      ],
+      "cost_envelope": {
+        "per_request_p50_usd": 0.001,
+        "per_request_p99_usd": 0.015,
+        "monthly_baseline_usd": 15
+      },
+      "secrets_required": 1,
+      "readiness": {
+        "score": 90,
+        "band": "elite",
+        "forge_ready": true,
+        "proof_backed": false,
+        "has_templates": true,
+        "has_fixture": true,
+        "has_threat_model": true,
+        "has_decisions": true,
+        "migration_count": 1,
+        "gaps": ["missing-golden-path-proof"]
+      }
+    },
+    {
+      "name": "marketplace-starter",
+      "version": "0.1.0",
+      "description": "Two-sided marketplace starter for listings, offers, payouts, dispute review,",
+      "extends": "saas-multitenant-baseline",
+      "warehouses": ["architecture"],
+      "services": [
+        {
+          "id": "web",
+          "runtime": "unknown",
+          "language": "unknown",
+          "host": "unknown"
+        }
+      ],
+      "cost_envelope": {
+        "per_request_p50_usd": 0.002,
+        "per_request_p99_usd": 0.02,
+        "monthly_baseline_usd": 20
+      },
+      "secrets_required": 1,
+      "readiness": {
+        "score": 90,
+        "band": "elite",
+        "forge_ready": true,
+        "proof_backed": false,
+        "has_templates": true,
+        "has_fixture": true,
+        "has_threat_model": true,
+        "has_decisions": true,
+        "migration_count": 1,
+        "gaps": ["missing-golden-path-proof"]
+      }
+    },
+    {
+      "name": "ops-admin-portal",
+      "version": "0.1.0",
+      "description": "Operator portal for back-office queues, manual review, incident notes,",
+      "extends": "internal-tool-dashboard",
+      "warehouses": ["architecture"],
+      "services": [
+        {
+          "id": "web",
+          "runtime": "unknown",
+          "language": "unknown",
+          "host": "unknown"
+        }
+      ],
+      "cost_envelope": {
+        "per_request_p50_usd": 0.001,
+        "per_request_p99_usd": 0.005,
+        "monthly_baseline_usd": 5
+      },
+      "secrets_required": 1,
+      "readiness": {
+        "score": 90,
+        "band": "elite",
         "forge_ready": true,
         "proof_backed": false,
         "has_templates": true,
@@ -78,7 +259,14 @@
       "description": "Agent-as-a-service product. Extends saas-multitenant-baseline. Custom agent",
       "extends": "saas-multitenant-baseline",
       "warehouses": [],
-      "services": [],
+      "services": [
+        {
+          "id": "web",
+          "runtime": "unknown",
+          "language": "unknown",
+          "host": "unknown"
+        }
+      ],
       "cost_envelope": {
         "per_request_p50_usd": 0.02,
         "per_request_p99_usd": 0.5,
@@ -86,8 +274,8 @@
       },
       "secrets_required": 1,
       "readiness": {
-        "score": 80,
-        "band": "strong",
+        "score": 90,
+        "band": "elite",
         "forge_ready": true,
         "proof_backed": false,
         "has_templates": true,
@@ -104,7 +292,14 @@
       "description": "Multi-tenant SaaS baseline — Next.js 15 + Supabase (Auth + Postgres + RLS) +",
       "extends": null,
       "warehouses": ["architecture"],
-      "services": [],
+      "services": [
+        {
+          "id": "web",
+          "runtime": "unknown",
+          "language": "unknown",
+          "host": "unknown"
+        }
+      ],
       "cost_envelope": {
         "per_request_p50_usd": 0,
         "per_request_p99_usd": 0,
@@ -112,8 +307,8 @@
       },
       "secrets_required": 1,
       "readiness": {
-        "score": 70,
-        "band": "usable",
+        "score": 80,
+        "band": "strong",
         "forge_ready": true,
         "proof_backed": false,
         "has_templates": true,
@@ -130,7 +325,14 @@
       "description": "Cloudflare Pages + Workers + D1 escape variant of saas-multitenant-baseline.",
       "extends": "saas-multitenant-baseline",
       "warehouses": ["architecture"],
-      "services": [],
+      "services": [
+        {
+          "id": "web",
+          "runtime": "unknown",
+          "language": "unknown",
+          "host": "unknown"
+        }
+      ],
       "cost_envelope": {
         "per_request_p50_usd": 0,
         "per_request_p99_usd": 0,
@@ -138,34 +340,8 @@
       },
       "secrets_required": 1,
       "readiness": {
-        "score": 70,
-        "band": "usable",
-        "forge_ready": true,
-        "proof_backed": false,
-        "has_templates": true,
-        "has_fixture": true,
-        "has_threat_model": true,
-        "has_decisions": true,
-        "migration_count": 0,
-        "gaps": ["missing-golden-path-proof"]
-      }
-    },
-    {
-      "name": "saas-rag-chat",
-      "version": "0.1.0",
-      "description": "Chat product with RAG (Retrieval-Augmented Generation) over user-uploaded",
-      "extends": "saas-multitenant-baseline",
-      "warehouses": [],
-      "services": [],
-      "cost_envelope": {
-        "per_request_p50_usd": 0.005,
-        "per_request_p99_usd": 0.05,
-        "monthly_baseline_usd": 25
-      },
-      "secrets_required": 0,
-      "readiness": {
-        "score": 70,
-        "band": "usable",
+        "score": 80,
+        "band": "strong",
         "forge_ready": true,
         "proof_backed": false,
         "has_templates": true,
@@ -182,7 +358,14 @@
       "description": "OpenAI-primary variant of saas-rag-chat. Same architecture, different model",
       "extends": "saas-rag-chat",
       "warehouses": ["architecture"],
-      "services": [],
+      "services": [
+        {
+          "id": "web",
+          "runtime": "unknown",
+          "language": "unknown",
+          "host": "unknown"
+        }
+      ],
       "cost_envelope": {
         "per_request_p50_usd": 0.003,
         "per_request_p99_usd": 0.03,
@@ -190,8 +373,8 @@
       },
       "secrets_required": 1,
       "readiness": {
-        "score": 70,
-        "band": "usable",
+        "score": 80,
+        "band": "strong",
         "forge_ready": true,
         "proof_backed": false,
         "has_templates": true,
@@ -208,7 +391,14 @@
       "description": "Qdrant primary escape variant of saas-rag-chat. Use when chunk count",
       "extends": "saas-rag-chat",
       "warehouses": ["architecture"],
-      "services": [],
+      "services": [
+        {
+          "id": "web",
+          "runtime": "unknown",
+          "language": "unknown",
+          "host": "unknown"
+        }
+      ],
       "cost_envelope": {
         "per_request_p50_usd": 0.005,
         "per_request_p99_usd": 0.05,
@@ -216,8 +406,8 @@
       },
       "secrets_required": 1,
       "readiness": {
-        "score": 70,
-        "band": "usable",
+        "score": 80,
+        "band": "strong",
         "forge_ready": true,
         "proof_backed": false,
         "has_templates": true,
@@ -231,12 +421,7 @@
   ],
   "next_actions": [
     {
-      "action": "Add two more golden-path specs for high-value recipes.",
-      "reason": "Only 1 recipe is proof-backed today.",
-      "phase": "Phase 11"
-    },
-    {
-      "action": "Promote fintech-ledger-app into the next hosted proof run.",
+      "action": "Promote agent-workflow-app into the next hosted proof run.",
       "reason": "The factory should prove more than one app shape.",
       "phase": "Phase 14"
     }

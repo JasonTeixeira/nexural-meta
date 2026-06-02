@@ -79,6 +79,11 @@ jobs:
             data/golden-path-runs.public.json \
             data/proof-environment.public.json \
             data/db-proof.public.json \
+            data/operator-test.public.json \
+            data/maturity-lift.public.json \
+            data/daily-operating-loop.public.json \
+            data/dogfood-e2e.public.json \
+            data/portfolio-packaging.public.json \
             data/public-proof-layer.public.json \
             data/ecosystem-maintenance.public.json \
             docs/ECOSYSTEM_INVENTORY.md \
@@ -89,12 +94,22 @@ jobs:
             docs/GOLDEN_PATH.md \
             docs/PROOF_ENVIRONMENT.md \
             docs/DB_PROOF.md \
+            docs/OPERATOR_TEST.md \
+            docs/MATURITY_LIFT.md \
+            docs/DAILY_OPERATING_LOOP.md \
+            docs/DOGFOOD_E2E.md \
+            docs/PUBLIC_PORTFOLIO_PACKAGING.md \
             docs/PUBLIC_PROOF_LAYER.md \
             docs/ECOSYSTEM_MAINTENANCE.md \
             evidence/gate-5/ \
             evidence/golden-path/ \
             evidence/proof-environment/ \
             evidence/db-proof/ \
+            evidence/operator-test/ \
+            evidence/maturity-lift/ \
+            evidence/daily-ops/ \
+            evidence/dogfood/ \
+            evidence/portfolio-packaging/ \
             evidence/public-proof/ \
             evidence/maintenance/ \
             exports/proof-packet/

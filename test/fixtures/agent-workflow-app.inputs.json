@@ -1,0 +1,11 @@
+{
+  "appName": "agent-workflow-app",
+  "displayName": "Agent Workflow App",
+  "rootDomain": "agentworkflow.dev",
+  "trialDays": 14,
+  "llmEnabled": true,
+  "maxWorkflowSteps": 25,
+  "humanApprovalRequired": true,
+  "toolTimeoutSeconds": 60,
+  "evalStrictness": "standard"
+}

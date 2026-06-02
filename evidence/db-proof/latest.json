@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-01T21:35:43.832Z",
+  "generated_at": "2026-06-02T00:44:50.069Z",
   "generated_by": "scripts/db-proof-check.mjs",
   "privacy": "public-safe",
   "status": "passed",
@@ -59,13 +59,13 @@
     "required_names_checked": ["DATABASE_URL"],
     "database_url_present": true,
     "values_exposed": false,
-    "detail": "DATABASE_URL is present in local environment."
+    "detail": "DATABASE_URL is present in GitHub secret inventory."
   },
   "evidence": {
     "golden_path_latest": "evidence/golden-path/latest.json",
     "proof_environment": "data/proof-environment.public.json",
     "hosted_health_checked": true,
-    "report_hash": "sha256:a72695a37eaf8b1e0bc92bf7dc1d21a308295ae0de49e43ba695cdb7bff238a9"
+    "report_hash": "sha256:0568172247f76ecdb85cce2f8c97d901f524433ffcdbb18484c19be030be5725"
   },
   "next_actions": [
     {

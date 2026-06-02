@@ -2,7 +2,7 @@
 
 **Status:** Internal proof environment lock
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-06-01T21:35:40.302Z
+**Generated:** 2026-06-02T00:44:45.551Z
 **Overall:** passed
 
 ## Purpose
@@ -30,14 +30,14 @@ pnpm proof:env
 
 | Name                            | Status  |  Age | Rotation | Purpose                                                    |
 | ------------------------------- | ------- | ---: | -------- | ---------------------------------------------------------- |
-| `VERCEL_TOKEN`                  | present | n/ad | 90       | Automated hosted golden-path deployment.                   |
-| `VERCEL_TEAM_ID`                | present | n/ad | stable   | Vercel team/project binding.                               |
-| `VERCEL_PROJECT_ID`             | present | n/ad | stable   | Vercel project binding.                                    |
-| `VERCEL_PROOF_ALIAS`            | present | n/ad | stable   | Stable hostname used for hosted proof verification.        |
-| `NEXT_PUBLIC_SUPABASE_URL`      | present | n/ad | stable   | Staging Supabase project URL.                              |
-| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | present | n/ad | 180      | Browser-safe staging Supabase anon key.                    |
-| `SUPABASE_SERVICE_ROLE_KEY`     | present | n/ad | 90       | Server-side CRUD proof and generated app admin operations. |
-| `DATABASE_URL`                  | present | n/ad | 90       | Staging Postgres migration path for generated apps.        |
+| `VERCEL_TOKEN`                  | present | 0.5d | 90       | Automated hosted golden-path deployment.                   |
+| `VERCEL_TEAM_ID`                | present | 0.9d | stable   | Vercel team/project binding.                               |
+| `VERCEL_PROJECT_ID`             | present | 0.9d | stable   | Vercel project binding.                                    |
+| `VERCEL_PROOF_ALIAS`            | present | 0.9d | stable   | Stable hostname used for hosted proof verification.        |
+| `NEXT_PUBLIC_SUPABASE_URL`      | present | 0.4d | stable   | Staging Supabase project URL.                              |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | present | 0.4d | 180      | Browser-safe staging Supabase anon key.                    |
+| `SUPABASE_SERVICE_ROLE_KEY`     | present | 0.4d | 90       | Server-side CRUD proof and generated app admin operations. |
+| `DATABASE_URL`                  | present | 0.4d | 90       | Staging Postgres migration path for generated apps.        |
 
 ## Hosted Runtime
 

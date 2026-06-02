@@ -87,6 +87,30 @@ const ARTIFACTS = [
     required: true,
   },
   {
+    id: "operator_test",
+    path: "data/operator-test.public.json",
+    max_age_hours: 48,
+    required: true,
+  },
+  {
+    id: "maturity_lift",
+    path: "data/maturity-lift.public.json",
+    max_age_hours: 48,
+    required: true,
+  },
+  {
+    id: "daily_operating_loop",
+    path: "data/daily-operating-loop.public.json",
+    max_age_hours: 48,
+    required: true,
+  },
+  {
+    id: "portfolio_packaging",
+    path: "data/portfolio-packaging.public.json",
+    max_age_hours: 48,
+    required: true,
+  },
+  {
     id: "proof_export_json",
     path: "exports/proof-packet/engineering-os-proof.json",
     max_age_hours: 48,
@@ -119,8 +143,14 @@ function main() {
         commandResults.push(runStep("golden_path_vercel", pnpmBin, ["golden:path:deploy"]));
       }
     }
+    commandResults.push(runStep("recipe_catalog_post_proof", pnpmBin, ["recipe:catalog"]));
+    commandResults.push(runStep("resource_library_post_proof", pnpmBin, ["resource:library"]));
     commandResults.push(runStep("proof_environment", pnpmBin, ["proof:env"]));
     commandResults.push(runStep("db_proof", pnpmBin, ["proof:db"]));
+    commandResults.push(runStep("operator_test", pnpmBin, ["operator:test"]));
+    commandResults.push(runStep("maturity_lift", pnpmBin, ["maturity:lift"]));
+    commandResults.push(runStep("daily_operating_loop", pnpmBin, ["operator:daily"]));
+    commandResults.push(runStep("portfolio_packaging", pnpmBin, ["portfolio:package"]));
     commandResults.push(runStep("public_proof_export", pnpmBin, ["proof:export"]));
   }
 
@@ -680,6 +710,10 @@ function renderMarkdown(report) {
   lines.push("- `docs/RESOURCE_LIBRARY.md`");
   lines.push("- `docs/PROOF_ENVIRONMENT.md`");
   lines.push("- `docs/DB_PROOF.md`");
+  lines.push("- `docs/OPERATOR_TEST.md`");
+  lines.push("- `docs/MATURITY_LIFT.md`");
+  lines.push("- `docs/DAILY_OPERATING_LOOP.md`");
+  lines.push("- `docs/PUBLIC_PORTFOLIO_PACKAGING.md`");
   return `${lines.join("\n")}\n`;
 }
 

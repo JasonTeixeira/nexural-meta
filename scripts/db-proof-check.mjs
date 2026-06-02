@@ -206,11 +206,7 @@ async function fetchProtected(url, timeoutMs) {
     }
     const response = await fetch(url, { headers, signal: controller.signal });
     const body = await response.text();
-    if (
-      (response.status === 401 || response.status === 403) &&
-      process.env.VERCEL_TOKEN &&
-      isVercelUrl(url)
-    ) {
+    if ((response.status === 401 || response.status === 403) && isVercelUrl(url)) {
       return vercelCurl(url, timeoutMs);
     }
     return { status: response.status, body };
@@ -229,6 +225,7 @@ function vercelCurl(url, timeoutMs) {
     `${parsed.pathname || "/"}${parsed.search}`,
     "--deployment",
     `${parsed.protocol}//${parsed.host}`,
+    "--yes",
     "--",
     "-i",
     "-L",
@@ -237,7 +234,7 @@ function vercelCurl(url, timeoutMs) {
     String(Math.max(5, Math.ceil(timeoutMs / 1000))),
   ];
   const result = spawnSync(npxBin, args, {
-    cwd: ROOT,
+    cwd: vercelProjectCwd(),
     shell: process.platform === "win32",
     encoding: "utf8",
     stdio: ["ignore", "pipe", "pipe"],
@@ -250,6 +247,28 @@ function vercelCurl(url, timeoutMs) {
     );
   }
   return parseRawHttpResponse(result.stdout);
+}
+
+function vercelProjectCwd() {
+  const cacheDir = join(ROOT, ".nexural", "cache");
+  const linkedProject = join(cacheDir, ".vercel", "project.json");
+  if (existsSync(linkedProject)) return cacheDir;
+
+  const projectId = process.env.VERCEL_PROJECT_ID;
+  const orgId = process.env.VERCEL_TEAM_ID || process.env.VERCEL_ORG_ID;
+  if (projectId && orgId) {
+    const projectDir = join(cacheDir, "vercel-proof-project");
+    const vercelDir = join(projectDir, ".vercel");
+    mkdirSync(vercelDir, { recursive: true });
+    writeFileSync(
+      join(vercelDir, "project.json"),
+      `${JSON.stringify({ projectId, orgId }, null, 2)}\n`,
+      "utf8",
+    );
+    return projectDir;
+  }
+
+  return ROOT;
 }
 
 function parseRawHttpResponse(raw) {

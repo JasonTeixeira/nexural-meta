@@ -1,0 +1,26 @@
+create table if not exists ops_queues (
+  id uuid primary key default gen_random_uuid(),
+  tenant_id uuid not null references tenants(id) on delete cascade,
+  key text not null,
+  status text not null default 'open',
+  sla_minutes integer not null default 240,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists ops_approvals (
+  id uuid primary key default gen_random_uuid(),
+  tenant_id uuid not null references tenants(id) on delete cascade,
+  queue_id uuid references ops_queues(id) on delete cascade,
+  status text not null default 'pending',
+  requested_by uuid,
+  approved_by uuid,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists incident_notes (
+  id uuid primary key default gen_random_uuid(),
+  tenant_id uuid not null references tenants(id) on delete cascade,
+  severity text not null,
+  body text not null,
+  created_at timestamptz not null default now()
+);

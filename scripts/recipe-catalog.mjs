@@ -162,13 +162,18 @@ function parseRecipeManifest(text) {
 function parseServices(text) {
   const serviceBlock = section(text, "services");
   if (!serviceBlock) return [];
-  const chunks = serviceBlock.split(/\n\s*-\s+id:\s+/).slice(1);
-  return chunks.map((chunk) => ({
-    id: firstLine(chunk),
-    runtime: field(chunk, "runtime") ?? "unknown",
-    language: field(chunk, "language") ?? "unknown",
-    host: field(chunk, "host") ?? "unknown",
-  }));
+  const starts = [...serviceBlock.matchAll(/^\s*-\s+id:\s*(.+)$/gm)];
+  return starts.map((match, index) => {
+    const start = match.index ?? 0;
+    const end = index + 1 < starts.length ? starts[index + 1].index : serviceBlock.length;
+    const chunk = serviceBlock.slice(start, end);
+    return {
+      id: match[1].trim(),
+      runtime: field(chunk, "runtime") ?? "unknown",
+      language: field(chunk, "language") ?? "unknown",
+      host: field(chunk, "host") ?? "unknown",
+    };
+  });
 }
 
 function field(text, key) {

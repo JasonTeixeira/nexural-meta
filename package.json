@@ -43,6 +43,11 @@
     "proof:env": "node scripts/proof-environment-check.mjs",
     "proof:db": "node scripts/db-proof-check.mjs",
     "proof:export": "node scripts/public-proof-export.mjs",
+    "operator:test": "node scripts/operator-test-pass.mjs",
+    "maturity:lift": "node scripts/maturity-lift-plan.mjs",
+    "operator:daily": "node scripts/daily-operating-loop.mjs",
+    "dogfood:e2e": "node scripts/dogfood-e2e.mjs",
+    "portfolio:package": "node scripts/public-portfolio-packaging.mjs",
     "prepare": "husky"
   },
   "lint-staged": {
