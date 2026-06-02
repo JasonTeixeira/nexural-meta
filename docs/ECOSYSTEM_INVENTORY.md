@@ -2,7 +2,7 @@
 
 **Status:** Phase 1 generated inventory
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-06-02T03:02:54.602Z
+**Generated:** 2026-06-02T10:30:51.520Z
 **Source:** GitHub owner `JasonTeixeira`
 
 ## Privacy Boundary
@@ -12,9 +12,9 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 
 ## Totals
 
-- Total repositories: **162**
+- Total repositories: **136**
 - Public repositories: **136**
-- Private repositories: **26**
+- Private repositories: **0**
 - Archived repositories: **47**
 - Fork/reference repositories: **91**
 
@@ -22,34 +22,21 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 
 | Layer                | Count |
 | -------------------- | ----: |
-| agent-engine         |     3 |
-| app-factory-runtime  |     4 |
+| agent-engine         |     1 |
 | control-plane        |     1 |
-| ops-knowledge        |     7 |
-| product-proof        |     3 |
+| ops-knowledge        |     4 |
 | public-proof-surface |     3 |
-| quality-system       |     1 |
-| quant-trading        |    13 |
-| reference-library    |   122 |
-| resource-library     |     4 |
-| voice-engine         |     1 |
+| quant-trading        |     7 |
+| reference-library    |   118 |
+| resource-library     |     2 |
 
 ## Private Repository Summary
 
-- Private repos summarized: **26**
-- Private repos needing override review: **26**
+- Private repos summarized: **0**
+- Private repos needing override review: **0**
 
-| Private layer       | Count |
-| ------------------- | ----: |
-| agent-engine        |     2 |
-| app-factory-runtime |     4 |
-| ops-knowledge       |     3 |
-| product-proof       |     3 |
-| quality-system      |     1 |
-| quant-trading       |     6 |
-| reference-library   |     4 |
-| resource-library    |     2 |
-| voice-engine        |     1 |
+| Private layer | Count |
+| ------------- | ----: |
 
 ## Public Repositories
 

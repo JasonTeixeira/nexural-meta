@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-02T03:03:18.312Z",
+  "generated_at": "2026-06-02T10:37:33.130Z",
   "generated_by": "scripts/proof-environment-check.mjs",
   "privacy": "public-safe",
   "status": "passed",
@@ -10,10 +10,10 @@
     "gates_total": 6,
     "required_secrets_present": 8,
     "required_secrets_total": 8,
-    "hosted_url": "https://sage-client-intake-portal-vercel-8f62ooaxe-sage-ideas.vercel.app",
+    "hosted_url": "https://sage-client-intake-portal-vercel-l9xm5rg5d-sage-ideas.vercel.app",
     "hosted_health_status": 200,
-    "latest_run_id": "rag-knowledge-chat-2026-06-01T213051295Z",
-    "latest_app_hash": "sha256:3747581a28b026151e03af27ae35282aeaab8c4c98724e58a4da737986b1abd4",
+    "latest_run_id": "rag-knowledge-chat-2026-06-02T103248789Z",
+    "latest_app_hash": "sha256:6c1c4d8d650efa2b3ca8ee0858bb803bf5018782f55cfecd6a42371e57cb28b1",
     "latest_gate_count": 16
   },
   "gates": [
@@ -40,7 +40,7 @@
     {
       "id": "golden_path_evidence_present",
       "status": "passed",
-      "detail": "Latest run rag-knowledge-chat-2026-06-01T213051295Z has 16/16 gates."
+      "detail": "Latest run rag-knowledge-chat-2026-06-02T103248789Z has 16/16 gates."
     },
     {
       "id": "golden_path_has_hosted_db_gate",
@@ -54,8 +54,8 @@
       "purpose": "Automated hosted golden-path deployment.",
       "required": true,
       "present": true,
-      "updated_at": "2026-06-01T13:27:54Z",
-      "age_days": 0.6,
+      "updated_at": null,
+      "age_days": null,
       "max_age_days": 90,
       "status": "present",
       "rotation": "Rotate through Vercel account tokens."
@@ -65,8 +65,8 @@
       "purpose": "Vercel team/project binding.",
       "required": true,
       "present": true,
-      "updated_at": "2026-06-01T02:09:27Z",
-      "age_days": 1,
+      "updated_at": null,
+      "age_days": null,
       "max_age_days": null,
       "status": "present",
       "rotation": "Stable identifier; rotate only if project ownership changes."
@@ -76,8 +76,8 @@
       "purpose": "Vercel project binding.",
       "required": true,
       "present": true,
-      "updated_at": "2026-06-01T02:09:27Z",
-      "age_days": 1,
+      "updated_at": null,
+      "age_days": null,
       "max_age_days": null,
       "status": "present",
       "rotation": "Stable identifier; rotate only if project ownership changes."
@@ -87,8 +87,8 @@
       "purpose": "Stable hostname used for hosted proof verification.",
       "required": true,
       "present": true,
-      "updated_at": "2026-06-01T02:18:55Z",
-      "age_days": 1,
+      "updated_at": null,
+      "age_days": null,
       "max_age_days": null,
       "status": "present",
       "rotation": "Stable hostname; update when proof hostname changes."
@@ -109,8 +109,8 @@
       "purpose": "Staging Supabase project URL.",
       "required": true,
       "present": true,
-      "updated_at": "2026-06-01T15:51:10Z",
-      "age_days": 0.5,
+      "updated_at": null,
+      "age_days": null,
       "max_age_days": null,
       "status": "present",
       "rotation": "Stable project URL; update when staging project changes."
@@ -120,8 +120,8 @@
       "purpose": "Browser-safe staging Supabase anon key.",
       "required": true,
       "present": true,
-      "updated_at": "2026-06-01T14:20:18Z",
-      "age_days": 0.5,
+      "updated_at": null,
+      "age_days": null,
       "max_age_days": 180,
       "status": "present",
       "rotation": "Rotate with Supabase project API keys."
@@ -131,8 +131,8 @@
       "purpose": "Server-side CRUD proof and generated app admin operations.",
       "required": true,
       "present": true,
-      "updated_at": "2026-06-01T14:20:18Z",
-      "age_days": 0.5,
+      "updated_at": null,
+      "age_days": null,
       "max_age_days": 90,
       "status": "present",
       "rotation": "Rotate with Supabase project API keys."
@@ -142,8 +142,8 @@
       "purpose": "Staging Postgres migration path for generated apps.",
       "required": true,
       "present": true,
-      "updated_at": "2026-06-01T15:50:13Z",
-      "age_days": 0.5,
+      "updated_at": null,
+      "age_days": null,
       "max_age_days": 90,
       "status": "present",
       "rotation": "Rotate after DB password reset."
@@ -152,32 +152,32 @@
       "name": "NPM_TOKEN",
       "purpose": "Package publishing, not required for proof.",
       "required": false,
-      "present": true,
-      "updated_at": "2026-05-22T14:50:39Z",
-      "age_days": 10.5,
+      "present": false,
+      "updated_at": null,
+      "age_days": null,
       "max_age_days": 180,
-      "status": "present",
+      "status": "optional-missing",
       "rotation": "Rotate before package publishing cycles."
     }
   ],
   "hosted_runtime": {
     "ok": true,
-    "url": "https://sage-client-intake-portal-vercel-8f62ooaxe-sage-ideas.vercel.app",
+    "url": "https://sage-client-intake-portal-vercel-l9xm5rg5d-sage-ideas.vercel.app",
     "status": 200,
-    "duration_ms": 14943,
+    "duration_ms": 2951,
     "database_mode": "crud_probe",
     "database_operation": "insert-read-update-delete",
     "detail": "Hosted /api/health completed DB CRUD proof."
   },
   "evidence": {
     "golden_path_present": true,
-    "latest_run_id": "rag-knowledge-chat-2026-06-01T213051295Z",
-    "generated_at": "2026-06-01T21:35:28.910Z",
-    "app_hash": "sha256:3747581a28b026151e03af27ae35282aeaab8c4c98724e58a4da737986b1abd4",
+    "latest_run_id": "rag-knowledge-chat-2026-06-02T103248789Z",
+    "generated_at": "2026-06-02T10:37:20.974Z",
+    "app_hash": "sha256:6c1c4d8d650efa2b3ca8ee0858bb803bf5018782f55cfecd6a42371e57cb28b1",
     "gate_count": 16,
     "gates_passed": 16,
     "vercel_db_crud_gate": "passed",
-    "latest_evidence_hash": "sha256:34d11e9baaac3f06cc1bfa385d19db6f1e7063592e99d7e16811ac16d77b8b8a"
+    "latest_evidence_hash": "sha256:7af1fe6a4685d03b4f177f785f6d4017fd82c9c6ab69a51e0b2d92d1eb513b24"
   },
   "operating_rules": [
     "No secret values are written to evidence, docs, or generated public-safe JSON.",

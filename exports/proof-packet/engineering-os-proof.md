@@ -2,8 +2,8 @@
 
 **Status:** Phase 6 internal packet ready
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-06-02T03:03:46.984Z
-**Packet hash:** `sha256:6b5894caa41b271ef703b56d8b1790773c47b1961a8fbc11e6eddfb660a67dbf`
+**Generated:** 2026-06-02T10:37:41.170Z
+**Packet hash:** `sha256:745c8a75fad26989161feb698323ffcca9098b457cfdcd0be41397f463b9b8b7`
 
 ## Positioning
 
@@ -14,7 +14,7 @@ Brand boundary: Nexural is a trading/investment product proof, not the umbrella 
 ## Proof Metrics
 
 - Public repositories indexed: 136
-- Private repositories summarized: 26
+- Private repositories summarized: 0
 - Public assets scored: 136
 - Broad public average: 16/100
 - Load-bearing average: 96/100
@@ -23,10 +23,10 @@ Brand boundary: Nexural is a trading/investment product proof, not the umbrella 
 
 ## Public Claims
 
-- **The ecosystem has an indexed public registry.** 136 public repositories indexed; 26 private repositories summarized without names. Source: `data/ecosystem-registry.public.json`.
+- **The ecosystem has an indexed public registry.** 136 public repositories indexed; 0 private repositories summarized without names. Source: `data/ecosystem-registry.public.json`.
 - **Assets are scored before they are reused.** 136 public assets scored; public average 16/100, public load-bearing average 96/100. This is a gap map, not vanity scoring. Source: `data/ecosystem-scorecard.public.json`.
 - **Build choices are mapped to reusable resources.** 7 use cases mapped for daily navigation. Source: `data/ecosystem-resource-map.public.json`.
-- **The factory path has deployed hosted proof.** 16/16 golden-path gates passed; deployed URL verified at https://sage-client-intake-portal-vercel-8f62ooaxe-sage-ideas.vercel.app. Source: `data/golden-path-runs.public.json`.
+- **The factory path has deployed hosted proof.** 16/16 golden-path gates passed; deployed URL verified at https://sage-client-intake-portal-vercel-l9xm5rg5d-sage-ideas.vercel.app. Source: `data/golden-path-runs.public.json`.
 
 ## Architecture
 
@@ -54,7 +54,7 @@ Show registry counts, scorecard averages, use-case coverage, and golden-path gat
 
 ### Golden Path
 
-Latest proof run rag-knowledge-chat-2026-06-01T213051295Z generated, built, started, verified locally, and verified the deployed app at https://sage-client-intake-portal-vercel-8f62ooaxe-sage-ideas.vercel.app with hash sha256:3747581a28b026151e03af27ae35282aeaab8c4c98724e58a4da737986b1abd4.
+Latest proof run rag-knowledge-chat-2026-06-02T103248789Z generated, built, started, verified locally, and verified the deployed app at https://sage-client-intake-portal-vercel-l9xm5rg5d-sage-ideas.vercel.app with hash sha256:6c1c4d8d650efa2b3ca8ee0858bb803bf5018782f55cfecd6a42371e57cb28b1.
 
 ### Redaction Boundary
 
