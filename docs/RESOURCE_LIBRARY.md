@@ -1,7 +1,7 @@
 # Resource Library
 
 **Status:** Phase 12/13 generated resource library and maturity lift queue
-**Generated:** 2026-06-02T00:44:45.152Z
+**Generated:** 2026-06-02T02:13:15.435Z
 
 ## Summary
 
@@ -9,7 +9,7 @@
 - Use cases: 7
 - Recipes: 12
 - Proof-backed recipes: 3
-- Load-bearing average: 72/100
+- Load-bearing average: 95/100
 
 ## Operator Paths
 
@@ -20,20 +20,20 @@
 
 ## Maturity Lift Queue
 
-| Asset                        | Layer                | Current | Target | Reason                                                          |
-| ---------------------------- | -------------------- | ------: | -----: | --------------------------------------------------------------- |
-| saas-multitenant-baseline    | app-factory-runtime  |      80 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
-| saas-multitenant-baseline-cf | app-factory-runtime  |      80 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
-| saas-rag-chat-openai-first   | app-factory-runtime  |      80 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
-| saas-rag-chat-qdrant         | app-factory-runtime  |      80 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
-| QuantumTrader                | quant-trading        |      38 |     90 | Load-bearing asset under target maturity.                       |
-| micro-saas-starter           | resource-library     |      58 |     90 | Load-bearing asset under target maturity.                       |
-| terraform-aws-modules        | ops-knowledge        |      58 |     90 | Load-bearing asset under target maturity.                       |
-| AlphaStream                  | quant-trading        |      63 |     90 | Load-bearing asset under target maturity.                       |
-| NexQuantSite                 | quant-trading        |      63 |     90 | Load-bearing asset under target maturity.                       |
-| trade-engine                 | quant-trading        |      68 |     90 | Load-bearing asset under target maturity.                       |
-| JasonTeixeira                | public-proof-surface |      73 |     90 | Load-bearing asset under target maturity.                       |
-| nexural-automation-starter   | quant-trading        |      78 |     90 | Load-bearing asset under target maturity.                       |
-| awesome-cloud-native         | reference-library    |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
-| awesome-quant                | reference-library    |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
-| awesome-react                | reference-library    |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
+| Asset                        | Layer               | Current | Target | Reason                                                          |
+| ---------------------------- | ------------------- | ------: | -----: | --------------------------------------------------------------- |
+| saas-multitenant-baseline    | app-factory-runtime |      80 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
+| saas-multitenant-baseline-cf | app-factory-runtime |      80 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
+| saas-rag-chat-openai-first   | app-factory-runtime |      80 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
+| saas-rag-chat-qdrant         | app-factory-runtime |      80 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
+| micro-saas-starter           | resource-library    |      58 |     90 | Load-bearing asset under target maturity.                       |
+| awesome-cloud-native         | reference-library   |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
+| awesome-quant                | reference-library   |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
+| awesome-react                | reference-library   |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
+| awesome-systematic-trading   | reference-library   |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
+| aws-cloudformation-templates | reference-library   |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
+| bicep                        | reference-library   |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
+| build-your-own-x             | reference-library   |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
+| CLIMarketPlace               | reference-library   |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
+| dashboard                    | reference-library   |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
+| google-cloud-Cheat-Sheats    | reference-library   |       0 |     70 | Missing metadata makes the ecosystem less legible.              |

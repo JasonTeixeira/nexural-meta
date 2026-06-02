@@ -2,8 +2,8 @@
 
 **Status:** Phase 6 internal packet ready
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-06-02T00:44:55.658Z
-**Packet hash:** `sha256:217bbe2ee0879a85ef9d99163130d172502f9d71e965476ec9f9d39869991a6a`
+**Generated:** 2026-06-02T02:13:43.671Z
+**Packet hash:** `sha256:29d78ad4418a9cea0f9112f98252b39779a918b3af025fc0e3cfc61953097f27`
 
 ## Positioning
 
@@ -16,15 +16,15 @@ Brand boundary: Nexural is a trading/investment product proof, not the umbrella 
 - Public repositories indexed: 136
 - Private repositories summarized: 26
 - Public assets scored: 136
-- Broad public average: 14/100
-- Load-bearing average: 72/100
+- Broad public average: 16/100
+- Load-bearing average: 95/100
 - Resource use cases: 7
 - Golden path: 16/16 gates in 50s
 
 ## Public Claims
 
 - **The ecosystem has an indexed public registry.** 136 public repositories indexed; 26 private repositories summarized without names. Source: `data/ecosystem-registry.public.json`.
-- **Assets are scored before they are reused.** 136 public assets scored; public average 14/100, public load-bearing average 72/100. This is a gap map, not vanity scoring. Source: `data/ecosystem-scorecard.public.json`.
+- **Assets are scored before they are reused.** 136 public assets scored; public average 16/100, public load-bearing average 95/100. This is a gap map, not vanity scoring. Source: `data/ecosystem-scorecard.public.json`.
 - **Build choices are mapped to reusable resources.** 7 use cases mapped for daily navigation. Source: `data/ecosystem-resource-map.public.json`.
 - **The factory path has deployed hosted proof.** 16/16 golden-path gates passed; deployed URL verified at https://sage-client-intake-portal-vercel-8f62ooaxe-sage-ideas.vercel.app. Source: `data/golden-path-runs.public.json`.
 
@@ -37,9 +37,10 @@ Brand boundary: Nexural is a trading/investment product proof, not the umbrella 
 
 ## Recommended Assets
 
+- [JasonTeixeira](https://github.com/JasonTeixeira/JasonTeixeira) - public-proof-surface, 100/100, L4
+- [NexQuantSite](https://github.com/JasonTeixeira/NexQuantSite) - public-proof-surface, 100/100, L4
 - [nexural-meta](https://github.com/JasonTeixeira/nexural-meta) - control-plane, 100/100, L4
 - [sageideas.dev](https://github.com/JasonTeixeira/sageideas.dev) - public-proof-surface, 93/100, L3
-- [JasonTeixeira](https://github.com/JasonTeixeira/JasonTeixeira) - public-proof-surface, 73/100, L2
 
 ## Future Publishable Sections
 

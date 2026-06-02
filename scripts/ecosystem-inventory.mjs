@@ -21,6 +21,7 @@ const ROOT = resolve(HERE, "..");
 const PRIVATE_DIR = join(ROOT, ".nexural", "private");
 const DATA_DIR = join(ROOT, "data");
 const DOCS_DIR = join(ROOT, "docs");
+const PUBLIC_OVERRIDES_PATH = join(DATA_DIR, "ecosystem-public-overrides.json");
 
 const GH_FIELDS = [
   "name",
@@ -47,58 +48,45 @@ const GH_FIELDS = [
   "visibility",
 ];
 
-const PUBLIC_OVERRIDES = new Map([
-  [
-    "nexural-meta",
-    {
-      canonical_name: "Sage Ideas Engineering OS Control Plane",
-      layer: "control-plane",
-      asset_type: "control-plane",
-      maturity: "L4",
-      role: "Registry, warehouses, ADRs, recipes, CLI, and service-level governance.",
-    },
-  ],
-  [
-    "sageideas.dev",
-    {
-      canonical_name: "sageideas.dev",
-      layer: "public-proof-surface",
-      asset_type: "product-proof",
-      maturity: "L3",
-      role: "Public company and proof surface for Sage Ideas.",
-    },
-  ],
-  [
-    "Nexural_Automation",
-    {
-      canonical_name: "Nexural Automation",
-      layer: "quant-trading",
-      asset_type: "engine",
-      maturity: "L3",
-      role: "Local-first futures automation and strategy research hub.",
-    },
-  ],
-  [
-    "nexural-automation-starter",
-    {
-      canonical_name: "Nexural Automation Starter",
-      layer: "quant-trading",
-      asset_type: "kit",
-      maturity: "L2",
-      role: "Paper-money-safe webhook and paper-order starter kit.",
-    },
-  ],
-  [
-    "JasonTeixeira",
-    {
-      canonical_name: "JasonTeixeira GitHub Profile",
-      layer: "public-proof-surface",
-      asset_type: "product-proof",
-      maturity: "L2",
-      role: "GitHub profile and public engineering identity surface.",
-    },
-  ],
-]);
+const BASE_PUBLIC_OVERRIDES = {
+  "nexural-meta": {
+    canonical_name: "Sage Ideas Engineering OS Control Plane",
+    layer: "control-plane",
+    asset_type: "control-plane",
+    maturity: "L4",
+    role: "Registry, warehouses, ADRs, recipes, CLI, and service-level governance.",
+  },
+  "sageideas.dev": {
+    canonical_name: "sageideas.dev",
+    layer: "public-proof-surface",
+    asset_type: "product-proof",
+    maturity: "L3",
+    role: "Public company and proof surface for Sage Ideas.",
+  },
+  Nexural_Automation: {
+    canonical_name: "Nexural Automation",
+    layer: "quant-trading",
+    asset_type: "engine",
+    maturity: "L3",
+    role: "Local-first futures automation and strategy research hub.",
+  },
+  "nexural-automation-starter": {
+    canonical_name: "Nexural Automation Starter",
+    layer: "quant-trading",
+    asset_type: "kit",
+    maturity: "L2",
+    role: "Paper-money-safe webhook and paper-order starter kit.",
+  },
+  JasonTeixeira: {
+    canonical_name: "JasonTeixeira GitHub Profile",
+    layer: "public-proof-surface",
+    asset_type: "product-proof",
+    maturity: "L2",
+    role: "GitHub profile and public engineering identity surface.",
+  },
+};
+
+const PUBLIC_OVERRIDES = loadPublicOverrides();
 
 const PRIVATE_LAYER_HINTS = [
   ["platform", "app-factory-runtime"],
@@ -217,6 +205,13 @@ function loadPrivateOverrides() {
   return new Map(Object.entries(entries));
 }
 
+function loadPublicOverrides() {
+  const configured = existsSync(PUBLIC_OVERRIDES_PATH)
+    ? (JSON.parse(readFileSync(PUBLIC_OVERRIDES_PATH, "utf8"))?.repositories ?? {})
+    : {};
+  return new Map(Object.entries({ ...BASE_PUBLIC_OVERRIDES, ...configured }));
+}
+
 function classifyRepo(repo, privateOverrides) {
   const base = {
     name: repo.name,
@@ -253,6 +248,7 @@ function classifyRepo(repo, privateOverrides) {
       asset_type: override.asset_type ?? inferred.asset_type,
       maturity: override.maturity ?? inferred.maturity,
       role: override.role ?? inferred.role,
+      maturity_gaps: override.maturity_gaps ?? [],
       public_exposure: repo.isPrivate ? "redacted" : "public",
     },
     operational: {

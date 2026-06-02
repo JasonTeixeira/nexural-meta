@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-02T00:44:55.658Z",
+  "generated_at": "2026-06-02T02:13:43.671Z",
   "generated_by": "scripts/public-proof-export.mjs",
   "privacy": "public-safe",
   "target_surface": {
@@ -24,7 +24,7 @@
     },
     {
       "claim": "Assets are scored before they are reused.",
-      "evidence": "136 public assets scored; public average 14/100, public load-bearing average 72/100. This is a gap map, not vanity scoring.",
+      "evidence": "136 public assets scored; public average 16/100, public load-bearing average 95/100. This is a gap map, not vanity scoring.",
       "source": "data/ecosystem-scorecard.public.json"
     },
     {
@@ -64,9 +64,9 @@
     "public_repositories_indexed": 136,
     "private_repositories_summarized": 26,
     "public_assets_scored": 136,
-    "average_public_score": 14,
+    "average_public_score": 16,
     "load_bearing_assets": 11,
-    "load_bearing_average_score": 72,
+    "load_bearing_average_score": 95,
     "resource_use_cases": 7,
     "golden_path_wall_clock_seconds": 50,
     "golden_path_gates_passed": 16,
@@ -79,6 +79,24 @@
     "golden_path_deployed_url": "https://sage-client-intake-portal-vercel-8f62ooaxe-sage-ideas.vercel.app"
   },
   "recommended_assets": [
+    {
+      "name": "JasonTeixeira",
+      "url": "https://github.com/JasonTeixeira/JasonTeixeira",
+      "layer": "public-proof-surface",
+      "asset_type": "product-proof",
+      "maturity": "L4",
+      "score": 100,
+      "status": "active"
+    },
+    {
+      "name": "NexQuantSite",
+      "url": "https://github.com/JasonTeixeira/NexQuantSite",
+      "layer": "public-proof-surface",
+      "asset_type": "product-proof",
+      "maturity": "L4",
+      "score": 100,
+      "status": "watch"
+    },
     {
       "name": "nexural-meta",
       "url": "https://github.com/JasonTeixeira/nexural-meta",
@@ -95,15 +113,6 @@
       "asset_type": "product-proof",
       "maturity": "L3",
       "score": 93,
-      "status": "active"
-    },
-    {
-      "name": "JasonTeixeira",
-      "url": "https://github.com/JasonTeixeira/JasonTeixeira",
-      "layer": "public-proof-surface",
-      "asset_type": "product-proof",
-      "maturity": "L2",
-      "score": 73,
       "status": "active"
     }
   ],
@@ -152,7 +161,7 @@
     "golden_path_run_id": "rag-knowledge-chat-2026-06-01T213051295Z",
     "golden_path_deployed_url": "https://sage-client-intake-portal-vercel-8f62ooaxe-sage-ideas.vercel.app",
     "golden_path_deploy_status": "verified-vercel-url",
-    "packet_hash": "sha256:217bbe2ee0879a85ef9d99163130d172502f9d71e965476ec9f9d39869991a6a"
+    "packet_hash": "sha256:29d78ad4418a9cea0f9112f98252b39779a918b3af025fc0e3cfc61953097f27"
   },
   "redaction_policy": [
     "Commit public repository metadata only.",

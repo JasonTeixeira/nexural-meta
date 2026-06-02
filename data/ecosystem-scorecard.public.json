@@ -1,28 +1,27 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-02T00:44:43.326Z",
+  "generated_at": "2026-06-02T02:13:13.215Z",
   "generated_by": "scripts/ecosystem-scorecard.mjs",
   "source_generated_at": "2026-06-02T00:44:27.608Z",
   "privacy": "public-safe",
   "note": "Private repositories are scored internally and summarized by count only. Full scorecard is generated locally at .nexural/private/ecosystem-scorecard.internal.json.",
   "totals": {
     "total": 162,
-    "average_score": 20,
+    "average_score": 21,
     "load_bearing_count": 11,
-    "load_bearing_average_score": 72,
+    "load_bearing_average_score": 95,
     "by_band": {
-      "0-49 raw/reference": 138,
-      "50-69 incomplete": 19,
-      "70-84 usable": 2,
-      "95-100 elite": 2,
+      "0-49 raw/reference": 137,
+      "50-69 incomplete": 15,
+      "95-100 elite": 9,
       "85-94 strong": 1
     },
     "by_maturity": {
       "L0": 134,
-      "L2": 21,
+      "L2": 15,
+      "L4": 8,
       "L3": 2,
-      "L1": 4,
-      "L4": 1
+      "L1": 3
     },
     "top_gap_types": {
       "missing-topics": 147,
@@ -32,8 +31,9 @@
       "missing-license": 44,
       "needs-private-override-review": 26,
       "stale": 22,
-      "load-bearing-under-70": 6,
-      "missing-public-proof": 1
+      "missing-public-proof": 2,
+      "load-bearing-under-70": 1,
+      "missing-docs": 1
     }
   },
   "private_summary": {
@@ -332,9 +332,10 @@
         "canonical_name": "AlphaStream",
         "layer": "quant-trading",
         "asset_type": "engine",
-        "maturity": "L2",
-        "role": "Trading, strategy research, backtesting, or execution capability.",
-        "public_exposure": "public"
+        "maturity": "L4",
+        "role": "ML-powered futures signal system with FastAPI, model training, feature engineering, Supabase schema, and Next.js operator frontend.",
+        "public_exposure": "public",
+        "maturity_gaps": []
       },
       "operational": {
         "status": "watch",
@@ -342,16 +343,16 @@
         "needs_private_review": false
       },
       "score": {
-        "total": 63,
-        "band": "50-69 incomplete",
+        "total": 100,
+        "band": "95-100 elite",
         "load_bearing": true,
         "components": {
-          "maturity": 45,
+          "maturity": 85,
           "status": 0,
           "metadata": 13,
           "load_bearing_bonus": 5
         },
-        "gaps": ["missing-license", "load-bearing-under-70"]
+        "gaps": ["missing-license"]
       }
     },
     {
@@ -2972,9 +2973,10 @@
         "canonical_name": "JasonTeixeira GitHub Profile",
         "layer": "public-proof-surface",
         "asset_type": "product-proof",
-        "maturity": "L2",
-        "role": "GitHub profile and public engineering identity surface.",
-        "public_exposure": "public"
+        "maturity": "L4",
+        "role": "Public engineering identity surface that connects Sage Ideas, Nexural, trading systems, AI apps, cloud architecture, and proof assets.",
+        "public_exposure": "public",
+        "maturity_gaps": []
       },
       "operational": {
         "status": "active",
@@ -2982,11 +2984,11 @@
         "needs_private_review": false
       },
       "score": {
-        "total": 73,
-        "band": "70-84 usable",
+        "total": 100,
+        "band": "95-100 elite",
         "load_bearing": true,
         "components": {
-          "maturity": 45,
+          "maturity": 85,
           "status": 10,
           "metadata": 13,
           "load_bearing_bonus": 5
@@ -3549,8 +3551,9 @@
         "layer": "resource-library",
         "asset_type": "kit",
         "maturity": "L2",
-        "role": "Reusable tool, SDK, stack, or playbook intelligence.",
-        "public_exposure": "public"
+        "role": "Candidate SaaS starter kit. It remains below L4 until the public README documents the actual Supabase, Stripe, RLS, webhook, and deployment contract.",
+        "public_exposure": "public",
+        "maturity_gaps": ["missing-docs"]
       },
       "operational": {
         "status": "watch",
@@ -3567,7 +3570,7 @@
           "metadata": 8,
           "load_bearing_bonus": 5
         },
-        "gaps": ["missing-license", "missing-topics", "load-bearing-under-70"]
+        "gaps": ["missing-license", "missing-topics", "load-bearing-under-70", "missing-docs"]
       }
     },
     {
@@ -3738,11 +3741,12 @@
       "stargazers": 0,
       "canonical": {
         "canonical_name": "NexQuantSite",
-        "layer": "quant-trading",
-        "asset_type": "engine",
-        "maturity": "L2",
-        "role": "Trading, strategy research, backtesting, or execution capability.",
-        "public_exposure": "public"
+        "layer": "public-proof-surface",
+        "asset_type": "product-proof",
+        "maturity": "L4",
+        "role": "Trading platform product proof demonstrating a large Next.js/React app with admin, auth, PostgreSQL, Prisma, realtime readiness, tests, and Docker setup.",
+        "public_exposure": "public",
+        "maturity_gaps": []
       },
       "operational": {
         "status": "watch",
@@ -3750,16 +3754,16 @@
         "needs_private_review": false
       },
       "score": {
-        "total": 63,
-        "band": "50-69 incomplete",
+        "total": 100,
+        "band": "95-100 elite",
         "load_bearing": true,
         "components": {
-          "maturity": 45,
+          "maturity": 85,
           "status": 0,
           "metadata": 13,
           "load_bearing_bonus": 5
         },
-        "gaps": ["missing-license", "load-bearing-under-70"]
+        "gaps": ["missing-public-proof", "missing-license"]
       }
     },
     {
@@ -3998,9 +4002,10 @@
         "canonical_name": "Nexural Automation Starter",
         "layer": "quant-trading",
         "asset_type": "kit",
-        "maturity": "L2",
-        "role": "Paper-money-safe webhook and paper-order starter kit.",
-        "public_exposure": "public"
+        "maturity": "L4",
+        "role": "Paper-money-safe webhook and paper-order starter kit with Python, Node, Pine Script, shared env schema, webhook secret validation, logging, and notional caps.",
+        "public_exposure": "public",
+        "maturity_gaps": []
       },
       "operational": {
         "status": "active",
@@ -4008,11 +4013,11 @@
         "needs_private_review": false
       },
       "score": {
-        "total": 78,
-        "band": "70-84 usable",
+        "total": 100,
+        "band": "95-100 elite",
         "load_bearing": true,
         "components": {
-          "maturity": 45,
+          "maturity": 85,
           "status": 10,
           "metadata": 18,
           "load_bearing_bonus": 5
@@ -4629,9 +4634,10 @@
         "canonical_name": "QuantumTrader",
         "layer": "quant-trading",
         "asset_type": "engine",
-        "maturity": "L1",
-        "role": "Trading, strategy research, backtesting, or execution capability.",
-        "public_exposure": "public"
+        "maturity": "L4",
+        "role": "Event-driven quantitative trading engine with backtesting, execution simulation, risk management, market data, PostgreSQL, and Redis integration.",
+        "public_exposure": "public",
+        "maturity_gaps": []
       },
       "operational": {
         "status": "watch",
@@ -4639,16 +4645,16 @@
         "needs_private_review": false
       },
       "score": {
-        "total": 38,
-        "band": "0-49 raw/reference",
+        "total": 98,
+        "band": "95-100 elite",
         "load_bearing": true,
         "components": {
-          "maturity": 25,
+          "maturity": 85,
           "status": 0,
           "metadata": 8,
           "load_bearing_bonus": 5
         },
-        "gaps": ["missing-license", "missing-topics", "load-bearing-under-70"]
+        "gaps": ["missing-license", "missing-topics"]
       }
     },
     {
@@ -5589,9 +5595,10 @@
         "canonical_name": "terraform-aws-modules",
         "layer": "ops-knowledge",
         "asset_type": "playbook",
-        "maturity": "L2",
-        "role": "Operational knowledge, automation, cloud, DevOps, or maintenance reference.",
-        "public_exposure": "public"
+        "maturity": "L4",
+        "role": "Reusable AWS infrastructure module library covering VPC, S3 plus CloudFront, Lambda API, and GitHub OIDC patterns.",
+        "public_exposure": "public",
+        "maturity_gaps": []
       },
       "operational": {
         "status": "watch",
@@ -5599,16 +5606,16 @@
         "needs_private_review": false
       },
       "score": {
-        "total": 58,
-        "band": "50-69 incomplete",
+        "total": 98,
+        "band": "95-100 elite",
         "load_bearing": true,
         "components": {
-          "maturity": 45,
+          "maturity": 85,
           "status": 0,
           "metadata": 8,
           "load_bearing_bonus": 5
         },
-        "gaps": ["missing-license", "missing-topics", "load-bearing-under-70"]
+        "gaps": ["missing-license", "missing-topics"]
       }
     },
     {
@@ -6021,9 +6028,10 @@
         "canonical_name": "trade-engine",
         "layer": "quant-trading",
         "asset_type": "engine",
-        "maturity": "L2",
-        "role": "Trading, strategy research, backtesting, or execution capability.",
-        "public_exposure": "public"
+        "maturity": "L4",
+        "role": "Reusable event-driven order execution engine with strict order state machines, position tracking, risk management, event sourcing, and test entrypoint.",
+        "public_exposure": "public",
+        "maturity_gaps": []
       },
       "operational": {
         "status": "active",
@@ -6031,16 +6039,16 @@
         "needs_private_review": false
       },
       "score": {
-        "total": 68,
-        "band": "50-69 incomplete",
+        "total": 100,
+        "band": "95-100 elite",
         "load_bearing": true,
         "components": {
-          "maturity": 45,
+          "maturity": 85,
           "status": 10,
           "metadata": 8,
           "load_bearing_bonus": 5
         },
-        "gaps": ["missing-license", "missing-topics", "load-bearing-under-70"]
+        "gaps": ["missing-license", "missing-topics"]
       }
     },
     {
@@ -6681,18 +6689,18 @@
     },
     "ops-knowledge": {
       "count": 4,
-      "average_score": 26,
+      "average_score": 36,
       "load_bearing_count": 1
     },
     "public-proof-surface": {
-      "count": 2,
-      "average_score": 83,
-      "load_bearing_count": 2
+      "count": 3,
+      "average_score": 98,
+      "load_bearing_count": 3
     },
     "quant-trading": {
-      "count": 8,
-      "average_score": 55,
-      "load_bearing_count": 6
+      "count": 7,
+      "average_score": 76,
+      "load_bearing_count": 5
     },
     "reference-library": {
       "count": 118,
@@ -6718,7 +6726,7 @@
     },
     {
       "action": "Raise load-bearing assets below 70",
-      "reason": "6 load-bearing assets need docs, evidence, topics, homepage, or maturity upgrades.",
+      "reason": "1 load-bearing assets need docs, evidence, topics, homepage, or maturity upgrades.",
       "phase": "Phase 3-5"
     }
   ]

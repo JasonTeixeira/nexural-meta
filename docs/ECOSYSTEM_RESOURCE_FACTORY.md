@@ -2,7 +2,7 @@
 
 **Status:** Phase 4 generated resource map
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-06-02T00:44:43.673Z
+**Generated:** 2026-06-02T02:13:13.609Z
 
 ## Purpose
 
@@ -36,7 +36,7 @@ Recommended assets:
 
 Fix first:
 
-- [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 58/100, missing-license, missing-topics, load-bearing-under-70
+- [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 58/100, missing-license, missing-topics, load-bearing-under-70, missing-docs
 
 ### Choose a stack, SDK, or provider
 
@@ -51,7 +51,7 @@ Recommended assets:
 
 Fix first:
 
-- [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 58/100, missing-license, missing-topics, load-bearing-under-70
+- [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 58/100, missing-license, missing-topics, load-bearing-under-70, missing-docs
 
 ### Create QA and release proof
 
@@ -79,7 +79,7 @@ Recommended assets:
 
 Fix first:
 
-- [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 58/100, missing-license, missing-topics, load-bearing-under-70
+- [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 58/100, missing-license, missing-topics, load-bearing-under-70, missing-docs
 
 ### Build or audit trading infrastructure
 
@@ -89,19 +89,15 @@ Layers: `quant-trading`, `quality-system`, `resource-library`, `control-plane`
 
 Recommended assets:
 
+- [AlphaStream](https://github.com/JasonTeixeira/AlphaStream) - 100/100, L4
+- [nexural-automation-starter](https://github.com/JasonTeixeira/nexural-automation-starter) - 100/100, L4
 - [nexural-meta](https://github.com/JasonTeixeira/nexural-meta) - 100/100, L4
+- [trade-engine](https://github.com/JasonTeixeira/trade-engine) - 100/100, L4
 - [Nexural_Automation](https://github.com/JasonTeixeira/Nexural_Automation) - 100/100, L3
-- [nexural-automation-starter](https://github.com/JasonTeixeira/nexural-automation-starter) - 78/100, L2
-- [trade-engine](https://github.com/JasonTeixeira/trade-engine) - 68/100, L2
-- [AlphaStream](https://github.com/JasonTeixeira/AlphaStream) - 63/100, L2
 
 Fix first:
 
-- [QuantumTrader](https://github.com/JasonTeixeira/QuantumTrader) - 38/100, missing-license, missing-topics, load-bearing-under-70
-- [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 58/100, missing-license, missing-topics, load-bearing-under-70
-- [AlphaStream](https://github.com/JasonTeixeira/AlphaStream) - 63/100, missing-license, load-bearing-under-70
-- [NexQuantSite](https://github.com/JasonTeixeira/NexQuantSite) - 63/100, missing-license, load-bearing-under-70
-- [trade-engine](https://github.com/JasonTeixeira/trade-engine) - 68/100, missing-license, missing-topics, load-bearing-under-70
+- [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 58/100, missing-license, missing-topics, load-bearing-under-70, missing-docs
 
 ### Publish a public proof page
 
@@ -111,9 +107,10 @@ Layers: `public-proof-surface`, `product-proof`, `quality-system`, `control-plan
 
 Recommended assets:
 
+- [JasonTeixeira](https://github.com/JasonTeixeira/JasonTeixeira) - 100/100, L4
+- [NexQuantSite](https://github.com/JasonTeixeira/NexQuantSite) - 100/100, L4
 - [nexural-meta](https://github.com/JasonTeixeira/nexural-meta) - 100/100, L4
 - [sageideas.dev](https://github.com/JasonTeixeira/sageideas.dev) - 93/100, L3
-- [JasonTeixeira](https://github.com/JasonTeixeira/JasonTeixeira) - 73/100, L2
 
 Fix first:
 
@@ -131,4 +128,4 @@ Recommended assets:
 
 Fix first:
 
-- [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 58/100, missing-license, missing-topics, load-bearing-under-70
+- [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 58/100, missing-license, missing-topics, load-bearing-under-70, missing-docs

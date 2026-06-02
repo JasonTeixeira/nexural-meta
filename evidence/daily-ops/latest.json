@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-02T00:44:54.911Z",
+  "generated_at": "2026-06-02T02:13:42.893Z",
   "generated_by": "scripts/daily-operating-loop.mjs",
   "privacy": "public-safe",
   "phase": "Phase 20",
   "status": "ready",
   "weekly_proof_refresh": {
     "status": "passed",
-    "latest_public_hash": "sha256:74acbb3c1f55fee889091cf07852f8574b48756918ed2ac0cb3b0e1f4fff818e",
+    "latest_public_hash": "sha256:24b2b591b88004e98481b2d4e1dfe41476b0fedfdd6e37bd2c5a2826fb30a640",
     "hosted_golden_paths": 4,
     "db_proof_status": "passed"
   },
@@ -20,7 +20,7 @@
     {
       "severity": "info",
       "item": "Review and commit generated maintenance artifacts",
-      "reason": "60 changed path(s) after maintenance run."
+      "reason": "36 changed path(s) after maintenance run."
     }
   ],
   "recipe_freshness": [
@@ -136,14 +136,14 @@
       "question": "I need quant research, validation, execution, or trading automation.",
       "command": "/resources?useCase=build-trading-system",
       "recommended_assets": 6,
-      "improve_first_assets": 5
+      "improve_first_assets": 1
     },
     {
       "id": "publish-proof-page",
       "title": "Publish a public proof page",
       "question": "I need to show the system safely on sageideas.dev.",
       "command": "/resources?useCase=publish-proof-page",
-      "recommended_assets": 3,
+      "recommended_assets": 4,
       "improve_first_assets": 0
     },
     {
@@ -164,5 +164,5 @@
     "standard": "All L4/L5 claims need a doc, proof artifact, owner, and refresh path.",
     "docs": ["docs/MATURITY_LIFT.md", "docs/OPERATOR_TEST.md", "docs/PUBLIC_PORTFOLIO_PACKAGING.md"]
   },
-  "evidence_hash": "sha256:d58e1c5a16bbf32d705f0ac3f8f09827196ec4cb666c4703082a0c585df569f7"
+  "evidence_hash": "sha256:a59ea14a31750cfea95a538c8bba6f1e07f028189db9bf8a881f870c6f097103"
 }

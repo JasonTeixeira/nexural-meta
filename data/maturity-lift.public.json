@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-02T00:44:54.557Z",
+  "generated_at": "2026-06-02T02:13:42.504Z",
   "generated_by": "scripts/maturity-lift-plan.mjs",
   "privacy": "public-safe",
   "phase": "Phase 19",
-  "status": "lift-required",
+  "status": "elite",
   "summary": {
-    "current_load_bearing_average": 72,
+    "current_load_bearing_average": 95,
     "target_1": 85,
     "target_2": 90,
     "load_bearing_assets": 11,
-    "lift_items": 17,
+    "lift_items": 10,
     "resource_library_queue_items": 25
   },
   "l4_l5_operating_standard": {
@@ -29,68 +29,15 @@
   },
   "lift_queue": [
     {
-      "asset": "QuantumTrader",
-      "layer": "quant-trading",
-      "current_score": 38,
-      "target_score": 90,
-      "missing": ["missing-license", "missing-topics", "load-bearing-under-70"],
-      "required_work": ["Add searchable repo metadata/topics."]
-    },
-    {
       "asset": "micro-saas-starter",
       "layer": "resource-library",
       "current_score": 58,
       "target_score": 90,
-      "missing": ["missing-license", "missing-topics", "load-bearing-under-70"],
-      "required_work": ["Add searchable repo metadata/topics."]
-    },
-    {
-      "asset": "terraform-aws-modules",
-      "layer": "ops-knowledge",
-      "current_score": 58,
-      "target_score": 90,
-      "missing": ["missing-license", "missing-topics", "load-bearing-under-70"],
-      "required_work": ["Add searchable repo metadata/topics."]
-    },
-    {
-      "asset": "AlphaStream",
-      "layer": "quant-trading",
-      "current_score": 63,
-      "target_score": 90,
-      "missing": ["missing-license", "load-bearing-under-70"],
-      "required_work": ["Review maturity gap and either improve or mark reference-only."]
-    },
-    {
-      "asset": "NexQuantSite",
-      "layer": "quant-trading",
-      "current_score": 63,
-      "target_score": 90,
-      "missing": ["missing-license", "load-bearing-under-70"],
-      "required_work": ["Review maturity gap and either improve or mark reference-only."]
-    },
-    {
-      "asset": "trade-engine",
-      "layer": "quant-trading",
-      "current_score": 68,
-      "target_score": 90,
-      "missing": ["missing-license", "missing-topics", "load-bearing-under-70"],
-      "required_work": ["Add searchable repo metadata/topics."]
-    },
-    {
-      "asset": "JasonTeixeira",
-      "layer": "public-proof-surface",
-      "current_score": 73,
-      "target_score": 90,
-      "missing": ["missing-public-proof", "missing-license"],
-      "required_work": ["Attach public-safe proof evidence."]
-    },
-    {
-      "asset": "nexural-automation-starter",
-      "layer": "quant-trading",
-      "current_score": 78,
-      "target_score": 90,
-      "missing": ["missing-topics"],
-      "required_work": ["Add searchable repo metadata/topics."]
+      "missing": ["missing-license", "missing-topics", "load-bearing-under-70", "missing-docs"],
+      "required_work": [
+        "Add concise operator docs with setup, proof, and ownership.",
+        "Add searchable repo metadata/topics."
+      ]
     },
     {
       "asset": "agent-workflow-app",
@@ -166,5 +113,5 @@
     }
   ],
   "score_model_note": "This report does not inflate maturity scores. It defines the work required to raise the scorecard in subsequent proof refreshes.",
-  "evidence_hash": "sha256:c9b6df5ed23d5e5d038c77522c3541f2bf39b57a6164900790e526f91e109136"
+  "evidence_hash": "sha256:a2bc7367638f8a6010c8f687c94136933918f9673406bf5c9b45b2839279675b"
 }

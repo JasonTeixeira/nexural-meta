@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-02T00:44:43.673Z",
+  "generated_at": "2026-06-02T02:13:13.609Z",
   "generated_by": "scripts/ecosystem-resource-map.mjs",
-  "source_generated_at": "2026-06-02T00:44:43.326Z",
+  "source_generated_at": "2026-06-02T02:13:13.215Z",
   "privacy": "public-safe",
   "note": "Resource recommendations use public repository metadata only. Private assets remain summarized in scorecards and require local review.",
   "totals": {
     "use_cases": 7,
     "public_assets_considered": 136,
-    "recommended_assets": 9,
-    "improve_first_assets": 5
+    "recommended_assets": 10,
+    "improve_first_assets": 1
   },
   "use_cases": [
     {
@@ -53,12 +53,12 @@
           "layer": "resource-library",
           "asset_type": "kit",
           "maturity": "L2",
-          "role": "Reusable tool, SDK, stack, or playbook intelligence.",
+          "role": "Candidate SaaS starter kit. It remains below L4 until the public README documents the actual Supabase, Stripe, RLS, webhook, and deployment contract.",
           "score": 58,
           "band": "50-69 incomplete",
           "status": "watch",
           "language": "TypeScript",
-          "gaps": ["missing-license", "missing-topics", "load-bearing-under-70"]
+          "gaps": ["missing-license", "missing-topics", "load-bearing-under-70", "missing-docs"]
         }
       ],
       "reference_assets": []
@@ -102,12 +102,12 @@
           "layer": "resource-library",
           "asset_type": "kit",
           "maturity": "L2",
-          "role": "Reusable tool, SDK, stack, or playbook intelligence.",
+          "role": "Candidate SaaS starter kit. It remains below L4 until the public README documents the actual Supabase, Stripe, RLS, webhook, and deployment contract.",
           "score": 58,
           "band": "50-69 incomplete",
           "status": "watch",
           "language": "TypeScript",
-          "gaps": ["missing-license", "missing-topics", "load-bearing-under-70"]
+          "gaps": ["missing-license", "missing-topics", "load-bearing-under-70", "missing-docs"]
         }
       ],
       "improve_first": [
@@ -117,12 +117,12 @@
           "layer": "resource-library",
           "asset_type": "kit",
           "maturity": "L2",
-          "role": "Reusable tool, SDK, stack, or playbook intelligence.",
+          "role": "Candidate SaaS starter kit. It remains below L4 until the public README documents the actual Supabase, Stripe, RLS, webhook, and deployment contract.",
           "score": 58,
           "band": "50-69 incomplete",
           "status": "watch",
           "language": "TypeScript",
-          "gaps": ["missing-license", "missing-topics", "load-bearing-under-70"]
+          "gaps": ["missing-license", "missing-topics", "load-bearing-under-70", "missing-docs"]
         }
       ],
       "reference_assets": [
@@ -284,12 +284,12 @@
           "layer": "resource-library",
           "asset_type": "kit",
           "maturity": "L2",
-          "role": "Reusable tool, SDK, stack, or playbook intelligence.",
+          "role": "Candidate SaaS starter kit. It remains below L4 until the public README documents the actual Supabase, Stripe, RLS, webhook, and deployment contract.",
           "score": 58,
           "band": "50-69 incomplete",
           "status": "watch",
           "language": "TypeScript",
-          "gaps": ["missing-license", "missing-topics", "load-bearing-under-70"]
+          "gaps": ["missing-license", "missing-topics", "load-bearing-under-70", "missing-docs"]
         }
       ],
       "reference_assets": []
@@ -308,12 +308,38 @@
       ],
       "commands": ["pnpm ecosystem:refresh"],
       "asset_counts": {
-        "candidates": 11,
+        "candidates": 10,
         "recommended": 6,
-        "improve_first": 5,
+        "improve_first": 1,
         "reference_only": 0
       },
       "recommended_assets": [
+        {
+          "name": "AlphaStream",
+          "url": "https://github.com/JasonTeixeira/AlphaStream",
+          "layer": "quant-trading",
+          "asset_type": "engine",
+          "maturity": "L4",
+          "role": "ML-powered futures signal system with FastAPI, model training, feature engineering, Supabase schema, and Next.js operator frontend.",
+          "score": 100,
+          "band": "95-100 elite",
+          "status": "watch",
+          "language": "TypeScript",
+          "gaps": ["missing-license"]
+        },
+        {
+          "name": "nexural-automation-starter",
+          "url": "https://github.com/JasonTeixeira/nexural-automation-starter",
+          "layer": "quant-trading",
+          "asset_type": "kit",
+          "maturity": "L4",
+          "role": "Paper-money-safe webhook and paper-order starter kit with Python, Node, Pine Script, shared env schema, webhook secret validation, logging, and notional caps.",
+          "score": 100,
+          "band": "95-100 elite",
+          "status": "active",
+          "language": "Python",
+          "gaps": ["missing-topics"]
+        },
         {
           "name": "nexural-meta",
           "url": "https://github.com/JasonTeixeira/nexural-meta",
@@ -325,6 +351,19 @@
           "band": "95-100 elite",
           "status": "active",
           "language": "TypeScript",
+          "gaps": ["missing-license", "missing-topics"]
+        },
+        {
+          "name": "trade-engine",
+          "url": "https://github.com/JasonTeixeira/trade-engine",
+          "layer": "quant-trading",
+          "asset_type": "engine",
+          "maturity": "L4",
+          "role": "Reusable event-driven order execution engine with strict order state machines, position tracking, risk management, event sourcing, and test entrypoint.",
+          "score": 100,
+          "band": "95-100 elite",
+          "status": "active",
+          "language": "Python",
           "gaps": ["missing-license", "missing-topics"]
         },
         {
@@ -341,123 +380,32 @@
           "gaps": []
         },
         {
-          "name": "nexural-automation-starter",
-          "url": "https://github.com/JasonTeixeira/nexural-automation-starter",
-          "layer": "quant-trading",
-          "asset_type": "kit",
-          "maturity": "L2",
-          "role": "Paper-money-safe webhook and paper-order starter kit.",
-          "score": 78,
-          "band": "70-84 usable",
-          "status": "active",
-          "language": "Python",
-          "gaps": ["missing-topics"]
-        },
-        {
-          "name": "trade-engine",
-          "url": "https://github.com/JasonTeixeira/trade-engine",
-          "layer": "quant-trading",
-          "asset_type": "engine",
-          "maturity": "L2",
-          "role": "Trading, strategy research, backtesting, or execution capability.",
-          "score": 68,
-          "band": "50-69 incomplete",
-          "status": "active",
-          "language": "Python",
-          "gaps": ["missing-license", "missing-topics", "load-bearing-under-70"]
-        },
-        {
-          "name": "AlphaStream",
-          "url": "https://github.com/JasonTeixeira/AlphaStream",
-          "layer": "quant-trading",
-          "asset_type": "engine",
-          "maturity": "L2",
-          "role": "Trading, strategy research, backtesting, or execution capability.",
-          "score": 63,
-          "band": "50-69 incomplete",
-          "status": "watch",
-          "language": "TypeScript",
-          "gaps": ["missing-license", "load-bearing-under-70"]
-        },
-        {
-          "name": "NexQuantSite",
-          "url": "https://github.com/JasonTeixeira/NexQuantSite",
-          "layer": "quant-trading",
-          "asset_type": "engine",
-          "maturity": "L2",
-          "role": "Trading, strategy research, backtesting, or execution capability.",
-          "score": 63,
-          "band": "50-69 incomplete",
-          "status": "watch",
-          "language": "TypeScript",
-          "gaps": ["missing-license", "load-bearing-under-70"]
-        }
-      ],
-      "improve_first": [
-        {
           "name": "QuantumTrader",
           "url": "https://github.com/JasonTeixeira/QuantumTrader",
           "layer": "quant-trading",
           "asset_type": "engine",
-          "maturity": "L1",
-          "role": "Trading, strategy research, backtesting, or execution capability.",
-          "score": 38,
-          "band": "0-49 raw/reference",
+          "maturity": "L4",
+          "role": "Event-driven quantitative trading engine with backtesting, execution simulation, risk management, market data, PostgreSQL, and Redis integration.",
+          "score": 98,
+          "band": "95-100 elite",
           "status": "watch",
           "language": "Python",
-          "gaps": ["missing-license", "missing-topics", "load-bearing-under-70"]
-        },
+          "gaps": ["missing-license", "missing-topics"]
+        }
+      ],
+      "improve_first": [
         {
           "name": "micro-saas-starter",
           "url": "https://github.com/JasonTeixeira/micro-saas-starter",
           "layer": "resource-library",
           "asset_type": "kit",
           "maturity": "L2",
-          "role": "Reusable tool, SDK, stack, or playbook intelligence.",
+          "role": "Candidate SaaS starter kit. It remains below L4 until the public README documents the actual Supabase, Stripe, RLS, webhook, and deployment contract.",
           "score": 58,
           "band": "50-69 incomplete",
           "status": "watch",
           "language": "TypeScript",
-          "gaps": ["missing-license", "missing-topics", "load-bearing-under-70"]
-        },
-        {
-          "name": "AlphaStream",
-          "url": "https://github.com/JasonTeixeira/AlphaStream",
-          "layer": "quant-trading",
-          "asset_type": "engine",
-          "maturity": "L2",
-          "role": "Trading, strategy research, backtesting, or execution capability.",
-          "score": 63,
-          "band": "50-69 incomplete",
-          "status": "watch",
-          "language": "TypeScript",
-          "gaps": ["missing-license", "load-bearing-under-70"]
-        },
-        {
-          "name": "NexQuantSite",
-          "url": "https://github.com/JasonTeixeira/NexQuantSite",
-          "layer": "quant-trading",
-          "asset_type": "engine",
-          "maturity": "L2",
-          "role": "Trading, strategy research, backtesting, or execution capability.",
-          "score": 63,
-          "band": "50-69 incomplete",
-          "status": "watch",
-          "language": "TypeScript",
-          "gaps": ["missing-license", "load-bearing-under-70"]
-        },
-        {
-          "name": "trade-engine",
-          "url": "https://github.com/JasonTeixeira/trade-engine",
-          "layer": "quant-trading",
-          "asset_type": "engine",
-          "maturity": "L2",
-          "role": "Trading, strategy research, backtesting, or execution capability.",
-          "score": 68,
-          "band": "50-69 incomplete",
-          "status": "active",
-          "language": "Python",
-          "gaps": ["missing-license", "missing-topics", "load-bearing-under-70"]
+          "gaps": ["missing-license", "missing-topics", "load-bearing-under-70", "missing-docs"]
         }
       ],
       "reference_assets": []
@@ -476,12 +424,38 @@
       ],
       "commands": ["pnpm ecosystem:refresh"],
       "asset_counts": {
-        "candidates": 3,
-        "recommended": 3,
+        "candidates": 4,
+        "recommended": 4,
         "improve_first": 0,
         "reference_only": 0
       },
       "recommended_assets": [
+        {
+          "name": "JasonTeixeira",
+          "url": "https://github.com/JasonTeixeira/JasonTeixeira",
+          "layer": "public-proof-surface",
+          "asset_type": "product-proof",
+          "maturity": "L4",
+          "role": "Public engineering identity surface that connects Sage Ideas, Nexural, trading systems, AI apps, cloud architecture, and proof assets.",
+          "score": 100,
+          "band": "95-100 elite",
+          "status": "active",
+          "language": null,
+          "gaps": ["missing-public-proof", "missing-license"]
+        },
+        {
+          "name": "NexQuantSite",
+          "url": "https://github.com/JasonTeixeira/NexQuantSite",
+          "layer": "public-proof-surface",
+          "asset_type": "product-proof",
+          "maturity": "L4",
+          "role": "Trading platform product proof demonstrating a large Next.js/React app with admin, auth, PostgreSQL, Prisma, realtime readiness, tests, and Docker setup.",
+          "score": 100,
+          "band": "95-100 elite",
+          "status": "watch",
+          "language": "TypeScript",
+          "gaps": ["missing-public-proof", "missing-license"]
+        },
         {
           "name": "nexural-meta",
           "url": "https://github.com/JasonTeixeira/nexural-meta",
@@ -507,19 +481,6 @@
           "status": "active",
           "language": "TypeScript",
           "gaps": ["missing-license", "missing-topics"]
-        },
-        {
-          "name": "JasonTeixeira",
-          "url": "https://github.com/JasonTeixeira/JasonTeixeira",
-          "layer": "public-proof-surface",
-          "asset_type": "product-proof",
-          "maturity": "L2",
-          "role": "GitHub profile and public engineering identity surface.",
-          "score": 73,
-          "band": "70-84 usable",
-          "status": "active",
-          "language": null,
-          "gaps": ["missing-public-proof", "missing-license"]
         }
       ],
       "improve_first": [],
@@ -552,12 +513,12 @@
           "layer": "resource-library",
           "asset_type": "kit",
           "maturity": "L2",
-          "role": "Reusable tool, SDK, stack, or playbook intelligence.",
+          "role": "Candidate SaaS starter kit. It remains below L4 until the public README documents the actual Supabase, Stripe, RLS, webhook, and deployment contract.",
           "score": 58,
           "band": "50-69 incomplete",
           "status": "watch",
           "language": "TypeScript",
-          "gaps": ["missing-license", "missing-topics", "load-bearing-under-70"]
+          "gaps": ["missing-license", "missing-topics", "load-bearing-under-70", "missing-docs"]
         }
       ],
       "reference_assets": []

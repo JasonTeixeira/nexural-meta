@@ -292,7 +292,7 @@ function renderMarkdown(resourceMap) {
     }
     lines.push("");
   }
-  return `${lines.join("\n")}\n`;
+  return `${lines.join("\n").trimEnd()}\n`;
 }
 
 function writeJson(path, value) {

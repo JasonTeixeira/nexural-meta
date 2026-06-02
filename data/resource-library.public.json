@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-02T00:44:45.152Z",
+  "generated_at": "2026-06-02T02:13:15.435Z",
   "generated_by": "scripts/resource-library-catalog.mjs",
   "privacy": "public-safe",
   "status": "generated",
@@ -11,7 +11,7 @@
     "recipes": 12,
     "proof_backed_recipes": 3,
     "load_bearing_assets": 11,
-    "load_bearing_average_score": 72,
+    "load_bearing_average_score": 95,
     "proof_environment_status": "passed",
     "golden_path_passed_runs": 10
   },
@@ -76,14 +76,14 @@
       "question": "I need quant research, validation, execution, or trading automation.",
       "command": "/resources?useCase=build-trading-system",
       "recommended_assets": 6,
-      "improve_first_assets": 5
+      "improve_first_assets": 1
     },
     {
       "id": "publish-proof-page",
       "title": "Publish a public proof page",
       "question": "I need to show the system safely on sageideas.dev.",
       "command": "/resources?useCase=publish-proof-page",
-      "recommended_assets": 3,
+      "recommended_assets": 4,
       "improve_first_assets": 0
     },
     {
@@ -133,76 +133,13 @@
       "gaps": ["missing-golden-path-proof"]
     },
     {
-      "name": "QuantumTrader",
-      "layer": "quant-trading",
-      "asset_type": "engine",
-      "current_score": 38,
-      "target_score": 90,
-      "reason": "Load-bearing asset under target maturity.",
-      "gaps": ["missing-license", "missing-topics", "load-bearing-under-70"]
-    },
-    {
       "name": "micro-saas-starter",
       "layer": "resource-library",
       "asset_type": "kit",
       "current_score": 58,
       "target_score": 90,
       "reason": "Load-bearing asset under target maturity.",
-      "gaps": ["missing-license", "missing-topics", "load-bearing-under-70"]
-    },
-    {
-      "name": "terraform-aws-modules",
-      "layer": "ops-knowledge",
-      "asset_type": "playbook",
-      "current_score": 58,
-      "target_score": 90,
-      "reason": "Load-bearing asset under target maturity.",
-      "gaps": ["missing-license", "missing-topics", "load-bearing-under-70"]
-    },
-    {
-      "name": "AlphaStream",
-      "layer": "quant-trading",
-      "asset_type": "engine",
-      "current_score": 63,
-      "target_score": 90,
-      "reason": "Load-bearing asset under target maturity.",
-      "gaps": ["missing-license", "load-bearing-under-70"]
-    },
-    {
-      "name": "NexQuantSite",
-      "layer": "quant-trading",
-      "asset_type": "engine",
-      "current_score": 63,
-      "target_score": 90,
-      "reason": "Load-bearing asset under target maturity.",
-      "gaps": ["missing-license", "load-bearing-under-70"]
-    },
-    {
-      "name": "trade-engine",
-      "layer": "quant-trading",
-      "asset_type": "engine",
-      "current_score": 68,
-      "target_score": 90,
-      "reason": "Load-bearing asset under target maturity.",
-      "gaps": ["missing-license", "missing-topics", "load-bearing-under-70"]
-    },
-    {
-      "name": "JasonTeixeira",
-      "layer": "public-proof-surface",
-      "asset_type": "product-proof",
-      "current_score": 73,
-      "target_score": 90,
-      "reason": "Load-bearing asset under target maturity.",
-      "gaps": ["missing-public-proof", "missing-license"]
-    },
-    {
-      "name": "nexural-automation-starter",
-      "layer": "quant-trading",
-      "asset_type": "kit",
-      "current_score": 78,
-      "target_score": 90,
-      "reason": "Load-bearing asset under target maturity.",
-      "gaps": ["missing-topics"]
+      "gaps": ["missing-license", "missing-topics", "load-bearing-under-70", "missing-docs"]
     },
     {
       "name": "awesome-cloud-native",
@@ -320,6 +257,69 @@
       "target_score": 70,
       "reason": "Missing metadata makes the ecosystem less legible.",
       "gaps": ["maturity-l0", "archived", "missing-license", "missing-topics"]
+    },
+    {
+      "name": "Nexural_Website_ARCHIVED",
+      "layer": "reference-library",
+      "asset_type": "reference",
+      "current_score": 0,
+      "target_score": 70,
+      "reason": "Missing metadata makes the ecosystem less legible.",
+      "gaps": ["maturity-l0", "archived", "missing-license", "missing-topics"]
+    },
+    {
+      "name": "NexuralFlow",
+      "layer": "reference-library",
+      "asset_type": "reference",
+      "current_score": 0,
+      "target_score": 70,
+      "reason": "Missing metadata makes the ecosystem less legible.",
+      "gaps": ["maturity-l0", "archived", "missing-license", "missing-topics"]
+    },
+    {
+      "name": "og-aws",
+      "layer": "reference-library",
+      "asset_type": "reference",
+      "current_score": 0,
+      "target_score": 70,
+      "reason": "Missing metadata makes the ecosystem less legible.",
+      "gaps": ["maturity-l0", "archived", "missing-topics"]
+    },
+    {
+      "name": "system-design-primer",
+      "layer": "reference-library",
+      "asset_type": "reference",
+      "current_score": 0,
+      "target_score": 70,
+      "reason": "Missing metadata makes the ecosystem less legible.",
+      "gaps": ["maturity-l0", "archived", "missing-topics"]
+    },
+    {
+      "name": "terraform-guides",
+      "layer": "reference-library",
+      "asset_type": "reference",
+      "current_score": 0,
+      "target_score": 70,
+      "reason": "Missing metadata makes the ecosystem less legible.",
+      "gaps": ["maturity-l0", "archived", "missing-topics"]
+    },
+    {
+      "name": "the-art-of-command-line",
+      "layer": "reference-library",
+      "asset_type": "reference",
+      "current_score": 0,
+      "target_score": 70,
+      "reason": "Missing metadata makes the ecosystem less legible.",
+      "gaps": ["maturity-l0", "archived", "missing-license", "missing-topics"]
+    },
+    {
+      "name": "training-data-analyst",
+      "layer": "reference-library",
+      "asset_type": "reference",
+      "current_score": 0,
+      "target_score": 70,
+      "reason": "Missing metadata makes the ecosystem less legible.",
+      "gaps": ["maturity-l0", "archived", "missing-topics"]
     }
   ],
   "top_assets": [
@@ -346,6 +346,45 @@
       "recommended_use": "Recipe for internal-team admin tools. Extends saas-multitenant-baseline with"
     },
     {
+      "name": "AlphaStream",
+      "url": "https://github.com/JasonTeixeira/AlphaStream",
+      "layer": "quant-trading",
+      "asset_type": "engine",
+      "maturity": "L4",
+      "status": "watch",
+      "score": 100,
+      "proof": "repo-metadata",
+      "gaps": ["missing-license"],
+      "recommended_use": "ML-powered futures signal system with FastAPI, model training, feature engineering, Supabase schema, and Next.js operator frontend.",
+      "load_bearing": true
+    },
+    {
+      "name": "JasonTeixeira",
+      "url": "https://github.com/JasonTeixeira/JasonTeixeira",
+      "layer": "public-proof-surface",
+      "asset_type": "product-proof",
+      "maturity": "L4",
+      "status": "active",
+      "score": 100,
+      "proof": "missing",
+      "gaps": ["missing-public-proof", "missing-license"],
+      "recommended_use": "Public engineering identity surface that connects Sage Ideas, Nexural, trading systems, AI apps, cloud architecture, and proof assets.",
+      "load_bearing": true
+    },
+    {
+      "name": "NexQuantSite",
+      "url": "https://github.com/JasonTeixeira/NexQuantSite",
+      "layer": "public-proof-surface",
+      "asset_type": "product-proof",
+      "maturity": "L4",
+      "status": "watch",
+      "score": 100,
+      "proof": "missing",
+      "gaps": ["missing-public-proof", "missing-license"],
+      "recommended_use": "Trading platform product proof demonstrating a large Next.js/React app with admin, auth, PostgreSQL, Prisma, realtime readiness, tests, and Docker setup.",
+      "load_bearing": true
+    },
+    {
       "name": "Nexural_Automation",
       "url": "https://github.com/JasonTeixeira/Nexural_Automation",
       "layer": "quant-trading",
@@ -356,6 +395,19 @@
       "proof": "repo-metadata",
       "gaps": [],
       "recommended_use": "Local-first futures automation and strategy research hub.",
+      "load_bearing": true
+    },
+    {
+      "name": "nexural-automation-starter",
+      "url": "https://github.com/JasonTeixeira/nexural-automation-starter",
+      "layer": "quant-trading",
+      "asset_type": "kit",
+      "maturity": "L4",
+      "status": "active",
+      "score": 100,
+      "proof": "repo-metadata",
+      "gaps": ["missing-topics"],
+      "recommended_use": "Paper-money-safe webhook and paper-order starter kit with Python, Node, Pine Script, shared env schema, webhook secret validation, logging, and notional caps.",
       "load_bearing": true
     },
     {
@@ -381,6 +433,45 @@
       "proof": "golden-path",
       "gaps": [],
       "recommended_use": "Chat product with RAG (Retrieval-Augmented Generation) over user-uploaded"
+    },
+    {
+      "name": "trade-engine",
+      "url": "https://github.com/JasonTeixeira/trade-engine",
+      "layer": "quant-trading",
+      "asset_type": "engine",
+      "maturity": "L4",
+      "status": "active",
+      "score": 100,
+      "proof": "repo-metadata",
+      "gaps": ["missing-license", "missing-topics"],
+      "recommended_use": "Reusable event-driven order execution engine with strict order state machines, position tracking, risk management, event sourcing, and test entrypoint.",
+      "load_bearing": true
+    },
+    {
+      "name": "QuantumTrader",
+      "url": "https://github.com/JasonTeixeira/QuantumTrader",
+      "layer": "quant-trading",
+      "asset_type": "engine",
+      "maturity": "L4",
+      "status": "watch",
+      "score": 98,
+      "proof": "repo-metadata",
+      "gaps": ["missing-license", "missing-topics"],
+      "recommended_use": "Event-driven quantitative trading engine with backtesting, execution simulation, risk management, market data, PostgreSQL, and Redis integration.",
+      "load_bearing": true
+    },
+    {
+      "name": "terraform-aws-modules",
+      "url": "https://github.com/JasonTeixeira/terraform-aws-modules",
+      "layer": "ops-knowledge",
+      "asset_type": "playbook",
+      "maturity": "L4",
+      "status": "watch",
+      "score": 98,
+      "proof": "repo-metadata",
+      "gaps": ["missing-license", "missing-topics"],
+      "recommended_use": "Reusable AWS infrastructure module library covering VPC, S3 plus CloudFront, Lambda API, and GitHub OIDC patterns.",
+      "load_bearing": true
     },
     {
       "name": "sageideas.dev",
@@ -471,54 +562,6 @@
       "proof": "catalog-only",
       "gaps": ["missing-golden-path-proof"],
       "recommended_use": "Cloudflare Pages + Workers + D1 escape variant of saas-multitenant-baseline."
-    },
-    {
-      "name": "saas-rag-chat-openai-first",
-      "layer": "app-factory-runtime",
-      "asset_type": "recipe",
-      "maturity": "L3",
-      "status": "usable",
-      "score": 80,
-      "proof": "catalog-only",
-      "gaps": ["missing-golden-path-proof"],
-      "recommended_use": "OpenAI-primary variant of saas-rag-chat. Same architecture, different model"
-    },
-    {
-      "name": "saas-rag-chat-qdrant",
-      "layer": "app-factory-runtime",
-      "asset_type": "recipe",
-      "maturity": "L3",
-      "status": "usable",
-      "score": 80,
-      "proof": "catalog-only",
-      "gaps": ["missing-golden-path-proof"],
-      "recommended_use": "Qdrant primary escape variant of saas-rag-chat. Use when chunk count"
-    },
-    {
-      "name": "nexural-automation-starter",
-      "url": "https://github.com/JasonTeixeira/nexural-automation-starter",
-      "layer": "quant-trading",
-      "asset_type": "kit",
-      "maturity": "L2",
-      "status": "active",
-      "score": 78,
-      "proof": "repo-metadata",
-      "gaps": ["missing-topics"],
-      "recommended_use": "Paper-money-safe webhook and paper-order starter kit.",
-      "load_bearing": true
-    },
-    {
-      "name": "JasonTeixeira",
-      "url": "https://github.com/JasonTeixeira/JasonTeixeira",
-      "layer": "public-proof-surface",
-      "asset_type": "product-proof",
-      "maturity": "L2",
-      "status": "active",
-      "score": 73,
-      "proof": "missing",
-      "gaps": ["missing-public-proof", "missing-license"],
-      "recommended_use": "GitHub profile and public engineering identity surface.",
-      "load_bearing": true
     }
   ]
 }

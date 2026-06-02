@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "managed_by": "Sage Ideas Engineering OS",
+  "privacy": "public-safe",
+  "purpose": "Public, reviewable canonical classifications and maturity attestations for load-bearing assets. These overrides prevent the control plane from relying only on GitHub's generic metadata inference.",
+  "repositories": {
+    "QuantumTrader": {
+      "canonical_name": "QuantumTrader",
+      "layer": "quant-trading",
+      "asset_type": "engine",
+      "maturity": "L4",
+      "role": "Event-driven quantitative trading engine with backtesting, execution simulation, risk management, market data, PostgreSQL, and Redis integration.",
+      "evidence": [
+        "README documents event-driven architecture, no-lookahead focus, transaction costs, slippage, risk management, and execution flow.",
+        "README documents local setup with infrastructure, database initialization, and strategy backtest command."
+      ]
+    },
+    "AlphaStream": {
+      "canonical_name": "AlphaStream",
+      "layer": "quant-trading",
+      "asset_type": "engine",
+      "maturity": "L4",
+      "role": "ML-powered futures signal system with FastAPI, model training, feature engineering, Supabase schema, and Next.js operator frontend.",
+      "evidence": [
+        "README documents 7 symbols, 28 trained models, walk-forward validation, no-leakage features, and API endpoints.",
+        "README documents deployable frontend/backend/database split."
+      ]
+    },
+    "trade-engine": {
+      "canonical_name": "trade-engine",
+      "layer": "quant-trading",
+      "asset_type": "engine",
+      "maturity": "L4",
+      "role": "Reusable event-driven order execution engine with strict order state machines, position tracking, risk management, event sourcing, and test entrypoint.",
+      "evidence": [
+        "README documents signal-to-fill lifecycle, invalid-transition prevention, partial fills, rejected orders, and event sourcing.",
+        "README exposes a test command and executable example path."
+      ]
+    },
+    "terraform-aws-modules": {
+      "canonical_name": "terraform-aws-modules",
+      "layer": "ops-knowledge",
+      "asset_type": "playbook",
+      "maturity": "L4",
+      "role": "Reusable AWS infrastructure module library covering VPC, S3 plus CloudFront, Lambda API, and GitHub OIDC patterns.",
+      "evidence": [
+        "README documents production modules, variable validation, examples, and CI-tested positioning.",
+        "README ties modules to repeated infrastructure reuse across projects."
+      ]
+    },
+    "NexQuantSite": {
+      "canonical_name": "NexQuantSite",
+      "layer": "public-proof-surface",
+      "asset_type": "product-proof",
+      "maturity": "L4",
+      "role": "Trading platform product proof demonstrating a large Next.js/React app with admin, auth, PostgreSQL, Prisma, realtime readiness, tests, and Docker setup.",
+      "evidence": [
+        "README documents full-stack architecture, admin dashboard, auth, database, realtime readiness, Jest, Playwright, and Docker.",
+        "README includes setup flow for env, migrations, seed data, and local development."
+      ]
+    },
+    "nexural-automation-starter": {
+      "canonical_name": "Nexural Automation Starter",
+      "layer": "quant-trading",
+      "asset_type": "kit",
+      "maturity": "L4",
+      "role": "Paper-money-safe webhook and paper-order starter kit with Python, Node, Pine Script, shared env schema, webhook secret validation, logging, and notional caps.",
+      "evidence": [
+        "README documents Python and Node quickstarts plus a Pine alert payload.",
+        "README documents paper-order defaults, webhook secret validation, and max-notional safety limits."
+      ]
+    },
+    "JasonTeixeira": {
+      "canonical_name": "JasonTeixeira GitHub Profile",
+      "layer": "public-proof-surface",
+      "asset_type": "product-proof",
+      "maturity": "L4",
+      "role": "Public engineering identity surface that connects Sage Ideas, Nexural, trading systems, AI apps, cloud architecture, and proof assets.",
+      "evidence": [
+        "Profile README links Sage Ideas, Nexural, LinkedIn, product network, and builder profile.",
+        "GitHub topics classify the profile as portfolio, resume, developer, and cloud architect."
+      ]
+    },
+    "micro-saas-starter": {
+      "canonical_name": "micro-saas-starter",
+      "layer": "resource-library",
+      "asset_type": "kit",
+      "maturity": "L2",
+      "role": "Candidate SaaS starter kit. It remains below L4 until the public README documents the actual Supabase, Stripe, RLS, webhook, and deployment contract.",
+      "maturity_gaps": ["missing-docs"],
+      "evidence": [
+        "GitHub description claims a production SaaS starter.",
+        "README is still the default Next.js scaffold and must be replaced before elite maturity is earned."
+      ]
+    }
+  }
+}

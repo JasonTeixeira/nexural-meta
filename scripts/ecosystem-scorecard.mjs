@@ -18,6 +18,7 @@ const ROOT = resolve(HERE, "..");
 const PRIVATE_DIR = join(ROOT, ".nexural", "private");
 const DATA_DIR = join(ROOT, "data");
 const DOCS_DIR = join(ROOT, "docs");
+const PUBLIC_OVERRIDES_PATH = join(DATA_DIR, "ecosystem-public-overrides.json");
 
 const INTERNAL_REGISTRY = join(PRIVATE_DIR, "ecosystem-registry.internal.json");
 const PUBLIC_REGISTRY = join(DATA_DIR, "ecosystem-registry.public.json");
@@ -45,7 +46,10 @@ function main() {
   mkdirSync(DATA_DIR, { recursive: true });
   mkdirSync(PRIVATE_DIR, { recursive: true });
 
-  const repositories = registry.repositories ?? registry.public_repositories ?? [];
+  const publicOverrides = loadPublicOverrides();
+  const repositories = (registry.repositories ?? registry.public_repositories ?? []).map((repo) =>
+    applyPublicOverride(repo, publicOverrides),
+  );
   const scored = repositories.map(scoreRepo);
   const publicScored = scored.filter((repo) => !repo.is_private);
   const privateScored = scored.filter((repo) => repo.is_private);
@@ -98,6 +102,30 @@ function loadRegistry() {
   return JSON.parse(readFileSync(path, "utf8"));
 }
 
+function loadPublicOverrides() {
+  if (!existsSync(PUBLIC_OVERRIDES_PATH)) return new Map();
+  const raw = JSON.parse(readFileSync(PUBLIC_OVERRIDES_PATH, "utf8"));
+  return new Map(Object.entries(raw?.repositories ?? {}));
+}
+
+function applyPublicOverride(repo, publicOverrides) {
+  if (repo.is_private || !publicOverrides.has(repo.name)) return repo;
+  const override = publicOverrides.get(repo.name);
+  return {
+    ...repo,
+    canonical: {
+      ...repo.canonical,
+      canonical_name: override.canonical_name ?? repo.canonical?.canonical_name ?? repo.name,
+      layer: override.layer ?? repo.canonical?.layer,
+      asset_type: override.asset_type ?? repo.canonical?.asset_type,
+      maturity: override.maturity ?? repo.canonical?.maturity,
+      role: override.role ?? repo.canonical?.role,
+      maturity_gaps: override.maturity_gaps ?? repo.canonical?.maturity_gaps ?? [],
+      public_exposure: repo.canonical?.public_exposure ?? "public",
+    },
+  };
+}
+
 function scoreRepo(repo) {
   const maturity = repo.canonical?.maturity ?? "L0";
   const status = repo.operational?.status ?? "stale";
@@ -147,6 +175,7 @@ function gaps(repo, total) {
   if (!repo.topics || repo.topics.length === 0) found.push("missing-topics");
   if (repo.operational?.needs_private_review) found.push("needs-private-override-review");
   if (isLoadBearing(repo) && total < 70) found.push("load-bearing-under-70");
+  for (const gap of repo.canonical?.maturity_gaps ?? []) found.push(gap);
   return found;
 }
 
