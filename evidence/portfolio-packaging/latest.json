@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-02T10:37:40.853Z",
+  "generated_at": "2026-06-03T10:39:35.824Z",
   "generated_by": "scripts/public-portfolio-packaging.mjs",
   "privacy": "public-safe",
   "phase": "Phase 22",
@@ -8,7 +8,7 @@
   "summary": {
     "featured_runs": 3,
     "proof_backed_recipes": 3,
-    "public_proof_hash": "sha256:6b5894caa41b271ef703b56d8b1790773c47b1961a8fbc11e6eddfb660a67dbf",
+    "public_proof_hash": "sha256:745c8a75fad26989161feb698323ffcca9098b457cfdcd0be41397f463b9b8b7",
     "operator_test_status": "passed"
   },
   "public_safe_claims": [
@@ -21,22 +21,22 @@
     {
       "title": "RAG Knowledge Chat",
       "recipe": "saas-rag-chat",
-      "deployed_url": "https://sage-client-intake-portal-vercel-l9xm5rg5d-sage-ideas.vercel.app",
-      "tree_hash": "sha256:6c1c4d8d650efa2b3ca8ee0858bb803bf5018782f55cfecd6a42371e57cb28b1",
+      "deployed_url": "https://sage-client-intake-portal-vercel-q4v59h7u8-sage-ideas.vercel.app",
+      "tree_hash": "sha256:0e040960eba76f3f6acd9a1432b2e52e5603a01446481b2d075a218e61533302",
       "gates": "16/16"
     },
     {
       "title": "Fintech Ledger Ops",
       "recipe": "fintech-ledger-app",
-      "deployed_url": "https://sage-client-intake-portal-vercel-dtc5ryzrj-sage-ideas.vercel.app",
-      "tree_hash": "sha256:1cb1e52569604ad8e4b3a87bef57bd8c558eff0f85604cda43b617bb1a221240",
+      "deployed_url": "https://sage-client-intake-portal-vercel-gt89ujenf-sage-ideas.vercel.app",
+      "tree_hash": "sha256:467e6f371ce057cf68f27477e7f7f71d7649572bfcf2d2d0a3dcc29f92f412ef",
       "gates": "16/16"
     },
     {
       "title": "Client Intake Portal",
       "recipe": "internal-tool-dashboard",
-      "deployed_url": "https://sage-client-intake-portal-vercel-ebxcp1t5m-sage-ideas.vercel.app",
-      "tree_hash": "sha256:11256231d999737589fd753ade8cb6898183b2719509c5d3800b6c3e7ca19392",
+      "deployed_url": "https://sage-client-intake-portal-vercel-hmo6flrh5-sage-ideas.vercel.app",
+      "tree_hash": "sha256:f820168987259555b9b76da2d4a704b3b2817484427a5ce6bbd6156d83821ff6",
       "gates": "16/16"
     }
   ],
@@ -45,5 +45,5 @@
     "Keep private repository names/details summarized, not exposed.",
     "Rotate any tokens pasted into chat before using proof in public."
   ],
-  "evidence_hash": "sha256:3dadbbb02f942dc5aefbe4d06334e9baccb4b521a66a9711f8f0be7ef46fdc08"
+  "evidence_hash": "sha256:5f54dfe9c14bc208388859250df65b1b5299baef358c5a80d2d2e546f1091fc0"
 }

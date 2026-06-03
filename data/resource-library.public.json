@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-02T10:37:32.806Z",
+  "generated_at": "2026-06-03T10:39:27.577Z",
   "generated_by": "scripts/resource-library-catalog.mjs",
   "privacy": "public-safe",
   "status": "generated",
@@ -13,7 +13,7 @@
     "load_bearing_assets": 11,
     "load_bearing_average_score": 96,
     "proof_environment_status": "passed",
-    "golden_path_passed_runs": 13
+    "golden_path_passed_runs": 16
   },
   "operator_paths": [
     {
@@ -466,7 +466,7 @@
       "layer": "quant-trading",
       "asset_type": "engine",
       "maturity": "L4",
-      "status": "active",
+      "status": "watch",
       "score": 100,
       "proof": "repo-metadata",
       "gaps": ["missing-license"],

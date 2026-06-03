@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-02T10:31:04.715Z",
+  "generated_at": "2026-06-03T10:33:01.781Z",
   "generated_by": "scripts/ecosystem-resource-map.mjs",
-  "source_generated_at": "2026-06-02T10:31:04.403Z",
+  "source_generated_at": "2026-06-03T10:33:01.467Z",
   "privacy": "public-safe",
   "note": "Resource recommendations use public repository metadata only. Private assets remain summarized in scorecards and require local review.",
   "totals": {
@@ -401,7 +401,7 @@
           "role": "Reusable event-driven order execution engine with strict order state machines, position tracking, risk management, event sourcing, and test entrypoint.",
           "score": 100,
           "band": "95-100 elite",
-          "status": "active",
+          "status": "watch",
           "language": "Python",
           "gaps": ["missing-license"]
         },
