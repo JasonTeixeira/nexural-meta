@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-06T09:39:00.874Z",
+  "generated_at": "2026-06-07T10:00:20.418Z",
   "generated_by": "scripts/ecosystem-scorecard.mjs",
-  "source_generated_at": "2026-06-06T09:38:48.429Z",
+  "source_generated_at": "2026-06-07T10:00:07.119Z",
   "privacy": "public-safe",
   "note": "Private repositories are scored internally and summarized by count only. Full scorecard is generated locally at .nexural/private/ecosystem-scorecard.internal.json.",
   "totals": {
@@ -74,7 +74,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 226,
+        "stale_days": 227,
         "needs_private_review": false
       },
       "score": {
@@ -123,7 +123,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 308,
+        "stale_days": 309,
         "needs_private_review": false
       },
       "score": {
@@ -172,7 +172,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 37,
+        "stale_days": 38,
         "needs_private_review": false
       },
       "score": {
@@ -221,7 +221,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 42,
+        "stale_days": 43,
         "needs_private_review": false
       },
       "score": {
@@ -286,7 +286,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 35,
+        "stale_days": 36,
         "needs_private_review": false
       },
       "score": {
@@ -335,7 +335,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 149,
+        "stale_days": 150,
         "needs_private_review": false
       },
       "score": {
@@ -384,7 +384,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 42,
+        "stale_days": 43,
         "needs_private_review": false
       },
       "score": {
@@ -433,7 +433,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 51,
+        "stale_days": 52,
         "needs_private_review": false
       },
       "score": {
@@ -482,7 +482,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 599,
+        "stale_days": 600,
         "needs_private_review": false
       },
       "score": {
@@ -531,7 +531,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 494,
+        "stale_days": 495,
         "needs_private_review": false
       },
       "score": {
@@ -580,7 +580,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 484,
+        "stale_days": 485,
         "needs_private_review": false
       },
       "score": {
@@ -629,7 +629,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 535,
+        "stale_days": 536,
         "needs_private_review": false
       },
       "score": {
@@ -678,7 +678,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 663,
+        "stale_days": 664,
         "needs_private_review": false
       },
       "score": {
@@ -727,7 +727,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 644,
+        "stale_days": 645,
         "needs_private_review": false
       },
       "score": {
@@ -776,7 +776,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 251,
+        "stale_days": 252,
         "needs_private_review": false
       },
       "score": {
@@ -825,7 +825,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 546,
+        "stale_days": 547,
         "needs_private_review": false
       },
       "score": {
@@ -874,7 +874,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 500,
+        "stale_days": 501,
         "needs_private_review": false
       },
       "score": {
@@ -923,7 +923,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 478,
+        "stale_days": 479,
         "needs_private_review": false
       },
       "score": {
@@ -972,7 +972,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 676,
+        "stale_days": 677,
         "needs_private_review": false
       },
       "score": {
@@ -1021,7 +1021,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 505,
+        "stale_days": 506,
         "needs_private_review": false
       },
       "score": {
@@ -1070,7 +1070,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 655,
+        "stale_days": 656,
         "needs_private_review": false
       },
       "score": {
@@ -1119,7 +1119,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 149,
+        "stale_days": 150,
         "needs_private_review": false
       },
       "score": {
@@ -1168,7 +1168,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 471,
+        "stale_days": 472,
         "needs_private_review": false
       },
       "score": {
@@ -1217,7 +1217,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 589,
+        "stale_days": 590,
         "needs_private_review": false
       },
       "score": {
@@ -1266,7 +1266,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 22,
+        "stale_days": 23,
         "needs_private_review": false
       },
       "score": {
@@ -1315,7 +1315,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 38,
+        "stale_days": 39,
         "needs_private_review": false
       },
       "score": {
@@ -1364,7 +1364,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 640,
+        "stale_days": 641,
         "needs_private_review": false
       },
       "score": {
@@ -1413,7 +1413,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 471,
+        "stale_days": 472,
         "needs_private_review": false
       },
       "score": {
@@ -1462,7 +1462,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 149,
+        "stale_days": 150,
         "needs_private_review": false
       },
       "score": {
@@ -1511,7 +1511,7 @@
       },
       "operational": {
         "status": "active",
-        "stale_days": 14,
+        "stale_days": 15,
         "needs_private_review": false
       },
       "score": {
@@ -1560,7 +1560,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 36,
+        "stale_days": 37,
         "needs_private_review": false
       },
       "score": {
@@ -1609,7 +1609,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 590,
+        "stale_days": 591,
         "needs_private_review": false
       },
       "score": {
@@ -1658,7 +1658,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 591,
+        "stale_days": 592,
         "needs_private_review": false
       },
       "score": {
@@ -1707,7 +1707,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 204,
+        "stale_days": 205,
         "needs_private_review": false
       },
       "score": {
@@ -1756,7 +1756,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 205,
+        "stale_days": 206,
         "needs_private_review": false
       },
       "score": {
@@ -1805,7 +1805,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 205,
+        "stale_days": 206,
         "needs_private_review": false
       },
       "score": {
@@ -1854,7 +1854,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 159,
+        "stale_days": 160,
         "needs_private_review": false
       },
       "score": {
@@ -1903,7 +1903,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 483,
+        "stale_days": 484,
         "needs_private_review": false
       },
       "score": {
@@ -1952,7 +1952,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 32,
+        "stale_days": 33,
         "needs_private_review": false
       },
       "score": {
@@ -2001,7 +2001,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 483,
+        "stale_days": 484,
         "needs_private_review": false
       },
       "score": {
@@ -2050,7 +2050,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 588,
+        "stale_days": 589,
         "needs_private_review": false
       },
       "score": {
@@ -2099,7 +2099,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 644,
+        "stale_days": 645,
         "needs_private_review": false
       },
       "score": {
@@ -2148,7 +2148,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 589,
+        "stale_days": 590,
         "needs_private_review": false
       },
       "score": {
@@ -2197,7 +2197,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 223,
+        "stale_days": 224,
         "needs_private_review": false
       },
       "score": {
@@ -2246,7 +2246,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 19,
+        "stale_days": 20,
         "needs_private_review": false
       },
       "score": {
@@ -2295,7 +2295,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 42,
+        "stale_days": 43,
         "needs_private_review": false
       },
       "score": {
@@ -2344,7 +2344,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 149,
+        "stale_days": 150,
         "needs_private_review": false
       },
       "score": {
@@ -2393,7 +2393,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 205,
+        "stale_days": 206,
         "needs_private_review": false
       },
       "score": {
@@ -2442,7 +2442,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 589,
+        "stale_days": 590,
         "needs_private_review": false
       },
       "score": {
@@ -2491,7 +2491,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 288,
+        "stale_days": 289,
         "needs_private_review": false
       },
       "score": {
@@ -2540,7 +2540,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 21,
+        "stale_days": 22,
         "needs_private_review": false
       },
       "score": {
@@ -2589,7 +2589,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 18,
+        "stale_days": 19,
         "needs_private_review": false
       },
       "score": {
@@ -2638,7 +2638,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 790,
+        "stale_days": 791,
         "needs_private_review": false
       },
       "score": {
@@ -2687,7 +2687,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 12,
+        "stale_days": 13,
         "needs_private_review": false
       },
       "score": {
@@ -2736,7 +2736,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 12,
+        "stale_days": 13,
         "needs_private_review": false
       },
       "score": {
@@ -2785,7 +2785,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 253,
+        "stale_days": 254,
         "needs_private_review": false
       },
       "score": {
@@ -2834,7 +2834,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 813,
+        "stale_days": 814,
         "needs_private_review": false
       },
       "score": {
@@ -2883,7 +2883,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 471,
+        "stale_days": 472,
         "needs_private_review": false
       },
       "score": {
@@ -2932,7 +2932,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 159,
+        "stale_days": 160,
         "needs_private_review": false
       },
       "score": {
@@ -2981,7 +2981,7 @@
       },
       "operational": {
         "status": "active",
-        "stale_days": 24,
+        "stale_days": 25,
         "needs_private_review": false
       },
       "score": {
@@ -3030,7 +3030,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 466,
+        "stale_days": 467,
         "needs_private_review": false
       },
       "score": {
@@ -3079,7 +3079,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 624,
+        "stale_days": 625,
         "needs_private_review": false
       },
       "score": {
@@ -3128,7 +3128,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 15,
+        "stale_days": 16,
         "needs_private_review": false
       },
       "score": {
@@ -3177,7 +3177,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 589,
+        "stale_days": 590,
         "needs_private_review": false
       },
       "score": {
@@ -3226,7 +3226,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 146,
+        "stale_days": 147,
         "needs_private_review": false
       },
       "score": {
@@ -3275,7 +3275,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 28,
+        "stale_days": 29,
         "needs_private_review": false
       },
       "score": {
@@ -3324,7 +3324,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 283,
+        "stale_days": 284,
         "needs_private_review": false
       },
       "score": {
@@ -3373,7 +3373,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 273,
+        "stale_days": 274,
         "needs_private_review": false
       },
       "score": {
@@ -3422,7 +3422,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 31,
+        "stale_days": 32,
         "needs_private_review": false
       },
       "score": {
@@ -3471,7 +3471,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 204,
+        "stale_days": 205,
         "needs_private_review": false
       },
       "score": {
@@ -3520,7 +3520,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 18,
+        "stale_days": 19,
         "needs_private_review": false
       },
       "score": {
@@ -3577,7 +3577,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 38,
+        "stale_days": 39,
         "needs_private_review": false
       },
       "score": {
@@ -3626,7 +3626,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 149,
+        "stale_days": 150,
         "needs_private_review": false
       },
       "score": {
@@ -3675,7 +3675,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 16,
+        "stale_days": 17,
         "needs_private_review": false
       },
       "score": {
@@ -3724,7 +3724,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 582,
+        "stale_days": 583,
         "needs_private_review": false
       },
       "score": {
@@ -3773,7 +3773,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 40,
+        "stale_days": 41,
         "needs_private_review": false
       },
       "score": {
@@ -3822,7 +3822,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 471,
+        "stale_days": 472,
         "needs_private_review": false
       },
       "score": {
@@ -3889,7 +3889,7 @@
       },
       "operational": {
         "status": "active",
-        "stale_days": 2,
+        "stale_days": 4,
         "needs_private_review": false
       },
       "score": {
@@ -3938,7 +3938,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 180,
+        "stale_days": 181,
         "needs_private_review": false
       },
       "score": {
@@ -3987,7 +3987,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 62,
+        "stale_days": 63,
         "needs_private_review": false
       },
       "score": {
@@ -4036,7 +4036,7 @@
       },
       "operational": {
         "status": "active",
-        "stale_days": 11,
+        "stale_days": 12,
         "needs_private_review": false
       },
       "score": {
@@ -4074,12 +4074,12 @@
       ],
       "homepage_url": null,
       "created_at": "2026-05-22T12:11:28Z",
-      "pushed_at": "2026-06-05T15:03:48Z",
-      "updated_at": "2026-06-05T15:03:55Z",
+      "pushed_at": "2026-06-06T09:44:46Z",
+      "updated_at": "2026-06-06T09:44:50Z",
       "default_branch": "main",
       "license": null,
       "parent": null,
-      "disk_usage_kb": 1424,
+      "disk_usage_kb": 1445,
       "stargazers": 0,
       "canonical": {
         "canonical_name": "Sage Ideas Engineering OS Control Plane",
@@ -4092,7 +4092,7 @@
       },
       "operational": {
         "status": "active",
-        "stale_days": 0,
+        "stale_days": 1,
         "needs_private_review": false
       },
       "score": {
@@ -4141,7 +4141,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 55,
+        "stale_days": 56,
         "needs_private_review": false
       },
       "score": {
@@ -4190,7 +4190,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 223,
+        "stale_days": 224,
         "needs_private_review": false
       },
       "score": {
@@ -4246,7 +4246,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 204,
+        "stale_days": 205,
         "needs_private_review": false
       },
       "score": {
@@ -4295,7 +4295,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 508,
+        "stale_days": 509,
         "needs_private_review": false
       },
       "score": {
@@ -4344,7 +4344,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 659,
+        "stale_days": 660,
         "needs_private_review": false
       },
       "score": {
@@ -4393,7 +4393,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 252,
+        "stale_days": 253,
         "needs_private_review": false
       },
       "score": {
@@ -4442,7 +4442,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 149,
+        "stale_days": 150,
         "needs_private_review": false
       },
       "score": {
@@ -4491,7 +4491,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 483,
+        "stale_days": 484,
         "needs_private_review": false
       },
       "score": {
@@ -4540,7 +4540,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 588,
+        "stale_days": 589,
         "needs_private_review": false
       },
       "score": {
@@ -4589,7 +4589,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 213,
+        "stale_days": 214,
         "needs_private_review": false
       },
       "score": {
@@ -4638,7 +4638,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 282,
+        "stale_days": 283,
         "needs_private_review": false
       },
       "score": {
@@ -4687,7 +4687,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 42,
+        "stale_days": 43,
         "needs_private_review": false
       },
       "score": {
@@ -4736,7 +4736,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 39,
+        "stale_days": 40,
         "needs_private_review": false
       },
       "score": {
@@ -4785,7 +4785,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 550,
+        "stale_days": 551,
         "needs_private_review": false
       },
       "score": {
@@ -4834,7 +4834,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 39,
+        "stale_days": 40,
         "needs_private_review": false
       },
       "score": {
@@ -4883,7 +4883,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 204,
+        "stale_days": 205,
         "needs_private_review": false
       },
       "score": {
@@ -4932,7 +4932,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 33,
+        "stale_days": 34,
         "needs_private_review": false
       },
       "score": {
@@ -4981,7 +4981,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 532,
+        "stale_days": 533,
         "needs_private_review": false
       },
       "score": {
@@ -5030,7 +5030,7 @@
       },
       "operational": {
         "status": "active",
-        "stale_days": 0,
+        "stale_days": 1,
         "needs_private_review": false
       },
       "score": {
@@ -5079,7 +5079,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 39,
+        "stale_days": 40,
         "needs_private_review": false
       },
       "score": {
@@ -5110,12 +5110,12 @@
       "topics": ["agency-site", "case-studies", "portfolio", "public-proof", "sage-ideas"],
       "homepage_url": "https://qa-portfolio-peach.vercel.app",
       "created_at": "2026-01-07T18:07:52Z",
-      "pushed_at": "2026-06-06T06:15:02Z",
-      "updated_at": "2026-06-06T06:15:06Z",
+      "pushed_at": "2026-06-07T06:33:10Z",
+      "updated_at": "2026-06-07T06:33:14Z",
       "default_branch": "main",
       "license": null,
       "parent": null,
-      "disk_usage_kb": 209942,
+      "disk_usage_kb": 209944,
       "stargazers": 0,
       "canonical": {
         "canonical_name": "sageideas.dev",
@@ -5177,7 +5177,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 466,
+        "stale_days": 467,
         "needs_private_review": false
       },
       "score": {
@@ -5226,7 +5226,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 160,
+        "stale_days": 161,
         "needs_private_review": false
       },
       "score": {
@@ -5275,7 +5275,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 42,
+        "stale_days": 43,
         "needs_private_review": false
       },
       "score": {
@@ -5324,7 +5324,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 492,
+        "stale_days": 493,
         "needs_private_review": false
       },
       "score": {
@@ -5373,7 +5373,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 27,
+        "stale_days": 28,
         "needs_private_review": false
       },
       "score": {
@@ -5422,7 +5422,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 786,
+        "stale_days": 787,
         "needs_private_review": false
       },
       "score": {
@@ -5471,7 +5471,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 206,
+        "stale_days": 207,
         "needs_private_review": false
       },
       "score": {
@@ -5520,7 +5520,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 667,
+        "stale_days": 668,
         "needs_private_review": false
       },
       "score": {
@@ -5569,7 +5569,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 481,
+        "stale_days": 482,
         "needs_private_review": false
       },
       "score": {
@@ -5618,7 +5618,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 206,
+        "stale_days": 207,
         "needs_private_review": false
       },
       "score": {
@@ -5674,7 +5674,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 39,
+        "stale_days": 40,
         "needs_private_review": false
       },
       "score": {
@@ -5723,7 +5723,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 595,
+        "stale_days": 596,
         "needs_private_review": false
       },
       "score": {
@@ -5772,7 +5772,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 1234,
+        "stale_days": 1235,
         "needs_private_review": false
       },
       "score": {
@@ -5821,7 +5821,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 1065,
+        "stale_days": 1066,
         "needs_private_review": false
       },
       "score": {
@@ -5870,7 +5870,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 542,
+        "stale_days": 543,
         "needs_private_review": false
       },
       "score": {
@@ -5919,7 +5919,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 710,
+        "stale_days": 711,
         "needs_private_review": false
       },
       "score": {
@@ -5968,7 +5968,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 32,
+        "stale_days": 33,
         "needs_private_review": false
       },
       "score": {
@@ -6017,7 +6017,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 204,
+        "stale_days": 205,
         "needs_private_review": false
       },
       "score": {
@@ -6066,7 +6066,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 34,
+        "stale_days": 35,
         "needs_private_review": false
       },
       "score": {
@@ -6122,7 +6122,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 34,
+        "stale_days": 35,
         "needs_private_review": false
       },
       "score": {
@@ -6171,7 +6171,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 35,
+        "stale_days": 36,
         "needs_private_review": false
       },
       "score": {
@@ -6220,7 +6220,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 477,
+        "stale_days": 478,
         "needs_private_review": false
       },
       "score": {
@@ -6269,7 +6269,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 28,
+        "stale_days": 29,
         "needs_private_review": false
       },
       "score": {
@@ -6318,7 +6318,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 559,
+        "stale_days": 560,
         "needs_private_review": false
       },
       "score": {
@@ -6367,7 +6367,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 64,
+        "stale_days": 65,
         "needs_private_review": false
       },
       "score": {
@@ -6416,7 +6416,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 367,
+        "stale_days": 368,
         "needs_private_review": false
       },
       "score": {
@@ -6465,7 +6465,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 41,
+        "stale_days": 42,
         "needs_private_review": false
       },
       "score": {
@@ -6514,7 +6514,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 33,
+        "stale_days": 34,
         "needs_private_review": false
       },
       "score": {
@@ -6563,7 +6563,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 206,
+        "stale_days": 207,
         "needs_private_review": false
       },
       "score": {
@@ -6612,7 +6612,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 149,
+        "stale_days": 150,
         "needs_private_review": false
       },
       "score": {
@@ -6661,7 +6661,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 20,
+        "stale_days": 21,
         "needs_private_review": false
       },
       "score": {
@@ -6710,7 +6710,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 204,
+        "stale_days": 205,
         "needs_private_review": false
       },
       "score": {
@@ -6759,7 +6759,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 14,
+        "stale_days": 15,
         "needs_private_review": false
       },
       "score": {

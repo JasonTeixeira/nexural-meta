@@ -1,8 +1,8 @@
 # Public Portfolio Packaging
 
 **Status:** ready-to-review
-**Generated:** 2026-06-06T09:44:27.232Z
-**Proof hash:** `sha256:f778c30921ac291ebf26bdfe7d322952167820a6a6fecb025f0b5e636b6eaf98`
+**Generated:** 2026-06-07T10:07:04.177Z
+**Proof hash:** `sha256:d5fcab04da48aa086ed91000fb88ac8f2f6b2cca256222542cf06c882af1c5e4`
 
 ## Claims
 
@@ -13,11 +13,11 @@
 
 ## Featured Proofs
 
-| App                | Recipe             | Gates | URL                                                                      | Hash                                                                      |
-| ------------------ | ------------------ | ----- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------- |
-| RAG Knowledge Chat | saas-rag-chat      | 16/16 | https://sage-client-intake-portal-vercel-53ijjc6bf-sage-ideas.vercel.app | `sha256:2cb4648b37942fad6f471e6db10eb138bbeb74017ed375d77a6583c08b1a5b8d` |
-| Fintech Ledger Ops | fintech-ledger-app | 16/16 | https://sage-client-intake-portal-vercel-lbllfqvzc-sage-ideas.vercel.app | `sha256:cef7cb69ad0cabf2e73987128e52264c770a339148cd0ac2161489aea9bb7ea8` |
-| RAG Knowledge Chat | saas-rag-chat      | 16/16 | https://sage-client-intake-portal-vercel-6main9xjd-sage-ideas.vercel.app | `sha256:21a4cd2d73f008ce3c540e2a64b2abdf78e42f9e368658bea77ff813320f28f2` |
+| App                  | Recipe                  | Gates | URL                                                                      | Hash                                                                      |
+| -------------------- | ----------------------- | ----- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------- |
+| RAG Knowledge Chat   | saas-rag-chat           | 16/16 | https://sage-client-intake-portal-vercel-riznklkzp-sage-ideas.vercel.app | `sha256:4e2a6519bf41ca2a98611a5d20254102aa840fa9ca95a759d7f51eff56e79d94` |
+| Fintech Ledger Ops   | fintech-ledger-app      | 16/16 | https://sage-client-intake-portal-vercel-h5tt6jfa3-sage-ideas.vercel.app | `sha256:9ffc0319c7db305cf8e13e4aabc783d1c00534db6db7169d9fc11f54ce1a1dae` |
+| Client Intake Portal | internal-tool-dashboard | 16/16 | https://sage-client-intake-portal-vercel-8o81li5cm-sage-ideas.vercel.app | `sha256:25e0273de22cd2da38c7c08246904d22bf8858c67b3a1010a7db05e248f42317` |
 
 ## Publish Blockers
 

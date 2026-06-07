@@ -1,16 +1,17 @@
 # Daily Operating Loop
 
 **Status:** ready
-**Generated:** 2026-06-06T09:44:26.922Z
+**Generated:** 2026-06-07T10:07:03.870Z
 
 ## Refresh
 
-- Maintenance: passed
-- Hosted golden paths: 16
+- Maintenance: failed
+- Hosted golden paths: 18
 - DB proof: passed
-- Public hash: `sha256:f778c30921ac291ebf26bdfe7d322952167820a6a6fecb025f0b5e636b6eaf98`
+- Public hash: `sha256:d5fcab04da48aa086ed91000fb88ac8f2f6b2cca256222542cf06c882af1c5e4`
 
 ## Queue
 
+- **critical:** Fix failed maintenance command: golden_path_vercel - pnpm golden:path:deploy exited 1.
 - **info:** Review public-safe packet remaining gaps before making external claims - 1 remaining gaps in public-safe packet.
-- **info:** Review and commit generated maintenance artifacts - 46 changed path(s) after maintenance run.
+- **info:** Review and commit generated maintenance artifacts - 45 changed path(s) after maintenance run.
