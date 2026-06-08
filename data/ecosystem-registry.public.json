@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-08T10:31:32.777Z",
+  "generated_at": "2026-06-08T11:40:54.649Z",
   "generated_by": "scripts/ecosystem-inventory.mjs",
   "owner": "JasonTeixeira",
   "privacy": "public-safe",
@@ -432,7 +432,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 496,
+        "stale_days": 497,
         "needs_private_review": false
       }
     },
@@ -802,7 +802,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 507,
+        "stale_days": 508,
         "needs_private_review": false
       }
     },
@@ -2023,7 +2023,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 792,
+        "stale_days": 793,
         "needs_private_review": false
       }
     },
@@ -2578,7 +2578,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 275,
+        "stale_days": 276,
         "needs_private_review": false
       }
     },
@@ -2689,7 +2689,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 20,
+        "stale_days": 21,
         "needs_private_review": false
       }
     },
@@ -2734,7 +2734,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 40,
+        "stale_days": 41,
         "needs_private_review": false
       }
     },
@@ -3111,12 +3111,12 @@
       ],
       "homepage_url": null,
       "created_at": "2026-05-22T12:11:28Z",
-      "pushed_at": "2026-06-07T10:07:23Z",
-      "updated_at": "2026-06-07T10:07:27Z",
+      "pushed_at": "2026-06-08T10:38:17Z",
+      "updated_at": "2026-06-08T10:38:21Z",
       "default_branch": "main",
       "license": null,
       "parent": null,
-      "disk_usage_kb": 1536,
+      "disk_usage_kb": 1627,
       "stargazers": 0,
       "canonical": {
         "canonical_name": "Sage Ideas Engineering OS Control Plane",
@@ -3129,7 +3129,7 @@
       },
       "operational": {
         "status": "active",
-        "stale_days": 1,
+        "stale_days": 0,
         "needs_private_review": false
       }
     },
@@ -3543,7 +3543,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 284,
+        "stale_days": 285,
         "needs_private_review": false
       }
     },
@@ -4926,7 +4926,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 43,
+        "stale_days": 44,
         "needs_private_review": false
       }
     },
