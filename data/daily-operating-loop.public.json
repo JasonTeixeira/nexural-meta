@@ -1,22 +1,17 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-07T10:07:03.870Z",
+  "generated_at": "2026-06-08T10:38:01.683Z",
   "generated_by": "scripts/daily-operating-loop.mjs",
   "privacy": "public-safe",
   "phase": "Phase 20",
   "status": "ready",
   "weekly_proof_refresh": {
-    "status": "failed",
-    "latest_public_hash": "sha256:d5fcab04da48aa086ed91000fb88ac8f2f6b2cca256222542cf06c882af1c5e4",
-    "hosted_golden_paths": 18,
+    "status": "passed",
+    "latest_public_hash": "sha256:b13eba7d7304cdfc6b959473b90deb9f9a1fd123bed445c99f7004ca4ca59717",
+    "hosted_golden_paths": 21,
     "db_proof_status": "passed"
   },
   "broken_asset_queue": [
-    {
-      "severity": "critical",
-      "item": "Fix failed maintenance command: golden_path_vercel",
-      "reason": "pnpm golden:path:deploy exited 1."
-    },
     {
       "severity": "info",
       "item": "Review public-safe packet remaining gaps before making external claims",
@@ -25,7 +20,7 @@
     {
       "severity": "info",
       "item": "Review and commit generated maintenance artifacts",
-      "reason": "45 changed path(s) after maintenance run."
+      "reason": "46 changed path(s) after maintenance run."
     }
   ],
   "recipe_freshness": [
@@ -161,7 +156,6 @@
     }
   ],
   "next_action_recommendations": [
-    "Fix failed maintenance command: golden_path_vercel",
     "Review public-safe packet remaining gaps before making external claims",
     "Review and commit generated maintenance artifacts",
     "Private asset maturity still needs local review before public claims can include deeper implementation detail."
@@ -170,5 +164,5 @@
     "standard": "All L4/L5 claims need a doc, proof artifact, owner, and refresh path.",
     "docs": ["docs/MATURITY_LIFT.md", "docs/OPERATOR_TEST.md", "docs/PUBLIC_PORTFOLIO_PACKAGING.md"]
   },
-  "evidence_hash": "sha256:fcf87cd1bd8d645e40700b94840b30755e57c1008f5c78d4067dae157d68a0c8"
+  "evidence_hash": "sha256:8873a1f5095e25ab9b7073f2269059bba425f9c09a2f8d22dcc3d8f6cfaad704"
 }

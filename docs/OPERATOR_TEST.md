@@ -1,16 +1,16 @@
 # Operator Test Pass
 
 **Status:** passed
-**Generated:** 2026-06-07T10:07:03.221Z
+**Generated:** 2026-06-08T10:38:01.176Z
 
 ## Summary
 
 - Checks: 8/8
 - Recipes indexed: 12
 - Proof-backed recipes: 3
-- Hosted golden paths: 21
+- Hosted golden paths: 24
 - DB proof: passed
-- Evidence hash: `sha256:dda6ed53144571575560b0693cbafe5184661adb38160b120e3a9f75947c6df1`
+- Evidence hash: `sha256:feaff4df293cc88420ba0d7197ed3d0a9553d395b9b0595e3efb1ed59d628106`
 
 ## Checks
 
@@ -20,7 +20,7 @@
 | Operator can choose from a serious recipe catalog.              | passed | 12 recipes, 12 forge-ready, 3 proof-backed. |
 | Recipe proof count matches hosted golden-path evidence.         | passed | catalog=3, golden=3.                        |
 | Dashboard has the expected operator pages.                      | passed | 11/11 routes present.                       |
-| Golden path, proof env, DB proof, and public packet are usable. | passed | 21 hosted runs, env=passed, db=passed.      |
+| Golden path, proof env, DB proof, and public packet are usable. | passed | 24 hosted runs, env=passed, db=passed.      |
 | DB proof includes CRUD, schema drift, and seed-data checks.     | passed | crud=passed, schema=passed, seed=passed.    |
-| Maintenance loop exposes freshness and next actions.            | passed | maintenance=failed, actions=3.              |
+| Maintenance loop exposes freshness and next actions.            | passed | maintenance=passed, actions=2.              |
 | Operator can see what to fix first.                             | passed | 25 lift items, 4 operator paths.            |
