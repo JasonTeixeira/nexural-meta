@@ -1,13 +1,13 @@
 # DB Proof
 
 **Status:** Phase 15 generated DB proof and migration-readiness check
-**Generated:** 2026-06-08T11:47:45.639Z
+**Generated:** 2026-06-09T10:19:46.380Z
 
 ## Summary
 
 - Gates: 6/6
-- Latest run: rag-knowledge-chat-2026-06-08T114257236Z
-- Hosted URL: https://sage-client-intake-portal-vercel-fi7xkkmnx-sage-ideas.vercel.app
+- Latest run: rag-knowledge-chat-2026-06-09T101446697Z
+- Hosted URL: https://sage-client-intake-portal-vercel-j6geovs14-sage-ideas.vercel.app
 - Database mode: staging-postgres
 - Schema drift: passed
 - Seed data: passed
