@@ -1,8 +1,8 @@
 # Public Portfolio Packaging
 
 **Status:** ready-to-review
-**Generated:** 2026-06-11T10:37:10.760Z
-**Proof hash:** `sha256:9fb69762095f8f5ee0fd28718f5aa9f19e43dff6a7bbd74e61c8b5666211d83c`
+**Generated:** 2026-06-12T10:35:48.490Z
+**Proof hash:** `sha256:aeed4e72f8d1488a15cb69538695f3992a17fa862776375caef4f5b2fd0c4a5f`
 
 ## Claims
 
@@ -15,9 +15,9 @@
 
 | App                  | Recipe                  | Gates | URL                                                                      | Hash                                                                      |
 | -------------------- | ----------------------- | ----- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------- |
-| RAG Knowledge Chat   | saas-rag-chat           | 16/16 | https://sage-client-intake-portal-vercel-acnkafbbl-sage-ideas.vercel.app | `sha256:7a894b5415f8981fc00f786ec6b20c829b5ae38325e92f97a22bc4dfde80a01b` |
-| Fintech Ledger Ops   | fintech-ledger-app      | 16/16 | https://sage-client-intake-portal-vercel-fm27esg7h-sage-ideas.vercel.app | `sha256:a2892c06cf275414db2c0fb245571f198b32e404e9692cd318297e82e05e647f` |
-| Client Intake Portal | internal-tool-dashboard | 16/16 | https://sage-client-intake-portal-vercel-6cq6f7wsu-sage-ideas.vercel.app | `sha256:dc050b33e7243b956c6d9b49fae6547ed13652db58861ce0406230ff355cc611` |
+| RAG Knowledge Chat   | saas-rag-chat           | 16/16 | https://sage-client-intake-portal-vercel-d1lszjo8s-sage-ideas.vercel.app | `sha256:9c19b6eb75b5c50f1f0e972a776d05a3cb7fc66550060236264aa9f4166806f6` |
+| Fintech Ledger Ops   | fintech-ledger-app      | 16/16 | https://sage-client-intake-portal-vercel-qtzpiwcr3-sage-ideas.vercel.app | `sha256:4d76ddc0fcf6338391126dde65586afdb7ad06f0ebf77c219ef18c33a7d290a7` |
+| Client Intake Portal | internal-tool-dashboard | 16/16 | https://sage-client-intake-portal-vercel-5dayc7hj5-sage-ideas.vercel.app | `sha256:c6913e3fe5a682a6da673d3fe316cc15fe653f447979c15172f300c87715acc2` |
 
 ## Publish Blockers
 

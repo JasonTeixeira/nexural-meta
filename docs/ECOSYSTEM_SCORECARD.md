@@ -2,7 +2,7 @@
 
 **Status:** Phase 2 generated maturity map
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-06-11T10:30:36.809Z
+**Generated:** 2026-06-12T10:29:00.253Z
 
 ## Read This Correctly
 
