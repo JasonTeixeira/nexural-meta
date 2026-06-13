@@ -2,7 +2,7 @@
 
 **Status:** Phase 1 generated inventory
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-06-12T10:28:46.820Z
+**Generated:** 2026-06-13T09:59:43.799Z
 **Source:** GitHub owner `JasonTeixeira`
 
 ## Privacy Boundary
@@ -101,7 +101,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [ib_insync](https://github.com/JasonTeixeira/ib_insync)                                                                                                               | reference-library    | reference     | L0       | archived  |
 | [istio](https://github.com/JasonTeixeira/istio)                                                                                                                       | reference-library    | reference     | L0       | archived  |
 | [jason-teixeira-portfolio](https://github.com/JasonTeixeira/jason-teixeira-portfolio)                                                                                 | quant-trading        | engine        | L0       | stale     |
-| [JasonTeixeira](https://github.com/JasonTeixeira/JasonTeixeira)                                                                                                       | public-proof-surface | product-proof | L4       | active    |
+| [JasonTeixeira](https://github.com/JasonTeixeira/JasonTeixeira)                                                                                                       | public-proof-surface | product-proof | L4       | watch     |
 | [juice-shop](https://github.com/JasonTeixeira/juice-shop)                                                                                                             | reference-library    | reference     | L0       | archived  |
 | [K8-Examples](https://github.com/JasonTeixeira/K8-Examples)                                                                                                           | reference-library    | reference     | L0       | reference |
 | [kimi-cli](https://github.com/JasonTeixeira/kimi-cli)                                                                                                                 | reference-library    | reference     | L0       | reference |

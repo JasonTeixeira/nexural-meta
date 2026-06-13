@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-12T10:35:40.150Z",
+  "generated_at": "2026-06-13T10:07:11.262Z",
   "generated_by": "scripts/resource-library-catalog.mjs",
   "privacy": "public-safe",
   "status": "generated",
@@ -13,7 +13,7 @@
     "load_bearing_assets": 11,
     "load_bearing_average_score": 96,
     "proof_environment_status": "passed",
-    "golden_path_passed_runs": 46
+    "golden_path_passed_runs": 49
   },
   "operator_paths": [
     {
@@ -364,7 +364,7 @@
       "layer": "public-proof-surface",
       "asset_type": "product-proof",
       "maturity": "L4",
-      "status": "active",
+      "status": "watch",
       "score": 100,
       "proof": "repo-metadata",
       "gaps": ["missing-license"],
