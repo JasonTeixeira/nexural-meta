@@ -1,8 +1,8 @@
 # Public Portfolio Packaging
 
 **Status:** ready-to-review
-**Generated:** 2026-06-13T10:07:19.112Z
-**Proof hash:** `sha256:8d0712b64f920af607d7ed86f93f28e3d748a671f924653a6d3ef7a40920a28c`
+**Generated:** 2026-06-14T10:16:22.124Z
+**Proof hash:** `sha256:fcdbafed2513603168922750b0f099813e93bb049f0c8938b5d7df5b0f3b4c27`
 
 ## Claims
 
@@ -15,9 +15,9 @@
 
 | App                  | Recipe                  | Gates | URL                                                                      | Hash                                                                      |
 | -------------------- | ----------------------- | ----- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------- |
-| RAG Knowledge Chat   | saas-rag-chat           | 16/16 | https://sage-client-intake-portal-vercel-12ku0jndk-sage-ideas.vercel.app | `sha256:687d63f62a4902aa4131bda6e4ebaf833618ed39494fde0651c198611d9cfb51` |
-| Fintech Ledger Ops   | fintech-ledger-app      | 16/16 | https://sage-client-intake-portal-vercel-eo6cp3stj-sage-ideas.vercel.app | `sha256:d25d7b3d98b0fc0a2d3d75fd91f26c2c1baa5d37036959d73616e0c485589492` |
-| Client Intake Portal | internal-tool-dashboard | 16/16 | https://sage-client-intake-portal-vercel-enai2upuc-sage-ideas.vercel.app | `sha256:cc2b8bff7ea66f0218821a12bb766c03e5cac006b6d0cce6945d8a5b9921cb81` |
+| RAG Knowledge Chat   | saas-rag-chat           | 16/16 | https://sage-client-intake-portal-vercel-jnvgbrxf3-sage-ideas.vercel.app | `sha256:d8767c75872a9cce35f24f48e45fb934ac7dddb7ae8cf753eea076370fc8c6a9` |
+| Fintech Ledger Ops   | fintech-ledger-app      | 16/16 | https://sage-client-intake-portal-vercel-n5ov8jpti-sage-ideas.vercel.app | `sha256:7259b565ceb2473394695295f8628a2d84ee282bfef67e057313be819df00862` |
+| Client Intake Portal | internal-tool-dashboard | 16/16 | https://sage-client-intake-portal-vercel-f6owxh5h1-sage-ideas.vercel.app | `sha256:2f98f0746e9cfe81e6dc85892e3f48bf637c86e295eeb1ba95682006a3679407` |
 
 ## Publish Blockers
 

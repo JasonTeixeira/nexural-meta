@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-13T09:59:59.399Z",
+  "generated_at": "2026-06-14T10:09:13.664Z",
   "generated_by": "scripts/ecosystem-scorecard.mjs",
-  "source_generated_at": "2026-06-13T09:59:43.799Z",
+  "source_generated_at": "2026-06-14T10:09:01.137Z",
   "privacy": "public-safe",
   "note": "Private repositories are scored internally and summarized by count only. Full scorecard is generated locally at .nexural/private/ecosystem-scorecard.internal.json.",
   "totals": {
@@ -51,7 +51,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -74,7 +74,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 233,
+        "stale_days": 234,
         "needs_private_review": false
       },
       "score": {
@@ -123,7 +123,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 315,
+        "stale_days": 316,
         "needs_private_review": false
       },
       "score": {
@@ -149,7 +149,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Rust",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://agent-browser.dev",
@@ -157,7 +157,7 @@
       "pushed_at": "2026-04-29T15:39:13Z",
       "updated_at": "2026-05-04T22:42:12Z",
       "default_branch": "main",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 16272,
       "stargazers": 0,
@@ -172,7 +172,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 44,
+        "stale_days": 45,
         "needs_private_review": false
       },
       "score": {
@@ -198,7 +198,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://ai4trade.ai",
@@ -221,7 +221,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 49,
+        "stale_days": 50,
         "needs_private_review": false
       },
       "score": {
@@ -248,7 +248,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "TypeScript",
-      "languages": [],
+      "languages": ["TypeScript"],
       "topics": [
         "algorithmic-trading",
         "backtesting",
@@ -286,7 +286,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 42,
+        "stale_days": 43,
         "needs_private_review": false
       },
       "score": {
@@ -313,7 +313,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Python",
-      "languages": [],
+      "languages": ["Python"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2025-11-10T21:02:00Z",
@@ -335,7 +335,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 156,
+        "stale_days": 157,
         "needs_private_review": false
       },
       "score": {
@@ -362,7 +362,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Python",
-      "languages": [],
+      "languages": ["Python"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2025-12-28T04:28:13Z",
@@ -384,7 +384,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 49,
+        "stale_days": 50,
         "needs_private_review": false
       },
       "score": {
@@ -410,7 +410,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://microsoft.github.io/autogen/",
@@ -418,7 +418,7 @@
       "pushed_at": "2026-04-15T11:59:09Z",
       "updated_at": "2026-05-04T16:56:58Z",
       "default_branch": "main",
-      "license": "Creative Commons Attribution 4.0 International",
+      "license": "CC-BY-4.0",
       "parent": null,
       "disk_usage_kb": 148692,
       "stargazers": 0,
@@ -433,7 +433,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 58,
+        "stale_days": 59,
         "needs_private_review": false
       },
       "score": {
@@ -459,7 +459,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -467,7 +467,7 @@
       "pushed_at": "2024-10-14T13:17:59Z",
       "updated_at": "2024-10-25T17:32:09Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 132678,
       "stargazers": 0,
@@ -482,7 +482,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 606,
+        "stale_days": 607,
         "needs_private_review": false
       },
       "score": {
@@ -508,7 +508,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "HTML",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -516,7 +516,7 @@
       "pushed_at": "2025-01-27T10:53:18Z",
       "updated_at": "2026-05-13T02:10:48Z",
       "default_branch": "main",
-      "license": "Creative Commons Zero v1.0 Universal",
+      "license": "CC0-1.0",
       "parent": null,
       "disk_usage_kb": 2939,
       "stargazers": 0,
@@ -531,7 +531,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 501,
+        "stale_days": 502,
         "needs_private_review": false
       },
       "score": {
@@ -557,7 +557,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Shell",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://ramitsurana.github.io/awesome-kubernetes",
@@ -580,7 +580,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 491,
+        "stale_days": 492,
         "needs_private_review": false
       },
       "score": {
@@ -614,7 +614,7 @@
       "pushed_at": "2024-12-17T14:01:52Z",
       "updated_at": "2026-05-13T02:10:49Z",
       "default_branch": "main",
-      "license": "Creative Commons Zero v1.0 Universal",
+      "license": "CC0-1.0",
       "parent": null,
       "disk_usage_kb": 1575,
       "stargazers": 0,
@@ -629,7 +629,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 542,
+        "stale_days": 543,
         "needs_private_review": false
       },
       "score": {
@@ -655,7 +655,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://awesome-python.com/",
@@ -678,7 +678,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 670,
+        "stale_days": 671,
         "needs_private_review": false
       },
       "score": {
@@ -704,7 +704,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -712,7 +712,7 @@
       "pushed_at": "2024-08-30T23:50:40Z",
       "updated_at": "2024-10-25T17:32:03Z",
       "default_branch": "master",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 10125,
       "stargazers": 0,
@@ -727,7 +727,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 651,
+        "stale_days": 652,
         "needs_private_review": false
       },
       "score": {
@@ -753,7 +753,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Jupyter Notebook",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://wilsonfreitas.github.io/awesome-quant/",
@@ -776,7 +776,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 258,
+        "stale_days": 259,
         "needs_private_review": false
       },
       "score": {
@@ -825,7 +825,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 553,
+        "stale_days": 554,
         "needs_private_review": false
       },
       "score": {
@@ -851,7 +851,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://paperswithbacktest.com",
@@ -874,7 +874,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 507,
+        "stale_days": 508,
         "needs_private_review": false
       },
       "score": {
@@ -900,7 +900,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -908,7 +908,7 @@
       "pushed_at": "2025-02-12T23:19:28Z",
       "updated_at": "2026-05-13T02:10:46Z",
       "default_branch": "main",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 3011,
       "stargazers": 0,
@@ -923,7 +923,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 485,
+        "stale_days": 486,
         "needs_private_review": false
       },
       "score": {
@@ -949,7 +949,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "JavaScript",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "http://wildrydes.com",
@@ -957,7 +957,7 @@
       "pushed_at": "2024-07-29T18:03:00Z",
       "updated_at": "2025-03-23T16:05:00Z",
       "default_branch": "master",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 200446,
       "stargazers": 0,
@@ -972,7 +972,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 683,
+        "stale_days": 684,
         "needs_private_review": false
       },
       "score": {
@@ -998,7 +998,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "CSS",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://www.azuredevopslabs.com",
@@ -1006,7 +1006,7 @@
       "pushed_at": "2025-01-16T10:34:35Z",
       "updated_at": "2026-05-13T02:10:37Z",
       "default_branch": "master",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 579481,
       "stargazers": 0,
@@ -1021,7 +1021,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 512,
+        "stale_days": 513,
         "needs_private_review": false
       },
       "score": {
@@ -1047,7 +1047,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://www.backtrader.com",
@@ -1055,7 +1055,7 @@
       "pushed_at": "2024-08-19T17:47:36Z",
       "updated_at": "2026-05-04T17:00:58Z",
       "default_branch": "master",
-      "license": "GNU General Public License v3.0",
+      "license": "GPL-3.0",
       "parent": null,
       "disk_usage_kb": 22460,
       "stargazers": 0,
@@ -1070,7 +1070,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 662,
+        "stale_days": 663,
         "needs_private_review": false
       },
       "score": {
@@ -1097,7 +1097,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Python",
-      "languages": [],
+      "languages": ["Python"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2026-01-03T20:01:38Z",
@@ -1119,7 +1119,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 156,
+        "stale_days": 157,
         "needs_private_review": false
       },
       "score": {
@@ -1145,7 +1145,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Bicep",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -1153,7 +1153,7 @@
       "pushed_at": "2025-02-19T15:48:19Z",
       "updated_at": "2026-05-13T02:10:34Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 173789,
       "stargazers": 0,
@@ -1168,7 +1168,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 478,
+        "stale_days": 479,
         "needs_private_review": false
       },
       "score": {
@@ -1194,7 +1194,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://aws.amazon.com/sdk-for-python/",
@@ -1202,7 +1202,7 @@
       "pushed_at": "2024-10-24T19:16:58Z",
       "updated_at": "2026-05-13T02:10:40Z",
       "default_branch": "develop",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 8243,
       "stargazers": 0,
@@ -1217,7 +1217,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 596,
+        "stale_days": 597,
         "needs_private_review": false
       },
       "score": {
@@ -1243,7 +1243,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://browser-use.com",
@@ -1251,7 +1251,7 @@
       "pushed_at": "2026-05-15T00:09:18Z",
       "updated_at": "2026-05-18T12:44:28Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 31171,
       "stargazers": 0,
@@ -1266,7 +1266,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 29,
+        "stale_days": 30,
         "needs_private_review": false
       },
       "score": {
@@ -1292,7 +1292,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://build-your-own-openclaw.kiyo-n-zane.com/",
@@ -1300,7 +1300,7 @@
       "pushed_at": "2026-04-28T14:35:14Z",
       "updated_at": "2026-05-04T13:37:43Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 958,
       "stargazers": 0,
@@ -1315,7 +1315,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 45,
+        "stale_days": 46,
         "needs_private_review": false
       },
       "score": {
@@ -1341,7 +1341,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Markdown",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://codecrafters.io",
@@ -1364,7 +1364,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 647,
+        "stale_days": 648,
         "needs_private_review": false
       },
       "score": {
@@ -1390,7 +1390,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://www.checkov.io/",
@@ -1398,7 +1398,7 @@
       "pushed_at": "2025-02-19T15:03:58Z",
       "updated_at": "2026-05-13T02:10:47Z",
       "default_branch": "main",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 92225,
       "stargazers": 0,
@@ -1413,7 +1413,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 478,
+        "stale_days": 479,
         "needs_private_review": false
       },
       "score": {
@@ -1440,7 +1440,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Dockerfile",
-      "languages": [],
+      "languages": ["Dockerfile"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2025-12-28T05:29:05Z",
@@ -1462,7 +1462,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 156,
+        "stale_days": 157,
         "needs_private_review": false
       },
       "score": {
@@ -1489,7 +1489,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "TypeScript",
-      "languages": [],
+      "languages": ["TypeScript"],
       "topics": ["certification", "cissp", "cybersecurity", "exam", "security"],
       "homepage_url": null,
       "created_at": "2024-10-09T22:42:16Z",
@@ -1511,7 +1511,7 @@
       },
       "operational": {
         "status": "active",
-        "stale_days": 21,
+        "stale_days": 22,
         "needs_private_review": false
       },
       "score": {
@@ -1560,7 +1560,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 43,
+        "stale_days": 44,
         "needs_private_review": false
       },
       "score": {
@@ -1586,7 +1586,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://cloudcustodian.io",
@@ -1594,7 +1594,7 @@
       "pushed_at": "2024-10-24T05:19:12Z",
       "updated_at": "2026-05-13T02:10:37Z",
       "default_branch": "main",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 134129,
       "stargazers": 0,
@@ -1609,7 +1609,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 597,
+        "stale_days": 598,
         "needs_private_review": false
       },
       "score": {
@@ -1635,7 +1635,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "C#",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://aka.ms/cloud-design-patterns",
@@ -1658,7 +1658,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 598,
+        "stale_days": 599,
         "needs_private_review": false
       },
       "score": {
@@ -1685,7 +1685,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Shell",
-      "languages": [],
+      "languages": ["Shell"],
       "topics": ["cloud", "devops", "engineering", "infrastructure", "library"],
       "homepage_url": null,
       "created_at": "2024-10-20T13:25:01Z",
@@ -1707,7 +1707,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 211,
+        "stale_days": 212,
         "needs_private_review": false
       },
       "score": {
@@ -1734,14 +1734,14 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Python",
-      "languages": [],
+      "languages": ["Python"],
       "topics": ["ai", "cloud", "machine-learning", "monitoring", "optimization", "python"],
       "homepage_url": null,
       "created_at": "2025-09-01T00:37:46Z",
       "pushed_at": "2025-11-13T03:52:18Z",
       "updated_at": "2025-11-13T03:52:23Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 1958,
       "stargazers": 0,
@@ -1756,7 +1756,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 212,
+        "stale_days": 213,
         "needs_private_review": false
       },
       "score": {
@@ -1783,7 +1783,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "CSS",
-      "languages": [],
+      "languages": ["CSS"],
       "topics": ["aws", "cloud", "hosting", "resume", "website"],
       "homepage_url": null,
       "created_at": "2024-10-29T17:48:02Z",
@@ -1805,7 +1805,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 212,
+        "stale_days": 213,
         "needs_private_review": false
       },
       "score": {
@@ -1854,7 +1854,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 166,
+        "stale_days": 167,
         "needs_private_review": false
       },
       "score": {
@@ -1880,7 +1880,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "JavaScript",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://coreui.io/product/free-react-admin-template/",
@@ -1888,7 +1888,7 @@
       "pushed_at": "2025-02-07T12:27:45Z",
       "updated_at": "2026-05-13T02:10:59Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 4705,
       "stargazers": 0,
@@ -1903,7 +1903,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 490,
+        "stale_days": 491,
         "needs_private_review": false
       },
       "score": {
@@ -1929,7 +1929,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://crewai.com",
@@ -1937,7 +1937,7 @@
       "pushed_at": "2026-05-04T15:48:53Z",
       "updated_at": "2026-05-04T16:57:08Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 230205,
       "stargazers": 0,
@@ -1952,7 +1952,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 39,
+        "stale_days": 40,
         "needs_private_review": false
       },
       "score": {
@@ -1978,7 +1978,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Go",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -1986,7 +1986,7 @@
       "pushed_at": "2025-02-07T14:39:40Z",
       "updated_at": "2026-05-13T02:10:31Z",
       "default_branch": "master",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 185406,
       "stargazers": 0,
@@ -2001,7 +2001,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 490,
+        "stale_days": 491,
         "needs_private_review": false
       },
       "score": {
@@ -2027,7 +2027,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Shell",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://www.linkedin.com/in/HariSekhon",
@@ -2035,110 +2035,12 @@
       "pushed_at": "2024-10-25T13:34:51Z",
       "updated_at": "2024-10-25T17:32:22Z",
       "default_branch": "master",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 11468,
       "stargazers": 0,
       "canonical": {
         "canonical_name": "DevOps-Bash-tools",
-        "layer": "reference-library",
-        "asset_type": "reference",
-        "maturity": "L0",
-        "role": "Reference source kept for study, comparison, or implementation mining.",
-        "maturity_gaps": [],
-        "public_exposure": "public"
-      },
-      "operational": {
-        "status": "reference",
-        "stale_days": 595,
-        "needs_private_review": false
-      },
-      "score": {
-        "total": 13,
-        "band": "0-49 raw/reference",
-        "load_bearing": false,
-        "components": {
-          "maturity": 10,
-          "status": -15,
-          "metadata": 18,
-          "load_bearing_bonus": 0
-        },
-        "gaps": ["maturity-l0", "reference-only", "missing-topics"]
-      }
-    },
-    {
-      "name": "devops-exercises",
-      "full_name": "JasonTeixeira/devops-exercises",
-      "url": "https://github.com/JasonTeixeira/devops-exercises",
-      "visibility": "PUBLIC",
-      "is_private": false,
-      "is_archived": false,
-      "is_fork": true,
-      "is_mirror": false,
-      "is_template": false,
-      "primary_language": "Python",
-      "languages": [],
-      "topics": [],
-      "homepage_url": null,
-      "created_at": "2024-10-25T17:52:09Z",
-      "pushed_at": "2024-08-31T08:15:03Z",
-      "updated_at": "2024-10-25T17:52:09Z",
-      "default_branch": "master",
-      "license": "Other",
-      "parent": null,
-      "disk_usage_kb": 4703,
-      "stargazers": 0,
-      "canonical": {
-        "canonical_name": "devops-exercises",
-        "layer": "reference-library",
-        "asset_type": "reference",
-        "maturity": "L0",
-        "role": "Reference source kept for study, comparison, or implementation mining.",
-        "maturity_gaps": [],
-        "public_exposure": "public"
-      },
-      "operational": {
-        "status": "reference",
-        "stale_days": 651,
-        "needs_private_review": false
-      },
-      "score": {
-        "total": 8,
-        "band": "0-49 raw/reference",
-        "load_bearing": false,
-        "components": {
-          "maturity": 10,
-          "status": -15,
-          "metadata": 13,
-          "load_bearing_bonus": 0
-        },
-        "gaps": ["maturity-l0", "reference-only", "missing-topics"]
-      }
-    },
-    {
-      "name": "Docker-Compose",
-      "full_name": "JasonTeixeira/Docker-Compose",
-      "url": "https://github.com/JasonTeixeira/Docker-Compose",
-      "visibility": "PUBLIC",
-      "is_private": false,
-      "is_archived": false,
-      "is_fork": true,
-      "is_mirror": false,
-      "is_template": false,
-      "primary_language": "HTML",
-      "languages": [],
-      "topics": [],
-      "homepage_url": "https://docs.docker.com/compose/",
-      "created_at": "2024-10-25T17:40:45Z",
-      "pushed_at": "2024-10-25T05:27:36Z",
-      "updated_at": "2024-10-25T17:40:45Z",
-      "default_branch": "master",
-      "license": "Creative Commons Zero v1.0 Universal",
-      "parent": null,
-      "disk_usage_kb": 7763,
-      "stargazers": 0,
-      "canonical": {
-        "canonical_name": "Docker-Compose",
         "layer": "reference-library",
         "asset_type": "reference",
         "maturity": "L0",
@@ -2165,6 +2067,104 @@
       }
     },
     {
+      "name": "devops-exercises",
+      "full_name": "JasonTeixeira/devops-exercises",
+      "url": "https://github.com/JasonTeixeira/devops-exercises",
+      "visibility": "PUBLIC",
+      "is_private": false,
+      "is_archived": false,
+      "is_fork": true,
+      "is_mirror": false,
+      "is_template": false,
+      "primary_language": null,
+      "languages": [],
+      "topics": [],
+      "homepage_url": null,
+      "created_at": "2024-10-25T17:52:09Z",
+      "pushed_at": "2024-08-31T08:15:03Z",
+      "updated_at": "2024-10-25T17:52:09Z",
+      "default_branch": "master",
+      "license": "Other",
+      "parent": null,
+      "disk_usage_kb": 4703,
+      "stargazers": 0,
+      "canonical": {
+        "canonical_name": "devops-exercises",
+        "layer": "reference-library",
+        "asset_type": "reference",
+        "maturity": "L0",
+        "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
+        "public_exposure": "public"
+      },
+      "operational": {
+        "status": "reference",
+        "stale_days": 652,
+        "needs_private_review": false
+      },
+      "score": {
+        "total": 8,
+        "band": "0-49 raw/reference",
+        "load_bearing": false,
+        "components": {
+          "maturity": 10,
+          "status": -15,
+          "metadata": 13,
+          "load_bearing_bonus": 0
+        },
+        "gaps": ["maturity-l0", "reference-only", "missing-topics"]
+      }
+    },
+    {
+      "name": "Docker-Compose",
+      "full_name": "JasonTeixeira/Docker-Compose",
+      "url": "https://github.com/JasonTeixeira/Docker-Compose",
+      "visibility": "PUBLIC",
+      "is_private": false,
+      "is_archived": false,
+      "is_fork": true,
+      "is_mirror": false,
+      "is_template": false,
+      "primary_language": null,
+      "languages": [],
+      "topics": [],
+      "homepage_url": "https://docs.docker.com/compose/",
+      "created_at": "2024-10-25T17:40:45Z",
+      "pushed_at": "2024-10-25T05:27:36Z",
+      "updated_at": "2024-10-25T17:40:45Z",
+      "default_branch": "master",
+      "license": "CC0-1.0",
+      "parent": null,
+      "disk_usage_kb": 7763,
+      "stargazers": 0,
+      "canonical": {
+        "canonical_name": "Docker-Compose",
+        "layer": "reference-library",
+        "asset_type": "reference",
+        "maturity": "L0",
+        "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
+        "public_exposure": "public"
+      },
+      "operational": {
+        "status": "reference",
+        "stale_days": 597,
+        "needs_private_review": false
+      },
+      "score": {
+        "total": 13,
+        "band": "0-49 raw/reference",
+        "load_bearing": false,
+        "components": {
+          "maturity": 10,
+          "status": -15,
+          "metadata": 18,
+          "load_bearing_bonus": 0
+        },
+        "gaps": ["maturity-l0", "reference-only", "missing-topics"]
+      }
+    },
+    {
       "name": "dragonfly",
       "full_name": "JasonTeixeira/dragonfly",
       "url": "https://github.com/JasonTeixeira/dragonfly",
@@ -2174,7 +2174,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "C++",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://www.dragonflydb.io/",
@@ -2197,7 +2197,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 230,
+        "stale_days": 231,
         "needs_private_review": false
       },
       "score": {
@@ -2223,7 +2223,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://dspy.ai",
@@ -2231,7 +2231,7 @@
       "pushed_at": "2026-05-17T13:55:36Z",
       "updated_at": "2026-05-18T12:45:21Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 178548,
       "stargazers": 0,
@@ -2246,7 +2246,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 26,
+        "stale_days": 27,
         "needs_private_review": false
       },
       "score": {
@@ -2273,14 +2273,14 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Python",
-      "languages": [],
+      "languages": ["Python"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2025-11-11T19:28:49Z",
       "pushed_at": "2026-04-25T01:26:56Z",
       "updated_at": "2026-04-25T01:27:00Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 123,
       "stargazers": 0,
@@ -2295,7 +2295,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 49,
+        "stale_days": 50,
         "needs_private_review": false
       },
       "score": {
@@ -2322,7 +2322,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Python",
-      "languages": [],
+      "languages": ["Python"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2025-12-28T02:01:55Z",
@@ -2344,7 +2344,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 156,
+        "stale_days": 157,
         "needs_private_review": false
       },
       "score": {
@@ -2371,7 +2371,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "JavaScript",
-      "languages": [],
+      "languages": ["JavaScript"],
       "topics": ["cryptography", "decryption", "encryption", "javascript", "security"],
       "homepage_url": null,
       "created_at": "2025-02-08T21:13:02Z",
@@ -2393,7 +2393,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 212,
+        "stale_days": 213,
         "needs_private_review": false
       },
       "score": {
@@ -2419,7 +2419,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "PowerShell",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://aka.ms/finops/toolkit",
@@ -2427,7 +2427,7 @@
       "pushed_at": "2024-10-24T20:12:12Z",
       "updated_at": "2024-10-25T18:14:41Z",
       "default_branch": "dev",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 912396,
       "stargazers": 0,
@@ -2442,7 +2442,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 596,
+        "stale_days": 597,
         "needs_private_review": false
       },
       "score": {
@@ -2468,7 +2468,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": true,
-      "primary_language": "Jupyter Notebook",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://ai4finance.org",
@@ -2476,7 +2476,7 @@
       "pushed_at": "2025-08-22T01:23:24Z",
       "updated_at": "2026-05-13T02:10:54Z",
       "default_branch": "master",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 83967,
       "stargazers": 0,
@@ -2491,7 +2491,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 295,
+        "stale_days": 296,
         "needs_private_review": false
       },
       "score": {
@@ -2517,7 +2517,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "TypeScript",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://firebase.google.com/docs/admin/setup",
@@ -2525,7 +2525,7 @@
       "pushed_at": "2026-05-15T21:25:40Z",
       "updated_at": "2026-05-19T17:30:53Z",
       "default_branch": "main",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 12546,
       "stargazers": 0,
@@ -2540,7 +2540,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 28,
+        "stale_days": 29,
         "needs_private_review": false
       },
       "score": {
@@ -2566,7 +2566,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -2574,7 +2574,7 @@
       "pushed_at": "2026-05-19T00:29:33Z",
       "updated_at": "2026-05-19T22:21:41Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 2854,
       "stargazers": 0,
@@ -2589,7 +2589,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 25,
+        "stale_days": 26,
         "needs_private_review": false
       },
       "score": {
@@ -2638,7 +2638,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 797,
+        "stale_days": 798,
         "needs_private_review": false
       },
       "score": {
@@ -2664,7 +2664,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://graphifylabs.ai/",
@@ -2672,7 +2672,7 @@
       "pushed_at": "2026-05-24T19:42:37Z",
       "updated_at": "2026-05-24T23:35:40Z",
       "default_branch": "v8",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 3139,
       "stargazers": 0,
@@ -2687,7 +2687,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 19,
+        "stale_days": 20,
         "needs_private_review": false
       },
       "score": {
@@ -2713,7 +2713,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://hermes-agent.nousresearch.com",
@@ -2721,7 +2721,7 @@
       "pushed_at": "2026-05-24T23:52:40Z",
       "updated_at": "2026-05-25T00:21:17Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 254999,
       "stargazers": 0,
@@ -2736,7 +2736,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 19,
+        "stale_days": 20,
         "needs_private_review": false
       },
       "score": {
@@ -2762,7 +2762,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://hummingbot.org",
@@ -2770,7 +2770,7 @@
       "pushed_at": "2025-09-26T03:03:40Z",
       "updated_at": "2026-05-13T02:10:35Z",
       "default_branch": "master",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 559601,
       "stargazers": 0,
@@ -2785,7 +2785,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 260,
+        "stale_days": 261,
         "needs_private_review": false
       },
       "score": {
@@ -2811,7 +2811,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -2819,7 +2819,7 @@
       "pushed_at": "2024-03-14T19:50:06Z",
       "updated_at": "2026-05-13T02:10:58Z",
       "default_branch": "master",
-      "license": "BSD 2-Clause \"Simplified\" License",
+      "license": "BSD-2-Clause",
       "parent": null,
       "disk_usage_kb": 14831,
       "stargazers": 0,
@@ -2834,7 +2834,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 820,
+        "stale_days": 821,
         "needs_private_review": false
       },
       "score": {
@@ -2860,7 +2860,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Go",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://istio.io",
@@ -2868,7 +2868,7 @@
       "pushed_at": "2025-02-19T15:47:51Z",
       "updated_at": "2026-05-13T02:10:33Z",
       "default_branch": "master",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 277308,
       "stargazers": 0,
@@ -2883,7 +2883,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 478,
+        "stale_days": 479,
         "needs_private_review": false
       },
       "score": {
@@ -2910,14 +2910,14 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "JavaScript",
-      "languages": [],
+      "languages": ["JavaScript"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2025-11-15T03:33:15Z",
       "pushed_at": "2025-12-28T20:15:22Z",
       "updated_at": "2025-12-28T20:15:25Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 55548,
       "stargazers": 0,
@@ -2932,7 +2932,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 166,
+        "stale_days": 167,
         "needs_private_review": false
       },
       "score": {
@@ -2981,7 +2981,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 31,
+        "stale_days": 32,
         "needs_private_review": false
       },
       "score": {
@@ -3007,7 +3007,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "TypeScript",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://owasp-juice.shop",
@@ -3015,7 +3015,7 @@
       "pushed_at": "2025-02-24T16:10:36Z",
       "updated_at": "2026-05-13T02:10:33Z",
       "default_branch": "master",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 250507,
       "stargazers": 0,
@@ -3030,7 +3030,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 473,
+        "stale_days": 474,
         "needs_private_review": false
       },
       "score": {
@@ -3056,7 +3056,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Shell",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -3064,7 +3064,7 @@
       "pushed_at": "2024-09-19T11:42:45Z",
       "updated_at": "2024-10-25T17:35:34Z",
       "default_branch": "master",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 17293,
       "stargazers": 0,
@@ -3079,7 +3079,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 631,
+        "stale_days": 632,
         "needs_private_review": false
       },
       "score": {
@@ -3105,7 +3105,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://moonshotai.github.io/kimi-cli/",
@@ -3113,7 +3113,7 @@
       "pushed_at": "2026-05-22T07:30:15Z",
       "updated_at": "2026-05-23T12:46:50Z",
       "default_branch": "main",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 24429,
       "stargazers": 0,
@@ -3128,7 +3128,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 22,
+        "stale_days": 23,
         "needs_private_review": false
       },
       "score": {
@@ -3154,7 +3154,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Jsonnet",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://prometheus-operator.dev/",
@@ -3162,7 +3162,7 @@
       "pushed_at": "2024-10-24T13:59:04Z",
       "updated_at": "2026-05-13T02:10:40Z",
       "default_branch": "main",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 12763,
       "stargazers": 0,
@@ -3177,7 +3177,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 596,
+        "stale_days": 597,
         "needs_private_review": false
       },
       "score": {
@@ -3204,7 +3204,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "HCL",
-      "languages": [],
+      "languages": ["HCL"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2026-01-10T22:48:59Z",
@@ -3226,7 +3226,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 153,
+        "stale_days": 154,
         "needs_private_review": false
       },
       "score": {
@@ -3252,7 +3252,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "http://www.langflow.org",
@@ -3260,7 +3260,7 @@
       "pushed_at": "2026-05-08T20:24:24Z",
       "updated_at": "2026-05-08T20:40:38Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 1261399,
       "stargazers": 0,
@@ -3275,7 +3275,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 35,
+        "stale_days": 36,
         "needs_private_review": false
       },
       "score": {
@@ -3301,7 +3301,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "C#",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://lean.io",
@@ -3309,7 +3309,7 @@
       "pushed_at": "2025-08-26T20:25:39Z",
       "updated_at": "2026-05-13T02:10:35Z",
       "default_branch": "master",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 544942,
       "stargazers": 0,
@@ -3324,7 +3324,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 290,
+        "stale_days": 291,
         "needs_private_review": false
       },
       "score": {
@@ -3350,7 +3350,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Jupyter Notebook",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -3358,7 +3358,7 @@
       "pushed_at": "2025-09-05T11:28:17Z",
       "updated_at": "2026-05-13T02:10:53Z",
       "default_branch": "master",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 447185,
       "stargazers": 0,
@@ -3373,7 +3373,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 280,
+        "stale_days": 281,
         "needs_private_review": false
       },
       "score": {
@@ -3399,7 +3399,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "JavaScript",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://marketing-skills.com",
@@ -3407,7 +3407,7 @@
       "pushed_at": "2026-05-06T06:56:58Z",
       "updated_at": "2026-05-09T10:50:57Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 1772,
       "stargazers": 0,
@@ -3422,7 +3422,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 38,
+        "stale_days": 39,
         "needs_private_review": false
       },
       "score": {
@@ -3471,7 +3471,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 211,
+        "stale_days": 212,
         "needs_private_review": false
       },
       "score": {
@@ -3497,7 +3497,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://mem0.ai",
@@ -3505,7 +3505,7 @@
       "pushed_at": "2026-05-18T10:57:45Z",
       "updated_at": "2026-05-18T12:22:01Z",
       "default_branch": "main",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 55539,
       "stargazers": 0,
@@ -3520,7 +3520,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 25,
+        "stale_days": 26,
         "needs_private_review": false
       },
       "score": {
@@ -3547,15 +3547,15 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "TypeScript",
-      "languages": [],
+      "languages": ["TypeScript"],
       "topics": [
         "app-factory",
         "nextjs",
         "resource-library",
         "saas-starter",
+        "sage-ideas",
         "supabase",
-        "vercel",
-        "sage-ideas"
+        "vercel"
       ],
       "homepage_url": null,
       "created_at": "2026-04-28T11:13:21Z",
@@ -3577,7 +3577,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 45,
+        "stale_days": 46,
         "needs_private_review": false
       },
       "score": {
@@ -3604,7 +3604,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Python",
-      "languages": [],
+      "languages": ["Python"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2025-12-28T05:06:34Z",
@@ -3626,7 +3626,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 156,
+        "stale_days": 157,
         "needs_private_review": false
       },
       "score": {
@@ -3652,7 +3652,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Rust",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://nautilustrader.io",
@@ -3660,7 +3660,7 @@
       "pushed_at": "2026-05-21T00:08:31Z",
       "updated_at": "2026-05-21T01:46:32Z",
       "default_branch": "develop",
-      "license": "GNU Lesser General Public License v3.0",
+      "license": "LGPL-3.0",
       "parent": null,
       "disk_usage_kb": 216158,
       "stargazers": 0,
@@ -3675,7 +3675,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 23,
+        "stale_days": 24,
         "needs_private_review": false
       },
       "score": {
@@ -3701,7 +3701,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://docs.nautobot.com",
@@ -3709,7 +3709,7 @@
       "pushed_at": "2024-11-01T02:12:18Z",
       "updated_at": "2026-05-13T02:10:38Z",
       "default_branch": "develop",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 150824,
       "stargazers": 0,
@@ -3724,7 +3724,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 589,
+        "stale_days": 590,
         "needs_private_review": false
       },
       "score": {
@@ -3751,7 +3751,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "TypeScript",
-      "languages": [],
+      "languages": ["TypeScript"],
       "topics": ["finance", "fintech", "nextjs", "quantitative", "trading", "typescript"],
       "homepage_url": null,
       "created_at": "2025-08-30T17:23:44Z",
@@ -3773,7 +3773,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 47,
+        "stale_days": 48,
         "needs_private_review": false
       },
       "score": {
@@ -3799,7 +3799,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "JavaScript",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://nextjs.org",
@@ -3807,7 +3807,7 @@
       "pushed_at": "2025-02-19T15:51:14Z",
       "updated_at": "2026-05-13T02:10:29Z",
       "default_branch": "canary",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 2192063,
       "stargazers": 0,
@@ -3822,7 +3822,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 478,
+        "stale_days": 479,
         "needs_private_review": false
       },
       "score": {
@@ -3849,7 +3849,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "TypeScript",
-      "languages": [],
+      "languages": ["TypeScript"],
       "topics": [
         "agent-tools",
         "algorithmic-trading",
@@ -3889,7 +3889,7 @@
       },
       "operational": {
         "status": "active",
-        "stale_days": 10,
+        "stale_days": 11,
         "needs_private_review": false
       },
       "score": {
@@ -3938,7 +3938,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 187,
+        "stale_days": 188,
         "needs_private_review": false
       },
       "score": {
@@ -3965,7 +3965,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "TypeScript",
-      "languages": [],
+      "languages": ["TypeScript"],
       "topics": [],
       "homepage_url": "https://nexural-website.vercel.app",
       "created_at": "2025-12-17T20:06:46Z",
@@ -3987,7 +3987,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 69,
+        "stale_days": 70,
         "needs_private_review": false
       },
       "score": {
@@ -4014,7 +4014,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Python",
-      "languages": [],
+      "languages": ["Python"],
       "topics": ["automation", "nexural", "paper-trading", "starter-kit", "trading", "webhooks"],
       "homepage_url": "https://www.nexural.io",
       "created_at": "2026-05-26T01:43:14Z",
@@ -4036,7 +4036,7 @@
       },
       "operational": {
         "status": "active",
-        "stale_days": 18,
+        "stale_days": 19,
         "needs_private_review": false
       },
       "score": {
@@ -4063,23 +4063,23 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "TypeScript",
-      "languages": [],
+      "languages": ["TypeScript"],
       "topics": [
         "app-factory",
         "control-plane",
+        "engineering-os",
         "evidence-ledger",
         "resource-library",
-        "sage-ideas",
-        "engineering-os"
+        "sage-ideas"
       ],
       "homepage_url": null,
       "created_at": "2026-05-22T12:11:28Z",
-      "pushed_at": "2026-06-12T15:05:52Z",
-      "updated_at": "2026-06-12T15:05:59Z",
+      "pushed_at": "2026-06-13T10:07:38Z",
+      "updated_at": "2026-06-13T10:07:42Z",
       "default_branch": "main",
       "license": null,
       "parent": null,
-      "disk_usage_kb": 2121,
+      "disk_usage_kb": 2228,
       "stargazers": 0,
       "canonical": {
         "canonical_name": "Sage Ideas Engineering OS Control Plane",
@@ -4092,7 +4092,7 @@
       },
       "operational": {
         "status": "active",
-        "stale_days": 0,
+        "stale_days": 1,
         "needs_private_review": false
       },
       "score": {
@@ -4119,7 +4119,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "TypeScript",
-      "languages": [],
+      "languages": ["TypeScript"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2026-04-12T03:23:15Z",
@@ -4141,7 +4141,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 62,
+        "stale_days": 63,
         "needs_private_review": false
       },
       "score": {
@@ -4190,7 +4190,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 230,
+        "stale_days": 231,
         "needs_private_review": false
       },
       "score": {
@@ -4217,7 +4217,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Makefile",
-      "languages": [],
+      "languages": ["Makefile"],
       "topics": [
         "cryptography",
         "cybersecurity",
@@ -4246,7 +4246,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 211,
+        "stale_days": 212,
         "needs_private_review": false
       },
       "score": {
@@ -4295,7 +4295,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 515,
+        "stale_days": 516,
         "needs_private_review": false
       },
       "score": {
@@ -4321,7 +4321,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Shell",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -4329,7 +4329,7 @@
       "pushed_at": "2024-08-16T02:51:54Z",
       "updated_at": "2026-05-13T02:10:44Z",
       "default_branch": "master",
-      "license": "Creative Commons Attribution 4.0 International",
+      "license": "CC-BY-4.0",
       "parent": null,
       "disk_usage_kb": 7680,
       "stargazers": 0,
@@ -4344,7 +4344,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 666,
+        "stale_days": 667,
         "needs_private_review": false
       },
       "score": {
@@ -4370,7 +4370,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://openbb.co",
@@ -4393,7 +4393,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 259,
+        "stale_days": 260,
         "needs_private_review": false
       },
       "score": {
@@ -4420,7 +4420,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Python",
-      "languages": [],
+      "languages": ["Python"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2025-12-28T04:56:46Z",
@@ -4442,7 +4442,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 156,
+        "stale_days": 157,
         "needs_private_review": false
       },
       "score": {
@@ -4468,7 +4468,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Go",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://prometheus.io/",
@@ -4476,7 +4476,7 @@
       "pushed_at": "2025-02-07T23:24:30Z",
       "updated_at": "2026-05-13T02:10:30Z",
       "default_branch": "main",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 252320,
       "stargazers": 0,
@@ -4491,7 +4491,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 490,
+        "stale_days": 491,
         "needs_private_review": false
       },
       "score": {
@@ -4517,7 +4517,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://prowler.com",
@@ -4525,7 +4525,7 @@
       "pushed_at": "2024-10-25T17:51:41Z",
       "updated_at": "2026-05-13T02:10:38Z",
       "default_branch": "master",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 92596,
       "stargazers": 0,
@@ -4540,7 +4540,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 595,
+        "stale_days": 596,
         "needs_private_review": false
       },
       "score": {
@@ -4566,7 +4566,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://APILayer.com/?utm_source=Github&utm_medium=Referral&utm_campaign=Public-apis-repo",
@@ -4574,7 +4574,7 @@
       "pushed_at": "2025-11-04T18:29:01Z",
       "updated_at": "2026-05-13T02:10:51Z",
       "default_branch": "master",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 4955,
       "stargazers": 0,
@@ -4589,7 +4589,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 220,
+        "stale_days": 221,
         "needs_private_review": false
       },
       "score": {
@@ -4615,7 +4615,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://qlib.readthedocs.io/en/latest/",
@@ -4623,7 +4623,7 @@
       "pushed_at": "2025-08-27T11:17:34Z",
       "updated_at": "2026-05-13T02:10:54Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 17896,
       "stargazers": 0,
@@ -4638,7 +4638,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 289,
+        "stale_days": 290,
         "needs_private_review": false
       },
       "score": {
@@ -4665,8 +4665,8 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Python",
-      "languages": [],
-      "topics": ["backtesting", "quant-trading", "strategy-research", "trading-engine", "nexural"],
+      "languages": ["Python"],
+      "topics": ["backtesting", "nexural", "quant-trading", "strategy-research", "trading-engine"],
       "homepage_url": null,
       "created_at": "2025-09-10T23:33:53Z",
       "pushed_at": "2026-04-25T04:26:40Z",
@@ -4687,7 +4687,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 49,
+        "stale_days": 50,
         "needs_private_review": false
       },
       "score": {
@@ -4714,7 +4714,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "TypeScript",
-      "languages": [],
+      "languages": ["TypeScript"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2026-04-27T22:41:55Z",
@@ -4736,7 +4736,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 46,
+        "stale_days": 47,
         "needs_private_review": false
       },
       "score": {
@@ -4762,7 +4762,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "TypeScript",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://realworld-docs.netlify.app/",
@@ -4770,7 +4770,7 @@
       "pushed_at": "2024-12-02T17:20:18Z",
       "updated_at": "2026-05-13T02:10:43Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 35366,
       "stargazers": 0,
@@ -4785,7 +4785,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 557,
+        "stale_days": 558,
         "needs_private_review": false
       },
       "score": {
@@ -4812,14 +4812,14 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Python",
-      "languages": [],
+      "languages": ["Python"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2025-09-11T12:38:17Z",
       "pushed_at": "2026-04-27T20:57:33Z",
       "updated_at": "2026-04-27T20:57:37Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 127,
       "stargazers": 0,
@@ -4834,7 +4834,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 46,
+        "stale_days": 47,
         "needs_private_review": false
       },
       "score": {
@@ -4861,7 +4861,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Python",
-      "languages": [],
+      "languages": ["Python"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2025-09-13T12:39:05Z",
@@ -4883,7 +4883,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 211,
+        "stale_days": 212,
         "needs_private_review": false
       },
       "score": {
@@ -4909,7 +4909,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "TypeScript",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://Cognitum.One",
@@ -4917,7 +4917,7 @@
       "pushed_at": "2026-05-04T03:31:37Z",
       "updated_at": "2026-05-04T13:39:01Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 518253,
       "stargazers": 0,
@@ -4932,7 +4932,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 40,
+        "stale_days": 41,
         "needs_private_review": false
       },
       "score": {
@@ -4958,7 +4958,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "TypeScript",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://react-saas.com/",
@@ -4966,7 +4966,7 @@
       "pushed_at": "2024-12-20T19:31:53Z",
       "updated_at": "2025-02-20T16:58:45Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 3252,
       "stargazers": 0,
@@ -4981,7 +4981,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 539,
+        "stale_days": 540,
         "needs_private_review": false
       },
       "score": {
@@ -5008,7 +5008,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "TypeScript",
-      "languages": [],
+      "languages": ["TypeScript"],
       "topics": [],
       "homepage_url": "https://sage-after-dark.vercel.app",
       "created_at": "2026-05-04T15:40:02Z",
@@ -5030,7 +5030,7 @@
       },
       "operational": {
         "status": "active",
-        "stale_days": 7,
+        "stale_days": 8,
         "needs_private_review": false
       },
       "score": {
@@ -5057,14 +5057,14 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "JavaScript",
-      "languages": [],
+      "languages": ["JavaScript"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2026-04-27T22:17:53Z",
       "pushed_at": "2026-04-27T22:18:49Z",
       "updated_at": "2026-04-27T22:18:53Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 12,
       "stargazers": 0,
@@ -5079,7 +5079,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 46,
+        "stale_days": 47,
         "needs_private_review": false
       },
       "score": {
@@ -5106,16 +5106,16 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "TypeScript",
-      "languages": [],
+      "languages": ["TypeScript"],
       "topics": ["agency-site", "case-studies", "portfolio", "public-proof", "sage-ideas"],
       "homepage_url": "https://qa-portfolio-peach.vercel.app",
       "created_at": "2026-01-07T18:07:52Z",
-      "pushed_at": "2026-06-13T06:29:48Z",
-      "updated_at": "2026-06-13T06:29:52Z",
+      "pushed_at": "2026-06-14T06:34:47Z",
+      "updated_at": "2026-06-14T06:34:50Z",
       "default_branch": "main",
       "license": null,
       "parent": null,
-      "disk_usage_kb": 209957,
+      "disk_usage_kb": 209959,
       "stargazers": 0,
       "canonical": {
         "canonical_name": "sageideas.dev",
@@ -5154,7 +5154,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://saleor.io",
@@ -5162,7 +5162,7 @@
       "pushed_at": "2025-02-24T16:37:43Z",
       "updated_at": "2026-05-13T02:10:32Z",
       "default_branch": "main",
-      "license": "BSD 3-Clause \"New\" or \"Revised\" License",
+      "license": "BSD-3-Clause",
       "parent": null,
       "disk_usage_kb": 265615,
       "stargazers": 0,
@@ -5177,7 +5177,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 473,
+        "stale_days": 474,
         "needs_private_review": false
       },
       "score": {
@@ -5204,7 +5204,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Python",
-      "languages": [],
+      "languages": ["Python"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2025-12-28T05:20:56Z",
@@ -5226,7 +5226,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 167,
+        "stale_days": 168,
         "needs_private_review": false
       },
       "score": {
@@ -5253,7 +5253,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Python",
-      "languages": [],
+      "languages": ["Python"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2025-12-31T21:18:45Z",
@@ -5275,7 +5275,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 49,
+        "stale_days": 50,
         "needs_private_review": false
       },
       "score": {
@@ -5301,7 +5301,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": true,
-      "primary_language": "TypeScript",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://nextjstemplates.com/templates/solid",
@@ -5309,7 +5309,7 @@
       "pushed_at": "2025-01-30T05:24:26Z",
       "updated_at": "2025-02-20T16:59:00Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 13253,
       "stargazers": 0,
@@ -5324,7 +5324,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 499,
+        "stale_days": 500,
         "needs_private_review": false
       },
       "score": {
@@ -5350,7 +5350,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "TypeScript",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://storybook.js.org",
@@ -5358,7 +5358,7 @@
       "pushed_at": "2026-05-09T11:53:43Z",
       "updated_at": "2026-05-09T20:10:40Z",
       "default_branch": "next",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 1044084,
       "stargazers": 0,
@@ -5373,7 +5373,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 34,
+        "stale_days": 35,
         "needs_private_review": false
       },
       "score": {
@@ -5422,7 +5422,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 793,
+        "stale_days": 794,
         "needs_private_review": false
       },
       "score": {
@@ -5471,7 +5471,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 213,
+        "stale_days": 215,
         "needs_private_review": false
       },
       "score": {
@@ -5497,7 +5497,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -5520,7 +5520,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 674,
+        "stale_days": 676,
         "needs_private_review": false
       },
       "score": {
@@ -5546,7 +5546,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "HTML",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://tabler.io",
@@ -5554,7 +5554,7 @@
       "pushed_at": "2025-02-09T12:02:15Z",
       "updated_at": "2026-05-13T02:10:31Z",
       "default_branch": "dev",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 349415,
       "stargazers": 0,
@@ -5569,7 +5569,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 488,
+        "stale_days": 489,
         "needs_private_review": false
       },
       "score": {
@@ -5595,7 +5595,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "TypeScript",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://www.techinterviewhandbook.org",
@@ -5603,7 +5603,7 @@
       "pushed_at": "2025-11-11T23:18:16Z",
       "updated_at": "2026-05-13T02:10:52Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 32845,
       "stargazers": 0,
@@ -5618,7 +5618,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 213,
+        "stale_days": 214,
         "needs_private_review": false
       },
       "score": {
@@ -5645,14 +5645,14 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "HCL",
-      "languages": [],
+      "languages": ["HCL"],
       "topics": [
         "aws",
         "devops",
         "infrastructure-as-code",
+        "ops-knowledge",
         "sage-ideas",
-        "terraform",
-        "ops-knowledge"
+        "terraform"
       ],
       "homepage_url": null,
       "created_at": "2026-04-27T14:35:02Z",
@@ -5674,7 +5674,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 46,
+        "stale_days": 47,
         "needs_private_review": false
       },
       "score": {
@@ -5700,7 +5700,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "HCL",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws",
@@ -5708,7 +5708,7 @@
       "pushed_at": "2024-10-18T14:20:10Z",
       "updated_at": "2024-10-25T17:35:08Z",
       "default_branch": "master",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 1103,
       "stargazers": 0,
@@ -5723,7 +5723,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 602,
+        "stale_days": 603,
         "needs_private_review": false
       },
       "score": {
@@ -5749,7 +5749,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "HCL",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -5757,7 +5757,7 @@
       "pushed_at": "2023-01-18T10:06:54Z",
       "updated_at": "2024-10-25T17:31:50Z",
       "default_branch": "master",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 27846,
       "stargazers": 0,
@@ -5772,7 +5772,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 1241,
+        "stale_days": 1243,
         "needs_private_review": false
       },
       "score": {
@@ -5798,7 +5798,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "HCL",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -5806,7 +5806,7 @@
       "pushed_at": "2023-07-07T06:49:00Z",
       "updated_at": "2026-05-13T02:10:45Z",
       "default_branch": "master",
-      "license": "Mozilla Public License 2.0",
+      "license": "MPL-2.0",
       "parent": null,
       "disk_usage_kb": 4017,
       "stargazers": 0,
@@ -5821,7 +5821,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 1072,
+        "stale_days": 1073,
         "needs_private_review": false
       },
       "score": {
@@ -5847,7 +5847,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Go",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://runterrascan.io",
@@ -5855,7 +5855,7 @@
       "pushed_at": "2024-12-10T23:43:17Z",
       "updated_at": "2026-05-13T02:10:47Z",
       "default_branch": "master",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 16073,
       "stargazers": 0,
@@ -5870,7 +5870,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 549,
+        "stale_days": 550,
         "needs_private_review": false
       },
       "score": {
@@ -5919,7 +5919,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 717,
+        "stale_days": 718,
         "needs_private_review": false
       },
       "score": {
@@ -5945,7 +5945,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Shell",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -5953,7 +5953,7 @@
       "pushed_at": "2026-05-04T13:20:28Z",
       "updated_at": "2026-05-04T13:38:15Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 6809,
       "stargazers": 0,
@@ -5968,7 +5968,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 39,
+        "stale_days": 40,
         "needs_private_review": false
       },
       "score": {
@@ -6017,7 +6017,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 211,
+        "stale_days": 212,
         "needs_private_review": false
       },
       "score": {
@@ -6043,7 +6043,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -6051,7 +6051,7 @@
       "pushed_at": "2026-05-03T08:02:42Z",
       "updated_at": "2026-05-04T13:49:32Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 1175,
       "stargazers": 0,
@@ -6066,7 +6066,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 41,
+        "stale_days": 42,
         "needs_private_review": false
       },
       "score": {
@@ -6093,7 +6093,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Python",
-      "languages": [],
+      "languages": ["Python"],
       "topics": [
         "event-sourcing",
         "execution-engine",
@@ -6122,7 +6122,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 41,
+        "stale_days": 42,
         "needs_private_review": false
       },
       "score": {
@@ -6148,7 +6148,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://arxiv.org/pdf/2412.20138",
@@ -6156,7 +6156,7 @@
       "pushed_at": "2026-05-01T19:23:24Z",
       "updated_at": "2026-05-04T13:49:18Z",
       "default_branch": "main",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 4582,
       "stargazers": 0,
@@ -6171,7 +6171,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 42,
+        "stale_days": 43,
         "needs_private_review": false
       },
       "score": {
@@ -6197,7 +6197,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Jupyter Notebook",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": null,
@@ -6205,7 +6205,7 @@
       "pushed_at": "2025-02-14T07:20:25Z",
       "updated_at": "2026-05-13T02:10:36Z",
       "default_branch": "master",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 724799,
       "stargazers": 0,
@@ -6220,7 +6220,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 484,
+        "stale_days": 485,
         "needs_private_review": false
       },
       "score": {
@@ -6246,7 +6246,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "TypeScript",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://trigger.dev/changelog",
@@ -6254,7 +6254,7 @@
       "pushed_at": "2026-05-08T17:44:00Z",
       "updated_at": "2026-05-08T20:34:42Z",
       "default_branch": "main",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 167008,
       "stargazers": 0,
@@ -6269,7 +6269,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 35,
+        "stale_days": 36,
         "needs_private_review": false
       },
       "score": {
@@ -6295,7 +6295,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Makefile",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "http://tutorial.djangogirls.org/",
@@ -6318,7 +6318,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 566,
+        "stale_days": 567,
         "needs_private_review": false
       },
       "score": {
@@ -6344,7 +6344,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://www.uupm.cc/",
@@ -6352,7 +6352,7 @@
       "pushed_at": "2026-04-03T05:08:19Z",
       "updated_at": "2026-05-09T13:46:23Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 3949,
       "stargazers": 0,
@@ -6367,7 +6367,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 71,
+        "stale_days": 72,
         "needs_private_review": false
       },
       "score": {
@@ -6393,7 +6393,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "TypeScript",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://ui.tailus.io/",
@@ -6401,7 +6401,7 @@
       "pushed_at": "2025-06-03T16:09:28Z",
       "updated_at": "2026-05-16T12:58:21Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 3710,
       "stargazers": 0,
@@ -6416,7 +6416,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 374,
+        "stale_days": 375,
         "needs_private_review": false
       },
       "score": {
@@ -6442,7 +6442,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://vectorbt.dev",
@@ -6465,7 +6465,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 48,
+        "stale_days": 49,
         "needs_private_review": false
       },
       "score": {
@@ -6491,7 +6491,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://pypi.org/project/vibe-trading-ai/",
@@ -6499,7 +6499,7 @@
       "pushed_at": "2026-05-04T04:15:32Z",
       "updated_at": "2026-05-04T13:39:55Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 37747,
       "stargazers": 0,
@@ -6514,7 +6514,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 40,
+        "stale_days": 41,
         "needs_private_review": false
       },
       "score": {
@@ -6540,7 +6540,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://visionagents.ai",
@@ -6548,7 +6548,7 @@
       "pushed_at": "2025-11-11T19:42:36Z",
       "updated_at": "2025-11-11T20:12:00Z",
       "default_branch": "main",
-      "license": "Apache License 2.0",
+      "license": "Apache-2.0",
       "parent": null,
       "disk_usage_kb": 16784,
       "stargazers": 0,
@@ -6563,7 +6563,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 213,
+        "stale_days": 214,
         "needs_private_review": false
       },
       "score": {
@@ -6590,7 +6590,7 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Python",
-      "languages": [],
+      "languages": ["Python"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2025-12-31T19:09:20Z",
@@ -6612,7 +6612,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 156,
+        "stale_days": 157,
         "needs_private_review": false
       },
       "score": {
@@ -6638,7 +6638,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "http://www.vnpy.com",
@@ -6646,7 +6646,7 @@
       "pushed_at": "2026-05-17T08:05:41Z",
       "updated_at": "2026-05-21T01:46:26Z",
       "default_branch": "master",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 303262,
       "stargazers": 0,
@@ -6661,7 +6661,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 27,
+        "stale_days": 28,
         "needs_private_review": false
       },
       "score": {
@@ -6688,14 +6688,14 @@
       "is_mirror": false,
       "is_template": false,
       "primary_language": "Python",
-      "languages": [],
+      "languages": ["Python"],
       "topics": [],
       "homepage_url": null,
       "created_at": "2025-11-10T17:44:23Z",
       "pushed_at": "2025-11-13T17:00:55Z",
       "updated_at": "2025-11-13T17:00:59Z",
       "default_branch": "main",
-      "license": "MIT License",
+      "license": "MIT",
       "parent": null,
       "disk_usage_kb": 71,
       "stargazers": 0,
@@ -6710,7 +6710,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 211,
+        "stale_days": 212,
         "needs_private_review": false
       },
       "score": {
@@ -6736,7 +6736,7 @@
       "is_fork": true,
       "is_mirror": false,
       "is_template": false,
-      "primary_language": "Python",
+      "primary_language": null,
       "languages": [],
       "topics": [],
       "homepage_url": "https://ziplime.limex.com",
@@ -6744,7 +6744,7 @@
       "pushed_at": "2026-05-22T15:28:27Z",
       "updated_at": "2026-05-23T11:32:40Z",
       "default_branch": "master",
-      "license": "GNU General Public License v3.0",
+      "license": "GPL-3.0",
       "parent": null,
       "disk_usage_kb": 151519,
       "stargazers": 0,
@@ -6759,7 +6759,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 21,
+        "stale_days": 22,
         "needs_private_review": false
       },
       "score": {
