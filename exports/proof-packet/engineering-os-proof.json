@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-15T11:06:50.296Z",
+  "generated_at": "2026-06-15T12:12:36.607Z",
   "generated_by": "scripts/public-proof-export.mjs",
   "privacy": "public-safe",
   "target_surface": {
@@ -34,7 +34,7 @@
     },
     {
       "claim": "The factory path has deployed hosted proof.",
-      "evidence": "16/16 golden-path gates passed; deployed URL verified at https://sage-client-intake-portal-vercel-p30uwb70s-sage-ideas.vercel.app.",
+      "evidence": "16/16 golden-path gates passed; deployed URL verified at https://sage-client-intake-portal-vercel-l741058bw-sage-ideas.vercel.app.",
       "source": "data/golden-path-runs.public.json"
     }
   ],
@@ -76,7 +76,7 @@
       "total": 8
     },
     "golden_path_deploy_status": "verified-vercel-url",
-    "golden_path_deployed_url": "https://sage-client-intake-portal-vercel-p30uwb70s-sage-ideas.vercel.app"
+    "golden_path_deployed_url": "https://sage-client-intake-portal-vercel-l741058bw-sage-ideas.vercel.app"
   },
   "recommended_assets": [
     {
@@ -130,7 +130,7 @@
     {
       "slug": "golden-path",
       "title": "Golden Path",
-      "body": "Latest proof run rag-knowledge-chat-2026-06-15T110158024Z generated, built, started, verified locally, and verified the deployed app at https://sage-client-intake-portal-vercel-p30uwb70s-sage-ideas.vercel.app with hash sha256:6e544381b7017f6f3c6ac1af173ae6b4b52538b9b1d4fb07d38d1f6f4f6f6a2f."
+      "body": "Latest proof run rag-knowledge-chat-2026-06-15T120734781Z generated, built, started, verified locally, and verified the deployed app at https://sage-client-intake-portal-vercel-l741058bw-sage-ideas.vercel.app with hash sha256:80c8694c9c7d11ea203439e768a137c7d7b2bd76161c5aee00dcc862204fda8d."
     },
     {
       "slug": "redaction-boundary",
@@ -157,11 +157,11 @@
       "exports/proof-packet/engineering-os-proof.json",
       "exports/proof-packet/engineering-os-proof.md"
     ],
-    "golden_path_hash": "sha256:6e544381b7017f6f3c6ac1af173ae6b4b52538b9b1d4fb07d38d1f6f4f6f6a2f",
-    "golden_path_run_id": "rag-knowledge-chat-2026-06-15T110158024Z",
-    "golden_path_deployed_url": "https://sage-client-intake-portal-vercel-p30uwb70s-sage-ideas.vercel.app",
+    "golden_path_hash": "sha256:80c8694c9c7d11ea203439e768a137c7d7b2bd76161c5aee00dcc862204fda8d",
+    "golden_path_run_id": "rag-knowledge-chat-2026-06-15T120734781Z",
+    "golden_path_deployed_url": "https://sage-client-intake-portal-vercel-l741058bw-sage-ideas.vercel.app",
     "golden_path_deploy_status": "verified-vercel-url",
-    "packet_hash": "sha256:5ae6d53f13ebd4fa5c9ff7b2937c23d7c2a9fb3925d5f45d199a4bd445bb8df2"
+    "packet_hash": "sha256:08039f380c171305f65c5c2f6408cec297a81e87432abf3857a8abda4833d657"
   },
   "redaction_policy": [
     "Commit public repository metadata only.",
