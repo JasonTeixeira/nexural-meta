@@ -2,8 +2,8 @@
 
 **Status:** Phase 6 internal packet ready
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-06-14T10:16:22.430Z
-**Packet hash:** `sha256:325f6c9b5ed49ca41cdc79b69e333573ce97f6c0e6562bdad05786d0d05db759`
+**Generated:** 2026-06-15T11:06:50.296Z
+**Packet hash:** `sha256:5ae6d53f13ebd4fa5c9ff7b2937c23d7c2a9fb3925d5f45d199a4bd445bb8df2`
 
 ## Positioning
 
@@ -19,14 +19,14 @@ Brand boundary: Nexural is a trading/investment product proof, not the umbrella 
 - Broad public average: 16/100
 - Load-bearing average: 96/100
 - Resource use cases: 7
-- Golden path: 16/16 gates in 51s
+- Golden path: 16/16 gates in 53s
 
 ## Public Claims
 
 - **The ecosystem has an indexed public registry.** 136 public repositories indexed; 0 private repositories summarized without names. Source: `data/ecosystem-registry.public.json`.
 - **Assets are scored before they are reused.** 136 public assets scored; public average 16/100, public load-bearing average 96/100. This is a gap map, not vanity scoring. Source: `data/ecosystem-scorecard.public.json`.
 - **Build choices are mapped to reusable resources.** 7 use cases mapped for daily navigation. Source: `data/ecosystem-resource-map.public.json`.
-- **The factory path has deployed hosted proof.** 16/16 golden-path gates passed; deployed URL verified at https://sage-client-intake-portal-vercel-jnvgbrxf3-sage-ideas.vercel.app. Source: `data/golden-path-runs.public.json`.
+- **The factory path has deployed hosted proof.** 16/16 golden-path gates passed; deployed URL verified at https://sage-client-intake-portal-vercel-p30uwb70s-sage-ideas.vercel.app. Source: `data/golden-path-runs.public.json`.
 
 ## Architecture
 
@@ -54,7 +54,7 @@ Show registry counts, scorecard averages, use-case coverage, and golden-path gat
 
 ### Golden Path
 
-Latest proof run rag-knowledge-chat-2026-06-14T101103669Z generated, built, started, verified locally, and verified the deployed app at https://sage-client-intake-portal-vercel-jnvgbrxf3-sage-ideas.vercel.app with hash sha256:d8767c75872a9cce35f24f48e45fb934ac7dddb7ae8cf753eea076370fc8c6a9.
+Latest proof run rag-knowledge-chat-2026-06-15T110158024Z generated, built, started, verified locally, and verified the deployed app at https://sage-client-intake-portal-vercel-p30uwb70s-sage-ideas.vercel.app with hash sha256:6e544381b7017f6f3c6ac1af173ae6b4b52538b9b1d4fb07d38d1f6f4f6f6a2f.
 
 ### Redaction Boundary
 

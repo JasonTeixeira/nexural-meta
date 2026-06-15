@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-14T10:16:14.273Z",
+  "generated_at": "2026-06-15T11:06:42.777Z",
   "generated_by": "scripts/proof-environment-check.mjs",
   "privacy": "public-safe",
   "status": "passed",
@@ -10,10 +10,10 @@
     "gates_total": 6,
     "required_secrets_present": 8,
     "required_secrets_total": 8,
-    "hosted_url": "https://sage-client-intake-portal-vercel-jnvgbrxf3-sage-ideas.vercel.app",
+    "hosted_url": "https://sage-client-intake-portal-vercel-p30uwb70s-sage-ideas.vercel.app",
     "hosted_health_status": 200,
-    "latest_run_id": "rag-knowledge-chat-2026-06-14T101103669Z",
-    "latest_app_hash": "sha256:d8767c75872a9cce35f24f48e45fb934ac7dddb7ae8cf753eea076370fc8c6a9",
+    "latest_run_id": "rag-knowledge-chat-2026-06-15T110158024Z",
+    "latest_app_hash": "sha256:6e544381b7017f6f3c6ac1af173ae6b4b52538b9b1d4fb07d38d1f6f4f6f6a2f",
     "latest_gate_count": 16
   },
   "gates": [
@@ -40,7 +40,7 @@
     {
       "id": "golden_path_evidence_present",
       "status": "passed",
-      "detail": "Latest run rag-knowledge-chat-2026-06-14T101103669Z has 16/16 gates."
+      "detail": "Latest run rag-knowledge-chat-2026-06-15T110158024Z has 16/16 gates."
     },
     {
       "id": "golden_path_has_hosted_db_gate",
@@ -162,22 +162,22 @@
   ],
   "hosted_runtime": {
     "ok": true,
-    "url": "https://sage-client-intake-portal-vercel-jnvgbrxf3-sage-ideas.vercel.app",
+    "url": "https://sage-client-intake-portal-vercel-p30uwb70s-sage-ideas.vercel.app",
     "status": 200,
-    "duration_ms": 2901,
+    "duration_ms": 2691,
     "database_mode": "crud_probe",
     "database_operation": "insert-read-update-delete",
     "detail": "Hosted /api/health completed DB CRUD proof."
   },
   "evidence": {
     "golden_path_present": true,
-    "latest_run_id": "rag-knowledge-chat-2026-06-14T101103669Z",
-    "generated_at": "2026-06-14T10:16:02.095Z",
-    "app_hash": "sha256:d8767c75872a9cce35f24f48e45fb934ac7dddb7ae8cf753eea076370fc8c6a9",
+    "latest_run_id": "rag-knowledge-chat-2026-06-15T110158024Z",
+    "generated_at": "2026-06-15T11:06:30.174Z",
+    "app_hash": "sha256:6e544381b7017f6f3c6ac1af173ae6b4b52538b9b1d4fb07d38d1f6f4f6f6a2f",
     "gate_count": 16,
     "gates_passed": 16,
     "vercel_db_crud_gate": "passed",
-    "latest_evidence_hash": "sha256:44a226fb03b81c94b0a4e07b78d288239a66aca48dc39dd3811b2f6732f438bb"
+    "latest_evidence_hash": "sha256:8996c5dcaa1b2da1b1538cb297a6565f7afad931bf6d025773081a3d023c17b8"
   },
   "operating_rules": [
     "No secret values are written to evidence, docs, or generated public-safe JSON.",

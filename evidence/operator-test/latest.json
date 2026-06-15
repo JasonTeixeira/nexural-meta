@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-14T10:16:21.165Z",
+  "generated_at": "2026-06-15T11:06:49.005Z",
   "generated_by": "scripts/operator-test-pass.mjs",
   "privacy": "public-safe",
   "phase": "Phase 17",
@@ -11,7 +11,7 @@
     "dashboard_routes": 11,
     "recipes_indexed": 12,
     "proof_backed_recipes": 3,
-    "hosted_golden_paths": 45,
+    "hosted_golden_paths": 48,
     "db_proof_status": "passed"
   },
   "checks": [
@@ -43,7 +43,7 @@
       "id": "proof-artifacts",
       "label": "Golden path, proof env, DB proof, and public packet are usable.",
       "status": "passed",
-      "detail": "45 hosted runs, env=passed, db=passed."
+      "detail": "48 hosted runs, env=passed, db=passed."
     },
     {
       "id": "db-proof-depth",
@@ -71,5 +71,5 @@
     "What asset should be improved first?",
     "What failed, what is stale, and what should the operator do next?"
   ],
-  "evidence_hash": "sha256:f0da6c6b00056c1c1b8c37c548a11fba7307cfb403360249e89dd0dc00c1ac2e"
+  "evidence_hash": "sha256:bb3446a33b3b677fca4b38b9172bf4f1f6a42de72f72bffd51e825d92e69709c"
 }

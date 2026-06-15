@@ -1,8 +1,8 @@
 # Public Portfolio Packaging
 
 **Status:** ready-to-review
-**Generated:** 2026-06-14T10:16:22.124Z
-**Proof hash:** `sha256:fcdbafed2513603168922750b0f099813e93bb049f0c8938b5d7df5b0f3b4c27`
+**Generated:** 2026-06-15T11:06:49.980Z
+**Proof hash:** `sha256:325f6c9b5ed49ca41cdc79b69e333573ce97f6c0e6562bdad05786d0d05db759`
 
 ## Claims
 
@@ -15,9 +15,9 @@
 
 | App                  | Recipe                  | Gates | URL                                                                      | Hash                                                                      |
 | -------------------- | ----------------------- | ----- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------- |
-| RAG Knowledge Chat   | saas-rag-chat           | 16/16 | https://sage-client-intake-portal-vercel-jnvgbrxf3-sage-ideas.vercel.app | `sha256:d8767c75872a9cce35f24f48e45fb934ac7dddb7ae8cf753eea076370fc8c6a9` |
-| Fintech Ledger Ops   | fintech-ledger-app      | 16/16 | https://sage-client-intake-portal-vercel-n5ov8jpti-sage-ideas.vercel.app | `sha256:7259b565ceb2473394695295f8628a2d84ee282bfef67e057313be819df00862` |
-| Client Intake Portal | internal-tool-dashboard | 16/16 | https://sage-client-intake-portal-vercel-f6owxh5h1-sage-ideas.vercel.app | `sha256:2f98f0746e9cfe81e6dc85892e3f48bf637c86e295eeb1ba95682006a3679407` |
+| RAG Knowledge Chat   | saas-rag-chat           | 16/16 | https://sage-client-intake-portal-vercel-p30uwb70s-sage-ideas.vercel.app | `sha256:6e544381b7017f6f3c6ac1af173ae6b4b52538b9b1d4fb07d38d1f6f4f6f6a2f` |
+| Fintech Ledger Ops   | fintech-ledger-app      | 16/16 | https://sage-client-intake-portal-vercel-48626t517-sage-ideas.vercel.app | `sha256:3f31f4e1ffc4c7d56e327832d8764f59ea7ac870ea7b18b94d84015ff60ca5c8` |
+| Client Intake Portal | internal-tool-dashboard | 16/16 | https://sage-client-intake-portal-vercel-4a5o9qvfs-sage-ideas.vercel.app | `sha256:319a21acd0ebae5f0f3c834c204b706fe5b8156bbd990f44fd84fb586c5bffd9` |
 
 ## Publish Blockers
 
