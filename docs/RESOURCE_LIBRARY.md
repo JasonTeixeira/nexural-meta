@@ -1,11 +1,11 @@
 # Resource Library
 
 **Status:** Phase 12/13 generated resource library and maturity lift queue
-**Generated:** 2026-06-16T10:41:51.904Z
+**Generated:** 2026-06-17T10:38:30.849Z
 
 ## Summary
 
-- Assets: 148
+- Assets: 149
 - Use cases: 7
 - Recipes: 12
 - Proof-backed recipes: 3

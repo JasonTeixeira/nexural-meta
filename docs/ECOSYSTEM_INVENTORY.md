@@ -2,7 +2,7 @@
 
 **Status:** Phase 1 generated inventory
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-06-16T10:35:07.809Z
+**Generated:** 2026-06-17T10:31:47.672Z
 **Source:** GitHub owner `JasonTeixeira`
 
 ## Privacy Boundary
@@ -12,8 +12,8 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 
 ## Totals
 
-- Total repositories: **136**
-- Public repositories: **136**
+- Total repositories: **137**
+- Public repositories: **137**
 - Private repositories: **0**
 - Archived repositories: **47**
 - Fork/reference repositories: **91**
@@ -27,7 +27,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | ops-knowledge        |     4 |
 | public-proof-surface |     3 |
 | quant-trading        |     7 |
-| reference-library    |   118 |
+| reference-library    |   119 |
 | resource-library     |     2 |
 
 ## Private Repository Summary
@@ -144,6 +144,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [SaaS-Boilerplate](https://github.com/JasonTeixeira/SaaS-Boilerplate)                                                                                                 | reference-library    | reference     | L0       | reference |
 | [sage-after-dark](https://github.com/JasonTeixeira/sage-after-dark)                                                                                                   | reference-library    | reference     | L0       | active    |
 | [sage-cli](https://github.com/JasonTeixeira/sage-cli)                                                                                                                 | reference-library    | reference     | L0       | watch     |
+| [sage-kernel](https://github.com/JasonTeixeira/sage-kernel)                                                                                                           | reference-library    | reference     | L0       | active    |
 | [sageideas.dev](https://github.com/JasonTeixeira/sageideas.dev)                                                                                                       | public-proof-surface | product-proof | L3       | active    |
 | [saleor](https://github.com/JasonTeixeira/saleor)                                                                                                                     | reference-library    | reference     | L0       | archived  |
 | [Security-Testing-Framework](https://github.com/JasonTeixeira/Security-Testing-Framework)                                                                             | reference-library    | reference     | L0       | stale     |

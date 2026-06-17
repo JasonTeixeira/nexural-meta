@@ -1,8 +1,8 @@
 # Public Portfolio Packaging
 
 **Status:** ready-to-review
-**Generated:** 2026-06-16T10:41:59.838Z
-**Proof hash:** `sha256:08039f380c171305f65c5c2f6408cec297a81e87432abf3857a8abda4833d657`
+**Generated:** 2026-06-17T10:38:38.708Z
+**Proof hash:** `sha256:888dc48af3429c7e1ec012c14899d28f1760d6308872fe3aff4e47b83dc78e82`
 
 ## Claims
 
@@ -15,9 +15,9 @@
 
 | App                  | Recipe                  | Gates | URL                                                                      | Hash                                                                      |
 | -------------------- | ----------------------- | ----- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------- |
-| RAG Knowledge Chat   | saas-rag-chat           | 16/16 | https://sage-client-intake-portal-vercel-7sku7pisr-sage-ideas.vercel.app | `sha256:d4f23a1af7acb4acde26e296a0bfd4425b781ac1b2ac9623c22856b1a1d9987c` |
-| Fintech Ledger Ops   | fintech-ledger-app      | 16/16 | https://sage-client-intake-portal-vercel-kmenuu33i-sage-ideas.vercel.app | `sha256:c537072b7b2d02ea41795dfc0cddedb7071178855b40d581662b9f7d6c3dc903` |
-| Client Intake Portal | internal-tool-dashboard | 16/16 | https://sage-client-intake-portal-vercel-gm1k0y1qj-sage-ideas.vercel.app | `sha256:5ece7d0f53f857168f772eda572afbd179c1f1426d599b96f46a584db22b6136` |
+| RAG Knowledge Chat   | saas-rag-chat           | 16/16 | https://sage-client-intake-portal-vercel-1o5a19m4r-sage-ideas.vercel.app | `sha256:123fcf6c1e5bccd0b36d3bdd21b81d698f25dceb5dfcf954961951dd1f0ae2c7` |
+| Fintech Ledger Ops   | fintech-ledger-app      | 16/16 | https://sage-client-intake-portal-vercel-2r1q53uau-sage-ideas.vercel.app | `sha256:1211aecbdbfe5e9e7f24a0553dc1d7c33d535a907f72318c3dd2ea91d4916d3c` |
+| Client Intake Portal | internal-tool-dashboard | 16/16 | https://sage-client-intake-portal-vercel-i8l8jewol-sage-ideas.vercel.app | `sha256:af41dd5fb884a4de654e608ee77f6c6ac4b5885c399f285ea6f810a4c7c51582` |
 
 ## Publish Blockers
 
