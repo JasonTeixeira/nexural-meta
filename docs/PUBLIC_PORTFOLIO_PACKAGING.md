@@ -1,8 +1,8 @@
 # Public Portfolio Packaging
 
 **Status:** ready-to-review
-**Generated:** 2026-06-18T10:36:24.326Z
-**Proof hash:** `sha256:108c1e097de2ad8a5b5b4139ef29ef37786bab68d7c9e421ebb90945701d3ab9`
+**Generated:** 2026-06-19T10:37:20.264Z
+**Proof hash:** `sha256:2f85230cc0b815eff61d0f25975b0c33714ae366b0004188dd755ac822f5b8af`
 
 ## Claims
 
@@ -15,9 +15,9 @@
 
 | App                  | Recipe                  | Gates | URL                                                                      | Hash                                                                      |
 | -------------------- | ----------------------- | ----- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------- |
-| RAG Knowledge Chat   | saas-rag-chat           | 16/16 | https://sage-client-intake-portal-vercel-lwo8ra330-sage-ideas.vercel.app | `sha256:782f4cfdc4051382c0dd01ff7d6c0c51c1f86f5d04709c0ec41189642f8b73b9` |
-| Fintech Ledger Ops   | fintech-ledger-app      | 16/16 | https://sage-client-intake-portal-vercel-9bkamo7pb-sage-ideas.vercel.app | `sha256:5b7cde1f9d2b1d19f973dbca91a2a04f6f393bdcf8b2c203595df6d678ec3acc` |
-| Client Intake Portal | internal-tool-dashboard | 16/16 | https://sage-client-intake-portal-vercel-desvb7tjh-sage-ideas.vercel.app | `sha256:f7e5e73a38d46ba746c0da863df57b2a0b631c1090387601bc5ec29c04e775d1` |
+| RAG Knowledge Chat   | saas-rag-chat           | 16/16 | https://sage-client-intake-portal-vercel-i68j1aght-sage-ideas.vercel.app | `sha256:77af5ffc934532cbade65dc6c6c7e4a39f5e2ff13d3c1a464344e27ae4aad2aa` |
+| Fintech Ledger Ops   | fintech-ledger-app      | 16/16 | https://sage-client-intake-portal-vercel-arsnj3wgh-sage-ideas.vercel.app | `sha256:1388b66ecc45b004aa103bf4b64f4f3de5c7c16af65d42664ee7b03c76fde6ee` |
+| Client Intake Portal | internal-tool-dashboard | 16/16 | https://sage-client-intake-portal-vercel-6glb1yfwn-sage-ideas.vercel.app | `sha256:d7ac56d4191678b9c2ef2b4abda96e850285b15a97c7daab698aa63f76c5a03d` |
 
 ## Publish Blockers
 
