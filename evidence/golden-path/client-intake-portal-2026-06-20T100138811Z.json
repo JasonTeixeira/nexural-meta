@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
-  "run_id": "rag-knowledge-chat-2026-06-20T100324634Z",
-  "generated_at": "2026-06-20T10:03:24.634Z",
+  "run_id": "client-intake-portal-2026-06-20T100138811Z",
+  "generated_at": "2026-06-20T10:01:38.811Z",
   "generated_by": "scripts/golden-path-proof.mjs",
   "privacy": "public-safe",
   "spec": {
-    "id": "rag-knowledge-chat",
-    "title": "RAG Knowledge Chat",
-    "path": "data/golden-path-specs/rag-knowledge-chat.json",
-    "intent": "Prove the factory can generate an AI/RAG SaaS surface with tenant auth, chat routes, eval assets, build verification, runtime health, and hosted DB proof.",
-    "recipe": "saas-rag-chat",
-    "app_slug": "rag-knowledge-chat",
+    "id": "client-intake-portal",
+    "title": "Client Intake Portal",
+    "path": "data/golden-path-specs/client-intake-portal.json",
+    "intent": "Prove the Engineering OS can select resources, forge a real app, run QA/build gates, start a runtime, verify the live health/security surface, and capture reusable lessons.",
+    "recipe": "internal-tool-dashboard",
+    "app_slug": "client-intake-portal",
     "use_case_id": "ship-saas-app"
   },
   "selected_resources": [
@@ -30,10 +30,10 @@
     }
   ],
   "generated_app": {
-    "local_path": "<repo>/.nexural/cache/golden-path/rag-knowledge-chat-2026-06-20T100324634Z/rag-knowledge-chat",
-    "file_count": 46,
-    "tree_hash": "sha256:40f68f451c444be48195b02f0090c8e971f12fe426051421de57a0ec8e7c77b1",
-    "hashed_files": 46
+    "local_path": "<repo>/.nexural/cache/golden-path/client-intake-portal-2026-06-20T100138811Z/client-intake-portal",
+    "file_count": 35,
+    "tree_hash": "sha256:39c4025c3968dc076440b3e73be42280e7109d37235438632942550cad683423",
+    "hashed_files": 35
   },
   "runtime": {
     "mode": "local-next-start+vercel",
@@ -59,16 +59,16 @@
           "ok": true,
           "mode": "seed_data_probe",
           "table": "tenants",
-          "slug": "health-seed-rag-knowledge-chat",
+          "slug": "health-seed-client-intake-portal",
           "operation": "upsert-read"
         }
       }
     },
     "deploy_status": "verified-vercel-url",
-    "deployed_url": "https://sage-client-intake-portal-vercel-jfhaqwj8p-sage-ideas.vercel.app",
-    "deployed_verified_at": "2026-06-20T10:05:30.829Z",
-    "deployment_id": "dpl_BawcBudn4tnV5rrKQW9EK5pvWgsN",
-    "inspector_url": "https://vercel.com/sage-ideas/sage-client-intake-portal-vercel/BawcBudn4tnV5rrKQW9EK5pvWgsN"
+    "deployed_url": "https://sage-client-intake-portal-vercel-lshngeosj-sage-ideas.vercel.app",
+    "deployed_verified_at": "2026-06-20T10:07:55.192Z",
+    "deployment_id": "dpl_DBvqqP813VY8YMCkb6fTbzvkWSqd",
+    "inspector_url": "https://vercel.com/sage-ideas/sage-client-intake-portal-vercel/DBvqqP813VY8YMCkb6fTbzvkWSqd"
   },
   "gates": [
     {
@@ -81,22 +81,22 @@
       "id": "forge_emit",
       "label": "Forge emit",
       "status": "passed",
-      "detail": "46 files emitted by saas-rag-chat.",
-      "command": "npx --yes tsx apps/cli/src/bin/nx.ts forge saas-rag-chat rag-knowledge-chat --inputs <repo>/.nexural/cache/golden-path/rag-knowledge-chat-2026-06-20T100324634Z/inputs.json --mock-secrets --out-dir <repo>/.nexural/cache/golden-path/rag-knowledge-chat-2026-06-20T100324634Z/rag-knowledge-chat",
-      "duration_ms": 2075
+      "detail": "35 files emitted by internal-tool-dashboard.",
+      "command": "npx --yes tsx apps/cli/src/bin/nx.ts forge internal-tool-dashboard client-intake-portal --inputs <repo>/.nexural/cache/golden-path/client-intake-portal-2026-06-20T100138811Z/inputs.json --mock-secrets --out-dir <repo>/.nexural/cache/golden-path/client-intake-portal-2026-06-20T100138811Z/client-intake-portal",
+      "duration_ms": 4269
     },
     {
       "id": "generated_app_usability",
       "label": "Generated app usability surface",
       "status": "passed",
-      "detail": "Generated app includes 8 required runtime, DB, and recipe-specific files."
+      "detail": "Generated app includes 11 required runtime, DB, and recipe-specific files."
     },
     {
       "id": "supabase_runtime",
       "label": "Verify Supabase/Auth runtime",
       "status": "passed",
       "detail": "HTTP 200 from Supabase Auth settings for project xacwaprwlbqgmswgodsk.",
-      "duration_ms": 52
+      "duration_ms": 208
     },
     {
       "id": "supabase_migrations",
@@ -111,7 +111,7 @@
       "status": "passed",
       "detail": "exit 0",
       "command": "pnpm install --ignore-workspace --ignore-scripts",
-      "duration_ms": 6823
+      "duration_ms": 9942
     },
     {
       "id": "standalone_lockfile",
@@ -125,7 +125,7 @@
       "status": "passed",
       "detail": "exit 0",
       "command": "pnpm typecheck",
-      "duration_ms": 3738
+      "duration_ms": 2891
     },
     {
       "id": "build",
@@ -133,14 +133,14 @@
       "status": "passed",
       "detail": "exit 0",
       "command": "pnpm build",
-      "duration_ms": 33985
+      "duration_ms": 30248
     },
     {
       "id": "local_runtime",
       "label": "Start local runtime",
       "status": "passed",
       "detail": "HTTP 200 from /api/health.",
-      "duration_ms": 1603
+      "duration_ms": 1654
     },
     {
       "id": "db_crud_health",
@@ -165,15 +165,15 @@
       "label": "Verify live local app",
       "status": "passed",
       "detail": "8/8 checks passed.",
-      "command": "npx --yes tsx apps/cli/src/bin/nx.ts verify http://127.0.0.1:3040 --evidence-slug rag-knowledge-chat-local --timeout 20000",
-      "duration_ms": 2307
+      "command": "npx --yes tsx apps/cli/src/bin/nx.ts verify http://127.0.0.1:3040 --evidence-slug client-intake-portal-local --timeout 20000",
+      "duration_ms": 2328
     },
     {
       "id": "vercel_runtime",
       "label": "Verify public Vercel deployment",
       "status": "passed",
-      "detail": "8/8 checks passed at https://sage-client-intake-portal-vercel-jfhaqwj8p-sage-ideas.vercel.app.",
-      "command": "nx verify https://sage-client-intake-portal-vercel-jfhaqwj8p-sage-ideas.vercel.app --evidence-slug rag-knowledge-chat-vercel",
+      "detail": "8/8 checks passed at https://sage-client-intake-portal-vercel-lshngeosj-sage-ideas.vercel.app.",
+      "command": "nx verify https://sage-client-intake-portal-vercel-lshngeosj-sage-ideas.vercel.app --evidence-slug client-intake-portal-vercel",
       "duration_ms": null
     },
     {
@@ -181,15 +181,15 @@
       "label": "Verify deployed DB-backed health",
       "status": "passed",
       "detail": "Deployed /api/health completed insert-read-update-delete against staging Postgres.",
-      "command": "fetch https://sage-client-intake-portal-vercel-jfhaqwj8p-sage-ideas.vercel.app/api/health",
-      "duration_ms": 2845
+      "command": "fetch https://sage-client-intake-portal-vercel-lshngeosj-sage-ideas.vercel.app/api/health",
+      "duration_ms": 2832
     }
   ],
   "evidence": {
-    "gate5_report": "evidence/gate-5/rag-knowledge-chat-local/report.json",
+    "gate5_report": "evidence/gate-5/client-intake-portal-local/report.json",
     "latest_report": "evidence/golden-path/latest.json",
     "public_index": "data/golden-path-runs.public.json",
-    "gate5_vercel_report": "evidence/gate-5/rag-knowledge-chat-vercel/report.json"
+    "gate5_vercel_report": "evidence/gate-5/client-intake-portal-vercel/report.json"
   },
   "reusable_lessons": [
     {
@@ -206,7 +206,7 @@
     }
   ],
   "remaining_gaps": ["Production auth/database credentials are intentionally not committed."],
-  "wall_clock_ms": 51096,
-  "deployment_attached_at": "2026-06-20T10:05:30.829Z",
+  "wall_clock_ms": 52062,
+  "deployment_attached_at": "2026-06-20T10:07:55.192Z",
   "deployment_attached_by": "scripts/attach-golden-path-deploy.mjs"
 }
