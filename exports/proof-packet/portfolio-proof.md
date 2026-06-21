@@ -1,8 +1,8 @@
 # Public Portfolio Packaging
 
 **Status:** ready-to-review
-**Generated:** 2026-06-20T10:08:14.956Z
-**Proof hash:** `sha256:0d6da42297076e5a72d94b6ccf16fe654e482bb50d2801fe1ded3f64b94853f0`
+**Generated:** 2026-06-21T10:20:04.374Z
+**Proof hash:** `sha256:467fd2c547f0cab471d24d017b4bfc1a858d37a0315ad98e8e86b0176125c39d`
 
 ## Claims
 
@@ -15,9 +15,9 @@
 
 | App                  | Recipe                  | Gates | URL                                                                      | Hash                                                                      |
 | -------------------- | ----------------------- | ----- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------- |
-| RAG Knowledge Chat   | saas-rag-chat           | 16/16 | https://sage-client-intake-portal-vercel-jfhaqwj8p-sage-ideas.vercel.app | `sha256:40f68f451c444be48195b02f0090c8e971f12fe426051421de57a0ec8e7c77b1` |
-| Fintech Ledger Ops   | fintech-ledger-app      | 16/16 | https://sage-client-intake-portal-vercel-9jm95oirp-sage-ideas.vercel.app | `sha256:ff4b0395cc340394fcc41abe1432c269767b5fbbbb46eac7c97a95ac5d3405a1` |
-| Client Intake Portal | internal-tool-dashboard | 16/16 | https://sage-client-intake-portal-vercel-lshngeosj-sage-ideas.vercel.app | `sha256:39c4025c3968dc076440b3e73be42280e7109d37235438632942550cad683423` |
+| RAG Knowledge Chat   | saas-rag-chat           | 16/16 | https://sage-client-intake-portal-vercel-mtw8otubf-sage-ideas.vercel.app | `sha256:aa879682c14601207d449f7b0437698294a488e84c619928bd8880ebe6d3403c` |
+| Fintech Ledger Ops   | fintech-ledger-app      | 16/16 | https://sage-client-intake-portal-vercel-3zk5e7tu8-sage-ideas.vercel.app | `sha256:95bd5dcbb5e8fa9b0dd8d6b999dca64d03f734e7ac6d18529daca5b407641c74` |
+| Client Intake Portal | internal-tool-dashboard | 16/16 | https://sage-client-intake-portal-vercel-rm20e3x01-sage-ideas.vercel.app | `sha256:c635aad94abe4fed97d6a726469a55260c8f9d70ebc7cb0fc247f235a2d3daff` |
 
 ## Publish Blockers
 

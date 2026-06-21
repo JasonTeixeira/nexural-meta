@@ -2,7 +2,7 @@
 
 **Status:** Internal proof environment lock
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-06-20T10:08:07.359Z
+**Generated:** 2026-06-21T10:19:57.263Z
 **Overall:** passed
 
 ## Purpose
@@ -23,7 +23,7 @@ pnpm proof:env
 | required_secrets_present       | passed | All required proof secrets are present.                              |
 | required_secrets_fresh         | passed | Required proof secrets are within rotation policy.                   |
 | hosted_db_crud_health          | passed | Hosted /api/health completed DB CRUD proof.                          |
-| golden_path_evidence_present   | passed | Latest run rag-knowledge-chat-2026-06-20T100324634Z has 16/16 gates. |
+| golden_path_evidence_present   | passed | Latest run rag-knowledge-chat-2026-06-21T101523164Z has 16/16 gates. |
 | golden_path_has_hosted_db_gate | passed | Golden-path evidence includes a passed hosted DB CRUD gate.          |
 
 ## Required Secrets
@@ -41,17 +41,17 @@ pnpm proof:env
 
 ## Hosted Runtime
 
-- URL: https://sage-client-intake-portal-vercel-jfhaqwj8p-sage-ideas.vercel.app
+- URL: https://sage-client-intake-portal-vercel-mtw8otubf-sage-ideas.vercel.app
 - HTTP status: 200
 - Database mode: crud_probe
 - Database operation: insert-read-update-delete
 
 ## Evidence
 
-- Latest run: `rag-knowledge-chat-2026-06-20T100324634Z`
-- App hash: `sha256:40f68f451c444be48195b02f0090c8e971f12fe426051421de57a0ec8e7c77b1`
+- Latest run: `rag-knowledge-chat-2026-06-21T101523164Z`
+- App hash: `sha256:aa879682c14601207d449f7b0437698294a488e84c619928bd8880ebe6d3403c`
 - Gates: 16/16
-- Evidence hash: `sha256:a1b0cf3f3d6207851a5dd93575e45ad39a92a76912ffb05e2fe700994918aaea`
+- Evidence hash: `sha256:facfe1e05931c682203f0900cb571a68e3319eaee9cf13f5fd7007ecce33462b`
 
 ## Operating Rules
 
