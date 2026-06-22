@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-22T10:56:01.565Z",
+  "generated_at": "2026-06-22T12:11:49.373Z",
   "generated_by": "scripts/db-proof-check.mjs",
   "privacy": "public-safe",
   "status": "passed",
   "summary": {
     "gates_passed": 6,
     "gates_total": 6,
-    "latest_run_id": "rag-knowledge-chat-2026-06-22T105136214Z",
-    "deployed_url": "https://sage-client-intake-portal-vercel-85n0fd2p9-sage-ideas.vercel.app",
+    "latest_run_id": "rag-knowledge-chat-2026-06-22T120658390Z",
+    "deployed_url": "https://sage-client-intake-portal-vercel-kx7twnynn-sage-ideas.vercel.app",
     "database_mode": "staging-postgres",
     "migration_status": "passed",
     "hosted_crud_status": "passed",
@@ -65,7 +65,7 @@
     "golden_path_latest": "evidence/golden-path/latest.json",
     "proof_environment": "data/proof-environment.public.json",
     "hosted_health_checked": true,
-    "report_hash": "sha256:4d2dc9eed9a51d1d374e8ecdf04842d21398af1af1a25d35dd62d1b992a0d09e"
+    "report_hash": "sha256:978027ebf7b73fca2be9c3746f277e7d88af8993f856fb9a7b11872b31019b96"
   },
   "next_actions": [
     {
