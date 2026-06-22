@@ -2,7 +2,7 @@
 
 **Status:** Phase 5 golden path passed with public deployment evidence
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-06-21T10:19:45.525Z
+**Generated:** 2026-06-22T10:55:49.884Z
 
 ## What This Proves
 
@@ -10,15 +10,15 @@ A public-safe app spec can select resources, forge a real Next.js app, install d
 
 ## Latest Run
 
-- Run ID: `rag-knowledge-chat-2026-06-21T101523164Z`
+- Run ID: `rag-knowledge-chat-2026-06-22T105136214Z`
 - Spec: `data/golden-path-specs/rag-knowledge-chat.json`
 - Recipe: `saas-rag-chat`
 - App: `rag-knowledge-chat`
 - Local runtime: `http://127.0.0.1:3040`
-- Deployed URL: `https://sage-client-intake-portal-vercel-mtw8otubf-sage-ideas.vercel.app`
+- Deployed URL: `https://sage-client-intake-portal-vercel-85n0fd2p9-sage-ideas.vercel.app`
 - Deploy status: `verified-vercel-url`
-- Generated app hash: `sha256:aa879682c14601207d449f7b0437698294a488e84c619928bd8880ebe6d3403c`
-- Wall clock: 53s
+- Generated app hash: `sha256:84d2a5de10c8864e691c6f1bd46ff1bd92fdebc061c48d986c5c0edbffa0e43e`
+- Wall clock: 35s
 
 ## Gates
 
@@ -38,7 +38,7 @@ A public-safe app spec can select resources, forge a real Next.js app, install d
 | DB schema drift health proof     | passed | schema_drift_probe passed.                                                                                      |
 | DB seed-data health proof        | passed | seed_data_probe passed.                                                                                         |
 | Verify live local app            | passed | 8/8 checks passed.                                                                                              |
-| Verify public Vercel deployment  | passed | 8/8 checks passed at https://sage-client-intake-portal-vercel-mtw8otubf-sage-ideas.vercel.app.                  |
+| Verify public Vercel deployment  | passed | 8/8 checks passed at https://sage-client-intake-portal-vercel-85n0fd2p9-sage-ideas.vercel.app.                  |
 | Verify deployed DB-backed health | passed | Deployed /api/health completed insert-read-update-delete against staging Postgres.                              |
 
 ## Selected Resources
