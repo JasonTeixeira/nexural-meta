@@ -2,7 +2,7 @@
 
 **Status:** Phase 2 generated maturity map
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-06-22T12:05:08.360Z
+**Generated:** 2026-06-23T10:14:13.069Z
 
 ## Read This Correctly
 
@@ -27,7 +27,7 @@ A large reference library intentionally scores low because reference repos are r
 
 | Layer                | Count | Load-bearing | Average score |
 | -------------------- | ----: | -----------: | ------------: |
-| agent-engine         |     1 |            0 |            33 |
+| agent-engine         |     1 |            0 |            23 |
 | control-plane        |     1 |            1 |           100 |
 | ops-knowledge        |     4 |            1 |            36 |
 | public-proof-surface |     3 |            3 |            99 |
