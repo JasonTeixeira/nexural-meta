@@ -1,13 +1,13 @@
 # DB Proof
 
 **Status:** Phase 15 generated DB proof and migration-readiness check
-**Generated:** 2026-06-23T10:21:01.729Z
+**Generated:** 2026-06-24T10:08:18.688Z
 
 ## Summary
 
-- Gates: 6/6
-- Latest run: rag-knowledge-chat-2026-06-23T101609956Z
-- Hosted URL: https://sage-client-intake-portal-vercel-ie58l0x9h-sage-ideas.vercel.app
+- Gates: 4/6
+- Latest run: rag-knowledge-chat-2026-06-24T100602440Z
+- Hosted URL: missing
 - Database mode: staging-postgres
 - Schema drift: passed
 - Seed data: passed
@@ -18,12 +18,12 @@
 | Gate                   | Status | Detail                                                                                                                       |
 | ---------------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------- |
 | db_crud_health         | passed | Generated /api/health completed insert-read-update-delete against staging Postgres.                                          |
-| vercel_db_crud_health  | passed | Deployed /api/health completed insert-read-update-delete against staging Postgres.                                           |
+| vercel_db_crud_health  | failed | Latest golden-path evidence has no vercel_db_crud_health gate.                                                               |
 | migration_readiness    | passed | Latest local run skipped migration push, but DATABASE_URL is present in GitHub secret inventory for scheduled proof refresh. |
 | db_schema_drift_health | passed | Expected tables verified: tenants, tenant_memberships, audit_events.                                                         |
 | db_seed_data_health    | passed | Seed row health-seed-rag-knowledge-chat completed upsert-read.                                                               |
-| proof_environment_db   | passed | Proof environment passed; hosted health 200.                                                                                 |
+| proof_environment_db   | failed | Proof environment failed; hosted health 200.                                                                                 |
 
 ## Next Actions
 
-- **Phase 15:** Expand schema drift proof to recipe-specific invariants and RLS policy checks. CRUD, migration readiness, schema drift, and seed-data proof are green.
+- **Phase 15:** Run pnpm golden:path in an environment with staging Supabase DB credentials. The DB proof should include migration readiness and CRUD proof in the same evidence chain.

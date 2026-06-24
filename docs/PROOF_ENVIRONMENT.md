@@ -2,8 +2,8 @@
 
 **Status:** Internal proof environment lock
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-06-23T10:20:58.015Z
-**Overall:** passed
+**Generated:** 2026-06-24T10:08:16.689Z
+**Overall:** failed
 
 ## Purpose
 
@@ -23,8 +23,8 @@ pnpm proof:env
 | required_secrets_present       | passed | All required proof secrets are present.                              |
 | required_secrets_fresh         | passed | Required proof secrets are within rotation policy.                   |
 | hosted_db_crud_health          | passed | Hosted /api/health completed DB CRUD proof.                          |
-| golden_path_evidence_present   | passed | Latest run rag-knowledge-chat-2026-06-23T101609956Z has 16/16 gates. |
-| golden_path_has_hosted_db_gate | passed | Golden-path evidence includes a passed hosted DB CRUD gate.          |
+| golden_path_evidence_present   | passed | Latest run rag-knowledge-chat-2026-06-24T100602440Z has 14/14 gates. |
+| golden_path_has_hosted_db_gate | failed | Hosted DB CRUD gate status is missing.                               |
 
 ## Required Secrets
 
@@ -41,17 +41,17 @@ pnpm proof:env
 
 ## Hosted Runtime
 
-- URL: https://sage-client-intake-portal-vercel-ie58l0x9h-sage-ideas.vercel.app
+- URL: https://sage-client-intake-portal-vercel.vercel.app
 - HTTP status: 200
 - Database mode: crud_probe
 - Database operation: insert-read-update-delete
 
 ## Evidence
 
-- Latest run: `rag-knowledge-chat-2026-06-23T101609956Z`
-- App hash: `sha256:6336adfb34a89a19212cced8778c8c97e926913fdc709eaf0095bfedba80be29`
-- Gates: 16/16
-- Evidence hash: `sha256:0f50383b5872cdc9c3302c63b049e22c5ba646651e2409d9fe9b2cdb41ceb5ee`
+- Latest run: `rag-knowledge-chat-2026-06-24T100602440Z`
+- App hash: `sha256:7458269fd33f55f04d4265f54f89667e8c861e1b58697530e4799b884405e02d`
+- Gates: 14/14
+- Evidence hash: `sha256:a132ab694f856c3bdedc6909ed51e2e6f30cf77808a47f1d469009b74da61ab9`
 
 ## Operating Rules
 
@@ -63,6 +63,7 @@ pnpm proof:env
 
 ## Next Actions
 
+- **critical: Run golden path and attach a hosted DB CRUD deployment.** vercel_db_crud_health=missing
 - **security: Revoke any Supabase personal access token exposed outside the terminal.** Personal access tokens are operator credentials and are never persisted by this repo.
 
 ## Generated Artifacts

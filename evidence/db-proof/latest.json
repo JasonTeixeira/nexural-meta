@@ -1,17 +1,17 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-23T10:21:01.729Z",
+  "generated_at": "2026-06-24T10:08:18.688Z",
   "generated_by": "scripts/db-proof-check.mjs",
   "privacy": "public-safe",
-  "status": "passed",
+  "status": "degraded",
   "summary": {
-    "gates_passed": 6,
+    "gates_passed": 4,
     "gates_total": 6,
-    "latest_run_id": "rag-knowledge-chat-2026-06-23T101609956Z",
-    "deployed_url": "https://sage-client-intake-portal-vercel-ie58l0x9h-sage-ideas.vercel.app",
+    "latest_run_id": "rag-knowledge-chat-2026-06-24T100602440Z",
+    "deployed_url": null,
     "database_mode": "staging-postgres",
     "migration_status": "passed",
-    "hosted_crud_status": "passed",
+    "hosted_crud_status": "failed",
     "schema_drift_status": "passed",
     "seed_data_status": "passed",
     "database_url_available_by_inventory": true
@@ -26,8 +26,8 @@
     {
       "id": "vercel_db_crud_health",
       "label": "Hosted generated app DB CRUD",
-      "status": "passed",
-      "detail": "Deployed /api/health completed insert-read-update-delete against staging Postgres."
+      "status": "failed",
+      "detail": "Latest golden-path evidence has no vercel_db_crud_health gate."
     },
     {
       "id": "migration_readiness",
@@ -49,8 +49,8 @@
     },
     {
       "id": "proof_environment_db",
-      "status": "passed",
-      "detail": "Proof environment passed; hosted health 200."
+      "status": "failed",
+      "detail": "Proof environment failed; hosted health 200."
     }
   ],
   "secret_inventory": {
@@ -64,13 +64,13 @@
   "evidence": {
     "golden_path_latest": "evidence/golden-path/latest.json",
     "proof_environment": "data/proof-environment.public.json",
-    "hosted_health_checked": true,
-    "report_hash": "sha256:d996ad6c63361b0e03ca8d51a82633654abc849bec1c5ff9c4c03da6fb7b6e21"
+    "hosted_health_checked": false,
+    "report_hash": "sha256:67bdcb5399468c5598c749b1c219b49ca5f87436add22b66fedcfcc49384492c"
   },
   "next_actions": [
     {
-      "action": "Expand schema drift proof to recipe-specific invariants and RLS policy checks.",
-      "reason": "CRUD, migration readiness, schema drift, and seed-data proof are green.",
+      "action": "Run pnpm golden:path in an environment with staging Supabase DB credentials.",
+      "reason": "The DB proof should include migration readiness and CRUD proof in the same evidence chain.",
       "phase": "Phase 15"
     }
   ]

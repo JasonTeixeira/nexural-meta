@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-23T10:21:05.844Z",
+  "generated_at": "2026-06-24T10:08:20.037Z",
   "generated_by": "scripts/public-portfolio-packaging.mjs",
   "privacy": "public-safe",
   "phase": "Phase 22",
-  "status": "ready-to-review",
+  "status": "draft",
   "summary": {
     "featured_runs": 3,
     "proof_backed_recipes": 3,
-    "public_proof_hash": "sha256:fa0bbd7bf398e23af3478d99b62bc9ea6f2ece43bed110708ceeef60b81e8f81",
-    "operator_test_status": "passed"
+    "public_proof_hash": "sha256:2f29befbee9f21286d1470a82a3aca9b51aa3637666bb5847b60677ab1f48d4c",
+    "operator_test_status": "failed"
   },
   "public_safe_claims": [
     "Sage Ideas Engineering OS maintains a searchable resource library.",
@@ -45,5 +45,5 @@
     "Keep private repository names/details summarized, not exposed.",
     "Rotate any tokens pasted into chat before using proof in public."
   ],
-  "evidence_hash": "sha256:247224c7cd0058964aebfcbebd2064e8e2f4134ed9d00c8159c9edf9e42bdc47"
+  "evidence_hash": "sha256:97da2bf4c0ce144636bd0e2bd4cfeef9b942beb36243a3cf379d3e4529bac744"
 }

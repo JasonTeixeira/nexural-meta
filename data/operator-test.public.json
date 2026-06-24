@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-23T10:21:04.843Z",
+  "generated_at": "2026-06-24T10:08:19.021Z",
   "generated_by": "scripts/operator-test-pass.mjs",
   "privacy": "public-safe",
   "phase": "Phase 17",
-  "status": "passed",
+  "status": "failed",
   "summary": {
     "checks_total": 8,
-    "checks_passed": 8,
+    "checks_passed": 6,
     "dashboard_routes": 11,
     "recipes_indexed": 12,
     "proof_backed_recipes": 3,
     "hosted_golden_paths": 78,
-    "db_proof_status": "passed"
+    "db_proof_status": "degraded"
   },
   "checks": [
     {
@@ -42,14 +42,14 @@
     {
       "id": "proof-artifacts",
       "label": "Golden path, proof env, DB proof, and public packet are usable.",
-      "status": "passed",
-      "detail": "78 hosted runs, env=passed, db=passed."
+      "status": "failed",
+      "detail": "78 hosted runs, env=failed, db=degraded."
     },
     {
       "id": "db-proof-depth",
       "label": "DB proof includes CRUD, schema drift, and seed-data checks.",
-      "status": "passed",
-      "detail": "crud=passed, schema=passed, seed=passed."
+      "status": "failed",
+      "detail": "crud=failed, schema=passed, seed=passed."
     },
     {
       "id": "maintenance-refresh",
@@ -71,5 +71,5 @@
     "What asset should be improved first?",
     "What failed, what is stale, and what should the operator do next?"
   ],
-  "evidence_hash": "sha256:ac67dc07a9ba1415deb5ad195f2c5a5ae2414d05d34269e09168d8db72febd7e"
+  "evidence_hash": "sha256:5f4f7ec96c195d86227681381a19262a634577af26011f86823e5692ca05962f"
 }

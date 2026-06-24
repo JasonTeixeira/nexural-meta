@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "ran_at": "2026-06-23T10:18:26.648Z",
-  "url": "https://sage-client-intake-portal-vercel-ie58l0x9h-sage-ideas.vercel.app",
+  "ran_at": "2026-06-24T10:08:15.587Z",
+  "url": "https://sage-client-intake-portal-vercel-f2ymkbui5-sage-ideas.vercel.app",
   "results": [
     {
       "id": "root_reachable",
@@ -11,7 +11,7 @@
     {
       "id": "hsts",
       "passed": true,
-      "detail": "strict-transport-security=\"max-age=63072000; includeSubDomains; preload\""
+      "detail": "strict-transport-security=\"max-age=31536000; includeSubDomains; preload\""
     },
     {
       "id": "x_content_type_options",
@@ -21,7 +21,7 @@
     {
       "id": "referrer_policy",
       "passed": true,
-      "detail": "referrer-policy=\"strict-origin-when-cross-origin\""
+      "detail": "referrer-policy=\"origin-when-cross-origin\""
     },
     {
       "id": "x_frame_options",
@@ -30,8 +30,8 @@
     },
     {
       "id": "permissions_policy",
-      "passed": true,
-      "detail": "permissions-policy=\"camera=(), microphone=(), geolocation=()\""
+      "passed": false,
+      "detail": "missing: permissions-policy"
     },
     {
       "id": "no_powered_by",
@@ -40,13 +40,13 @@
     },
     {
       "id": "health_endpoint",
-      "passed": true,
-      "detail": "HTTP 200; content-type=application/json"
+      "passed": false,
+      "detail": "HTTP 200; content-type=text/html; charset=utf-8"
     }
   ],
   "summary": {
     "total": 8,
-    "passed": 8,
-    "failed": 0
+    "passed": 6,
+    "failed": 2
   }
 }
