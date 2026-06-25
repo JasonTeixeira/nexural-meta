@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-24T10:08:16.344Z",
+  "generated_at": "2026-06-25T10:06:43.052Z",
   "generated_by": "scripts/resource-library-catalog.mjs",
   "privacy": "public-safe",
   "status": "generated",
@@ -12,8 +12,8 @@
     "proof_backed_recipes": 3,
     "load_bearing_assets": 11,
     "load_bearing_average_score": 96,
-    "proof_environment_status": "passed",
-    "golden_path_passed_runs": 88
+    "proof_environment_status": "failed",
+    "golden_path_passed_runs": 91
   },
   "operator_paths": [
     {

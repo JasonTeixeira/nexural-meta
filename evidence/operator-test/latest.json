@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-24T10:08:19.021Z",
+  "generated_at": "2026-06-25T10:06:45.513Z",
   "generated_by": "scripts/operator-test-pass.mjs",
   "privacy": "public-safe",
   "phase": "Phase 17",
@@ -55,7 +55,7 @@
       "id": "maintenance-refresh",
       "label": "Maintenance loop exposes freshness and next actions.",
       "status": "passed",
-      "detail": "maintenance=passed, actions=2."
+      "detail": "maintenance=failed, actions=7."
     },
     {
       "id": "failure-clarity",
@@ -71,5 +71,5 @@
     "What asset should be improved first?",
     "What failed, what is stale, and what should the operator do next?"
   ],
-  "evidence_hash": "sha256:5f4f7ec96c195d86227681381a19262a634577af26011f86823e5692ca05962f"
+  "evidence_hash": "sha256:bc268abef50f15962302f131d4f1862b06cf96660a81d2cdf41f8835807907ab"
 }
