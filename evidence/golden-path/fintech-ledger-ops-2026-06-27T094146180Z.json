@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
-  "run_id": "rag-knowledge-chat-2026-06-27T094241354Z",
-  "generated_at": "2026-06-27T09:42:41.354Z",
+  "run_id": "fintech-ledger-ops-2026-06-27T094146180Z",
+  "generated_at": "2026-06-27T09:41:46.180Z",
   "generated_by": "scripts/golden-path-proof.mjs",
   "privacy": "public-safe",
   "spec": {
-    "id": "rag-knowledge-chat",
-    "title": "RAG Knowledge Chat",
-    "path": "data/golden-path-specs/rag-knowledge-chat.json",
-    "intent": "Prove the factory can generate an AI/RAG SaaS surface with tenant auth, chat routes, eval assets, build verification, runtime health, and hosted DB proof.",
-    "recipe": "saas-rag-chat",
-    "app_slug": "rag-knowledge-chat",
+    "id": "fintech-ledger-ops",
+    "title": "Fintech Ledger Ops",
+    "path": "data/golden-path-specs/fintech-ledger-ops.json",
+    "intent": "Prove the factory can generate a finance-grade ledger SaaS with tenant auth, double-entry ledger migrations, precision-safe helpers, build verification, runtime health, and hosted DB proof.",
+    "recipe": "fintech-ledger-app",
+    "app_slug": "fintech-ledger-ops",
     "use_case_id": "ship-saas-app"
   },
   "selected_resources": [
@@ -30,10 +30,10 @@
     }
   ],
   "generated_app": {
-    "local_path": "<repo>/.nexural/cache/golden-path/rag-knowledge-chat-2026-06-27T094241354Z/rag-knowledge-chat",
-    "file_count": 46,
-    "tree_hash": "sha256:9d689e22558deab403768176d1ebb20b6b87acbb3e7cd2df6b6e6bd974bc993b",
-    "hashed_files": 46
+    "local_path": "<repo>/.nexural/cache/golden-path/fintech-ledger-ops-2026-06-27T094146180Z/fintech-ledger-ops",
+    "file_count": 37,
+    "tree_hash": "sha256:fe94e4e0fd10e601856562fc857709dc63770043a482d52ae38cb718d3b5de06",
+    "hashed_files": 37
   },
   "runtime": {
     "mode": "local-next-start",
@@ -52,14 +52,30 @@
         "schema": {
           "ok": true,
           "mode": "schema_drift_probe",
-          "expected_tables": ["tenants", "tenant_memberships", "audit_events"],
-          "checked_tables": ["tenants", "tenant_memberships", "audit_events"]
+          "expected_tables": [
+            "tenants",
+            "tenant_memberships",
+            "audit_events",
+            "accounts",
+            "ledger_transactions",
+            "ledger_entries",
+            "reconciliation_runs"
+          ],
+          "checked_tables": [
+            "tenants",
+            "tenant_memberships",
+            "audit_events",
+            "accounts",
+            "ledger_transactions",
+            "ledger_entries",
+            "reconciliation_runs"
+          ]
         },
         "seed": {
           "ok": true,
           "mode": "seed_data_probe",
           "table": "tenants",
-          "slug": "health-seed-rag-knowledge-chat",
+          "slug": "health-seed-fintech-ledger-ops",
           "operation": "upsert-read"
         }
       }
@@ -78,9 +94,9 @@
       "id": "forge_emit",
       "label": "Forge emit",
       "status": "passed",
-      "detail": "46 files emitted by saas-rag-chat.",
-      "command": "npx --yes tsx apps/cli/src/bin/nx.ts forge saas-rag-chat rag-knowledge-chat --inputs <repo>/.nexural/cache/golden-path/rag-knowledge-chat-2026-06-27T094241354Z/inputs.json --mock-secrets --out-dir <repo>/.nexural/cache/golden-path/rag-knowledge-chat-2026-06-27T094241354Z/rag-knowledge-chat",
-      "duration_ms": 2113
+      "detail": "37 files emitted by fintech-ledger-app.",
+      "command": "npx --yes tsx apps/cli/src/bin/nx.ts forge fintech-ledger-app fintech-ledger-ops --inputs <repo>/.nexural/cache/golden-path/fintech-ledger-ops-2026-06-27T094146180Z/inputs.json --mock-secrets --out-dir <repo>/.nexural/cache/golden-path/fintech-ledger-ops-2026-06-27T094146180Z/fintech-ledger-ops",
+      "duration_ms": 2127
     },
     {
       "id": "generated_app_usability",
@@ -93,14 +109,15 @@
       "label": "Verify Supabase/Auth runtime",
       "status": "passed",
       "detail": "HTTP 200 from Supabase Auth settings for project xacwaprwlbqgmswgodsk.",
-      "duration_ms": 49
+      "duration_ms": 67
     },
     {
       "id": "supabase_migrations",
       "label": "Apply Supabase migrations",
       "status": "passed",
-      "detail": "No additional recipe-specific migrations are required for this proof; baseline schema is verified by DB health.",
-      "duration_ms": 0
+      "detail": "Supabase CLI migration history is out of sync; applied 1 selected SQL migration file(s) directly with psql and will verify schema through /api/health.",
+      "command": "psql <DATABASE_URL> -v ON_ERROR_STOP=1 -f <1 migration(s)>",
+      "duration_ms": 6234
     },
     {
       "id": "install",
@@ -108,7 +125,7 @@
       "status": "passed",
       "detail": "exit 0",
       "command": "pnpm install --ignore-workspace --ignore-scripts",
-      "duration_ms": 6569
+      "duration_ms": 6520
     },
     {
       "id": "standalone_lockfile",
@@ -122,7 +139,7 @@
       "status": "passed",
       "detail": "exit 0",
       "command": "pnpm typecheck",
-      "duration_ms": 3806
+      "duration_ms": 3269
     },
     {
       "id": "build",
@@ -130,14 +147,14 @@
       "status": "passed",
       "detail": "exit 0",
       "command": "pnpm build",
-      "duration_ms": 33797
+      "duration_ms": 31866
     },
     {
       "id": "local_runtime",
       "label": "Start local runtime",
       "status": "passed",
       "detail": "HTTP 200 from /api/health.",
-      "duration_ms": 1679
+      "duration_ms": 1921
     },
     {
       "id": "db_crud_health",
@@ -162,12 +179,12 @@
       "label": "Verify live local app",
       "status": "passed",
       "detail": "8/8 checks passed.",
-      "command": "npx --yes tsx apps/cli/src/bin/nx.ts verify http://127.0.0.1:3040 --evidence-slug rag-knowledge-chat-local --timeout 20000",
-      "duration_ms": 2476
+      "command": "npx --yes tsx apps/cli/src/bin/nx.ts verify http://127.0.0.1:3040 --evidence-slug fintech-ledger-ops-local --timeout 20000",
+      "duration_ms": 2647
     }
   ],
   "evidence": {
-    "gate5_report": "evidence/gate-5/rag-knowledge-chat-local/report.json",
+    "gate5_report": "evidence/gate-5/fintech-ledger-ops-local/report.json",
     "latest_report": "evidence/golden-path/latest.json",
     "public_index": "data/golden-path-runs.public.json"
   },
@@ -189,5 +206,5 @@
     "No public Vercel preview was created because VERCEL_TOKEN is not set in this shell.",
     "Production auth/database credentials are intentionally not committed."
   ],
-  "wall_clock_ms": 51002
+  "wall_clock_ms": 55165
 }
