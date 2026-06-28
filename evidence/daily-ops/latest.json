@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-27T09:44:52.676Z",
+  "generated_at": "2026-06-28T10:03:50.354Z",
   "generated_by": "scripts/daily-operating-loop.mjs",
   "privacy": "public-safe",
   "phase": "Phase 20",
   "status": "ready",
   "weekly_proof_refresh": {
     "status": "failed",
-    "latest_public_hash": "sha256:d470ebe263b21596bd1f73e00716107fd4bf651d10aa031afd11b63bc77d82c9",
+    "latest_public_hash": "sha256:a44e87327af2952049b1be212ced05b8713ab0f6ebb68ef289c3559f702deba3",
     "hosted_golden_paths": 78,
     "db_proof_status": "degraded"
   },
@@ -152,7 +152,7 @@
       "title": "Build an agent workflow",
       "question": "I need agents, RAG, evals, memory, or background workers.",
       "command": "/resources?useCase=build-agent-workflow",
-      "recommended_assets": 2,
+      "recommended_assets": 3,
       "improve_first_assets": 1
     },
     {
@@ -192,5 +192,5 @@
     "standard": "All L4/L5 claims need a doc, proof artifact, owner, and refresh path.",
     "docs": ["docs/MATURITY_LIFT.md", "docs/OPERATOR_TEST.md", "docs/PUBLIC_PORTFOLIO_PACKAGING.md"]
   },
-  "evidence_hash": "sha256:0fb0f2074ec7cae89e80278ed0d990e28eddb231600640b28dc7cae3ce59e1b2"
+  "evidence_hash": "sha256:158c39f6d90959521184e070357e0d7b3be4340bba2b2b546187f34bcb686c64"
 }

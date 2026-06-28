@@ -1,7 +1,7 @@
 # Resource Library
 
 **Status:** Phase 12/13 generated resource library and maturity lift queue
-**Generated:** 2026-06-27T09:44:49.758Z
+**Generated:** 2026-06-28T10:03:47.238Z
 
 ## Summary
 
@@ -9,7 +9,7 @@
 - Use cases: 7
 - Recipes: 12
 - Proof-backed recipes: 3
-- Load-bearing average: 96/100
+- Load-bearing average: 95/100
 
 ## Operator Paths
 
@@ -27,6 +27,7 @@
 | saas-rag-chat-openai-first   | app-factory-runtime |      80 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
 | saas-rag-chat-qdrant         | app-factory-runtime |      80 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
 | micro-saas-starter           | resource-library    |      63 |     90 | Load-bearing asset under target maturity.                       |
+| sage-kernel                  | agent-engine        |      83 |     90 | Load-bearing asset under target maturity.                       |
 | awesome-cloud-native         | reference-library   |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
 | awesome-quant                | reference-library   |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
 | awesome-react                | reference-library   |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
@@ -36,4 +37,3 @@
 | build-your-own-x             | reference-library   |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
 | CLIMarketPlace               | reference-library   |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
 | dashboard                    | reference-library   |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
-| google-cloud-Cheat-Sheats    | reference-library   |       0 |     70 | Missing metadata makes the ecosystem less legible.              |

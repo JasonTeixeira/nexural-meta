@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-27T09:44:52.356Z",
+  "generated_at": "2026-06-28T10:03:50.033Z",
   "generated_by": "scripts/maturity-lift-plan.mjs",
   "privacy": "public-safe",
   "phase": "Phase 19",
   "status": "elite",
   "summary": {
-    "current_load_bearing_average": 96,
+    "current_load_bearing_average": 95,
     "target_1": 85,
     "target_2": 90,
-    "load_bearing_assets": 11,
-    "lift_items": 10,
+    "load_bearing_assets": 12,
+    "lift_items": 11,
     "resource_library_queue_items": 25
   },
   "l4_l5_operating_standard": {
@@ -35,6 +35,14 @@
       "target_score": 90,
       "missing": ["missing-license", "load-bearing-under-70", "missing-docs"],
       "required_work": ["Add concise operator docs with setup, proof, and ownership."]
+    },
+    {
+      "asset": "sage-kernel",
+      "layer": "agent-engine",
+      "current_score": 83,
+      "target_score": 90,
+      "missing": [],
+      "required_work": ["Review maturity gap and either improve or mark reference-only."]
     },
     {
       "asset": "agent-workflow-app",
@@ -110,5 +118,5 @@
     }
   ],
   "score_model_note": "This report does not inflate maturity scores. It defines the work required to raise the scorecard in subsequent proof refreshes.",
-  "evidence_hash": "sha256:44c9d7e26767632156ee7e8b26781101fcc5decb0cf08be64526c7eefcb107a4"
+  "evidence_hash": "sha256:7cf7eaf7fab77eb7f1f5a8b972fc1bebd19c98c4cc0c1d7e85a41f1d0036c9fe"
 }

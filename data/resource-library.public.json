@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-27T09:44:49.758Z",
+  "generated_at": "2026-06-28T10:03:47.238Z",
   "generated_by": "scripts/resource-library-catalog.mjs",
   "privacy": "public-safe",
   "status": "generated",
@@ -10,10 +10,10 @@
     "use_cases": 7,
     "recipes": 12,
     "proof_backed_recipes": 3,
-    "load_bearing_assets": 11,
-    "load_bearing_average_score": 96,
+    "load_bearing_assets": 12,
+    "load_bearing_average_score": 95,
     "proof_environment_status": "failed",
-    "golden_path_passed_runs": 97
+    "golden_path_passed_runs": 100
   },
   "operator_paths": [
     {
@@ -67,7 +67,7 @@
       "title": "Build an agent workflow",
       "question": "I need agents, RAG, evals, memory, or background workers.",
       "command": "/resources?useCase=build-agent-workflow",
-      "recommended_assets": 2,
+      "recommended_assets": 3,
       "improve_first_assets": 1
     },
     {
@@ -140,6 +140,15 @@
       "target_score": 90,
       "reason": "Load-bearing asset under target maturity.",
       "gaps": ["missing-license", "load-bearing-under-70", "missing-docs"]
+    },
+    {
+      "name": "sage-kernel",
+      "layer": "agent-engine",
+      "asset_type": "engine",
+      "current_score": 83,
+      "target_score": 90,
+      "reason": "Load-bearing asset under target maturity.",
+      "gaps": []
     },
     {
       "name": "awesome-cloud-native",
@@ -311,15 +320,6 @@
       "target_score": 70,
       "reason": "Missing metadata makes the ecosystem less legible.",
       "gaps": ["maturity-l0", "archived", "missing-license", "missing-topics"]
-    },
-    {
-      "name": "training-data-analyst",
-      "layer": "reference-library",
-      "asset_type": "reference",
-      "current_score": 0,
-      "target_score": 70,
-      "reason": "Missing metadata makes the ecosystem less legible.",
-      "gaps": ["maturity-l0", "archived", "missing-topics"]
     }
   ],
   "top_assets": [
@@ -542,6 +542,19 @@
       "recommended_use": "Agent-as-a-service product. Extends saas-multitenant-baseline. Custom agent"
     },
     {
+      "name": "sage-kernel",
+      "url": "https://github.com/JasonTeixeira/sage-kernel",
+      "layer": "agent-engine",
+      "asset_type": "engine",
+      "maturity": "L2",
+      "status": "active",
+      "score": 83,
+      "proof": "repo-metadata",
+      "gaps": [],
+      "recommended_use": "Agent runtime, workflow worker, memory, or RAG capability.",
+      "load_bearing": true
+    },
+    {
       "name": "saas-multitenant-baseline",
       "layer": "app-factory-runtime",
       "asset_type": "recipe",
@@ -551,17 +564,6 @@
       "proof": "catalog-only",
       "gaps": ["missing-golden-path-proof"],
       "recommended_use": "Multi-tenant SaaS baseline — Next.js 15 + Supabase (Auth + Postgres + RLS) +"
-    },
-    {
-      "name": "saas-multitenant-baseline-cf",
-      "layer": "app-factory-runtime",
-      "asset_type": "recipe",
-      "maturity": "L3",
-      "status": "usable",
-      "score": 80,
-      "proof": "catalog-only",
-      "gaps": ["missing-golden-path-proof"],
-      "recommended_use": "Cloudflare Pages + Workers + D1 escape variant of saas-multitenant-baseline."
     }
   ]
 }
