@@ -1,7 +1,7 @@
 # Recipe Catalog
 
 **Status:** Phase 11 generated recipe readiness catalog
-**Generated:** 2026-06-28T10:03:46.898Z
+**Generated:** 2026-06-29T10:35:56.623Z
 
 ## Summary
 
