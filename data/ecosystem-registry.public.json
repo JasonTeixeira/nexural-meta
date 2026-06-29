@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-06-29T10:31:47.353Z",
+  "generated_at": "2026-06-29T11:43:57.670Z",
   "generated_by": "scripts/ecosystem-inventory.mjs",
   "owner": "JasonTeixeira",
   "privacy": "public-safe",
@@ -432,7 +432,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 517,
+        "stale_days": 518,
         "needs_private_review": false
       }
     },
@@ -802,7 +802,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 528,
+        "stale_days": 529,
         "needs_private_review": false
       }
     },
@@ -2023,7 +2023,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 813,
+        "stale_days": 814,
         "needs_private_review": false
       }
     },
@@ -2356,7 +2356,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 647,
+        "stale_days": 648,
         "needs_private_review": false
       }
     },
@@ -2578,7 +2578,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 296,
+        "stale_days": 297,
         "needs_private_review": false
       }
     },
@@ -2689,7 +2689,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 41,
+        "stale_days": 42,
         "needs_private_review": false
       }
     },
@@ -2734,7 +2734,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 61,
+        "stale_days": 62,
         "needs_private_review": false
       }
     },
@@ -3111,12 +3111,12 @@
       ],
       "homepage_url": null,
       "created_at": "2026-05-22T12:11:28Z",
-      "pushed_at": "2026-06-28T10:04:11Z",
-      "updated_at": "2026-06-28T10:04:15Z",
+      "pushed_at": "2026-06-29T10:36:19Z",
+      "updated_at": "2026-06-29T10:36:23Z",
       "default_branch": "main",
       "license": null,
       "parent": null,
-      "disk_usage_kb": 4338,
+      "disk_usage_kb": 4475,
       "stargazers": 0,
       "canonical": {
         "canonical_name": "Sage Ideas Engineering OS Control Plane",
@@ -3129,7 +3129,7 @@
       },
       "operational": {
         "status": "active",
-        "stale_days": 1,
+        "stale_days": 0,
         "needs_private_review": false
       }
     },
@@ -3543,7 +3543,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 305,
+        "stale_days": 306,
         "needs_private_review": false
       }
     },
@@ -4976,7 +4976,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 64,
+        "stale_days": 65,
         "needs_private_review": false
       }
     },
