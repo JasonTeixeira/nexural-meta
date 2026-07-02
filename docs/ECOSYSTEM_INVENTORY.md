@@ -2,7 +2,7 @@
 
 **Status:** Phase 1 generated inventory
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-07-01T10:19:35.785Z
+**Generated:** 2026-07-02T10:00:49.739Z
 **Source:** GitHub owner `JasonTeixeira`
 
 ## Privacy Boundary
@@ -12,11 +12,11 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 
 ## Totals
 
-- Total repositories: **137**
-- Public repositories: **137**
+- Total repositories: **138**
+- Public repositories: **138**
 - Private repositories: **0**
 - Archived repositories: **47**
-- Fork/reference repositories: **91**
+- Fork/reference repositories: **92**
 
 ## Layer Summary
 
@@ -27,7 +27,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | ops-knowledge        |     4 |
 | public-proof-surface |     3 |
 | quant-trading        |     7 |
-| reference-library    |   118 |
+| reference-library    |   119 |
 | resource-library     |     2 |
 
 ## Private Repository Summary
@@ -102,6 +102,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [istio](https://github.com/JasonTeixeira/istio)                                                                                                                       | reference-library    | reference     | L0       | archived  |
 | [jason-teixeira-portfolio](https://github.com/JasonTeixeira/jason-teixeira-portfolio)                                                                                 | quant-trading        | engine        | L0       | stale     |
 | [JasonTeixeira](https://github.com/JasonTeixeira/JasonTeixeira)                                                                                                       | public-proof-surface | product-proof | L4       | watch     |
+| [javascript-algorithms](https://github.com/JasonTeixeira/javascript-algorithms)                                                                                       | reference-library    | reference     | L0       | reference |
 | [juice-shop](https://github.com/JasonTeixeira/juice-shop)                                                                                                             | reference-library    | reference     | L0       | archived  |
 | [K8-Examples](https://github.com/JasonTeixeira/K8-Examples)                                                                                                           | reference-library    | reference     | L0       | reference |
 | [kimi-cli](https://github.com/JasonTeixeira/kimi-cli)                                                                                                                 | reference-library    | reference     | L0       | reference |

@@ -2,7 +2,7 @@
 
 **Status:** Phase 2 generated maturity map
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-07-01T10:19:48.672Z
+**Generated:** 2026-07-02T10:01:05.099Z
 
 ## Read This Correctly
 
@@ -19,7 +19,7 @@ A large reference library intentionally scores low because reference repos are r
 
 | Band               | Count |
 | ------------------ | ----: |
-| 0-49 raw/reference |   125 |
+| 0-49 raw/reference |   126 |
 | 95-100 elite       |    10 |
 | 50-69 incomplete   |     1 |
 | 70-84 usable       |     1 |
@@ -33,16 +33,16 @@ A large reference library intentionally scores low because reference repos are r
 | ops-knowledge        |     4 |            1 |            36 |
 | public-proof-surface |     3 |            3 |            99 |
 | quant-trading        |     7 |            5 |            76 |
-| reference-library    |   118 |            0 |             8 |
+| reference-library    |   119 |            0 |             8 |
 | resource-library     |     2 |            1 |            38 |
 
 ## Top Gap Types
 
 | Gap                   | Count |
 | --------------------- | ----: |
-| maturity-l0           |   125 |
-| missing-topics        |   116 |
-| reference-only        |    48 |
+| maturity-l0           |   126 |
+| missing-topics        |   117 |
+| reference-only        |    49 |
 | archived              |    47 |
 | missing-license       |    44 |
 | stale                 |    21 |
@@ -59,5 +59,5 @@ A large reference library intentionally scores low because reference repos are r
 ## Next Actions
 
 - **Review private overrides:** 0 private repos are still classified by generic inference.
-- **Separate reference library from product proof narrative:** 118 repos are reference/library assets and should not dilute the public engineering story.
+- **Separate reference library from product proof narrative:** 119 repos are reference/library assets and should not dilute the public engineering story.
 - **Raise load-bearing assets below 70:** 1 load-bearing assets need docs, evidence, topics, homepage, or maturity upgrades.

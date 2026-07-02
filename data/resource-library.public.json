@@ -1,19 +1,19 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-01T10:24:00.846Z",
+  "generated_at": "2026-07-02T10:05:34.855Z",
   "generated_by": "scripts/resource-library-catalog.mjs",
   "privacy": "public-safe",
   "status": "generated",
   "purpose": "Unified resource library for choosing reusable engines, kits, recipes, SDKs, playbooks, QA assets, and proof-backed paths.",
   "totals": {
-    "assets": 149,
+    "assets": 150,
     "use_cases": 7,
     "recipes": 12,
     "proof_backed_recipes": 3,
     "load_bearing_assets": 12,
     "load_bearing_average_score": 95,
     "proof_environment_status": "failed",
-    "golden_path_passed_runs": 112
+    "golden_path_passed_runs": 115
   },
   "operator_paths": [
     {

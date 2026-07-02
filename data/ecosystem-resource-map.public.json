@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-01T10:19:49.000Z",
+  "generated_at": "2026-07-02T10:01:05.431Z",
   "generated_by": "scripts/ecosystem-resource-map.mjs",
-  "source_generated_at": "2026-07-01T10:19:48.672Z",
+  "source_generated_at": "2026-07-02T10:01:05.099Z",
   "privacy": "public-safe",
   "note": "Resource recommendations use public repository metadata only. Private assets remain summarized in scorecards and require local review.",
   "totals": {
     "use_cases": 7,
-    "public_assets_considered": 137,
+    "public_assets_considered": 138,
     "recommended_assets": 11,
     "improve_first_assets": 1
   },
@@ -90,7 +90,7 @@
       ],
       "commands": ["pnpm ecosystem:refresh"],
       "asset_counts": {
-        "candidates": 121,
+        "candidates": 122,
         "recommended": 2,
         "improve_first": 1,
         "reference_only": 6
