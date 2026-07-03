@@ -2,7 +2,7 @@
 
 **Status:** Phase 5 local golden path passed
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-07-02T10:03:57.354Z
+**Generated:** 2026-07-03T11:26:30.334Z
 
 ## What This Proves
 
@@ -10,13 +10,13 @@ A public-safe app spec can select resources, forge a real Next.js app, install d
 
 ## Latest Run
 
-- Run ID: `rag-knowledge-chat-2026-07-02T100302335Z`
+- Run ID: `rag-knowledge-chat-2026-07-03T112537828Z`
 - Spec: `data/golden-path-specs/rag-knowledge-chat.json`
 - Recipe: `saas-rag-chat`
 - App: `rag-knowledge-chat`
 - Local runtime: `http://127.0.0.1:3040`
-- Generated app hash: `sha256:9a186157ea2d44f71fd479db855f4d7d8237cff3b4e7316799e8d2c51f8fabfb`
-- Wall clock: 55s
+- Generated app hash: `sha256:66819cb9a7b3855c7ddd1247c7137512da1047f37b44bc14ae2220cb189216c1`
+- Wall clock: 53s
 
 ## Gates
 
