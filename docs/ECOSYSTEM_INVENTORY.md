@@ -2,7 +2,7 @@
 
 **Status:** Phase 1 generated inventory
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-07-03T11:23:35.460Z
+**Generated:** 2026-07-04T10:47:00.646Z
 **Source:** GitHub owner `JasonTeixeira`
 
 ## Privacy Boundary
@@ -120,7 +120,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [nautobot](https://github.com/JasonTeixeira/nautobot)                                                                                                                 | reference-library    | reference     | L0       | archived  |
 | [NexQuantSite](https://github.com/JasonTeixeira/NexQuantSite)                                                                                                         | public-proof-surface | product-proof | L4       | watch     |
 | [next.js](https://github.com/JasonTeixeira/next.js)                                                                                                                   | reference-library    | reference     | L0       | archived  |
-| [Nexural_Automation](https://github.com/JasonTeixeira/Nexural_Automation)                                                                                             | quant-trading        | engine        | L3       | active    |
+| [Nexural_Automation](https://github.com/JasonTeixeira/Nexural_Automation)                                                                                             | quant-trading        | engine        | L3       | watch     |
 | [Nexural_Sierra_Studies](https://github.com/JasonTeixeira/Nexural_Sierra_Studies)                                                                                     | reference-library    | reference     | L0       | archived  |
 | [Nexural_Website_ARCHIVED](https://github.com/JasonTeixeira/Nexural_Website_ARCHIVED)                                                                                 | reference-library    | reference     | L0       | archived  |
 | [nexural-automation-starter](https://github.com/JasonTeixeira/nexural-automation-starter)                                                                             | quant-trading        | kit           | L4       | watch     |

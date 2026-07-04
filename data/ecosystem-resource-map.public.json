@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-03T11:23:48.336Z",
+  "generated_at": "2026-07-04T10:47:15.682Z",
   "generated_by": "scripts/ecosystem-resource-map.mjs",
-  "source_generated_at": "2026-07-03T11:23:48.018Z",
+  "source_generated_at": "2026-07-04T10:47:15.347Z",
   "privacy": "public-safe",
   "note": "Resource recommendations use public repository metadata only. Private assets remain summarized in scorecards and require local review.",
   "totals": {
@@ -425,9 +425,9 @@
           "asset_type": "engine",
           "maturity": "L3",
           "role": "Local-first futures automation and strategy research hub.",
-          "score": 100,
-          "band": "95-100 elite",
-          "status": "active",
+          "score": 93,
+          "band": "85-94 strong",
+          "status": "watch",
           "language": "TypeScript",
           "gaps": []
         },

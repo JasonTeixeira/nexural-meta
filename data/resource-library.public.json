@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-03T11:28:11.307Z",
+  "generated_at": "2026-07-04T10:51:23.030Z",
   "generated_by": "scripts/resource-library-catalog.mjs",
   "privacy": "public-safe",
   "status": "generated",
@@ -13,7 +13,7 @@
     "load_bearing_assets": 12,
     "load_bearing_average_score": 95,
     "proof_environment_status": "failed",
-    "golden_path_passed_runs": 118
+    "golden_path_passed_runs": 121
   },
   "operator_paths": [
     {
@@ -385,19 +385,6 @@
       "load_bearing": true
     },
     {
-      "name": "Nexural_Automation",
-      "url": "https://github.com/JasonTeixeira/Nexural_Automation",
-      "layer": "quant-trading",
-      "asset_type": "engine",
-      "maturity": "L3",
-      "status": "active",
-      "score": 100,
-      "proof": "repo-metadata",
-      "gaps": [],
-      "recommended_use": "Local-first futures automation and strategy research hub.",
-      "load_bearing": true
-    },
-    {
       "name": "nexural-automation-starter",
       "url": "https://github.com/JasonTeixeira/nexural-automation-starter",
       "layer": "quant-trading",
@@ -484,6 +471,19 @@
       "proof": "repo-metadata",
       "gaps": ["missing-license"],
       "recommended_use": "Public company and proof surface for Sage Ideas.",
+      "load_bearing": true
+    },
+    {
+      "name": "Nexural_Automation",
+      "url": "https://github.com/JasonTeixeira/Nexural_Automation",
+      "layer": "quant-trading",
+      "asset_type": "engine",
+      "maturity": "L3",
+      "status": "watch",
+      "score": 93,
+      "proof": "repo-metadata",
+      "gaps": [],
+      "recommended_use": "Local-first futures automation and strategy research hub.",
       "load_bearing": true
     },
     {
