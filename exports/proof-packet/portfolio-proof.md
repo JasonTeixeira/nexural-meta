@@ -1,8 +1,8 @@
 # Public Portfolio Packaging
 
 **Status:** draft
-**Generated:** 2026-07-04T10:51:26.280Z
-**Proof hash:** `sha256:b920113c701a9c0acfe7aa8f033149166e45c44562e8e71332bab8740e64f562`
+**Generated:** 2026-07-05T11:01:05.284Z
+**Proof hash:** `sha256:81cdf20170089ab0f1f0c8a5ddc6fe509f9be32536f331c5ede333cdb43f0ea1`
 
 ## Claims
 
