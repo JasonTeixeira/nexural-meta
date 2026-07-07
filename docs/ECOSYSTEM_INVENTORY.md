@@ -2,7 +2,7 @@
 
 **Status:** Phase 1 generated inventory
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-07-06T12:34:15.333Z
+**Generated:** 2026-07-07T11:36:17.542Z
 **Source:** GitHub owner `JasonTeixeira`
 
 ## Privacy Boundary
@@ -143,7 +143,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [RiskRadarEnt](https://github.com/JasonTeixeira/RiskRadarEnt)                                                                                                         | reference-library    | reference     | L0       | stale     |
 | [ruflo](https://github.com/JasonTeixeira/ruflo)                                                                                                                       | reference-library    | reference     | L0       | reference |
 | [SaaS-Boilerplate](https://github.com/JasonTeixeira/SaaS-Boilerplate)                                                                                                 | reference-library    | reference     | L0       | reference |
-| [sage-after-dark](https://github.com/JasonTeixeira/sage-after-dark)                                                                                                   | reference-library    | reference     | L0       | active    |
+| [sage-after-dark](https://github.com/JasonTeixeira/sage-after-dark)                                                                                                   | reference-library    | reference     | L0       | watch     |
 | [sage-cli](https://github.com/JasonTeixeira/sage-cli)                                                                                                                 | reference-library    | reference     | L0       | watch     |
 | [sage-kernel](https://github.com/JasonTeixeira/sage-kernel)                                                                                                           | agent-engine         | engine        | L2       | active    |
 | [sageideas.dev](https://github.com/JasonTeixeira/sageideas.dev)                                                                                                       | public-proof-surface | product-proof | L3       | active    |
