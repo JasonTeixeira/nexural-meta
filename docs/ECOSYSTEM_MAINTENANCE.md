@@ -2,7 +2,7 @@
 
 **Status:** Phase 7 self-maintenance loop
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-07-08T09:50:08.614Z
+**Generated:** 2026-07-09T10:17:38.828Z
 **Overall:** failed
 
 ## Purpose
@@ -30,48 +30,48 @@ pnpm ecosystem:maintain -- --skip-golden
 - Forge-ready recipes: 12
 - Resource library assets: 150
 - Golden path: 14/14 gates
-- Hosted golden paths: 78/136
+- Hosted golden paths: 78/139
 - Proof-backed recipes: 3
 - Proof environment: failed
 - DB proof: degraded
-- Public proof hash: `sha256:2cb0279e452fff5156b1ec8e36f7f1d8df81bb39709837c9b7319e3233526ffa`
+- Public proof hash: `sha256:b8a8e78edf4d3766dd96a692b27d5d0fd314f0d7b0c2344131f4747dd14d0494`
 
 ## Commands
 
 | Step                        | Status | Duration |
 | --------------------------- | ------ | -------: |
-| ecosystem_refresh           | passed |  15875ms |
-| golden_path                 | passed | 154608ms |
-| golden_path_vercel          | failed |  85424ms |
-| recipe_catalog_post_proof   | passed |    332ms |
-| resource_library_post_proof | passed |    323ms |
-| proof_environment           | failed |   1625ms |
-| db_proof                    | passed |    327ms |
-| operator_test               | failed |    344ms |
-| maturity_lift               | passed |    316ms |
-| daily_operating_loop        | passed |    321ms |
-| portfolio_packaging         | passed |    324ms |
-| public_proof_export         | passed |    327ms |
+| ecosystem_refresh           | passed |  15713ms |
+| golden_path                 | passed | 147450ms |
+| golden_path_vercel          | failed |  81185ms |
+| recipe_catalog_post_proof   | passed |    299ms |
+| resource_library_post_proof | passed |    299ms |
+| proof_environment           | failed |   1532ms |
+| db_proof                    | passed |    287ms |
+| operator_test               | failed |    312ms |
+| maturity_lift               | passed |    288ms |
+| daily_operating_loop        | passed |    293ms |
+| portfolio_packaging         | passed |    296ms |
+| public_proof_export         | passed |    300ms |
 
 ## Artifact Freshness
 
 | Artifact                                         | Status |  Age | Hash                                                                      |
 | ------------------------------------------------ | ------ | ---: | ------------------------------------------------------------------------- |
-| `data/ecosystem-registry.public.json`            | fresh  | 0.1h | `sha256:7bf07e53bc13014fe789b8d5b2a413fb152d1d5c19482aa54fa9487ede89d290` |
-| `data/ecosystem-scorecard.public.json`           | fresh  | 0.1h | `sha256:ef0608449873a7e649d744c73f41ac5991191ae4fa797da519a2f81951158ab4` |
-| `data/ecosystem-resource-map.public.json`        | fresh  | 0.1h | `sha256:4d4ee02b12f63745431ac8d4bfb23b34d805529d9490f60db6cbff9fd17792c0` |
-| `data/recipe-catalog.public.json`                | fresh  |   0h | `sha256:1efd8db7c5110bbf593c307ccfa30ae5eb15e78c9766b2adcf5e6286708d633d` |
-| `data/resource-library.public.json`              | fresh  |   0h | `sha256:03bb9583c470023709e300a9c54ce9325cce9fa13cb7133493282d7cb4690b45` |
-| `data/golden-path-runs.public.json`              | fresh  |   0h | `sha256:815baf6038cd8eee87008a359a6004596796dcb9b29d3257550b5ae24bcb3b01` |
-| `data/proof-environment.public.json`             | fresh  |   0h | `sha256:3878ce83573eaf692f801179a9d7a039337b970e1fe930e08f5396e5a0b9481f` |
-| `data/db-proof.public.json`                      | fresh  |   0h | `sha256:3feb12e617a752b34825a33c876919310f525b057383d7cf50128e7ac2274b91` |
-| `data/public-proof-layer.public.json`            | fresh  |   0h | `sha256:474658d1f081cf635fbbfadde5ae0df81b820f08398380f9ccd94c5d6c77cf11` |
-| `data/operator-test.public.json`                 | fresh  |   0h | `sha256:48d437f081b006bc3b9864a1d5f2861a709b5703cde089c4c4472e943c355a8e` |
-| `data/maturity-lift.public.json`                 | fresh  |   0h | `sha256:1ad6bd7896f5ec99c9ad1f41948a422b824f649121542a8cf7e8e5e9fee30cc4` |
-| `data/daily-operating-loop.public.json`          | fresh  |   0h | `sha256:25d7a16458521cfdb55021f91ee2f56a1867159ad235069d44976fbc28a29861` |
-| `data/portfolio-packaging.public.json`           | fresh  |   0h | `sha256:67e637b86e651931a771933b9e3727d7150fee24d2a34831d582bec5b69fa133` |
-| `exports/proof-packet/engineering-os-proof.json` | fresh  |   0h | `sha256:474658d1f081cf635fbbfadde5ae0df81b820f08398380f9ccd94c5d6c77cf11` |
-| `exports/proof-packet/engineering-os-proof.md`   | fresh  |   0h | `sha256:ff486ba869bb53c27340a946f1b1339327fddceec449b8fca61c297c29d8d16f` |
+| `data/ecosystem-registry.public.json`            | fresh  | 0.1h | `sha256:a7bf61f28cc433f48a3b78708544d7ccfdf9218c4f47c27b6f587e8fd7634787` |
+| `data/ecosystem-scorecard.public.json`           | fresh  | 0.1h | `sha256:2194da6a1bc75b043d97adb65da697e16f629d80ee635d89b522c78074cb5dad` |
+| `data/ecosystem-resource-map.public.json`        | fresh  | 0.1h | `sha256:6264af0994122d80ee182cfb94b15f3cf5b3902763e93335d79de3d3246478e9` |
+| `data/recipe-catalog.public.json`                | fresh  |   0h | `sha256:73c0c2b0ee80235197fd8a61ffcc05eb137bdc1da586d8349e7d33b3b5901455` |
+| `data/resource-library.public.json`              | fresh  |   0h | `sha256:13f72a38c7ee66e1ec1b9bdfb4f89d145580aa520521e894ddb1bffe05e51cc1` |
+| `data/golden-path-runs.public.json`              | fresh  |   0h | `sha256:8b4b6faa25118f73340228898181adde6056a15e506c9d0154c218562dfad90f` |
+| `data/proof-environment.public.json`             | fresh  |   0h | `sha256:9105812cee9cafd2d40d29ce0e29bd33746d4cc1edac74e4fe0b26d55176104b` |
+| `data/db-proof.public.json`                      | fresh  |   0h | `sha256:f74d007f79420b1e1644b6a1a5946a1cb0c8244d2047bf0c6ebd2e15c8d57259` |
+| `data/public-proof-layer.public.json`            | fresh  |   0h | `sha256:d57118e441a4d736a9aa4e41410689ddaf23056ec09bdf7ca98d1f23e3bb4295` |
+| `data/operator-test.public.json`                 | fresh  |   0h | `sha256:eaf946b9047a2817377818a89febdc163ec7332cce31d1542b318506549a9cf3` |
+| `data/maturity-lift.public.json`                 | fresh  |   0h | `sha256:50974622927018079ec8a7bfc9ccebca1e0f5bf4eba63424d40a7c187c3427e6` |
+| `data/daily-operating-loop.public.json`          | fresh  |   0h | `sha256:f3f44a9aaf32109bfa43ad141fbb2f3d80a452d15b49dc332d528dcddabb70cb` |
+| `data/portfolio-packaging.public.json`           | fresh  |   0h | `sha256:ad0ee80691b1311561a9438f84550ecf8de8b454f2e388389154b37ceb5741d3` |
+| `exports/proof-packet/engineering-os-proof.json` | fresh  |   0h | `sha256:d57118e441a4d736a9aa4e41410689ddaf23056ec09bdf7ca98d1f23e3bb4295` |
+| `exports/proof-packet/engineering-os-proof.md`   | fresh  |   0h | `sha256:df4ede17fff0569297e6d0c36fe1309ed8d414106f6cd29a0beabc9160c5e0f8` |
 
 ## Next Actions
 
