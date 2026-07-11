@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-10T10:10:42.860Z",
+  "generated_at": "2026-07-11T09:33:59.739Z",
   "generated_by": "scripts/proof-environment-check.mjs",
   "privacy": "public-safe",
   "status": "failed",
@@ -12,8 +12,8 @@
     "required_secrets_total": 8,
     "hosted_url": "https://sage-client-intake-portal-vercel.vercel.app",
     "hosted_health_status": 200,
-    "latest_run_id": "rag-knowledge-chat-2026-07-10T100826233Z",
-    "latest_app_hash": "sha256:2473eabb75c07c854b1470672066ed85279addbdd1ee9c9aab68ffb529f403b4",
+    "latest_run_id": "rag-knowledge-chat-2026-07-11T093149476Z",
+    "latest_app_hash": "sha256:e65572ed43a461d250b554cf157743e0bf5e63da9bfa7c901e3aea8874743724",
     "latest_gate_count": 14
   },
   "gates": [
@@ -40,7 +40,7 @@
     {
       "id": "golden_path_evidence_present",
       "status": "passed",
-      "detail": "Latest run rag-knowledge-chat-2026-07-10T100826233Z has 14/14 gates."
+      "detail": "Latest run rag-knowledge-chat-2026-07-11T093149476Z has 14/14 gates."
     },
     {
       "id": "golden_path_has_hosted_db_gate",
@@ -164,20 +164,20 @@
     "ok": true,
     "url": "https://sage-client-intake-portal-vercel.vercel.app",
     "status": 200,
-    "duration_ms": 1328,
+    "duration_ms": 1201,
     "database_mode": "crud_probe",
     "database_operation": "insert-read-update-delete",
     "detail": "Hosted /api/health completed DB CRUD proof."
   },
   "evidence": {
     "golden_path_present": true,
-    "latest_run_id": "rag-knowledge-chat-2026-07-10T100826233Z",
-    "generated_at": "2026-07-10T10:09:21.160Z",
-    "app_hash": "sha256:2473eabb75c07c854b1470672066ed85279addbdd1ee9c9aab68ffb529f403b4",
+    "latest_run_id": "rag-knowledge-chat-2026-07-11T093149476Z",
+    "generated_at": "2026-07-11T09:32:34.859Z",
+    "app_hash": "sha256:e65572ed43a461d250b554cf157743e0bf5e63da9bfa7c901e3aea8874743724",
     "gate_count": 14,
     "gates_passed": 14,
     "vercel_db_crud_gate": "missing",
-    "latest_evidence_hash": "sha256:a7393de30267ab3049444a7498a5310146fb229ed1282033da18331d189fb03b"
+    "latest_evidence_hash": "sha256:a82a73169f8e41b2122f24c52e17403a0b4fb8a4b7ae6e89c2b9d877769183af"
   },
   "operating_rules": [
     "No secret values are written to evidence, docs, or generated public-safe JSON.",

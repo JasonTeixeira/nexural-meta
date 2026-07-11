@@ -2,7 +2,7 @@
 
 **Status:** Phase 2 generated maturity map
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-07-10T10:06:29.594Z
+**Generated:** 2026-07-11T09:30:08.356Z
 
 ## Read This Correctly
 
@@ -19,7 +19,7 @@ A large reference library intentionally scores low because reference repos are r
 
 | Band               | Count |
 | ------------------ | ----: |
-| 0-49 raw/reference |   126 |
+| 0-49 raw/reference |   127 |
 | 95-100 elite       |     9 |
 | 50-69 incomplete   |     1 |
 | 85-94 strong       |     1 |
@@ -34,18 +34,18 @@ A large reference library intentionally scores low because reference repos are r
 | ops-knowledge        |     4 |            1 |            36 |
 | public-proof-surface |     3 |            3 |            99 |
 | quant-trading        |     7 |            5 |            75 |
-| reference-library    |   119 |            0 |             8 |
+| reference-library    |   120 |            0 |             8 |
 | resource-library     |     2 |            1 |            38 |
 
 ## Top Gap Types
 
 | Gap                   | Count |
 | --------------------- | ----: |
-| maturity-l0           |   126 |
+| maturity-l0           |   127 |
 | missing-topics        |   117 |
 | reference-only        |    49 |
 | archived              |    47 |
-| missing-license       |    44 |
+| missing-license       |    45 |
 | stale                 |    21 |
 | load-bearing-under-70 |     1 |
 | missing-docs          |     1 |
@@ -60,5 +60,5 @@ A large reference library intentionally scores low because reference repos are r
 ## Next Actions
 
 - **Review private overrides:** 0 private repos are still classified by generic inference.
-- **Separate reference library from product proof narrative:** 119 repos are reference/library assets and should not dilute the public engineering story.
+- **Separate reference library from product proof narrative:** 120 repos are reference/library assets and should not dilute the public engineering story.
 - **Raise load-bearing assets below 70:** 1 load-bearing assets need docs, evidence, topics, homepage, or maturity upgrades.
