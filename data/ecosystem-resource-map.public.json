@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-12T09:32:27.143Z",
+  "generated_at": "2026-07-13T10:03:44.512Z",
   "generated_by": "scripts/ecosystem-resource-map.mjs",
-  "source_generated_at": "2026-07-12T09:32:26.812Z",
+  "source_generated_at": "2026-07-13T10:03:44.165Z",
   "privacy": "public-safe",
   "note": "Resource recommendations use public repository metadata only. Private assets remain summarized in scorecards and require local review.",
   "totals": {
@@ -375,7 +375,7 @@
           "role": "Paper-money-safe webhook and paper-order starter kit with Python, Node, Pine Script, shared env schema, webhook secret validation, logging, and notional caps.",
           "score": 100,
           "band": "95-100 elite",
-          "status": "watch",
+          "status": "active",
           "language": "Python",
           "gaps": []
         },
@@ -425,9 +425,9 @@
           "asset_type": "engine",
           "maturity": "L3",
           "role": "Local-first futures automation and strategy research hub.",
-          "score": 93,
-          "band": "85-94 strong",
-          "status": "watch",
+          "score": 100,
+          "band": "95-100 elite",
+          "status": "active",
           "language": "TypeScript",
           "gaps": []
         },

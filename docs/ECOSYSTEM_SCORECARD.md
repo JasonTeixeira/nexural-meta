@@ -2,7 +2,7 @@
 
 **Status:** Phase 2 generated maturity map
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-07-12T09:32:26.812Z
+**Generated:** 2026-07-13T10:03:44.165Z
 
 ## Read This Correctly
 
@@ -20,9 +20,8 @@ A large reference library intentionally scores low because reference repos are r
 | Band               | Count |
 | ------------------ | ----: |
 | 0-49 raw/reference |   127 |
-| 95-100 elite       |     9 |
+| 95-100 elite       |    10 |
 | 50-69 incomplete   |     1 |
-| 85-94 strong       |     1 |
 | 70-84 usable       |     1 |
 
 ## Layer Scores
@@ -33,7 +32,7 @@ A large reference library intentionally scores low because reference repos are r
 | control-plane        |     1 |            1 |           100 |
 | ops-knowledge        |     4 |            1 |            36 |
 | public-proof-surface |     3 |            3 |            99 |
-| quant-trading        |     7 |            5 |            75 |
+| quant-trading        |     7 |            5 |            76 |
 | reference-library    |   120 |            0 |             8 |
 | resource-library     |     2 |            1 |            38 |
 
