@@ -1,12 +1,12 @@
 # DB Proof
 
 **Status:** Phase 15 generated DB proof and migration-readiness check
-**Generated:** 2026-07-14T09:36:51.628Z
+**Generated:** 2026-07-15T09:39:46.308Z
 
 ## Summary
 
 - Gates: 4/6
-- Latest run: rag-knowledge-chat-2026-07-14T093433693Z
+- Latest run: rag-knowledge-chat-2026-07-15T093730107Z
 - Hosted URL: missing
 - Database mode: staging-postgres
 - Schema drift: passed
