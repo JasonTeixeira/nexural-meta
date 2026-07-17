@@ -1,14 +1,14 @@
 # Daily Operating Loop
 
 **Status:** ready
-**Generated:** 2026-07-16T09:42:50.517Z
+**Generated:** 2026-07-17T09:37:18.219Z
 
 ## Refresh
 
 - Maintenance: failed
 - Hosted golden paths: 78
 - DB proof: degraded
-- Public hash: `sha256:35281d7b9137951a9be695f388be83851dc328dccbe46f6166fa52e08046a02f`
+- Public hash: `sha256:e269fceb5f876d847cedf0402bf56f78d7980b89b9694c2f32823a112e9a6070`
 
 ## Queue
 
