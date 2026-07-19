@@ -2,7 +2,7 @@
 
 **Status:** Internal proof environment lock
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-07-18T09:33:11.986Z
+**Generated:** 2026-07-19T09:37:31.737Z
 **Overall:** failed
 
 ## Purpose
@@ -23,7 +23,7 @@ pnpm proof:env
 | required_secrets_present       | passed | All required proof secrets are present.                              |
 | required_secrets_fresh         | passed | Required proof secrets are within rotation policy.                   |
 | hosted_db_crud_health          | passed | Hosted /api/health completed DB CRUD proof.                          |
-| golden_path_evidence_present   | passed | Latest run rag-knowledge-chat-2026-07-18T093056305Z has 14/14 gates. |
+| golden_path_evidence_present   | passed | Latest run rag-knowledge-chat-2026-07-19T093515999Z has 14/14 gates. |
 | golden_path_has_hosted_db_gate | failed | Hosted DB CRUD gate status is missing.                               |
 
 ## Required Secrets
@@ -48,10 +48,10 @@ pnpm proof:env
 
 ## Evidence
 
-- Latest run: `rag-knowledge-chat-2026-07-18T093056305Z`
-- App hash: `sha256:c44cad9511dd2cd0ceb08961906ca305348919388dfea417a2d3fc96f2c4f030`
+- Latest run: `rag-knowledge-chat-2026-07-19T093515999Z`
+- App hash: `sha256:dab30efa91fc571f3a7a779278f47a52b0a824861f93c5bcbf60fc9156cbd981`
 - Gates: 14/14
-- Evidence hash: `sha256:9c595051905de8368ed33e20a2bcdfab2bf26f76d95f77ee833438ef85262ae8`
+- Evidence hash: `sha256:f8beaffbec57837c362c088deee6b8501fb0d8d3ba60f3ca70c2c454f9a66b14`
 
 ## Operating Rules
 

@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-18T09:33:13.434Z",
+  "generated_at": "2026-07-19T09:37:33.355Z",
   "generated_by": "scripts/db-proof-check.mjs",
   "privacy": "public-safe",
   "status": "degraded",
   "summary": {
     "gates_passed": 4,
     "gates_total": 6,
-    "latest_run_id": "rag-knowledge-chat-2026-07-18T093056305Z",
+    "latest_run_id": "rag-knowledge-chat-2026-07-19T093515999Z",
     "deployed_url": null,
     "database_mode": "staging-postgres",
     "migration_status": "passed",
@@ -65,7 +65,7 @@
     "golden_path_latest": "evidence/golden-path/latest.json",
     "proof_environment": "data/proof-environment.public.json",
     "hosted_health_checked": false,
-    "report_hash": "sha256:10e539ca44e45a17865c4d5c2be50c2c8c994d6827ed4f8eadc49c2b13b75b64"
+    "report_hash": "sha256:482844a36984e18fa50de50cdab02d30de186cd4eabda25992ed7bd04cfdef84"
   },
   "next_actions": [
     {
