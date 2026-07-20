@@ -1,15 +1,15 @@
 # Resource Library
 
 **Status:** Phase 12/13 generated resource library and maturity lift queue
-**Generated:** 2026-07-19T09:37:31.381Z
+**Generated:** 2026-07-20T10:04:48.039Z
 
 ## Summary
 
-- Assets: 151
+- Assets: 152
 - Use cases: 7
 - Recipes: 12
 - Proof-backed recipes: 3
-- Load-bearing average: 95/100
+- Load-bearing average: 94/100
 
 ## Operator Paths
 
@@ -20,20 +20,20 @@
 
 ## Maturity Lift Queue
 
-| Asset                        | Layer               | Current | Target | Reason                                                          |
-| ---------------------------- | ------------------- | ------: | -----: | --------------------------------------------------------------- |
-| saas-multitenant-baseline    | app-factory-runtime |      80 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
-| saas-multitenant-baseline-cf | app-factory-runtime |      80 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
-| saas-rag-chat-openai-first   | app-factory-runtime |      80 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
-| saas-rag-chat-qdrant         | app-factory-runtime |      80 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
-| micro-saas-starter           | resource-library    |      63 |     90 | Load-bearing asset under target maturity.                       |
-| sage-kernel                  | agent-engine        |      83 |     90 | Load-bearing asset under target maturity.                       |
-| awesome-cloud-native         | reference-library   |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
-| awesome-quant                | reference-library   |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
-| awesome-react                | reference-library   |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
-| awesome-systematic-trading   | reference-library   |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
-| aws-cloudformation-templates | reference-library   |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
-| bicep                        | reference-library   |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
-| build-your-own-x             | reference-library   |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
-| CLIMarketPlace               | reference-library   |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
-| dashboard                    | reference-library   |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
+| Asset                             | Layer                | Current | Target | Reason                                                          |
+| --------------------------------- | -------------------- | ------: | -----: | --------------------------------------------------------------- |
+| saas-multitenant-baseline         | app-factory-runtime  |      80 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
+| saas-multitenant-baseline-cf      | app-factory-runtime  |      80 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
+| saas-rag-chat-openai-first        | app-factory-runtime  |      80 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
+| saas-rag-chat-qdrant              | app-factory-runtime  |      80 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
+| micro-saas-starter                | resource-library     |      63 |     90 | Load-bearing asset under target maturity.                       |
+| tripleten-ai-automation-portfolio | public-proof-surface |      73 |     90 | Load-bearing asset under target maturity.                       |
+| sage-kernel                       | agent-engine         |      83 |     90 | Load-bearing asset under target maturity.                       |
+| awesome-cloud-native              | reference-library    |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
+| awesome-quant                     | reference-library    |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
+| awesome-react                     | reference-library    |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
+| awesome-systematic-trading        | reference-library    |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
+| aws-cloudformation-templates      | reference-library    |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
+| bicep                             | reference-library    |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
+| build-your-own-x                  | reference-library    |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
+| CLIMarketPlace                    | reference-library    |       0 |     70 | Missing metadata makes the ecosystem less legible.              |

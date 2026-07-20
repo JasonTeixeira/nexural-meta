@@ -2,8 +2,8 @@
 
 **Status:** Phase 6 internal packet ready
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-07-19T09:37:35.081Z
-**Packet hash:** `sha256:76580d4f24c6c41d294fc194da4c3247b406566964a4b9dca49af72fb2417366`
+**Generated:** 2026-07-20T10:04:51.902Z
+**Packet hash:** `sha256:b146cfc260f4c93916b9f7108c6963aeb886f21c69a3a97c1980269669c1136b`
 
 ## Positioning
 
@@ -13,18 +13,18 @@ Brand boundary: Nexural is a trading/investment product proof, not the umbrella 
 
 ## Proof Metrics
 
-- Public repositories indexed: 139
+- Public repositories indexed: 140
 - Private repositories summarized: 0
-- Public assets scored: 139
-- Broad public average: 16/100
-- Load-bearing average: 95/100
+- Public assets scored: 140
+- Broad public average: 17/100
+- Load-bearing average: 94/100
 - Resource use cases: 7
 - Golden path: 16/16 gates in 53s
 
 ## Public Claims
 
-- **The ecosystem has an indexed public registry.** 139 public repositories indexed; 0 private repositories summarized without names. Source: `data/ecosystem-registry.public.json`.
-- **Assets are scored before they are reused.** 139 public assets scored; public average 16/100, public load-bearing average 95/100. This is a gap map, not vanity scoring. Source: `data/ecosystem-scorecard.public.json`.
+- **The ecosystem has an indexed public registry.** 140 public repositories indexed; 0 private repositories summarized without names. Source: `data/ecosystem-registry.public.json`.
+- **Assets are scored before they are reused.** 140 public assets scored; public average 17/100, public load-bearing average 94/100. This is a gap map, not vanity scoring. Source: `data/ecosystem-scorecard.public.json`.
 - **Build choices are mapped to reusable resources.** 7 use cases mapped for daily navigation. Source: `data/ecosystem-resource-map.public.json`.
 - **The factory path has deployed hosted proof.** 16/16 golden-path gates passed; deployed URL verified at https://sage-client-intake-portal-vercel-ie58l0x9h-sage-ideas.vercel.app. Source: `data/golden-path-runs.public.json`.
 
@@ -41,6 +41,7 @@ Brand boundary: Nexural is a trading/investment product proof, not the umbrella 
 - [NexQuantSite](https://github.com/JasonTeixeira/NexQuantSite) - public-proof-surface, 100/100, L4
 - [nexural-meta](https://github.com/JasonTeixeira/nexural-meta) - control-plane, 100/100, L4
 - [sageideas.dev](https://github.com/JasonTeixeira/sageideas.dev) - public-proof-surface, 98/100, L3
+- [tripleten-ai-automation-portfolio](https://github.com/JasonTeixeira/tripleten-ai-automation-portfolio) - public-proof-surface, 73/100, L2
 
 ## Future Publishable Sections
 

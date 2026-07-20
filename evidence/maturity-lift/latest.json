@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-19T09:37:34.060Z",
+  "generated_at": "2026-07-20T10:04:50.952Z",
   "generated_by": "scripts/maturity-lift-plan.mjs",
   "privacy": "public-safe",
   "phase": "Phase 19",
   "status": "elite",
   "summary": {
-    "current_load_bearing_average": 95,
+    "current_load_bearing_average": 94,
     "target_1": 85,
     "target_2": 90,
-    "load_bearing_assets": 12,
-    "lift_items": 11,
+    "load_bearing_assets": 13,
+    "lift_items": 12,
     "resource_library_queue_items": 25
   },
   "l4_l5_operating_standard": {
@@ -35,6 +35,17 @@
       "target_score": 90,
       "missing": ["missing-license", "load-bearing-under-70", "missing-docs"],
       "required_work": ["Add concise operator docs with setup, proof, and ownership."]
+    },
+    {
+      "asset": "tripleten-ai-automation-portfolio",
+      "layer": "public-proof-surface",
+      "current_score": 73,
+      "target_score": 90,
+      "missing": ["missing-public-proof", "missing-topics"],
+      "required_work": [
+        "Attach public-safe proof evidence.",
+        "Add searchable repo metadata/topics."
+      ]
     },
     {
       "asset": "sage-kernel",
@@ -118,5 +129,5 @@
     }
   ],
   "score_model_note": "This report does not inflate maturity scores. It defines the work required to raise the scorecard in subsequent proof refreshes.",
-  "evidence_hash": "sha256:a8e7b6776759a7a39fd93c716effaa62cb235c31cde111516ec059a737152f3a"
+  "evidence_hash": "sha256:0565986f5916c16d06b187dfc5d7835f8c21ab681fefab2cfd0eb193c5b5f055"
 }

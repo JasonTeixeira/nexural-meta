@@ -1,18 +1,614 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-19T09:36:11.486Z",
+  "generated_at": "2026-07-20T10:03:22.962Z",
   "generated_by": "scripts/golden-path-proof.mjs",
   "privacy": "public-safe",
-  "current_run_id": "rag-knowledge-chat-2026-07-19T093515999Z",
+  "current_run_id": "rag-knowledge-chat-2026-07-20T100230145Z",
   "totals": {
-    "runs": 172,
-    "passed_runs": 172,
+    "runs": 175,
+    "passed_runs": 175,
     "hosted_runs": 78,
     "proof_backed_recipes": 3,
     "latest_gate_count": 14,
-    "latest_wall_clock_ms": 55478
+    "latest_wall_clock_ms": 52808
   },
   "runs": [
+    {
+      "schema_version": 1,
+      "run_id": "rag-knowledge-chat-2026-07-20T100230145Z",
+      "generated_at": "2026-07-20T10:02:30.145Z",
+      "generated_by": "scripts/golden-path-proof.mjs",
+      "privacy": "public-safe",
+      "spec": {
+        "id": "rag-knowledge-chat",
+        "title": "RAG Knowledge Chat",
+        "path": "data/golden-path-specs/rag-knowledge-chat.json",
+        "intent": "Prove the factory can generate an AI/RAG SaaS surface with tenant auth, chat routes, eval assets, build verification, runtime health, and hosted DB proof.",
+        "recipe": "saas-rag-chat",
+        "app_slug": "rag-knowledge-chat",
+        "use_case_id": "ship-saas-app"
+      },
+      "selected_resources": [
+        {
+          "name": "nexural-meta",
+          "url": "https://github.com/JasonTeixeira/nexural-meta",
+          "layer": "control-plane",
+          "score": 100,
+          "maturity": "L4"
+        },
+        {
+          "name": "micro-saas-starter",
+          "url": "https://github.com/JasonTeixeira/micro-saas-starter",
+          "layer": "resource-library",
+          "score": 63,
+          "maturity": "L2"
+        }
+      ],
+      "generated_app": {
+        "local_path": "<repo>/.nexural/cache/golden-path/rag-knowledge-chat-2026-07-20T100230145Z/rag-knowledge-chat",
+        "file_count": 46,
+        "tree_hash": "sha256:1b2c9526fe0b5842592ebb3ff6672d0dc57128840e2dde44e5e81a1d3fca01c3",
+        "hashed_files": 46
+      },
+      "runtime": {
+        "mode": "local-next-start",
+        "credentials_mode": "staging-supabase",
+        "supabase_project_ref": "xacwaprwlbqgmswgodsk",
+        "database_mode": "staging-postgres",
+        "url": "http://127.0.0.1:3040",
+        "health_path": "/api/health",
+        "db_health": {
+          "ok": true,
+          "database": {
+            "ok": true,
+            "mode": "crud_probe",
+            "table": "tenants",
+            "operation": "insert-read-update-delete",
+            "schema": {
+              "ok": true,
+              "mode": "schema_drift_probe",
+              "expected_tables": ["tenants", "tenant_memberships", "audit_events"],
+              "checked_tables": ["tenants", "tenant_memberships", "audit_events"]
+            },
+            "seed": {
+              "ok": true,
+              "mode": "seed_data_probe",
+              "table": "tenants",
+              "slug": "health-seed-rag-knowledge-chat",
+              "operation": "upsert-read"
+            }
+          }
+        },
+        "deploy_status": "vercel-token-present-not-used",
+        "deployed_url": null
+      },
+      "gates": [
+        {
+          "id": "resource_selection",
+          "label": "Resource selection",
+          "status": "passed",
+          "detail": "2 recommended assets selected from 4 layers."
+        },
+        {
+          "id": "forge_emit",
+          "label": "Forge emit",
+          "status": "passed",
+          "detail": "46 files emitted by saas-rag-chat.",
+          "command": "npx --yes tsx apps/cli/src/bin/nx.ts forge saas-rag-chat rag-knowledge-chat --inputs <repo>/.nexural/cache/golden-path/rag-knowledge-chat-2026-07-20T100230145Z/inputs.json --mock-secrets --out-dir <repo>/.nexural/cache/golden-path/rag-knowledge-chat-2026-07-20T100230145Z/rag-knowledge-chat",
+          "duration_ms": 1967
+        },
+        {
+          "id": "generated_app_usability",
+          "label": "Generated app usability surface",
+          "status": "passed",
+          "detail": "Generated app includes 8 required runtime, DB, and recipe-specific files."
+        },
+        {
+          "id": "supabase_runtime",
+          "label": "Verify Supabase/Auth runtime",
+          "status": "passed",
+          "detail": "HTTP 200 from Supabase Auth settings for project xacwaprwlbqgmswgodsk.",
+          "duration_ms": 126
+        },
+        {
+          "id": "supabase_migrations",
+          "label": "Apply Supabase migrations",
+          "status": "passed",
+          "detail": "No additional recipe-specific migrations are required for this proof; baseline schema is verified by DB health.",
+          "duration_ms": 0
+        },
+        {
+          "id": "install",
+          "label": "Install dependencies",
+          "status": "passed",
+          "detail": "exit 0",
+          "command": "pnpm install --ignore-workspace --ignore-scripts",
+          "duration_ms": 7074
+        },
+        {
+          "id": "standalone_lockfile",
+          "label": "Standalone lockfile",
+          "status": "passed",
+          "detail": "Generated app includes its own pnpm-lock.yaml for isolated Vercel installs."
+        },
+        {
+          "id": "typecheck",
+          "label": "Typecheck generated app",
+          "status": "passed",
+          "detail": "exit 0",
+          "command": "pnpm typecheck",
+          "duration_ms": 3865
+        },
+        {
+          "id": "build",
+          "label": "Build generated app",
+          "status": "passed",
+          "detail": "exit 0",
+          "command": "pnpm build",
+          "duration_ms": 34162
+        },
+        {
+          "id": "local_runtime",
+          "label": "Start local runtime",
+          "status": "passed",
+          "detail": "HTTP 200 from /api/health.",
+          "duration_ms": 2276
+        },
+        {
+          "id": "db_crud_health",
+          "label": "DB-backed CRUD health proof",
+          "status": "passed",
+          "detail": "Generated /api/health completed insert-read-update-delete against staging Postgres."
+        },
+        {
+          "id": "db_schema_drift_health",
+          "label": "DB schema drift health proof",
+          "status": "passed",
+          "detail": "schema_drift_probe passed."
+        },
+        {
+          "id": "db_seed_data_health",
+          "label": "DB seed-data health proof",
+          "status": "passed",
+          "detail": "seed_data_probe passed."
+        },
+        {
+          "id": "nx_verify",
+          "label": "Verify live local app",
+          "status": "passed",
+          "detail": "8/8 checks passed.",
+          "command": "npx --yes tsx apps/cli/src/bin/nx.ts verify http://127.0.0.1:3040 --evidence-slug rag-knowledge-chat-local --timeout 20000",
+          "duration_ms": 2814
+        }
+      ],
+      "evidence": {
+        "gate5_report": "evidence/gate-5/rag-knowledge-chat-local/report.json",
+        "latest_report": "evidence/golden-path/latest.json",
+        "public_index": "data/golden-path-runs.public.json"
+      },
+      "reusable_lessons": [
+        {
+          "lesson": "Run forge with tsx until recipe input schemas ship compiled JS siblings.",
+          "fed_back": "Captured in golden-path script command path."
+        },
+        {
+          "lesson": "Generated Next apps should use top-level typedRoutes and explicit outputFileTracingRoot.",
+          "fed_back": "Patched architecture warehouse next.config template."
+        },
+        {
+          "lesson": "Local runtime proof needs a generated .env.local with safe mock values when using mock secrets.",
+          "fed_back": "Golden-path runner writes staging credentials when configured, otherwise public-safe mock env, and keeps both out of committed artifacts."
+        }
+      ],
+      "remaining_gaps": [
+        "No public Vercel preview was created because VERCEL_TOKEN is not set in this shell.",
+        "Production auth/database credentials are intentionally not committed."
+      ],
+      "wall_clock_ms": 52808
+    },
+    {
+      "schema_version": 1,
+      "run_id": "fintech-ledger-ops-2026-07-20T100132961Z",
+      "generated_at": "2026-07-20T10:01:32.961Z",
+      "generated_by": "scripts/golden-path-proof.mjs",
+      "privacy": "public-safe",
+      "spec": {
+        "id": "fintech-ledger-ops",
+        "title": "Fintech Ledger Ops",
+        "path": "data/golden-path-specs/fintech-ledger-ops.json",
+        "intent": "Prove the factory can generate a finance-grade ledger SaaS with tenant auth, double-entry ledger migrations, precision-safe helpers, build verification, runtime health, and hosted DB proof.",
+        "recipe": "fintech-ledger-app",
+        "app_slug": "fintech-ledger-ops",
+        "use_case_id": "ship-saas-app"
+      },
+      "selected_resources": [
+        {
+          "name": "nexural-meta",
+          "url": "https://github.com/JasonTeixeira/nexural-meta",
+          "layer": "control-plane",
+          "score": 100,
+          "maturity": "L4"
+        },
+        {
+          "name": "micro-saas-starter",
+          "url": "https://github.com/JasonTeixeira/micro-saas-starter",
+          "layer": "resource-library",
+          "score": 63,
+          "maturity": "L2"
+        }
+      ],
+      "generated_app": {
+        "local_path": "<repo>/.nexural/cache/golden-path/fintech-ledger-ops-2026-07-20T100132961Z/fintech-ledger-ops",
+        "file_count": 37,
+        "tree_hash": "sha256:50bdc3fb3e519ff6a06c224c2ac78952b8267013ee47ca6da4a511b2282f5f85",
+        "hashed_files": 37
+      },
+      "runtime": {
+        "mode": "local-next-start",
+        "credentials_mode": "staging-supabase",
+        "supabase_project_ref": "xacwaprwlbqgmswgodsk",
+        "database_mode": "staging-postgres",
+        "url": "http://127.0.0.1:3040",
+        "health_path": "/api/health",
+        "db_health": {
+          "ok": true,
+          "database": {
+            "ok": true,
+            "mode": "crud_probe",
+            "table": "tenants",
+            "operation": "insert-read-update-delete",
+            "schema": {
+              "ok": true,
+              "mode": "schema_drift_probe",
+              "expected_tables": [
+                "tenants",
+                "tenant_memberships",
+                "audit_events",
+                "accounts",
+                "ledger_transactions",
+                "ledger_entries",
+                "reconciliation_runs"
+              ],
+              "checked_tables": [
+                "tenants",
+                "tenant_memberships",
+                "audit_events",
+                "accounts",
+                "ledger_transactions",
+                "ledger_entries",
+                "reconciliation_runs"
+              ]
+            },
+            "seed": {
+              "ok": true,
+              "mode": "seed_data_probe",
+              "table": "tenants",
+              "slug": "health-seed-fintech-ledger-ops",
+              "operation": "upsert-read"
+            }
+          }
+        },
+        "deploy_status": "vercel-token-present-not-used",
+        "deployed_url": null
+      },
+      "gates": [
+        {
+          "id": "resource_selection",
+          "label": "Resource selection",
+          "status": "passed",
+          "detail": "2 recommended assets selected from 4 layers."
+        },
+        {
+          "id": "forge_emit",
+          "label": "Forge emit",
+          "status": "passed",
+          "detail": "37 files emitted by fintech-ledger-app.",
+          "command": "npx --yes tsx apps/cli/src/bin/nx.ts forge fintech-ledger-app fintech-ledger-ops --inputs <repo>/.nexural/cache/golden-path/fintech-ledger-ops-2026-07-20T100132961Z/inputs.json --mock-secrets --out-dir <repo>/.nexural/cache/golden-path/fintech-ledger-ops-2026-07-20T100132961Z/fintech-ledger-ops",
+          "duration_ms": 1947
+        },
+        {
+          "id": "generated_app_usability",
+          "label": "Generated app usability surface",
+          "status": "passed",
+          "detail": "Generated app includes 8 required runtime, DB, and recipe-specific files."
+        },
+        {
+          "id": "supabase_runtime",
+          "label": "Verify Supabase/Auth runtime",
+          "status": "passed",
+          "detail": "HTTP 200 from Supabase Auth settings for project xacwaprwlbqgmswgodsk.",
+          "duration_ms": 306
+        },
+        {
+          "id": "supabase_migrations",
+          "label": "Apply Supabase migrations",
+          "status": "passed",
+          "detail": "Supabase migrations are applied to staging Postgres.",
+          "command": "npx --yes supabase@latest db push --db-url <DATABASE_URL> --include-all",
+          "duration_ms": 5052
+        },
+        {
+          "id": "install",
+          "label": "Install dependencies",
+          "status": "passed",
+          "detail": "exit 0",
+          "command": "pnpm install --ignore-workspace --ignore-scripts",
+          "duration_ms": 7306
+        },
+        {
+          "id": "standalone_lockfile",
+          "label": "Standalone lockfile",
+          "status": "passed",
+          "detail": "Generated app includes its own pnpm-lock.yaml for isolated Vercel installs."
+        },
+        {
+          "id": "typecheck",
+          "label": "Typecheck generated app",
+          "status": "passed",
+          "detail": "exit 0",
+          "command": "pnpm typecheck",
+          "duration_ms": 3251
+        },
+        {
+          "id": "build",
+          "label": "Build generated app",
+          "status": "passed",
+          "detail": "exit 0",
+          "command": "pnpm build",
+          "duration_ms": 32303
+        },
+        {
+          "id": "local_runtime",
+          "label": "Start local runtime",
+          "status": "passed",
+          "detail": "HTTP 200 from /api/health.",
+          "duration_ms": 3216
+        },
+        {
+          "id": "db_crud_health",
+          "label": "DB-backed CRUD health proof",
+          "status": "passed",
+          "detail": "Generated /api/health completed insert-read-update-delete against staging Postgres."
+        },
+        {
+          "id": "db_schema_drift_health",
+          "label": "DB schema drift health proof",
+          "status": "passed",
+          "detail": "schema_drift_probe passed."
+        },
+        {
+          "id": "db_seed_data_health",
+          "label": "DB seed-data health proof",
+          "status": "passed",
+          "detail": "seed_data_probe passed."
+        },
+        {
+          "id": "nx_verify",
+          "label": "Verify live local app",
+          "status": "passed",
+          "detail": "8/8 checks passed.",
+          "command": "npx --yes tsx apps/cli/src/bin/nx.ts verify http://127.0.0.1:3040 --evidence-slug fintech-ledger-ops-local --timeout 20000",
+          "duration_ms": 3275
+        }
+      ],
+      "evidence": {
+        "gate5_report": "evidence/gate-5/fintech-ledger-ops-local/report.json",
+        "latest_report": "evidence/golden-path/latest.json",
+        "public_index": "data/golden-path-runs.public.json"
+      },
+      "reusable_lessons": [
+        {
+          "lesson": "Run forge with tsx until recipe input schemas ship compiled JS siblings.",
+          "fed_back": "Captured in golden-path script command path."
+        },
+        {
+          "lesson": "Generated Next apps should use top-level typedRoutes and explicit outputFileTracingRoot.",
+          "fed_back": "Patched architecture warehouse next.config template."
+        },
+        {
+          "lesson": "Local runtime proof needs a generated .env.local with safe mock values when using mock secrets.",
+          "fed_back": "Golden-path runner writes staging credentials when configured, otherwise public-safe mock env, and keeps both out of committed artifacts."
+        }
+      ],
+      "remaining_gaps": [
+        "No public Vercel preview was created because VERCEL_TOKEN is not set in this shell.",
+        "Production auth/database credentials are intentionally not committed."
+      ],
+      "wall_clock_ms": 57170
+    },
+    {
+      "schema_version": 1,
+      "run_id": "client-intake-portal-2026-07-20T100037310Z",
+      "generated_at": "2026-07-20T10:00:37.310Z",
+      "generated_by": "scripts/golden-path-proof.mjs",
+      "privacy": "public-safe",
+      "spec": {
+        "id": "client-intake-portal",
+        "title": "Client Intake Portal",
+        "path": "data/golden-path-specs/client-intake-portal.json",
+        "intent": "Prove the Engineering OS can select resources, forge a real app, run QA/build gates, start a runtime, verify the live health/security surface, and capture reusable lessons.",
+        "recipe": "internal-tool-dashboard",
+        "app_slug": "client-intake-portal",
+        "use_case_id": "ship-saas-app"
+      },
+      "selected_resources": [
+        {
+          "name": "nexural-meta",
+          "url": "https://github.com/JasonTeixeira/nexural-meta",
+          "layer": "control-plane",
+          "score": 100,
+          "maturity": "L4"
+        },
+        {
+          "name": "micro-saas-starter",
+          "url": "https://github.com/JasonTeixeira/micro-saas-starter",
+          "layer": "resource-library",
+          "score": 63,
+          "maturity": "L2"
+        }
+      ],
+      "generated_app": {
+        "local_path": "<repo>/.nexural/cache/golden-path/client-intake-portal-2026-07-20T100037310Z/client-intake-portal",
+        "file_count": 35,
+        "tree_hash": "sha256:4e37071acede92bc4876463765421c84c686101007fd2a545e46f68eb86a5eac",
+        "hashed_files": 35
+      },
+      "runtime": {
+        "mode": "local-next-start",
+        "credentials_mode": "staging-supabase",
+        "supabase_project_ref": "xacwaprwlbqgmswgodsk",
+        "database_mode": "staging-postgres",
+        "url": "http://127.0.0.1:3040",
+        "health_path": "/api/health",
+        "db_health": {
+          "ok": true,
+          "database": {
+            "ok": true,
+            "mode": "crud_probe",
+            "table": "tenants",
+            "operation": "insert-read-update-delete",
+            "schema": {
+              "ok": true,
+              "mode": "schema_drift_probe",
+              "expected_tables": ["tenants", "tenant_memberships", "audit_events"],
+              "checked_tables": ["tenants", "tenant_memberships", "audit_events"]
+            },
+            "seed": {
+              "ok": true,
+              "mode": "seed_data_probe",
+              "table": "tenants",
+              "slug": "health-seed-client-intake-portal",
+              "operation": "upsert-read"
+            }
+          }
+        },
+        "deploy_status": "vercel-token-present-not-used",
+        "deployed_url": null
+      },
+      "gates": [
+        {
+          "id": "resource_selection",
+          "label": "Resource selection",
+          "status": "passed",
+          "detail": "2 recommended assets selected from 4 layers."
+        },
+        {
+          "id": "forge_emit",
+          "label": "Forge emit",
+          "status": "passed",
+          "detail": "35 files emitted by internal-tool-dashboard.",
+          "command": "npx --yes tsx apps/cli/src/bin/nx.ts forge internal-tool-dashboard client-intake-portal --inputs <repo>/.nexural/cache/golden-path/client-intake-portal-2026-07-20T100037310Z/inputs.json --mock-secrets --out-dir <repo>/.nexural/cache/golden-path/client-intake-portal-2026-07-20T100037310Z/client-intake-portal",
+          "duration_ms": 4292
+        },
+        {
+          "id": "generated_app_usability",
+          "label": "Generated app usability surface",
+          "status": "passed",
+          "detail": "Generated app includes 11 required runtime, DB, and recipe-specific files."
+        },
+        {
+          "id": "supabase_runtime",
+          "label": "Verify Supabase/Auth runtime",
+          "status": "passed",
+          "detail": "HTTP 200 from Supabase Auth settings for project xacwaprwlbqgmswgodsk.",
+          "duration_ms": 503
+        },
+        {
+          "id": "supabase_migrations",
+          "label": "Apply Supabase migrations",
+          "status": "passed",
+          "detail": "No additional recipe-specific migrations are required for this proof; baseline schema is verified by DB health.",
+          "duration_ms": 0
+        },
+        {
+          "id": "install",
+          "label": "Install dependencies",
+          "status": "passed",
+          "detail": "exit 0",
+          "command": "pnpm install --ignore-workspace --ignore-scripts",
+          "duration_ms": 10647
+        },
+        {
+          "id": "standalone_lockfile",
+          "label": "Standalone lockfile",
+          "status": "passed",
+          "detail": "Generated app includes its own pnpm-lock.yaml for isolated Vercel installs."
+        },
+        {
+          "id": "typecheck",
+          "label": "Typecheck generated app",
+          "status": "passed",
+          "detail": "exit 0",
+          "command": "pnpm typecheck",
+          "duration_ms": 2953
+        },
+        {
+          "id": "build",
+          "label": "Build generated app",
+          "status": "passed",
+          "detail": "exit 0",
+          "command": "pnpm build",
+          "duration_ms": 30804
+        },
+        {
+          "id": "local_runtime",
+          "label": "Start local runtime",
+          "status": "passed",
+          "detail": "HTTP 200 from /api/health.",
+          "duration_ms": 2857
+        },
+        {
+          "id": "db_crud_health",
+          "label": "DB-backed CRUD health proof",
+          "status": "passed",
+          "detail": "Generated /api/health completed insert-read-update-delete against staging Postgres."
+        },
+        {
+          "id": "db_schema_drift_health",
+          "label": "DB schema drift health proof",
+          "status": "passed",
+          "detail": "schema_drift_probe passed."
+        },
+        {
+          "id": "db_seed_data_health",
+          "label": "DB seed-data health proof",
+          "status": "passed",
+          "detail": "seed_data_probe passed."
+        },
+        {
+          "id": "nx_verify",
+          "label": "Verify live local app",
+          "status": "passed",
+          "detail": "8/8 checks passed.",
+          "command": "npx --yes tsx apps/cli/src/bin/nx.ts verify http://127.0.0.1:3040 --evidence-slug client-intake-portal-local --timeout 20000",
+          "duration_ms": 3058
+        }
+      ],
+      "evidence": {
+        "gate5_report": "evidence/gate-5/client-intake-portal-local/report.json",
+        "latest_report": "evidence/golden-path/latest.json",
+        "public_index": "data/golden-path-runs.public.json"
+      },
+      "reusable_lessons": [
+        {
+          "lesson": "Run forge with tsx until recipe input schemas ship compiled JS siblings.",
+          "fed_back": "Captured in golden-path script command path."
+        },
+        {
+          "lesson": "Generated Next apps should use top-level typedRoutes and explicit outputFileTracingRoot.",
+          "fed_back": "Patched architecture warehouse next.config template."
+        },
+        {
+          "lesson": "Local runtime proof needs a generated .env.local with safe mock values when using mock secrets.",
+          "fed_back": "Golden-path runner writes staging credentials when configured, otherwise public-safe mock env, and keeps both out of committed artifacts."
+        }
+      ],
+      "remaining_gaps": [
+        "No public Vercel preview was created because VERCEL_TOKEN is not set in this shell.",
+        "Production auth/database credentials are intentionally not committed."
+      ],
+      "wall_clock_ms": 55635
+    },
     {
       "schema_version": 1,
       "run_id": "rag-knowledge-chat-2026-07-19T093515999Z",

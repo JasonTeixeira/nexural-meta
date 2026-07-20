@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-19T09:33:18.017Z",
+  "generated_at": "2026-07-20T10:00:36.311Z",
   "generated_by": "scripts/ecosystem-resource-map.mjs",
-  "source_generated_at": "2026-07-19T09:33:17.691Z",
+  "source_generated_at": "2026-07-20T10:00:35.987Z",
   "privacy": "public-safe",
   "note": "Resource recommendations use public repository metadata only. Private assets remain summarized in scorecards and require local review.",
   "totals": {
     "use_cases": 7,
-    "public_assets_considered": 139,
-    "recommended_assets": 11,
+    "public_assets_considered": 140,
+    "recommended_assets": 12,
     "improve_first_assets": 1
   },
   "use_cases": [
@@ -476,8 +476,8 @@
       ],
       "commands": ["pnpm ecosystem:refresh"],
       "asset_counts": {
-        "candidates": 4,
-        "recommended": 4,
+        "candidates": 5,
+        "recommended": 5,
         "improve_first": 0,
         "reference_only": 0
       },
@@ -533,6 +533,19 @@
           "status": "active",
           "language": "TypeScript",
           "gaps": ["missing-license"]
+        },
+        {
+          "name": "tripleten-ai-automation-portfolio",
+          "url": "https://github.com/JasonTeixeira/tripleten-ai-automation-portfolio",
+          "layer": "public-proof-surface",
+          "asset_type": "product-proof",
+          "maturity": "L2",
+          "role": "Public-facing identity, proof, or case-study surface.",
+          "score": 73,
+          "band": "70-84 usable",
+          "status": "active",
+          "language": null,
+          "gaps": ["missing-public-proof", "missing-topics"]
         }
       ],
       "improve_first": [],

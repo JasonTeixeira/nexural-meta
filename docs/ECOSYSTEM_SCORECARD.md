@@ -2,7 +2,7 @@
 
 **Status:** Phase 2 generated maturity map
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-07-19T09:33:17.691Z
+**Generated:** 2026-07-20T10:00:35.987Z
 
 ## Read This Correctly
 
@@ -11,8 +11,8 @@ A large reference library intentionally scores low because reference repos are r
 
 ## Executive Scores
 
-- Average across all repos: **16/100**
-- Load-bearing asset average: **95/100** across **12** assets
+- Average across all repos: **17/100**
+- Load-bearing asset average: **94/100** across **13** assets
 - Private repo average: **0/100**
 
 ## Score Bands
@@ -22,7 +22,7 @@ A large reference library intentionally scores low because reference repos are r
 | 0-49 raw/reference |   127 |
 | 95-100 elite       |    10 |
 | 50-69 incomplete   |     1 |
-| 70-84 usable       |     1 |
+| 70-84 usable       |     2 |
 
 ## Layer Scores
 
@@ -31,7 +31,7 @@ A large reference library intentionally scores low because reference repos are r
 | agent-engine         |     2 |            1 |            53 |
 | control-plane        |     1 |            1 |           100 |
 | ops-knowledge        |     4 |            1 |            36 |
-| public-proof-surface |     3 |            3 |            99 |
+| public-proof-surface |     4 |            4 |            93 |
 | quant-trading        |     7 |            5 |            76 |
 | reference-library    |   120 |            0 |             8 |
 | resource-library     |     2 |            1 |            38 |
@@ -41,14 +41,14 @@ A large reference library intentionally scores low because reference repos are r
 | Gap                   | Count |
 | --------------------- | ----: |
 | maturity-l0           |   127 |
-| missing-topics        |   117 |
+| missing-topics        |   118 |
 | reference-only        |    49 |
 | archived              |    47 |
 | missing-license       |    45 |
 | stale                 |    21 |
+| missing-public-proof  |     2 |
 | load-bearing-under-70 |     1 |
 | missing-docs          |     1 |
-| missing-public-proof  |     1 |
 
 ## Public Load-Bearing Assets Below 70
 
