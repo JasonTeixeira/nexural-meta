@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-20T10:00:35.987Z",
+  "generated_at": "2026-07-20T11:04:06.518Z",
   "generated_by": "scripts/ecosystem-scorecard.mjs",
-  "source_generated_at": "2026-07-20T10:00:20.659Z",
+  "source_generated_at": "2026-07-20T11:03:52.261Z",
   "privacy": "public-safe",
   "note": "Private repositories are scored internally and summarized by count only. Full scorecard is generated locally at .nexural/private/ecosystem-scorecard.internal.json.",
   "totals": {
@@ -532,7 +532,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 538,
+        "stale_days": 539,
         "needs_private_review": false
       },
       "score": {
@@ -1022,7 +1022,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 549,
+        "stale_days": 550,
         "needs_private_review": false
       },
       "score": {
@@ -2639,7 +2639,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 834,
+        "stale_days": 835,
         "needs_private_review": false
       },
       "score": {
@@ -3570,7 +3570,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 62,
+        "stale_days": 63,
         "needs_private_review": false
       },
       "score": {
@@ -4124,8 +4124,8 @@
       ],
       "homepage_url": null,
       "created_at": "2026-05-22T12:11:28Z",
-      "pushed_at": "2026-07-19T09:37:56Z",
-      "updated_at": "2026-07-19T09:38:01Z",
+      "pushed_at": "2026-07-20T10:05:12Z",
+      "updated_at": "2026-07-20T10:05:22Z",
       "default_branch": "main",
       "license": null,
       "parent": null,
@@ -4142,7 +4142,7 @@
       },
       "operational": {
         "status": "active",
-        "stale_days": 1,
+        "stale_days": 0,
         "needs_private_review": false
       },
       "score": {
@@ -5639,7 +5639,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 250,
+        "stale_days": 251,
         "needs_private_review": false
       },
       "score": {
@@ -5688,7 +5688,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 711,
+        "stale_days": 712,
         "needs_private_review": false
       },
       "score": {
@@ -5940,7 +5940,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 1278,
+        "stale_days": 1279,
         "needs_private_review": false
       },
       "score": {
