@@ -1,7 +1,7 @@
 # DB Proof
 
 **Status:** Phase 15 generated DB proof and migration-readiness check
-**Generated:** 2026-07-27T11:10:19.104Z
+**Generated:** 2026-07-28T09:51:24.409Z
 
 ## Summary
 
@@ -22,7 +22,7 @@
 | migration_readiness    | passed | Latest local run skipped migration push, but DATABASE_URL is present in GitHub secret inventory for scheduled proof refresh. |
 | db_schema_drift_health | passed | Expected tables verified: tenants, tenant_memberships, audit_events.                                                         |
 | db_seed_data_health    | passed | Seed row health-seed-rag-knowledge-chat completed upsert-read.                                                               |
-| proof_environment_db   | failed | Proof environment failed; hosted health 200.                                                                                 |
+| proof_environment_db   | failed | Proof environment failed; hosted health 503.                                                                                 |
 
 ## Next Actions
 

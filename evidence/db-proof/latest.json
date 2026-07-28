@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-27T11:10:19.104Z",
+  "generated_at": "2026-07-28T09:51:24.409Z",
   "generated_by": "scripts/db-proof-check.mjs",
   "privacy": "public-safe",
   "status": "degraded",
@@ -50,7 +50,7 @@
     {
       "id": "proof_environment_db",
       "status": "failed",
-      "detail": "Proof environment failed; hosted health 200."
+      "detail": "Proof environment failed; hosted health 503."
     }
   ],
   "secret_inventory": {
@@ -65,7 +65,7 @@
     "golden_path_latest": "evidence/golden-path/latest.json",
     "proof_environment": "data/proof-environment.public.json",
     "hosted_health_checked": false,
-    "report_hash": "sha256:458703e3769c116d3d089b77482cb67ef1c8c577d520f94493b7660305e51a0f"
+    "report_hash": "sha256:dde3532b0a43e46a33dc2bbf6511c7db5ae0cf7fb30b39181defef1be6aef47d"
   },
   "next_actions": [
     {

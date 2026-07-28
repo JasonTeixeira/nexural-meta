@@ -1,17 +1,17 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-27T11:10:17.480Z",
+  "generated_at": "2026-07-28T09:51:16.429Z",
   "generated_by": "scripts/proof-environment-check.mjs",
   "privacy": "public-safe",
   "status": "failed",
   "repo": "JasonTeixeira/nexural-meta",
   "summary": {
-    "gates_passed": 5,
+    "gates_passed": 4,
     "gates_total": 6,
     "required_secrets_present": 8,
     "required_secrets_total": 8,
     "hosted_url": "https://sage-client-intake-portal-vercel.vercel.app",
-    "hosted_health_status": 200,
+    "hosted_health_status": 503,
     "latest_run_id": "rag-knowledge-chat-2026-07-27T110807333Z",
     "latest_app_hash": "sha256:35abbf8fd27fad92617d16ff3cf024922118ea0711f4129e95cb31919b50b849",
     "latest_gate_count": 14
@@ -34,8 +34,8 @@
     },
     {
       "id": "hosted_db_crud_health",
-      "status": "passed",
-      "detail": "Hosted /api/health completed DB CRUD proof."
+      "status": "failed",
+      "detail": "Hosted /api/health did not return the expected DB CRUD proof."
     },
     {
       "id": "golden_path_evidence_present",
@@ -161,13 +161,13 @@
     }
   ],
   "hosted_runtime": {
-    "ok": true,
+    "ok": false,
     "url": "https://sage-client-intake-portal-vercel.vercel.app",
-    "status": 200,
-    "duration_ms": 1105,
+    "status": 503,
+    "duration_ms": 7506,
     "database_mode": "crud_probe",
-    "database_operation": "insert-read-update-delete",
-    "detail": "Hosted /api/health completed DB CRUD proof."
+    "database_operation": "insert",
+    "detail": "Hosted /api/health did not return the expected DB CRUD proof."
   },
   "evidence": {
     "golden_path_present": true,
@@ -187,6 +187,11 @@
     "Generated app evidence links run ID, app tree hash, deployed URL, and gate results."
   ],
   "next_actions": [
+    {
+      "severity": "critical",
+      "action": "Restore hosted DB-backed proof",
+      "evidence": "Hosted /api/health did not return the expected DB CRUD proof."
+    },
     {
       "severity": "critical",
       "action": "Run golden path and attach a hosted DB CRUD deployment",

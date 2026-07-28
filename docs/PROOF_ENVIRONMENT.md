@@ -2,7 +2,7 @@
 
 **Status:** Internal proof environment lock
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-07-27T11:10:17.480Z
+**Generated:** 2026-07-28T09:51:16.429Z
 **Overall:** failed
 
 ## Purpose
@@ -22,7 +22,7 @@ pnpm proof:env
 | secret_inventory_available     | passed | GitHub secret inventory is readable without exposing values.         |
 | required_secrets_present       | passed | All required proof secrets are present.                              |
 | required_secrets_fresh         | passed | Required proof secrets are within rotation policy.                   |
-| hosted_db_crud_health          | passed | Hosted /api/health completed DB CRUD proof.                          |
+| hosted_db_crud_health          | failed | Hosted /api/health did not return the expected DB CRUD proof.        |
 | golden_path_evidence_present   | passed | Latest run rag-knowledge-chat-2026-07-27T110807333Z has 14/14 gates. |
 | golden_path_has_hosted_db_gate | failed | Hosted DB CRUD gate status is missing.                               |
 
@@ -42,9 +42,9 @@ pnpm proof:env
 ## Hosted Runtime
 
 - URL: https://sage-client-intake-portal-vercel.vercel.app
-- HTTP status: 200
+- HTTP status: 503
 - Database mode: crud_probe
-- Database operation: insert-read-update-delete
+- Database operation: insert
 
 ## Evidence
 
@@ -63,6 +63,7 @@ pnpm proof:env
 
 ## Next Actions
 
+- **critical: Restore hosted DB-backed proof.** Hosted /api/health did not return the expected DB CRUD proof.
 - **critical: Run golden path and attach a hosted DB CRUD deployment.** vercel_db_crud_health=missing
 - **security: Revoke any Supabase personal access token exposed outside the terminal.** Personal access tokens are operator credentials and are never persisted by this repo.
 
