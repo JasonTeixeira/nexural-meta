@@ -1,21 +1,21 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-28T09:51:25.402Z",
+  "generated_at": "2026-07-29T09:52:07.124Z",
   "generated_by": "scripts/daily-operating-loop.mjs",
   "privacy": "public-safe",
   "phase": "Phase 20",
   "status": "ready",
   "weekly_proof_refresh": {
     "status": "failed",
-    "latest_public_hash": "sha256:5aefc4a3d277aba43a3c11a8b5fba818361e6d4daebcf05d8ff85128b5fea328",
+    "latest_public_hash": "sha256:b0869f2705e0de30bccd9fb1742d50127cd7e55346bad6eca66d3222fceb4555",
     "hosted_golden_paths": 78,
     "db_proof_status": "degraded"
   },
   "broken_asset_queue": [
     {
       "severity": "critical",
-      "item": "Fix failed maintenance command: golden_path_vercel",
-      "reason": "pnpm golden:path:deploy exited 1."
+      "item": "Fix failed maintenance command: golden_path",
+      "reason": "pnpm golden:path exited 1."
     },
     {
       "severity": "critical",
@@ -45,7 +45,7 @@
     {
       "severity": "info",
       "item": "Review and commit generated maintenance artifacts",
-      "reason": "44 changed path(s) after maintenance run."
+      "reason": "34 changed path(s) after maintenance run."
     }
   ],
   "recipe_freshness": [
@@ -181,7 +181,7 @@
     }
   ],
   "next_action_recommendations": [
-    "Fix failed maintenance command: golden_path_vercel",
+    "Fix failed maintenance command: golden_path",
     "Fix failed maintenance command: proof_environment",
     "Fix failed maintenance command: operator_test",
     "Fix proof environment lock gates",
@@ -192,5 +192,5 @@
     "standard": "All L4/L5 claims need a doc, proof artifact, owner, and refresh path.",
     "docs": ["docs/MATURITY_LIFT.md", "docs/OPERATOR_TEST.md", "docs/PUBLIC_PORTFOLIO_PACKAGING.md"]
   },
-  "evidence_hash": "sha256:0043ced923ceff697f5f7d0c33f0fc40556ebfaf4f4ff03f3cbe0e0b2fc500fc"
+  "evidence_hash": "sha256:a1d3363c1697b23557c35624cb20880facd919a5d9ff198b9a35c801830bddab"
 }
