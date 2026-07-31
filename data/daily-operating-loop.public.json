@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-30T09:48:34.594Z",
+  "generated_at": "2026-07-31T09:53:16.821Z",
   "generated_by": "scripts/daily-operating-loop.mjs",
   "privacy": "public-safe",
   "phase": "Phase 20",
   "status": "ready",
   "weekly_proof_refresh": {
     "status": "failed",
-    "latest_public_hash": "sha256:f8aafac07faf66bee4c311f27a7435e751574ee648647c7adae5e5c8cfa1bb02",
+    "latest_public_hash": "sha256:67e91faa4a356a240adbc10b352380ee28291ee5ff6f96c140473ae3fe1333af",
     "hosted_golden_paths": 78,
     "db_proof_status": "degraded"
   },
@@ -192,5 +192,5 @@
     "standard": "All L4/L5 claims need a doc, proof artifact, owner, and refresh path.",
     "docs": ["docs/MATURITY_LIFT.md", "docs/OPERATOR_TEST.md", "docs/PUBLIC_PORTFOLIO_PACKAGING.md"]
   },
-  "evidence_hash": "sha256:07fe96127f437fc8326e52c8767b0b5cc1ce491aa5f2c15cbed867afc7696fd2"
+  "evidence_hash": "sha256:21b03b1ff9c3ca1dedf72f03709b4337a75d55452236e244b599daf18c6e5ecd"
 }
