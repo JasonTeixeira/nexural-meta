@@ -1,17 +1,22 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-04T09:52:35.486Z",
+  "generated_at": "2026-08-05T09:51:56.458Z",
   "generated_by": "scripts/daily-operating-loop.mjs",
   "privacy": "public-safe",
   "phase": "Phase 20",
-  "status": "ready",
+  "status": "attention-required",
   "weekly_proof_refresh": {
     "status": "failed",
-    "latest_public_hash": "sha256:c114b8321154f274fae6268f61bf10a1f5d013411200478dad6db2768b6ccbb0",
+    "latest_public_hash": "sha256:6d2c146332e657eee3a992de16851266079567d0561a90c00536e3c290c58256",
     "hosted_golden_paths": 78,
     "db_proof_status": "degraded"
   },
   "broken_asset_queue": [
+    {
+      "severity": "warn",
+      "item": "data/golden-path-runs.public.json",
+      "reason": "golden_path is stale."
+    },
     {
       "severity": "critical",
       "item": "Fix failed maintenance command: golden_path",
@@ -26,6 +31,11 @@
       "severity": "critical",
       "item": "Fix failed maintenance command: operator_test",
       "reason": "pnpm operator:test exited 1."
+    },
+    {
+      "severity": "warn",
+      "item": "Refresh stale artifact: data/golden-path-runs.public.json",
+      "reason": "golden_path age 190.7h exceeds 168h."
     },
     {
       "severity": "critical",
@@ -184,13 +194,13 @@
     "Fix failed maintenance command: golden_path",
     "Fix failed maintenance command: proof_environment",
     "Fix failed maintenance command: operator_test",
+    "Refresh stale artifact: data/golden-path-runs.public.json",
     "Fix proof environment lock gates",
-    "Finish DB proof hardening",
     "Private asset maturity still needs local review before public claims can include deeper implementation detail."
   ],
   "architecture_decision_tracking": {
     "standard": "All L4/L5 claims need a doc, proof artifact, owner, and refresh path.",
     "docs": ["docs/MATURITY_LIFT.md", "docs/OPERATOR_TEST.md", "docs/PUBLIC_PORTFOLIO_PACKAGING.md"]
   },
-  "evidence_hash": "sha256:1a3447a7644be6996043d6ebf37b9806fe64eda71e2df61c782f1b5201742875"
+  "evidence_hash": "sha256:1e6a8f6350db0894a41eef1b5f28b945b35999124a239aa940b99cb871929a81"
 }

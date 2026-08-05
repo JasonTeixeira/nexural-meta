@@ -1,7 +1,7 @@
 # Operator Test Pass
 
 **Status:** failed
-**Generated:** 2026-08-04T09:52:34.839Z
+**Generated:** 2026-08-05T09:51:55.773Z
 
 ## Summary
 
@@ -10,7 +10,7 @@
 - Proof-backed recipes: 3
 - Hosted golden paths: 78
 - DB proof: degraded
-- Evidence hash: `sha256:f48ad0a9fbe84c04ef9894e3cb04adb72f1cf377417f71a76bc7371aae7e908a`
+- Evidence hash: `sha256:434a6844013e63a90a73677b3721670240bffbddf12c8269c3dd280ebe3c021a`
 
 ## Checks
 
@@ -22,5 +22,5 @@
 | Dashboard has the expected operator pages.                      | passed | 11/11 routes present.                       |
 | Golden path, proof env, DB proof, and public packet are usable. | failed | 78 hosted runs, env=failed, db=degraded.    |
 | DB proof includes CRUD, schema drift, and seed-data checks.     | failed | crud=failed, schema=passed, seed=passed.    |
-| Maintenance loop exposes freshness and next actions.            | passed | maintenance=failed, actions=7.              |
+| Maintenance loop exposes freshness and next actions.            | passed | maintenance=failed, actions=8.              |
 | Operator can see what to fix first.                             | passed | 25 lift items, 4 operator paths.            |
