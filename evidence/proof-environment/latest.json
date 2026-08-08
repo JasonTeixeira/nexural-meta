@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-07T09:47:57.108Z",
+  "generated_at": "2026-08-08T09:13:26.120Z",
   "generated_by": "scripts/proof-environment-check.mjs",
   "privacy": "public-safe",
   "status": "failed",
@@ -164,7 +164,7 @@
     "ok": false,
     "url": "https://sage-client-intake-portal-vercel.vercel.app",
     "status": 503,
-    "duration_ms": 7427,
+    "duration_ms": 7767,
     "database_mode": "crud_probe",
     "database_operation": "insert",
     "detail": "Hosted /api/health did not return the expected DB CRUD proof."
