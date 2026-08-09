@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-08T09:13:34.799Z",
+  "generated_at": "2026-08-09T09:14:09.560Z",
   "generated_by": "scripts/operator-test-pass.mjs",
   "privacy": "public-safe",
   "phase": "Phase 17",
@@ -71,5 +71,5 @@
     "What asset should be improved first?",
     "What failed, what is stale, and what should the operator do next?"
   ],
-  "evidence_hash": "sha256:083346406e8f8a0cdf847a20640bc9c5124740f309811bb660ecb2496b5ac7a4"
+  "evidence_hash": "sha256:185bc8ca4113bbf20bebfc6598ce66c69e4fbff9c273ce431ebe61ab36b78d89"
 }
