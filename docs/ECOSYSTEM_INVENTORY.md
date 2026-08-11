@@ -2,7 +2,7 @@
 
 **Status:** Phase 1 generated inventory
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-08-10T10:30:49.893Z
+**Generated:** 2026-08-11T09:18:49.333Z
 **Source:** GitHub owner `JasonTeixeira`
 
 ## Privacy Boundary
@@ -125,7 +125,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [Nexural_Website_ARCHIVED](https://github.com/JasonTeixeira/Nexural_Website_ARCHIVED)                                                                                 | reference-library    | reference     | L0       | archived  |
 | [nexural-automation-starter](https://github.com/JasonTeixeira/nexural-automation-starter)                                                                             | quant-trading        | kit           | L4       | active    |
 | [nexural-meta](https://github.com/JasonTeixeira/nexural-meta)                                                                                                         | control-plane        | control-plane | L4       | active    |
-| [Nexural-Research](https://github.com/JasonTeixeira/Nexural-Research)                                                                                                 | reference-library    | reference     | L0       | watch     |
+| [Nexural-Research](https://github.com/JasonTeixeira/Nexural-Research)                                                                                                 | reference-library    | reference     | L0       | stale     |
 | [NexuralFlow](https://github.com/JasonTeixeira/NexuralFlow)                                                                                                           | reference-library    | reference     | L0       | archived  |
 | [NexusEncryption](https://github.com/JasonTeixeira/NexusEncryption)                                                                                                   | quant-trading        | engine        | L0       | stale     |
 | [NoteLog](https://github.com/JasonTeixeira/NoteLog)                                                                                                                   | reference-library    | reference     | L0       | stale     |

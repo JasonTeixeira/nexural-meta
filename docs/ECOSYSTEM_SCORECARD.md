@@ -2,7 +2,7 @@
 
 **Status:** Phase 2 generated maturity map
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-08-10T10:31:04.072Z
+**Generated:** 2026-08-11T09:19:02.684Z
 
 ## Read This Correctly
 
@@ -11,7 +11,7 @@ A large reference library intentionally scores low because reference repos are r
 
 ## Executive Scores
 
-- Average across all repos: **17/100**
+- Average across all repos: **16/100**
 - Load-bearing asset average: **94/100** across **13** assets
 - Private repo average: **0/100**
 
@@ -45,7 +45,7 @@ A large reference library intentionally scores low because reference repos are r
 | reference-only        |    49 |
 | archived              |    47 |
 | missing-license       |    45 |
-| stale                 |    21 |
+| stale                 |    22 |
 | missing-public-proof  |     2 |
 | load-bearing-under-70 |     1 |
 | missing-docs          |     1 |
