@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-12T09:24:13.293Z",
+  "generated_at": "2026-08-13T09:24:28.246Z",
   "generated_by": "scripts/resource-library-catalog.mjs",
   "privacy": "public-safe",
   "status": "generated",
@@ -11,7 +11,7 @@
     "recipes": 12,
     "proof_backed_recipes": 3,
     "load_bearing_assets": 13,
-    "load_bearing_average_score": 94,
+    "load_bearing_average_score": 93,
     "proof_environment_status": "failed",
     "golden_path_passed_runs": 202
   },
@@ -142,6 +142,15 @@
       "gaps": ["missing-license", "load-bearing-under-70", "missing-docs"]
     },
     {
+      "name": "sage-kernel",
+      "layer": "agent-engine",
+      "asset_type": "engine",
+      "current_score": 73,
+      "target_score": 90,
+      "reason": "Load-bearing asset under target maturity.",
+      "gaps": []
+    },
+    {
       "name": "tripleten-ai-automation-portfolio",
       "layer": "public-proof-surface",
       "asset_type": "product-proof",
@@ -149,15 +158,6 @@
       "target_score": 90,
       "reason": "Load-bearing asset under target maturity.",
       "gaps": ["missing-public-proof", "missing-topics"]
-    },
-    {
-      "name": "sage-kernel",
-      "layer": "agent-engine",
-      "asset_type": "engine",
-      "current_score": 83,
-      "target_score": 90,
-      "reason": "Load-bearing asset under target maturity.",
-      "gaps": []
     },
     {
       "name": "awesome-cloud-native",
@@ -403,7 +403,7 @@
       "layer": "quant-trading",
       "asset_type": "kit",
       "maturity": "L4",
-      "status": "active",
+      "status": "watch",
       "score": 100,
       "proof": "repo-metadata",
       "gaps": [],
@@ -542,19 +542,6 @@
       "recommended_use": "Agent-as-a-service product. Extends saas-multitenant-baseline. Custom agent"
     },
     {
-      "name": "sage-kernel",
-      "url": "https://github.com/JasonTeixeira/sage-kernel",
-      "layer": "agent-engine",
-      "asset_type": "engine",
-      "maturity": "L2",
-      "status": "active",
-      "score": 83,
-      "proof": "repo-metadata",
-      "gaps": [],
-      "recommended_use": "Agent runtime, workflow worker, memory, or RAG capability.",
-      "load_bearing": true
-    },
-    {
       "name": "saas-multitenant-baseline",
       "layer": "app-factory-runtime",
       "asset_type": "recipe",
@@ -564,6 +551,17 @@
       "proof": "catalog-only",
       "gaps": ["missing-golden-path-proof"],
       "recommended_use": "Multi-tenant SaaS baseline — Next.js 15 + Supabase (Auth + Postgres + RLS) +"
+    },
+    {
+      "name": "saas-multitenant-baseline-cf",
+      "layer": "app-factory-runtime",
+      "asset_type": "recipe",
+      "maturity": "L3",
+      "status": "usable",
+      "score": 80,
+      "proof": "catalog-only",
+      "gaps": ["missing-golden-path-proof"],
+      "recommended_use": "Cloudflare Pages + Workers + D1 escape variant of saas-multitenant-baseline."
     }
   ]
 }

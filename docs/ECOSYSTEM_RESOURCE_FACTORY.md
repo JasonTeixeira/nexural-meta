@@ -2,7 +2,7 @@
 
 **Status:** Phase 4 generated resource map
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-08-12T09:24:08.024Z
+**Generated:** 2026-08-13T09:24:23.047Z
 
 ## Purpose
 
@@ -77,7 +77,7 @@ Layers: `agent-engine`, `resource-library`, `quality-system`, `control-plane`
 Recommended assets:
 
 - [nexural-meta](https://github.com/JasonTeixeira/nexural-meta) - 100/100, L4
-- [sage-kernel](https://github.com/JasonTeixeira/sage-kernel) - 83/100, L2
+- [sage-kernel](https://github.com/JasonTeixeira/sage-kernel) - 73/100, L2
 - [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 63/100, L2
 
 Fix first:

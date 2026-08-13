@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-12T09:24:22.624Z",
+  "generated_at": "2026-08-13T09:24:37.284Z",
   "generated_by": "scripts/maturity-lift-plan.mjs",
   "privacy": "public-safe",
   "phase": "Phase 19",
   "status": "elite",
   "summary": {
-    "current_load_bearing_average": 94,
+    "current_load_bearing_average": 93,
     "target_1": 85,
     "target_2": 90,
     "load_bearing_assets": 13,
@@ -37,6 +37,14 @@
       "required_work": ["Add concise operator docs with setup, proof, and ownership."]
     },
     {
+      "asset": "sage-kernel",
+      "layer": "agent-engine",
+      "current_score": 73,
+      "target_score": 90,
+      "missing": [],
+      "required_work": ["Review maturity gap and either improve or mark reference-only."]
+    },
+    {
       "asset": "tripleten-ai-automation-portfolio",
       "layer": "public-proof-surface",
       "current_score": 73,
@@ -46,14 +54,6 @@
         "Attach public-safe proof evidence.",
         "Add searchable repo metadata/topics."
       ]
-    },
-    {
-      "asset": "sage-kernel",
-      "layer": "agent-engine",
-      "current_score": 83,
-      "target_score": 90,
-      "missing": [],
-      "required_work": ["Review maturity gap and either improve or mark reference-only."]
     },
     {
       "asset": "agent-workflow-app",
@@ -129,5 +129,5 @@
     }
   ],
   "score_model_note": "This report does not inflate maturity scores. It defines the work required to raise the scorecard in subsequent proof refreshes.",
-  "evidence_hash": "sha256:83792ffd0aa7894fa2f13df700459b82e76de4a97917c254dbf7feb9d7a10310"
+  "evidence_hash": "sha256:040a43c841ae6113a7b39821b620a3ff35442054b4305d8f2066f0088801bef5"
 }
