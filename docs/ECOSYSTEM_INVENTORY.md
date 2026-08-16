@@ -2,7 +2,7 @@
 
 **Status:** Phase 1 generated inventory
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-08-15T09:05:40.936Z
+**Generated:** 2026-08-16T09:05:48.096Z
 **Source:** GitHub owner `JasonTeixeira`
 
 ## Privacy Boundary
@@ -12,8 +12,8 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 
 ## Totals
 
-- Total repositories: **140**
-- Public repositories: **140**
+- Total repositories: **142**
+- Public repositories: **142**
 - Private repositories: **0**
 - Archived repositories: **47**
 - Fork/reference repositories: **92**
@@ -25,9 +25,9 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | agent-engine         |     2 |
 | control-plane        |     1 |
 | ops-knowledge        |     4 |
-| public-proof-surface |     4 |
+| public-proof-surface |     5 |
 | quant-trading        |     7 |
-| reference-library    |   120 |
+| reference-library    |   121 |
 | resource-library     |     2 |
 
 ## Private Repository Summary
@@ -101,8 +101,9 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [ib_insync](https://github.com/JasonTeixeira/ib_insync)                                                                                                               | reference-library    | reference     | L0       | archived  |
 | [istio](https://github.com/JasonTeixeira/istio)                                                                                                                       | reference-library    | reference     | L0       | archived  |
 | [jason-teixeira-portfolio](https://github.com/JasonTeixeira/jason-teixeira-portfolio)                                                                                 | quant-trading        | engine        | L0       | stale     |
-| [JasonTeixeira](https://github.com/JasonTeixeira/JasonTeixeira)                                                                                                       | public-proof-surface | product-proof | L4       | watch     |
+| [JasonTeixeira](https://github.com/JasonTeixeira/JasonTeixeira)                                                                                                       | public-proof-surface | product-proof | L4       | active    |
 | [javascript-algorithms](https://github.com/JasonTeixeira/javascript-algorithms)                                                                                       | reference-library    | reference     | L0       | reference |
+| [jt-portfolio](https://github.com/JasonTeixeira/jt-portfolio)                                                                                                         | public-proof-surface | product-proof | L2       | active    |
 | [juice-shop](https://github.com/JasonTeixeira/juice-shop)                                                                                                             | reference-library    | reference     | L0       | archived  |
 | [K8-Examples](https://github.com/JasonTeixeira/K8-Examples)                                                                                                           | reference-library    | reference     | L0       | reference |
 | [kimi-cli](https://github.com/JasonTeixeira/kimi-cli)                                                                                                                 | reference-library    | reference     | L0       | reference |
@@ -110,6 +111,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [Landing-Zone-Guardrails](https://github.com/JasonTeixeira/Landing-Zone-Guardrails)                                                                                   | reference-library    | reference     | L0       | stale     |
 | [langflow](https://github.com/JasonTeixeira/langflow)                                                                                                                 | reference-library    | reference     | L0       | reference |
 | [Lean-testing](https://github.com/JasonTeixeira/Lean-testing)                                                                                                         | reference-library    | reference     | L0       | archived  |
+| [llm-eval-gate](https://github.com/JasonTeixeira/llm-eval-gate)                                                                                                       | reference-library    | reference     | L0       | active    |
 | [Machine-Learning-for-Algorithmic-Trading-Second-Edition_Original](https://github.com/JasonTeixeira/Machine-Learning-for-Algorithmic-Trading-Second-Edition_Original) | reference-library    | reference     | L0       | archived  |
 | [marketingskills](https://github.com/JasonTeixeira/marketingskills)                                                                                                   | reference-library    | reference     | L0       | reference |
 | [Master-Migration-Pipeline](https://github.com/JasonTeixeira/Master-Migration-Pipeline)                                                                               | reference-library    | reference     | L0       | stale     |

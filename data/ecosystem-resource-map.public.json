@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-15T09:05:55.913Z",
+  "generated_at": "2026-08-16T09:06:00.899Z",
   "generated_by": "scripts/ecosystem-resource-map.mjs",
-  "source_generated_at": "2026-08-15T09:05:55.592Z",
+  "source_generated_at": "2026-08-16T09:06:00.686Z",
   "privacy": "public-safe",
   "note": "Resource recommendations use public repository metadata only. Private assets remain summarized in scorecards and require local review.",
   "totals": {
     "use_cases": 7,
-    "public_assets_considered": 140,
-    "recommended_assets": 12,
+    "public_assets_considered": 142,
+    "recommended_assets": 13,
     "improve_first_assets": 1
   },
   "use_cases": [
@@ -90,7 +90,7 @@
       ],
       "commands": ["pnpm ecosystem:refresh"],
       "asset_counts": {
-        "candidates": 123,
+        "candidates": 124,
         "recommended": 2,
         "improve_first": 1,
         "reference_only": 6
@@ -139,6 +139,19 @@
         }
       ],
       "reference_assets": [
+        {
+          "name": "llm-eval-gate",
+          "url": "https://github.com/JasonTeixeira/llm-eval-gate",
+          "layer": "reference-library",
+          "asset_type": "reference",
+          "maturity": "L0",
+          "role": "Reference source kept for learning or future implementation mining.",
+          "score": 33,
+          "band": "0-49 raw/reference",
+          "status": "active",
+          "language": "JavaScript",
+          "gaps": ["maturity-l0", "missing-topics"]
+        },
         {
           "name": "E-Commerce-Test-Suite",
           "url": "https://github.com/JasonTeixeira/E-Commerce-Test-Suite",
@@ -203,19 +216,6 @@
           "status": "watch",
           "language": "JavaScript",
           "gaps": ["maturity-l0", "missing-topics"]
-        },
-        {
-          "name": "API-Testing-Framework",
-          "url": "https://github.com/JasonTeixeira/API-Testing-Framework",
-          "layer": "reference-library",
-          "asset_type": "reference",
-          "maturity": "L0",
-          "role": "Reference source kept for learning or future implementation mining.",
-          "score": 18,
-          "band": "0-49 raw/reference",
-          "status": "watch",
-          "language": "Python",
-          "gaps": ["maturity-l0", "missing-license", "missing-topics"]
         }
       ]
     },
@@ -476,8 +476,8 @@
       ],
       "commands": ["pnpm ecosystem:refresh"],
       "asset_counts": {
-        "candidates": 5,
-        "recommended": 5,
+        "candidates": 6,
+        "recommended": 6,
         "improve_first": 0,
         "reference_only": 0
       },
@@ -491,7 +491,7 @@
           "role": "Public engineering identity surface that connects Sage Ideas, Nexural, trading systems, AI apps, cloud architecture, and proof assets.",
           "score": 100,
           "band": "95-100 elite",
-          "status": "watch",
+          "status": "active",
           "language": null,
           "gaps": ["missing-license"]
         },
@@ -533,6 +533,19 @@
           "status": "active",
           "language": "TypeScript",
           "gaps": ["missing-license"]
+        },
+        {
+          "name": "jt-portfolio",
+          "url": "https://github.com/JasonTeixeira/jt-portfolio",
+          "layer": "public-proof-surface",
+          "asset_type": "product-proof",
+          "maturity": "L2",
+          "role": "Public-facing identity, proof, or case-study surface.",
+          "score": 73,
+          "band": "70-84 usable",
+          "status": "active",
+          "language": "HTML",
+          "gaps": ["missing-license", "missing-topics"]
         },
         {
           "name": "tripleten-ai-automation-portfolio",

@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-15T09:06:17.255Z",
+  "generated_at": "2026-08-16T09:06:15.117Z",
   "generated_by": "scripts/daily-operating-loop.mjs",
   "privacy": "public-safe",
   "phase": "Phase 20",
   "status": "attention-required",
   "weekly_proof_refresh": {
     "status": "failed",
-    "latest_public_hash": "sha256:3d068860d250a1f82eac8da634c8b478e40636a87323483ce79b509948c74eb9",
+    "latest_public_hash": "sha256:c8a273d24c67f966c853c6eb1e07c393a98b25cd4dbbe3ccf5ba7084fc641993",
     "hosted_golden_paths": 78,
     "db_proof_status": "degraded"
   },
@@ -35,7 +35,7 @@
     {
       "severity": "warn",
       "item": "Refresh stale artifact: data/golden-path-runs.public.json",
-      "reason": "golden_path age 430.2h exceeds 168h."
+      "reason": "golden_path age 454h exceeds 168h."
     },
     {
       "severity": "critical",
@@ -178,7 +178,7 @@
       "title": "Publish a public proof page",
       "question": "I need to show the system safely on sageideas.dev.",
       "command": "/resources?useCase=publish-proof-page",
-      "recommended_assets": 5,
+      "recommended_assets": 6,
       "improve_first_assets": 0
     },
     {
@@ -202,5 +202,5 @@
     "standard": "All L4/L5 claims need a doc, proof artifact, owner, and refresh path.",
     "docs": ["docs/MATURITY_LIFT.md", "docs/OPERATOR_TEST.md", "docs/PUBLIC_PORTFOLIO_PACKAGING.md"]
   },
-  "evidence_hash": "sha256:d8668567ffac4d87764cb9ff6b389bcb79fe64cf6ea6a18f0841a70197956861"
+  "evidence_hash": "sha256:39c5148f6f9b88adb93c344cd66ce4fc78edfed7c496614e5076e4c4d2331d7d"
 }

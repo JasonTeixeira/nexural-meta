@@ -1,17 +1,17 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-15T09:06:02.595Z",
+  "generated_at": "2026-08-16T09:06:06.294Z",
   "generated_by": "scripts/resource-library-catalog.mjs",
   "privacy": "public-safe",
   "status": "generated",
   "purpose": "Unified resource library for choosing reusable engines, kits, recipes, SDKs, playbooks, QA assets, and proof-backed paths.",
   "totals": {
-    "assets": 152,
+    "assets": 154,
     "use_cases": 7,
     "recipes": 12,
     "proof_backed_recipes": 3,
-    "load_bearing_assets": 13,
-    "load_bearing_average_score": 93,
+    "load_bearing_assets": 14,
+    "load_bearing_average_score": 91,
     "proof_environment_status": "failed",
     "golden_path_passed_runs": 202
   },
@@ -83,7 +83,7 @@
       "title": "Publish a public proof page",
       "question": "I need to show the system safely on sageideas.dev.",
       "command": "/resources?useCase=publish-proof-page",
-      "recommended_assets": 5,
+      "recommended_assets": 6,
       "improve_first_assets": 0
     },
     {
@@ -140,6 +140,15 @@
       "target_score": 90,
       "reason": "Load-bearing asset under target maturity.",
       "gaps": ["missing-license", "load-bearing-under-70", "missing-docs"]
+    },
+    {
+      "name": "jt-portfolio",
+      "layer": "public-proof-surface",
+      "asset_type": "product-proof",
+      "current_score": 73,
+      "target_score": 90,
+      "reason": "Load-bearing asset under target maturity.",
+      "gaps": ["missing-license", "missing-topics"]
     },
     {
       "name": "sage-kernel",
@@ -311,15 +320,6 @@
       "target_score": 70,
       "reason": "Missing metadata makes the ecosystem less legible.",
       "gaps": ["maturity-l0", "archived", "missing-topics"]
-    },
-    {
-      "name": "terraform-guides",
-      "layer": "reference-library",
-      "asset_type": "reference",
-      "current_score": 0,
-      "target_score": 70,
-      "reason": "Missing metadata makes the ecosystem less legible.",
-      "gaps": ["maturity-l0", "archived", "missing-topics"]
     }
   ],
   "top_assets": [
@@ -364,7 +364,7 @@
       "layer": "public-proof-surface",
       "asset_type": "product-proof",
       "maturity": "L4",
-      "status": "watch",
+      "status": "active",
       "score": 100,
       "proof": "repo-metadata",
       "gaps": ["missing-license"],
