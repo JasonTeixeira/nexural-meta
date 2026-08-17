@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-17T09:13:12.543Z",
+  "generated_at": "2026-08-17T10:12:34.310Z",
   "generated_by": "scripts/ecosystem-scorecard.mjs",
-  "source_generated_at": "2026-08-17T09:13:00.057Z",
+  "source_generated_at": "2026-08-17T10:12:22.043Z",
   "privacy": "public-safe",
   "note": "Private repositories are scored internally and summarized by count only. Full scorecard is generated locally at .nexural/private/ecosystem-scorecard.internal.json.",
   "totals": {
@@ -4219,8 +4219,8 @@
       ],
       "homepage_url": null,
       "created_at": "2026-05-22T12:11:28Z",
-      "pushed_at": "2026-08-16T09:06:28Z",
-      "updated_at": "2026-08-16T09:06:52Z",
+      "pushed_at": "2026-08-17T09:13:47Z",
+      "updated_at": "2026-08-17T09:16:10Z",
       "default_branch": "main",
       "license": null,
       "parent": null,
@@ -4237,7 +4237,7 @@
       },
       "operational": {
         "status": "active",
-        "stale_days": 1,
+        "stale_days": 0,
         "needs_private_review": false
       },
       "score": {
@@ -5734,7 +5734,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 278,
+        "stale_days": 279,
         "needs_private_review": false
       },
       "score": {
@@ -5783,7 +5783,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 739,
+        "stale_days": 740,
         "needs_private_review": false
       },
       "score": {
@@ -6035,7 +6035,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 1306,
+        "stale_days": 1307,
         "needs_private_review": false
       },
       "score": {
