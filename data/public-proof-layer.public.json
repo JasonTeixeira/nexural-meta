@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-18T09:09:03.850Z",
+  "generated_at": "2026-08-19T09:09:50.465Z",
   "generated_by": "scripts/public-proof-export.mjs",
   "privacy": "public-safe",
   "target_surface": {
@@ -179,7 +179,7 @@
     "golden_path_run_id": "rag-knowledge-chat-2026-06-23T101609956Z",
     "golden_path_deployed_url": "https://sage-client-intake-portal-vercel-ie58l0x9h-sage-ideas.vercel.app",
     "golden_path_deploy_status": "verified-vercel-url",
-    "packet_hash": "sha256:2dd2e7f311fbcac3f45dc668d8266696b6c99ae5798135f2af376e56c0174526"
+    "packet_hash": "sha256:5b389ae7e6400c0cdf6ecf329c501241604bfc3a1fa07663f979698a957c9d08"
   },
   "redaction_policy": [
     "Commit public repository metadata only.",
