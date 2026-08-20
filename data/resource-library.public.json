@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-19T09:09:40.486Z",
+  "generated_at": "2026-08-20T09:10:24.525Z",
   "generated_by": "scripts/resource-library-catalog.mjs",
   "privacy": "public-safe",
   "status": "generated",
@@ -11,7 +11,7 @@
     "recipes": 12,
     "proof_backed_recipes": 3,
     "load_bearing_assets": 14,
-    "load_bearing_average_score": 91,
+    "load_bearing_average_score": 92,
     "proof_environment_status": "failed",
     "golden_path_passed_runs": 202
   },
@@ -142,15 +142,6 @@
       "gaps": ["missing-license", "load-bearing-under-70", "missing-docs"]
     },
     {
-      "name": "jt-portfolio",
-      "layer": "public-proof-surface",
-      "asset_type": "product-proof",
-      "current_score": 73,
-      "target_score": 90,
-      "reason": "Load-bearing asset under target maturity.",
-      "gaps": ["missing-license", "missing-topics"]
-    },
-    {
       "name": "sage-kernel",
       "layer": "agent-engine",
       "asset_type": "engine",
@@ -167,6 +158,15 @@
       "target_score": 90,
       "reason": "Load-bearing asset under target maturity.",
       "gaps": ["missing-public-proof", "missing-topics"]
+    },
+    {
+      "name": "jt-portfolio",
+      "layer": "public-proof-surface",
+      "asset_type": "product-proof",
+      "current_score": 78,
+      "target_score": 90,
+      "reason": "Load-bearing asset under target maturity.",
+      "gaps": ["missing-topics"]
     },
     {
       "name": "awesome-cloud-native",

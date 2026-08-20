@@ -2,7 +2,7 @@
 
 **Status:** Phase 4 generated resource map
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-08-19T09:09:34.986Z
+**Generated:** 2026-08-20T09:10:19.022Z
 
 ## Purpose
 
@@ -114,7 +114,7 @@ Recommended assets:
 - [NexQuantSite](https://github.com/JasonTeixeira/NexQuantSite) - 100/100, L4
 - [nexural-meta](https://github.com/JasonTeixeira/nexural-meta) - 100/100, L4
 - [sageideas.dev](https://github.com/JasonTeixeira/sageideas.dev) - 98/100, L3
-- [jt-portfolio](https://github.com/JasonTeixeira/jt-portfolio) - 73/100, L2
+- [jt-portfolio](https://github.com/JasonTeixeira/jt-portfolio) - 78/100, L2
 
 Fix first:
 

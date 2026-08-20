@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-19T09:09:49.514Z",
+  "generated_at": "2026-08-20T09:10:33.427Z",
   "generated_by": "scripts/maturity-lift-plan.mjs",
   "privacy": "public-safe",
   "phase": "Phase 19",
   "status": "elite",
   "summary": {
-    "current_load_bearing_average": 91,
+    "current_load_bearing_average": 92,
     "target_1": 85,
     "target_2": 90,
     "load_bearing_assets": 14,
@@ -37,14 +37,6 @@
       "required_work": ["Add concise operator docs with setup, proof, and ownership."]
     },
     {
-      "asset": "jt-portfolio",
-      "layer": "public-proof-surface",
-      "current_score": 73,
-      "target_score": 90,
-      "missing": ["missing-license", "missing-topics"],
-      "required_work": ["Add searchable repo metadata/topics."]
-    },
-    {
       "asset": "sage-kernel",
       "layer": "agent-engine",
       "current_score": 73,
@@ -62,6 +54,14 @@
         "Attach public-safe proof evidence.",
         "Add searchable repo metadata/topics."
       ]
+    },
+    {
+      "asset": "jt-portfolio",
+      "layer": "public-proof-surface",
+      "current_score": 78,
+      "target_score": 90,
+      "missing": ["missing-topics"],
+      "required_work": ["Add searchable repo metadata/topics."]
     },
     {
       "asset": "agent-workflow-app",
@@ -137,5 +137,5 @@
     }
   ],
   "score_model_note": "This report does not inflate maturity scores. It defines the work required to raise the scorecard in subsequent proof refreshes.",
-  "evidence_hash": "sha256:5d8258f3a417137382965411060443374dad642dcdb3e67616f8c2b5279c3771"
+  "evidence_hash": "sha256:463366d87223a0554ae2524703381a6404f21148665241e11074aadd7c9e443f"
 }
