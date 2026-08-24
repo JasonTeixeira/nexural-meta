@@ -2,7 +2,7 @@
 
 **Status:** Phase 4 generated resource map
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-08-23T09:06:09.635Z
+**Generated:** 2026-08-24T09:14:56.585Z
 
 ## Purpose
 
@@ -95,8 +95,8 @@ Recommended assets:
 - [AlphaStream](https://github.com/JasonTeixeira/AlphaStream) - 100/100, L4
 - [nexural-automation-starter](https://github.com/JasonTeixeira/nexural-automation-starter) - 100/100, L4
 - [nexural-meta](https://github.com/JasonTeixeira/nexural-meta) - 100/100, L4
-- [QuantumTrader](https://github.com/JasonTeixeira/QuantumTrader) - 100/100, L4
 - [trade-engine](https://github.com/JasonTeixeira/trade-engine) - 100/100, L4
+- [Nexural_Automation](https://github.com/JasonTeixeira/Nexural_Automation) - 100/100, L3
 
 Fix first:
 

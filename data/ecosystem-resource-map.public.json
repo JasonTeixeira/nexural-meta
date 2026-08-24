@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-23T09:06:09.635Z",
+  "generated_at": "2026-08-24T09:14:56.585Z",
   "generated_by": "scripts/ecosystem-resource-map.mjs",
-  "source_generated_at": "2026-08-23T09:06:09.313Z",
+  "source_generated_at": "2026-08-24T09:14:56.276Z",
   "privacy": "public-safe",
   "note": "Resource recommendations use public repository metadata only. Private assets remain summarized in scorecards and require local review.",
   "totals": {
@@ -153,19 +153,6 @@
           "gaps": ["maturity-l0", "missing-topics"]
         },
         {
-          "name": "E-Commerce-Test-Suite",
-          "url": "https://github.com/JasonTeixeira/E-Commerce-Test-Suite",
-          "layer": "reference-library",
-          "asset_type": "reference",
-          "maturity": "L0",
-          "role": "Reference source kept for learning or future implementation mining.",
-          "score": 23,
-          "band": "0-49 raw/reference",
-          "status": "watch",
-          "language": "Python",
-          "gaps": ["maturity-l0", "missing-topics"]
-        },
-        {
           "name": "playwright-sdet-regression-suite",
           "url": "https://github.com/JasonTeixeira/playwright-sdet-regression-suite",
           "layer": "reference-library",
@@ -216,6 +203,19 @@
           "status": "watch",
           "language": "JavaScript",
           "gaps": ["maturity-l0", "missing-topics"]
+        },
+        {
+          "name": "realtime-market-dash",
+          "url": "https://github.com/JasonTeixeira/realtime-market-dash",
+          "layer": "reference-library",
+          "asset_type": "reference",
+          "maturity": "L0",
+          "role": "Reference source kept for learning or future implementation mining.",
+          "score": 18,
+          "band": "0-49 raw/reference",
+          "status": "watch",
+          "language": "TypeScript",
+          "gaps": ["maturity-l0", "missing-license", "missing-topics"]
         }
       ]
     },
@@ -393,19 +393,6 @@
           "gaps": ["missing-license"]
         },
         {
-          "name": "QuantumTrader",
-          "url": "https://github.com/JasonTeixeira/QuantumTrader",
-          "layer": "quant-trading",
-          "asset_type": "engine",
-          "maturity": "L4",
-          "role": "Event-driven quantitative trading engine with backtesting, execution simulation, risk management, market data, PostgreSQL, and Redis integration.",
-          "score": 100,
-          "band": "95-100 elite",
-          "status": "watch",
-          "language": "Python",
-          "gaps": ["missing-license"]
-        },
-        {
           "name": "trade-engine",
           "url": "https://github.com/JasonTeixeira/trade-engine",
           "layer": "quant-trading",
@@ -443,6 +430,19 @@
           "status": "watch",
           "language": "TypeScript",
           "gaps": ["missing-license", "load-bearing-under-70", "missing-docs"]
+        },
+        {
+          "name": "QuantumTrader",
+          "url": "https://github.com/JasonTeixeira/QuantumTrader",
+          "layer": "quant-trading",
+          "asset_type": "engine",
+          "maturity": "L4",
+          "role": "Event-driven quantitative trading engine with backtesting, execution simulation, risk management, market data, PostgreSQL, and Redis integration.",
+          "score": 88,
+          "band": "85-94 strong",
+          "status": "stale",
+          "language": "Python",
+          "gaps": ["stale", "missing-license"]
         }
       ],
       "improve_first": [

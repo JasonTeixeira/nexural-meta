@@ -2,7 +2,7 @@
 
 **Status:** Phase 1 generated inventory
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-08-23T09:05:56.621Z
+**Generated:** 2026-08-24T09:14:43.813Z
 **Source:** GitHub owner `JasonTeixeira`
 
 ## Privacy Boundary
@@ -48,7 +48,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [AI-Trader](https://github.com/JasonTeixeira/AI-Trader)                                                                                                               | reference-library    | reference     | L0       | reference |
 | [AlphaStream](https://github.com/JasonTeixeira/AlphaStream)                                                                                                           | quant-trading        | engine        | L4       | watch     |
 | [API-Test-Automation-Wireframe](https://github.com/JasonTeixeira/API-Test-Automation-Wireframe)                                                                       | reference-library    | reference     | L0       | stale     |
-| [API-Testing-Framework](https://github.com/JasonTeixeira/API-Testing-Framework)                                                                                       | reference-library    | reference     | L0       | watch     |
+| [API-Testing-Framework](https://github.com/JasonTeixeira/API-Testing-Framework)                                                                                       | reference-library    | reference     | L0       | stale     |
 | [autogen](https://github.com/JasonTeixeira/autogen)                                                                                                                   | reference-library    | reference     | L0       | reference |
 | [Automation-scripts](https://github.com/JasonTeixeira/Automation-scripts)                                                                                             | reference-library    | reference     | L0       | reference |
 | [awesome-cloud-native](https://github.com/JasonTeixeira/awesome-cloud-native)                                                                                         | reference-library    | reference     | L0       | archived  |
@@ -87,7 +87,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [Docker-Compose](https://github.com/JasonTeixeira/Docker-Compose)                                                                                                     | reference-library    | reference     | L0       | reference |
 | [dragonfly](https://github.com/JasonTeixeira/dragonfly)                                                                                                               | reference-library    | reference     | L0       | reference |
 | [dspy](https://github.com/JasonTeixeira/dspy)                                                                                                                         | reference-library    | reference     | L0       | reference |
-| [E-Commerce-Test-Suite](https://github.com/JasonTeixeira/E-Commerce-Test-Suite)                                                                                       | reference-library    | reference     | L0       | watch     |
+| [E-Commerce-Test-Suite](https://github.com/JasonTeixeira/E-Commerce-Test-Suite)                                                                                       | reference-library    | reference     | L0       | stale     |
 | [E2E-Framework](https://github.com/JasonTeixeira/E2E-Framework)                                                                                                       | reference-library    | reference     | L0       | stale     |
 | [Eidocrypt](https://github.com/JasonTeixeira/Eidocrypt)                                                                                                               | reference-library    | reference     | L0       | stale     |
 | [finops-toolkit](https://github.com/JasonTeixeira/finops-toolkit)                                                                                                     | reference-library    | reference     | L0       | reference |
@@ -139,7 +139,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [Prowler](https://github.com/JasonTeixeira/Prowler)                                                                                                                   | reference-library    | reference     | L0       | archived  |
 | [public-apis](https://github.com/JasonTeixeira/public-apis)                                                                                                           | reference-library    | reference     | L0       | archived  |
 | [qlib](https://github.com/JasonTeixeira/qlib)                                                                                                                         | reference-library    | reference     | L0       | archived  |
-| [QuantumTrader](https://github.com/JasonTeixeira/QuantumTrader)                                                                                                       | quant-trading        | engine        | L4       | watch     |
+| [QuantumTrader](https://github.com/JasonTeixeira/QuantumTrader)                                                                                                       | quant-trading        | engine        | L4       | stale     |
 | [realtime-market-dash](https://github.com/JasonTeixeira/realtime-market-dash)                                                                                         | reference-library    | reference     | L0       | watch     |
 | [realworld](https://github.com/JasonTeixeira/realworld)                                                                                                               | reference-library    | reference     | L0       | archived  |
 | [RiskRadar](https://github.com/JasonTeixeira/RiskRadar)                                                                                                               | reference-library    | reference     | L0       | watch     |
@@ -152,7 +152,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [sageideas.dev](https://github.com/JasonTeixeira/sageideas.dev)                                                                                                       | public-proof-surface | product-proof | L3       | active    |
 | [saleor](https://github.com/JasonTeixeira/saleor)                                                                                                                     | reference-library    | reference     | L0       | archived  |
 | [Security-Testing-Framework](https://github.com/JasonTeixeira/Security-Testing-Framework)                                                                             | reference-library    | reference     | L0       | stale     |
-| [Security-Testing-Suite](https://github.com/JasonTeixeira/Security-Testing-Suite)                                                                                     | reference-library    | reference     | L0       | watch     |
+| [Security-Testing-Suite](https://github.com/JasonTeixeira/Security-Testing-Suite)                                                                                     | reference-library    | reference     | L0       | stale     |
 | [solid-nextjs](https://github.com/JasonTeixeira/solid-nextjs)                                                                                                         | reference-library    | reference     | L0       | reference |
 | [storybook](https://github.com/JasonTeixeira/storybook)                                                                                                               | reference-library    | reference     | L0       | reference |
 | [system-design](https://github.com/JasonTeixeira/system-design)                                                                                                       | reference-library    | reference     | L0       | reference |
