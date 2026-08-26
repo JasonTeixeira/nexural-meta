@@ -2,7 +2,7 @@
 
 **Status:** Phase 1 generated inventory
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-08-25T09:11:25.524Z
+**Generated:** 2026-08-26T09:13:42.328Z
 **Source:** GitHub owner `JasonTeixeira`
 
 ## Privacy Boundary
@@ -120,7 +120,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [Mobile-Testing-Framework](https://github.com/JasonTeixeira/Mobile-Testing-Framework)                                                                                 | reference-library    | reference     | L0       | stale     |
 | [nautilus_trader](https://github.com/JasonTeixeira/nautilus_trader)                                                                                                   | reference-library    | reference     | L0       | reference |
 | [nautobot](https://github.com/JasonTeixeira/nautobot)                                                                                                                 | reference-library    | reference     | L0       | archived  |
-| [NexQuantSite](https://github.com/JasonTeixeira/NexQuantSite)                                                                                                         | public-proof-surface | product-proof | L4       | watch     |
+| [NexQuantSite](https://github.com/JasonTeixeira/NexQuantSite)                                                                                                         | public-proof-surface | product-proof | L4       | stale     |
 | [next.js](https://github.com/JasonTeixeira/next.js)                                                                                                                   | reference-library    | reference     | L0       | archived  |
 | [Nexural_Automation](https://github.com/JasonTeixeira/Nexural_Automation)                                                                                             | quant-trading        | engine        | L3       | active    |
 | [Nexural_Sierra_Studies](https://github.com/JasonTeixeira/Nexural_Sierra_Studies)                                                                                     | reference-library    | reference     | L0       | archived  |

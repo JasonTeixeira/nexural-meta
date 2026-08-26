@@ -2,7 +2,7 @@
 
 **Status:** Phase 4 generated resource map
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-08-25T09:11:37.733Z
+**Generated:** 2026-08-26T09:13:54.783Z
 
 ## Purpose
 
@@ -111,10 +111,10 @@ Layers: `public-proof-surface`, `product-proof`, `quality-system`, `control-plan
 Recommended assets:
 
 - [JasonTeixeira](https://github.com/JasonTeixeira/JasonTeixeira) - 100/100, L4
-- [NexQuantSite](https://github.com/JasonTeixeira/NexQuantSite) - 100/100, L4
 - [nexural-meta](https://github.com/JasonTeixeira/nexural-meta) - 100/100, L4
 - [sageideas.dev](https://github.com/JasonTeixeira/sageideas.dev) - 98/100, L3
 - [jt-portfolio](https://github.com/JasonTeixeira/jt-portfolio) - 78/100, L2
+- [tripleten-ai-automation-portfolio](https://github.com/JasonTeixeira/tripleten-ai-automation-portfolio) - 73/100, L2
 
 Fix first:
 

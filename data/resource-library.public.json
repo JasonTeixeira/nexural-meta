@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-25T09:11:41.677Z",
+  "generated_at": "2026-08-26T09:14:00.140Z",
   "generated_by": "scripts/resource-library-catalog.mjs",
   "privacy": "public-safe",
   "status": "generated",
@@ -10,8 +10,8 @@
     "use_cases": 7,
     "recipes": 12,
     "proof_backed_recipes": 3,
-    "load_bearing_assets": 13,
-    "load_bearing_average_score": 91,
+    "load_bearing_assets": 12,
+    "load_bearing_average_score": 90,
     "proof_environment_status": "failed",
     "golden_path_passed_runs": 202
   },
@@ -372,19 +372,6 @@
       "load_bearing": true
     },
     {
-      "name": "NexQuantSite",
-      "url": "https://github.com/JasonTeixeira/NexQuantSite",
-      "layer": "public-proof-surface",
-      "asset_type": "product-proof",
-      "maturity": "L4",
-      "status": "watch",
-      "score": 100,
-      "proof": "missing",
-      "gaps": ["missing-public-proof", "missing-license"],
-      "recommended_use": "Trading platform product proof demonstrating a large Next.js/React app with admin, auth, PostgreSQL, Prisma, realtime readiness, tests, and Docker setup.",
-      "load_bearing": true
-    },
-    {
       "name": "Nexural_Automation",
       "url": "https://github.com/JasonTeixeira/Nexural_Automation",
       "layer": "quant-trading",
@@ -527,6 +514,19 @@
       "proof": "catalog-only",
       "gaps": ["missing-golden-path-proof"],
       "recommended_use": "Agent-as-a-service product. Extends saas-multitenant-baseline. Custom agent"
+    },
+    {
+      "name": "NexQuantSite",
+      "url": "https://github.com/JasonTeixeira/NexQuantSite",
+      "layer": "public-proof-surface",
+      "asset_type": "product-proof",
+      "maturity": "L4",
+      "status": "stale",
+      "score": 88,
+      "proof": "missing",
+      "gaps": ["stale", "missing-public-proof", "missing-license"],
+      "recommended_use": "Trading platform product proof demonstrating a large Next.js/React app with admin, auth, PostgreSQL, Prisma, realtime readiness, tests, and Docker setup.",
+      "load_bearing": false
     },
     {
       "name": "QuantumTrader",

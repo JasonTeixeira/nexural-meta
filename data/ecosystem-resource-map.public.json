@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-25T09:11:37.733Z",
+  "generated_at": "2026-08-26T09:13:54.783Z",
   "generated_by": "scripts/ecosystem-resource-map.mjs",
-  "source_generated_at": "2026-08-25T09:11:37.492Z",
+  "source_generated_at": "2026-08-26T09:13:54.464Z",
   "privacy": "public-safe",
   "note": "Resource recommendations use public repository metadata only. Private assets remain summarized in scorecards and require local review.",
   "totals": {
@@ -496,19 +496,6 @@
           "gaps": ["missing-license"]
         },
         {
-          "name": "NexQuantSite",
-          "url": "https://github.com/JasonTeixeira/NexQuantSite",
-          "layer": "public-proof-surface",
-          "asset_type": "product-proof",
-          "maturity": "L4",
-          "role": "Trading platform product proof demonstrating a large Next.js/React app with admin, auth, PostgreSQL, Prisma, realtime readiness, tests, and Docker setup.",
-          "score": 100,
-          "band": "95-100 elite",
-          "status": "watch",
-          "language": "TypeScript",
-          "gaps": ["missing-public-proof", "missing-license"]
-        },
-        {
           "name": "nexural-meta",
           "url": "https://github.com/JasonTeixeira/nexural-meta",
           "layer": "control-plane",
@@ -559,6 +546,19 @@
           "status": "active",
           "language": "HTML",
           "gaps": ["missing-public-proof", "missing-topics"]
+        },
+        {
+          "name": "NexQuantSite",
+          "url": "https://github.com/JasonTeixeira/NexQuantSite",
+          "layer": "public-proof-surface",
+          "asset_type": "product-proof",
+          "maturity": "L4",
+          "role": "Trading platform product proof demonstrating a large Next.js/React app with admin, auth, PostgreSQL, Prisma, realtime readiness, tests, and Docker setup.",
+          "score": 88,
+          "band": "85-94 strong",
+          "status": "stale",
+          "language": "TypeScript",
+          "gaps": ["stale", "missing-public-proof", "missing-license"]
         }
       ],
       "improve_first": [],
