@@ -2,7 +2,7 @@
 
 **Status:** Phase 4 generated resource map
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-08-26T09:13:54.783Z
+**Generated:** 2026-08-27T12:28:42.367Z
 
 ## Purpose
 
@@ -33,11 +33,10 @@ Layers: `app-factory-runtime`, `control-plane`, `quality-system`, `resource-libr
 Recommended assets:
 
 - [nexural-meta](https://github.com/JasonTeixeira/nexural-meta) - 100/100, L4
-- [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 63/100, L2
 
 Fix first:
 
-- [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 63/100, missing-license, load-bearing-under-70, missing-docs
+- No load-bearing asset under 70 in this use case.
 
 ### Choose a stack, SDK, or provider
 
@@ -48,11 +47,11 @@ Layers: `resource-library`, `control-plane`, `reference-library`
 Recommended assets:
 
 - [nexural-meta](https://github.com/JasonTeixeira/nexural-meta) - 100/100, L4
-- [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 63/100, L2
+- [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 48/100, L2
 
 Fix first:
 
-- [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 63/100, missing-license, load-bearing-under-70, missing-docs
+- No load-bearing asset under 70 in this use case.
 
 ### Create QA and release proof
 
@@ -78,11 +77,10 @@ Recommended assets:
 
 - [nexural-meta](https://github.com/JasonTeixeira/nexural-meta) - 100/100, L4
 - [sage-kernel](https://github.com/JasonTeixeira/sage-kernel) - 73/100, L2
-- [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 63/100, L2
 
 Fix first:
 
-- [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 63/100, missing-license, load-bearing-under-70, missing-docs
+- No load-bearing asset under 70 in this use case.
 
 ### Build or audit trading infrastructure
 
@@ -100,7 +98,7 @@ Recommended assets:
 
 Fix first:
 
-- [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 63/100, missing-license, load-bearing-under-70, missing-docs
+- No load-bearing asset under 70 in this use case.
 
 ### Publish a public proof page
 
@@ -128,8 +126,8 @@ Layers: `product-proof`, `app-factory-runtime`, `quality-system`, `resource-libr
 
 Recommended assets:
 
-- [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 63/100, L2
+- None yet. Use the improve-first queue before depending on this path.
 
 Fix first:
 
-- [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter) - 63/100, missing-license, load-bearing-under-70, missing-docs
+- No load-bearing asset under 70 in this use case.

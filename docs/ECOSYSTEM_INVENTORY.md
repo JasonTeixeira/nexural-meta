@@ -2,7 +2,7 @@
 
 **Status:** Phase 1 generated inventory
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-08-26T09:13:42.328Z
+**Generated:** 2026-08-27T12:28:29.876Z
 **Source:** GitHub owner `JasonTeixeira`
 
 ## Privacy Boundary
@@ -116,7 +116,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [marketingskills](https://github.com/JasonTeixeira/marketingskills)                                                                                                   | reference-library    | reference     | L0       | reference |
 | [Master-Migration-Pipeline](https://github.com/JasonTeixeira/Master-Migration-Pipeline)                                                                               | reference-library    | reference     | L0       | stale     |
 | [mem0](https://github.com/JasonTeixeira/mem0)                                                                                                                         | reference-library    | reference     | L0       | reference |
-| [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter)                                                                                             | resource-library     | kit           | L2       | watch     |
+| [micro-saas-starter](https://github.com/JasonTeixeira/micro-saas-starter)                                                                                             | resource-library     | kit           | L2       | stale     |
 | [Mobile-Testing-Framework](https://github.com/JasonTeixeira/Mobile-Testing-Framework)                                                                                 | reference-library    | reference     | L0       | stale     |
 | [nautilus_trader](https://github.com/JasonTeixeira/nautilus_trader)                                                                                                   | reference-library    | reference     | L0       | reference |
 | [nautobot](https://github.com/JasonTeixeira/nautobot)                                                                                                                 | reference-library    | reference     | L0       | archived  |
@@ -140,14 +140,14 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [public-apis](https://github.com/JasonTeixeira/public-apis)                                                                                                           | reference-library    | reference     | L0       | archived  |
 | [qlib](https://github.com/JasonTeixeira/qlib)                                                                                                                         | reference-library    | reference     | L0       | archived  |
 | [QuantumTrader](https://github.com/JasonTeixeira/QuantumTrader)                                                                                                       | quant-trading        | engine        | L4       | stale     |
-| [realtime-market-dash](https://github.com/JasonTeixeira/realtime-market-dash)                                                                                         | reference-library    | reference     | L0       | watch     |
+| [realtime-market-dash](https://github.com/JasonTeixeira/realtime-market-dash)                                                                                         | reference-library    | reference     | L0       | stale     |
 | [realworld](https://github.com/JasonTeixeira/realworld)                                                                                                               | reference-library    | reference     | L0       | archived  |
-| [RiskRadar](https://github.com/JasonTeixeira/RiskRadar)                                                                                                               | reference-library    | reference     | L0       | watch     |
+| [RiskRadar](https://github.com/JasonTeixeira/RiskRadar)                                                                                                               | reference-library    | reference     | L0       | stale     |
 | [RiskRadarEnt](https://github.com/JasonTeixeira/RiskRadarEnt)                                                                                                         | reference-library    | reference     | L0       | stale     |
 | [ruflo](https://github.com/JasonTeixeira/ruflo)                                                                                                                       | reference-library    | reference     | L0       | reference |
 | [SaaS-Boilerplate](https://github.com/JasonTeixeira/SaaS-Boilerplate)                                                                                                 | reference-library    | reference     | L0       | reference |
 | [sage-after-dark](https://github.com/JasonTeixeira/sage-after-dark)                                                                                                   | reference-library    | reference     | L0       | watch     |
-| [sage-cli](https://github.com/JasonTeixeira/sage-cli)                                                                                                                 | reference-library    | reference     | L0       | watch     |
+| [sage-cli](https://github.com/JasonTeixeira/sage-cli)                                                                                                                 | reference-library    | reference     | L0       | stale     |
 | [sage-kernel](https://github.com/JasonTeixeira/sage-kernel)                                                                                                           | agent-engine         | engine        | L2       | watch     |
 | [sageideas.dev](https://github.com/JasonTeixeira/sageideas.dev)                                                                                                       | public-proof-surface | product-proof | L3       | active    |
 | [saleor](https://github.com/JasonTeixeira/saleor)                                                                                                                     | reference-library    | reference     | L0       | archived  |
@@ -160,7 +160,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [system-design-primer](https://github.com/JasonTeixeira/system-design-primer)                                                                                         | reference-library    | reference     | L0       | archived  |
 | [tabler](https://github.com/JasonTeixeira/tabler)                                                                                                                     | reference-library    | reference     | L0       | archived  |
 | [tech-interview-handbook](https://github.com/JasonTeixeira/tech-interview-handbook)                                                                                   | reference-library    | reference     | L0       | archived  |
-| [terraform-aws-modules](https://github.com/JasonTeixeira/terraform-aws-modules)                                                                                       | ops-knowledge        | playbook      | L4       | watch     |
+| [terraform-aws-modules](https://github.com/JasonTeixeira/terraform-aws-modules)                                                                                       | ops-knowledge        | playbook      | L4       | stale     |
 | [terraform-aws-vpc](https://github.com/JasonTeixeira/terraform-aws-vpc)                                                                                               | reference-library    | reference     | L0       | reference |
 | [Terraform-Cookbook](https://github.com/JasonTeixeira/Terraform-Cookbook)                                                                                             | reference-library    | reference     | L0       | reference |
 | [terraform-guides](https://github.com/JasonTeixeira/terraform-guides)                                                                                                 | reference-library    | reference     | L0       | archived  |

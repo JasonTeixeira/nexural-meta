@@ -1,7 +1,7 @@
 # Resource Library
 
 **Status:** Phase 12/13 generated resource library and maturity lift queue
-**Generated:** 2026-08-26T09:14:00.140Z
+**Generated:** 2026-08-27T12:28:48.884Z
 
 ## Summary
 
@@ -9,7 +9,7 @@
 - Use cases: 7
 - Recipes: 12
 - Proof-backed recipes: 3
-- Load-bearing average: 90/100
+- Load-bearing average: 92/100
 
 ## Operator Paths
 
@@ -26,7 +26,6 @@
 | saas-multitenant-baseline-cf      | app-factory-runtime  |      80 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
 | saas-rag-chat-openai-first        | app-factory-runtime  |      80 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
 | saas-rag-chat-qdrant              | app-factory-runtime  |      80 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
-| micro-saas-starter                | resource-library     |      63 |     90 | Load-bearing asset under target maturity.                       |
 | sage-kernel                       | agent-engine         |      73 |     90 | Load-bearing asset under target maturity.                       |
 | tripleten-ai-automation-portfolio | public-proof-surface |      73 |     90 | Load-bearing asset under target maturity.                       |
 | jt-portfolio                      | public-proof-surface |      78 |     90 | Load-bearing asset under target maturity.                       |
@@ -37,3 +36,4 @@
 | aws-cloudformation-templates      | reference-library    |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
 | bicep                             | reference-library    |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
 | build-your-own-x                  | reference-library    |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
+| CLIMarketPlace                    | reference-library    |       0 |     70 | Missing metadata makes the ecosystem less legible.              |

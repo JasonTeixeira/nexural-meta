@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-26T09:14:15.428Z",
+  "generated_at": "2026-08-27T12:28:58.841Z",
   "generated_by": "scripts/public-proof-export.mjs",
   "privacy": "public-safe",
   "target_surface": {
@@ -24,7 +24,7 @@
     },
     {
       "claim": "Assets are scored before they are reused.",
-      "evidence": "142 public assets scored; public average 17/100, public load-bearing average 90/100. This is a gap map, not vanity scoring.",
+      "evidence": "142 public assets scored; public average 16/100, public load-bearing average 92/100. This is a gap map, not vanity scoring.",
       "source": "data/ecosystem-scorecard.public.json"
     },
     {
@@ -64,9 +64,9 @@
     "public_repositories_indexed": 142,
     "private_repositories_summarized": 0,
     "public_assets_scored": 142,
-    "average_public_score": 17,
-    "load_bearing_assets": 12,
-    "load_bearing_average_score": 90,
+    "average_public_score": 16,
+    "load_bearing_assets": 10,
+    "load_bearing_average_score": 92,
     "resource_use_cases": 7,
     "golden_path_wall_clock_seconds": 53,
     "golden_path_gates_passed": 16,
@@ -179,7 +179,7 @@
     "golden_path_run_id": "rag-knowledge-chat-2026-06-23T101609956Z",
     "golden_path_deployed_url": "https://sage-client-intake-portal-vercel-ie58l0x9h-sage-ideas.vercel.app",
     "golden_path_deploy_status": "verified-vercel-url",
-    "packet_hash": "sha256:bf1de7474d8b7a9d900c0f5c6bc307b8c380d29e01f9fac9f4f6f675562e34ff"
+    "packet_hash": "sha256:7887cd2d5afade2c256eeae659814e378eb6f2ea4ad970087069e5e110ff7db8"
   },
   "redaction_policy": [
     "Commit public repository metadata only.",

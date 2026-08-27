@@ -1,20 +1,19 @@
 # Maturity Lift
 
 **Status:** elite
-**Generated:** 2026-08-26T09:14:14.431Z
+**Generated:** 2026-08-27T12:28:57.867Z
 
 ## Targets
 
-- Current load-bearing average: 90/100
+- Current load-bearing average: 92/100
 - Target 1: 85/100
 - Target 2: 90/100
-- Lift items: 13
+- Lift items: 12
 
 ## Queue
 
 | Asset                             | Layer                | Current | Target | Work                                                                     |
 | --------------------------------- | -------------------- | ------: | -----: | ------------------------------------------------------------------------ |
-| micro-saas-starter                | resource-library     |      63 |     90 | Add concise operator docs with setup, proof, and ownership.              |
 | sage-kernel                       | agent-engine         |      73 |     90 | Review maturity gap and either improve or mark reference-only.           |
 | tripleten-ai-automation-portfolio | public-proof-surface |      73 |     90 | Attach public-safe proof evidence.; Add searchable repo metadata/topics. |
 | jt-portfolio                      | public-proof-surface |      78 |     90 | Add searchable repo metadata/topics.                                     |

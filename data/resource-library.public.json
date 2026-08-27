@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-26T09:14:00.140Z",
+  "generated_at": "2026-08-27T12:28:48.884Z",
   "generated_by": "scripts/resource-library-catalog.mjs",
   "privacy": "public-safe",
   "status": "generated",
@@ -10,8 +10,8 @@
     "use_cases": 7,
     "recipes": 12,
     "proof_backed_recipes": 3,
-    "load_bearing_assets": 12,
-    "load_bearing_average_score": 90,
+    "load_bearing_assets": 10,
+    "load_bearing_average_score": 92,
     "proof_environment_status": "failed",
     "golden_path_passed_runs": 202
   },
@@ -43,8 +43,8 @@
       "title": "Ship a SaaS or internal app",
       "question": "I need to build and deploy an application quickly.",
       "command": "/resources?useCase=ship-saas-app",
-      "recommended_assets": 2,
-      "improve_first_assets": 1
+      "recommended_assets": 1,
+      "improve_first_assets": 0
     },
     {
       "id": "choose-stack-or-sdk",
@@ -52,7 +52,7 @@
       "question": "I need to know what tool or SDK to use for a build.",
       "command": "/resources?useCase=choose-stack-or-sdk",
       "recommended_assets": 2,
-      "improve_first_assets": 1
+      "improve_first_assets": 0
     },
     {
       "id": "qa-release-proof",
@@ -67,16 +67,16 @@
       "title": "Build an agent workflow",
       "question": "I need agents, RAG, evals, memory, or background workers.",
       "command": "/resources?useCase=build-agent-workflow",
-      "recommended_assets": 3,
-      "improve_first_assets": 1
+      "recommended_assets": 2,
+      "improve_first_assets": 0
     },
     {
       "id": "build-trading-system",
       "title": "Build or audit trading infrastructure",
       "question": "I need quant research, validation, execution, or trading automation.",
       "command": "/resources?useCase=build-trading-system",
-      "recommended_assets": 7,
-      "improve_first_assets": 1
+      "recommended_assets": 6,
+      "improve_first_assets": 0
     },
     {
       "id": "publish-proof-page",
@@ -91,8 +91,8 @@
       "title": "Reuse a product pattern",
       "question": "I need to retrofit an existing product idea into a new project.",
       "command": "/resources?useCase=reuse-product-pattern",
-      "recommended_assets": 1,
-      "improve_first_assets": 1
+      "recommended_assets": 0,
+      "improve_first_assets": 0
     }
   ],
   "maturity_lift_queue": [
@@ -131,15 +131,6 @@
       "target_score": 90,
       "reason": "Recipe must be forge-ready and proof-backed before broad reuse.",
       "gaps": ["missing-golden-path-proof"]
-    },
-    {
-      "name": "micro-saas-starter",
-      "layer": "resource-library",
-      "asset_type": "kit",
-      "current_score": 63,
-      "target_score": 90,
-      "reason": "Load-bearing asset under target maturity.",
-      "gaps": ["missing-license", "load-bearing-under-70", "missing-docs"]
     },
     {
       "name": "sage-kernel",
@@ -320,6 +311,15 @@
       "target_score": 70,
       "reason": "Missing metadata makes the ecosystem less legible.",
       "gaps": ["maturity-l0", "archived", "missing-topics"]
+    },
+    {
+      "name": "terraform-guides",
+      "layer": "reference-library",
+      "asset_type": "reference",
+      "current_score": 0,
+      "target_score": 70,
+      "reason": "Missing metadata makes the ecosystem less legible.",
+      "gaps": ["maturity-l0", "archived", "missing-topics"]
     }
   ],
   "top_assets": [
@@ -420,19 +420,6 @@
       "proof": "golden-path",
       "gaps": [],
       "recommended_use": "Chat product with RAG (Retrieval-Augmented Generation) over user-uploaded"
-    },
-    {
-      "name": "terraform-aws-modules",
-      "url": "https://github.com/JasonTeixeira/terraform-aws-modules",
-      "layer": "ops-knowledge",
-      "asset_type": "playbook",
-      "maturity": "L4",
-      "status": "watch",
-      "score": 100,
-      "proof": "repo-metadata",
-      "gaps": ["missing-license"],
-      "recommended_use": "Reusable AWS infrastructure module library covering VPC, S3 plus CloudFront, Lambda API, and GitHub OIDC patterns.",
-      "load_bearing": true
     },
     {
       "name": "trade-engine",
@@ -539,6 +526,19 @@
       "proof": "repo-metadata",
       "gaps": ["stale", "missing-license"],
       "recommended_use": "Event-driven quantitative trading engine with backtesting, execution simulation, risk management, market data, PostgreSQL, and Redis integration.",
+      "load_bearing": false
+    },
+    {
+      "name": "terraform-aws-modules",
+      "url": "https://github.com/JasonTeixeira/terraform-aws-modules",
+      "layer": "ops-knowledge",
+      "asset_type": "playbook",
+      "maturity": "L4",
+      "status": "stale",
+      "score": 88,
+      "proof": "repo-metadata",
+      "gaps": ["stale", "missing-license"],
+      "recommended_use": "Reusable AWS infrastructure module library covering VPC, S3 plus CloudFront, Lambda API, and GitHub OIDC patterns.",
       "load_bearing": false
     },
     {

@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-26T09:14:14.764Z",
+  "generated_at": "2026-08-27T12:28:58.197Z",
   "generated_by": "scripts/daily-operating-loop.mjs",
   "privacy": "public-safe",
   "phase": "Phase 20",
   "status": "attention-required",
   "weekly_proof_refresh": {
     "status": "failed",
-    "latest_public_hash": "sha256:05c30ec87eeda16606b9f268240b660569e305ad99dec09410cc8f4a06b8438a",
+    "latest_public_hash": "sha256:bf1de7474d8b7a9d900c0f5c6bc307b8c380d29e01f9fac9f4f6f675562e34ff",
     "hosted_golden_paths": 78,
     "db_proof_status": "degraded"
   },
@@ -35,7 +35,7 @@
     {
       "severity": "warn",
       "item": "Refresh stale artifact: data/golden-path-runs.public.json",
-      "reason": "golden_path age 694h exceeds 168h."
+      "reason": "golden_path age 718.1h exceeds 168h."
     },
     {
       "severity": "critical",
@@ -138,8 +138,8 @@
       "title": "Ship a SaaS or internal app",
       "question": "I need to build and deploy an application quickly.",
       "command": "/resources?useCase=ship-saas-app",
-      "recommended_assets": 2,
-      "improve_first_assets": 1
+      "recommended_assets": 1,
+      "improve_first_assets": 0
     },
     {
       "id": "choose-stack-or-sdk",
@@ -147,7 +147,7 @@
       "question": "I need to know what tool or SDK to use for a build.",
       "command": "/resources?useCase=choose-stack-or-sdk",
       "recommended_assets": 2,
-      "improve_first_assets": 1
+      "improve_first_assets": 0
     },
     {
       "id": "qa-release-proof",
@@ -162,16 +162,16 @@
       "title": "Build an agent workflow",
       "question": "I need agents, RAG, evals, memory, or background workers.",
       "command": "/resources?useCase=build-agent-workflow",
-      "recommended_assets": 3,
-      "improve_first_assets": 1
+      "recommended_assets": 2,
+      "improve_first_assets": 0
     },
     {
       "id": "build-trading-system",
       "title": "Build or audit trading infrastructure",
       "question": "I need quant research, validation, execution, or trading automation.",
       "command": "/resources?useCase=build-trading-system",
-      "recommended_assets": 7,
-      "improve_first_assets": 1
+      "recommended_assets": 6,
+      "improve_first_assets": 0
     },
     {
       "id": "publish-proof-page",
@@ -186,8 +186,8 @@
       "title": "Reuse a product pattern",
       "question": "I need to retrofit an existing product idea into a new project.",
       "command": "/resources?useCase=reuse-product-pattern",
-      "recommended_assets": 1,
-      "improve_first_assets": 1
+      "recommended_assets": 0,
+      "improve_first_assets": 0
     }
   ],
   "next_action_recommendations": [
@@ -202,5 +202,5 @@
     "standard": "All L4/L5 claims need a doc, proof artifact, owner, and refresh path.",
     "docs": ["docs/MATURITY_LIFT.md", "docs/OPERATOR_TEST.md", "docs/PUBLIC_PORTFOLIO_PACKAGING.md"]
   },
-  "evidence_hash": "sha256:e16c7f92658eeb229da18477021218d447aab9238fb8a024339a64d38c57d3ef"
+  "evidence_hash": "sha256:96d34867b946ee9692b8580aab186bf122e59f6b1232bcf9dc7eb15e3ff23828"
 }
