@@ -1,7 +1,7 @@
 # Resource Library
 
 **Status:** Phase 12/13 generated resource library and maturity lift queue
-**Generated:** 2026-08-27T12:28:48.884Z
+**Generated:** 2026-08-28T12:50:00.571Z
 
 ## Summary
 
