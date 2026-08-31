@@ -2,7 +2,7 @@
 
 **Status:** Phase 1 generated inventory
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-08-30T09:01:56.485Z
+**Generated:** 2026-08-31T09:02:48.090Z
 **Source:** GitHub owner `JasonTeixeira`
 
 ## Privacy Boundary
@@ -46,7 +46,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [500-ai-agents-projects](https://github.com/JasonTeixeira/500-ai-agents-projects)                                                                                     | reference-library    | reference     | L0       | reference |
 | [agent-browser](https://github.com/JasonTeixeira/agent-browser)                                                                                                       | reference-library    | reference     | L0       | reference |
 | [AI-Trader](https://github.com/JasonTeixeira/AI-Trader)                                                                                                               | reference-library    | reference     | L0       | reference |
-| [AlphaStream](https://github.com/JasonTeixeira/AlphaStream)                                                                                                           | quant-trading        | engine        | L4       | watch     |
+| [AlphaStream](https://github.com/JasonTeixeira/AlphaStream)                                                                                                           | quant-trading        | engine        | L4       | stale     |
 | [API-Test-Automation-Wireframe](https://github.com/JasonTeixeira/API-Test-Automation-Wireframe)                                                                       | reference-library    | reference     | L0       | stale     |
 | [API-Testing-Framework](https://github.com/JasonTeixeira/API-Testing-Framework)                                                                                       | reference-library    | reference     | L0       | stale     |
 | [autogen](https://github.com/JasonTeixeira/autogen)                                                                                                                   | reference-library    | reference     | L0       | reference |

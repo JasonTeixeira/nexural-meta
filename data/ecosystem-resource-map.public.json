@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-30T09:02:10.646Z",
+  "generated_at": "2026-08-31T09:03:00.603Z",
   "generated_by": "scripts/ecosystem-resource-map.mjs",
-  "source_generated_at": "2026-08-30T09:02:10.407Z",
+  "source_generated_at": "2026-08-31T09:03:00.280Z",
   "privacy": "public-safe",
   "note": "Resource recommendations use public repository metadata only. Private assets remain summarized in scorecards and require local review.",
   "totals": {
@@ -286,19 +286,6 @@
       },
       "recommended_assets": [
         {
-          "name": "AlphaStream",
-          "url": "https://github.com/JasonTeixeira/AlphaStream",
-          "layer": "quant-trading",
-          "asset_type": "engine",
-          "maturity": "L4",
-          "role": "ML-powered futures signal system with FastAPI, model training, feature engineering, Supabase schema, and Next.js operator frontend.",
-          "score": 100,
-          "band": "95-100 elite",
-          "status": "watch",
-          "language": "TypeScript",
-          "gaps": ["missing-license"]
-        },
-        {
           "name": "nexural-automation-starter",
           "url": "https://github.com/JasonTeixeira/nexural-automation-starter",
           "layer": "quant-trading",
@@ -349,6 +336,19 @@
           "status": "active",
           "language": "TypeScript",
           "gaps": []
+        },
+        {
+          "name": "AlphaStream",
+          "url": "https://github.com/JasonTeixeira/AlphaStream",
+          "layer": "quant-trading",
+          "asset_type": "engine",
+          "maturity": "L4",
+          "role": "ML-powered futures signal system with FastAPI, model training, feature engineering, Supabase schema, and Next.js operator frontend.",
+          "score": 88,
+          "band": "85-94 strong",
+          "status": "stale",
+          "language": "TypeScript",
+          "gaps": ["stale", "missing-license"]
         },
         {
           "name": "QuantumTrader",
