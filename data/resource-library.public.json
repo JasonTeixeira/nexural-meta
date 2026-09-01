@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-31T10:14:00.958Z",
+  "generated_at": "2026-09-01T09:02:40.752Z",
   "generated_by": "scripts/resource-library-catalog.mjs",
   "privacy": "public-safe",
   "status": "generated",
@@ -10,8 +10,8 @@
     "use_cases": 7,
     "recipes": 12,
     "proof_backed_recipes": 3,
-    "load_bearing_assets": 9,
-    "load_bearing_average_score": 91,
+    "load_bearing_assets": 8,
+    "load_bearing_average_score": 90,
     "proof_environment_status": "failed",
     "golden_path_passed_runs": 202
   },
@@ -409,19 +409,6 @@
       "recommended_use": "Chat product with RAG (Retrieval-Augmented Generation) over user-uploaded"
     },
     {
-      "name": "trade-engine",
-      "url": "https://github.com/JasonTeixeira/trade-engine",
-      "layer": "quant-trading",
-      "asset_type": "engine",
-      "maturity": "L4",
-      "status": "watch",
-      "score": 100,
-      "proof": "repo-metadata",
-      "gaps": ["missing-license"],
-      "recommended_use": "Reusable event-driven order execution engine with strict order state machines, position tracking, risk management, event sourcing, and test entrypoint.",
-      "load_bearing": true
-    },
-    {
       "name": "sageideas.dev",
       "url": "https://github.com/JasonTeixeira/sageideas.dev",
       "layer": "public-proof-surface",
@@ -539,6 +526,19 @@
       "proof": "repo-metadata",
       "gaps": ["stale", "missing-license"],
       "recommended_use": "Reusable AWS infrastructure module library covering VPC, S3 plus CloudFront, Lambda API, and GitHub OIDC patterns.",
+      "load_bearing": false
+    },
+    {
+      "name": "trade-engine",
+      "url": "https://github.com/JasonTeixeira/trade-engine",
+      "layer": "quant-trading",
+      "asset_type": "engine",
+      "maturity": "L4",
+      "status": "stale",
+      "score": 88,
+      "proof": "repo-metadata",
+      "gaps": ["stale", "missing-license"],
+      "recommended_use": "Reusable event-driven order execution engine with strict order state machines, position tracking, risk management, event sourcing, and test entrypoint.",
       "load_bearing": false
     },
     {
