@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-07T10:13:41.740Z",
+  "generated_at": "2026-09-08T09:02:43.073Z",
   "generated_by": "scripts/ecosystem-maintenance.mjs",
   "privacy": "public-safe",
   "phase": "Phase 7",
@@ -28,7 +28,7 @@
     "proof_backed_recipes": 3,
     "proof_environment_status": "failed",
     "db_proof_status": "degraded",
-    "public_proof_packet_hash": "sha256:3135fa27d49fc0c1426cc3df8038592ab9216bf080377fdac65123a8d1714d8c"
+    "public_proof_packet_hash": "sha256:45b29df75e721659f05c83782bf9577ab0cf86a326b77ae575b62323dc298b37"
   },
   "commands": [
     {
@@ -36,9 +36,9 @@
       "command": "pnpm ecosystem:refresh",
       "status": "passed",
       "exit_code": 0,
-      "duration_ms": 14179,
-      "started_at": "2026-09-07T10:13:13.063Z",
-      "finished_at": "2026-09-07T10:13:27.240Z",
+      "duration_ms": 14670,
+      "started_at": "2026-09-08T09:02:14.798Z",
+      "finished_at": "2026-09-08T09:02:29.467Z",
       "stdout_tail": "\n> nexural-meta@0.0.0 ecosystem:refresh /home/runner/work/nexural-meta/nexural-meta\n> pnpm ecosystem:inventory && pnpm ecosystem:score && pnpm ecosystem:map && pnpm recipe:catalog && pnpm resource:library\n\n\n> nexural-meta@0.0.0 ecosystem:inventory /home/runner/work/nexural-meta/nexural-meta\n> node scripts/ecosystem-inventory.mjs\n\n\n> nexural-meta@0.0.0 ecosystem:score /home/runner/work/nexural-meta/nexural-meta\n> node scripts/ecosystem-scorecard.mjs\n\n\n> nexural-meta@0.0.0 ecosystem:map /home/runner/work/nexural-meta/nexural-meta\n> node scripts/ecosystem-resource-map.mjs\n\n\n> nexural-meta@0.0.0 recipe:catalog /home/runner/work/nexural-meta/nexural-meta\n> node scripts/recipe-catalog.mjs\n\n\n> nexural-meta@0.0.0 resource:library /home/runner/work/nexural-meta/nexural-meta\n> node scripts/resource-library-catalog.mjs\n\n",
       "stderr_tail": "[ecosystem-inventory] 142 repos inventoried; 142 public entries committed; 0 private repos summarized\n[ecosystem-scorecard] average 16/100 across 142 repos; 8 load-bearing assets\n[ecosystem-resource-map] 7 use cases, 13 recommended assets\n[recipe-catalog] 12 recipes, 12 forge-ready, 3 proof-backed\n[resource-library] 154 assets, 25 lift actions\n"
     },
@@ -47,20 +47,20 @@
       "command": "pnpm golden:path",
       "status": "failed",
       "exit_code": 1,
-      "duration_ms": 3454,
-      "started_at": "2026-09-07T10:13:27.242Z",
-      "finished_at": "2026-09-07T10:13:30.696Z",
+      "duration_ms": 3106,
+      "started_at": "2026-09-08T09:02:29.468Z",
+      "finished_at": "2026-09-08T09:02:32.574Z",
       "stdout_tail": "\n> nexural-meta@0.0.0 golden:path /home/runner/work/nexural-meta/nexural-meta\n> node scripts/golden-path-proof.mjs --all\n\n ELIFECYCLE  Command failed with exit code 1.\n",
-      "stderr_tail": "[golden-path] starting client-intake-portal-2026-09-07T101327529Z\n[golden-path] forge internal-tool-dashboard -> /home/runner/work/nexural-meta/nexural-meta/.nexural/cache/golden-path/client-intake-portal-2026-09-07T101327529Z/client-intake-portal\n[golden-path] run: npx --yes tsx apps/cli/src/bin/nx.ts forge internal-tool-dashboard client-intake-portal --inputs /home/runner/work/nexural-meta/nexural-meta/.nexural/cache/golden-path/client-intake-portal-2026-09-07T101327529Z/inputs.json --mock-secrets --out-dir /home/runner/work/nexural-meta/nexural-meta/.nexural/cache/golden-path/client-intake-portal-2026-09-07T101327529Z/client-intake-portal\n[golden-path] write staging-supabase env\n[golden-path] verify Supabase/Auth runtime configuration\n[golden-path] fatal: Error: supabase_runtime failed: fetch failed\n    at assertGate (file:///home/runner/work/nexural-meta/nexural-meta/scripts/golden-path-proof.mjs:476:11)\n    at runSpec (file:///home/runner/work/nexural-meta/nexural-meta/scripts/golden-path-proof.mjs:135:3)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async main (file:///home/runner/work/nexural-meta/nexural-meta/scripts/golden-path-proof.mjs:43:5)\n"
+      "stderr_tail": "[golden-path] starting client-intake-portal-2026-09-08T090229704Z\n[golden-path] forge internal-tool-dashboard -> /home/runner/work/nexural-meta/nexural-meta/.nexural/cache/golden-path/client-intake-portal-2026-09-08T090229704Z/client-intake-portal\n[golden-path] run: npx --yes tsx apps/cli/src/bin/nx.ts forge internal-tool-dashboard client-intake-portal --inputs /home/runner/work/nexural-meta/nexural-meta/.nexural/cache/golden-path/client-intake-portal-2026-09-08T090229704Z/inputs.json --mock-secrets --out-dir /home/runner/work/nexural-meta/nexural-meta/.nexural/cache/golden-path/client-intake-portal-2026-09-08T090229704Z/client-intake-portal\n[golden-path] write staging-supabase env\n[golden-path] verify Supabase/Auth runtime configuration\n[golden-path] fatal: Error: supabase_runtime failed: fetch failed\n    at assertGate (file:///home/runner/work/nexural-meta/nexural-meta/scripts/golden-path-proof.mjs:476:11)\n    at runSpec (file:///home/runner/work/nexural-meta/nexural-meta/scripts/golden-path-proof.mjs:135:3)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async main (file:///home/runner/work/nexural-meta/nexural-meta/scripts/golden-path-proof.mjs:43:5)\n"
     },
     {
       "id": "golden_path_vercel",
       "command": "pnpm golden:path:deploy",
       "status": "passed",
       "exit_code": 0,
-      "duration_ms": 298,
-      "started_at": "2026-09-07T10:13:30.696Z",
-      "finished_at": "2026-09-07T10:13:30.994Z",
+      "duration_ms": 250,
+      "started_at": "2026-09-08T09:02:32.574Z",
+      "finished_at": "2026-09-08T09:02:32.824Z",
       "stdout_tail": "\n> nexural-meta@0.0.0 golden:path:deploy /home/runner/work/nexural-meta/nexural-meta\n> node scripts/deploy-golden-path-vercel.mjs --all\n\n",
       "stderr_tail": ""
     },
@@ -69,9 +69,9 @@
       "command": "pnpm recipe:catalog",
       "status": "passed",
       "exit_code": 0,
-      "duration_ms": 308,
-      "started_at": "2026-09-07T10:13:30.994Z",
-      "finished_at": "2026-09-07T10:13:31.302Z",
+      "duration_ms": 253,
+      "started_at": "2026-09-08T09:02:32.824Z",
+      "finished_at": "2026-09-08T09:02:33.077Z",
       "stdout_tail": "\n> nexural-meta@0.0.0 recipe:catalog /home/runner/work/nexural-meta/nexural-meta\n> node scripts/recipe-catalog.mjs\n\n",
       "stderr_tail": "[recipe-catalog] 12 recipes, 12 forge-ready, 3 proof-backed\n"
     },
@@ -80,9 +80,9 @@
       "command": "pnpm resource:library",
       "status": "passed",
       "exit_code": 0,
-      "duration_ms": 307,
-      "started_at": "2026-09-07T10:13:31.302Z",
-      "finished_at": "2026-09-07T10:13:31.609Z",
+      "duration_ms": 255,
+      "started_at": "2026-09-08T09:02:33.077Z",
+      "finished_at": "2026-09-08T09:02:33.332Z",
       "stdout_tail": "\n> nexural-meta@0.0.0 resource:library /home/runner/work/nexural-meta/nexural-meta\n> node scripts/resource-library-catalog.mjs\n\n",
       "stderr_tail": "[resource-library] 154 assets, 25 lift actions\n"
     },
@@ -91,9 +91,9 @@
       "command": "pnpm proof:env",
       "status": "failed",
       "exit_code": 1,
-      "duration_ms": 8293,
-      "started_at": "2026-09-07T10:13:31.609Z",
-      "finished_at": "2026-09-07T10:13:39.902Z",
+      "duration_ms": 8235,
+      "started_at": "2026-09-08T09:02:33.332Z",
+      "finished_at": "2026-09-08T09:02:41.567Z",
       "stdout_tail": "\n> nexural-meta@0.0.0 proof:env /home/runner/work/nexural-meta/nexural-meta\n> node scripts/proof-environment-check.mjs\n\n ELIFECYCLE  Command failed with exit code 1.\n",
       "stderr_tail": "[proof-env] failed: 4/6 gates, 8/8 required secrets present\n"
     },
@@ -102,9 +102,9 @@
       "command": "pnpm proof:db",
       "status": "passed",
       "exit_code": 0,
-      "duration_ms": 297,
-      "started_at": "2026-09-07T10:13:39.902Z",
-      "finished_at": "2026-09-07T10:13:40.199Z",
+      "duration_ms": 249,
+      "started_at": "2026-09-08T09:02:41.567Z",
+      "finished_at": "2026-09-08T09:02:41.816Z",
       "stdout_tail": "\n> nexural-meta@0.0.0 proof:db /home/runner/work/nexural-meta/nexural-meta\n> node scripts/db-proof-check.mjs\n\n",
       "stderr_tail": "[db-proof] degraded: 4/6 gates\n"
     },
@@ -113,9 +113,9 @@
       "command": "pnpm operator:test",
       "status": "failed",
       "exit_code": 1,
-      "duration_ms": 330,
-      "started_at": "2026-09-07T10:13:40.199Z",
-      "finished_at": "2026-09-07T10:13:40.529Z",
+      "duration_ms": 276,
+      "started_at": "2026-09-08T09:02:41.816Z",
+      "finished_at": "2026-09-08T09:02:42.091Z",
       "stdout_tail": "\n> nexural-meta@0.0.0 operator:test /home/runner/work/nexural-meta/nexural-meta\n> node scripts/operator-test-pass.mjs\n\n ELIFECYCLE  Command failed with exit code 1.\n",
       "stderr_tail": "[operator-test] failed: 6/8 checks\n"
     },
@@ -124,9 +124,9 @@
       "command": "pnpm maturity:lift",
       "status": "passed",
       "exit_code": 0,
-      "duration_ms": 303,
-      "started_at": "2026-09-07T10:13:40.529Z",
-      "finished_at": "2026-09-07T10:13:40.832Z",
+      "duration_ms": 246,
+      "started_at": "2026-09-08T09:02:42.092Z",
+      "finished_at": "2026-09-08T09:02:42.338Z",
       "stdout_tail": "\n> nexural-meta@0.0.0 maturity:lift /home/runner/work/nexural-meta/nexural-meta\n> node scripts/maturity-lift-plan.mjs\n\n",
       "stderr_tail": "[maturity-lift] elite: 12 lift items\n"
     },
@@ -135,9 +135,9 @@
       "command": "pnpm operator:daily",
       "status": "passed",
       "exit_code": 0,
-      "duration_ms": 294,
-      "started_at": "2026-09-07T10:13:40.832Z",
-      "finished_at": "2026-09-07T10:13:41.126Z",
+      "duration_ms": 238,
+      "started_at": "2026-09-08T09:02:42.338Z",
+      "finished_at": "2026-09-08T09:02:42.576Z",
       "stdout_tail": "\n> nexural-meta@0.0.0 operator:daily /home/runner/work/nexural-meta/nexural-meta\n> node scripts/daily-operating-loop.mjs\n\n",
       "stderr_tail": "[daily-ops] attention-required: 9 queue item(s)\n"
     },
@@ -146,9 +146,9 @@
       "command": "pnpm portfolio:package",
       "status": "passed",
       "exit_code": 0,
-      "duration_ms": 304,
-      "started_at": "2026-09-07T10:13:41.126Z",
-      "finished_at": "2026-09-07T10:13:41.430Z",
+      "duration_ms": 245,
+      "started_at": "2026-09-08T09:02:42.576Z",
+      "finished_at": "2026-09-08T09:02:42.821Z",
       "stdout_tail": "\n> nexural-meta@0.0.0 portfolio:package /home/runner/work/nexural-meta/nexural-meta\n> node scripts/public-portfolio-packaging.mjs\n\n",
       "stderr_tail": "[portfolio-package] draft: 3 featured runs\n"
     },
@@ -157,11 +157,11 @@
       "command": "pnpm proof:export",
       "status": "passed",
       "exit_code": 0,
-      "duration_ms": 310,
-      "started_at": "2026-09-07T10:13:41.430Z",
-      "finished_at": "2026-09-07T10:13:41.740Z",
+      "duration_ms": 252,
+      "started_at": "2026-09-08T09:02:42.821Z",
+      "finished_at": "2026-09-08T09:02:43.073Z",
       "stdout_tail": "\n> nexural-meta@0.0.0 proof:export /home/runner/work/nexural-meta/nexural-meta\n> node scripts/public-proof-export.mjs\n\n",
-      "stderr_tail": "[public-proof] export-ready: 142 public repos, 16/16 golden-path gates, hash sha256:3135fa27d49fc0c1426cc3df8038592ab9216bf080377fdac65123a8d1714d8c\n"
+      "stderr_tail": "[public-proof] export-ready: 142 public repos, 16/16 golden-path gates, hash sha256:45b29df75e721659f05c83782bf9577ab0cf86a326b77ae575b62323dc298b37\n"
     }
   ],
   "artifacts": [
@@ -172,8 +172,8 @@
       "required": true,
       "present": true,
       "status": "fresh",
-      "hash": "sha256:62ebc4b56b36ba9193b39e64bb406346a437d418a613aefd86ddedaec301a7e3",
-      "generated_at": "2026-09-07T10:13:13.608Z",
+      "hash": "sha256:40070f762db3aeec6ae33b7dd7f740d3a555909e9f92515af510884aac2fa7b9",
+      "generated_at": "2026-09-08T09:02:15.245Z",
       "age_hours": 0,
       "size_bytes": 171385
     },
@@ -184,8 +184,8 @@
       "required": true,
       "present": true,
       "status": "fresh",
-      "hash": "sha256:3be4b4be29b5d5849cda0b6b0d8a3393735ad6de8939de2bbe5eede3c81509dd",
-      "generated_at": "2026-09-07T10:13:26.297Z",
+      "hash": "sha256:754efa56af505f94c460a3b7913996b1a67d7ba25427811ccf02bfc0e65e16ae",
+      "generated_at": "2026-09-08T09:02:28.695Z",
       "age_hours": 0,
       "size_bytes": 224517
     },
@@ -196,8 +196,8 @@
       "required": true,
       "present": true,
       "status": "fresh",
-      "hash": "sha256:6a3812447d2138038596ed91c1e1470f361c19eca66c6cf71d8c0a765fc80933",
-      "generated_at": "2026-09-07T10:13:26.597Z",
+      "hash": "sha256:37c9c3a0ecf91aa8e99a1e0be6ba70618e865308278c99e5fa168574abed3388",
+      "generated_at": "2026-09-08T09:02:28.941Z",
       "age_hours": 0,
       "size_bytes": 20036
     },
@@ -208,8 +208,8 @@
       "required": true,
       "present": true,
       "status": "fresh",
-      "hash": "sha256:d21a659e5300328200cb262f78f943e4e3b717a61a6ca0c0f905c32c15de5a56",
-      "generated_at": "2026-09-07T10:13:31.270Z",
+      "hash": "sha256:cd6c71180f79dc03ea5d7bc2ed98d6ab0608edc59c06284c321e42ad11711c4e",
+      "generated_at": "2026-09-08T09:02:33.049Z",
       "age_hours": 0,
       "size_bytes": 12188
     },
@@ -220,8 +220,8 @@
       "required": true,
       "present": true,
       "status": "fresh",
-      "hash": "sha256:aeb5c5e303bb8bc94714d24132dd7b6499ab33941fb39b9fd3637553e3e15ec2",
-      "generated_at": "2026-09-07T10:13:31.580Z",
+      "hash": "sha256:49735ca624483db1cdfa676ad4a122f57edda7ee2a5ecf0cc708362cbca77ce5",
+      "generated_at": "2026-09-08T09:02:33.306Z",
       "age_hours": 0,
       "size_bytes": 20526
     },
@@ -234,7 +234,7 @@
       "status": "stale",
       "hash": "sha256:60f43286876317a3dc5364873978b122266cb024610988a861407d5f1ca52897",
       "generated_at": "2026-07-27T11:08:56.504Z",
-      "age_hours": 1007.1,
+      "age_hours": 1029.9,
       "size_bytes": 1634794
     },
     {
@@ -244,8 +244,8 @@
       "required": true,
       "present": true,
       "status": "fresh",
-      "hash": "sha256:c19bf29f72f143389a8a53a81f1ce9e235b269fdc128d2478560a16acdad8b00",
-      "generated_at": "2026-09-07T10:13:31.887Z",
+      "hash": "sha256:8189b9977f9392cd6ab8b742e00a100526738693e722f55fb6d8f1184a96bf3b",
+      "generated_at": "2026-09-08T09:02:33.559Z",
       "age_hours": 0,
       "size_bytes": 6801
     },
@@ -256,8 +256,8 @@
       "required": true,
       "present": true,
       "status": "fresh",
-      "hash": "sha256:9943b75d865f2cac65c564aa7e600b794dc3e96f020ec45bd939a3eea9f732ef",
-      "generated_at": "2026-09-07T10:13:40.186Z",
+      "hash": "sha256:d89329fa61b890cd66cfcfba162fa7ddb4e052150af472f35e11e63eed444c1b",
+      "generated_at": "2026-09-08T09:02:41.805Z",
       "age_hours": 0,
       "size_bytes": 2638
     },
@@ -268,8 +268,8 @@
       "required": true,
       "present": true,
       "status": "fresh",
-      "hash": "sha256:bbfc1ec525d7891335858080748d2342f9c7038e537b89e3f56f723f02740560",
-      "generated_at": "2026-09-07T10:13:41.716Z",
+      "hash": "sha256:167f4821b45512aca35b3de2d3f5f3d06cbf88b41498be6b02557197b66499e9",
+      "generated_at": "2026-09-08T09:02:43.052Z",
       "age_hours": 0,
       "size_bytes": 7626
     },
@@ -280,8 +280,8 @@
       "required": true,
       "present": true,
       "status": "fresh",
-      "hash": "sha256:3d574aa04fbabf4765884175decd70349dd68d149e8c5d6effd484bb114088b9",
-      "generated_at": "2026-09-07T10:13:40.485Z",
+      "hash": "sha256:72c80e5e3fe7199e74868ea101671e4f455e69bbdc617f1a1d7429ad29e57605",
+      "generated_at": "2026-09-08T09:02:42.054Z",
       "age_hours": 0,
       "size_bytes": 2373
     },
@@ -292,8 +292,8 @@
       "required": true,
       "present": true,
       "status": "fresh",
-      "hash": "sha256:990483b0835445aea2dbbaff86d00547ad9b66b9c8781ad6b1b2c26602717049",
-      "generated_at": "2026-09-07T10:13:40.810Z",
+      "hash": "sha256:968a39f9e3de37ab0064b66cc5e0d5666ca4a3cd164f35dac339950f6649b6d1",
+      "generated_at": "2026-09-08T09:02:42.319Z",
       "age_hours": 0,
       "size_bytes": 4684
     },
@@ -304,8 +304,8 @@
       "required": true,
       "present": true,
       "status": "fresh",
-      "hash": "sha256:e793e8b939790d657cbcb834312928c2cf0c76cf66c9cb6fdb2cccb06237b585",
-      "generated_at": "2026-09-07T10:13:41.112Z",
+      "hash": "sha256:64d43d12e934f256afe6887560d8ed2fa16613b61ddb34480d5005339abaf64a",
+      "generated_at": "2026-09-08T09:02:42.563Z",
       "age_hours": 0,
       "size_bytes": 6791
     },
@@ -316,8 +316,8 @@
       "required": true,
       "present": true,
       "status": "fresh",
-      "hash": "sha256:a6beb829771c7f649d1da9ca8e0e687ca9f37782f4b35815345391871bc56dd3",
-      "generated_at": "2026-09-07T10:13:41.409Z",
+      "hash": "sha256:46dcd22744120e0e8122c43cd9a93c35f1073a86e5d81683a3e49acf5d5ea019",
+      "generated_at": "2026-09-08T09:02:42.803Z",
       "age_hours": 0,
       "size_bytes": 2026
     },
@@ -328,8 +328,8 @@
       "required": true,
       "present": true,
       "status": "fresh",
-      "hash": "sha256:bbfc1ec525d7891335858080748d2342f9c7038e537b89e3f56f723f02740560",
-      "generated_at": "2026-09-07T10:13:41.716Z",
+      "hash": "sha256:167f4821b45512aca35b3de2d3f5f3d06cbf88b41498be6b02557197b66499e9",
+      "generated_at": "2026-09-08T09:02:43.052Z",
       "age_hours": 0,
       "size_bytes": 7626
     },
@@ -340,7 +340,7 @@
       "required": true,
       "present": true,
       "status": "fresh",
-      "hash": "sha256:ffcc09581745604e118336b57928d0461ff16eeb86fa886e1fde55f43701cbc4",
+      "hash": "sha256:ee6be0cb9842dc55378ebfa67b0e05f320ef95e4eee899f84c0fd555013b803b",
       "generated_at": null,
       "age_hours": 0,
       "size_bytes": 4387
@@ -348,12 +348,12 @@
   ],
   "source_metrics": {
     "registry": {
-      "generated_at": "2026-09-07T10:13:13.608Z",
+      "generated_at": "2026-09-08T09:02:15.245Z",
       "public": 142,
       "private_summary": 0
     },
     "scorecard": {
-      "generated_at": "2026-09-07T10:13:26.297Z",
+      "generated_at": "2026-09-08T09:02:28.695Z",
       "public_assets": 142,
       "public_average_score": 16,
       "public_load_bearing_average_score": 90,
@@ -370,19 +370,19 @@
       }
     },
     "resource_map": {
-      "generated_at": "2026-09-07T10:13:26.597Z",
+      "generated_at": "2026-09-08T09:02:28.941Z",
       "use_cases": 7,
       "recommended_assets": 13
     },
     "recipe_catalog": {
-      "generated_at": "2026-09-07T10:13:31.270Z",
+      "generated_at": "2026-09-08T09:02:33.049Z",
       "recipes": 12,
       "forge_ready": 12,
       "proof_backed": 3,
       "average_readiness_score": 90.8
     },
     "resource_library": {
-      "generated_at": "2026-09-07T10:13:31.580Z",
+      "generated_at": "2026-09-08T09:02:33.306Z",
       "assets": 154,
       "maturity_lift_queue": 25,
       "proof_backed_recipes": 3
@@ -399,13 +399,13 @@
       "proof_backed_recipes": 3
     },
     "proof_environment": {
-      "generated_at": "2026-09-07T10:13:31.887Z",
+      "generated_at": "2026-09-08T09:02:33.559Z",
       "status": "failed",
       "gates_passed": 4,
       "gate_count": 6
     },
     "db_proof": {
-      "generated_at": "2026-09-07T10:13:40.186Z",
+      "generated_at": "2026-09-08T09:02:41.805Z",
       "status": "degraded",
       "gates_passed": 4,
       "gate_count": 6,
@@ -415,8 +415,8 @@
       "seed_data_status": "passed"
     },
     "public_proof": {
-      "generated_at": "2026-09-07T10:13:41.716Z",
-      "packet_hash": "sha256:3135fa27d49fc0c1426cc3df8038592ab9216bf080377fdac65123a8d1714d8c",
+      "generated_at": "2026-09-08T09:02:43.052Z",
+      "packet_hash": "sha256:45b29df75e721659f05c83782bf9577ab0cf86a326b77ae575b62323dc298b37",
       "target_route": null,
       "remaining_gaps": [
         "Private asset maturity still needs local review before public claims can include deeper implementation detail."
@@ -425,7 +425,7 @@
   },
   "git": {
     "branch": "main",
-    "head_sha": "c43770ffd3a79842156464020adb06b7a8643fde",
+    "head_sha": "8b1296f55b7a986ebb85f8d8099b535dc0d462ac",
     "changed_paths": [
       "M data/daily-operating-loop.public.json",
       "M data/db-proof.public.json",
@@ -487,7 +487,7 @@
       "severity": "warn",
       "owner": "automation",
       "action": "Refresh stale artifact: data/golden-path-runs.public.json",
-      "evidence": "golden_path age 1007.1h exceeds 168h."
+      "evidence": "golden_path age 1029.9h exceeds 168h."
     },
     {
       "severity": "critical",
@@ -514,6 +514,6 @@
       "evidence": "34 changed path(s) after maintenance run."
     }
   ],
-  "started_at": "2026-09-07T10:13:13.063Z",
-  "finished_at": "2026-09-07T10:13:41.740Z"
+  "started_at": "2026-09-08T09:02:14.798Z",
+  "finished_at": "2026-09-08T09:02:43.073Z"
 }
