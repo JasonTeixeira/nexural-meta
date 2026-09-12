@@ -2,7 +2,7 @@
 
 **Status:** Phase 4 generated resource map
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-09-11T09:02:34.391Z
+**Generated:** 2026-09-12T09:02:06.400Z
 
 ## Purpose
 
@@ -76,11 +76,10 @@ Layers: `agent-engine`, `resource-library`, `quality-system`, `control-plane`
 Recommended assets:
 
 - [nexural-meta](https://github.com/JasonTeixeira/nexural-meta) - 100/100, L4
-- [sage-kernel](https://github.com/JasonTeixeira/sage-kernel) - 73/100, L2
 
 Fix first:
 
-- No load-bearing asset under 70 in this use case.
+- [sage-kernel](https://github.com/JasonTeixeira/sage-kernel) - 53/100, load-bearing-under-70
 
 ### Build or audit trading infrastructure
 

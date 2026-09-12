@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-11T09:02:34.391Z",
+  "generated_at": "2026-09-12T09:02:06.400Z",
   "generated_by": "scripts/ecosystem-resource-map.mjs",
-  "source_generated_at": "2026-09-11T09:02:34.070Z",
+  "source_generated_at": "2026-09-12T09:02:06.093Z",
   "privacy": "public-safe",
   "note": "Resource recommendations use public repository metadata only. Private assets remain summarized in scorecards and require local review.",
   "totals": {
     "use_cases": 7,
     "public_assets_considered": 142,
-    "recommended_assets": 13,
-    "improve_first_assets": 0
+    "recommended_assets": 12,
+    "improve_first_assets": 1
   },
   "use_cases": [
     {
@@ -230,8 +230,8 @@
       "commands": ["pnpm ecosystem:refresh"],
       "asset_counts": {
         "candidates": 5,
-        "recommended": 2,
-        "improve_first": 0,
+        "recommended": 1,
+        "improve_first": 1,
         "reference_only": 0
       },
       "recommended_assets": [
@@ -247,22 +247,23 @@
           "status": "active",
           "language": "TypeScript",
           "gaps": ["missing-license"]
-        },
+        }
+      ],
+      "improve_first": [
         {
           "name": "sage-kernel",
           "url": "https://github.com/JasonTeixeira/sage-kernel",
           "layer": "agent-engine",
           "asset_type": "engine",
-          "maturity": "L2",
+          "maturity": "L1",
           "role": "Agent runtime, workflow worker, memory, or RAG capability.",
-          "score": 73,
-          "band": "70-84 usable",
+          "score": 53,
+          "band": "50-69 incomplete",
           "status": "watch",
           "language": "JavaScript",
-          "gaps": []
+          "gaps": ["load-bearing-under-70"]
         }
       ],
-      "improve_first": [],
       "reference_assets": []
     },
     {

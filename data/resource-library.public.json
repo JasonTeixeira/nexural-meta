@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-11T09:02:39.494Z",
+  "generated_at": "2026-09-12T09:02:11.407Z",
   "generated_by": "scripts/resource-library-catalog.mjs",
   "privacy": "public-safe",
   "status": "generated",
@@ -11,7 +11,7 @@
     "recipes": 12,
     "proof_backed_recipes": 3,
     "load_bearing_assets": 8,
-    "load_bearing_average_score": 90,
+    "load_bearing_average_score": 88,
     "proof_environment_status": "failed",
     "golden_path_passed_runs": 202
   },
@@ -67,8 +67,8 @@
       "title": "Build an agent workflow",
       "question": "I need agents, RAG, evals, memory, or background workers.",
       "command": "/resources?useCase=build-agent-workflow",
-      "recommended_assets": 2,
-      "improve_first_assets": 0
+      "recommended_assets": 1,
+      "improve_first_assets": 1
     },
     {
       "id": "build-trading-system",
@@ -136,10 +136,10 @@
       "name": "sage-kernel",
       "layer": "agent-engine",
       "asset_type": "engine",
-      "current_score": 73,
+      "current_score": 53,
       "target_score": 90,
       "reason": "Load-bearing asset under target maturity.",
-      "gaps": []
+      "gaps": ["load-bearing-under-70"]
     },
     {
       "name": "tripleten-ai-automation-portfolio",

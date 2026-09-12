@@ -2,8 +2,8 @@
 
 **Status:** Phase 6 internal packet ready
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-09-11T09:02:49.500Z
-**Packet hash:** `sha256:ea4af80151a29b754ebfbee3746f7194e3d6fd0e76b774907e96499c5ea42ad9`
+**Generated:** 2026-09-12T09:02:24.226Z
+**Packet hash:** `sha256:01f9d57a23caf12d67a699dda182dc5aa0edb4a7d7a247eb45f8e66e555c1730`
 
 ## Positioning
 
@@ -17,14 +17,14 @@ Brand boundary: Nexural is a trading/investment product proof, not the umbrella 
 - Private repositories summarized: 0
 - Public assets scored: 142
 - Broad public average: 16/100
-- Load-bearing average: 90/100
+- Load-bearing average: 88/100
 - Resource use cases: 7
 - Golden path: 16/16 gates in 53s
 
 ## Public Claims
 
 - **The ecosystem has an indexed public registry.** 142 public repositories indexed; 0 private repositories summarized without names. Source: `data/ecosystem-registry.public.json`.
-- **Assets are scored before they are reused.** 142 public assets scored; public average 16/100, public load-bearing average 90/100. This is a gap map, not vanity scoring. Source: `data/ecosystem-scorecard.public.json`.
+- **Assets are scored before they are reused.** 142 public assets scored; public average 16/100, public load-bearing average 88/100. This is a gap map, not vanity scoring. Source: `data/ecosystem-scorecard.public.json`.
 - **Build choices are mapped to reusable resources.** 7 use cases mapped for daily navigation. Source: `data/ecosystem-resource-map.public.json`.
 - **The factory path has deployed hosted proof.** 16/16 golden-path gates passed; deployed URL verified at https://sage-client-intake-portal-vercel-ie58l0x9h-sage-ideas.vercel.app. Source: `data/golden-path-runs.public.json`.
 

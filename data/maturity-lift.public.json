@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-11T09:02:48.555Z",
+  "generated_at": "2026-09-12T09:02:23.319Z",
   "generated_by": "scripts/maturity-lift-plan.mjs",
   "privacy": "public-safe",
   "phase": "Phase 19",
-  "status": "elite",
+  "status": "near-elite",
   "summary": {
-    "current_load_bearing_average": 90,
+    "current_load_bearing_average": 88,
     "target_1": 85,
     "target_2": 90,
     "load_bearing_assets": 8,
@@ -31,9 +31,9 @@
     {
       "asset": "sage-kernel",
       "layer": "agent-engine",
-      "current_score": 73,
+      "current_score": 53,
       "target_score": 90,
-      "missing": [],
+      "missing": ["load-bearing-under-70"],
       "required_work": ["Review maturity gap and either improve or mark reference-only."]
     },
     {
@@ -129,5 +129,5 @@
     }
   ],
   "score_model_note": "This report does not inflate maturity scores. It defines the work required to raise the scorecard in subsequent proof refreshes.",
-  "evidence_hash": "sha256:62444c5885b8f7d776af9b01ce819b259bbc2f1cba61dde4b2cfbb13f4081b0d"
+  "evidence_hash": "sha256:c128321d24f4dd929d18422e1099613b4429c973b95b65369e3524cedb9dcfba"
 }
