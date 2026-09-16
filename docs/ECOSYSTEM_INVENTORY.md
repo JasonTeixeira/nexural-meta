@@ -2,7 +2,7 @@
 
 **Status:** Phase 1 generated inventory
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-09-15T09:02:32.883Z
+**Generated:** 2026-09-16T09:02:52.109Z
 **Source:** GitHub owner `JasonTeixeira`
 
 ## Privacy Boundary
@@ -101,7 +101,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [ib_insync](https://github.com/JasonTeixeira/ib_insync)                                                                                                               | reference-library    | reference     | L0       | archived  |
 | [istio](https://github.com/JasonTeixeira/istio)                                                                                                                       | reference-library    | reference     | L0       | archived  |
 | [jason-teixeira-portfolio](https://github.com/JasonTeixeira/jason-teixeira-portfolio)                                                                                 | quant-trading        | engine        | L0       | stale     |
-| [JasonTeixeira](https://github.com/JasonTeixeira/JasonTeixeira)                                                                                                       | public-proof-surface | product-proof | L4       | active    |
+| [JasonTeixeira](https://github.com/JasonTeixeira/JasonTeixeira)                                                                                                       | public-proof-surface | product-proof | L4       | watch     |
 | [javascript-algorithms](https://github.com/JasonTeixeira/javascript-algorithms)                                                                                       | reference-library    | reference     | L0       | reference |
 | [jt-portfolio](https://github.com/JasonTeixeira/jt-portfolio)                                                                                                         | public-proof-surface | product-proof | L2       | active    |
 | [juice-shop](https://github.com/JasonTeixeira/juice-shop)                                                                                                             | reference-library    | reference     | L0       | archived  |
@@ -111,7 +111,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [Landing-Zone-Guardrails](https://github.com/JasonTeixeira/Landing-Zone-Guardrails)                                                                                   | reference-library    | reference     | L0       | stale     |
 | [langflow](https://github.com/JasonTeixeira/langflow)                                                                                                                 | reference-library    | reference     | L0       | reference |
 | [Lean-testing](https://github.com/JasonTeixeira/Lean-testing)                                                                                                         | reference-library    | reference     | L0       | archived  |
-| [llm-eval-gate](https://github.com/JasonTeixeira/llm-eval-gate)                                                                                                       | reference-library    | reference     | L0       | active    |
+| [llm-eval-gate](https://github.com/JasonTeixeira/llm-eval-gate)                                                                                                       | reference-library    | reference     | L0       | watch     |
 | [Machine-Learning-for-Algorithmic-Trading-Second-Edition_Original](https://github.com/JasonTeixeira/Machine-Learning-for-Algorithmic-Trading-Second-Edition_Original) | reference-library    | reference     | L0       | archived  |
 | [marketingskills](https://github.com/JasonTeixeira/marketingskills)                                                                                                   | reference-library    | reference     | L0       | reference |
 | [Master-Migration-Pipeline](https://github.com/JasonTeixeira/Master-Migration-Pipeline)                                                                               | reference-library    | reference     | L0       | stale     |

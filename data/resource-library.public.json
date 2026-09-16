@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-15T09:02:53.893Z",
+  "generated_at": "2026-09-16T09:03:13.986Z",
   "generated_by": "scripts/resource-library-catalog.mjs",
   "privacy": "public-safe",
   "status": "generated",
@@ -351,7 +351,7 @@
       "layer": "public-proof-surface",
       "asset_type": "product-proof",
       "maturity": "L4",
-      "status": "active",
+      "status": "watch",
       "score": 100,
       "proof": "repo-metadata",
       "gaps": ["missing-license"],
