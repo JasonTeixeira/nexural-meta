@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-19T09:02:38.852Z",
+  "generated_at": "2026-09-20T09:02:23.396Z",
   "generated_by": "scripts/public-proof-export.mjs",
   "privacy": "public-safe",
   "target_surface": {
@@ -24,7 +24,7 @@
     },
     {
       "claim": "Assets are scored before they are reused.",
-      "evidence": "142 public assets scored; public average 16/100, public load-bearing average 88/100. This is a gap map, not vanity scoring.",
+      "evidence": "142 public assets scored; public average 16/100, public load-bearing average 87/100. This is a gap map, not vanity scoring.",
       "source": "data/ecosystem-scorecard.public.json"
     },
     {
@@ -66,7 +66,7 @@
     "public_assets_scored": 142,
     "average_public_score": 16,
     "load_bearing_assets": 8,
-    "load_bearing_average_score": 88,
+    "load_bearing_average_score": 87,
     "resource_use_cases": 7,
     "golden_path_wall_clock_seconds": 53,
     "golden_path_gates_passed": 16,
@@ -121,8 +121,8 @@
       "layer": "public-proof-surface",
       "asset_type": "product-proof",
       "maturity": "L2",
-      "score": 73,
-      "status": "active"
+      "score": 63,
+      "status": "watch"
     },
     {
       "name": "NexQuantSite",
@@ -179,7 +179,7 @@
     "golden_path_run_id": "rag-knowledge-chat-2026-06-23T101609956Z",
     "golden_path_deployed_url": "https://sage-client-intake-portal-vercel-ie58l0x9h-sage-ideas.vercel.app",
     "golden_path_deploy_status": "verified-vercel-url",
-    "packet_hash": "sha256:b12cd4e1e87d245696011cecf644f97d3ebd7bcf8ac003e07d9cc671ed63bf37"
+    "packet_hash": "sha256:604111c1815343fc4c88ffb23dbaa4748a601f75c77f12e4fe42ef41b057fe6a"
   },
   "redaction_policy": [
     "Commit public repository metadata only.",

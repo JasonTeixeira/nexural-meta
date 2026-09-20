@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-19T09:02:37.911Z",
+  "generated_at": "2026-09-20T09:02:22.677Z",
   "generated_by": "scripts/maturity-lift-plan.mjs",
   "privacy": "public-safe",
   "phase": "Phase 19",
   "status": "near-elite",
   "summary": {
-    "current_load_bearing_average": 88,
+    "current_load_bearing_average": 87,
     "target_1": 85,
     "target_2": 90,
     "load_bearing_assets": 8,
@@ -39,9 +39,9 @@
     {
       "asset": "tripleten-ai-automation-portfolio",
       "layer": "public-proof-surface",
-      "current_score": 73,
+      "current_score": 63,
       "target_score": 90,
-      "missing": ["missing-public-proof", "missing-topics"],
+      "missing": ["missing-public-proof", "missing-topics", "load-bearing-under-70"],
       "required_work": [
         "Attach public-safe proof evidence.",
         "Add searchable repo metadata/topics."
@@ -129,5 +129,5 @@
     }
   ],
   "score_model_note": "This report does not inflate maturity scores. It defines the work required to raise the scorecard in subsequent proof refreshes.",
-  "evidence_hash": "sha256:83a7bc98bc2edc6790bbb80b9845b2437ec98b3b876cf772613555967998321d"
+  "evidence_hash": "sha256:ea64eb365cc561a0ad9b667968547d975dab598469361d295cc8a22cf3aa5065"
 }

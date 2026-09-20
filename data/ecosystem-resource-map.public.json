@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-19T09:02:22.781Z",
+  "generated_at": "2026-09-20T09:02:08.750Z",
   "generated_by": "scripts/ecosystem-resource-map.mjs",
-  "source_generated_at": "2026-09-19T09:02:22.461Z",
+  "source_generated_at": "2026-09-20T09:02:08.510Z",
   "privacy": "public-safe",
   "note": "Resource recommendations use public repository metadata only. Private assets remain summarized in scorecards and require local review.",
   "totals": {
     "use_cases": 7,
     "public_assets_considered": 142,
     "recommended_assets": 12,
-    "improve_first_assets": 1
+    "improve_first_assets": 2
   },
   "use_cases": [
     {
@@ -384,7 +384,7 @@
       "asset_counts": {
         "candidates": 6,
         "recommended": 6,
-        "improve_first": 0,
+        "improve_first": 1,
         "reference_only": 0
       },
       "recommended_assets": [
@@ -447,11 +447,11 @@
           "asset_type": "product-proof",
           "maturity": "L2",
           "role": "Public-facing identity, proof, or case-study surface.",
-          "score": 73,
-          "band": "70-84 usable",
-          "status": "active",
+          "score": 63,
+          "band": "50-69 incomplete",
+          "status": "watch",
           "language": "HTML",
-          "gaps": ["missing-public-proof", "missing-topics"]
+          "gaps": ["missing-public-proof", "missing-topics", "load-bearing-under-70"]
         },
         {
           "name": "NexQuantSite",
@@ -467,7 +467,21 @@
           "gaps": ["stale", "missing-public-proof", "missing-license"]
         }
       ],
-      "improve_first": [],
+      "improve_first": [
+        {
+          "name": "tripleten-ai-automation-portfolio",
+          "url": "https://github.com/JasonTeixeira/tripleten-ai-automation-portfolio",
+          "layer": "public-proof-surface",
+          "asset_type": "product-proof",
+          "maturity": "L2",
+          "role": "Public-facing identity, proof, or case-study surface.",
+          "score": 63,
+          "band": "50-69 incomplete",
+          "status": "watch",
+          "language": "HTML",
+          "gaps": ["missing-public-proof", "missing-topics", "load-bearing-under-70"]
+        }
+      ],
       "reference_assets": []
     },
     {

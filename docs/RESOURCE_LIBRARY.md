@@ -1,7 +1,7 @@
 # Resource Library
 
 **Status:** Phase 12/13 generated resource library and maturity lift queue
-**Generated:** 2026-09-19T09:02:28.960Z
+**Generated:** 2026-09-20T09:02:13.683Z
 
 ## Summary
 
@@ -9,7 +9,7 @@
 - Use cases: 7
 - Recipes: 12
 - Proof-backed recipes: 3
-- Load-bearing average: 88/100
+- Load-bearing average: 87/100
 
 ## Operator Paths
 
@@ -27,7 +27,7 @@
 | saas-rag-chat-openai-first        | app-factory-runtime  |      80 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
 | saas-rag-chat-qdrant              | app-factory-runtime  |      80 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
 | sage-kernel                       | agent-engine         |      53 |     90 | Load-bearing asset under target maturity.                       |
-| tripleten-ai-automation-portfolio | public-proof-surface |      73 |     90 | Load-bearing asset under target maturity.                       |
+| tripleten-ai-automation-portfolio | public-proof-surface |      63 |     90 | Load-bearing asset under target maturity.                       |
 | jt-portfolio                      | public-proof-surface |      78 |     90 | Load-bearing asset under target maturity.                       |
 | awesome-cloud-native              | reference-library    |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
 | awesome-quant                     | reference-library    |       0 |     70 | Missing metadata makes the ecosystem less legible.              |
