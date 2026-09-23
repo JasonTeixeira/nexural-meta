@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-22T09:02:50.672Z",
+  "generated_at": "2026-09-23T09:02:48.343Z",
   "generated_by": "scripts/db-proof-check.mjs",
   "privacy": "public-safe",
   "status": "degraded",
@@ -65,7 +65,7 @@
     "golden_path_latest": "evidence/golden-path/latest.json",
     "proof_environment": "data/proof-environment.public.json",
     "hosted_health_checked": false,
-    "report_hash": "sha256:b0095f640bf842da84d08def9968479313e3ee307c943fe35b3fde8e0f179f90"
+    "report_hash": "sha256:bb40b73442b1d50a07b86ecad76f72ffe0782d5820fb8b50ce6e282ce8baf642"
   },
   "next_actions": [
     {
