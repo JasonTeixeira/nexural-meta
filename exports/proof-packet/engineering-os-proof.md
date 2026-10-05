@@ -2,8 +2,8 @@
 
 **Status:** Phase 6 internal packet ready
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-10-04T10:50:41.965Z
-**Packet hash:** `sha256:dbeb7984288bce0f05066ccbe66cefb06fccd87ec87c728e4b2ecde26fa6b50c`
+**Generated:** 2026-10-05T09:08:22.385Z
+**Packet hash:** `sha256:255d90559bc60a54ccdc0e90d2018903cb322ce55b490c8d59711fa169a38c5f`
 
 ## Positioning
 
@@ -16,15 +16,15 @@ Brand boundary: Nexural is a trading/investment product proof, not the umbrella 
 - Public repositories indexed: 142
 - Private repositories summarized: 0
 - Public assets scored: 142
-- Broad public average: 16/100
-- Load-bearing average: 87/100
+- Broad public average: 15/100
+- Load-bearing average: 84/100
 - Resource use cases: 7
 - Golden path: 16/16 gates in 53s
 
 ## Public Claims
 
 - **The ecosystem has an indexed public registry.** 142 public repositories indexed; 0 private repositories summarized without names. Source: `data/ecosystem-registry.public.json`.
-- **Assets are scored before they are reused.** 142 public assets scored; public average 16/100, public load-bearing average 87/100. This is a gap map, not vanity scoring. Source: `data/ecosystem-scorecard.public.json`.
+- **Assets are scored before they are reused.** 142 public assets scored; public average 15/100, public load-bearing average 84/100. This is a gap map, not vanity scoring. Source: `data/ecosystem-scorecard.public.json`.
 - **Build choices are mapped to reusable resources.** 7 use cases mapped for daily navigation. Source: `data/ecosystem-resource-map.public.json`.
 - **The factory path has deployed hosted proof.** 16/16 golden-path gates passed; deployed URL verified at https://sage-client-intake-portal-vercel-ie58l0x9h-sage-ideas.vercel.app. Source: `data/golden-path-runs.public.json`.
 
@@ -41,7 +41,6 @@ Brand boundary: Nexural is a trading/investment product proof, not the umbrella 
 - [nexural-meta](https://github.com/JasonTeixeira/nexural-meta) - control-plane, 100/100, L4
 - [sageideas.dev](https://github.com/JasonTeixeira/sageideas.dev) - public-proof-surface, 98/100, L3
 - [jt-portfolio](https://github.com/JasonTeixeira/jt-portfolio) - public-proof-surface, 78/100, L2
-- [tripleten-ai-automation-portfolio](https://github.com/JasonTeixeira/tripleten-ai-automation-portfolio) - public-proof-surface, 63/100, L2
 - [NexQuantSite](https://github.com/JasonTeixeira/NexQuantSite) - public-proof-surface, 88/100, L4
 
 ## Future Publishable Sections

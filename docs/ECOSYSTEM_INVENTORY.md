@@ -2,7 +2,7 @@
 
 **Status:** Phase 1 generated inventory
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-10-04T10:50:12.347Z
+**Generated:** 2026-10-05T09:07:51.209Z
 **Source:** GitHub owner `JasonTeixeira`
 
 ## Privacy Boundary
@@ -146,7 +146,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [RiskRadarEnt](https://github.com/JasonTeixeira/RiskRadarEnt)                                                                                                         | reference-library    | reference     | L0       | stale     |
 | [ruflo](https://github.com/JasonTeixeira/ruflo)                                                                                                                       | reference-library    | reference     | L0       | reference |
 | [SaaS-Boilerplate](https://github.com/JasonTeixeira/SaaS-Boilerplate)                                                                                                 | reference-library    | reference     | L0       | reference |
-| [sage-after-dark](https://github.com/JasonTeixeira/sage-after-dark)                                                                                                   | reference-library    | reference     | L0       | watch     |
+| [sage-after-dark](https://github.com/JasonTeixeira/sage-after-dark)                                                                                                   | reference-library    | reference     | L0       | stale     |
 | [sage-cli](https://github.com/JasonTeixeira/sage-cli)                                                                                                                 | reference-library    | reference     | L0       | stale     |
 | [sage-kernel](https://github.com/JasonTeixeira/sage-kernel)                                                                                                           | agent-engine         | engine        | L1       | watch     |
 | [sageideas.dev](https://github.com/JasonTeixeira/sageideas.dev)                                                                                                       | public-proof-surface | product-proof | L3       | active    |
@@ -173,7 +173,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [TradingAgents](https://github.com/JasonTeixeira/TradingAgents)                                                                                                       | reference-library    | reference     | L0       | reference |
 | [training-data-analyst](https://github.com/JasonTeixeira/training-data-analyst)                                                                                       | reference-library    | reference     | L0       | archived  |
 | [trigger.dev](https://github.com/JasonTeixeira/trigger.dev)                                                                                                           | reference-library    | reference     | L0       | reference |
-| [tripleten-ai-automation-portfolio](https://github.com/JasonTeixeira/tripleten-ai-automation-portfolio)                                                               | public-proof-surface | product-proof | L2       | watch     |
+| [tripleten-ai-automation-portfolio](https://github.com/JasonTeixeira/tripleten-ai-automation-portfolio)                                                               | public-proof-surface | product-proof | L1       | watch     |
 | [tutorial](https://github.com/JasonTeixeira/tutorial)                                                                                                                 | reference-library    | reference     | L0       | archived  |
 | [ui-ux-pro-max-skill](https://github.com/JasonTeixeira/ui-ux-pro-max-skill)                                                                                           | reference-library    | reference     | L0       | reference |
 | [ui.tailus.io](https://github.com/JasonTeixeira/ui.tailus.io)                                                                                                         | reference-library    | reference     | L0       | reference |

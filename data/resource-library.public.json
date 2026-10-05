@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-04T10:50:31.588Z",
+  "generated_at": "2026-10-05T09:08:12.131Z",
   "generated_by": "scripts/resource-library-catalog.mjs",
   "privacy": "public-safe",
   "status": "generated",
@@ -11,7 +11,7 @@
     "recipes": 12,
     "proof_backed_recipes": 3,
     "load_bearing_assets": 8,
-    "load_bearing_average_score": 87,
+    "load_bearing_average_score": 84,
     "proof_environment_status": "failed",
     "golden_path_passed_runs": 202
   },
@@ -83,7 +83,7 @@
       "title": "Publish a public proof page",
       "question": "I need to show the system safely on sageideas.dev.",
       "command": "/resources?useCase=publish-proof-page",
-      "recommended_assets": 6,
+      "recommended_assets": 5,
       "improve_first_assets": 1
     },
     {
@@ -133,6 +133,15 @@
       "gaps": ["missing-golden-path-proof"]
     },
     {
+      "name": "tripleten-ai-automation-portfolio",
+      "layer": "public-proof-surface",
+      "asset_type": "product-proof",
+      "current_score": 43,
+      "target_score": 90,
+      "reason": "Load-bearing asset under target maturity.",
+      "gaps": ["missing-public-proof", "missing-topics", "load-bearing-under-70"]
+    },
+    {
       "name": "sage-kernel",
       "layer": "agent-engine",
       "asset_type": "engine",
@@ -140,15 +149,6 @@
       "target_score": 90,
       "reason": "Load-bearing asset under target maturity.",
       "gaps": ["load-bearing-under-70"]
-    },
-    {
-      "name": "tripleten-ai-automation-portfolio",
-      "layer": "public-proof-surface",
-      "asset_type": "product-proof",
-      "current_score": 63,
-      "target_score": 90,
-      "reason": "Load-bearing asset under target maturity.",
-      "gaps": ["missing-public-proof", "missing-topics", "load-bearing-under-70"]
     },
     {
       "name": "jt-portfolio",

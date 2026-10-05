@@ -2,7 +2,7 @@
 
 **Status:** Phase 4 generated resource map
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-10-04T10:50:27.007Z
+**Generated:** 2026-10-05T09:08:06.540Z
 
 ## Purpose
 
@@ -111,11 +111,11 @@ Recommended assets:
 - [nexural-meta](https://github.com/JasonTeixeira/nexural-meta) - 100/100, L4
 - [sageideas.dev](https://github.com/JasonTeixeira/sageideas.dev) - 98/100, L3
 - [jt-portfolio](https://github.com/JasonTeixeira/jt-portfolio) - 78/100, L2
-- [tripleten-ai-automation-portfolio](https://github.com/JasonTeixeira/tripleten-ai-automation-portfolio) - 63/100, L2
+- [NexQuantSite](https://github.com/JasonTeixeira/NexQuantSite) - 88/100, L4
 
 Fix first:
 
-- [tripleten-ai-automation-portfolio](https://github.com/JasonTeixeira/tripleten-ai-automation-portfolio) - 63/100, missing-public-proof, missing-topics, load-bearing-under-70
+- [tripleten-ai-automation-portfolio](https://github.com/JasonTeixeira/tripleten-ai-automation-portfolio) - 43/100, missing-public-proof, missing-topics, load-bearing-under-70
 
 ### Reuse a product pattern
 

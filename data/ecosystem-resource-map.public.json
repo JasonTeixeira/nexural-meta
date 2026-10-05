@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-04T10:50:27.007Z",
+  "generated_at": "2026-10-05T09:08:06.540Z",
   "generated_by": "scripts/ecosystem-resource-map.mjs",
-  "source_generated_at": "2026-10-04T10:50:26.763Z",
+  "source_generated_at": "2026-10-05T09:08:06.207Z",
   "privacy": "public-safe",
   "note": "Resource recommendations use public repository metadata only. Private assets remain summarized in scorecards and require local review.",
   "totals": {
     "use_cases": 7,
     "public_assets_considered": 142,
-    "recommended_assets": 12,
+    "recommended_assets": 11,
     "improve_first_assets": 2
   },
   "use_cases": [
@@ -125,19 +125,6 @@
           "gaps": ["maturity-l0", "missing-license"]
         },
         {
-          "name": "sage-after-dark",
-          "url": "https://github.com/JasonTeixeira/sage-after-dark",
-          "layer": "reference-library",
-          "asset_type": "reference",
-          "maturity": "L0",
-          "role": "Reference source kept for learning or future implementation mining.",
-          "score": 23,
-          "band": "0-49 raw/reference",
-          "status": "watch",
-          "language": "TypeScript",
-          "gaps": ["maturity-l0", "missing-license", "missing-topics"]
-        },
-        {
           "name": "agent-browser",
           "url": "https://github.com/JasonTeixeira/agent-browser",
           "layer": "reference-library",
@@ -166,6 +153,19 @@
         {
           "name": "aws-serverless-workshops",
           "url": "https://github.com/JasonTeixeira/aws-serverless-workshops",
+          "layer": "reference-library",
+          "asset_type": "reference",
+          "maturity": "L0",
+          "role": "Reference source kept for study, comparison, or implementation mining.",
+          "score": 13,
+          "band": "0-49 raw/reference",
+          "status": "reference",
+          "language": null,
+          "gaps": ["maturity-l0", "reference-only", "missing-topics"]
+        },
+        {
+          "name": "backtrader",
+          "url": "https://github.com/JasonTeixeira/backtrader",
           "layer": "reference-library",
           "asset_type": "reference",
           "maturity": "L0",
@@ -383,7 +383,7 @@
       "commands": ["pnpm ecosystem:refresh"],
       "asset_counts": {
         "candidates": 6,
-        "recommended": 6,
+        "recommended": 5,
         "improve_first": 1,
         "reference_only": 0
       },
@@ -441,19 +441,6 @@
           "gaps": ["missing-topics"]
         },
         {
-          "name": "tripleten-ai-automation-portfolio",
-          "url": "https://github.com/JasonTeixeira/tripleten-ai-automation-portfolio",
-          "layer": "public-proof-surface",
-          "asset_type": "product-proof",
-          "maturity": "L2",
-          "role": "Public-facing identity, proof, or case-study surface.",
-          "score": 63,
-          "band": "50-69 incomplete",
-          "status": "watch",
-          "language": "HTML",
-          "gaps": ["missing-public-proof", "missing-topics", "load-bearing-under-70"]
-        },
-        {
           "name": "NexQuantSite",
           "url": "https://github.com/JasonTeixeira/NexQuantSite",
           "layer": "public-proof-surface",
@@ -473,10 +460,10 @@
           "url": "https://github.com/JasonTeixeira/tripleten-ai-automation-portfolio",
           "layer": "public-proof-surface",
           "asset_type": "product-proof",
-          "maturity": "L2",
+          "maturity": "L1",
           "role": "Public-facing identity, proof, or case-study surface.",
-          "score": 63,
-          "band": "50-69 incomplete",
+          "score": 43,
+          "band": "0-49 raw/reference",
           "status": "watch",
           "language": "HTML",
           "gaps": ["missing-public-proof", "missing-topics", "load-bearing-under-70"]
