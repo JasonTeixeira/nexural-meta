@@ -2,7 +2,7 @@
 
 **Status:** Phase 2 generated maturity map
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-10-10T14:52:20.769Z
+**Generated:** 2026-10-12T10:18:55.256Z
 
 ## Read This Correctly
 
@@ -12,24 +12,23 @@ A large reference library intentionally scores low because reference repos are r
 ## Executive Scores
 
 - Average across all repos: **15/100**
-- Load-bearing asset average: **84/100** across **8** assets
+- Load-bearing asset average: **88/100** across **7** assets
 - Private repo average: **0/100**
 
 ## Score Bands
 
 | Band               | Count |
 | ------------------ | ----: |
-| 0-49 raw/reference |   130 |
+| 0-49 raw/reference |   131 |
 | 85-94 strong       |     5 |
 | 95-100 elite       |     5 |
 | 70-84 usable       |     1 |
-| 50-69 incomplete   |     1 |
 
 ## Layer Scores
 
 | Layer                | Count | Load-bearing | Average score |
 | -------------------- | ----: | -----------: | ------------: |
-| agent-engine         |     2 |            1 |            33 |
+| agent-engine         |     2 |            0 |            23 |
 | control-plane        |     1 |            1 |           100 |
 | ops-knowledge        |     4 |            0 |            33 |
 | public-proof-surface |     5 |            4 |            81 |
@@ -41,25 +40,24 @@ A large reference library intentionally scores low because reference repos are r
 
 | Gap                   | Count |
 | --------------------- | ----: |
-| maturity-l0           |   128 |
+| maturity-l0           |   129 |
 | missing-topics        |   120 |
 | reference-only        |    49 |
 | archived              |    47 |
 | missing-license       |    45 |
 | stale                 |    36 |
 | missing-public-proof  |     2 |
-| load-bearing-under-70 |     2 |
 | missing-docs          |     1 |
+| load-bearing-under-70 |     1 |
 
 ## Public Load-Bearing Assets Below 70
 
 | Repository                                                                                              | Layer                | Score | Gaps                                                        |
 | ------------------------------------------------------------------------------------------------------- | -------------------- | ----: | ----------------------------------------------------------- |
 | [tripleten-ai-automation-portfolio](https://github.com/JasonTeixeira/tripleten-ai-automation-portfolio) | public-proof-surface |    43 | missing-public-proof, missing-topics, load-bearing-under-70 |
-| [sage-kernel](https://github.com/JasonTeixeira/sage-kernel)                                             | agent-engine         |    53 | load-bearing-under-70                                       |
 
 ## Next Actions
 
 - **Review private overrides:** 0 private repos are still classified by generic inference.
 - **Separate reference library from product proof narrative:** 121 repos are reference/library assets and should not dilute the public engineering story.
-- **Raise load-bearing assets below 70:** 2 load-bearing assets need docs, evidence, topics, homepage, or maturity upgrades.
+- **Raise load-bearing assets below 70:** 1 load-bearing assets need docs, evidence, topics, homepage, or maturity upgrades.

@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-10T14:52:21.094Z",
+  "generated_at": "2026-10-12T10:18:55.635Z",
   "generated_by": "scripts/ecosystem-resource-map.mjs",
-  "source_generated_at": "2026-10-10T14:52:20.769Z",
+  "source_generated_at": "2026-10-12T10:18:55.256Z",
   "privacy": "public-safe",
   "note": "Resource recommendations use public repository metadata only. Private assets remain summarized in scorecards and require local review.",
   "totals": {
     "use_cases": 7,
     "public_assets_considered": 142,
     "recommended_assets": 11,
-    "improve_first_assets": 2
+    "improve_first_assets": 1
   },
   "use_cases": [
     {
@@ -231,7 +231,7 @@
       "asset_counts": {
         "candidates": 5,
         "recommended": 1,
-        "improve_first": 1,
+        "improve_first": 0,
         "reference_only": 0
       },
       "recommended_assets": [
@@ -249,21 +249,7 @@
           "gaps": ["missing-license"]
         }
       ],
-      "improve_first": [
-        {
-          "name": "sage-kernel",
-          "url": "https://github.com/JasonTeixeira/sage-kernel",
-          "layer": "agent-engine",
-          "asset_type": "engine",
-          "maturity": "L1",
-          "role": "Agent runtime, workflow worker, memory, or RAG capability.",
-          "score": 53,
-          "band": "50-69 incomplete",
-          "status": "watch",
-          "language": "JavaScript",
-          "gaps": ["load-bearing-under-70"]
-        }
-      ],
+      "improve_first": [],
       "reference_assets": []
     },
     {

@@ -2,7 +2,7 @@
 
 **Status:** Phase 4 generated resource map
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-10-10T14:52:21.094Z
+**Generated:** 2026-10-12T10:18:55.635Z
 
 ## Purpose
 
@@ -79,7 +79,7 @@ Recommended assets:
 
 Fix first:
 
-- [sage-kernel](https://github.com/JasonTeixeira/sage-kernel) - 53/100, load-bearing-under-70
+- No load-bearing asset under 70 in this use case.
 
 ### Build or audit trading infrastructure
 
