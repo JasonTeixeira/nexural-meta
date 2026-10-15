@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-14T09:02:27.197Z",
+  "generated_at": "2026-10-15T09:02:09.844Z",
   "generated_by": "scripts/resource-library-catalog.mjs",
   "privacy": "public-safe",
   "status": "generated",
@@ -11,7 +11,7 @@
     "recipes": 12,
     "proof_backed_recipes": 3,
     "load_bearing_assets": 7,
-    "load_bearing_average_score": 88,
+    "load_bearing_average_score": 87,
     "proof_environment_status": "failed",
     "golden_path_passed_runs": 202
   },
@@ -149,6 +149,15 @@
       "target_score": 90,
       "reason": "Load-bearing asset under target maturity.",
       "gaps": ["missing-topics"]
+    },
+    {
+      "name": "sageideas.dev",
+      "layer": "public-proof-surface",
+      "asset_type": "product-proof",
+      "current_score": 88,
+      "target_score": 90,
+      "reason": "Load-bearing asset under target maturity.",
+      "gaps": ["missing-license"]
     },
     {
       "name": "awesome-cloud-native",
@@ -311,15 +320,6 @@
       "target_score": 70,
       "reason": "Missing metadata makes the ecosystem less legible.",
       "gaps": ["maturity-l0", "archived", "missing-topics"]
-    },
-    {
-      "name": "the-art-of-command-line",
-      "layer": "reference-library",
-      "asset_type": "reference",
-      "current_score": 0,
-      "target_score": 70,
-      "reason": "Missing metadata makes the ecosystem less legible.",
-      "gaps": ["maturity-l0", "archived", "missing-license", "missing-topics"]
     }
   ],
   "top_assets": [
@@ -407,19 +407,6 @@
       "proof": "golden-path",
       "gaps": [],
       "recommended_use": "Chat product with RAG (Retrieval-Augmented Generation) over user-uploaded"
-    },
-    {
-      "name": "sageideas.dev",
-      "url": "https://github.com/JasonTeixeira/sageideas.dev",
-      "layer": "public-proof-surface",
-      "asset_type": "product-proof",
-      "maturity": "L3",
-      "status": "active",
-      "score": 98,
-      "proof": "repo-metadata",
-      "gaps": ["missing-license"],
-      "recommended_use": "Public company and proof surface for Sage Ideas.",
-      "load_bearing": true
     },
     {
       "name": "agent-workflow-app",
@@ -514,6 +501,19 @@
       "gaps": ["stale", "missing-license"],
       "recommended_use": "Event-driven quantitative trading engine with backtesting, execution simulation, risk management, market data, PostgreSQL, and Redis integration.",
       "load_bearing": false
+    },
+    {
+      "name": "sageideas.dev",
+      "url": "https://github.com/JasonTeixeira/sageideas.dev",
+      "layer": "public-proof-surface",
+      "asset_type": "product-proof",
+      "maturity": "L3",
+      "status": "watch",
+      "score": 88,
+      "proof": "repo-metadata",
+      "gaps": ["missing-license"],
+      "recommended_use": "Public company and proof surface for Sage Ideas.",
+      "load_bearing": true
     },
     {
       "name": "terraform-aws-modules",

@@ -1,14 +1,14 @@
 # Maturity Lift
 
 **Status:** near-elite
-**Generated:** 2026-10-14T09:02:36.205Z
+**Generated:** 2026-10-15T09:02:18.793Z
 
 ## Targets
 
-- Current load-bearing average: 88/100
+- Current load-bearing average: 87/100
 - Target 1: 85/100
 - Target 2: 90/100
-- Lift items: 11
+- Lift items: 12
 
 ## Queue
 
@@ -16,6 +16,7 @@
 | --------------------------------- | -------------------- | ------: | -----: | ------------------------------------------------------------------------ |
 | tripleten-ai-automation-portfolio | public-proof-surface |      43 |     90 | Attach public-safe proof evidence.; Add searchable repo metadata/topics. |
 | jt-portfolio                      | public-proof-surface |      78 |     90 | Add searchable repo metadata/topics.                                     |
+| sageideas.dev                     | public-proof-surface |      88 |     90 | Review maturity gap and either improve or mark reference-only.           |
 | agent-workflow-app                | app-factory-runtime  |      90 |     90 | Attach public-safe proof evidence.                                       |
 | analytics-workbench               | app-factory-runtime  |      90 |     90 | Attach public-safe proof evidence.                                       |
 | marketplace-starter               | app-factory-runtime  |      90 |     90 | Attach public-safe proof evidence.                                       |

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-14T09:02:36.926Z",
+  "generated_at": "2026-10-15T09:02:19.405Z",
   "generated_by": "scripts/public-proof-export.mjs",
   "privacy": "public-safe",
   "target_surface": {
@@ -24,7 +24,7 @@
     },
     {
       "claim": "Assets are scored before they are reused.",
-      "evidence": "142 public assets scored; public average 15/100, public load-bearing average 88/100. This is a gap map, not vanity scoring.",
+      "evidence": "142 public assets scored; public average 15/100, public load-bearing average 87/100. This is a gap map, not vanity scoring.",
       "source": "data/ecosystem-scorecard.public.json"
     },
     {
@@ -66,7 +66,7 @@
     "public_assets_scored": 142,
     "average_public_score": 15,
     "load_bearing_assets": 7,
-    "load_bearing_average_score": 88,
+    "load_bearing_average_score": 87,
     "resource_use_cases": 7,
     "golden_path_wall_clock_seconds": 53,
     "golden_path_gates_passed": 16,
@@ -103,8 +103,8 @@
       "layer": "public-proof-surface",
       "asset_type": "product-proof",
       "maturity": "L3",
-      "score": 98,
-      "status": "active"
+      "score": 88,
+      "status": "watch"
     },
     {
       "name": "jt-portfolio",
@@ -170,7 +170,7 @@
     "golden_path_run_id": "rag-knowledge-chat-2026-06-23T101609956Z",
     "golden_path_deployed_url": "https://sage-client-intake-portal-vercel-ie58l0x9h-sage-ideas.vercel.app",
     "golden_path_deploy_status": "verified-vercel-url",
-    "packet_hash": "sha256:1dd66872ec9d54d440ab33b145d0fcc3e493deab532072865a5068c0b76e6724"
+    "packet_hash": "sha256:77bfb7bbebd1cc409dfd2c4d2486eabd6c47f3be3c08b3ab98b3b12f7f04cf1a"
   },
   "redaction_policy": [
     "Commit public repository metadata only.",
