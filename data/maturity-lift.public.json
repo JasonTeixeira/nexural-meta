@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-16T09:02:31.349Z",
+  "generated_at": "2026-10-17T09:02:20.908Z",
   "generated_by": "scripts/maturity-lift-plan.mjs",
   "privacy": "public-safe",
   "phase": "Phase 19",
@@ -129,5 +129,5 @@
     }
   ],
   "score_model_note": "This report does not inflate maturity scores. It defines the work required to raise the scorecard in subsequent proof refreshes.",
-  "evidence_hash": "sha256:93ae359549bd3b3a95ff734d936c2af82350d18d24a8adf6f22f2b61ae30e479"
+  "evidence_hash": "sha256:37304f1d3901c5f797ca2e1f8635d305913462f14eb3687a8d746d93f85728a6"
 }
