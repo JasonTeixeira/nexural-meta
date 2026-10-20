@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-19T10:12:58.194Z",
+  "generated_at": "2026-10-20T09:02:36.807Z",
   "generated_by": "scripts/public-portfolio-packaging.mjs",
   "privacy": "public-safe",
   "phase": "Phase 22",
@@ -8,7 +8,7 @@
   "summary": {
     "featured_runs": 3,
     "proof_backed_recipes": 3,
-    "public_proof_hash": "sha256:563b142e4d8038f41338f75a89bfc7118ca2c21c82bbcc66c6f332d112854fae",
+    "public_proof_hash": "sha256:81e93576e1bc4da2543ff870006a3e67feb6c10335f1bf521827cee8e16b9e5c",
     "operator_test_status": "failed"
   },
   "public_safe_claims": [
@@ -45,5 +45,5 @@
     "Keep private repository names/details summarized, not exposed.",
     "Rotate any tokens pasted into chat before using proof in public."
   ],
-  "evidence_hash": "sha256:0328a690445fe4a28cab72b067c462764b6689169bcd912655d1a4ae5207cd74"
+  "evidence_hash": "sha256:3a3f7f38d5546fedcd6a1453f864a38c2c641e908ce7c175b0685897ca6402d9"
 }
