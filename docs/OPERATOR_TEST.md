@@ -1,7 +1,7 @@
 # Operator Test Pass
 
 **Status:** failed
-**Generated:** 2026-10-26T09:07:45.221Z
+**Generated:** 2026-10-26T10:15:34.963Z
 
 ## Summary
 
@@ -10,7 +10,7 @@
 - Proof-backed recipes: 3
 - Hosted golden paths: 78
 - DB proof: degraded
-- Evidence hash: `sha256:63ad8dc4a25c7dd41dd0699210ccc5d2772fe1a5752f3cd6e7f7618911f25f25`
+- Evidence hash: `sha256:918df8eea30f0d12321e9e5f3e407296e34638d1da410e710b5914f08f9f6f3c`
 
 ## Checks
 

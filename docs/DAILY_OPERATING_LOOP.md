@@ -1,14 +1,14 @@
 # Daily Operating Loop
 
 **Status:** attention-required
-**Generated:** 2026-10-26T09:07:45.713Z
+**Generated:** 2026-10-26T10:15:35.602Z
 
 ## Refresh
 
 - Maintenance: failed
 - Hosted golden paths: 78
 - DB proof: degraded
-- Public hash: `sha256:344677fa3a610d8ec953ae8ad6f8274b023888522854dc9c17878b617663cec8`
+- Public hash: `sha256:bd4c6857185ab9e624d80650aee60afcf81d49c6f8a298b459e4b803264a3e52`
 
 ## Queue
 
@@ -16,7 +16,7 @@
 - **critical:** Fix failed maintenance command: golden_path - pnpm golden:path exited 1.
 - **critical:** Fix failed maintenance command: proof_environment - pnpm proof:env exited 1.
 - **critical:** Fix failed maintenance command: operator_test - pnpm operator:test exited 1.
-- **warn:** Refresh stale artifact: data/golden-path-runs.public.json - golden_path age 2157.9h exceeds 168h.
+- **warn:** Refresh stale artifact: data/golden-path-runs.public.json - golden_path age 2182h exceeds 168h.
 - **critical:** Fix proof environment lock gates - proof environment status is failed.
 - **warn:** Finish DB proof hardening - db proof status is degraded; migration status is passed.
 - **info:** Review public-safe packet remaining gaps before making external claims - 1 remaining gaps in public-safe packet.
