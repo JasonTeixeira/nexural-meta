@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-26T10:15:26.196Z",
+  "generated_at": "2026-10-27T09:04:00.570Z",
   "generated_by": "scripts/resource-library-catalog.mjs",
   "privacy": "public-safe",
   "status": "generated",
@@ -11,7 +11,7 @@
     "recipes": 12,
     "proof_backed_recipes": 3,
     "load_bearing_assets": 7,
-    "load_bearing_average_score": 87,
+    "load_bearing_average_score": 91,
     "proof_environment_status": "failed",
     "golden_path_passed_runs": 202
   },
@@ -83,8 +83,8 @@
       "title": "Publish a public proof page",
       "question": "I need to show the system safely on sageideas.dev.",
       "command": "/resources?useCase=publish-proof-page",
-      "recommended_assets": 5,
-      "improve_first_assets": 1
+      "recommended_assets": 6,
+      "improve_first_assets": 0
     },
     {
       "id": "reuse-product-pattern",
@@ -136,10 +136,10 @@
       "name": "tripleten-ai-automation-portfolio",
       "layer": "public-proof-surface",
       "asset_type": "product-proof",
-      "current_score": 43,
+      "current_score": 73,
       "target_score": 90,
       "reason": "Load-bearing asset under target maturity.",
-      "gaps": ["missing-public-proof", "missing-topics", "load-bearing-under-70"]
+      "gaps": ["missing-public-proof", "missing-topics"]
     },
     {
       "name": "jt-portfolio",

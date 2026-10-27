@@ -1,7 +1,7 @@
 # Resource Library
 
 **Status:** Phase 12/13 generated resource library and maturity lift queue
-**Generated:** 2026-10-26T10:15:26.196Z
+**Generated:** 2026-10-27T09:04:00.570Z
 
 ## Summary
 
@@ -9,7 +9,7 @@
 - Use cases: 7
 - Recipes: 12
 - Proof-backed recipes: 3
-- Load-bearing average: 87/100
+- Load-bearing average: 91/100
 
 ## Operator Paths
 
@@ -26,7 +26,7 @@
 | saas-multitenant-baseline-cf      | app-factory-runtime  |      80 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
 | saas-rag-chat-openai-first        | app-factory-runtime  |      80 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
 | saas-rag-chat-qdrant              | app-factory-runtime  |      80 |     90 | Recipe must be forge-ready and proof-backed before broad reuse. |
-| tripleten-ai-automation-portfolio | public-proof-surface |      43 |     90 | Load-bearing asset under target maturity.                       |
+| tripleten-ai-automation-portfolio | public-proof-surface |      73 |     90 | Load-bearing asset under target maturity.                       |
 | jt-portfolio                      | public-proof-surface |      78 |     90 | Load-bearing asset under target maturity.                       |
 | sageideas.dev                     | public-proof-surface |      88 |     90 | Load-bearing asset under target maturity.                       |
 | awesome-cloud-native              | reference-library    |       0 |     70 | Missing metadata makes the ecosystem less legible.              |

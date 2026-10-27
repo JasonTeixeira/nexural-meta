@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-26T10:15:36.211Z",
+  "generated_at": "2026-10-27T09:04:11.128Z",
   "generated_by": "scripts/public-proof-export.mjs",
   "privacy": "public-safe",
   "target_surface": {
@@ -24,7 +24,7 @@
     },
     {
       "claim": "Assets are scored before they are reused.",
-      "evidence": "142 public assets scored; public average 15/100, public load-bearing average 87/100. This is a gap map, not vanity scoring.",
+      "evidence": "142 public assets scored; public average 15/100, public load-bearing average 91/100. This is a gap map, not vanity scoring.",
       "source": "data/ecosystem-scorecard.public.json"
     },
     {
@@ -66,7 +66,7 @@
     "public_assets_scored": 142,
     "average_public_score": 15,
     "load_bearing_assets": 7,
-    "load_bearing_average_score": 87,
+    "load_bearing_average_score": 91,
     "resource_use_cases": 7,
     "golden_path_wall_clock_seconds": 53,
     "golden_path_gates_passed": 16,
@@ -113,6 +113,15 @@
       "asset_type": "product-proof",
       "maturity": "L2",
       "score": 78,
+      "status": "active"
+    },
+    {
+      "name": "tripleten-ai-automation-portfolio",
+      "url": "https://github.com/JasonTeixeira/tripleten-ai-automation-portfolio",
+      "layer": "public-proof-surface",
+      "asset_type": "product-proof",
+      "maturity": "L2",
+      "score": 73,
       "status": "active"
     },
     {
@@ -170,7 +179,7 @@
     "golden_path_run_id": "rag-knowledge-chat-2026-06-23T101609956Z",
     "golden_path_deployed_url": "https://sage-client-intake-portal-vercel-ie58l0x9h-sage-ideas.vercel.app",
     "golden_path_deploy_status": "verified-vercel-url",
-    "packet_hash": "sha256:ffcdbc976fb5a6757a36c28a09bcfb8d4c14c93e26d562563d4f485fe5b6ef6a"
+    "packet_hash": "sha256:f0526d803540e86ad76d2014bfc19d1273e0d017239b3297ad85ec8697de9fd3"
   },
   "redaction_policy": [
     "Commit public repository metadata only.",
