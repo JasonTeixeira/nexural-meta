@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-02T09:02:33.739Z",
+  "generated_at": "2026-11-02T10:08:46.107Z",
   "generated_by": "scripts/ecosystem-scorecard.mjs",
-  "source_generated_at": "2026-11-02T09:02:20.133Z",
+  "source_generated_at": "2026-11-02T10:08:33.245Z",
   "privacy": "public-safe",
   "note": "Private repositories are scored internally and summarized by count only. Full scorecard is generated locally at .nexural/private/ecosystem-scorecard.internal.json.",
   "totals": {
@@ -4218,12 +4218,12 @@
       ],
       "homepage_url": null,
       "created_at": "2026-05-22T12:11:28Z",
-      "pushed_at": "2026-11-01T09:02:42Z",
-      "updated_at": "2026-11-01T09:02:45Z",
+      "pushed_at": "2026-11-02T09:03:13Z",
+      "updated_at": "2026-11-02T09:03:17Z",
       "default_branch": "main",
       "license": null,
       "parent": null,
-      "disk_usage_kb": 5132,
+      "disk_usage_kb": 5197,
       "stargazers": 0,
       "canonical": {
         "canonical_name": "Sage Ideas Engineering OS Control Plane",
@@ -5733,7 +5733,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 355,
+        "stale_days": 356,
         "needs_private_review": false
       },
       "score": {
@@ -6034,7 +6034,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 1383,
+        "stale_days": 1384,
         "needs_private_review": false
       },
       "score": {
