@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-02T10:08:50.481Z",
+  "generated_at": "2026-11-03T09:02:28.792Z",
   "generated_by": "scripts/resource-library-catalog.mjs",
   "privacy": "public-safe",
   "status": "generated",
   "purpose": "Unified resource library for choosing reusable engines, kits, recipes, SDKs, playbooks, QA assets, and proof-backed paths.",
   "totals": {
-    "assets": 154,
+    "assets": 155,
     "use_cases": 7,
     "recipes": 12,
     "proof_backed_recipes": 3,
@@ -351,7 +351,7 @@
       "layer": "public-proof-surface",
       "asset_type": "product-proof",
       "maturity": "L4",
-      "status": "watch",
+      "status": "active",
       "score": 100,
       "proof": "repo-metadata",
       "gaps": ["missing-license"],

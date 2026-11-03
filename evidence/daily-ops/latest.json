@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-02T10:09:00.103Z",
+  "generated_at": "2026-11-03T09:02:38.889Z",
   "generated_by": "scripts/daily-operating-loop.mjs",
   "privacy": "public-safe",
   "phase": "Phase 20",
   "status": "attention-required",
   "weekly_proof_refresh": {
     "status": "failed",
-    "latest_public_hash": "sha256:eb54f6717d1ed9021eed50f69c42d6343ab05244385f5c58eeb6f2599d337be0",
+    "latest_public_hash": "sha256:560dcbd183e5b56a535ba121555ad52a1a75e6797c22403a783d34805d19a561",
     "hosted_golden_paths": 78,
     "db_proof_status": "degraded"
   },
@@ -35,7 +35,7 @@
     {
       "severity": "warn",
       "item": "Refresh stale artifact: data/golden-path-runs.public.json",
-      "reason": "golden_path age 2349.9h exceeds 168h."
+      "reason": "golden_path age 2351h exceeds 168h."
     },
     {
       "severity": "critical",
@@ -202,5 +202,5 @@
     "standard": "All L4/L5 claims need a doc, proof artifact, owner, and refresh path.",
     "docs": ["docs/MATURITY_LIFT.md", "docs/OPERATOR_TEST.md", "docs/PUBLIC_PORTFOLIO_PACKAGING.md"]
   },
-  "evidence_hash": "sha256:3826264d4db96502337f7dafa587a79d3bc005866dabd1f4a4ba7cc1eebf2aa9"
+  "evidence_hash": "sha256:01db90a8c7e613ec02f822f5dbb29368734277825e99514ac4d7d4392cc6e0f0"
 }
