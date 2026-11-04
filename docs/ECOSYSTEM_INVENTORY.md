@@ -2,7 +2,7 @@
 
 **Status:** Phase 1 generated inventory
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-11-03T09:02:08.683Z
+**Generated:** 2026-11-04T09:01:58.720Z
 **Source:** GitHub owner `JasonTeixeira`
 
 ## Privacy Boundary
@@ -12,11 +12,11 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 
 ## Totals
 
-- Total repositories: **143**
-- Public repositories: **143**
+- Total repositories: **153**
+- Public repositories: **153**
 - Private repositories: **0**
 - Archived repositories: **47**
-- Fork/reference repositories: **93**
+- Fork/reference repositories: **103**
 
 ## Layer Summary
 
@@ -27,7 +27,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | ops-knowledge        |     4 |
 | public-proof-surface |     5 |
 | quant-trading        |     7 |
-| reference-library    |   122 |
+| reference-library    |   132 |
 | resource-library     |     2 |
 
 ## Private Repository Summary
@@ -43,15 +43,20 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | Repository                                                                                                                                                            | Layer                | Asset type    | Maturity | Status    |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | ------------- | -------- | --------- |
 | [2025-trading-automation-scripts](https://github.com/JasonTeixeira/2025-trading-automation-scripts)                                                                   | reference-library    | reference     | L0       | reference |
+| [30-Days-Of-Python](https://github.com/JasonTeixeira/30-Days-Of-Python)                                                                                               | reference-library    | reference     | L0       | reference |
 | [500-ai-agents-projects](https://github.com/JasonTeixeira/500-ai-agents-projects)                                                                                     | reference-library    | reference     | L0       | reference |
 | [agent-browser](https://github.com/JasonTeixeira/agent-browser)                                                                                                       | reference-library    | reference     | L0       | reference |
+| [ai-system-design-guide](https://github.com/JasonTeixeira/ai-system-design-guide)                                                                                     | reference-library    | reference     | L0       | reference |
+| [ai-system-design-SM](https://github.com/JasonTeixeira/ai-system-design-SM)                                                                                           | reference-library    | reference     | L0       | reference |
 | [AI-Trader](https://github.com/JasonTeixeira/AI-Trader)                                                                                                               | reference-library    | reference     | L0       | reference |
 | [AlphaStream](https://github.com/JasonTeixeira/AlphaStream)                                                                                                           | quant-trading        | engine        | L4       | stale     |
 | [API-Test-Automation-Wireframe](https://github.com/JasonTeixeira/API-Test-Automation-Wireframe)                                                                       | reference-library    | reference     | L0       | stale     |
 | [API-Testing-Framework](https://github.com/JasonTeixeira/API-Testing-Framework)                                                                                       | reference-library    | reference     | L0       | stale     |
 | [autogen](https://github.com/JasonTeixeira/autogen)                                                                                                                   | reference-library    | reference     | L0       | reference |
 | [Automation-scripts](https://github.com/JasonTeixeira/Automation-scripts)                                                                                             | reference-library    | reference     | L0       | reference |
+| [awesome-architecture](https://github.com/JasonTeixeira/awesome-architecture)                                                                                         | reference-library    | reference     | L0       | reference |
 | [awesome-cloud-native](https://github.com/JasonTeixeira/awesome-cloud-native)                                                                                         | reference-library    | reference     | L0       | archived  |
+| [awesome-diagrams](https://github.com/JasonTeixeira/awesome-diagrams)                                                                                                 | reference-library    | reference     | L0       | reference |
 | [awesome-kubernetes](https://github.com/JasonTeixeira/awesome-kubernetes)                                                                                             | reference-library    | reference     | L0       | archived  |
 | [awesome-nodejs](https://github.com/JasonTeixeira/awesome-nodejs)                                                                                                     | reference-library    | reference     | L0       | archived  |
 | [awesome-python](https://github.com/JasonTeixeira/awesome-python)                                                                                                     | reference-library    | reference     | L0       | archived  |
@@ -72,6 +77,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [checkov](https://github.com/JasonTeixeira/checkov)                                                                                                                   | reference-library    | reference     | L0       | archived  |
 | [CI-CD-Pipeline](https://github.com/JasonTeixeira/CI-CD-Pipeline)                                                                                                     | reference-library    | reference     | L0       | stale     |
 | [CISSP-Exam-Prep](https://github.com/JasonTeixeira/CISSP-Exam-Prep)                                                                                                   | agent-engine         | reference     | L0       | stale     |
+| [claude-cookbooks](https://github.com/JasonTeixeira/claude-cookbooks)                                                                                                 | reference-library    | reference     | L0       | reference |
 | [CLIMarketPlace](https://github.com/JasonTeixeira/CLIMarketPlace)                                                                                                     | reference-library    | reference     | L0       | archived  |
 | [cloud-custodian](https://github.com/JasonTeixeira/cloud-custodian)                                                                                                   | reference-library    | reference     | L0       | archived  |
 | [cloud-design-patterns](https://github.com/JasonTeixeira/cloud-design-patterns)                                                                                       | reference-library    | reference     | L0       | reference |
@@ -94,6 +100,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [FinRL](https://github.com/JasonTeixeira/FinRL)                                                                                                                       | reference-library    | reference     | L0       | archived  |
 | [firebase-admin-node](https://github.com/JasonTeixeira/firebase-admin-node)                                                                                           | reference-library    | reference     | L0       | reference |
 | [free-claude-code](https://github.com/JasonTeixeira/free-claude-code)                                                                                                 | reference-library    | reference     | L0       | reference |
+| [gloomberb](https://github.com/JasonTeixeira/gloomberb)                                                                                                               | reference-library    | reference     | L0       | reference |
 | [google-cloud-Cheat-Sheats](https://github.com/JasonTeixeira/google-cloud-Cheat-Sheats)                                                                               | reference-library    | reference     | L0       | archived  |
 | [graphify](https://github.com/JasonTeixeira/graphify)                                                                                                                 | reference-library    | reference     | L0       | reference |
 | [hermes-agent](https://github.com/JasonTeixeira/hermes-agent)                                                                                                         | reference-library    | reference     | L0       | reference |
@@ -111,6 +118,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [Landing-Zone-Guardrails](https://github.com/JasonTeixeira/Landing-Zone-Guardrails)                                                                                   | reference-library    | reference     | L0       | stale     |
 | [langflow](https://github.com/JasonTeixeira/langflow)                                                                                                                 | reference-library    | reference     | L0       | reference |
 | [Lean-testing](https://github.com/JasonTeixeira/Lean-testing)                                                                                                         | reference-library    | reference     | L0       | archived  |
+| [llm_engineering](https://github.com/JasonTeixeira/llm_engineering)                                                                                                   | reference-library    | reference     | L0       | reference |
 | [llm-eval-gate](https://github.com/JasonTeixeira/llm-eval-gate)                                                                                                       | reference-library    | reference     | L0       | watch     |
 | [Machine-Learning-for-Algorithmic-Trading-Second-Edition_Original](https://github.com/JasonTeixeira/Machine-Learning-for-Algorithmic-Trading-Second-Edition_Original) | reference-library    | reference     | L0       | archived  |
 | [marketingskills](https://github.com/JasonTeixeira/marketingskills)                                                                                                   | reference-library    | reference     | L0       | reference |
@@ -120,6 +128,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [Mobile-Testing-Framework](https://github.com/JasonTeixeira/Mobile-Testing-Framework)                                                                                 | reference-library    | reference     | L0       | stale     |
 | [nautilus_trader](https://github.com/JasonTeixeira/nautilus_trader)                                                                                                   | reference-library    | reference     | L0       | reference |
 | [nautobot](https://github.com/JasonTeixeira/nautobot)                                                                                                                 | reference-library    | reference     | L0       | archived  |
+| [Neural-Network-Architecture-Diagrams](https://github.com/JasonTeixeira/Neural-Network-Architecture-Diagrams)                                                         | reference-library    | reference     | L0       | reference |
 | [NexQuantSite](https://github.com/JasonTeixeira/NexQuantSite)                                                                                                         | public-proof-surface | product-proof | L4       | stale     |
 | [next.js](https://github.com/JasonTeixeira/next.js)                                                                                                                   | reference-library    | reference     | L0       | archived  |
 | [Nexural_Automation](https://github.com/JasonTeixeira/Nexural_Automation)                                                                                             | quant-trading        | engine        | L3       | active    |
@@ -158,6 +167,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [storybook](https://github.com/JasonTeixeira/storybook)                                                                                                               | reference-library    | reference     | L0       | reference |
 | [system-design](https://github.com/JasonTeixeira/system-design)                                                                                                       | reference-library    | reference     | L0       | reference |
 | [system-design_v2](https://github.com/JasonTeixeira/system-design_v2)                                                                                                 | reference-library    | reference     | L0       | reference |
+| [system-design-101](https://github.com/JasonTeixeira/system-design-101)                                                                                               | reference-library    | reference     | L0       | reference |
 | [system-design-primer](https://github.com/JasonTeixeira/system-design-primer)                                                                                         | reference-library    | reference     | L0       | archived  |
 | [tabler](https://github.com/JasonTeixeira/tabler)                                                                                                                     | reference-library    | reference     | L0       | archived  |
 | [tech-interview-handbook](https://github.com/JasonTeixeira/tech-interview-handbook)                                                                                   | reference-library    | reference     | L0       | archived  |

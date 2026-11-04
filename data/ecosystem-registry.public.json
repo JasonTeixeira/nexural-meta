@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-03T09:02:08.683Z",
+  "generated_at": "2026-11-04T09:01:58.720Z",
   "generated_by": "scripts/ecosystem-inventory.mjs",
   "owner": "JasonTeixeira",
   "privacy": "public-safe",
   "note": "Private repositories are summarized by count only. Full inventory is generated locally at .nexural/private/ecosystem-registry.internal.json.",
   "totals": {
-    "total": 143,
-    "public": 143,
+    "total": 153,
+    "public": 153,
     "private": 0,
     "archived": 47,
-    "forks": 93,
+    "forks": 103,
     "by_layer": {
-      "reference-library": 122,
+      "reference-library": 132,
       "quant-trading": 7,
       "agent-engine": 2,
       "ops-knowledge": 4,
@@ -21,7 +21,7 @@
       "control-plane": 1
     },
     "by_asset_type": {
-      "reference": 123,
+      "reference": 133,
       "engine": 7,
       "playbook": 4,
       "product-proof": 5,
@@ -29,13 +29,13 @@
       "control-plane": 1
     },
     "by_maturity": {
-      "L0": 130,
+      "L0": 140,
       "L4": 8,
       "L2": 3,
       "L3": 2
     },
     "by_status": {
-      "reference": 50,
+      "reference": 60,
       "stale": 36,
       "archived": 47,
       "active": 5,
@@ -83,7 +83,44 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 376,
+        "stale_days": 377,
+        "needs_private_review": false
+      }
+    },
+    {
+      "name": "30-Days-Of-Python",
+      "full_name": "JasonTeixeira/30-Days-Of-Python",
+      "url": "https://github.com/JasonTeixeira/30-Days-Of-Python",
+      "visibility": "PUBLIC",
+      "is_private": false,
+      "is_archived": false,
+      "is_fork": true,
+      "is_mirror": false,
+      "is_template": false,
+      "primary_language": null,
+      "languages": [],
+      "topics": [],
+      "homepage_url": null,
+      "created_at": "2026-11-03T14:23:53Z",
+      "pushed_at": "2026-09-30T08:10:34Z",
+      "updated_at": "2026-11-03T14:23:54Z",
+      "default_branch": "master",
+      "license": null,
+      "parent": null,
+      "disk_usage_kb": 31550,
+      "stargazers": 0,
+      "canonical": {
+        "canonical_name": "30-Days-Of-Python",
+        "layer": "reference-library",
+        "asset_type": "reference",
+        "maturity": "L0",
+        "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
+        "public_exposure": "public"
+      },
+      "operational": {
+        "status": "reference",
+        "stale_days": 35,
         "needs_private_review": false
       }
     },
@@ -120,7 +157,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 458,
+        "stale_days": 459,
         "needs_private_review": false
       }
     },
@@ -157,7 +194,81 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 187,
+        "stale_days": 188,
+        "needs_private_review": false
+      }
+    },
+    {
+      "name": "ai-system-design-guide",
+      "full_name": "JasonTeixeira/ai-system-design-guide",
+      "url": "https://github.com/JasonTeixeira/ai-system-design-guide",
+      "visibility": "PUBLIC",
+      "is_private": false,
+      "is_archived": false,
+      "is_fork": true,
+      "is_mirror": false,
+      "is_template": false,
+      "primary_language": null,
+      "languages": [],
+      "topics": [],
+      "homepage_url": "https://www.aidaddy.tech",
+      "created_at": "2026-11-03T19:25:44Z",
+      "pushed_at": "2026-11-02T01:21:08Z",
+      "updated_at": "2026-11-03T19:25:44Z",
+      "default_branch": "main",
+      "license": "MIT",
+      "parent": null,
+      "disk_usage_kb": 3218,
+      "stargazers": 0,
+      "canonical": {
+        "canonical_name": "ai-system-design-guide",
+        "layer": "reference-library",
+        "asset_type": "reference",
+        "maturity": "L0",
+        "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
+        "public_exposure": "public"
+      },
+      "operational": {
+        "status": "reference",
+        "stale_days": 2,
+        "needs_private_review": false
+      }
+    },
+    {
+      "name": "ai-system-design-SM",
+      "full_name": "JasonTeixeira/ai-system-design-SM",
+      "url": "https://github.com/JasonTeixeira/ai-system-design-SM",
+      "visibility": "PUBLIC",
+      "is_private": false,
+      "is_archived": false,
+      "is_fork": true,
+      "is_mirror": false,
+      "is_template": false,
+      "primary_language": null,
+      "languages": [],
+      "topics": [],
+      "homepage_url": null,
+      "created_at": "2026-11-03T19:10:16Z",
+      "pushed_at": "2026-06-24T03:13:30Z",
+      "updated_at": "2026-11-03T19:10:16Z",
+      "default_branch": "main",
+      "license": "MIT",
+      "parent": null,
+      "disk_usage_kb": 1119,
+      "stargazers": 0,
+      "canonical": {
+        "canonical_name": "ai-system-design-SM",
+        "layer": "reference-library",
+        "asset_type": "reference",
+        "maturity": "L0",
+        "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
+        "public_exposure": "public"
+      },
+      "operational": {
+        "status": "reference",
+        "stale_days": 133,
         "needs_private_review": false
       }
     },
@@ -194,7 +305,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 192,
+        "stale_days": 193,
         "needs_private_review": false
       }
     },
@@ -247,7 +358,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 185,
+        "stale_days": 186,
         "needs_private_review": false
       }
     },
@@ -284,7 +395,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 299,
+        "stale_days": 300,
         "needs_private_review": false
       }
     },
@@ -321,7 +432,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 192,
+        "stale_days": 193,
         "needs_private_review": false
       }
     },
@@ -358,7 +469,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 201,
+        "stale_days": 202,
         "needs_private_review": false
       }
     },
@@ -395,7 +506,44 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 749,
+        "stale_days": 750,
+        "needs_private_review": false
+      }
+    },
+    {
+      "name": "awesome-architecture",
+      "full_name": "JasonTeixeira/awesome-architecture",
+      "url": "https://github.com/JasonTeixeira/awesome-architecture",
+      "visibility": "PUBLIC",
+      "is_private": false,
+      "is_archived": false,
+      "is_fork": true,
+      "is_mirror": false,
+      "is_template": false,
+      "primary_language": null,
+      "languages": [],
+      "topics": [],
+      "homepage_url": "https://study8677.github.io/awesome-architecture/",
+      "created_at": "2026-11-03T19:05:49Z",
+      "pushed_at": "2026-09-21T03:20:49Z",
+      "updated_at": "2026-11-03T19:05:49Z",
+      "default_branch": "main",
+      "license": "MIT",
+      "parent": null,
+      "disk_usage_kb": 2066,
+      "stargazers": 0,
+      "canonical": {
+        "canonical_name": "awesome-architecture",
+        "layer": "reference-library",
+        "asset_type": "reference",
+        "maturity": "L0",
+        "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
+        "public_exposure": "public"
+      },
+      "operational": {
+        "status": "reference",
+        "stale_days": 44,
         "needs_private_review": false
       }
     },
@@ -432,7 +580,44 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 644,
+        "stale_days": 645,
+        "needs_private_review": false
+      }
+    },
+    {
+      "name": "awesome-diagrams",
+      "full_name": "JasonTeixeira/awesome-diagrams",
+      "url": "https://github.com/JasonTeixeira/awesome-diagrams",
+      "visibility": "PUBLIC",
+      "is_private": false,
+      "is_archived": false,
+      "is_fork": true,
+      "is_mirror": false,
+      "is_template": false,
+      "primary_language": null,
+      "languages": [],
+      "topics": [],
+      "homepage_url": "https://softwarediagrams.com",
+      "created_at": "2026-11-03T19:06:19Z",
+      "pushed_at": "2026-10-01T05:19:17Z",
+      "updated_at": "2026-11-03T19:06:20Z",
+      "default_branch": "main",
+      "license": "CC-BY-SA-4.0",
+      "parent": null,
+      "disk_usage_kb": 18004,
+      "stargazers": 0,
+      "canonical": {
+        "canonical_name": "awesome-diagrams",
+        "layer": "reference-library",
+        "asset_type": "reference",
+        "maturity": "L0",
+        "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
+        "public_exposure": "public"
+      },
+      "operational": {
+        "status": "reference",
+        "stale_days": 34,
         "needs_private_review": false
       }
     },
@@ -469,7 +654,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 634,
+        "stale_days": 635,
         "needs_private_review": false
       }
     },
@@ -506,7 +691,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 685,
+        "stale_days": 686,
         "needs_private_review": false
       }
     },
@@ -543,7 +728,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 813,
+        "stale_days": 814,
         "needs_private_review": false
       }
     },
@@ -580,7 +765,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 794,
+        "stale_days": 795,
         "needs_private_review": false
       }
     },
@@ -617,7 +802,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 401,
+        "stale_days": 402,
         "needs_private_review": false
       }
     },
@@ -654,7 +839,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 696,
+        "stale_days": 697,
         "needs_private_review": false
       }
     },
@@ -691,7 +876,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 650,
+        "stale_days": 651,
         "needs_private_review": false
       }
     },
@@ -728,7 +913,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 628,
+        "stale_days": 629,
         "needs_private_review": false
       }
     },
@@ -765,7 +950,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 826,
+        "stale_days": 827,
         "needs_private_review": false
       }
     },
@@ -802,7 +987,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 655,
+        "stale_days": 656,
         "needs_private_review": false
       }
     },
@@ -839,7 +1024,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 805,
+        "stale_days": 806,
         "needs_private_review": false
       }
     },
@@ -876,7 +1061,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 299,
+        "stale_days": 300,
         "needs_private_review": false
       }
     },
@@ -913,7 +1098,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 621,
+        "stale_days": 622,
         "needs_private_review": false
       }
     },
@@ -950,7 +1135,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 739,
+        "stale_days": 740,
         "needs_private_review": false
       }
     },
@@ -987,7 +1172,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 172,
+        "stale_days": 173,
         "needs_private_review": false
       }
     },
@@ -1024,7 +1209,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 188,
+        "stale_days": 189,
         "needs_private_review": false
       }
     },
@@ -1061,7 +1246,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 790,
+        "stale_days": 791,
         "needs_private_review": false
       }
     },
@@ -1098,7 +1283,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 621,
+        "stale_days": 622,
         "needs_private_review": false
       }
     },
@@ -1135,7 +1320,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 299,
+        "stale_days": 300,
         "needs_private_review": false
       }
     },
@@ -1172,7 +1357,44 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 164,
+        "stale_days": 165,
+        "needs_private_review": false
+      }
+    },
+    {
+      "name": "claude-cookbooks",
+      "full_name": "JasonTeixeira/claude-cookbooks",
+      "url": "https://github.com/JasonTeixeira/claude-cookbooks",
+      "visibility": "PUBLIC",
+      "is_private": false,
+      "is_archived": false,
+      "is_fork": true,
+      "is_mirror": false,
+      "is_template": false,
+      "primary_language": null,
+      "languages": [],
+      "topics": [],
+      "homepage_url": null,
+      "created_at": "2026-11-03T17:17:03Z",
+      "pushed_at": "2026-11-02T21:46:46Z",
+      "updated_at": "2026-11-03T17:17:03Z",
+      "default_branch": "main",
+      "license": "MIT",
+      "parent": null,
+      "disk_usage_kb": 233395,
+      "stargazers": 0,
+      "canonical": {
+        "canonical_name": "claude-cookbooks",
+        "layer": "reference-library",
+        "asset_type": "reference",
+        "maturity": "L0",
+        "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
+        "public_exposure": "public"
+      },
+      "operational": {
+        "status": "reference",
+        "stale_days": 1,
         "needs_private_review": false
       }
     },
@@ -1209,7 +1431,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 186,
+        "stale_days": 187,
         "needs_private_review": false
       }
     },
@@ -1246,7 +1468,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 740,
+        "stale_days": 741,
         "needs_private_review": false
       }
     },
@@ -1283,7 +1505,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 741,
+        "stale_days": 742,
         "needs_private_review": false
       }
     },
@@ -1320,7 +1542,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 354,
+        "stale_days": 355,
         "needs_private_review": false
       }
     },
@@ -1357,7 +1579,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 355,
+        "stale_days": 356,
         "needs_private_review": false
       }
     },
@@ -1394,7 +1616,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 355,
+        "stale_days": 356,
         "needs_private_review": false
       }
     },
@@ -1431,7 +1653,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 309,
+        "stale_days": 310,
         "needs_private_review": false
       }
     },
@@ -1468,7 +1690,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 633,
+        "stale_days": 634,
         "needs_private_review": false
       }
     },
@@ -1505,7 +1727,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 182,
+        "stale_days": 183,
         "needs_private_review": false
       }
     },
@@ -1542,7 +1764,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 633,
+        "stale_days": 634,
         "needs_private_review": false
       }
     },
@@ -1579,7 +1801,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 738,
+        "stale_days": 739,
         "needs_private_review": false
       }
     },
@@ -1616,7 +1838,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 794,
+        "stale_days": 795,
         "needs_private_review": false
       }
     },
@@ -1653,7 +1875,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 739,
+        "stale_days": 740,
         "needs_private_review": false
       }
     },
@@ -1690,7 +1912,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 373,
+        "stale_days": 374,
         "needs_private_review": false
       }
     },
@@ -1727,7 +1949,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 169,
+        "stale_days": 170,
         "needs_private_review": false
       }
     },
@@ -1764,7 +1986,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 192,
+        "stale_days": 193,
         "needs_private_review": false
       }
     },
@@ -1801,7 +2023,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 299,
+        "stale_days": 300,
         "needs_private_review": false
       }
     },
@@ -1838,7 +2060,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 355,
+        "stale_days": 356,
         "needs_private_review": false
       }
     },
@@ -1875,7 +2097,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 739,
+        "stale_days": 740,
         "needs_private_review": false
       }
     },
@@ -1912,7 +2134,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 438,
+        "stale_days": 439,
         "needs_private_review": false
       }
     },
@@ -1949,7 +2171,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 171,
+        "stale_days": 172,
         "needs_private_review": false
       }
     },
@@ -1986,7 +2208,44 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 168,
+        "stale_days": 169,
+        "needs_private_review": false
+      }
+    },
+    {
+      "name": "gloomberb",
+      "full_name": "JasonTeixeira/gloomberb",
+      "url": "https://github.com/JasonTeixeira/gloomberb",
+      "visibility": "PUBLIC",
+      "is_private": false,
+      "is_archived": false,
+      "is_fork": true,
+      "is_mirror": false,
+      "is_template": false,
+      "primary_language": null,
+      "languages": [],
+      "topics": [],
+      "homepage_url": "https://gloom.sh",
+      "created_at": "2026-11-03T14:06:18Z",
+      "pushed_at": "2026-11-03T13:47:58Z",
+      "updated_at": "2026-11-03T14:06:19Z",
+      "default_branch": "main",
+      "license": "Other",
+      "parent": null,
+      "disk_usage_kb": 681710,
+      "stargazers": 0,
+      "canonical": {
+        "canonical_name": "gloomberb",
+        "layer": "reference-library",
+        "asset_type": "reference",
+        "maturity": "L0",
+        "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
+        "public_exposure": "public"
+      },
+      "operational": {
+        "status": "reference",
+        "stale_days": 0,
         "needs_private_review": false
       }
     },
@@ -2023,7 +2282,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 940,
+        "stale_days": 941,
         "needs_private_review": false
       }
     },
@@ -2060,7 +2319,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 162,
+        "stale_days": 163,
         "needs_private_review": false
       }
     },
@@ -2097,7 +2356,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 162,
+        "stale_days": 163,
         "needs_private_review": false
       }
     },
@@ -2134,7 +2393,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 403,
+        "stale_days": 404,
         "needs_private_review": false
       }
     },
@@ -2171,7 +2430,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 963,
+        "stale_days": 964,
         "needs_private_review": false
       }
     },
@@ -2208,7 +2467,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 621,
+        "stale_days": 622,
         "needs_private_review": false
       }
     },
@@ -2245,7 +2504,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 309,
+        "stale_days": 310,
         "needs_private_review": false
       }
     },
@@ -2264,12 +2523,12 @@
       "topics": ["cloud-architect", "developer", "portfolio", "profile", "resume"],
       "homepage_url": "https://agency.sageideas.dev",
       "created_at": "2024-10-10T00:13:10Z",
-      "pushed_at": "2026-11-02T16:58:27Z",
-      "updated_at": "2026-11-02T16:58:31Z",
+      "pushed_at": "2026-11-03T14:06:43Z",
+      "updated_at": "2026-11-03T14:06:47Z",
       "default_branch": "main",
       "license": null,
       "parent": null,
-      "disk_usage_kb": 1644,
+      "disk_usage_kb": 1647,
       "stargazers": 0,
       "canonical": {
         "canonical_name": "JasonTeixeira GitHub Profile",
@@ -2319,7 +2578,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 129,
+        "stale_days": 130,
         "needs_private_review": false
       }
     },
@@ -2356,7 +2615,7 @@
       },
       "operational": {
         "status": "active",
-        "stale_days": 1,
+        "stale_days": 2,
         "needs_private_review": false
       }
     },
@@ -2393,7 +2652,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 616,
+        "stale_days": 617,
         "needs_private_review": false
       }
     },
@@ -2430,7 +2689,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 774,
+        "stale_days": 775,
         "needs_private_review": false
       }
     },
@@ -2467,7 +2726,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 165,
+        "stale_days": 166,
         "needs_private_review": false
       }
     },
@@ -2504,7 +2763,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 739,
+        "stale_days": 740,
         "needs_private_review": false
       }
     },
@@ -2541,7 +2800,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 296,
+        "stale_days": 297,
         "needs_private_review": false
       }
     },
@@ -2578,7 +2837,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 178,
+        "stale_days": 179,
         "needs_private_review": false
       }
     },
@@ -2615,7 +2874,44 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 433,
+        "stale_days": 434,
+        "needs_private_review": false
+      }
+    },
+    {
+      "name": "llm_engineering",
+      "full_name": "JasonTeixeira/llm_engineering",
+      "url": "https://github.com/JasonTeixeira/llm_engineering",
+      "visibility": "PUBLIC",
+      "is_private": false,
+      "is_archived": false,
+      "is_fork": true,
+      "is_mirror": false,
+      "is_template": false,
+      "primary_language": null,
+      "languages": [],
+      "topics": [],
+      "homepage_url": null,
+      "created_at": "2026-11-03T20:20:55Z",
+      "pushed_at": "2026-10-31T23:11:11Z",
+      "updated_at": "2026-11-03T20:20:55Z",
+      "default_branch": "main",
+      "license": "MIT",
+      "parent": null,
+      "disk_usage_kb": 578105,
+      "stargazers": 0,
+      "canonical": {
+        "canonical_name": "llm_engineering",
+        "layer": "reference-library",
+        "asset_type": "reference",
+        "maturity": "L0",
+        "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
+        "public_exposure": "public"
+      },
+      "operational": {
+        "status": "reference",
+        "stale_days": 3,
         "needs_private_review": false
       }
     },
@@ -2652,7 +2948,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 79,
+        "stale_days": 80,
         "needs_private_review": false
       }
     },
@@ -2689,7 +2985,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 423,
+        "stale_days": 424,
         "needs_private_review": false
       }
     },
@@ -2726,7 +3022,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 181,
+        "stale_days": 182,
         "needs_private_review": false
       }
     },
@@ -2763,7 +3059,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 354,
+        "stale_days": 355,
         "needs_private_review": false
       }
     },
@@ -2800,7 +3096,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 168,
+        "stale_days": 169,
         "needs_private_review": false
       }
     },
@@ -2845,7 +3141,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 188,
+        "stale_days": 189,
         "needs_private_review": false
       }
     },
@@ -2882,7 +3178,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 299,
+        "stale_days": 300,
         "needs_private_review": false
       }
     },
@@ -2919,7 +3215,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 166,
+        "stale_days": 167,
         "needs_private_review": false
       }
     },
@@ -2956,7 +3252,44 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 732,
+        "stale_days": 733,
+        "needs_private_review": false
+      }
+    },
+    {
+      "name": "Neural-Network-Architecture-Diagrams",
+      "full_name": "JasonTeixeira/Neural-Network-Architecture-Diagrams",
+      "url": "https://github.com/JasonTeixeira/Neural-Network-Architecture-Diagrams",
+      "visibility": "PUBLIC",
+      "is_private": false,
+      "is_archived": false,
+      "is_fork": true,
+      "is_mirror": false,
+      "is_template": false,
+      "primary_language": null,
+      "languages": [],
+      "topics": [],
+      "homepage_url": "https://towardsdatascience.com/how-to-easily-draw-neural-network-architecture-diagrams-a6b6138ed875",
+      "created_at": "2026-11-03T19:13:37Z",
+      "pushed_at": "2025-04-12T16:09:36Z",
+      "updated_at": "2026-11-03T19:13:37Z",
+      "default_branch": "main",
+      "license": "MIT",
+      "parent": null,
+      "disk_usage_kb": 679,
+      "stargazers": 0,
+      "canonical": {
+        "canonical_name": "Neural-Network-Architecture-Diagrams",
+        "layer": "reference-library",
+        "asset_type": "reference",
+        "maturity": "L0",
+        "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
+        "public_exposure": "public"
+      },
+      "operational": {
+        "status": "reference",
+        "stale_days": 570,
         "needs_private_review": false
       }
     },
@@ -2993,7 +3326,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 190,
+        "stale_days": 191,
         "needs_private_review": false
       }
     },
@@ -3030,7 +3363,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 621,
+        "stale_days": 622,
         "needs_private_review": false
       }
     },
@@ -3065,12 +3398,12 @@
       "homepage_url": "https://jasonteixeira.github.io/Nexural_Automation/",
       "created_at": "2026-03-15T15:09:55Z",
       "pushed_at": "2026-10-16T11:24:14Z",
-      "updated_at": "2026-10-25T05:27:13Z",
+      "updated_at": "2026-11-03T21:45:01Z",
       "default_branch": "main",
       "license": "Other",
       "parent": null,
       "disk_usage_kb": 3761,
-      "stargazers": 9,
+      "stargazers": 10,
       "canonical": {
         "canonical_name": "Nexural Automation",
         "layer": "quant-trading",
@@ -3082,7 +3415,7 @@
       },
       "operational": {
         "status": "active",
-        "stale_days": 17,
+        "stale_days": 18,
         "needs_private_review": false
       }
     },
@@ -3119,7 +3452,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 330,
+        "stale_days": 331,
         "needs_private_review": false
       }
     },
@@ -3156,7 +3489,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 212,
+        "stale_days": 213,
         "needs_private_review": false
       }
     },
@@ -3193,7 +3526,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 113,
+        "stale_days": 114,
         "needs_private_review": false
       }
     },
@@ -3219,12 +3552,12 @@
       ],
       "homepage_url": null,
       "created_at": "2026-05-22T12:11:28Z",
-      "pushed_at": "2026-11-02T10:09:15Z",
-      "updated_at": "2026-11-02T10:09:20Z",
+      "pushed_at": "2026-11-03T09:03:01Z",
+      "updated_at": "2026-11-03T09:03:06Z",
       "default_branch": "main",
       "license": null,
       "parent": null,
-      "disk_usage_kb": 5260,
+      "disk_usage_kb": 5329,
       "stargazers": 0,
       "canonical": {
         "canonical_name": "Sage Ideas Engineering OS Control Plane",
@@ -3274,7 +3607,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 205,
+        "stale_days": 206,
         "needs_private_review": false
       }
     },
@@ -3311,7 +3644,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 373,
+        "stale_days": 374,
         "needs_private_review": false
       }
     },
@@ -3355,7 +3688,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 354,
+        "stale_days": 355,
         "needs_private_review": false
       }
     },
@@ -3392,7 +3725,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 658,
+        "stale_days": 659,
         "needs_private_review": false
       }
     },
@@ -3429,7 +3762,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 809,
+        "stale_days": 810,
         "needs_private_review": false
       }
     },
@@ -3466,7 +3799,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 402,
+        "stale_days": 403,
         "needs_private_review": false
       }
     },
@@ -3503,7 +3836,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 299,
+        "stale_days": 300,
         "needs_private_review": false
       }
     },
@@ -3540,7 +3873,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 0,
+        "stale_days": 1,
         "needs_private_review": false
       }
     },
@@ -3584,7 +3917,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 113,
+        "stale_days": 114,
         "needs_private_review": false
       }
     },
@@ -3621,7 +3954,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 633,
+        "stale_days": 634,
         "needs_private_review": false
       }
     },
@@ -3658,7 +3991,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 738,
+        "stale_days": 739,
         "needs_private_review": false
       }
     },
@@ -3695,7 +4028,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 363,
+        "stale_days": 364,
         "needs_private_review": false
       }
     },
@@ -3732,7 +4065,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 432,
+        "stale_days": 433,
         "needs_private_review": false
       }
     },
@@ -3769,7 +4102,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 192,
+        "stale_days": 193,
         "needs_private_review": false
       }
     },
@@ -3806,7 +4139,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 189,
+        "stale_days": 190,
         "needs_private_review": false
       }
     },
@@ -3843,7 +4176,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 700,
+        "stale_days": 701,
         "needs_private_review": false
       }
     },
@@ -3880,7 +4213,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 189,
+        "stale_days": 190,
         "needs_private_review": false
       }
     },
@@ -3917,7 +4250,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 354,
+        "stale_days": 355,
         "needs_private_review": false
       }
     },
@@ -3954,7 +4287,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 183,
+        "stale_days": 184,
         "needs_private_review": false
       }
     },
@@ -3991,7 +4324,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 682,
+        "stale_days": 683,
         "needs_private_review": false
       }
     },
@@ -4028,7 +4361,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 150,
+        "stale_days": 151,
         "needs_private_review": false
       }
     },
@@ -4065,7 +4398,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 189,
+        "stale_days": 190,
         "needs_private_review": false
       }
     },
@@ -4115,7 +4448,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 113,
+        "stale_days": 114,
         "needs_private_review": false
       }
     },
@@ -4152,7 +4485,7 @@
       },
       "operational": {
         "status": "watch",
-        "stale_days": 50,
+        "stale_days": 51,
         "needs_private_review": false
       }
     },
@@ -4189,7 +4522,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 616,
+        "stale_days": 617,
         "needs_private_review": false
       }
     },
@@ -4226,7 +4559,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 310,
+        "stale_days": 311,
         "needs_private_review": false
       }
     },
@@ -4263,7 +4596,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 192,
+        "stale_days": 193,
         "needs_private_review": false
       }
     },
@@ -4300,7 +4633,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 642,
+        "stale_days": 643,
         "needs_private_review": false
       }
     },
@@ -4337,7 +4670,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 177,
+        "stale_days": 178,
         "needs_private_review": false
       }
     },
@@ -4374,7 +4707,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 936,
+        "stale_days": 937,
         "needs_private_review": false
       }
     },
@@ -4411,7 +4744,44 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 356,
+        "stale_days": 357,
+        "needs_private_review": false
+      }
+    },
+    {
+      "name": "system-design-101",
+      "full_name": "JasonTeixeira/system-design-101",
+      "url": "https://github.com/JasonTeixeira/system-design-101",
+      "visibility": "PUBLIC",
+      "is_private": false,
+      "is_archived": false,
+      "is_fork": true,
+      "is_mirror": false,
+      "is_template": false,
+      "primary_language": null,
+      "languages": [],
+      "topics": [],
+      "homepage_url": "https://bytebytego.com/guides",
+      "created_at": "2026-11-03T19:11:22Z",
+      "pushed_at": "2025-04-04T17:30:30Z",
+      "updated_at": "2026-11-03T19:11:22Z",
+      "default_branch": "main",
+      "license": "Other",
+      "parent": null,
+      "disk_usage_kb": 46759,
+      "stargazers": 0,
+      "canonical": {
+        "canonical_name": "system-design-101",
+        "layer": "reference-library",
+        "asset_type": "reference",
+        "maturity": "L0",
+        "role": "Reference source kept for study, comparison, or implementation mining.",
+        "maturity_gaps": [],
+        "public_exposure": "public"
+      },
+      "operational": {
+        "status": "reference",
+        "stale_days": 578,
         "needs_private_review": false
       }
     },
@@ -4448,7 +4818,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 817,
+        "stale_days": 818,
         "needs_private_review": false
       }
     },
@@ -4485,7 +4855,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 631,
+        "stale_days": 632,
         "needs_private_review": false
       }
     },
@@ -4522,7 +4892,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 356,
+        "stale_days": 357,
         "needs_private_review": false
       }
     },
@@ -4566,7 +4936,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 189,
+        "stale_days": 190,
         "needs_private_review": false
       }
     },
@@ -4603,7 +4973,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 745,
+        "stale_days": 746,
         "needs_private_review": false
       }
     },
@@ -4640,7 +5010,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 1384,
+        "stale_days": 1385,
         "needs_private_review": false
       }
     },
@@ -4677,7 +5047,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 1215,
+        "stale_days": 1216,
         "needs_private_review": false
       }
     },
@@ -4714,7 +5084,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 692,
+        "stale_days": 693,
         "needs_private_review": false
       }
     },
@@ -4751,7 +5121,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 860,
+        "stale_days": 861,
         "needs_private_review": false
       }
     },
@@ -4788,7 +5158,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 182,
+        "stale_days": 183,
         "needs_private_review": false
       }
     },
@@ -4825,7 +5195,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 354,
+        "stale_days": 355,
         "needs_private_review": false
       }
     },
@@ -4862,7 +5232,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 184,
+        "stale_days": 185,
         "needs_private_review": false
       }
     },
@@ -4906,7 +5276,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 184,
+        "stale_days": 185,
         "needs_private_review": false
       }
     },
@@ -4943,7 +5313,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 185,
+        "stale_days": 186,
         "needs_private_review": false
       }
     },
@@ -4980,7 +5350,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 627,
+        "stale_days": 628,
         "needs_private_review": false
       }
     },
@@ -5017,7 +5387,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 178,
+        "stale_days": 179,
         "needs_private_review": false
       }
     },
@@ -5054,7 +5424,7 @@
       },
       "operational": {
         "status": "active",
-        "stale_days": 2,
+        "stale_days": 3,
         "needs_private_review": false
       }
     },
@@ -5091,7 +5461,7 @@
       },
       "operational": {
         "status": "archived",
-        "stale_days": 709,
+        "stale_days": 710,
         "needs_private_review": false
       }
     },
@@ -5128,7 +5498,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 214,
+        "stale_days": 215,
         "needs_private_review": false
       }
     },
@@ -5165,7 +5535,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 517,
+        "stale_days": 518,
         "needs_private_review": false
       }
     },
@@ -5202,7 +5572,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 191,
+        "stale_days": 192,
         "needs_private_review": false
       }
     },
@@ -5239,7 +5609,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 183,
+        "stale_days": 184,
         "needs_private_review": false
       }
     },
@@ -5276,7 +5646,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 356,
+        "stale_days": 357,
         "needs_private_review": false
       }
     },
@@ -5313,7 +5683,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 299,
+        "stale_days": 300,
         "needs_private_review": false
       }
     },
@@ -5350,7 +5720,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 170,
+        "stale_days": 171,
         "needs_private_review": false
       }
     },
@@ -5387,7 +5757,7 @@
       },
       "operational": {
         "status": "stale",
-        "stale_days": 354,
+        "stale_days": 355,
         "needs_private_review": false
       }
     },
@@ -5424,7 +5794,7 @@
       },
       "operational": {
         "status": "reference",
-        "stale_days": 164,
+        "stale_days": 165,
         "needs_private_review": false
       }
     }

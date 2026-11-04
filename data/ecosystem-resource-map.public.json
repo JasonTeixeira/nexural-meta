@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-03T09:02:22.875Z",
+  "generated_at": "2026-11-04T09:02:16.008Z",
   "generated_by": "scripts/ecosystem-resource-map.mjs",
-  "source_generated_at": "2026-11-03T09:02:22.436Z",
+  "source_generated_at": "2026-11-04T09:02:15.574Z",
   "privacy": "public-safe",
   "note": "Resource recommendations use public repository metadata only. Private assets remain summarized in scorecards and require local review.",
   "totals": {
     "use_cases": 7,
-    "public_assets_considered": 143,
+    "public_assets_considered": 153,
     "recommended_assets": 12,
     "improve_first_assets": 0
   },
@@ -63,7 +63,7 @@
       ],
       "commands": ["pnpm ecosystem:refresh"],
       "asset_counts": {
-        "candidates": 125,
+        "candidates": 135,
         "recommended": 2,
         "improve_first": 0,
         "reference_only": 6
@@ -138,6 +138,19 @@
           "gaps": ["maturity-l0", "reference-only", "missing-topics"]
         },
         {
+          "name": "ai-system-design-guide",
+          "url": "https://github.com/JasonTeixeira/ai-system-design-guide",
+          "layer": "reference-library",
+          "asset_type": "reference",
+          "maturity": "L0",
+          "role": "Reference source kept for study, comparison, or implementation mining.",
+          "score": 13,
+          "band": "0-49 raw/reference",
+          "status": "reference",
+          "language": null,
+          "gaps": ["maturity-l0", "reference-only", "missing-topics"]
+        },
+        {
           "name": "autogen",
           "url": "https://github.com/JasonTeixeira/autogen",
           "layer": "reference-library",
@@ -151,21 +164,8 @@
           "gaps": ["maturity-l0", "reference-only", "missing-topics"]
         },
         {
-          "name": "aws-serverless-workshops",
-          "url": "https://github.com/JasonTeixeira/aws-serverless-workshops",
-          "layer": "reference-library",
-          "asset_type": "reference",
-          "maturity": "L0",
-          "role": "Reference source kept for study, comparison, or implementation mining.",
-          "score": 13,
-          "band": "0-49 raw/reference",
-          "status": "reference",
-          "language": null,
-          "gaps": ["maturity-l0", "reference-only", "missing-topics"]
-        },
-        {
-          "name": "backtrader",
-          "url": "https://github.com/JasonTeixeira/backtrader",
+          "name": "awesome-architecture",
+          "url": "https://github.com/JasonTeixeira/awesome-architecture",
           "layer": "reference-library",
           "asset_type": "reference",
           "maturity": "L0",
