@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-04T09:02:16.008Z",
+  "generated_at": "2026-11-05T09:01:53.033Z",
   "generated_by": "scripts/ecosystem-resource-map.mjs",
-  "source_generated_at": "2026-11-04T09:02:15.574Z",
+  "source_generated_at": "2026-11-05T09:01:52.818Z",
   "privacy": "public-safe",
   "note": "Resource recommendations use public repository metadata only. Private assets remain summarized in scorecards and require local review.",
   "totals": {
     "use_cases": 7,
-    "public_assets_considered": 153,
+    "public_assets_considered": 155,
     "recommended_assets": 12,
     "improve_first_assets": 0
   },
@@ -63,7 +63,7 @@
       ],
       "commands": ["pnpm ecosystem:refresh"],
       "asset_counts": {
-        "candidates": 135,
+        "candidates": 137,
         "recommended": 2,
         "improve_first": 0,
         "reference_only": 6
@@ -138,6 +138,19 @@
           "gaps": ["maturity-l0", "reference-only", "missing-topics"]
         },
         {
+          "name": "AI-Prep-Buddy",
+          "url": "https://github.com/JasonTeixeira/AI-Prep-Buddy",
+          "layer": "reference-library",
+          "asset_type": "reference",
+          "maturity": "L0",
+          "role": "Reference source kept for study, comparison, or implementation mining.",
+          "score": 13,
+          "band": "0-49 raw/reference",
+          "status": "reference",
+          "language": null,
+          "gaps": ["maturity-l0", "reference-only", "missing-topics"]
+        },
+        {
           "name": "ai-system-design-guide",
           "url": "https://github.com/JasonTeixeira/ai-system-design-guide",
           "layer": "reference-library",
@@ -153,19 +166,6 @@
         {
           "name": "autogen",
           "url": "https://github.com/JasonTeixeira/autogen",
-          "layer": "reference-library",
-          "asset_type": "reference",
-          "maturity": "L0",
-          "role": "Reference source kept for study, comparison, or implementation mining.",
-          "score": 13,
-          "band": "0-49 raw/reference",
-          "status": "reference",
-          "language": null,
-          "gaps": ["maturity-l0", "reference-only", "missing-topics"]
-        },
-        {
-          "name": "awesome-architecture",
-          "url": "https://github.com/JasonTeixeira/awesome-architecture",
           "layer": "reference-library",
           "asset_type": "reference",
           "maturity": "L0",

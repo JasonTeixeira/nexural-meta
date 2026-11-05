@@ -2,7 +2,7 @@
 
 **Status:** Phase 1 generated inventory
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-11-04T09:01:58.720Z
+**Generated:** 2026-11-05T09:01:38.432Z
 **Source:** GitHub owner `JasonTeixeira`
 
 ## Privacy Boundary
@@ -12,11 +12,11 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 
 ## Totals
 
-- Total repositories: **153**
-- Public repositories: **153**
+- Total repositories: **155**
+- Public repositories: **155**
 - Private repositories: **0**
 - Archived repositories: **47**
-- Fork/reference repositories: **103**
+- Fork/reference repositories: **105**
 
 ## Layer Summary
 
@@ -27,7 +27,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | ops-knowledge        |     4 |
 | public-proof-surface |     5 |
 | quant-trading        |     7 |
-| reference-library    |   132 |
+| reference-library    |   134 |
 | resource-library     |     2 |
 
 ## Private Repository Summary
@@ -46,6 +46,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [30-Days-Of-Python](https://github.com/JasonTeixeira/30-Days-Of-Python)                                                                                               | reference-library    | reference     | L0       | reference |
 | [500-ai-agents-projects](https://github.com/JasonTeixeira/500-ai-agents-projects)                                                                                     | reference-library    | reference     | L0       | reference |
 | [agent-browser](https://github.com/JasonTeixeira/agent-browser)                                                                                                       | reference-library    | reference     | L0       | reference |
+| [AI-Prep-Buddy](https://github.com/JasonTeixeira/AI-Prep-Buddy)                                                                                                       | reference-library    | reference     | L0       | reference |
 | [ai-system-design-guide](https://github.com/JasonTeixeira/ai-system-design-guide)                                                                                     | reference-library    | reference     | L0       | reference |
 | [ai-system-design-SM](https://github.com/JasonTeixeira/ai-system-design-SM)                                                                                           | reference-library    | reference     | L0       | reference |
 | [AI-Trader](https://github.com/JasonTeixeira/AI-Trader)                                                                                                               | reference-library    | reference     | L0       | reference |
@@ -96,6 +97,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [E-Commerce-Test-Suite](https://github.com/JasonTeixeira/E-Commerce-Test-Suite)                                                                                       | reference-library    | reference     | L0       | stale     |
 | [E2E-Framework](https://github.com/JasonTeixeira/E2E-Framework)                                                                                                       | reference-library    | reference     | L0       | stale     |
 | [Eidocrypt](https://github.com/JasonTeixeira/Eidocrypt)                                                                                                               | reference-library    | reference     | L0       | stale     |
+| [fastapi](https://github.com/JasonTeixeira/fastapi)                                                                                                                   | reference-library    | reference     | L0       | reference |
 | [finops-toolkit](https://github.com/JasonTeixeira/finops-toolkit)                                                                                                     | reference-library    | reference     | L0       | reference |
 | [FinRL](https://github.com/JasonTeixeira/FinRL)                                                                                                                       | reference-library    | reference     | L0       | archived  |
 | [firebase-admin-node](https://github.com/JasonTeixeira/firebase-admin-node)                                                                                           | reference-library    | reference     | L0       | reference |
