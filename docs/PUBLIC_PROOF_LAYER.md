@@ -2,8 +2,8 @@
 
 **Status:** Phase 6 internal packet ready
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-11-05T09:02:06.590Z
-**Packet hash:** `sha256:c3625022f1f81f84c5745564e3628c4087d2a656a714f0e34eaec984d535427c`
+**Generated:** 2026-11-06T09:02:26.164Z
+**Packet hash:** `sha256:fd239a27dcf2eec82b50b2cf62897b022a1a3f4009e501af05d701ea98d930cd`
 
 ## Positioning
 
@@ -13,9 +13,9 @@ Brand boundary: Nexural is a trading/investment product proof, not the umbrella 
 
 ## Proof Metrics
 
-- Public repositories indexed: 155
+- Public repositories indexed: 157
 - Private repositories summarized: 0
-- Public assets scored: 155
+- Public assets scored: 157
 - Broad public average: 15/100
 - Load-bearing average: 91/100
 - Resource use cases: 7
@@ -23,8 +23,8 @@ Brand boundary: Nexural is a trading/investment product proof, not the umbrella 
 
 ## Public Claims
 
-- **The ecosystem has an indexed public registry.** 155 public repositories indexed; 0 private repositories summarized without names. Source: `data/ecosystem-registry.public.json`.
-- **Assets are scored before they are reused.** 155 public assets scored; public average 15/100, public load-bearing average 91/100. This is a gap map, not vanity scoring. Source: `data/ecosystem-scorecard.public.json`.
+- **The ecosystem has an indexed public registry.** 157 public repositories indexed; 0 private repositories summarized without names. Source: `data/ecosystem-registry.public.json`.
+- **Assets are scored before they are reused.** 157 public assets scored; public average 15/100, public load-bearing average 91/100. This is a gap map, not vanity scoring. Source: `data/ecosystem-scorecard.public.json`.
 - **Build choices are mapped to reusable resources.** 7 use cases mapped for daily navigation. Source: `data/ecosystem-resource-map.public.json`.
 - **The factory path has deployed hosted proof.** 16/16 golden-path gates passed; deployed URL verified at https://sage-client-intake-portal-vercel-ie58l0x9h-sage-ideas.vercel.app. Source: `data/golden-path-runs.public.json`.
 

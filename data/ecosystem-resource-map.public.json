@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-05T09:01:53.033Z",
+  "generated_at": "2026-11-06T09:02:12.285Z",
   "generated_by": "scripts/ecosystem-resource-map.mjs",
-  "source_generated_at": "2026-11-05T09:01:52.818Z",
+  "source_generated_at": "2026-11-06T09:02:12.078Z",
   "privacy": "public-safe",
   "note": "Resource recommendations use public repository metadata only. Private assets remain summarized in scorecards and require local review.",
   "totals": {
     "use_cases": 7,
-    "public_assets_considered": 155,
+    "public_assets_considered": 157,
     "recommended_assets": 12,
     "improve_first_assets": 0
   },
@@ -63,7 +63,7 @@
       ],
       "commands": ["pnpm ecosystem:refresh"],
       "asset_counts": {
-        "candidates": 137,
+        "candidates": 139,
         "recommended": 2,
         "improve_first": 0,
         "reference_only": 6
@@ -125,6 +125,19 @@
           "gaps": ["maturity-l0", "missing-license"]
         },
         {
+          "name": "advanced-sql-practice-mysql",
+          "url": "https://github.com/JasonTeixeira/advanced-sql-practice-mysql",
+          "layer": "reference-library",
+          "asset_type": "reference",
+          "maturity": "L0",
+          "role": "Reference source kept for study, comparison, or implementation mining.",
+          "score": 13,
+          "band": "0-49 raw/reference",
+          "status": "reference",
+          "language": null,
+          "gaps": ["maturity-l0", "reference-only", "missing-topics"]
+        },
+        {
           "name": "agent-browser",
           "url": "https://github.com/JasonTeixeira/agent-browser",
           "layer": "reference-library",
@@ -153,19 +166,6 @@
         {
           "name": "ai-system-design-guide",
           "url": "https://github.com/JasonTeixeira/ai-system-design-guide",
-          "layer": "reference-library",
-          "asset_type": "reference",
-          "maturity": "L0",
-          "role": "Reference source kept for study, comparison, or implementation mining.",
-          "score": 13,
-          "band": "0-49 raw/reference",
-          "status": "reference",
-          "language": null,
-          "gaps": ["maturity-l0", "reference-only", "missing-topics"]
-        },
-        {
-          "name": "autogen",
-          "url": "https://github.com/JasonTeixeira/autogen",
           "layer": "reference-library",
           "asset_type": "reference",
           "maturity": "L0",

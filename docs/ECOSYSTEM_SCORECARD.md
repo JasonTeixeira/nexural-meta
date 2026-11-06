@@ -2,7 +2,7 @@
 
 **Status:** Phase 2 generated maturity map
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-11-05T09:01:52.818Z
+**Generated:** 2026-11-06T09:02:12.078Z
 
 ## Read This Correctly
 
@@ -19,7 +19,7 @@ A large reference library intentionally scores low because reference repos are r
 
 | Band               | Count |
 | ------------------ | ----: |
-| 0-49 raw/reference |   143 |
+| 0-49 raw/reference |   145 |
 | 85-94 strong       |     6 |
 | 95-100 elite       |     4 |
 | 70-84 usable       |     2 |
@@ -33,16 +33,16 @@ A large reference library intentionally scores low because reference repos are r
 | ops-knowledge        |     4 |            0 |            33 |
 | public-proof-surface |     5 |            4 |            85 |
 | quant-trading        |     7 |            2 |            71 |
-| reference-library    |   134 |            0 |             8 |
+| reference-library    |   136 |            0 |             8 |
 | resource-library     |     2 |            0 |            31 |
 
 ## Top Gap Types
 
 | Gap                  | Count |
 | -------------------- | ----: |
-| maturity-l0          |   142 |
-| missing-topics       |   133 |
-| reference-only       |    62 |
+| maturity-l0          |   144 |
+| missing-topics       |   135 |
+| reference-only       |    64 |
 | archived             |    47 |
 | missing-license      |    46 |
 | stale                |    36 |
@@ -58,5 +58,5 @@ A large reference library intentionally scores low because reference repos are r
 ## Next Actions
 
 - **Review private overrides:** 0 private repos are still classified by generic inference.
-- **Separate reference library from product proof narrative:** 134 repos are reference/library assets and should not dilute the public engineering story.
+- **Separate reference library from product proof narrative:** 136 repos are reference/library assets and should not dilute the public engineering story.
 - **Raise load-bearing assets below 70:** 0 load-bearing assets need docs, evidence, topics, homepage, or maturity upgrades.

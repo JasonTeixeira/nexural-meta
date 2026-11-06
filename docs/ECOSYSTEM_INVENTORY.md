@@ -2,7 +2,7 @@
 
 **Status:** Phase 1 generated inventory
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-11-05T09:01:38.432Z
+**Generated:** 2026-11-06T09:01:54.496Z
 **Source:** GitHub owner `JasonTeixeira`
 
 ## Privacy Boundary
@@ -12,11 +12,11 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 
 ## Totals
 
-- Total repositories: **155**
-- Public repositories: **155**
+- Total repositories: **157**
+- Public repositories: **157**
 - Private repositories: **0**
 - Archived repositories: **47**
-- Fork/reference repositories: **105**
+- Fork/reference repositories: **107**
 
 ## Layer Summary
 
@@ -27,7 +27,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | ops-knowledge        |     4 |
 | public-proof-surface |     5 |
 | quant-trading        |     7 |
-| reference-library    |   134 |
+| reference-library    |   136 |
 | resource-library     |     2 |
 
 ## Private Repository Summary
@@ -45,6 +45,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [2025-trading-automation-scripts](https://github.com/JasonTeixeira/2025-trading-automation-scripts)                                                                   | reference-library    | reference     | L0       | reference |
 | [30-Days-Of-Python](https://github.com/JasonTeixeira/30-Days-Of-Python)                                                                                               | reference-library    | reference     | L0       | reference |
 | [500-ai-agents-projects](https://github.com/JasonTeixeira/500-ai-agents-projects)                                                                                     | reference-library    | reference     | L0       | reference |
+| [advanced-sql-practice-mysql](https://github.com/JasonTeixeira/advanced-sql-practice-mysql)                                                                           | reference-library    | reference     | L0       | reference |
 | [agent-browser](https://github.com/JasonTeixeira/agent-browser)                                                                                                       | reference-library    | reference     | L0       | reference |
 | [AI-Prep-Buddy](https://github.com/JasonTeixeira/AI-Prep-Buddy)                                                                                                       | reference-library    | reference     | L0       | reference |
 | [ai-system-design-guide](https://github.com/JasonTeixeira/ai-system-design-guide)                                                                                     | reference-library    | reference     | L0       | reference |
@@ -154,6 +155,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [QuantumTrader](https://github.com/JasonTeixeira/QuantumTrader)                                                                                                       | quant-trading        | engine        | L4       | stale     |
 | [realtime-market-dash](https://github.com/JasonTeixeira/realtime-market-dash)                                                                                         | reference-library    | reference     | L0       | stale     |
 | [realworld](https://github.com/JasonTeixeira/realworld)                                                                                                               | reference-library    | reference     | L0       | archived  |
+| [reflex](https://github.com/JasonTeixeira/reflex)                                                                                                                     | reference-library    | reference     | L0       | reference |
 | [RiskRadar](https://github.com/JasonTeixeira/RiskRadar)                                                                                                               | reference-library    | reference     | L0       | stale     |
 | [RiskRadarEnt](https://github.com/JasonTeixeira/RiskRadarEnt)                                                                                                         | reference-library    | reference     | L0       | stale     |
 | [ruflo](https://github.com/JasonTeixeira/ruflo)                                                                                                                       | reference-library    | reference     | L0       | reference |
