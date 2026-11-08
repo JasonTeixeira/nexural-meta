@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-07T09:02:01.964Z",
+  "generated_at": "2026-11-08T09:01:58.613Z",
   "generated_by": "scripts/ecosystem-resource-map.mjs",
-  "source_generated_at": "2026-11-07T09:02:01.701Z",
+  "source_generated_at": "2026-11-08T09:01:58.276Z",
   "privacy": "public-safe",
   "note": "Resource recommendations use public repository metadata only. Private assets remain summarized in scorecards and require local review.",
   "totals": {
@@ -407,9 +407,9 @@
           "asset_type": "product-proof",
           "maturity": "L3",
           "role": "Public company and proof surface for Sage Ideas.",
-          "score": 88,
-          "band": "85-94 strong",
-          "status": "watch",
+          "score": 98,
+          "band": "95-100 elite",
+          "status": "active",
           "language": "TypeScript",
           "gaps": ["missing-license"]
         },

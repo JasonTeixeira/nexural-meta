@@ -2,7 +2,7 @@
 
 **Status:** Phase 4 generated resource map
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-11-07T09:02:01.964Z
+**Generated:** 2026-11-08T09:01:58.613Z
 
 ## Purpose
 
@@ -109,7 +109,7 @@ Recommended assets:
 
 - [JasonTeixeira](https://github.com/JasonTeixeira/JasonTeixeira) - 100/100, L4
 - [nexural-meta](https://github.com/JasonTeixeira/nexural-meta) - 100/100, L4
-- [sageideas.dev](https://github.com/JasonTeixeira/sageideas.dev) - 88/100, L3
+- [sageideas.dev](https://github.com/JasonTeixeira/sageideas.dev) - 98/100, L3
 - [jt-portfolio](https://github.com/JasonTeixeira/jt-portfolio) - 78/100, L2
 - [tripleten-ai-automation-portfolio](https://github.com/JasonTeixeira/tripleten-ai-automation-portfolio) - 73/100, L2
 

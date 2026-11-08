@@ -2,7 +2,7 @@
 
 **Status:** Phase 2 generated maturity map
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-11-07T09:02:01.701Z
+**Generated:** 2026-11-08T09:01:58.276Z
 
 ## Read This Correctly
 
@@ -12,7 +12,7 @@ A large reference library intentionally scores low because reference repos are r
 ## Executive Scores
 
 - Average across all repos: **15/100**
-- Load-bearing asset average: **91/100** across **7** assets
+- Load-bearing asset average: **93/100** across **7** assets
 - Private repo average: **0/100**
 
 ## Score Bands
@@ -20,8 +20,8 @@ A large reference library intentionally scores low because reference repos are r
 | Band               | Count |
 | ------------------ | ----: |
 | 0-49 raw/reference |   145 |
-| 85-94 strong       |     6 |
-| 95-100 elite       |     4 |
+| 85-94 strong       |     5 |
+| 95-100 elite       |     5 |
 | 70-84 usable       |     2 |
 
 ## Layer Scores
@@ -31,7 +31,7 @@ A large reference library intentionally scores low because reference repos are r
 | agent-engine         |     2 |            0 |            23 |
 | control-plane        |     1 |            1 |           100 |
 | ops-knowledge        |     4 |            0 |            33 |
-| public-proof-surface |     5 |            4 |            85 |
+| public-proof-surface |     5 |            4 |            87 |
 | quant-trading        |     7 |            2 |            71 |
 | reference-library    |   136 |            0 |             8 |
 | resource-library     |     2 |            0 |            31 |

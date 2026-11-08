@@ -2,7 +2,7 @@
 
 **Status:** Phase 1 generated inventory
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-11-07T09:01:45.719Z
+**Generated:** 2026-11-08T09:01:44.703Z
 **Source:** GitHub owner `JasonTeixeira`
 
 ## Privacy Boundary
@@ -163,7 +163,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [sage-after-dark](https://github.com/JasonTeixeira/sage-after-dark)                                                                                                   | reference-library    | reference     | L0       | stale     |
 | [sage-cli](https://github.com/JasonTeixeira/sage-cli)                                                                                                                 | reference-library    | reference     | L0       | stale     |
 | [sage-kernel](https://github.com/JasonTeixeira/sage-kernel)                                                                                                           | agent-engine         | engine        | L0       | watch     |
-| [sageideas.dev](https://github.com/JasonTeixeira/sageideas.dev)                                                                                                       | public-proof-surface | product-proof | L3       | watch     |
+| [sageideas.dev](https://github.com/JasonTeixeira/sageideas.dev)                                                                                                       | public-proof-surface | product-proof | L3       | active    |
 | [saleor](https://github.com/JasonTeixeira/saleor)                                                                                                                     | reference-library    | reference     | L0       | archived  |
 | [Security-Testing-Framework](https://github.com/JasonTeixeira/Security-Testing-Framework)                                                                             | reference-library    | reference     | L0       | stale     |
 | [Security-Testing-Suite](https://github.com/JasonTeixeira/Security-Testing-Suite)                                                                                     | reference-library    | reference     | L0       | stale     |
