@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-10T09:02:37.001Z",
+  "generated_at": "2026-11-11T09:02:06.486Z",
   "generated_by": "scripts/maturity-lift-plan.mjs",
   "privacy": "public-safe",
   "phase": "Phase 19",
   "status": "elite",
   "summary": {
-    "current_load_bearing_average": 93,
+    "current_load_bearing_average": 92,
     "target_1": 85,
     "target_2": 90,
-    "load_bearing_assets": 7,
+    "load_bearing_assets": 6,
     "lift_items": 11,
     "resource_library_queue_items": 25
   },
@@ -121,5 +121,5 @@
     }
   ],
   "score_model_note": "This report does not inflate maturity scores. It defines the work required to raise the scorecard in subsequent proof refreshes.",
-  "evidence_hash": "sha256:0e500c42b61ee520da13435842b868098ba33ca759512826df8a156eebdad208"
+  "evidence_hash": "sha256:fcb43e4d3cd9c87976ef18c25b6463f146563654f4ada1bd0c2dadb18019e3ec"
 }

@@ -1,17 +1,17 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-10T09:02:27.965Z",
+  "generated_at": "2026-11-11T09:01:57.513Z",
   "generated_by": "scripts/resource-library-catalog.mjs",
   "privacy": "public-safe",
   "status": "generated",
   "purpose": "Unified resource library for choosing reusable engines, kits, recipes, SDKs, playbooks, QA assets, and proof-backed paths.",
   "totals": {
-    "assets": 169,
+    "assets": 172,
     "use_cases": 7,
     "recipes": 12,
     "proof_backed_recipes": 3,
-    "load_bearing_assets": 7,
-    "load_bearing_average_score": 93,
+    "load_bearing_assets": 6,
+    "load_bearing_average_score": 92,
     "proof_environment_status": "failed",
     "golden_path_passed_runs": 202
   },
@@ -372,19 +372,6 @@
       "load_bearing": true
     },
     {
-      "name": "nexural-automation-starter",
-      "url": "https://github.com/JasonTeixeira/nexural-automation-starter",
-      "layer": "quant-trading",
-      "asset_type": "kit",
-      "maturity": "L4",
-      "status": "watch",
-      "score": 100,
-      "proof": "repo-metadata",
-      "gaps": [],
-      "recommended_use": "Paper-money-safe webhook and paper-order starter kit with Python, Node, Pine Script, shared env schema, webhook secret validation, logging, and notional caps.",
-      "load_bearing": true
-    },
-    {
       "name": "nexural-meta",
       "url": "https://github.com/JasonTeixeira/nexural-meta",
       "layer": "control-plane",
@@ -407,6 +394,19 @@
       "proof": "golden-path",
       "gaps": [],
       "recommended_use": "Chat product with RAG (Retrieval-Augmented Generation) over user-uploaded"
+    },
+    {
+      "name": "nexural-automation-starter",
+      "url": "https://github.com/JasonTeixeira/nexural-automation-starter",
+      "layer": "quant-trading",
+      "asset_type": "kit",
+      "maturity": "L4",
+      "status": "stale",
+      "score": 98,
+      "proof": "repo-metadata",
+      "gaps": ["stale"],
+      "recommended_use": "Paper-money-safe webhook and paper-order starter kit with Python, Node, Pine Script, shared env schema, webhook secret validation, logging, and notional caps.",
+      "load_bearing": false
     },
     {
       "name": "sageideas.dev",

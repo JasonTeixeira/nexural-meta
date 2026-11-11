@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-10T09:02:23.031Z",
+  "generated_at": "2026-11-11T09:01:53.766Z",
   "generated_by": "scripts/ecosystem-resource-map.mjs",
-  "source_generated_at": "2026-11-10T09:02:22.737Z",
+  "source_generated_at": "2026-11-11T09:01:53.562Z",
   "privacy": "public-safe",
   "note": "Resource recommendations use public repository metadata only. Private assets remain summarized in scorecards and require local review.",
   "totals": {
     "use_cases": 7,
-    "public_assets_considered": 157,
+    "public_assets_considered": 160,
     "recommended_assets": 12,
     "improve_first_assets": 0
   },
@@ -63,7 +63,7 @@
       ],
       "commands": ["pnpm ecosystem:refresh"],
       "asset_counts": {
-        "candidates": 139,
+        "candidates": 142,
         "recommended": 2,
         "improve_first": 0,
         "reference_only": 6
@@ -112,19 +112,6 @@
           "gaps": ["maturity-l0", "missing-topics"]
         },
         {
-          "name": "playwright-sdet-regression-suite",
-          "url": "https://github.com/JasonTeixeira/playwright-sdet-regression-suite",
-          "layer": "reference-library",
-          "asset_type": "reference",
-          "maturity": "L0",
-          "role": "Reference source kept for learning or future implementation mining.",
-          "score": 23,
-          "band": "0-49 raw/reference",
-          "status": "watch",
-          "language": "TypeScript",
-          "gaps": ["maturity-l0", "missing-license"]
-        },
-        {
           "name": "advanced-sql-practice-mysql",
           "url": "https://github.com/JasonTeixeira/advanced-sql-practice-mysql",
           "layer": "reference-library",
@@ -166,6 +153,19 @@
         {
           "name": "ai-system-design-guide",
           "url": "https://github.com/JasonTeixeira/ai-system-design-guide",
+          "layer": "reference-library",
+          "asset_type": "reference",
+          "maturity": "L0",
+          "role": "Reference source kept for study, comparison, or implementation mining.",
+          "score": 13,
+          "band": "0-49 raw/reference",
+          "status": "reference",
+          "language": null,
+          "gaps": ["maturity-l0", "reference-only", "missing-topics"]
+        },
+        {
+          "name": "autogen",
+          "url": "https://github.com/JasonTeixeira/autogen",
           "layer": "reference-library",
           "asset_type": "reference",
           "maturity": "L0",
@@ -273,19 +273,6 @@
       },
       "recommended_assets": [
         {
-          "name": "nexural-automation-starter",
-          "url": "https://github.com/JasonTeixeira/nexural-automation-starter",
-          "layer": "quant-trading",
-          "asset_type": "kit",
-          "maturity": "L4",
-          "role": "Paper-money-safe webhook and paper-order starter kit with Python, Node, Pine Script, shared env schema, webhook secret validation, logging, and notional caps.",
-          "score": 100,
-          "band": "95-100 elite",
-          "status": "watch",
-          "language": "Python",
-          "gaps": []
-        },
-        {
           "name": "nexural-meta",
           "url": "https://github.com/JasonTeixeira/nexural-meta",
           "layer": "control-plane",
@@ -310,6 +297,19 @@
           "status": "active",
           "language": "TypeScript",
           "gaps": []
+        },
+        {
+          "name": "nexural-automation-starter",
+          "url": "https://github.com/JasonTeixeira/nexural-automation-starter",
+          "layer": "quant-trading",
+          "asset_type": "kit",
+          "maturity": "L4",
+          "role": "Paper-money-safe webhook and paper-order starter kit with Python, Node, Pine Script, shared env schema, webhook secret validation, logging, and notional caps.",
+          "score": 98,
+          "band": "95-100 elite",
+          "status": "stale",
+          "language": "Python",
+          "gaps": ["stale"]
         },
         {
           "name": "AlphaStream",

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-10T09:02:37.886Z",
+  "generated_at": "2026-11-11T09:02:07.109Z",
   "generated_by": "scripts/public-proof-export.mjs",
   "privacy": "public-safe",
   "target_surface": {
@@ -19,12 +19,12 @@
   "public_claims": [
     {
       "claim": "The ecosystem has an indexed public registry.",
-      "evidence": "157 public repositories indexed; 0 private repositories summarized without names.",
+      "evidence": "160 public repositories indexed; 0 private repositories summarized without names.",
       "source": "data/ecosystem-registry.public.json"
     },
     {
       "claim": "Assets are scored before they are reused.",
-      "evidence": "157 public assets scored; public average 15/100, public load-bearing average 93/100. This is a gap map, not vanity scoring.",
+      "evidence": "160 public assets scored; public average 15/100, public load-bearing average 92/100. This is a gap map, not vanity scoring.",
       "source": "data/ecosystem-scorecard.public.json"
     },
     {
@@ -61,12 +61,12 @@
     }
   ],
   "proof_metrics": {
-    "public_repositories_indexed": 157,
+    "public_repositories_indexed": 160,
     "private_repositories_summarized": 0,
-    "public_assets_scored": 157,
+    "public_assets_scored": 160,
     "average_public_score": 15,
-    "load_bearing_assets": 7,
-    "load_bearing_average_score": 93,
+    "load_bearing_assets": 6,
+    "load_bearing_average_score": 92,
     "resource_use_cases": 7,
     "golden_path_wall_clock_seconds": 53,
     "golden_path_gates_passed": 16,
@@ -179,7 +179,7 @@
     "golden_path_run_id": "rag-knowledge-chat-2026-06-23T101609956Z",
     "golden_path_deployed_url": "https://sage-client-intake-portal-vercel-ie58l0x9h-sage-ideas.vercel.app",
     "golden_path_deploy_status": "verified-vercel-url",
-    "packet_hash": "sha256:a4fe9b1851ba8786d7bd0d6c2a4682b21212cd5fef90f689b9b9eb2430cf2a03"
+    "packet_hash": "sha256:8d76133ed68ef4765d4e39d0c3f7f622d34acf980c5c999f875943821ec07582"
   },
   "redaction_policy": [
     "Commit public repository metadata only.",

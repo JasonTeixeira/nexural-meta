@@ -2,7 +2,7 @@
 
 **Status:** Phase 1 generated inventory
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-11-10T09:02:08.277Z
+**Generated:** 2026-11-11T09:01:37.207Z
 **Source:** GitHub owner `JasonTeixeira`
 
 ## Privacy Boundary
@@ -12,11 +12,11 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 
 ## Totals
 
-- Total repositories: **157**
-- Public repositories: **157**
+- Total repositories: **160**
+- Public repositories: **160**
 - Private repositories: **0**
 - Archived repositories: **47**
-- Fork/reference repositories: **107**
+- Fork/reference repositories: **110**
 
 ## Layer Summary
 
@@ -27,7 +27,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | ops-knowledge        |     4 |
 | public-proof-surface |     5 |
 | quant-trading        |     7 |
-| reference-library    |   136 |
+| reference-library    |   139 |
 | resource-library     |     2 |
 
 ## Private Repository Summary
@@ -90,6 +90,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [coreui-free-react-admin-template](https://github.com/JasonTeixeira/coreui-free-react-admin-template)                                                                 | reference-library    | reference     | L0       | archived  |
 | [crewAI](https://github.com/JasonTeixeira/crewAI)                                                                                                                     | reference-library    | reference     | L0       | reference |
 | [dashboard](https://github.com/JasonTeixeira/dashboard)                                                                                                               | reference-library    | reference     | L0       | archived  |
+| [data-engineering-zoomcamp](https://github.com/JasonTeixeira/data-engineering-zoomcamp)                                                                               | reference-library    | reference     | L0       | reference |
 | [DevOps-Bash-tools](https://github.com/JasonTeixeira/DevOps-Bash-tools)                                                                                               | reference-library    | reference     | L0       | reference |
 | [devops-exercises](https://github.com/JasonTeixeira/devops-exercises)                                                                                                 | reference-library    | reference     | L0       | reference |
 | [Docker-Compose](https://github.com/JasonTeixeira/Docker-Compose)                                                                                                     | reference-library    | reference     | L0       | reference |
@@ -121,6 +122,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [Landing-Zone-Guardrails](https://github.com/JasonTeixeira/Landing-Zone-Guardrails)                                                                                   | reference-library    | reference     | L0       | stale     |
 | [langflow](https://github.com/JasonTeixeira/langflow)                                                                                                                 | reference-library    | reference     | L0       | reference |
 | [Lean-testing](https://github.com/JasonTeixeira/Lean-testing)                                                                                                         | reference-library    | reference     | L0       | archived  |
+| [Learn-Quant](https://github.com/JasonTeixeira/Learn-Quant)                                                                                                           | reference-library    | reference     | L0       | reference |
 | [llm_engineering](https://github.com/JasonTeixeira/llm_engineering)                                                                                                   | reference-library    | reference     | L0       | reference |
 | [llm-eval-gate](https://github.com/JasonTeixeira/llm-eval-gate)                                                                                                       | reference-library    | reference     | L0       | watch     |
 | [Machine-Learning-for-Algorithmic-Trading-Second-Edition_Original](https://github.com/JasonTeixeira/Machine-Learning-for-Algorithmic-Trading-Second-Edition_Original) | reference-library    | reference     | L0       | archived  |
@@ -137,17 +139,18 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [Nexural_Automation](https://github.com/JasonTeixeira/Nexural_Automation)                                                                                             | quant-trading        | engine        | L3       | active    |
 | [Nexural_Sierra_Studies](https://github.com/JasonTeixeira/Nexural_Sierra_Studies)                                                                                     | reference-library    | reference     | L0       | archived  |
 | [Nexural_Website_ARCHIVED](https://github.com/JasonTeixeira/Nexural_Website_ARCHIVED)                                                                                 | reference-library    | reference     | L0       | archived  |
-| [nexural-automation-starter](https://github.com/JasonTeixeira/nexural-automation-starter)                                                                             | quant-trading        | kit           | L4       | watch     |
+| [nexural-automation-starter](https://github.com/JasonTeixeira/nexural-automation-starter)                                                                             | quant-trading        | kit           | L4       | stale     |
 | [nexural-meta](https://github.com/JasonTeixeira/nexural-meta)                                                                                                         | control-plane        | control-plane | L4       | active    |
 | [Nexural-Research](https://github.com/JasonTeixeira/Nexural-Research)                                                                                                 | reference-library    | reference     | L0       | stale     |
 | [NexuralFlow](https://github.com/JasonTeixeira/NexuralFlow)                                                                                                           | reference-library    | reference     | L0       | archived  |
 | [NexusEncryption](https://github.com/JasonTeixeira/NexusEncryption)                                                                                                   | quant-trading        | engine        | L0       | stale     |
+| [nn-zero-to-hero](https://github.com/JasonTeixeira/nn-zero-to-hero)                                                                                                   | reference-library    | reference     | L0       | reference |
 | [NoteLog](https://github.com/JasonTeixeira/NoteLog)                                                                                                                   | reference-library    | reference     | L0       | stale     |
 | [og-aws](https://github.com/JasonTeixeira/og-aws)                                                                                                                     | reference-library    | reference     | L0       | archived  |
 | [OpenBB](https://github.com/JasonTeixeira/OpenBB)                                                                                                                     | reference-library    | reference     | L0       | archived  |
 | [Performance-Testing-Framework](https://github.com/JasonTeixeira/Performance-Testing-Framework)                                                                       | reference-library    | reference     | L0       | stale     |
 | [playwright](https://github.com/JasonTeixeira/playwright)                                                                                                             | reference-library    | reference     | L0       | reference |
-| [playwright-sdet-regression-suite](https://github.com/JasonTeixeira/playwright-sdet-regression-suite)                                                                 | reference-library    | reference     | L0       | watch     |
+| [playwright-sdet-regression-suite](https://github.com/JasonTeixeira/playwright-sdet-regression-suite)                                                                 | reference-library    | reference     | L0       | stale     |
 | [prometheus](https://github.com/JasonTeixeira/prometheus)                                                                                                             | reference-library    | reference     | L0       | archived  |
 | [Prowler](https://github.com/JasonTeixeira/Prowler)                                                                                                                   | reference-library    | reference     | L0       | archived  |
 | [public-apis](https://github.com/JasonTeixeira/public-apis)                                                                                                           | reference-library    | reference     | L0       | archived  |
@@ -162,7 +165,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [SaaS-Boilerplate](https://github.com/JasonTeixeira/SaaS-Boilerplate)                                                                                                 | reference-library    | reference     | L0       | reference |
 | [sage-after-dark](https://github.com/JasonTeixeira/sage-after-dark)                                                                                                   | reference-library    | reference     | L0       | stale     |
 | [sage-cli](https://github.com/JasonTeixeira/sage-cli)                                                                                                                 | reference-library    | reference     | L0       | stale     |
-| [sage-kernel](https://github.com/JasonTeixeira/sage-kernel)                                                                                                           | agent-engine         | engine        | L0       | watch     |
+| [sage-kernel](https://github.com/JasonTeixeira/sage-kernel)                                                                                                           | agent-engine         | engine        | L0       | stale     |
 | [sageideas.dev](https://github.com/JasonTeixeira/sageideas.dev)                                                                                                       | public-proof-surface | product-proof | L3       | active    |
 | [saleor](https://github.com/JasonTeixeira/saleor)                                                                                                                     | reference-library    | reference     | L0       | archived  |
 | [Security-Testing-Framework](https://github.com/JasonTeixeira/Security-Testing-Framework)                                                                             | reference-library    | reference     | L0       | stale     |

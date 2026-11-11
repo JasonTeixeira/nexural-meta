@@ -1,15 +1,15 @@
 # Resource Library
 
 **Status:** Phase 12/13 generated resource library and maturity lift queue
-**Generated:** 2026-11-10T09:02:27.965Z
+**Generated:** 2026-11-11T09:01:57.513Z
 
 ## Summary
 
-- Assets: 169
+- Assets: 172
 - Use cases: 7
 - Recipes: 12
 - Proof-backed recipes: 3
-- Load-bearing average: 93/100
+- Load-bearing average: 92/100
 
 ## Operator Paths
 
