@@ -2,7 +2,7 @@
 
 **Status:** Phase 1 generated inventory
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-11-13T09:01:51.271Z
+**Generated:** 2026-11-14T09:01:24.565Z
 **Source:** GitHub owner `JasonTeixeira`
 
 ## Privacy Boundary
@@ -12,11 +12,11 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 
 ## Totals
 
-- Total repositories: **160**
-- Public repositories: **160**
+- Total repositories: **161**
+- Public repositories: **161**
 - Private repositories: **0**
 - Archived repositories: **47**
-- Fork/reference repositories: **110**
+- Fork/reference repositories: **111**
 
 ## Layer Summary
 
@@ -27,7 +27,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | ops-knowledge        |     4 |
 | public-proof-surface |     5 |
 | quant-trading        |     7 |
-| reference-library    |   139 |
+| reference-library    |   140 |
 | resource-library     |     2 |
 
 ## Private Repository Summary
@@ -99,6 +99,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [E-Commerce-Test-Suite](https://github.com/JasonTeixeira/E-Commerce-Test-Suite)                                                                                       | reference-library    | reference     | L0       | stale     |
 | [E2E-Framework](https://github.com/JasonTeixeira/E2E-Framework)                                                                                                       | reference-library    | reference     | L0       | stale     |
 | [Eidocrypt](https://github.com/JasonTeixeira/Eidocrypt)                                                                                                               | reference-library    | reference     | L0       | stale     |
+| [engineering-blogs](https://github.com/JasonTeixeira/engineering-blogs)                                                                                               | reference-library    | reference     | L0       | reference |
 | [fastapi](https://github.com/JasonTeixeira/fastapi)                                                                                                                   | reference-library    | reference     | L0       | reference |
 | [finops-toolkit](https://github.com/JasonTeixeira/finops-toolkit)                                                                                                     | reference-library    | reference     | L0       | reference |
 | [FinRL](https://github.com/JasonTeixeira/FinRL)                                                                                                                       | reference-library    | reference     | L0       | archived  |
