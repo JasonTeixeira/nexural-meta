@@ -2,7 +2,7 @@
 
 **Status:** Phase 1 generated inventory
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-11-16T10:10:03.853Z
+**Generated:** 2026-11-17T09:02:01.528Z
 **Source:** GitHub owner `JasonTeixeira`
 
 ## Privacy Boundary
@@ -137,7 +137,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [Neural-Network-Architecture-Diagrams](https://github.com/JasonTeixeira/Neural-Network-Architecture-Diagrams)                                                         | reference-library    | reference     | L0       | reference |
 | [NexQuantSite](https://github.com/JasonTeixeira/NexQuantSite)                                                                                                         | public-proof-surface | product-proof | L4       | stale     |
 | [next.js](https://github.com/JasonTeixeira/next.js)                                                                                                                   | reference-library    | reference     | L0       | archived  |
-| [Nexural_Automation](https://github.com/JasonTeixeira/Nexural_Automation)                                                                                             | quant-trading        | engine        | L3       | active    |
+| [Nexural_Automation](https://github.com/JasonTeixeira/Nexural_Automation)                                                                                             | quant-trading        | engine        | L3       | watch     |
 | [Nexural_Sierra_Studies](https://github.com/JasonTeixeira/Nexural_Sierra_Studies)                                                                                     | reference-library    | reference     | L0       | archived  |
 | [Nexural_Website_ARCHIVED](https://github.com/JasonTeixeira/Nexural_Website_ARCHIVED)                                                                                 | reference-library    | reference     | L0       | archived  |
 | [nexural-automation-starter](https://github.com/JasonTeixeira/nexural-automation-starter)                                                                             | quant-trading        | kit           | L4       | stale     |
