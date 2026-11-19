@@ -2,7 +2,7 @@
 
 **Status:** Phase 1 generated inventory
 **Owner:** Sage Ideas LLC
-**Generated:** 2026-11-18T09:01:34.627Z
+**Generated:** 2026-11-19T09:01:34.600Z
 **Source:** GitHub owner `JasonTeixeira`
 
 ## Privacy Boundary
@@ -12,11 +12,11 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 
 ## Totals
 
-- Total repositories: **161**
-- Public repositories: **161**
+- Total repositories: **163**
+- Public repositories: **163**
 - Private repositories: **0**
 - Archived repositories: **47**
-- Fork/reference repositories: **111**
+- Fork/reference repositories: **113**
 
 ## Layer Summary
 
@@ -27,7 +27,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | ops-knowledge        |     4 |
 | public-proof-surface |     5 |
 | quant-trading        |     7 |
-| reference-library    |   140 |
+| reference-library    |   142 |
 | resource-library     |     2 |
 
 ## Private Repository Summary
@@ -76,6 +76,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [browser-use](https://github.com/JasonTeixeira/browser-use)                                                                                                           | reference-library    | reference     | L0       | reference |
 | [build-your-own-openclaw](https://github.com/JasonTeixeira/build-your-own-openclaw)                                                                                   | reference-library    | reference     | L0       | reference |
 | [build-your-own-x](https://github.com/JasonTeixeira/build-your-own-x)                                                                                                 | reference-library    | reference     | L0       | archived  |
+| [cartography](https://github.com/JasonTeixeira/cartography)                                                                                                           | reference-library    | reference     | L0       | reference |
 | [checkov](https://github.com/JasonTeixeira/checkov)                                                                                                                   | reference-library    | reference     | L0       | archived  |
 | [CI-CD-Pipeline](https://github.com/JasonTeixeira/CI-CD-Pipeline)                                                                                                     | reference-library    | reference     | L0       | stale     |
 | [CISSP-Exam-Prep](https://github.com/JasonTeixeira/CISSP-Exam-Prep)                                                                                                   | agent-engine         | reference     | L0       | stale     |
@@ -84,6 +85,7 @@ The full local inventory is generated at `.nexural/private/ecosystem-registry.in
 | [cloud-custodian](https://github.com/JasonTeixeira/cloud-custodian)                                                                                                   | reference-library    | reference     | L0       | archived  |
 | [cloud-design-patterns](https://github.com/JasonTeixeira/cloud-design-patterns)                                                                                       | reference-library    | reference     | L0       | reference |
 | [CloudEngLibrary](https://github.com/JasonTeixeira/CloudEngLibrary)                                                                                                   | ops-knowledge        | playbook      | L0       | stale     |
+| [cloudmapper](https://github.com/JasonTeixeira/cloudmapper)                                                                                                           | reference-library    | reference     | L0       | reference |
 | [Cloudmind](https://github.com/JasonTeixeira/Cloudmind)                                                                                                               | ops-knowledge        | playbook      | L0       | stale     |
 | [CloudResumeChallangeAWS](https://github.com/JasonTeixeira/CloudResumeChallangeAWS)                                                                                   | ops-knowledge        | playbook      | L0       | stale     |
 | [Contract-Testing-Framework](https://github.com/JasonTeixeira/Contract-Testing-Framework)                                                                             | reference-library    | reference     | L0       | stale     |
